@@ -1,5 +1,17 @@
 """Connected engines that produce one evidence-preserving ReplayPack."""
 
+from finreplay.engines.markettwin import (
+    ContagionResult,
+    GraphAppendReceipt,
+    GraphMutationError,
+    MarketEdge,
+    MarketNode,
+    MarketSnapshot,
+    MarketTwin,
+    MarketTwinManifest,
+    NodeKind,
+    TemporalEvidence,
+)
 from finreplay.engines.timevault import (
     AppendReceipt,
     SourceMutationError,
@@ -24,9 +36,19 @@ __all__ = [
     "AppendReceipt",
     "AttackFinding",
     "AttackKind",
+    "ContagionResult",
     "FindingStatus",
+    "GraphAppendReceipt",
+    "GraphMutationError",
     "LedgerAppendReceipt",
+    "MarketEdge",
+    "MarketNode",
+    "MarketSnapshot",
+    "MarketTwin",
+    "MarketTwinManifest",
+    "NodeKind",
     "SourceMutationError",
+    "TemporalEvidence",
     "TimeVault",
     "TimeVaultManifest",
     "TrialAttackSuite",

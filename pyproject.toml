@@ -53,6 +53,7 @@ dev = [
   "pytest-cov>=6,<8",
   "respx>=0.22,<1",
   "ruff>=0.9,<1",
+  "types-networkx>=3.4,<4",
 ]
 
 [project.scripts]
