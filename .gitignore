@@ -1,0 +1,30 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Local data and runtime artifacts are never committed.
+data/raw/
+data/bronze/
+data/silver/
+data/gold/
+data/cache/
+data/tmp/
+artifacts/
+verification/runs/
+
+# Only intentionally small, redistributable fixtures may be committed.
+!tests/fixtures/**
+!examples/**
+

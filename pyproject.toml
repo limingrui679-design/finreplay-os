@@ -1,0 +1,99 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "finreplay-os"
+version = "0.1.0a0"
+description = "Point-in-time financial-system replay and adversarial quant research platform."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+authors = [{name = "Mingrui Li"}]
+keywords = [
+  "quantitative-finance",
+  "point-in-time-data",
+  "backtesting",
+  "systemic-risk",
+  "reproducible-research",
+]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Office/Business :: Financial :: Investment",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+  "duckdb>=1.4.0,<2",
+  "httpx>=0.28.0,<1",
+  "networkx>=3.4,<4",
+  "numpy>=2.1,<2.3",
+  "pyarrow>=18,<23",
+  "pydantic>=2.10,<3",
+  "pytz>=2024.1",
+  "rich>=13.9,<15",
+  "typer>=0.15,<1",
+]
+
+[project.optional-dependencies]
+api = [
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.34,<1",
+]
+methods = [
+  "scipy>=1.14,<2",
+]
+dev = [
+  "hypothesis>=6.120,<7",
+  "mypy>=1.14,<2",
+  "pytest>=8.3,<10",
+  "pytest-cov>=6,<8",
+  "respx>=0.22,<1",
+  "ruff>=0.9,<1",
+]
+
+[project.scripts]
+finreplay = "finreplay.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-config --strict-markers"
+testpaths = ["tests"]
+markers = [
+  "contract: schema and invariant tests",
+  "integration: tests crossing component or network boundaries",
+  "live: opt-in tests against public upstream sources",
+  "scale: opt-in high-volume tests",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "A", "C4", "DTZ", "PIE", "PT", "RET", "RUF", "SIM"]
+ignore = []
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+packages = ["finreplay"]
+
+[[tool.mypy.overrides]]
+module = ["duckdb", "numpy", "numpy.*", "pyarrow", "pyarrow.*"]
+follow_imports = "skip"
+
+[tool.coverage.run]
+branch = true
+source = ["finreplay"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+skip_covered = true
