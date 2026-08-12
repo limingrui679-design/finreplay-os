@@ -1,0 +1,168 @@
+{
+  "adapters": [
+    {
+      "adapter_id": "fdic.bankfind.demographics",
+      "historical_replay_eligible": false,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "fdic/fdic.bankfind.demographics-fac56bcc85bbd139.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:15.943833Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "fdic.bankfind.failures",
+      "historical_replay_eligible": false,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "fdic/fdic.bankfind.failures-f41e0f6e157542f6.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:15.043277Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "fdic.bankfind.financials",
+      "historical_replay_eligible": false,
+      "idempotent_records": 156,
+      "inserted_records": 0,
+      "receipt": "fdic/fdic.bankfind.financials-895dfa5663a2e376.json",
+      "record_count": 156,
+      "retrieved_at": "2026-08-12T14:08:16.635181Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "fdic.bankfind.history",
+      "historical_replay_eligible": false,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "fdic/fdic.bankfind.history-bd366accf59a39ca.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:14.273380Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "fdic.bankfind.institutions",
+      "historical_replay_eligible": false,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "fdic/fdic.bankfind.institutions-bc11c98779b38411.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:10.934652Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "fdic.bankfind.locations",
+      "historical_replay_eligible": false,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "fdic/fdic.bankfind.locations-e8ad09a8d8d36cff.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:13.917838Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "fdic.bankfind.sod",
+      "historical_replay_eligible": false,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "fdic/fdic.bankfind.sod-9a0dc29428913e09.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:15.563778Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "fdic.bankfind.summary",
+      "historical_replay_eligible": false,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "fdic/fdic.bankfind.summary-c2aaaa81a4693362.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:14.684103Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "sec.edgar.submissions",
+      "historical_replay_eligible": true,
+      "idempotent_records": 1000,
+      "inserted_records": 0,
+      "receipt": "sec/sec.edgar.submissions-24bfad7ae117e6d9.json",
+      "record_count": 1000,
+      "retrieved_at": "2026-08-12T13:48:35.013738Z",
+      "temporal_coverage": "immutable_event"
+    },
+    {
+      "adapter_id": "sec.edgar.submissions_historical",
+      "historical_replay_eligible": true,
+      "idempotent_records": 1659,
+      "inserted_records": 0,
+      "receipt": "sec/sec.edgar.submissions_historical-a1f4de1557f2029a.json",
+      "record_count": 1659,
+      "retrieved_at": "2026-08-12T13:48:37.881505Z",
+      "temporal_coverage": "immutable_event"
+    },
+    {
+      "adapter_id": "sec.xbrl.companyfacts",
+      "historical_replay_eligible": true,
+      "idempotent_records": 28585,
+      "inserted_records": 0,
+      "receipt": "sec/sec.xbrl.companyfacts-75711cf7ee895046.json",
+      "record_count": 28585,
+      "retrieved_at": "2026-08-12T13:48:43.642987Z",
+      "temporal_coverage": "immutable_event"
+    },
+    {
+      "adapter_id": "treasury.fiscaldata.average_interest_rates",
+      "historical_replay_eligible": false,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "treasury/treasury.fiscaldata.average_interest_rates-fe739014d4444577.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:07.600873Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "treasury.fiscaldata.debt_to_penny",
+      "historical_replay_eligible": false,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "treasury/treasury.fiscaldata.debt_to_penny-4559dd25b0a16553.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:05.185953Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "treasury.fiscaldata.mspd_summary",
+      "historical_replay_eligible": false,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "treasury/treasury.fiscaldata.mspd_summary-4890d3acf8f8661a.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:09.995218Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "treasury.fiscaldata.operating_cash_balance",
+      "historical_replay_eligible": false,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "treasury/treasury.fiscaldata.operating_cash_balance-72afa5d33ba4f704.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:08.239038Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "treasury.fiscaldata.treasury_auctions",
+      "historical_replay_eligible": false,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "treasury/treasury.fiscaldata.treasury_auctions-882d71b28c2a3d44.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:09.274371Z",
+      "temporal_coverage": "latest_only"
+    }
+  ],
+  "historical_replay_eligible_count": 3,
+  "latest_only_count": 13,
+  "schema_version": "1.0.0",
+  "verified_adapter_count": 16
+}

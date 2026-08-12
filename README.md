@@ -19,7 +19,7 @@ investment performance, institutional adoption, external validation, or real-wor
 | Target | Current evidence | Completion rule |
 |---|---|---|
 | Seven connected engines | Contracts and engine implementations in progress | All seven execute in an end-to-end ReplayPack with tests |
-| 20–30 official-data adapters | 11 live-validated: 8 FDIC, 3 SEC; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
+| 20–30 official-data adapters | 16 live-validated: 8 FDIC, 3 SEC, 5 Treasury; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
 | 30 historical/boundary scenarios | Scenario specifications in progress | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
@@ -69,6 +69,9 @@ Live SEC validation additionally requires an accountable `FINREPLAY_SEC_USER_AGE
 a real contact email, as required by SEC fair-access guidance. The value is sent only as an HTTP
 header and is not persisted in receipts. Local raw responses and DuckDB files are gitignored;
 portable content hashes and bounded evidence receipts are committed under `verification/live/`.
+The latest one-per-adapter evidence inventory can be rebuilt with
+`python scripts/verify_live_receipts.py`; legacy schema-1.0 receipts remain historical Git evidence
+but are excluded from current adapter counts.
 
 ## Research and investment disclaimer
 
