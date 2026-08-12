@@ -10,7 +10,7 @@ Status vocabulary: `NOT_STARTED`, `IN_PROGRESS`, `PROVEN`, `BLOCKED_EXTERNAL`.
 | ID | Requirement | Required authoritative evidence | Current status |
 |---|---|---|---|
 | A1 | TimeVault supports bitemporal append, revision history, and as-of knowledge queries | Unit/property tests plus a real-source golden replay proving future revisions are excluded | IN_PROGRESS |
-| A2 | TrialCourt records preregistration, every attempt, leakage/multiplicity/regime/execution attacks, and disposition | Immutable trial ledger, method tests against published examples, negative-result fixture | NOT_STARTED |
+| A2 | TrialCourt records preregistration, every attempt, leakage/multiplicity/regime/execution attacks, and disposition | Immutable trial ledger, method tests against published examples, negative-result fixture | IN_PROGRESS — hash-chain ledger, six attack classes, Holm example, negative-result retention and tamper tests implemented; published-method citation and real SVB trial receipt remain |
 | A3 | MarketTwin stores evidence-graded temporal institution/security graphs and bounded contagion | Graph contract tests plus at least one live official multi-source graph | NOT_STARTED |
 | A4 | ShockCompiler distinguishes observed reconstruction, bounds, counterfactual, and adversarial perturbations | Scenario compiler tests and machine-readable provenance for every shock | NOT_STARTED |
 | A5 | ExecutionLab models non-zero costs, latency/capacity and data-dependent precision tiers | Golden microstructure replay and conservative fallback tests | NOT_STARTED |

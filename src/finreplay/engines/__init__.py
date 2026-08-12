@@ -6,6 +6,34 @@ from finreplay.engines.timevault import (
     TimeVault,
     TimeVaultManifest,
 )
+from finreplay.engines.trialcourt import (
+    AttackFinding,
+    AttackKind,
+    FindingStatus,
+    LedgerAppendReceipt,
+    TrialAttackSuite,
+    TrialAttempt,
+    TrialCourt,
+    TrialDecision,
+    TrialLedgerManifest,
+    TrialLedgerMutationError,
+    holm_adjusted_p_values,
+)
 
-__all__ = ["AppendReceipt", "SourceMutationError", "TimeVault", "TimeVaultManifest"]
-
+__all__ = [
+    "AppendReceipt",
+    "AttackFinding",
+    "AttackKind",
+    "FindingStatus",
+    "LedgerAppendReceipt",
+    "SourceMutationError",
+    "TimeVault",
+    "TimeVaultManifest",
+    "TrialAttackSuite",
+    "TrialAttempt",
+    "TrialCourt",
+    "TrialDecision",
+    "TrialLedgerManifest",
+    "TrialLedgerMutationError",
+    "holm_adjusted_p_values",
+]
