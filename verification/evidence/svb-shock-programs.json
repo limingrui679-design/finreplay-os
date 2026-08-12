@@ -1,0 +1,879 @@
+{
+  "claim_boundary": "Observed programs preserve SEC source provenance. Bounded values are inferred intervals. Counterfactual and adversarial values are explicitly simulated and are not historical outcomes, forecasts, or investment performance.",
+  "compiled": [
+    {
+      "compiled_sha256": "cd264333a037425f3dd593eefa6d192462bc6c2859bb007f3c572552d108a1c3",
+      "decision_time": "2023-03-08T18:00:00Z",
+      "limitations": [
+        "This program isolates shock inputs; downstream dynamics require separate models."
+      ],
+      "mode": "observed_reconstruction",
+      "program_id": "svb-observed-securities-loss-ratios",
+      "scenario_id": "svb-2023-boundary",
+      "source_program_sha256": "b6a689bb04b0873de49aeb6a3f7cafad722d28630ce2199d1132216001468e68",
+      "trials": [
+        {
+          "shocks": [
+            {
+              "derivation": "Exact arithmetic ratio of two filer-reported SEC XBRL facts from the same accepted 2022 annual filing.",
+              "evidence_class": "reported",
+              "limitations": [
+                "A reported balance-sheet ratio is descriptive, not realized loss or a causal shock."
+              ],
+              "operation": "set",
+              "parameter_id": "reported-htm-unrecognized-loss-ratio",
+              "source_hashes": [
+                "2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31",
+                "2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31"
+              ],
+              "source_record_ids": [
+                "sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682",
+                "sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2"
+              ],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.16599691219464124,
+              "variable": "loss_fraction"
+            },
+            {
+              "derivation": "Exact arithmetic ratio of two filer-reported SEC XBRL facts from the same accepted 2022 annual filing.",
+              "evidence_class": "reported",
+              "limitations": [
+                "A reported balance-sheet ratio is descriptive, not realized loss or a causal shock."
+              ],
+              "operation": "set",
+              "parameter_id": "reported-afs-gross-unrealized-loss-ratio",
+              "source_hashes": [
+                "2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31",
+                "2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31"
+              ],
+              "source_record_ids": [
+                "sec.xbrl.companyfacts:0000719739:8bdbe98d21df87a35bf1f36f05ddfefae946314aeadeccb7dffe676ca905b87b",
+                "sec.xbrl.companyfacts:0000719739:4a919079a99119cd6d08ff11d9108eac8a68140e32cff60e92eadc7eae2d9f50"
+              ],
+              "target_id": "security:svb-afs-portfolio",
+              "unit": "fraction",
+              "value": 0.09716521538992673,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-observed-securities-loss-ratios:00000000:b9064ac377325b59",
+          "trial_index": 0,
+          "vector_sha256": "b9064ac377325b5974ce7b2646b9d67dfbbd75741c19ecff93053a31aa2b9093"
+        }
+      ]
+    },
+    {
+      "compiled_sha256": "d8b7acb6348f02baf4a88511b9ad55c17b06f94938553f532a933772a1f5edf6",
+      "decision_time": "2023-03-08T18:00:00Z",
+      "limitations": [
+        "This program isolates shock inputs; downstream dynamics require separate models."
+      ],
+      "mode": "bounded_reconstruction",
+      "program_id": "svb-bounded-htm-realization",
+      "scenario_id": "svb-2023-boundary",
+      "source_program_sha256": "d484f3c798112d0b8a79ec04be44aa4c6dcbec27539ba197f0b0f5c7b9afad1f",
+      "trials": [
+        {
+          "shocks": [
+            {
+              "derivation": "Bounds realized loss between zero and the reported unrecognized holding loss divided by reported held-to-maturity carrying value.",
+              "evidence_class": "inferred",
+              "limitations": [
+                "The interval does not forecast liquidation timing, hedges, funding support, tax effects, or security-level price paths."
+              ],
+              "operation": "set",
+              "parameter_id": "bounded-htm-loss-realization",
+              "source_hashes": [
+                "2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31",
+                "2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31"
+              ],
+              "source_record_ids": [
+                "sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682",
+                "sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2"
+              ],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.0,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-bounded-htm-realization:00000000:d925b7fd225eb8dd",
+          "trial_index": 0,
+          "vector_sha256": "d925b7fd225eb8dd190d014a2d1eee23ff65a980737af67e0166fa6a2ac90ce6"
+        },
+        {
+          "shocks": [
+            {
+              "derivation": "Bounds realized loss between zero and the reported unrecognized holding loss divided by reported held-to-maturity carrying value.",
+              "evidence_class": "inferred",
+              "limitations": [
+                "The interval does not forecast liquidation timing, hedges, funding support, tax effects, or security-level price paths."
+              ],
+              "operation": "set",
+              "parameter_id": "bounded-htm-loss-realization",
+              "source_hashes": [
+                "2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31",
+                "2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31"
+              ],
+              "source_record_ids": [
+                "sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682",
+                "sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2"
+              ],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.16599691219464124,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-bounded-htm-realization:00000001:bef3132cb27eb3f3",
+          "trial_index": 1,
+          "vector_sha256": "bef3132cb27eb3f3906f0b6b5b3a928fb9f7d717791e610ef9c82ed7cb3b4507"
+        }
+      ]
+    },
+    {
+      "compiled_sha256": "557ac551119e4a38bd3ee33b51e3ece968066bc7f9c5ef1d66032963daeab889",
+      "decision_time": "2023-03-08T18:00:00Z",
+      "limitations": [
+        "This program isolates shock inputs; downstream dynamics require separate models."
+      ],
+      "mode": "counterfactual",
+      "program_id": "svb-counterfactual-deposit-run",
+      "scenario_id": "svb-2023-boundary",
+      "source_program_sha256": "89be2d166e2fcf4bebf1e10668d78795fac8115aab3c8501cc9b09029c382d60",
+      "trials": [
+        {
+          "shocks": [
+            {
+              "derivation": "Explicit researcher-selected 25 percent deposit-run counterfactual.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "counterfactual-deposit-run",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "issuer:svb-financial-group",
+              "unit": "fraction",
+              "value": 0.25,
+              "variable": "deposit_run_fraction"
+            }
+          ],
+          "trial_id": "svb-counterfactual-deposit-run:00000000:e740c0a21d4ab76d",
+          "trial_index": 0,
+          "vector_sha256": "e740c0a21d4ab76dd7fe8dd058a04e8ba537d192b5e7e1d698f0f82b788c3ca1"
+        }
+      ]
+    },
+    {
+      "compiled_sha256": "aa153ca90693d3f5413f18070ec32f997a387dce9eacd67f7172a428863ae333",
+      "decision_time": "2023-03-08T18:00:00Z",
+      "limitations": [
+        "This program isolates shock inputs; downstream dynamics require separate models."
+      ],
+      "mode": "adversarial",
+      "program_id": "svb-adversarial-funding-duration-grid",
+      "scenario_id": "svb-2023-boundary",
+      "source_program_sha256": "0aecbd0985e4d44505accbd841d107dbc3144954515d9a67e1937c81024922c8",
+      "trials": [
+        {
+          "shocks": [
+            {
+              "derivation": "Research stress grid over deposit-run fractions from zero to 75 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-deposit-run",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "issuer:svb-financial-group",
+              "unit": "fraction",
+              "value": 0.0,
+              "variable": "deposit_run_fraction"
+            },
+            {
+              "derivation": "Research stress grid over HTM loss fractions from zero to 25 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-htm-loss",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.0,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-adversarial-funding-duration-grid:00000000:844104335e9a8940",
+          "trial_index": 0,
+          "vector_sha256": "844104335e9a8940ff2046b4e3ff6d33923719bf541f1f6ceed51db08ebfd236"
+        },
+        {
+          "shocks": [
+            {
+              "derivation": "Research stress grid over deposit-run fractions from zero to 75 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-deposit-run",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "issuer:svb-financial-group",
+              "unit": "fraction",
+              "value": 0.0,
+              "variable": "deposit_run_fraction"
+            },
+            {
+              "derivation": "Research stress grid over HTM loss fractions from zero to 25 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-htm-loss",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.125,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-adversarial-funding-duration-grid:00000001:2314111d90189a53",
+          "trial_index": 1,
+          "vector_sha256": "2314111d90189a538e41134fd7b4d17454f83143a8225feca7c75ddae9aa765b"
+        },
+        {
+          "shocks": [
+            {
+              "derivation": "Research stress grid over deposit-run fractions from zero to 75 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-deposit-run",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "issuer:svb-financial-group",
+              "unit": "fraction",
+              "value": 0.0,
+              "variable": "deposit_run_fraction"
+            },
+            {
+              "derivation": "Research stress grid over HTM loss fractions from zero to 25 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-htm-loss",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.25,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-adversarial-funding-duration-grid:00000002:39d8882509e2cb85",
+          "trial_index": 2,
+          "vector_sha256": "39d8882509e2cb85e9bb08a6fefa7c0bdb2db9f46affa7461fc7076b2cd8d485"
+        },
+        {
+          "shocks": [
+            {
+              "derivation": "Research stress grid over deposit-run fractions from zero to 75 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-deposit-run",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "issuer:svb-financial-group",
+              "unit": "fraction",
+              "value": 0.25,
+              "variable": "deposit_run_fraction"
+            },
+            {
+              "derivation": "Research stress grid over HTM loss fractions from zero to 25 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-htm-loss",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.0,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-adversarial-funding-duration-grid:00000003:1de679148561d57b",
+          "trial_index": 3,
+          "vector_sha256": "1de679148561d57b37389625f7d6f9051da2c1a07fe2ac7897a236d3ffd98d82"
+        },
+        {
+          "shocks": [
+            {
+              "derivation": "Research stress grid over deposit-run fractions from zero to 75 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-deposit-run",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "issuer:svb-financial-group",
+              "unit": "fraction",
+              "value": 0.25,
+              "variable": "deposit_run_fraction"
+            },
+            {
+              "derivation": "Research stress grid over HTM loss fractions from zero to 25 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-htm-loss",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.125,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-adversarial-funding-duration-grid:00000004:b967be2fb03f63cb",
+          "trial_index": 4,
+          "vector_sha256": "b967be2fb03f63cb186804402708f801c434e0892e574f86e45ac07a60262386"
+        },
+        {
+          "shocks": [
+            {
+              "derivation": "Research stress grid over deposit-run fractions from zero to 75 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-deposit-run",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "issuer:svb-financial-group",
+              "unit": "fraction",
+              "value": 0.25,
+              "variable": "deposit_run_fraction"
+            },
+            {
+              "derivation": "Research stress grid over HTM loss fractions from zero to 25 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-htm-loss",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.25,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-adversarial-funding-duration-grid:00000005:065a965b6d1e7998",
+          "trial_index": 5,
+          "vector_sha256": "065a965b6d1e7998fec550ab4a6472c44599bde31e45b2c8308d22abc0f887cd"
+        },
+        {
+          "shocks": [
+            {
+              "derivation": "Research stress grid over deposit-run fractions from zero to 75 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-deposit-run",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "issuer:svb-financial-group",
+              "unit": "fraction",
+              "value": 0.5,
+              "variable": "deposit_run_fraction"
+            },
+            {
+              "derivation": "Research stress grid over HTM loss fractions from zero to 25 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-htm-loss",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.0,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-adversarial-funding-duration-grid:00000006:973eb57de64d8a8f",
+          "trial_index": 6,
+          "vector_sha256": "973eb57de64d8a8fca5d869452dda23172b4a306e36f72c158f88bf89de8265a"
+        },
+        {
+          "shocks": [
+            {
+              "derivation": "Research stress grid over deposit-run fractions from zero to 75 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-deposit-run",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "issuer:svb-financial-group",
+              "unit": "fraction",
+              "value": 0.5,
+              "variable": "deposit_run_fraction"
+            },
+            {
+              "derivation": "Research stress grid over HTM loss fractions from zero to 25 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-htm-loss",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.125,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-adversarial-funding-duration-grid:00000007:85229b309f0b4a5f",
+          "trial_index": 7,
+          "vector_sha256": "85229b309f0b4a5f7d2ebb1b5e8adfdbb7b7d2711ef217471ac99de031860595"
+        },
+        {
+          "shocks": [
+            {
+              "derivation": "Research stress grid over deposit-run fractions from zero to 75 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-deposit-run",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "issuer:svb-financial-group",
+              "unit": "fraction",
+              "value": 0.5,
+              "variable": "deposit_run_fraction"
+            },
+            {
+              "derivation": "Research stress grid over HTM loss fractions from zero to 25 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-htm-loss",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.25,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-adversarial-funding-duration-grid:00000008:e50d4f996880bb17",
+          "trial_index": 8,
+          "vector_sha256": "e50d4f996880bb17f2df46a740dc1c1f03283f4e4a92d589acc0ad61c13e7bfa"
+        },
+        {
+          "shocks": [
+            {
+              "derivation": "Research stress grid over deposit-run fractions from zero to 75 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-deposit-run",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "issuer:svb-financial-group",
+              "unit": "fraction",
+              "value": 0.75,
+              "variable": "deposit_run_fraction"
+            },
+            {
+              "derivation": "Research stress grid over HTM loss fractions from zero to 25 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-htm-loss",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.0,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-adversarial-funding-duration-grid:00000009:61e8fe9288d3a9c2",
+          "trial_index": 9,
+          "vector_sha256": "61e8fe9288d3a9c2bb66af97b49db79f3236e84859cc104fa903d094101a775e"
+        },
+        {
+          "shocks": [
+            {
+              "derivation": "Research stress grid over deposit-run fractions from zero to 75 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-deposit-run",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "issuer:svb-financial-group",
+              "unit": "fraction",
+              "value": 0.75,
+              "variable": "deposit_run_fraction"
+            },
+            {
+              "derivation": "Research stress grid over HTM loss fractions from zero to 25 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-htm-loss",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.125,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-adversarial-funding-duration-grid:00000010:57fc124e73c8a19c",
+          "trial_index": 10,
+          "vector_sha256": "57fc124e73c8a19cbcb18193bf83e608faf982a3da926a8ec643c854d1a683e0"
+        },
+        {
+          "shocks": [
+            {
+              "derivation": "Research stress grid over deposit-run fractions from zero to 75 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-deposit-run",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "issuer:svb-financial-group",
+              "unit": "fraction",
+              "value": 0.75,
+              "variable": "deposit_run_fraction"
+            },
+            {
+              "derivation": "Research stress grid over HTM loss fractions from zero to 25 percent.",
+              "evidence_class": "simulated",
+              "limitations": [
+                "Researcher-selected simulation; not an observed historical value or forecast."
+              ],
+              "operation": "set",
+              "parameter_id": "adversarial-htm-loss",
+              "source_hashes": [],
+              "source_record_ids": [],
+              "target_id": "security:svb-htm-portfolio",
+              "unit": "fraction",
+              "value": 0.25,
+              "variable": "loss_fraction"
+            }
+          ],
+          "trial_id": "svb-adversarial-funding-duration-grid:00000011:5876b5bbb74f0947",
+          "trial_index": 11,
+          "vector_sha256": "5876b5bbb74f09477675527e6d767ecf143fa4e08fb4296eb561a1adda37bbd9"
+        }
+      ]
+    }
+  ],
+  "decision_time": "2023-03-08T18:00:00+00:00",
+  "mode_trial_counts": {
+    "adversarial": 12,
+    "bounded_reconstruction": 2,
+    "counterfactual": 1,
+    "observed_reconstruction": 1
+  },
+  "programs": [
+    {
+      "decision_time": "2023-03-08T18:00:00Z",
+      "global_limitations": [
+        "This program isolates shock inputs; downstream dynamics require separate models."
+      ],
+      "hypothesis": "Reconstruct two ratios directly reported in the 2022 SVB 10-K.",
+      "mode": "observed_reconstruction",
+      "parameters": [
+        {
+          "derivation": "Exact arithmetic ratio of two filer-reported SEC XBRL facts from the same accepted 2022 annual filing.",
+          "evidence_class": "reported",
+          "grid_points": 1,
+          "limitations": [
+            "A reported balance-sheet ratio is descriptive, not realized loss or a causal shock."
+          ],
+          "lower": 0.16599691219464124,
+          "operation": "set",
+          "parameter_id": "reported-htm-unrecognized-loss-ratio",
+          "source_record_ids": [
+            "sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682",
+            "sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2"
+          ],
+          "sources": [
+            {
+              "license_class": "redistributable",
+              "publisher": "U.S. Securities and Exchange Commission",
+              "redistribution_note": "SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.",
+              "retrieved_at": "2026-08-12T10:46:15.363781Z",
+              "sha256": "2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31",
+              "source_id": "sec.xbrl.companyfacts",
+              "source_version": "CIK0000719739:2b1278480cfaa1439509",
+              "temporal_coverage": "immutable_event",
+              "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000719739.json",
+              "vintage_as_of": "2026-08-12T10:46:15.363781Z"
+            },
+            {
+              "license_class": "redistributable",
+              "publisher": "U.S. Securities and Exchange Commission",
+              "redistribution_note": "SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.",
+              "retrieved_at": "2026-08-12T10:46:15.363781Z",
+              "sha256": "2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31",
+              "source_id": "sec.xbrl.companyfacts",
+              "source_version": "CIK0000719739:2b1278480cfaa1439509",
+              "temporal_coverage": "immutable_event",
+              "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000719739.json",
+              "vintage_as_of": "2026-08-12T10:46:15.363781Z"
+            }
+          ],
+          "target_id": "security:svb-htm-portfolio",
+          "unit": "fraction",
+          "upper": 0.16599691219464124,
+          "variable": "loss_fraction"
+        },
+        {
+          "derivation": "Exact arithmetic ratio of two filer-reported SEC XBRL facts from the same accepted 2022 annual filing.",
+          "evidence_class": "reported",
+          "grid_points": 1,
+          "limitations": [
+            "A reported balance-sheet ratio is descriptive, not realized loss or a causal shock."
+          ],
+          "lower": 0.09716521538992673,
+          "operation": "set",
+          "parameter_id": "reported-afs-gross-unrealized-loss-ratio",
+          "source_record_ids": [
+            "sec.xbrl.companyfacts:0000719739:8bdbe98d21df87a35bf1f36f05ddfefae946314aeadeccb7dffe676ca905b87b",
+            "sec.xbrl.companyfacts:0000719739:4a919079a99119cd6d08ff11d9108eac8a68140e32cff60e92eadc7eae2d9f50"
+          ],
+          "sources": [
+            {
+              "license_class": "redistributable",
+              "publisher": "U.S. Securities and Exchange Commission",
+              "redistribution_note": "SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.",
+              "retrieved_at": "2026-08-12T10:46:15.363781Z",
+              "sha256": "2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31",
+              "source_id": "sec.xbrl.companyfacts",
+              "source_version": "CIK0000719739:2b1278480cfaa1439509",
+              "temporal_coverage": "immutable_event",
+              "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000719739.json",
+              "vintage_as_of": "2026-08-12T10:46:15.363781Z"
+            },
+            {
+              "license_class": "redistributable",
+              "publisher": "U.S. Securities and Exchange Commission",
+              "redistribution_note": "SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.",
+              "retrieved_at": "2026-08-12T10:46:15.363781Z",
+              "sha256": "2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31",
+              "source_id": "sec.xbrl.companyfacts",
+              "source_version": "CIK0000719739:2b1278480cfaa1439509",
+              "temporal_coverage": "immutable_event",
+              "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000719739.json",
+              "vintage_as_of": "2026-08-12T10:46:15.363781Z"
+            }
+          ],
+          "target_id": "security:svb-afs-portfolio",
+          "unit": "fraction",
+          "upper": 0.09716521538992673,
+          "variable": "loss_fraction"
+        }
+      ],
+      "program_id": "svb-observed-securities-loss-ratios",
+      "scenario_id": "svb-2023-boundary"
+    },
+    {
+      "decision_time": "2023-03-08T18:00:00Z",
+      "global_limitations": [
+        "This program isolates shock inputs; downstream dynamics require separate models."
+      ],
+      "hypothesis": "Bound possible loss realization without assigning unsupported midpoint precision.",
+      "mode": "bounded_reconstruction",
+      "parameters": [
+        {
+          "derivation": "Bounds realized loss between zero and the reported unrecognized holding loss divided by reported held-to-maturity carrying value.",
+          "evidence_class": "inferred",
+          "grid_points": 2,
+          "limitations": [
+            "The interval does not forecast liquidation timing, hedges, funding support, tax effects, or security-level price paths."
+          ],
+          "lower": 0.0,
+          "operation": "set",
+          "parameter_id": "bounded-htm-loss-realization",
+          "source_record_ids": [
+            "sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682",
+            "sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2"
+          ],
+          "sources": [
+            {
+              "license_class": "redistributable",
+              "publisher": "U.S. Securities and Exchange Commission",
+              "redistribution_note": "SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.",
+              "retrieved_at": "2026-08-12T10:46:15.363781Z",
+              "sha256": "2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31",
+              "source_id": "sec.xbrl.companyfacts",
+              "source_version": "CIK0000719739:2b1278480cfaa1439509",
+              "temporal_coverage": "immutable_event",
+              "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000719739.json",
+              "vintage_as_of": "2026-08-12T10:46:15.363781Z"
+            },
+            {
+              "license_class": "redistributable",
+              "publisher": "U.S. Securities and Exchange Commission",
+              "redistribution_note": "SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.",
+              "retrieved_at": "2026-08-12T10:46:15.363781Z",
+              "sha256": "2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31",
+              "source_id": "sec.xbrl.companyfacts",
+              "source_version": "CIK0000719739:2b1278480cfaa1439509",
+              "temporal_coverage": "immutable_event",
+              "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000719739.json",
+              "vintage_as_of": "2026-08-12T10:46:15.363781Z"
+            }
+          ],
+          "target_id": "security:svb-htm-portfolio",
+          "unit": "fraction",
+          "upper": 0.16599691219464124,
+          "variable": "loss_fraction"
+        }
+      ],
+      "program_id": "svb-bounded-htm-realization",
+      "scenario_id": "svb-2023-boundary"
+    },
+    {
+      "decision_time": "2023-03-08T18:00:00Z",
+      "global_limitations": [
+        "This program isolates shock inputs; downstream dynamics require separate models."
+      ],
+      "hypothesis": "Evaluate one explicit counterfactual, not an observed historical outcome.",
+      "mode": "counterfactual",
+      "parameters": [
+        {
+          "derivation": "Explicit researcher-selected 25 percent deposit-run counterfactual.",
+          "evidence_class": "simulated",
+          "grid_points": 1,
+          "limitations": [
+            "Researcher-selected simulation; not an observed historical value or forecast."
+          ],
+          "lower": 0.25,
+          "operation": "set",
+          "parameter_id": "counterfactual-deposit-run",
+          "source_record_ids": [],
+          "sources": [],
+          "target_id": "issuer:svb-financial-group",
+          "unit": "fraction",
+          "upper": 0.25,
+          "variable": "deposit_run_fraction"
+        }
+      ],
+      "program_id": "svb-counterfactual-deposit-run",
+      "scenario_id": "svb-2023-boundary"
+    },
+    {
+      "decision_time": "2023-03-08T18:00:00Z",
+      "global_limitations": [
+        "This program isolates shock inputs; downstream dynamics require separate models."
+      ],
+      "hypothesis": "Search a finite 12-vector adversarial funding-duration surface.",
+      "mode": "adversarial",
+      "parameters": [
+        {
+          "derivation": "Research stress grid over deposit-run fractions from zero to 75 percent.",
+          "evidence_class": "simulated",
+          "grid_points": 4,
+          "limitations": [
+            "Researcher-selected simulation; not an observed historical value or forecast."
+          ],
+          "lower": 0.0,
+          "operation": "set",
+          "parameter_id": "adversarial-deposit-run",
+          "source_record_ids": [],
+          "sources": [],
+          "target_id": "issuer:svb-financial-group",
+          "unit": "fraction",
+          "upper": 0.75,
+          "variable": "deposit_run_fraction"
+        },
+        {
+          "derivation": "Research stress grid over HTM loss fractions from zero to 25 percent.",
+          "evidence_class": "simulated",
+          "grid_points": 3,
+          "limitations": [
+            "Researcher-selected simulation; not an observed historical value or forecast."
+          ],
+          "lower": 0.0,
+          "operation": "set",
+          "parameter_id": "adversarial-htm-loss",
+          "source_record_ids": [],
+          "sources": [],
+          "target_id": "security:svb-htm-portfolio",
+          "unit": "fraction",
+          "upper": 0.25,
+          "variable": "loss_fraction"
+        }
+      ],
+      "program_id": "svb-adversarial-funding-duration-grid",
+      "scenario_id": "svb-2023-boundary"
+    }
+  ],
+  "receipt_sha256": "840083a8b9bfea12e69974c4565eb7448bffa5cfff0d65a29219942e7529dd1b",
+  "schema_version": "1.0.0",
+  "source_record_ids": [
+    "sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682",
+    "sec.xbrl.companyfacts:0000719739:4a919079a99119cd6d08ff11d9108eac8a68140e32cff60e92eadc7eae2d9f50",
+    "sec.xbrl.companyfacts:0000719739:8bdbe98d21df87a35bf1f36f05ddfefae946314aeadeccb7dffe676ca905b87b",
+    "sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2"
+  ]
+}

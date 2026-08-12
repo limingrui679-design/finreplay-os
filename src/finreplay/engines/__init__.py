@@ -12,6 +12,16 @@ from finreplay.engines.markettwin import (
     NodeKind,
     TemporalEvidence,
 )
+from finreplay.engines.shockcompiler import (
+    CompiledShock,
+    CompiledShockProgram,
+    ShockCompilationError,
+    ShockCompiler,
+    ShockOperation,
+    ShockParameter,
+    ShockProgram,
+    ShockTrial,
+)
 from finreplay.engines.timevault import (
     AppendReceipt,
     SourceMutationError,
@@ -36,6 +46,8 @@ __all__ = [
     "AppendReceipt",
     "AttackFinding",
     "AttackKind",
+    "CompiledShock",
+    "CompiledShockProgram",
     "ContagionResult",
     "FindingStatus",
     "GraphAppendReceipt",
@@ -47,6 +59,12 @@ __all__ = [
     "MarketTwin",
     "MarketTwinManifest",
     "NodeKind",
+    "ShockCompilationError",
+    "ShockCompiler",
+    "ShockOperation",
+    "ShockParameter",
+    "ShockProgram",
+    "ShockTrial",
     "SourceMutationError",
     "TemporalEvidence",
     "TimeVault",
