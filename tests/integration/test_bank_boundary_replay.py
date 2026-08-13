@@ -18,6 +18,8 @@ from finreplay.scenarios import (
 LOCK_PATH = Path("scenarios/pacwest-2023/input-lock.json")
 EVENT_PATH = Path("scenarios/pacwest-2023/event-lock.json")
 CODE_COMMIT = "b" * 40
+WESTERN_ALLIANCE_LOCK_PATH = Path("scenarios/western-alliance-2023/input-lock.json")
+WESTERN_ALLIANCE_EVENT_PATH = Path("scenarios/western-alliance-2023/event-lock.json")
 
 
 @pytest.fixture(scope="module")
@@ -59,6 +61,30 @@ def test_pacwest_locked_facts_are_historical_safe_and_exact(
         {record.record_id for record in event_lock.records}
         & {record.record_id for record in lock.records}
     )
+
+
+@pytest.mark.integration
+def test_western_alliance_locked_facts_and_event_boundary_are_exact() -> None:
+    lock = BankBoundaryInputLock.model_validate_json(
+        WESTERN_ALLIANCE_LOCK_PATH.read_text(encoding="utf-8")
+    )
+    event = OfficialEventLock.model_validate_json(
+        WESTERN_ALLIANCE_EVENT_PATH.read_text(encoding="utf-8")
+    )
+    assert lock.selected_accession == "0001212545-23-000093"
+    values = {record.payload["concept"]: record.payload["val"] for record in lock.records}
+    assert values["Assets"] == 67_734_000_000
+    assert values["Deposits"] == 53_644_000_000
+    assert values["StockholdersEquity"] == 5_356_000_000
+    assert values["HeldToMaturitySecurities"] == 1_289_000_000
+    assert values["HeldToMaturitySecuritiesAccumulatedUnrecognizedHoldingLoss"] == 177_000_000
+    assert values["AvailableForSaleSecuritiesDebtSecurities"] == 7_092_000_000
+    assert values["AvailableForSaleDebtSecuritiesAccumulatedGrossUnrealizedLossBeforeTax"] == (
+        890_000_000
+    )
+    assert event.records[0].payload["accessionNumber"] == "0001212545-23-000122"
+    assert event.records[0].interval.available_at > lock.decision_time
+    assert event.records[0].record_id not in {record.record_id for record in lock.records}
 
 
 @pytest.mark.integration
