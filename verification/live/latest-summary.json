@@ -1,6 +1,56 @@
 {
   "adapters": [
     {
+      "adapter_id": "bls.public_data.cpi_u_all_items",
+      "historical_replay_eligible": false,
+      "idempotent_records": 0,
+      "inserted_records": 31,
+      "receipt": "bls/bls.public_data.cpi_u_all_items-81a29246724d79b6.json",
+      "record_count": 31,
+      "retrieved_at": "2026-08-13T02:47:50.578400Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "cftc.cot.disaggregated_futures_only",
+      "historical_replay_eligible": false,
+      "idempotent_records": 0,
+      "inserted_records": 100,
+      "receipt": "cftc/cftc.cot.disaggregated_futures_only-f0b96cf2e61e4c68.json",
+      "record_count": 100,
+      "retrieved_at": "2026-08-13T02:47:56.058918Z",
+      "temporal_coverage": "immutable_event"
+    },
+    {
+      "adapter_id": "cftc.cot.legacy_futures_only",
+      "historical_replay_eligible": false,
+      "idempotent_records": 0,
+      "inserted_records": 100,
+      "receipt": "cftc/cftc.cot.legacy_futures_only-038d45c18f456705.json",
+      "record_count": 100,
+      "retrieved_at": "2026-08-13T02:47:53.350481Z",
+      "temporal_coverage": "immutable_event"
+    },
+    {
+      "adapter_id": "cftc.cot.supplemental_cit",
+      "historical_replay_eligible": false,
+      "idempotent_records": 0,
+      "inserted_records": 100,
+      "receipt": "cftc/cftc.cot.supplemental_cit-f777874a4846463d.json",
+      "record_count": 100,
+      "retrieved_at": "2026-08-13T02:47:58.217850Z",
+      "temporal_coverage": "immutable_event"
+    },
+    {
+      "adapter_id": "cftc.cot.tff_futures_only",
+      "historical_replay_eligible": false,
+      "idempotent_records": 0,
+      "inserted_records": 100,
+      "receipt": "cftc/cftc.cot.tff_futures_only-7269760b61d0209d.json",
+      "record_count": 100,
+      "retrieved_at": "2026-08-13T02:47:57.218907Z",
+      "temporal_coverage": "immutable_event"
+    },
+    {
       "adapter_id": "fdic.bankfind.demographics",
       "historical_replay_eligible": false,
       "idempotent_records": 3,
@@ -252,7 +302,7 @@
     }
   ],
   "historical_replay_eligible_count": 3,
-  "latest_only_count": 22,
+  "latest_only_count": 23,
   "schema_version": "1.0.0",
-  "verified_adapter_count": 25
+  "verified_adapter_count": 30
 }
