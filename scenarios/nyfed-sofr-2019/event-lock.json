@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "nyfed-sofr-2019-spike-boundary",
+  "scenario_version": "1.0.0",
+  "decision_time": "2019-09-17T20:00:00Z",
+  "event_role": "post_decision_official_event",
+  "records": [
+    {
+      "record_id": "nyfed.sofr.final_historical_rate:2019-09-17",
+      "entity_id": "nyfed_reference_rate:SOFR",
+      "source": {
+        "source_id": "nyfed.sofr.final_historical_rate",
+        "publisher": "Federal Reserve Bank of New York",
+        "url": "https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2019-09-17&endDate=2019-09-17&type=rate",
+        "retrieved_at": "2026-08-13T06:13:55.420519Z",
+        "source_version": "SOFR:effective:2019-09-17:final-at:2019-09-18T19:00:00+00:00:sha256:2a25e1d7423dfe7b30e7325a",
+        "sha256": "2a25e1d7423dfe7b30e7325a80cb9cad34739d1a04fac99de696fc5cc851545c",
+        "license_class": "review_required",
+        "temporal_coverage": "immutable_event",
+        "vintage_as_of": "2019-09-18T19:00:00Z",
+        "redistribution_note": "Apply the current New York Fed Terms of Use, source identification, attribution, same-permissions, modification, and non-endorsement conditions. Repository scenarios retain only the final rate, provenance, and hashes; raw responses remain local."
+      },
+      "interval": {
+        "valid_from": "2019-09-17T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2019-09-18T19:00:00Z",
+        "available_at": "2019-09-18T19:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T06:13:55.420519Z",
+        "availability_rule": "The New York Fed publishes SOFR at approximately 8:00 a.m. ET on the next business day and permits qualifying same-day revisions at approximately 2:30 p.m. ET. For the explicitly verified September 2019 calendar, FinReplay permits the final rate only from 3:00 p.m. America/New_York on its publication business day.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "ancillary_statistics_normalized": false,
+        "availability_method": "official_next_business_day_after_revision_window_1500_america_new_york",
+        "effective_date": "2019-09-17",
+        "publication_business_date": "2019-09-18",
+        "rate_type": "SOFR",
+        "reported_value_percent": "5.25",
+        "revision_indicator": "",
+        "unit": "Basis Points",
+        "value_basis_points": 525
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the final SOFR rate effective September 17, 2019 solely as a post-decision official event. The following-business-day revision cutoff makes it final after the replay decision. It is excluded from all ReplayPack inputs and does not establish forecast skill, calibrated coverage, repo-market causality, policy effectiveness, investment performance, external review, deployment, or user impact.",
+  "lock_sha256": "7ad5bcf1cf50536e86bcbd5361930535c0dd2951efe0393dba557e878527e5d2"
+}

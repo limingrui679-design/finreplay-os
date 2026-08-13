@@ -58,6 +58,13 @@ from finreplay.scenarios.proof import (
     verify_scenario_catalog,
     verify_scenario_proof,
 )
+from finreplay.scenarios.sofr_boundary import (
+    NYFED_SOFR_SOURCE_ID,
+    SOFRBoundaryInputLock,
+    SOFRBoundaryRoles,
+    build_sofr_boundary_replay_spec,
+    load_sofr_boundary_input_lock,
+)
 from finreplay.scenarios.svb import (
     SVB_BALANCE_DATE,
     SVB_DECISION_TIME,
@@ -88,6 +95,7 @@ __all__ = [
     "FED_FOMC_SOURCE_ID",
     "FED_H41_BTFP_SOURCE_ID",
     "GDP_SERIES_ID",
+    "NYFED_SOFR_SOURCE_ID",
     "SVB_BALANCE_DATE",
     "SVB_DECISION_TIME",
     "TREASURY_DTS_SOURCE_ID",
@@ -108,6 +116,8 @@ __all__ = [
     "MacroRevisionInputLock",
     "MacroRevisionRoles",
     "OfficialEventLock",
+    "SOFRBoundaryInputLock",
+    "SOFRBoundaryRoles",
     "SVBInputLock",
     "ScenarioInputLabels",
     "ScenarioProof",
@@ -122,6 +132,7 @@ __all__ = [
     "build_facility_growth_replay_spec",
     "build_fomc_target_boundary_replay_spec",
     "build_macro_revision_replay_spec",
+    "build_sofr_boundary_replay_spec",
     "build_svb_replay_spec",
     "build_tga_cash_boundary_replay_spec",
     "build_treasury_curve_boundary_replay_spec",
@@ -132,6 +143,7 @@ __all__ = [
     "load_fomc_target_boundary_input_lock",
     "load_macro_revision_input_lock",
     "load_scenario_proof",
+    "load_sofr_boundary_input_lock",
     "load_svb_input_lock",
     "load_tga_cash_boundary_input_lock",
     "load_treasury_curve_boundary_input_lock",
