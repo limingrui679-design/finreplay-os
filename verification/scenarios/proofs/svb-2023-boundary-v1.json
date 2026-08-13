@@ -3,7 +3,7 @@
     "path": "scripts/build_svb_replaypack.py",
     "sha256": "cb088831ce9d955dc832566b42fa34e0c8d1ded362210e757265f5adccec3095"
   },
-  "claim_boundary": "This proof counts one internally reproduced historical boundary scenario because the official SEC timing records, immutable input lock, separated evidence labels, explicit status-quo baseline, deliberate TrialCourt failure, deterministic outputs, limitations, and clean-worktree double rebuild all verify. It does not establish causal completeness, external method correctness, deployment, investment performance, or user impact.",
+  "claim_boundary": "This proof counts one internally reproduced historical boundary scenario because the official SEC input timing records, separately locked post-decision SEC event, immutable input lock, separated evidence labels, explicit status-quo baseline, deliberate TrialCourt failure, deterministic outputs, limitations, and clean-worktree double rebuild all verify. The post-decision event is excluded from replay inputs. This does not establish causal completeness, external method correctness, deployment, investment performance, or user impact.",
   "deliberate_failure_modes": [
     {
       "artifact_id": "svb.trialcourt.retrospective-gate",
@@ -21,6 +21,16 @@
   "expected_input_manifest_sha256": "8959db8334f2b1e13572eec536ca8c049aabc0bf95a673b3f13e4eca566c83cd",
   "expected_pack_sha256": "c62c22dcbd15e29592a10811117a565d2bf9bee34877a4fbcbf24994383efd35",
   "expected_trace_id": "trace:7c6888e9ecebd390acb2f7fecbcde816d7e50906632483215244acf0f17462bf",
+  "event_locks": [
+    {
+      "lock_sha256": "6d9447cea3c49ebf4df23117b2642ac387dff539004ea38c645f56fa4076c6ba",
+      "path": "scenarios/svb-2023/event-lock.json",
+      "record_ids": [
+        "sec.edgar.submissions:0000719739:0001193125-23-067777"
+      ],
+      "sha256": "43532ac8bb9605a910a80488f31d2e29e1c77bcc68ec63a21ac1bfe067063614"
+    }
+  ],
   "input_labels": {
     "absence_reasons": {
       "observed": "The minimal lock contains filer-reported SEC accounting facts and no direct market-tape, order-book, deposit-flow, or regulator-observed event record."
@@ -88,7 +98,7 @@
   ],
   "official_adapter_inventory": "verification/live/latest-summary.json",
   "pack_directory": "verification/replaypacks/svb-2023-seven-engine",
-  "proof_sha256": "5bd3a48ba84099e96203511c61f1a6c3ca4716b2648e8358595bfe48ab133495",
+  "proof_sha256": "cb109054740022dbe8577ba47ac97fef3156839d50cf9e068bba0f40dfdd27e9",
   "rebuild_receipt": {
     "path": "verification/evidence/svb-seven-engine-rebuild.json",
     "sha256": "a6f23ff2e2eb0810694eb6666c8133e0c5e29a01a568cafdcdd926ebdfb4440e"
@@ -110,7 +120,7 @@
   ],
   "scenario_id": "svb-2023-boundary",
   "scenario_version": "1.0.0",
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "timing_record_ids": [
     "sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682",
     "sec.xbrl.companyfacts:0000719739:318feb9e5559f8e51b2af8a07c0e515f53e34b59dab02b5f7ea0cbdbdb69abe7",

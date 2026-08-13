@@ -107,8 +107,9 @@ python scripts/verify_scenario_catalog.py
 
 It deliberately excludes current FDIC/Treasury snapshots from the 2023 decision input, rejects a
 retrospective TrialCourt attempt, and labels the no-microstructure execution/allocation boundary as
-simulated. The committed evidence proves internal deterministic integration, not historical
-completeness, method correctness, deployment, or external validation. See
+simulated. Its post-decision SEC event lock is verified separately and cannot appear in the pack's
+decision-input manifest. The committed evidence proves internal deterministic integration, not
+historical completeness, method correctness, deployment, or external validation. See
 [`docs/scenarios/svb-2023.md`](docs/scenarios/svb-2023.md).
 
 ## Research and investment disclaimer

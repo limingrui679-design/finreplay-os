@@ -5,10 +5,11 @@ from __future__ import annotations
 import hashlib
 import json
 from dataclasses import dataclass
+from datetime import datetime
 from pathlib import Path, PurePosixPath
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, ValidationInfo, model_validator
 
 from finreplay.contracts import BitemporalRecord, EvidenceClass, ScenarioMode, TemporalCoverage
 from finreplay.engines import CompiledReplayPack, ReplayStudio
@@ -42,6 +43,68 @@ class InputLockEvidence(FileEvidence):
     def validate_record_ids(self) -> InputLockEvidence:
         _require_sorted_unique(self.record_ids, "input-lock record IDs")
         return self
+
+
+class EventLockEvidence(FileEvidence):
+    """Official post-decision event records kept outside the decision input manifest."""
+
+    lock_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
+    record_ids: tuple[str, ...] = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def validate_record_ids(self) -> EventLockEvidence:
+        _require_sorted_unique(self.record_ids, "event-lock record IDs")
+        return self
+
+
+class OfficialEventLock(_StrictModel):
+    """A content-addressed official event marker that must not leak into replay inputs."""
+
+    schema_version: Literal["1.0.0"] = "1.0.0"
+    scenario_id: str = Field(pattern=r"^[a-z0-9][a-z0-9_.-]{2,99}$")
+    scenario_version: str = Field(pattern=r"^[0-9]+\.[0-9]+\.[0-9]+$")
+    decision_time: datetime
+    event_role: Literal["post_decision_official_event"] = "post_decision_official_event"
+    records: tuple[BitemporalRecord, ...] = Field(min_length=1)
+    claim_boundary: str = Field(min_length=100, max_length=4_000)
+    lock_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
+
+    @model_validator(mode="after")
+    def validate_lock(self, info: ValidationInfo) -> OfficialEventLock:
+        if self.decision_time.tzinfo is None or self.decision_time.utcoffset() is None:
+            raise ValueError("event-lock decision_time must be timezone-aware")
+        record_ids = tuple(record.record_id for record in self.records)
+        _require_sorted_unique(record_ids, "event-lock record IDs")
+        for record in self.records:
+            if record.interval.available_at <= self.decision_time:
+                raise ValueError(
+                    "post-decision event record must become available after decision_time"
+                )
+            if record.interval.availability_confidence < 1.0:
+                raise ValueError(
+                    "post-decision event timing must have exact availability confidence"
+                )
+            if record.source.temporal_coverage is TemporalCoverage.LATEST_ONLY:
+                raise ValueError("post-decision event timing cannot use a latest-only source")
+            if not str(record.source.url).startswith("https://"):
+                raise ValueError("post-decision event timing must use an HTTPS official source")
+        payload = self.model_dump(mode="json", exclude={"lock_sha256"})
+        skip_hash = isinstance(info.context, dict) and info.context.get("skip_hash") is True
+        if not skip_hash and _hash(payload) != self.lock_sha256:
+            raise ValueError("lock_sha256 does not match official event-lock content")
+        return self
+
+
+def seal_official_event_lock(payload: dict[str, Any]) -> OfficialEventLock:
+    """Validate and self-hash a JSON-compatible official event lock."""
+
+    values = dict(payload)
+    values.pop("lock_sha256", None)
+    normalized = OfficialEventLock.model_validate(
+        {**values, "lock_sha256": "0" * 64},
+        context={"skip_hash": True},
+    ).model_dump(mode="json", exclude={"lock_sha256"})
+    return OfficialEventLock.model_validate({**normalized, "lock_sha256": _hash(normalized)})
 
 
 class ArtifactValueExpectation(_StrictModel):
@@ -96,7 +159,7 @@ class ScenarioInputLabels(_StrictModel):
 class ScenarioProof(_StrictModel):
     """Eight-gate evidence record for exactly one counted scenario."""
 
-    schema_version: Literal["1.0.0"] = "1.0.0"
+    schema_version: Literal["1.1.0"] = "1.1.0"
     scenario_id: str = Field(pattern=r"^[a-z0-9][a-z0-9_.-]{2,99}$")
     scenario_version: str = Field(pattern=r"^[0-9]+\.[0-9]+\.[0-9]+$")
     replay_id: str = Field(pattern=r"^[a-z0-9][a-z0-9_.-]{2,119}$")
@@ -106,6 +169,7 @@ class ScenarioProof(_StrictModel):
     expected_input_manifest_sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
     official_adapter_inventory: str = "verification/live/latest-summary.json"
     input_locks: tuple[InputLockEvidence, ...] = Field(min_length=1)
+    event_locks: tuple[EventLockEvidence, ...] = Field(min_length=1)
     build_script: FileEvidence
     verify_script: FileEvidence
     rebuild_receipt: FileEvidence
@@ -124,6 +188,9 @@ class ScenarioProof(_StrictModel):
         _require_sorted_unique(self.timing_record_ids, "timing record IDs")
         _require_sorted_unique(self.required_rebuild_assertions, "rebuild assertion names")
         locked = {record_id for lock in self.input_locks for record_id in lock.record_ids}
+        event_records = {record_id for lock in self.event_locks for record_id in lock.record_ids}
+        if locked & event_records:
+            raise ValueError("event-lock records must be disjoint from decision input locks")
         if not set(self.timing_record_ids) <= locked:
             raise ValueError("timing record IDs must be present in an input lock")
         labelled_records = set(self.input_labels.observed_record_ids) | set(
@@ -200,17 +267,46 @@ def verify_scenario_proof(path: Path, *, repository_root: Path) -> VerifiedScena
         if isinstance(item, dict) and isinstance(item.get("adapter_id"), str)
     }
 
+    event_records: dict[str, BitemporalRecord] = {}
+    for event_reference in proof.event_locks:
+        event_path = _verify_file(event_reference, repository_root)
+        try:
+            event_lock = OfficialEventLock.model_validate_json(event_path.read_text())
+        except ValueError as error:
+            raise ValueError(f"invalid official event lock: {event_reference.path}") from error
+        if event_lock.scenario_id != proof.scenario_id:
+            raise ValueError("event-lock scenario_id does not match proof")
+        if event_lock.scenario_version != proof.scenario_version:
+            raise ValueError("event-lock scenario_version does not match proof")
+        if event_lock.decision_time != spec.decision_time:
+            raise ValueError("event-lock decision_time does not match ReplayPack")
+        if event_lock.lock_sha256 != event_reference.lock_sha256:
+            raise ValueError("event-lock claimed hash does not match proof reference")
+        record_ids = tuple(record.record_id for record in event_lock.records)
+        if record_ids != event_reference.record_ids:
+            raise ValueError("event-lock record IDs do not match proof reference")
+        duplicate = set(event_records).intersection(record_ids)
+        if duplicate:
+            raise ValueError(f"duplicate record across event locks: {min(duplicate)}")
+        for record in event_lock.records:
+            if record.source.source_id not in official_ids:
+                raise ValueError(
+                    "scenario event source is absent from official adapter inventory: "
+                    f"{record.source.source_id}"
+                )
+        event_records.update((record.record_id, record) for record in event_lock.records)
+
     locked_records: dict[str, BitemporalRecord] = {}
-    for reference in proof.input_locks:
-        lock_path = _verify_file(reference, repository_root)
+    for input_reference in proof.input_locks:
+        lock_path = _verify_file(input_reference, repository_root)
         lock_root = _json_object(json.loads(lock_path.read_text()), "scenario input lock")
         lock_payload = {key: value for key, value in lock_root.items() if key != "lock_sha256"}
-        if lock_root.get("lock_sha256") != reference.lock_sha256:
+        if lock_root.get("lock_sha256") != input_reference.lock_sha256:
             raise ValueError("input-lock claimed hash does not match proof reference")
-        if _hash(lock_payload) != reference.lock_sha256:
+        if _hash(lock_payload) != input_reference.lock_sha256:
             raise ValueError("input-lock canonical content hash is invalid")
         if not any(
-            _payload_contains(artifact.payload, "input_lock_sha256", reference.lock_sha256)
+            _payload_contains(artifact.payload, "input_lock_sha256", input_reference.lock_sha256)
             for artifact in spec.artifacts
         ):
             raise ValueError("ReplayPack artifacts do not bind the input-lock hash")
@@ -223,7 +319,7 @@ def verify_scenario_proof(path: Path, *, repository_root: Path) -> VerifiedScena
             raise ValueError("scenario input lock records must be a list")
         records = tuple(BitemporalRecord.model_validate(item) for item in raw_records)
         record_ids = tuple(sorted(record.record_id for record in records))
-        if record_ids != reference.record_ids:
+        if record_ids != input_reference.record_ids:
             raise ValueError("input-lock record IDs do not match proof reference")
         duplicate = set(locked_records).intersection(record_ids)
         if duplicate:
@@ -246,6 +342,9 @@ def verify_scenario_proof(path: Path, *, repository_root: Path) -> VerifiedScena
             raise ValueError("scenario input became available after decision_time")
         if not record.interval.availability_rule.strip():
             raise ValueError("scenario input lacks an availability rule")
+
+    if set(event_records) & set(compiled.source_record_ids):
+        raise ValueError("post-decision event evidence leaked into ReplayPack source records")
 
     for record_id in proof.timing_record_ids:
         record = locked_records[record_id]
@@ -325,12 +424,13 @@ def scenario_catalog_summary(
 ) -> dict[str, Any]:
     root = proof_directory.expanduser().resolve()
     return {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "verified_scenario_count": len(verified),
         "claim_boundary": (
-            "Each counted scenario passed the repository's eight-gate proof verifier. This is "
-            "internal reproducibility evidence, not external method validation, deployment, "
-            "investment performance, or real-world impact."
+            "Each counted scenario passed the repository's eight-gate proof verifier, including "
+            "a disjoint official post-decision event lock. This is internal reproducibility "
+            "evidence, not external method validation, deployment, investment performance, or "
+            "real-world impact."
         ),
         "scenarios": [
             {

@@ -4,14 +4,16 @@ import hashlib
 import json
 import shutil
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import pytest
 from pydantic import ValidationError
 
 from finreplay.scenarios import (
+    OfficialEventLock,
     ScenarioInputLabels,
     scenario_catalog_summary,
+    seal_official_event_lock,
     seal_scenario_proof,
     verify_scenario_catalog,
     verify_scenario_proof,
@@ -23,7 +25,7 @@ PROOF_PATH = PROOF_DIRECTORY / "svb-2023-boundary-v1.json"
 
 
 def proof_values() -> dict[str, Any]:
-    values = json.loads(PROOF_PATH.read_text())
+    values = cast(dict[str, Any], json.loads(PROOF_PATH.read_text()))
     values.pop("proof_sha256")
     return values
 
@@ -48,6 +50,7 @@ def copy_scenario_repository(tmp_path: Path) -> Path:
     files = [
         "verification/live/latest-summary.json",
         "scenarios/svb-2023/input-lock.json",
+        "scenarios/svb-2023/event-lock.json",
         "scripts/build_svb_replaypack.py",
         "scripts/verify_svb_replaypack.py",
         "verification/evidence/svb-seven-engine-rebuild.json",
@@ -84,6 +87,17 @@ def test_committed_svb_proof_and_deterministic_catalog_are_fully_verified() -> N
     summary = scenario_catalog_summary(catalog, proof_directory=PROOF_DIRECTORY)
     committed = json.loads((REPOSITORY / "verification/scenarios/latest-summary.json").read_text())
     assert summary == committed
+
+    event_lock = OfficialEventLock.model_validate_json(
+        (REPOSITORY / "scenarios/svb-2023/event-lock.json").read_text()
+    )
+    assert len(event_lock.records) == 1
+    assert event_lock.records[0].interval.available_at > event_lock.decision_time
+    assert event_lock.records[0].record_id not in {
+        record_id
+        for lock in values_from_proof(PROOF_PATH)["input_locks"]
+        for record_id in lock["record_ids"]
+    }
 
 
 def test_fabricated_baseline_and_json_pointer_fail_closed(tmp_path: Path) -> None:
@@ -220,6 +234,11 @@ def test_self_hash_unsafe_paths_and_label_absence_fail_before_counting(tmp_path:
             },
         )
 
+    values = proof_values()
+    values["event_locks"][0]["record_ids"] = [values["input_locks"][0]["record_ids"][0]]
+    with pytest.raises(ValidationError, match="disjoint"):
+        seal_scenario_proof(values)
+
 
 def test_rebuild_receipt_and_input_lock_are_cryptographically_bound(tmp_path: Path) -> None:
     root = copy_scenario_repository(tmp_path)
@@ -256,9 +275,33 @@ def test_rebuild_receipt_and_input_lock_are_cryptographically_bound(tmp_path: Pa
         verify_scenario_proof(path, repository_root=root)
 
 
+def test_post_decision_event_lock_fails_closed_and_cannot_leak(tmp_path: Path) -> None:
+    values = proof_values()
+    event_path = REPOSITORY / values["event_locks"][0]["path"]
+    event = json.loads(event_path.read_text())
+    event.pop("lock_sha256")
+    event["decision_time"] = event["records"][0]["interval"]["available_at"]
+    with pytest.raises(ValidationError, match="after decision_time"):
+        seal_official_event_lock(event)
+
+    root = copy_scenario_repository(tmp_path)
+    copied_event_path = root / values["event_locks"][0]["path"]
+    tampered = json.loads(copied_event_path.read_text())
+    tampered["records"][0]["payload"]["form"] = "10-K"
+    copied_event_path.write_text(json.dumps(tampered, sort_keys=True, indent=2) + "\n")
+    values["event_locks"][0]["sha256"] = hashlib.sha256(copied_event_path.read_bytes()).hexdigest()
+    path = write_sealed(tmp_path, values, "tampered-event.json")
+    with pytest.raises(ValueError, match="invalid official event lock"):
+        verify_scenario_proof(path, repository_root=root)
+
+
 def test_catalog_rejects_duplicate_scenario_versions(tmp_path: Path) -> None:
     content = PROOF_PATH.read_text()
     (tmp_path / "first.json").write_text(content)
     (tmp_path / "second.json").write_text(content)
     with pytest.raises(ValueError, match="duplicate scenario versions"):
         verify_scenario_catalog(tmp_path, repository_root=REPOSITORY)
+
+
+def values_from_proof(path: Path) -> dict[str, Any]:
+    return cast(dict[str, Any], json.loads(path.read_text()))

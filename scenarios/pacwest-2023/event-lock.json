@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "pacwest-2023-funding-boundary",
+  "scenario_version": "1.0.0",
+  "decision_time": "2023-05-03T20:00:00Z",
+  "event_role": "post_decision_official_event",
+  "records": [
+    {
+      "record_id": "sec.edgar.submissions:0001102112:0001104659-23-055748",
+      "entity_id": "sec_cik:0001102112",
+      "source": {
+        "source_id": "sec.edgar.submissions",
+        "publisher": "U.S. Securities and Exchange Commission",
+        "url": "https://data.sec.gov/submissions/CIK0001102112.json",
+        "retrieved_at": "2026-08-13T03:08:09.057522Z",
+        "source_version": "CIK0001102112:a24faace0f6a170f3f24",
+        "sha256": "a24faace0f6a170f3f243c1cb6a05b006eed3524ae4bc4fe8a095f73a2aa1fb9",
+        "license_class": "redistributable",
+        "temporal_coverage": "immutable_event",
+        "vintage_as_of": "2026-08-13T03:08:09.057522Z",
+        "redistribution_note": "SEC public filing metadata may be reproduced with attribution and fair-access compliance; this classification is not legal advice."
+      },
+      "interval": {
+        "valid_from": "2023-05-04T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-05-04T06:37:37Z",
+        "available_at": "2023-05-04T06:37:37Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T03:08:09.057522Z",
+        "availability_rule": "Official EDGAR acceptanceDateTime; amendments remain separate accessions.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "acceptanceDateTime": "2023-05-04T06:37:37.000Z",
+        "accessionNumber": "0001104659-23-055748",
+        "act": "34",
+        "fileNumber": "001-36408",
+        "filingDate": "2023-05-04",
+        "filmNumber": "23886307",
+        "form": "8-K",
+        "isInlineXBRL": 1,
+        "isXBRL": 1,
+        "items": "7.01,9.01",
+        "primaryDocDescription": "FORM 8-K",
+        "primaryDocument": "tm2314675d1_8k.htm",
+        "reportDate": "2023-05-04",
+        "size": 281059
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves immutable official event metadata and its exact knowledge time solely as a post-decision event marker. It is excluded from replay decision inputs and does not establish causality, filing-content accuracy, market impact, regulator conclusions, or a complete account of the event.",
+  "lock_sha256": "193de2606851cdfc4cf2f8a2243a5b1130ec49d0b0e19d319e9b4ad38b6ff722"
+}

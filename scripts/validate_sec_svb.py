@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Live-validate SEC submission adapters against SVB Financial Group's EDGAR index."""
+"""Live-validate SEC adapters for a configured reporting entity."""
 
 from __future__ import annotations
 
@@ -70,22 +70,28 @@ def main() -> None:
             raw_store=args.raw_store,
             receipt_directory=args.receipt_directory,
         )
-        if not historical_names:
-            raise SystemExit("SEC main response declared no historical submissions shards")
-        historical = SECHistoricalSubmissionsAdapter(http).fetch(
-            cik=args.cik,
-            file_name=historical_names[0],
-        )
-        history_receipt, history_inserted, history_count = persist_batch(
-            batch=historical,
-            database=args.database,
-            raw_store=args.raw_store,
-            receipt_directory=args.receipt_directory,
-        )
         acceptance_times = {
             str(record.payload["accessionNumber"]): record.interval.available_at
-            for record in (*recent.records, *historical.records)
+            for record in recent.records
         }
+        history_result: tuple[Path, int, int] | None = None
+        if historical_names:
+            historical = SECHistoricalSubmissionsAdapter(http).fetch(
+                cik=args.cik,
+                file_name=historical_names[0],
+            )
+            history_result = persist_batch(
+                batch=historical,
+                database=args.database,
+                raw_store=args.raw_store,
+                receipt_directory=args.receipt_directory,
+            )
+            acceptance_times.update(
+                {
+                    str(record.payload["accessionNumber"]): record.interval.available_at
+                    for record in historical.records
+                }
+            )
         companyfacts = SECCompanyFactsAdapter(http).fetch(
             args.cik,
             acceptance_times=acceptance_times,
@@ -100,10 +106,14 @@ def main() -> None:
         f"sec.edgar.submissions: records={recent_count} inserted={recent_inserted} "
         f"receipt={recent_receipt.name}"
     )
-    print(
-        f"sec.edgar.submissions_historical: records={history_count} "
-        f"inserted={history_inserted} receipt={history_receipt.name}"
-    )
+    if history_result is not None:
+        history_receipt, history_inserted, history_count = history_result
+        print(
+            f"sec.edgar.submissions_historical: records={history_count} "
+            f"inserted={history_inserted} receipt={history_receipt.name}"
+        )
+    else:
+        print("sec.edgar.submissions_historical: not declared by this entity index; skipped")
     print(
         f"sec.xbrl.companyfacts: records={facts_count} inserted={facts_inserted} "
         f"receipt={facts_receipt.name}"
