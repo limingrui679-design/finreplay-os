@@ -1,0 +1,184 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "btfp-2023-early-growth-boundary",
+  "scenario_version": "1.0.0",
+  "replay_id": "btfp-2023-early-growth-boundary-v1",
+  "artifact_prefix": "btfp-growth",
+  "title": "Federal Reserve BTFP early weekly growth boundary, March 2023",
+  "decision_time": "2023-03-25T12:00:00Z",
+  "build_epoch": "2026-08-13T04:30:00Z",
+  "roles": {
+    "first_weekly_average": "federal_reserve.h41.btfp_historical_release:20230316:weekly_average",
+    "first_wednesday": "federal_reserve.h41.btfp_historical_release:20230316:wednesday_outstanding",
+    "second_weekly_average": "federal_reserve.h41.btfp_historical_release:20230323:weekly_average",
+    "second_wednesday": "federal_reserve.h41.btfp_historical_release:20230323:wednesday_outstanding"
+  },
+  "source_response_sha256s": [
+    "0288922996ba960f593787db2273be3ac94a99eb563d3879a8623c9cefba6cf4",
+    "6d6d70188a1ddfb2c06d9314853e6f740ec07c02db011a684a8025b061d81a63"
+  ],
+  "records": [
+    {
+      "record_id": "federal_reserve.h41.btfp_historical_release:20230316:wednesday_outstanding",
+      "entity_id": "federal_reserve_facility:btfp",
+      "source": {
+        "source_id": "federal_reserve.h41.btfp_historical_release",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/releases/h41/20230316/",
+        "retrieved_at": "2026-08-13T04:17:09.560567Z",
+        "source_version": "H41:2023-03-16:sha256:0288922996ba960f593787db",
+        "sha256": "0288922996ba960f593787db2273be3ac94a99eb563d3879a8623c9cefba6cf4",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-03-16T00:00:00Z",
+        "redistribution_note": "Keep full downloaded HTML only in local content-addressed storage. Attribute the Board of Governors and preserve source links; repository scenarios retain only minimal reported facts and hashes, not the full source page."
+      },
+      "interval": {
+        "valid_from": "2023-03-15T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-03-18T00:00:00Z",
+        "available_at": "2023-03-18T00:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:17:09.560567Z",
+        "availability_rule": "The archived H.4.1 page identifies a calendar release date but the adapter does not rely on an intraday timestamp. FinReplay permits use only from 00:00 UTC two calendar days after that release date, a deterministic conservative knowledge bound.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "release_date_plus_two_calendar_days_utc",
+        "metric": "wednesday_outstanding",
+        "program": "Bank Term Funding Program",
+        "release_date": "2023-03-16",
+        "table": "H.4.1 Table 1",
+        "unit": "Millions of Dollars",
+        "value_millions": 11943,
+        "week_ending": "2023-03-15",
+        "weekly_average_change_from_prior_millions": 2443,
+        "weekly_average_change_from_year_ago_millions": 2443
+      }
+    },
+    {
+      "record_id": "federal_reserve.h41.btfp_historical_release:20230316:weekly_average",
+      "entity_id": "federal_reserve_facility:btfp",
+      "source": {
+        "source_id": "federal_reserve.h41.btfp_historical_release",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/releases/h41/20230316/",
+        "retrieved_at": "2026-08-13T04:17:09.560567Z",
+        "source_version": "H41:2023-03-16:sha256:0288922996ba960f593787db",
+        "sha256": "0288922996ba960f593787db2273be3ac94a99eb563d3879a8623c9cefba6cf4",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-03-16T00:00:00Z",
+        "redistribution_note": "Keep full downloaded HTML only in local content-addressed storage. Attribute the Board of Governors and preserve source links; repository scenarios retain only minimal reported facts and hashes, not the full source page."
+      },
+      "interval": {
+        "valid_from": "2023-03-15T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-03-18T00:00:00Z",
+        "available_at": "2023-03-18T00:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:17:09.560567Z",
+        "availability_rule": "The archived H.4.1 page identifies a calendar release date but the adapter does not rely on an intraday timestamp. FinReplay permits use only from 00:00 UTC two calendar days after that release date, a deterministic conservative knowledge bound.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "release_date_plus_two_calendar_days_utc",
+        "metric": "weekly_average",
+        "program": "Bank Term Funding Program",
+        "release_date": "2023-03-16",
+        "table": "H.4.1 Table 1",
+        "unit": "Millions of Dollars",
+        "value_millions": 2443,
+        "week_ending": "2023-03-15",
+        "weekly_average_change_from_prior_millions": 2443,
+        "weekly_average_change_from_year_ago_millions": 2443
+      }
+    },
+    {
+      "record_id": "federal_reserve.h41.btfp_historical_release:20230323:wednesday_outstanding",
+      "entity_id": "federal_reserve_facility:btfp",
+      "source": {
+        "source_id": "federal_reserve.h41.btfp_historical_release",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/releases/h41/20230323/",
+        "retrieved_at": "2026-08-13T04:17:11.162764Z",
+        "source_version": "H41:2023-03-23:sha256:6d6d70188a1ddfb2c06d9314",
+        "sha256": "6d6d70188a1ddfb2c06d9314853e6f740ec07c02db011a684a8025b061d81a63",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-03-23T00:00:00Z",
+        "redistribution_note": "Keep full downloaded HTML only in local content-addressed storage. Attribute the Board of Governors and preserve source links; repository scenarios retain only minimal reported facts and hashes, not the full source page."
+      },
+      "interval": {
+        "valid_from": "2023-03-22T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-03-25T00:00:00Z",
+        "available_at": "2023-03-25T00:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:17:11.162764Z",
+        "availability_rule": "The archived H.4.1 page identifies a calendar release date but the adapter does not rely on an intraday timestamp. FinReplay permits use only from 00:00 UTC two calendar days after that release date, a deterministic conservative knowledge bound.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "release_date_plus_two_calendar_days_utc",
+        "metric": "wednesday_outstanding",
+        "program": "Bank Term Funding Program",
+        "release_date": "2023-03-23",
+        "table": "H.4.1 Table 1",
+        "unit": "Millions of Dollars",
+        "value_millions": 53669,
+        "week_ending": "2023-03-22",
+        "weekly_average_change_from_prior_millions": 32166,
+        "weekly_average_change_from_year_ago_millions": 34609
+      }
+    },
+    {
+      "record_id": "federal_reserve.h41.btfp_historical_release:20230323:weekly_average",
+      "entity_id": "federal_reserve_facility:btfp",
+      "source": {
+        "source_id": "federal_reserve.h41.btfp_historical_release",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/releases/h41/20230323/",
+        "retrieved_at": "2026-08-13T04:17:11.162764Z",
+        "source_version": "H41:2023-03-23:sha256:6d6d70188a1ddfb2c06d9314",
+        "sha256": "6d6d70188a1ddfb2c06d9314853e6f740ec07c02db011a684a8025b061d81a63",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-03-23T00:00:00Z",
+        "redistribution_note": "Keep full downloaded HTML only in local content-addressed storage. Attribute the Board of Governors and preserve source links; repository scenarios retain only minimal reported facts and hashes, not the full source page."
+      },
+      "interval": {
+        "valid_from": "2023-03-22T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-03-25T00:00:00Z",
+        "available_at": "2023-03-25T00:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:17:11.162764Z",
+        "availability_rule": "The archived H.4.1 page identifies a calendar release date but the adapter does not rely on an intraday timestamp. FinReplay permits use only from 00:00 UTC two calendar days after that release date, a deterministic conservative knowledge bound.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "release_date_plus_two_calendar_days_utc",
+        "metric": "weekly_average",
+        "program": "Bank Term Funding Program",
+        "release_date": "2023-03-23",
+        "table": "H.4.1 Table 1",
+        "unit": "Millions of Dollars",
+        "value_millions": 34609,
+        "week_ending": "2023-03-22",
+        "weekly_average_change_from_prior_millions": 32166,
+        "weekly_average_change_from_year_ago_millions": 34609
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves four minimal reported BTFP facts from two archived Federal Reserve H.4.1 releases that were conservatively knowable before the replay decision time. It excludes the March 30 release and does not contain all H.4.1 tables, exact intraday publication times, borrower identities, collateral, a probability distribution, forecast, causal stress attribution, or policy and investment performance evidence.",
+  "lock_sha256": "155bac5cbf63771831e4833d8a32a33c6508422efbf8aa910ed40988d24e6ffd"
+}

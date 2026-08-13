@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "btfp-2023-early-growth-boundary",
+  "scenario_version": "1.0.0",
+  "decision_time": "2023-03-25T12:00:00Z",
+  "event_role": "post_decision_official_event",
+  "records": [
+    {
+      "record_id": "federal_reserve.h41.btfp_historical_release:20230330:wednesday_outstanding",
+      "entity_id": "federal_reserve_facility:btfp",
+      "source": {
+        "source_id": "federal_reserve.h41.btfp_historical_release",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/releases/h41/20230330/",
+        "retrieved_at": "2026-08-13T04:17:12.841330Z",
+        "source_version": "H41:2023-03-30:sha256:f170018993318f20cab1feca",
+        "sha256": "f170018993318f20cab1feca36914ca994650f22d44465e4e7a96bf614184765",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-03-30T00:00:00Z",
+        "redistribution_note": "Keep full downloaded HTML only in local content-addressed storage. Attribute the Board of Governors and preserve source links; repository scenarios retain only minimal reported facts and hashes, not the full source page."
+      },
+      "interval": {
+        "valid_from": "2023-03-29T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-04-01T00:00:00Z",
+        "available_at": "2023-04-01T00:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:17:12.841330Z",
+        "availability_rule": "The archived H.4.1 page identifies a calendar release date but the adapter does not rely on an intraday timestamp. FinReplay permits use only from 00:00 UTC two calendar days after that release date, a deterministic conservative knowledge bound.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "release_date_plus_two_calendar_days_utc",
+        "metric": "wednesday_outstanding",
+        "program": "Bank Term Funding Program",
+        "release_date": "2023-03-30",
+        "table": "H.4.1 Table 1",
+        "unit": "Millions of Dollars",
+        "value_millions": 64403,
+        "week_ending": "2023-03-29",
+        "weekly_average_change_from_prior_millions": 28036,
+        "weekly_average_change_from_year_ago_millions": 62645
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the March 30, 2023 archived H.4.1 BTFP Wednesday balance solely as a post-decision official event marker. Its knowledge time is the adapter's two-day conservative bound, not a claimed intraday publication time. The record is excluded from ReplayPack inputs and does not establish forecast skill, calibrated coverage, borrower behavior, causal systemic stress, policy effectiveness, investment performance, or a complete H.4.1 account.",
+  "lock_sha256": "97b1063608c36fcdc813cfaa916dba9bc5fa0e9874d587f8b7edb9a1216ad5c7"
+}
