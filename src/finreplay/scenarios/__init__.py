@@ -86,6 +86,13 @@ from finreplay.scenarios.proof import (
     verify_scenario_catalog,
     verify_scenario_proof,
 )
+from finreplay.scenarios.retail_sales_boundary import (
+    CENSUS_MARTS_SOURCE_ID,
+    RetailSalesBoundaryInputLock,
+    RetailSalesBoundaryRoles,
+    build_retail_sales_boundary_replay_spec,
+    load_retail_sales_boundary_input_lock,
+)
 from finreplay.scenarios.sofr_boundary import (
     NYFED_SOFR_SOURCE_ID,
     SOFRBoundaryInputLock,
@@ -128,6 +135,7 @@ __all__ = [
     "BEA_PIO_SOURCE_ID",
     "BLS_CPI_SOURCE_ID",
     "BLS_EMPLOYMENT_SOURCE_ID",
+    "CENSUS_MARTS_SOURCE_ID",
     "DOL_UI_CLAIMS_SOURCE_ID",
     "EIA_WPSR_SOURCE_ID",
     "FED_FOMC_SOURCE_ID",
@@ -164,6 +172,8 @@ __all__ = [
     "MacroRevisionInputLock",
     "MacroRevisionRoles",
     "OfficialEventLock",
+    "RetailSalesBoundaryInputLock",
+    "RetailSalesBoundaryRoles",
     "SOFRBoundaryInputLock",
     "SOFRBoundaryRoles",
     "SVBInputLock",
@@ -186,6 +196,7 @@ __all__ = [
     "build_industrial_production_boundary_replay_spec",
     "build_initial_claims_boundary_replay_spec",
     "build_macro_revision_replay_spec",
+    "build_retail_sales_boundary_replay_spec",
     "build_sofr_boundary_replay_spec",
     "build_svb_replay_spec",
     "build_tga_cash_boundary_replay_spec",
@@ -201,6 +212,7 @@ __all__ = [
     "load_industrial_production_boundary_input_lock",
     "load_initial_claims_boundary_input_lock",
     "load_macro_revision_input_lock",
+    "load_retail_sales_boundary_input_lock",
     "load_scenario_proof",
     "load_sofr_boundary_input_lock",
     "load_svb_input_lock",
