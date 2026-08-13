@@ -7,6 +7,7 @@ import hashlib
 import json
 from dataclasses import asdict
 from datetime import UTC, datetime, timedelta
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any, Literal
 
@@ -153,6 +154,8 @@ class TreasuryCurveBoundaryInputLock(_StrictModel):
             payload = record.payload
             if payload.get("series_id") != series_id:
                 raise ValueError(f"Treasury-curve boundary {role} series mismatch")
+            if record.entity_id != f"fred_series:{series_id}":
+                raise ValueError(f"Treasury-curve boundary {role} entity mismatch")
             if payload.get("observation_date") != observation_date:
                 raise ValueError(f"Treasury-curve boundary {role} observation-date mismatch")
             if payload.get("vintage_date") != vintage_date:
@@ -184,6 +187,21 @@ class TreasuryCurveBoundaryInputLock(_StrictModel):
             if not -1_000 <= value <= 10_000:
                 raise ValueError(
                     f"Treasury-curve boundary {role} yield is outside the supported range"
+                )
+            reported_value = payload.get("reported_value_percent")
+            if not isinstance(reported_value, str):
+                raise ValueError(
+                    f"Treasury-curve boundary {role} reported percent must be a string"
+                )
+            try:
+                reported_basis_points = Decimal(reported_value) * 100
+            except InvalidOperation as error:
+                raise ValueError(
+                    f"Treasury-curve boundary {role} reported percent must be decimal"
+                ) from error
+            if not reported_basis_points.is_finite() or reported_basis_points != value:
+                raise ValueError(
+                    f"Treasury-curve boundary {role} percent and basis points mismatch"
                 )
         payload = self.model_dump(mode="json", exclude={"lock_sha256"})
         skip_hash = isinstance(info.context, dict) and info.context.get("skip_hash") is True

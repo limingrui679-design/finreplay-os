@@ -13,6 +13,7 @@ from finreplay.scenarios import (
     OfficialEventLock,
     TreasuryCurveBoundaryInputLock,
     build_treasury_curve_boundary_replay_spec,
+    load_treasury_curve_boundary_input_lock,
 )
 
 LOCK_PATH = Path("scenarios/treasury-curve-2023/input-lock.json")
@@ -76,13 +77,23 @@ def test_yield_inputs_and_post_decision_pair_are_exact_and_disjoint(
         ("future", "publication time mismatch"),
         ("latest_only", "native ALFRED vintages"),
         ("observed", "must remain reported"),
+        ("wrong_source_id", "only ALFRED Treasury-yield facts"),
+        ("low_confidence", "timing must be deterministic"),
+        ("available_mismatch", "availability time mismatch"),
         ("wrong_series", "series mismatch"),
+        ("wrong_entity", "entity mismatch"),
         ("wrong_observation", "observation-date mismatch"),
         ("wrong_vintage", "vintage-date mismatch"),
         ("wrong_maturity", "maturity mismatch"),
+        ("wrong_valid_time", "valid time mismatch"),
+        ("wrong_source_vintage", "source vintage mismatch"),
         ("wrong_availability_method", "availability method mismatch"),
         ("wrong_unit", "unit mismatch"),
+        ("non_integer", "integer basis points"),
         ("out_of_range", "yield is outside"),
+        ("reported_value_non_string", "reported percent must be a string"),
+        ("reported_value_invalid", "reported percent must be decimal"),
+        ("reported_value_mismatch", "percent and basis points mismatch"),
     ],
 )
 def test_curve_lock_rejects_temporal_source_and_value_inflation(
@@ -103,20 +114,40 @@ def test_curve_lock_rejects_temporal_source_and_value_inflation(
         first["source"]["vintage_as_of"] = None
     elif case == "observed":
         first["evidence_class"] = "observed"
+    elif case == "wrong_source_id":
+        first["source"]["source_id"] = "fred.alfred.other"
+    elif case == "low_confidence":
+        first["interval"]["availability_confidence"] = 0.5
+    elif case == "available_mismatch":
+        first["interval"]["available_at"] = "2023-03-11T00:00:01Z"
     elif case == "wrong_series":
         first["payload"]["series_id"] = "DGS30"
+    elif case == "wrong_entity":
+        first["entity_id"] = "fred_series:DGS2"
     elif case == "wrong_observation":
         first["payload"]["observation_date"] = "2023-03-07"
     elif case == "wrong_vintage":
         first["payload"]["vintage_date"] = "2023-03-10"
     elif case == "wrong_maturity":
         first["payload"]["maturity_years"] = 30
+    elif case == "wrong_valid_time":
+        first["interval"]["valid_from"] = "2023-03-07T00:00:00Z"
+    elif case == "wrong_source_vintage":
+        first["source"]["vintage_as_of"] = "2023-03-10T00:00:00Z"
     elif case == "wrong_availability_method":
         first["payload"]["availability_method"] = "date_only"
     elif case == "wrong_unit":
         first["payload"]["unit"] = "Percent"
+    elif case == "non_integer":
+        first["payload"]["value_basis_points"] = 398.5
     elif case == "out_of_range":
         first["payload"]["value_basis_points"] = 10_001
+    elif case == "reported_value_non_string":
+        first["payload"]["reported_value_percent"] = 3.98
+    elif case == "reported_value_invalid":
+        first["payload"]["reported_value_percent"] = "not-a-number"
+    elif case == "reported_value_mismatch":
+        first["payload"]["reported_value_percent"] = "4.00"
     with pytest.raises(ValidationError, match=message):
         TreasuryCurveBoundaryInputLock.model_validate(values)
 
@@ -127,6 +158,69 @@ def test_curve_lock_rejects_role_and_self_hash_tamper() -> None:
     values["roles"]["march08_ten_year"] = values["roles"]["march08_two_year"]
     with pytest.raises(ValidationError, match="must be unique"):
         TreasuryCurveBoundaryInputLock.model_validate(values)
+
+
+@pytest.mark.integration
+@pytest.mark.parametrize(
+    ("case", "message"),
+    [
+        ("early_build", "build_epoch cannot precede"),
+        ("unsorted_records", "records must be unique and sorted"),
+        ("role_coverage", "roles must cover"),
+        ("unsorted_hashes", "source hashes must be unique and sorted"),
+        ("hash_set_mismatch", "source hashes do not match"),
+        ("naive_decision_time", "decision_time must be timezone-aware"),
+    ],
+)
+def test_curve_lock_rejects_manifest_and_clock_corruption(case: str, message: str) -> None:
+    values = json.loads(LOCK_PATH.read_text(encoding="utf-8"))
+    if case == "early_build":
+        values["build_epoch"] = "2023-03-16T11:59:59Z"
+    elif case == "unsorted_records":
+        values["records"].reverse()
+    elif case == "role_coverage":
+        values["roles"]["march08_ten_year"] = "missing-record-id"
+    elif case == "unsorted_hashes":
+        values["source_response_sha256s"].reverse()
+    elif case == "hash_set_mismatch":
+        values["source_response_sha256s"] = sorted(
+            [*values["source_response_sha256s"][:-1], "a" * 64]
+        )
+    elif case == "naive_decision_time":
+        values["decision_time"] = "2023-03-16T12:00:00"
+    with pytest.raises(ValidationError, match=message):
+        TreasuryCurveBoundaryInputLock.model_validate(values)
+
+
+@pytest.mark.integration
+def test_curve_lock_creation_loading_and_zero_width_fail_closed(tmp_path: Path) -> None:
+    values = json.loads(LOCK_PATH.read_text(encoding="utf-8"))
+    values.pop("lock_sha256")
+    recreated = TreasuryCurveBoundaryInputLock.create(values)
+    assert recreated == TreasuryCurveBoundaryInputLock.model_validate_json(
+        LOCK_PATH.read_text(encoding="utf-8")
+    )
+
+    invalid = tmp_path / "invalid-lock.json"
+    invalid.write_text("{}", encoding="utf-8")
+    with pytest.raises(ValueError, match="invalid Treasury-curve boundary input lock"):
+        load_treasury_curve_boundary_input_lock(invalid)
+
+    values = json.loads(LOCK_PATH.read_text(encoding="utf-8"))
+    values.pop("lock_sha256")
+    by_series_and_date = {
+        (record["payload"]["series_id"], record["payload"]["observation_date"]): record
+        for record in values["records"]
+    }
+    by_series_and_date[("DGS10", "2023-03-13")]["payload"][
+        "value_basis_points"
+    ] = 296
+    by_series_and_date[("DGS10", "2023-03-13")]["payload"][
+        "reported_value_percent"
+    ] = "2.96"
+    zero_width = TreasuryCurveBoundaryInputLock.create(values)
+    with pytest.raises(ValueError, match="must establish a nonzero range"):
+        build_treasury_curve_boundary_replay_spec(zero_width, code_commit=CODE_COMMIT)
 
     values = json.loads(LOCK_PATH.read_text(encoding="utf-8"))
     values["title"] = "Fabricated Treasury-curve boundary title"

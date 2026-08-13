@@ -5,7 +5,7 @@ from __future__ import annotations
 import csv
 import re
 from datetime import UTC, date, datetime, time, timedelta
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal
 from io import StringIO
 from urllib.parse import parse_qs, urlparse
 
@@ -236,17 +236,8 @@ class ALFREDTreasuryYieldVintageAdapter:
             raise SourceSchemaError(
                 "ALFRED Treasury-yield value must be a decimal with at most two places"
             )
-        try:
-            numeric = Decimal(raw_value)
-        except InvalidOperation as error:
-            raise SourceSchemaError(
-                "ALFRED Treasury-yield value must be a finite decimal"
-            ) from error
+        numeric = Decimal(raw_value)
         scaled = numeric * 100
-        if not numeric.is_finite() or scaled != scaled.to_integral_value():
-            raise SourceSchemaError(
-                "ALFRED Treasury-yield value must resolve to whole basis points"
-            )
         basis_points = int(scaled)
         if not -1_000 <= basis_points <= 10_000:
             raise SourceSchemaError("ALFRED Treasury-yield value is outside the supported range")

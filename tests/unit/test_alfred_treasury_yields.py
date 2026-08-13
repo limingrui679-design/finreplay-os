@@ -134,6 +134,10 @@ def test_constructor_rejects_unknown_series_and_impossible_vintage_order() -> No
         (csv_bytes(rows=("2023-03-08,NaN",)), "at most two places"),
         (csv_bytes(rows=("2023-03-08,100.01",)), "supported range"),
         (csv_bytes(rows=("2023-03-08,-10.01",)), "supported range"),
+        (
+            b'observation_date,DGS2_20230309\n"2023-03-08,5.05\n',
+            "not valid CSV",
+        ),
         (b"\xff\xfe", "valid UTF-8"),
     ],
 )
@@ -171,6 +175,32 @@ def test_content_type_response_url_and_early_retrieval_fail_closed() -> None:
     )
     with pytest.raises(SourceSchemaError, match="requested vintage"):
         wrong.fetch()
+
+    class WrongEndpointClient:
+        def get(self, *_args: Any, **_kwargs: Any) -> tuple[Any, bytes, datetime]:
+            snapshot = type(
+                "Snapshot",
+                (),
+                {
+                    "headers": {"Content-Type": "application/csv"},
+                    "request_url": (
+                        "https://alfred.stlouisfed.org/graph/not-approved.csv?"
+                        "id=DGS2&cosd=2023-03-08&coed=2023-03-08&"
+                        "vintage_date=2023-03-09"
+                    ),
+                    "status_code": 200,
+                },
+            )()
+            return snapshot, csv_bytes(), datetime(2026, 1, 1, tzinfo=UTC)
+
+    wrong_endpoint = ALFREDTreasuryYieldVintageAdapter(
+        cast(SafeHttpClient, WrongEndpointClient()),
+        series_id="DGS2",
+        vintage_date=VINTAGE,
+        observation_date=OBSERVATION,
+    )
+    with pytest.raises(SourceSchemaError, match="approved endpoint"):
+        wrong_endpoint.fetch()
 
     class EarlyClient:
         def get(self, *_args: Any, **_kwargs: Any) -> tuple[Any, bytes, datetime]:
