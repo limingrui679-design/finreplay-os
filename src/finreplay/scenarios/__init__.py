@@ -93,6 +93,13 @@ from finreplay.scenarios.tga_cash_boundary import (
     build_tga_cash_boundary_replay_spec,
     load_tga_cash_boundary_input_lock,
 )
+from finreplay.scenarios.treasury_auction_boundary import (
+    TREASURY_AUCTION_SOURCE_ID,
+    TreasuryAuctionBoundaryInputLock,
+    TreasuryAuctionBoundaryRoles,
+    build_treasury_auction_boundary_replay_spec,
+    load_treasury_auction_boundary_input_lock,
+)
 from finreplay.scenarios.treasury_curve_boundary import (
     ALFRED_TREASURY_YIELD_SOURCE_ID,
     TreasuryCurveBoundaryInputLock,
@@ -114,6 +121,7 @@ __all__ = [
     "NYFED_SOFR_SOURCE_ID",
     "SVB_BALANCE_DATE",
     "SVB_DECISION_TIME",
+    "TREASURY_AUCTION_SOURCE_ID",
     "TREASURY_DTS_SOURCE_ID",
     "ArtifactValueExpectation",
     "BankBoundaryInputLock",
@@ -143,6 +151,8 @@ __all__ = [
     "ScenarioProof",
     "TGACashBoundaryInputLock",
     "TGACashBoundaryRoles",
+    "TreasuryAuctionBoundaryInputLock",
+    "TreasuryAuctionBoundaryRoles",
     "TreasuryCurveBoundaryInputLock",
     "TreasuryCurveBoundaryRoles",
     "VerifiedScenarioProof",
@@ -157,6 +167,7 @@ __all__ = [
     "build_sofr_boundary_replay_spec",
     "build_svb_replay_spec",
     "build_tga_cash_boundary_replay_spec",
+    "build_treasury_auction_boundary_replay_spec",
     "build_treasury_curve_boundary_replay_spec",
     "load_bank_boundary_input_lock",
     "load_cpi_boundary_input_lock",
@@ -170,6 +181,7 @@ __all__ = [
     "load_sofr_boundary_input_lock",
     "load_svb_input_lock",
     "load_tga_cash_boundary_input_lock",
+    "load_treasury_auction_boundary_input_lock",
     "load_treasury_curve_boundary_input_lock",
     "scenario_catalog_summary",
     "seal_official_event_lock",

@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "treasury-auction-2020-zero-rate-boundary",
+  "scenario_version": "1.0.0",
+  "decision_time": "2020-03-18T12:00:00Z",
+  "event_role": "post_decision_official_event",
+  "records": [
+    {
+      "record_id": "treasury.auctions.archived_91_day_bill_results:20200323:912796UA5:high_discount_rate",
+      "entity_id": "us_treasury_auction:91_day_bill",
+      "source": {
+        "source_id": "treasury.auctions.archived_91_day_bill_results",
+        "publisher": "U.S. Department of the Treasury, Bureau of the Fiscal Service",
+        "url": "https://www.treasurydirect.gov/xml/R_20200323_2.xml",
+        "retrieved_at": "2026-08-13T07:49:21.569989Z",
+        "source_version": "TreasuryAuction:2020-03-23:912796UA5:xml:3bdba64c9ee86141087a:pdf:9dfdffeacd95b59fd2ec",
+        "sha256": "3bdba64c9ee86141087abecc955b974613a1bec5d7b8215f1a08322443773d59",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2020-03-23T15:31:00Z",
+        "redistribution_note": "Keep full Treasury XML and PDF result files in local content-addressed storage. Repository scenarios retain only minimal auction facts, URLs, hashes, and attribution; Treasury seals and marks are not reused."
+      },
+      "interval": {
+        "valid_from": "2020-03-23T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2020-03-23T15:31:00Z",
+        "available_at": "2020-03-24T04:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T07:49:21.569989Z",
+        "availability_rule": "Treasury's timeline says the results XML delivery time has been the official auction release time since 2003. The selected XML records that time and its paired PDF says For Immediate Release on the auction date. FinReplay interprets it under Treasury's America/New_York auction-time convention but delays eligibility until the next local midnight. This is conservative, not a claimed first-observation second.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "announcement_date": "2020-03-19",
+        "auction_arithmetic_verified": true,
+        "auction_date": "2020-03-23",
+        "availability_method": "official_release_time_then_next_local_midnight",
+        "bid_to_cover_ratio": "3.11",
+        "competitive_accepted_dollars": 44017951000,
+        "competitive_tendered_dollars": 139196578000,
+        "cusip": "912796UA5",
+        "issue_date": "2020-03-26",
+        "maturity_date": "2020-06-25",
+        "metric": "high_discount_rate",
+        "official_release_at": "2020-03-23T15:31:00+00:00",
+        "official_release_time_local": "11:31",
+        "official_release_timezone": "America/New_York",
+        "price_formula_verified": true,
+        "release_pdf_sha256": "9dfdffeacd95b59fd2eced9c9bfdd8852c95926f4fee5ea7020114762e9b4bfd",
+        "release_pdf_url": "https://www.treasurydirect.gov/instit/annceresult/press/preanre/2020/R_20200323_2.pdf",
+        "reported_high_rate_percent": "0.000",
+        "reported_investment_rate_percent": "0.000",
+        "reported_low_rate_percent": "0.000",
+        "reported_median_rate_percent": "0.000",
+        "reported_price_per_100": "100.000000",
+        "security_term": "91-Day Bill",
+        "subtotal_accepted_dollars": 45002965100,
+        "subtotal_tendered_dollars": 140181592100,
+        "total_accepted_dollars": 47003986200,
+        "total_tendered_dollars": 142182613200,
+        "unit": "Basis Points",
+        "value_basis_points": 0,
+        "xml_pdf_crosscheck_verified": true
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the reported zero-basis-point high discount rate for the March 23, 2020 Treasury 91-day bill auction solely as a post-decision official event. Its paired XML/PDF result became conservatively knowable only after the replay decision. It is excluded from all ReplayPack inputs and does not establish forecast skill, calibrated coverage, bidder-demand or policy causality, investment performance, external review, deployment, or user impact.",
+  "lock_sha256": "e45ba58cd5f2af3932ef37fcf3db6b6850de2eee6d6bf8780cd94cee39d1ae26"
+}
