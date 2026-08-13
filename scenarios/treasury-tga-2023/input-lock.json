@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "treasury-tga-2023-cash-boundary",
+  "scenario_version": "1.0.0",
+  "replay_id": "treasury-tga-2023-cash-boundary-v1",
+  "artifact_prefix": "treasury-tga",
+  "title": "U.S. Treasury General Account cash-balance boundary, June 2023",
+  "decision_time": "2023-06-02T21:00:00Z",
+  "build_epoch": "2026-08-13T06:10:00Z",
+  "roles": {
+    "may31_closing": "treasury.dts.published_report:20230531:tga_closing_balance",
+    "june01_closing": "treasury.dts.published_report:20230601:tga_closing_balance"
+  },
+  "source_response_sha256s": [
+    "b35dc7c619e5684e907643da4697795ef459ddac274f9a8bcbc36528c60cef04",
+    "f11a5bb0f1d7c371c480768dd53d902d97446b56500465935772cffd2ab5738e"
+  ],
+  "records": [
+    {
+      "record_id": "treasury.dts.published_report:20230531:tga_closing_balance",
+      "entity_id": "us_treasury:treasury_general_account",
+      "source": {
+        "source_id": "treasury.dts.published_report",
+        "publisher": "U.S. Department of the Treasury, Bureau of the Fiscal Service",
+        "url": "https://fiscaldata.treasury.gov/static-data/published-reports/dts/DailyTreasuryStatement_20230531.pdf",
+        "retrieved_at": "2026-08-13T05:53:55.390983Z",
+        "source_version": "DTS:2023-05-31:sha256:f11a5bb0f1d7c371c480768d",
+        "sha256": "f11a5bb0f1d7c371c480768dd53d902d97446b56500465935772cffd2ab5738e",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-05-31T00:00:00Z",
+        "redistribution_note": "Keep full Treasury report PDFs in local content-addressed storage. Repository scenarios retain only minimal reported balances, source links, hashes, and Treasury attribution."
+      },
+      "interval": {
+        "valid_from": "2023-05-31T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-06-01T20:00:00Z",
+        "available_at": "2023-06-01T20:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T05:53:55.390983Z",
+        "availability_rule": "Treasury states that each Daily Treasury Statement is available by 4:00 p.m. on the following business day. For the explicitly verified 2023 report calendar in this adapter, FinReplay uses 16:00 America/New_York on that following business day as a conservative knowledge deadline, not the exact publication instant.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "arithmetic_verified": true,
+        "availability_method": "official_following_business_day_deadline_1600_america_new_york",
+        "deposits_millions": 189427,
+        "metric": "tga_closing_balance",
+        "opening_balance_millions": 37357,
+        "publication_business_date": "2023-06-01",
+        "report_date": "2023-05-31",
+        "table": "Daily Treasury Statement Table I",
+        "unit": "Millions of Dollars",
+        "value_millions": 48512,
+        "withdrawals_millions": 178272
+      }
+    },
+    {
+      "record_id": "treasury.dts.published_report:20230601:tga_closing_balance",
+      "entity_id": "us_treasury:treasury_general_account",
+      "source": {
+        "source_id": "treasury.dts.published_report",
+        "publisher": "U.S. Department of the Treasury, Bureau of the Fiscal Service",
+        "url": "https://fiscaldata.treasury.gov/static-data/published-reports/dts/DailyTreasuryStatement_20230601.pdf",
+        "retrieved_at": "2026-08-13T05:53:57.431124Z",
+        "source_version": "DTS:2023-06-01:sha256:b35dc7c619e5684e907643da",
+        "sha256": "b35dc7c619e5684e907643da4697795ef459ddac274f9a8bcbc36528c60cef04",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-06-01T00:00:00Z",
+        "redistribution_note": "Keep full Treasury report PDFs in local content-addressed storage. Repository scenarios retain only minimal reported balances, source links, hashes, and Treasury attribution."
+      },
+      "interval": {
+        "valid_from": "2023-06-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-06-02T20:00:00Z",
+        "available_at": "2023-06-02T20:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T05:53:57.431124Z",
+        "availability_rule": "Treasury states that each Daily Treasury Statement is available by 4:00 p.m. on the following business day. For the explicitly verified 2023 report calendar in this adapter, FinReplay uses 16:00 America/New_York on that following business day as a conservative knowledge deadline, not the exact publication instant.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "arithmetic_verified": true,
+        "availability_method": "official_following_business_day_deadline_1600_america_new_york",
+        "deposits_millions": 207439,
+        "metric": "tga_closing_balance",
+        "opening_balance_millions": 48512,
+        "publication_business_date": "2023-06-02",
+        "report_date": "2023-06-01",
+        "table": "Daily Treasury Statement Table I",
+        "unit": "Millions of Dollars",
+        "value_millions": 22892,
+        "withdrawals_millions": 233059
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the May 31 and June 1, 2023 TGA closing balances from two date-stamped Daily Treasury Statement PDFs conservatively knowable before the replay decision time. It excludes the June 2 event balance, all other DTS rows, a probability distribution, forecast, calibrated interval, debt-limit causal attribution, fiscal-solvency conclusion, policy recommendation, execution, investment performance, external review, deployment, and user impact.",
+  "lock_sha256": "34fc00a83ce917eeb21b8ef0d039a4d7e446bb344d653269714a9dc7d8022975"
+}

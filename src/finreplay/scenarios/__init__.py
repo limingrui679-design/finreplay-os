@@ -65,6 +65,13 @@ from finreplay.scenarios.svb import (
     build_svb_replay_spec,
     load_svb_input_lock,
 )
+from finreplay.scenarios.tga_cash_boundary import (
+    TREASURY_DTS_SOURCE_ID,
+    TGACashBoundaryInputLock,
+    TGACashBoundaryRoles,
+    build_tga_cash_boundary_replay_spec,
+    load_tga_cash_boundary_input_lock,
+)
 from finreplay.scenarios.treasury_curve_boundary import (
     ALFRED_TREASURY_YIELD_SOURCE_ID,
     TreasuryCurveBoundaryInputLock,
@@ -83,6 +90,7 @@ __all__ = [
     "GDP_SERIES_ID",
     "SVB_BALANCE_DATE",
     "SVB_DECISION_TIME",
+    "TREASURY_DTS_SOURCE_ID",
     "ArtifactValueExpectation",
     "BankBoundaryInputLock",
     "BankFactConcepts",
@@ -103,6 +111,8 @@ __all__ = [
     "SVBInputLock",
     "ScenarioInputLabels",
     "ScenarioProof",
+    "TGACashBoundaryInputLock",
+    "TGACashBoundaryRoles",
     "TreasuryCurveBoundaryInputLock",
     "TreasuryCurveBoundaryRoles",
     "VerifiedScenarioProof",
@@ -113,6 +123,7 @@ __all__ = [
     "build_fomc_target_boundary_replay_spec",
     "build_macro_revision_replay_spec",
     "build_svb_replay_spec",
+    "build_tga_cash_boundary_replay_spec",
     "build_treasury_curve_boundary_replay_spec",
     "load_bank_boundary_input_lock",
     "load_cpi_boundary_input_lock",
@@ -122,6 +133,7 @@ __all__ = [
     "load_macro_revision_input_lock",
     "load_scenario_proof",
     "load_svb_input_lock",
+    "load_tga_cash_boundary_input_lock",
     "load_treasury_curve_boundary_input_lock",
     "scenario_catalog_summary",
     "seal_official_event_lock",

@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "treasury-tga-2023-cash-boundary",
+  "scenario_version": "1.0.0",
+  "decision_time": "2023-06-02T21:00:00Z",
+  "event_role": "post_decision_official_event",
+  "records": [
+    {
+      "record_id": "treasury.dts.published_report:20230602:tga_closing_balance",
+      "entity_id": "us_treasury:treasury_general_account",
+      "source": {
+        "source_id": "treasury.dts.published_report",
+        "publisher": "U.S. Department of the Treasury, Bureau of the Fiscal Service",
+        "url": "https://fiscaldata.treasury.gov/static-data/published-reports/dts/DailyTreasuryStatement_20230602.pdf",
+        "retrieved_at": "2026-08-13T05:53:58.779839Z",
+        "source_version": "DTS:2023-06-02:sha256:bace418c95400f9ae4a527d4",
+        "sha256": "bace418c95400f9ae4a527d443ffbb5ee4c70e51309072001dd1091006a966a0",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-06-02T00:00:00Z",
+        "redistribution_note": "Keep full Treasury report PDFs in local content-addressed storage. Repository scenarios retain only minimal reported balances, source links, hashes, and Treasury attribution."
+      },
+      "interval": {
+        "valid_from": "2023-06-02T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-06-05T20:00:00Z",
+        "available_at": "2023-06-05T20:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T05:53:58.779839Z",
+        "availability_rule": "Treasury states that each Daily Treasury Statement is available by 4:00 p.m. on the following business day. For the explicitly verified 2023 report calendar in this adapter, FinReplay uses 16:00 America/New_York on that following business day as a conservative knowledge deadline, not the exact publication instant.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "arithmetic_verified": true,
+        "availability_method": "official_following_business_day_deadline_1600_america_new_york",
+        "deposits_millions": 39315,
+        "metric": "tga_closing_balance",
+        "opening_balance_millions": 22892,
+        "publication_business_date": "2023-06-05",
+        "report_date": "2023-06-02",
+        "table": "Daily Treasury Statement Table I",
+        "unit": "Millions of Dollars",
+        "value_millions": 23368,
+        "withdrawals_millions": 38839
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the June 2, 2023 TGA closing balance from its date-stamped Daily Treasury Statement solely as a post-decision official event. Treasury's following-business-day 4:00 p.m. deadline makes it knowable after the replay decision. It is excluded from all ReplayPack inputs and does not establish forecast skill, calibrated coverage, debt-limit causality, fiscal solvency, policy effectiveness, investment performance, external review, deployment, or user impact.",
+  "lock_sha256": "4c848c0afa25959e66eb888fab03405b3ecc189f31f88e43d9ce761fffc27df8"
+}
