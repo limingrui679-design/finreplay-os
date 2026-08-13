@@ -98,6 +98,18 @@
       "trace_id": "trace:582d084d96526fffb25f544af2fb1ceca86cd71b53578c51823c04b5dbfed41c"
     },
     {
+      "decision_time": "2023-06-02T21:00:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "a74daab723834be217a925b19bc5306094bc9d7eb3791085a6a067fc504ed18e",
+      "proof": "treasury-tga-2023-cash-boundary-v1.json",
+      "proof_sha256": "dc12c760b8b092819119591e74b1d5014638cb58e056e0543db4a4124bc930cc",
+      "replay_id": "treasury-tga-2023-cash-boundary-v1",
+      "scenario_id": "treasury-tga-2023-cash-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:077515977a23370bda2bc75cd4f7b9905f7f46e7b202b5807a67b03b1e7322bb"
+    },
+    {
       "decision_time": "2023-05-02T16:00:00+00:00",
       "distinct_input_records": 7,
       "mode": "bounded_reconstruction",
@@ -111,5 +123,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 9
+  "verified_scenario_count": 10
 }

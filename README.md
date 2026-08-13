@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 9/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll and CPI release boundaries, FOMC target range, and an ALFRED Treasury-curve boundary pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 10/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll and CPI release boundaries, FOMC target range, an ALFRED Treasury-curve boundary, and a Treasury DTS TGA cash boundary pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -210,6 +210,13 @@ rule, then bounds the next DGS10-minus-DGS2 spread at `[-107, -48]` basis points
 probability. The disjoint March 15 pair yields `-42`, a required visible 6-basis-point breach rather
 than a retrospectively widened success. See
 [`docs/scenarios/treasury-curve-2023.md`](docs/scenarios/treasury-curve-2023.md).
+
+The tenth counted flow uses date-stamped Daily Treasury Statement PDFs rather than a market or
+release headline. It locks the May 31 and June 1 TGA closing balances, uses the known values
+`22,892` and `48,512` million dollars as no-probability endpoints, and keeps the June 2 balance of
+`23,368` million dollars in a disjoint later event lock. The event lies inside the declared range
+but differs from the latest-balance persistence baseline by `476` million dollars. See
+[`docs/scenarios/treasury-tga-2023.md`](docs/scenarios/treasury-tga-2023.md).
 
 ## Research and investment disclaimer
 

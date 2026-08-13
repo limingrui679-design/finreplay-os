@@ -34,6 +34,7 @@ FOMC_TARGET_PROOF_PATH = PROOF_DIRECTORY / "fomc-2023-target-range-boundary-v1.j
 TREASURY_CURVE_PROOF_PATH = (
     PROOF_DIRECTORY / "treasury-curve-2023-inversion-boundary-v1.json"
 )
+TREASURY_TGA_PROOF_PATH = PROOF_DIRECTORY / "treasury-tga-2023-cash-boundary-v1.json"
 
 
 def proof_values() -> dict[str, Any]:
@@ -155,8 +156,16 @@ def test_committed_proofs_and_deterministic_catalog_are_fully_verified() -> None
     assert treasury_curve.mode == "bounded_reconstruction"
     assert treasury_curve.distinct_input_records == 4
 
+    treasury_tga = verify_scenario_proof(
+        TREASURY_TGA_PROOF_PATH,
+        repository_root=REPOSITORY,
+    )
+    assert treasury_tga.scenario_id == "treasury-tga-2023-cash-boundary"
+    assert treasury_tga.mode == "bounded_reconstruction"
+    assert treasury_tga.distinct_input_records == 2
+
     catalog = verify_scenario_catalog(PROOF_DIRECTORY, repository_root=REPOSITORY)
-    assert len(catalog) == 9
+    assert len(catalog) == 10
     summary = scenario_catalog_summary(catalog, proof_directory=PROOF_DIRECTORY)
     committed = json.loads((REPOSITORY / "verification/scenarios/latest-summary.json").read_text())
     assert summary == committed

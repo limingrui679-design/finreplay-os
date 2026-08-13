@@ -54,9 +54,10 @@ Each of the 30 planned scenarios must independently provide:
 7. a limitations file and non-causal/non-deployment boundary;
 8. a fresh-clone replay receipt.
 
-Current status: **IN_PROGRESS; 9/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
+Current status: **IN_PROGRESS; 10/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
 2022 Q4 GDP revision, March 2023 BTFP early-growth, early-2023 BLS payroll and CPI release,
-spring-2023 FOMC target range, and March 2023 Treasury-curve boundary replays are counted.
+spring-2023 FOMC target range, March 2023 Treasury-curve, and June 2023 Treasury TGA cash-boundary
+replays are counted.
 `scripts/verify_scenario_catalog.py` opens
 each scenario's official timing records, immutable decision input lock, separately locked
 post-decision official event record, ReplayPack, source-label map, explicit naive baseline,
@@ -73,7 +74,10 @@ causal-effect, or policy-correctness claims. The CPI case adds exact winter/dayl
 release-snapshot preservation across a documented annual seasonal recalculation, and a two-point
 monthly-change stress range. The Treasury-curve case derives DGS10-minus-DGS2 from four reported
 native-vintage yields and requires the later 6-basis-point range breach to remain visible rather
-than becoming a retroactive success. All six use only four relevant engines and labelled
+than becoming a retroactive success. The TGA case arithmetically verifies two date-stamped Daily
+Treasury Statement balances, applies Treasury's following-business-day deadline, and keeps the
+later inside-range event separate from the persistence baseline. All seven use only four relevant
+engines and labelled
 post-event checks. Further scenarios must continue to diversify mechanisms and source families.
 The verifier recomputes the
 deterministic inventory under
