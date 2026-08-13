@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self'; img-src 'self' data:;
+                 base-uri 'none'; form-action 'none'">
+  <title>Treasury 91-day bill auction-rate boundary before the March 2020 zero result · FinReplay OS</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to report</a>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">FinReplay OS · evidence-labelled replay</p>
+      <h1>Treasury 91-day bill auction-rate boundary before the March 2020 zero result</h1>
+      <p class="lede">Four actual engines ran over two locked Treasury 91-day bill auction facts available before the decision time. Reported high rates remain reported; the persistence-or-repeat-known-decline range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The March 23 zero-rate result is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, auction-demand or policy causal model, trading signal, production deployment, or external validation.</p>
+    </div>
+    <div class="identity" aria-label="Replay identity">
+      <span>Replay <code>treasury-auction-2020-zero-rate-boundary-v1</code></span>
+      <span>Trace <code>trace:402e025e428e17a945b90b2e2279bf242c2534eec4dee6ab96103fe3bdba0b09</code></span>
+    </div>
+  </header>
+  <nav aria-label="Report sections">
+    <a href="#summary">Summary</a><a href="#claims">Claims</a>
+    <a href="#artifacts">Artifacts</a><a href="#limitations">Limitations</a>
+  </nav>
+  <main id="main">
+    <section id="summary" aria-labelledby="summary-title">
+      <h2 id="summary-title">Replay summary</h2>
+      <div class="boundary" role="note" aria-label="Truth boundary">
+        <strong>Truth boundary</strong>
+        <span>Contains simulated inputs. All represented source sets are historical-replay eligible.</span>
+        <span>Historical replay is not live trading;
+        modeled output is not realized performance.</span>
+      </div>
+      <dl class="facts">
+        <div><dt>Scenario</dt><dd>treasury-auction-2020-zero-rate-boundary
+        v1.0.0</dd></div>
+        <div><dt>Mode</dt><dd>bounded_reconstruction</dd></div>
+        <div><dt>Decision time</dt>
+        <dd>2020-03-18T12:00:00Z</dd></div>
+        <div><dt>Artifact status</dt><dd>reproduced</dd></div>
+        <div><dt>Engines represented</dt><dd>4 / 7</dd></div>
+        <div><dt>Pack hash</dt><dd><code>84adfcfbada5dc7676e46a2aca7545b73f609f4c80eb8a99d97aed470ef35c60</code></dd></div>
+      </dl>
+      <h3>Evidence inventory</h3>
+      <ul class="metrics" aria-label="Evidence counts"><li class="metric"><span class="metric-value">1</span><span>extracted</span></li><li class="metric"><span class="metric-value">4</span><span>inferred</span></li><li class="metric"><span class="metric-value">4</span><span>reported</span></li><li class="metric"><span class="metric-value">1</span><span>simulated</span></li></ul>
+      <p class="downloads"><a href="report.json">Machine-readable report</a>
+      <a href="checksums.sha256">Portable checksums</a>
+      <a href="README.md">Reproduction notes</a></p>
+    </section>
+    <section id="claims" aria-labelledby="claims-title">
+      <h2 id="claims-title">Claim traceability</h2>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Claim traceability table">
+        <table><caption>Each statement retains its evidence label,
+        supporting artifacts and boundary.</caption>
+          <thead><tr><th scope="col">Claim</th><th scope="col">Statement</th>
+          <th scope="col">Label</th><th scope="col">Support</th>
+          <th scope="col">Boundary</th></tr></thead>
+          <tbody><tr><th scope="row"><code>claim-extracted-four-engine-pack</code></th><td>The pack contains outputs from the four engines relevant to this boundary.</td><td><span class="badge evidence-extracted">EXTRACTED</span></td><td><code>treasury-auction.replaystudio.render</code></td><td>Artifact presence proves integration structure, not economic correctness.</td></tr><tr><th scope="row"><code>claim-inferred-treasury-auction-rate-range</code></th><td>The next-auction stress endpoints are latest persistence or one repeat of the known 10-basis-point decline: [19, 29] basis points.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>treasury-auction.shockcompiler.high-rate-range</code></td><td>The endpoints have no probability or coverage guarantee.</td></tr><tr><th scope="row"><code>claim-inferred-trial-rejection</code></th><td>TrialCourt rejected the retrospective one-decline auction-rate attempt.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>treasury-auction.trialcourt.retrospective-gate</code></td><td>This is an internal method result, not external review.</td></tr><tr><th scope="row"><code>claim-reported-treasury-auction-high-rates</code></th><td>Paired TreasuryDirect XML/PDF results report 91-day bill high rates of 39 basis points on March 9 and 29 basis points on March 16, 2020.</td><td><span class="badge evidence-reported">REPORTED</span></td><td><code>treasury-auction.timevault.auction-result-query</code></td><td>These are aggregate auction results, not forecasts or causal estimates.</td></tr><tr><th scope="row"><code>claim-simulated-schema-sentinels</code></th><td>Trial operational values are simulated schema sentinels only.</td><td><span class="badge evidence-simulated">SIMULATED</span></td><td><code>treasury-auction.trialcourt.retrospective-gate</code></td><td>The sentinels are not bids, orders, capacity, capital, or returns.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section id="artifacts" aria-labelledby="artifacts-title">
+      <h2 id="artifacts-title">Engine artifacts</h2><article class="artifact">
+  <header><div><p class="eyebrow">replaystudio</p>
+  <h3><code>treasury-auction.replaystudio.render</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> extracted: 1</p>
+  <p><strong>Artifact hash:</strong> <code>5d18450a0b5f59ff08b9093c9413019d66fe7acedaeb95fe21fa4fc0f1e22518</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>treasury.auctions.archived_91_day_bill_results:20200309:912796TZ2:high_discount_rate</code></li><li><code>treasury.auctions.archived_91_day_bill_results:20200316:912796SV2:high_discount_rate</code></li></ul>
+    <h4>Limitations</h4><ul><li>Static rendering does not validate the auction-rate range heuristic.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;engine_selection&quot;: &quot;This aggregate Treasury auction-rate boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no individual bid, order, execution, portfolio, or allocation input is invented.&quot;,
+  &quot;input_lock_sha256&quot;: &quot;a250bf97a734616774a23420609eb73ad7b73f620e3071230dfdb7b6b1f29f05&quot;,
+  &quot;portable_file_count_excluding_manifest&quot;: 5,
+  &quot;renderer&quot;: &quot;ReplayStudio&quot;,
+  &quot;truth_labels_visible&quot;: true
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">shockcompiler</p>
+  <h3><code>treasury-auction.shockcompiler.high-rate-range</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 3</p>
+  <p><strong>Artifact hash:</strong> <code>d97ce373af676e9b6f13b43ca2ff87d4ff606a67ac9ca6e184312a3b233b58e1</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>treasury.auctions.archived_91_day_bill_results:20200309:912796TZ2:high_discount_rate</code></li><li><code>treasury.auctions.archived_91_day_bill_results:20200316:912796SV2:high_discount_rate</code></li></ul>
+    <h4>Limitations</h4><ul><li>The endpoints mechanically reuse one known weekly decline and a zero floor.</li><li>The March 23 zero-rate result is absent from the bound construction.</li><li>The range is not an auction-demand probability or causal explanation.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;applied_endpoints&quot;: {
+    &quot;lower&quot;: 19.0,
+    &quot;upper&quot;: 29.0
+  },
+  &quot;bound_construction&quot;: {
+    &quot;endpoint_method&quot;: &quot;latest_persistence_or_repeat_known_weekly_decline_with_zero_floor&quot;,
+    &quot;future_event_used&quot;: false,
+    &quot;known_weekly_decline_basis_points&quot;: 10,
+    &quot;lower_rate_basis_points&quot;: 19,
+    &quot;probability_assigned&quot;: false,
+    &quot;range_width_basis_points&quot;: 10,
+    &quot;upper_rate_basis_points&quot;: 29,
+    &quot;zero_floor_applied&quot;: true
+  },
+  &quot;compiled&quot;: {
+    &quot;compiled_sha256&quot;: &quot;3bd01643bf31dc250f8c8160fa494a0fee0020ee568e0883f14eca56be0b97f5&quot;,
+    &quot;decision_time&quot;: &quot;2020-03-18T12:00:00Z&quot;,
+    &quot;limitations&quot;: [
+      &quot;The endpoints have no likelihood, coverage, demand, causal, or policy meaning.&quot;,
+      &quot;The March 23 zero-rate result is excluded and evaluated only afterward.&quot;
+    ],
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;program_id&quot;: &quot;treasury-auction-next-high-rate-envelope&quot;,
+    &quot;scenario_id&quot;: &quot;treasury-auction-2020-zero-rate-boundary&quot;,
+    &quot;source_program_sha256&quot;: &quot;9ecd940adb24e0fe526128814fd29788efbb7bd1f5bb527a3e3ec9d7fd6a4d99&quot;,
+    &quot;trials&quot;: [
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Use latest-rate persistence or one repeat of the only known weekly high-rate decline, floored at zero, as transparent next-auction stress endpoints.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;Two auction results and one decline define a stress range, not a forecast or confidence interval.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;treasury-auction-next-high-rate-range&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;4ca42500fa381d14750aee6902f73d886eb1ea233d84bfa6d83d5271216fa505&quot;,
+              &quot;862afbc310eb7fe583acc176384a9ea743af374b2a82e0f545c8039bfdf17fee&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;treasury.auctions.archived_91_day_bill_results:20200309:912796TZ2:high_discount_rate&quot;,
+              &quot;treasury.auctions.archived_91_day_bill_results:20200316:912796SV2:high_discount_rate&quot;
+            ],
+            &quot;target_id&quot;: &quot;us_treasury_auction:91_day_bill&quot;,
+            &quot;unit&quot;: &quot;basis_points&quot;,
+            &quot;value&quot;: 19.0,
+            &quot;variable&quot;: &quot;next_91_day_bill_high_rate_basis_points&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;treasury-auction-next-high-rate-envelope:00000000:d09de7d88a7368c1&quot;,
+        &quot;trial_index&quot;: 0,
+        &quot;vector_sha256&quot;: &quot;d09de7d88a7368c10f4b71ee6607db889c79fc69ae1f2648a13d635798934d35&quot;
+      },
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Use latest-rate persistence or one repeat of the only known weekly high-rate decline, floored at zero, as transparent next-auction stress endpoints.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;Two auction results and one decline define a stress range, not a forecast or confidence interval.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;treasury-auction-next-high-rate-range&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;4ca42500fa381d14750aee6902f73d886eb1ea233d84bfa6d83d5271216fa505&quot;,
+              &quot;862afbc310eb7fe583acc176384a9ea743af374b2a82e0f545c8039bfdf17fee&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;treasury.auctions.archived_91_day_bill_results:20200309:912796TZ2:high_discount_rate&quot;,
+              &quot;treasury.auctions.archived_91_day_bill_results:20200316:912796SV2:high_discount_rate&quot;
+            ],
+            &quot;target_id&quot;: &quot;us_treasury_auction:91_day_bill&quot;,
+            &quot;unit&quot;: &quot;basis_points&quot;,
+            &quot;value&quot;: 29.0,
+            &quot;variable&quot;: &quot;next_91_day_bill_high_rate_basis_points&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;treasury-auction-next-high-rate-envelope:00000001:34f7ae3cef8c042b&quot;,
+        &quot;trial_index&quot;: 1,
+        &quot;vector_sha256&quot;: &quot;34f7ae3cef8c042ba1c12ad1399cd9b245e30b7e2fec7ef2e07de06ed7c01145&quot;
+      }
+    ]
+  },
+  &quot;input_lock_sha256&quot;: &quot;a250bf97a734616774a23420609eb73ad7b73f620e3071230dfdb7b6b1f29f05&quot;,
+  &quot;known_rates&quot;: {
+    &quot;known_weekly_decline_basis_points&quot;: 10,
+    &quot;march09_high_rate_basis_points&quot;: 39,
+    &quot;march16_high_rate_basis_points&quot;: 29,
+    &quot;rate_lower_basis_points&quot;: 19,
+    &quot;rate_range_width_basis_points&quot;: 10,
+    &quot;rate_upper_basis_points&quot;: 29
+  },
+  &quot;naive_baseline&quot;: {
+    &quot;definition&quot;: &quot;persistence of the latest known 91-day bill high rate&quot;,
+    &quot;next_91_day_bill_high_rate_basis_points&quot;: 29
+  },
+  &quot;program&quot;: {
+    &quot;decision_time&quot;: &quot;2020-03-18T12:00:00Z&quot;,
+    &quot;global_limitations&quot;: [
+      &quot;The endpoints have no likelihood, coverage, demand, causal, or policy meaning.&quot;,
+      &quot;The March 23 zero-rate result is excluded and evaluated only afterward.&quot;
+    ],
+    &quot;hypothesis&quot;: &quot;Evaluate latest persistence or one repetition of the known 91-day bill high-rate decline using only auction results available at the historical decision boundary.&quot;,
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;parameters&quot;: [
+      {
+        &quot;derivation&quot;: &quot;Use latest-rate persistence or one repeat of the only known weekly high-rate decline, floored at zero, as transparent next-auction stress endpoints.&quot;,
+        &quot;evidence_class&quot;: &quot;inferred&quot;,
+        &quot;grid_points&quot;: 2,
+        &quot;limitations&quot;: [
+          &quot;Two auction results and one decline define a stress range, not a forecast or confidence interval.&quot;
+        ],
+        &quot;lower&quot;: 19.0,
+        &quot;operation&quot;: &quot;set&quot;,
+        &quot;parameter_id&quot;: &quot;treasury-auction-next-high-rate-range&quot;,
+        &quot;source_record_ids&quot;: [
+          &quot;treasury.auctions.archived_91_day_bill_results:20200309:912796TZ2:high_discount_rate&quot;,
+          &quot;treasury.auctions.archived_91_day_bill_results:20200316:912796SV2:high_discount_rate&quot;
+        ],
+        &quot;sources&quot;: [
+          {
+            &quot;license_class&quot;: &quot;download_only&quot;,
+            &quot;publisher&quot;: &quot;U.S. Department of the Treasury, Bureau of the Fiscal Service&quot;,
+            &quot;redistribution_note&quot;: &quot;Keep full Treasury XML and PDF result files in local content-addressed storage. Repository scenarios retain only minimal auction facts, URLs, hashes, and attribution; Treasury seals and marks are not reused.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-13T07:49:18.003426Z&quot;,
+            &quot;sha256&quot;: &quot;4ca42500fa381d14750aee6902f73d886eb1ea233d84bfa6d83d5271216fa505&quot;,
+            &quot;source_id&quot;: &quot;treasury.auctions.archived_91_day_bill_results&quot;,
+            &quot;source_version&quot;: &quot;TreasuryAuction:2020-03-09:912796TZ2:xml:4ca42500fa381d14750a:pdf:e486be2d621155bb4bcf&quot;,
+            &quot;temporal_coverage&quot;: &quot;versioned_snapshot&quot;,
+            &quot;url&quot;: &quot;https://www.treasurydirect.gov/xml/R_20200309_2.xml&quot;,
+            &quot;vintage_as_of&quot;: &quot;2020-03-09T15:32:00Z&quot;
+          },
+          {
+            &quot;license_class&quot;: &quot;download_only&quot;,
+            &quot;publisher&quot;: &quot;U.S. Department of the Treasury, Bureau of the Fiscal Service&quot;,
+            &quot;redistribution_note&quot;: &quot;Keep full Treasury XML and PDF result files in local content-addressed storage. Repository scenarios retain only minimal auction facts, URLs, hashes, and attribution; Treasury seals and marks are not reused.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-13T07:49:19.863221Z&quot;,
+            &quot;sha256&quot;: &quot;862afbc310eb7fe583acc176384a9ea743af374b2a82e0f545c8039bfdf17fee&quot;,
+            &quot;source_id&quot;: &quot;treasury.auctions.archived_91_day_bill_results&quot;,
+            &quot;source_version&quot;: &quot;TreasuryAuction:2020-03-16:912796SV2:xml:862afbc310eb7fe583ac:pdf:23b098fa40165e6b5fb3&quot;,
+            &quot;temporal_coverage&quot;: &quot;versioned_snapshot&quot;,
+            &quot;url&quot;: &quot;https://www.treasurydirect.gov/xml/R_20200316_2.xml&quot;,
+            &quot;vintage_as_of&quot;: &quot;2020-03-16T15:32:00Z&quot;
+          }
+        ],
+        &quot;target_id&quot;: &quot;us_treasury_auction:91_day_bill&quot;,
+        &quot;unit&quot;: &quot;basis_points&quot;,
+        &quot;upper&quot;: 29.0,
+        &quot;variable&quot;: &quot;next_91_day_bill_high_rate_basis_points&quot;
+      }
+    ],
+    &quot;program_id&quot;: &quot;treasury-auction-next-high-rate-envelope&quot;,
+    &quot;scenario_id&quot;: &quot;treasury-auction-2020-zero-rate-boundary&quot;
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">timevault</p>
+  <h3><code>treasury-auction.timevault.auction-result-query</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> reported: 2</p>
+  <p><strong>Artifact hash:</strong> <code>56ea54b4a108f3ab586fbb71b7dc9540dbd2005dc7f30da02b7f820ec152b05e</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>treasury.auctions.archived_91_day_bill_results:20200309:912796TZ2:high_discount_rate</code></li><li><code>treasury.auctions.archived_91_day_bill_results:20200316:912796SV2:high_discount_rate</code></li></ul>
+    <h4>Limitations</h4><ul><li>The lock contains only two 91-day bill auction results.</li><li>Each XML release time is conservatively delayed to the next local midnight.</li><li>Paired PDFs corroborate identity and values but remain local download evidence.</li><li>Auction rates and bid classes do not identify individual bidder decisions.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;append&quot;: {
+    &quot;artifact_ids&quot;: [
+      &quot;bac1b2c162c85635de75320341433a21af3f187d2ae40057eb564a565e7f1f3c&quot;,
+      &quot;d9d86e3e6fa8fd09b2e1f5b2ebb9f9b44b2fdb2f1b66cac164253d450c9ac85d&quot;
+    ],
+    &quot;attempted_records&quot;: 2,
+    &quot;fact_hashes&quot;: [
+      &quot;d8dae055903ee8d1540ced0d58a7ae901f74e3691215991b6afba11112116afd&quot;,
+      &quot;e5be6a19a55b39107715f1c12b3238d243429595cb9d34bb09614f3904b69f0e&quot;
+    ],
+    &quot;idempotent_records&quot;: 0,
+    &quot;inserted_records&quot;: 2
+  },
+  &quot;decision_time&quot;: &quot;2020-03-18T12:00:00Z&quot;,
+  &quot;input_lock_sha256&quot;: &quot;a250bf97a734616774a23420609eb73ad7b73f620e3071230dfdb7b6b1f29f05&quot;,
+  &quot;manifest&quot;: {
+    &quot;database_bytes&quot;: 0,
+    &quot;distinct_records&quot;: 2,
+    &quot;fact_set_sha256&quot;: &quot;5317f670c78356e5a65fa93f0830fdb3ad162b6fc6879cc1366482e772d7c6e3&quot;,
+    &quot;fact_versions&quot;: 2,
+    &quot;generated_at&quot;: &quot;2026-08-13T07:50:00Z&quot;,
+    &quot;retrieval_receipts&quot;: 2,
+    &quot;source_artifacts&quot;: 2
+  },
+  &quot;max_available_at&quot;: &quot;2020-03-17T04:00:00Z&quot;,
+  &quot;selected_record_ids&quot;: [
+    &quot;treasury.auctions.archived_91_day_bill_results:20200309:912796TZ2:high_discount_rate&quot;,
+    &quot;treasury.auctions.archived_91_day_bill_results:20200316:912796SV2:high_discount_rate&quot;
+  ]
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">trialcourt</p>
+  <h3><code>treasury-auction.trialcourt.retrospective-gate</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1, reported: 2, simulated: 1</p>
+  <p><strong>Artifact hash:</strong> <code>4450356446c3482715cabf73499582d168b7effc2346c1ac549d6136ab171702</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>treasury.auctions.archived_91_day_bill_results:20200309:912796TZ2:high_discount_rate</code></li><li><code>treasury.auctions.archived_91_day_bill_results:20200316:912796SV2:high_discount_rate</code></li></ul>
+    <h4>Limitations</h4><ul><li>The rejected attempt is a retrospective method boundary, not a validated forecast.</li><li>Operational sentinel fields contain no execution, capacity, or return evidence.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;attempt&quot;: {
+    &quot;attempt_id&quot;: &quot;treasury-auction-retrospective-attempt-1&quot;,
+    &quot;attempt_number&quot;: 1,
+    &quot;code_commit&quot;: &quot;3e760275660c04d10bb3b2a888bab4d87800ba18&quot;,
+    &quot;completed_at&quot;: &quot;2026-08-13T07:50:00Z&quot;,
+    &quot;config_sha256&quot;: &quot;64b022cd0d171e8af897d4417a0f71c5cad5c190d16ef3424979556f5264b15d&quot;,
+    &quot;decision_time&quot;: &quot;2020-03-18T12:00:00Z&quot;,
+    &quot;evaluation_end&quot;: &quot;2020-04-23&quot;,
+    &quot;evaluation_start&quot;: &quot;2020-03-19&quot;,
+    &quot;gross_return_bps&quot;: 0.0,
+    &quot;input_manifest_sha256&quot;: &quot;a250bf97a734616774a23420609eb73ad7b73f620e3071230dfdb7b6b1f29f05&quot;,
+    &quot;max_input_available_at&quot;: &quot;2020-03-17T04:00:00Z&quot;,
+    &quot;median_daily_volume_usd&quot;: 1.0,
+    &quot;metric_value&quot;: 10.0,
+    &quot;next_training_start&quot;: null,
+    &quot;notes&quot;: [
+      &quot;Retrospective method-boundary attempt; p=1 records no inferential test.&quot;,
+      &quot;One-dollar and zero-return fields are non-trading schema sentinels.&quot;,
+      &quot;No March 23 Treasury auction event fact is present in the attempt manifest.&quot;
+    ],
+    &quot;one_way_turnover&quot;: 0.0,
+    &quot;output_manifest_sha256&quot;: &quot;b62b4da218f019eacef09b83fa5af90f5abdeb9aacaaa7cafdaa9d34780bf4ea&quot;,
+    &quot;p_value&quot;: 1.0,
+    &quot;regime_metric_values&quot;: {
+      &quot;continuation-range-width&quot;: 10.0,
+      &quot;known-weekly-rate-decline&quot;: 10.0
+    },
+    &quot;requested_capital_usd&quot;: 1.0,
+    &quot;sample_size&quot;: 2,
+    &quot;short_fraction&quot;: 0.0,
+    &quot;training_end&quot;: &quot;2020-03-16&quot;,
+    &quot;trial_id&quot;: &quot;treasury-auction-retrospective-range-screen&quot;
+  },
+  &quot;attempt_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;fdb0f9395529cef6f8e8fdb382780294188e57a676e4b6ec4691aee8d559e2d1&quot;,
+    &quot;entry_hash&quot;: &quot;fdb0f9395529cef6f8e8fdb382780294188e57a676e4b6ec4691aee8d559e2d1&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 2
+  },
+  &quot;decision&quot;: {
+    &quot;adjusted_p_values&quot;: {
+      &quot;treasury-auction-retrospective-attempt-1&quot;: 1.0
+    },
+    &quot;attempt_ids&quot;: [
+      &quot;treasury-auction-retrospective-attempt-1&quot;
+    ],
+    &quot;attempt_set_sha256&quot;: &quot;a81152d68837ef04f2a24f0ecf22eba22fe89eaaac8ff33ae462df62a20ca4fa&quot;,
+    &quot;candidate_attempt_id&quot;: &quot;treasury-auction-retrospective-attempt-1&quot;,
+    &quot;decided_at&quot;: &quot;2026-08-13T07:50:00Z&quot;,
+    &quot;decision_id&quot;: &quot;decision:treasury-auction-retrospective-range-screen:d860067aa7696c6f539b6206&quot;,
+    &quot;disposition&quot;: &quot;reject&quot;,
+    &quot;findings&quot;: [
+      {
+        &quot;kind&quot;: &quot;preregistration&quot;,
+        &quot;metrics&quot;: {
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;registered_before_holdout&quot;: false
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Registration was retrospective or the observed attempt family exceeded the preregistered declaration.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;leakage&quot;,
+        &quot;metrics&quot;: {
+          &quot;embargo_respected&quot;: true,
+          &quot;evaluation_inside_holdout&quot;: true,
+          &quot;input_available_by_decision&quot;: true,
+          &quot;training_respects_purge&quot;: true
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Point-in-time input, purge, holdout and embargo checks passed.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;multiplicity&quot;,
+        &quot;metrics&quot;: {
+          &quot;adjusted_p_value&quot;: 1.0,
+          &quot;alpha&quot;: 0.05,
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;raw_p_value&quot;: 1.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Candidate does not survive family-wise Holm adjustment.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;regime&quot;,
+        &quot;metrics&quot;: {
+          &quot;best_regime_metric&quot;: 10.0,
+          &quot;regime_count&quot;: 2,
+          &quot;worst_regime_metric&quot;: 10.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Metric direction reverses or vanishes in at least one named regime.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;execution&quot;,
+        &quot;metrics&quot;: {
+          &quot;borrow_cost_bps&quot;: 0.0,
+          &quot;gross_return_bps&quot;: 0.0,
+          &quot;immediate_cost_bps&quot;: 0.0,
+          &quot;net_return_bps&quot;: 0.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Preregistered execution and borrow costs erase the gross return.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;capacity&quot;,
+        &quot;metrics&quot;: {
+          &quot;allowed_daily_notional_usd&quot;: 0.05,
+          &quot;daily_notional_usd&quot;: 0.0,
+          &quot;max_participation_rate&quot;: 0.05
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Requested capital fits the preregistered participation limit.&quot;
+      }
+    ],
+    &quot;trial_id&quot;: &quot;treasury-auction-retrospective-range-screen&quot;
+  },
+  &quot;input_lock_sha256&quot;: &quot;a250bf97a734616774a23420609eb73ad7b73f620e3071230dfdb7b6b1f29f05&quot;,
+  &quot;manifest&quot;: {
+    &quot;attempts&quot;: 1,
+    &quot;chain_tip_sha256&quot;: &quot;22a30ebb5421bfe2d70ab999c1da4477e46f6bb264d7918ed8f0db63482efb6a&quot;,
+    &quot;decisions&quot;: 1,
+    &quot;entries&quot;: 3,
+    &quot;registrations&quot;: 1,
+    &quot;rejected_decisions&quot;: 1,
+    &quot;verified&quot;: true
+  },
+  &quot;registration_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;dda70c6712b2ffa43211a317d2618677868d4d5475e01df30c38de41983ee9fc&quot;,
+    &quot;entry_hash&quot;: &quot;dda70c6712b2ffa43211a317d2618677868d4d5475e01df30c38de41983ee9fc&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 1
+  },
+  &quot;spec&quot;: {
+    &quot;cost_model&quot;: {
+      &quot;borrow_bps_annual&quot;: 0.0,
+      &quot;commission_bps&quot;: 1.0,
+      &quot;half_spread_bps&quot;: 1.0,
+      &quot;market_impact_bps&quot;: 1.0,
+      &quot;max_participation_rate&quot;: 0.05
+    },
+    &quot;declared_attempts&quot;: 1,
+    &quot;disposition&quot;: &quot;revise&quot;,
+    &quot;economic_mechanism&quot;: &quot;A bill auction high rate is a reported price-clearing result, but two auctions and one later outcome cannot establish predictive validity, demand, or policy causality.&quot;,
+    &quot;embargo_days&quot;: 0,
+    &quot;expected_direction&quot;: &quot;negative&quot;,
+    &quot;holdout_end&quot;: &quot;2020-04-23&quot;,
+    &quot;holdout_start&quot;: &quot;2020-03-19&quot;,
+    &quot;hypothesis&quot;: &quot;A retrospectively constructed one-decline Treasury auction-rate boundary qualifies for research eligibility after every adversarial gate.&quot;,
+    &quot;preregistered_at&quot;: &quot;2026-08-13T07:50:00Z&quot;,
+    &quot;primary_metric&quot;: &quot;one-decline 91-day bill high-rate range width in basis points&quot;,
+    &quot;purge_days&quot;: 2,
+    &quot;trial_id&quot;: &quot;treasury-auction-retrospective-range-screen&quot;
+  }
+}</pre>
+  </details>
+</article>
+    </section>
+    <section id="limitations" aria-labelledby="limitations-title">
+      <h2 id="limitations-title">Pack limitations</h2><ul><li>This lock preserves the reported high discount rates for the March 9 and 16, 2020 Treasury 91-day bill auctions from paired official XML/PDF results knowable before the replay decision time. It excludes the March 23 zero-rate event, individual bids, a probability distribution, forecast, calibrated interval, auction-demand or policy causality, recommendation, execution, investment performance, external review, deployment, and user impact.</li><li>The endpoints are latest-rate persistence or one repetition of the single known 10-basis-point decline, with a zero floor and no probability.</li><li>The March 23 zero-rate result is excluded from every decision input and artifact.</li><li>Two auction outcomes do not identify bidders, motivations, demand curves, or causes.</li><li>The range has no policy, liquidity, return, or forecast interpretation.</li><li>No position, order, portfolio, allocation, or return is represented.</li><li>A fixed build epoch and zero elapsed time preserve deterministic pack identity.</li></ul>
+    </section>
+  </main>
+  <footer><p>Static read-only report. No brokerage connection,
+  tracking script, or external request.</p></footer>
+</body>
+</html>

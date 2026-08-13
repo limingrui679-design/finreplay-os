@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over two locked Treasury 91-day bill auction facts available before the decision time. Reported high rates remain reported; the persistence-or-repeat-known-decline range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The March 23 zero-rate result is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, auction-demand or policy causal model, trading signal, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1317,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "e546a93d1ac55f55fc3119116d03e7a177819fa9d76461accd544b316319f1fd"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "09afc0247635ddf0ff06f0b3aebedd6c72570ca030f2453adf6fe480400b7d27"
+    },
+    {
+      "bytes": 30436,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "4bccbf8a30842344c77d153ee39eebda9b86c3a17aae019ba59dae4cf2da8fa8"
+    },
+    {
+      "bytes": 29312,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "93183dc7f8e9daf557969a0f431d0cef1bbb5b37b37c761caaf16d656fe2571b"
+    }
+  ],
+  "pack_sha256": "84adfcfbada5dc7676e46a2aca7545b73f609f4c80eb8a99d97aed470ef35c60",
+  "receipt_sha256": "688a4915087f0ecbea994f6bd02f06b24fc8d8c3d8024738c9365a358a8c05d0",
+  "replay_id": "treasury-auction-2020-zero-rate-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "3e760275660c04d10bb3b2a888bab4d87800ba18",
+    "compressed_input_bytes": 2089,
+    "created_at": "2026-08-13T07:50:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "84d9e55031687f71d0f4d1066fe3dfc94ab9cc5fcd530d053c2d7ef8d956deeb",
+    "output_manifest_sha256": "577334b763ead63f66d405f7a275a6a7d779d29850be42402cf5a66fc725fcc1",
+    "replay_id": "treasury-auction-2020-zero-rate-boundary-v1",
+    "scenario_id": "treasury-auction-2020-zero-rate-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "93183dc7f8e9daf557969a0f431d0cef1bbb5b37b37c761caaf16d656fe2571b",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:402e025e428e17a945b90b2e2279bf242c2534eec4dee6ab96103fe3bdba0b09"
+}
