@@ -1,0 +1,121 @@
+{
+  "build_script": {
+    "path": "scripts/build_tga_cash_boundary_replaypack.py",
+    "sha256": "151929221b9420681f210389222414b97e97657794370b852e2b9e48caea6b27"
+  },
+  "claim_boundary": "This proof counts one internally reproduced Treasury TGA cash boundary because two pre-decision date-stamped DTS facts, Treasury's following-business-day publication deadline, a separately locked post-decision June 2 report, an immutable input lock, separated truth labels, an explicit latest-balance persistence baseline, a no-probability bounded program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The June 2 fact is excluded from ReplayPack inputs and used only for a labelled post-event check. This does not establish forecast skill, calibrated coverage, debt-limit causality, fiscal solvency, policy effectiveness, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "treasury-tga.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective two-report attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "treasury-tga.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "4c848c0afa25959e66eb888fab03405b3ecc189f31f88e43d9ce761fffc27df8",
+      "path": "scenarios/treasury-tga-2023/event-lock.json",
+      "record_ids": [
+        "treasury.dts.published_report:20230602:tga_closing_balance"
+      ],
+      "sha256": "1bb63446b2598468cc837d4aa0f77f183f4c8748069d485dc8c30cb8da750598"
+    }
+  ],
+  "expected_input_manifest_sha256": "e9e35cdd24b65e6faba41a3637a52b6658623fa56a3a211e1208a7184178d5b9",
+  "expected_pack_sha256": "a74daab723834be217a925b19bc5306094bc9d7eb3791085a6a067fc504ed18e",
+  "expected_trace_id": "trace:077515977a23370bda2bc75cd4f7b9905f7f46e7b202b5807a67b03b1e7322bb",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate TGA balances reported in Treasury DTS PDFs, not direct counterparty transactions, causal debt-limit effects, or future cash observations. The June 2 balance is only in the event lock."
+    },
+    "bounded_artifact_ids": [
+      "treasury-tga.shockcompiler.balance-range"
+    ],
+    "extracted_artifact_ids": [
+      "treasury-tga.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "treasury-tga.shockcompiler.balance-range",
+      "treasury-tga.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "treasury.dts.published_report:20230531:tga_closing_balance",
+      "treasury.dts.published_report:20230601:tga_closing_balance"
+    ],
+    "simulated_artifact_ids": [
+      "treasury-tga.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "34fc00a83ce917eeb21b8ef0d039a4d7e446bb344d653269714a9dc7d8022975",
+      "path": "scenarios/treasury-tga-2023/input-lock.json",
+      "record_ids": [
+        "treasury.dts.published_report:20230531:tga_closing_balance",
+        "treasury.dts.published_report:20230601:tga_closing_balance"
+      ],
+      "sha256": "07b08c57bd1e7397b11c3dc4ca211551be8ca452805c3d83af98ba6d627f5995"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "treasury-tga.shockcompiler.balance-range",
+      "description": "The decision-time baseline persists the latest known June 1 reported TGA closing balance of 22,892 million dollars.",
+      "expected_value": 22892,
+      "payload_pointer": "/naive_baseline/next_reported_tga_closing_balance_millions"
+    },
+    {
+      "artifact_id": "treasury-tga.shockcompiler.balance-range",
+      "description": "The two TGA closing-balance endpoints carry no probability or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/treasury-dts/latest-summary.json",
+  "pack_directory": "verification/replaypacks/treasury-tga-2023",
+  "proof_sha256": "dc12c760b8b092819119591e74b1d5014638cb58e056e0543db4a4124bc930cc",
+  "rebuild_receipt": {
+    "path": "verification/evidence/treasury-tga-four-engine-rebuild.json",
+    "sha256": "af98214400364fad26c0c3d0a57f1ddce65e2e47190f057533a1e4fa013c7407"
+  },
+  "replay_id": "treasury-tga-2023-cash-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "distinct_locked_inputs_equal_two",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "naive_baseline_is_latest_known_tga_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_archived_dts_fact",
+    "post_decision_event_timing_is_later",
+    "post_event_differs_from_persistence_baseline",
+    "reported_post_event_balance_inside_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "treasury-tga-2023-cash-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "treasury.dts.published_report:20230531:tga_closing_balance",
+    "treasury.dts.published_report:20230601:tga_closing_balance"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_tga_cash_boundary_replaypack.py",
+    "sha256": "8806acb16dd4eef6b838fc11a242dde76b6f60c6aac78ee936b58eeca9ad6553"
+  }
+}
