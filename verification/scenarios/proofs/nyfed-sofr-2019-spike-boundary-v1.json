@@ -1,0 +1,121 @@
+{
+  "build_script": {
+    "path": "scripts/build_sofr_boundary_replaypack.py",
+    "sha256": "8af4d4e32ca34686caaf75ac1c5dc0e0a503d67965c6882d8831e1802cc93742"
+  },
+  "claim_boundary": "This proof counts one internally reproduced September 2019 SOFR boundary because two pre-decision final New York Fed rates, conservative post-revision-window knowledge timing, a separately locked post-decision September 17 rate, an immutable input lock, separated truth labels, an explicit latest-rate persistence baseline, a no-probability bounded program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The September 17 rate is excluded from ReplayPack inputs and used only for a labelled post-event check that preserves the 282-basis-point range breach rather than widening the range. This does not establish forecast skill, calibrated coverage, repo-market causality, policy effectiveness, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "nyfed-sofr.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective two-rate attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "nyfed-sofr.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "7ad5bcf1cf50536e86bcbd5361930535c0dd2951efe0393dba557e878527e5d2",
+      "path": "scenarios/nyfed-sofr-2019/event-lock.json",
+      "record_ids": [
+        "nyfed.sofr.final_historical_rate:2019-09-17"
+      ],
+      "sha256": "489bc8e4525517fa7911b15d329177eec31cbb5acc0cf19f4f853253bed2afeb"
+    }
+  ],
+  "expected_input_manifest_sha256": "4edf4793ff0852102cd767b331323e0f9a99a1bbba27cf80346ada2b65cd8d33",
+  "expected_pack_sha256": "00475798a6bdfc0b713a272d340b0586d8b647f95c8a11435d809777037b106e",
+  "expected_trace_id": "trace:7402c1952f5bbaf31f5f5d89a85a8864f64ee146bd142e25da1872f4292ee636",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate final SOFR rates reported by the New York Fed, not transaction-level repo observations, causal market effects, or future rates. The September 17 rate is only in the event lock."
+    },
+    "bounded_artifact_ids": [
+      "nyfed-sofr.shockcompiler.rate-range"
+    ],
+    "extracted_artifact_ids": [
+      "nyfed-sofr.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "nyfed-sofr.shockcompiler.rate-range",
+      "nyfed-sofr.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "nyfed.sofr.final_historical_rate:2019-09-13",
+      "nyfed.sofr.final_historical_rate:2019-09-16"
+    ],
+    "simulated_artifact_ids": [
+      "nyfed-sofr.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "51bb4fac60709af2cdae2cb819efeee06d180229d627323667cc707f96f745ab",
+      "path": "scenarios/nyfed-sofr-2019/input-lock.json",
+      "record_ids": [
+        "nyfed.sofr.final_historical_rate:2019-09-13",
+        "nyfed.sofr.final_historical_rate:2019-09-16"
+      ],
+      "sha256": "f2f72c5704134cedaeb42daa6c75c469c5864d0b75fafc3e94f1ef34722634e0"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "nyfed-sofr.shockcompiler.rate-range",
+      "description": "The decision-time baseline persists the latest known September 16 final SOFR rate of 243 basis points.",
+      "expected_value": 243,
+      "payload_pointer": "/naive_baseline/next_final_sofr_basis_points"
+    },
+    {
+      "artifact_id": "nyfed-sofr.shockcompiler.rate-range",
+      "description": "The two final-SOFR endpoints carry no probability or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/nyfed-sofr-history/latest-summary.json",
+  "pack_directory": "verification/replaypacks/nyfed-sofr-2019",
+  "proof_sha256": "10b766cd8cfd1e15716444218644dcbba01e4c4f386a56755e770706f77091d6",
+  "rebuild_receipt": {
+    "path": "verification/evidence/nyfed-sofr-four-engine-rebuild.json",
+    "sha256": "64127494e4a40e4ddaef1d4bba429f3ef9e6a3bd4f0a8b865c87cfec74d9314d"
+  },
+  "replay_id": "nyfed-sofr-2019-spike-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "distinct_locked_inputs_equal_two",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "naive_baseline_is_latest_known_sofr_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_final_nyfed_sofr_fact",
+    "post_decision_event_timing_is_later",
+    "post_event_upper_bound_breach_equals_282_basis_points",
+    "reported_post_event_rate_breaches_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "nyfed-sofr-2019-spike-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "nyfed.sofr.final_historical_rate:2019-09-13",
+    "nyfed.sofr.final_historical_rate:2019-09-16"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_sofr_boundary_replaypack.py",
+    "sha256": "1bc5977e5201f93def7ad8c41f588b970763995a0fa24602cd4da2d1cc8730e0"
+  }
+}
