@@ -24,6 +24,13 @@ from finreplay.adapters.fiscaldata import (
     FiscalDataSemanticKind,
     FiscalDataSpec,
 )
+from finreplay.adapters.nyfed import (
+    NYFED_DATASET_BY_SLUG,
+    NYFED_DATASET_SPECS,
+    NYFedDatasetSpec,
+    NYFedMarketsAdapter,
+    NYFedSemanticKind,
+)
 from finreplay.adapters.sec import SECHistoricalSubmissionsAdapter, SECSubmissionsAdapter
 from finreplay.adapters.sec_xbrl import SECCompanyFactsAdapter
 
@@ -32,6 +39,8 @@ __all__ = [
     "FDIC_DATASET_SPECS",
     "FISCAL_DATA_BY_SLUG",
     "FISCAL_DATA_SPECS",
+    "NYFED_DATASET_BY_SLUG",
+    "NYFED_DATASET_SPECS",
     "AdapterBatch",
     "AdapterError",
     "AdapterMetadata",
@@ -43,6 +52,9 @@ __all__ = [
     "FiscalDataAdapter",
     "FiscalDataSemanticKind",
     "FiscalDataSpec",
+    "NYFedDatasetSpec",
+    "NYFedMarketsAdapter",
+    "NYFedSemanticKind",
     "RawArtifact",
     "ResponseLimitError",
     "SECCompanyFactsAdapter",
