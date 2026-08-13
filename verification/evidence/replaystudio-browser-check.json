@@ -1,0 +1,66 @@
+{
+  "all_assertions_passed": true,
+  "assertions": {
+    "claims_navigation_changed_fragment": true,
+    "console_error_count_zero": true,
+    "content_security_policy_present": true,
+    "desktop_claim_rows_equal_five": true,
+    "desktop_engine_articles_equal_seven": true,
+    "details_control_opened": true,
+    "document_language_present": true,
+    "mobile_document_has_no_horizontal_overflow": true,
+    "mobile_table_overflow_is_locally_contained": true,
+    "one_main_landmark_present": true,
+    "one_report_navigation_present": true,
+    "script_element_count_zero": true,
+    "skip_link_targets_main": true,
+    "table_caption_and_scoped_headers_present": true
+  },
+  "browser": {
+    "name": "Codex In-app Browser",
+    "version": "not_exposed_by_browser_session"
+  },
+  "checked_at": "2026-08-13T09:35:01+08:00",
+  "claim_boundary": "This operator-recorded local browser receipt proves the listed DOM, interaction, console, and responsive-layout observations for the identified deterministic golden pack. It is internal verification, not an independent accessibility audit, external review, hosted deployment, source-authenticity check, or user-impact result.",
+  "desktop": {
+    "caption": "Each statement retains its evidence label, supporting artifacts and boundary.",
+    "claim_rows": 5,
+    "claims_url_fragment": "#claims",
+    "console_error_count": 0,
+    "content_security_policy_present": true,
+    "details_opened": true,
+    "document_language": "en",
+    "engine_articles": 7,
+    "main_landmarks": 1,
+    "navigation_landmarks": 1,
+    "scoped_table_headers": 10,
+    "script_elements": 0,
+    "skip_link_href": "#main",
+    "title": "ReplayStudio seven-engine deterministic fixture · FinReplay OS"
+  },
+  "evidence_kind": "operator_recorded_local_browser_acceptance",
+  "golden_pack": {
+    "pack_sha256": "e363424d7c92d7c14792430c28597b4beb7f399edfbb0078b4d8ab4bfde2a828",
+    "receipt_sha256": "05d64a575a55e30be55dec35e3e7e1d990deb5a48a9c16af8d1db72d7b740467",
+    "relative_path": "verification/replaypacks/replaystudio-golden"
+  },
+  "limitations": [
+    "The report was served from 127.0.0.1 rather than a public hosted environment.",
+    "The browser session did not expose a browser version string.",
+    "No automated WCAG conformance scanner or assistive-technology user study was performed.",
+    "The maintainer recorded this receipt; it is not independent reproduction or external review."
+  ],
+  "mobile": {
+    "claim_rows": 5,
+    "document_client_width": 390,
+    "document_scroll_width": 390,
+    "engine_articles": 7,
+    "facts_grid_columns": 1,
+    "height": 844,
+    "metrics_grid_columns": 2,
+    "table_container_client_width": 358,
+    "table_container_scroll_width": 900,
+    "width": 390
+  },
+  "receipt_sha256": "a2f130aa967d97bfae21cab9ad2919194736782a28b70389a91e28190ad25c64"
+}

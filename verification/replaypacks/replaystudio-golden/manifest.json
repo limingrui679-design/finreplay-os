@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "This golden pack proves deterministic packaging, traceability, static rendering, and tamper detection over synthetic fixture artifacts only. It does not prove an historical event reconstruction, source authenticity, external review, production deployment, user impact, or realized financial performance.",
+  "files": [
+    {
+      "bytes": 1066,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "a3a7cdc2b7d51475f9b802fa2f59883d660e47293406dd1353a57278c32c53c9"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "a602c88c615bc04aaf39e4f71f2e374c5665d2d4a20ea9ad307af02f8d0a7db7"
+    },
+    {
+      "bytes": 11928,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "478e5f43ac3594160fc444c458dee907b87b16390406c63649bc939ddc2aa3c9"
+    },
+    {
+      "bytes": 11442,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "08bf52bdcf4828aed3e93a7a69fb6dcc3fe5cf2c00883c7920949b1a62645298"
+    }
+  ],
+  "pack_sha256": "e363424d7c92d7c14792430c28597b4beb7f399edfbb0078b4d8ab4bfde2a828",
+  "receipt_sha256": "05d64a575a55e30be55dec35e3e7e1d990deb5a48a9c16af8d1db72d7b740467",
+  "replay_id": "replaystudio-seven-engine-golden",
+  "replay_manifest": {
+    "code_commit": "uncommitted",
+    "compressed_input_bytes": 0,
+    "created_at": "2023-03-08T16:00:00Z",
+    "derived_records": 7,
+    "distinct_input_records": 4,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "8c360a4e36871ba239049f58bcb76ea3a211ce78fcab94d457145563b8839016",
+    "output_manifest_sha256": "6d08efab0700b9203b5db7a7ffd293b0e9c33b05433eddb02504552a829871f3",
+    "replay_id": "replaystudio-seven-engine-golden",
+    "scenario_id": "replaystudio-render-boundary",
+    "scenario_version": "1.0.0",
+    "status": "fixture_validated"
+  },
+  "report_sha256": "08bf52bdcf4828aed3e93a7a69fb6dcc3fe5cf2c00883c7920949b1a62645298",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:1d61844b4593ebe6baf913bb780b94cdc51825d4de764864c7cdf80531c80f0d"
+}

@@ -8,7 +8,7 @@ import typer
 from finreplay import __version__
 from finreplay.adapters import FDICFinancialsAdapter
 from finreplay.adapters.base import SafeHttpClient
-from finreplay.engines import TimeVault
+from finreplay.engines import ReplayPackSpec, ReplayStudio, ReplayStudioError, TimeVault
 from finreplay.storage import ContentAddressedStore, write_live_verification
 
 app = typer.Typer(
@@ -28,6 +28,65 @@ def version() -> None:
     """Print the installed package version."""
 
     typer.echo(__version__)
+
+
+@app.command("build-replaypack")
+def build_replaypack(
+    spec_path: Annotated[
+        Path,
+        typer.Argument(help="ReplayPackSpec JSON input."),
+    ],
+    destination: Annotated[
+        Path,
+        typer.Argument(help="New or byte-identical ReplayPack directory."),
+    ],
+    archive: Annotated[
+        Path | None,
+        typer.Option(help="Optional deterministic .zip output path."),
+    ] = None,
+) -> None:
+    """Build and verify a deterministic human- and machine-readable ReplayPack."""
+
+    try:
+        spec = ReplayPackSpec.model_validate_json(spec_path.expanduser().read_text())
+    except (OSError, ValueError) as error:
+        raise typer.BadParameter(
+            "must be a readable, valid ReplayPackSpec JSON file",
+            param_hint="spec_path",
+        ) from error
+    studio = ReplayStudio()
+    try:
+        result = studio.build(spec, destination)
+        archive_path = studio.archive(result.root, archive) if archive else None
+    except ReplayStudioError as error:
+        typer.echo(f"ReplayPack build failed: {error}", err=True)
+        raise typer.Exit(code=1) from error
+    typer.echo(
+        f"replay_id={result.receipt.replay_id} trace_id={result.receipt.trace_id} "
+        f"idempotent={str(result.idempotent).lower()} root={result.root}"
+    )
+    if archive_path:
+        typer.echo(f"archive={archive_path}")
+
+
+@app.command("verify-replaypack")
+def verify_replaypack(
+    root: Annotated[
+        Path,
+        typer.Argument(help="ReplayPack directory containing manifest.json."),
+    ],
+) -> None:
+    """Verify hashes, structure, semantic invariants, and deterministic rendering."""
+
+    try:
+        receipt = ReplayStudio().verify(root)
+    except ReplayStudioError as error:
+        typer.echo(f"ReplayPack verification failed: {error}", err=True)
+        raise typer.Exit(code=1) from error
+    typer.echo(
+        f"verified=true replay_id={receipt.replay_id} trace_id={receipt.trace_id} "
+        f"pack_sha256={receipt.pack_sha256}"
+    )
 
 
 @app.command("fetch-fdic-financials")

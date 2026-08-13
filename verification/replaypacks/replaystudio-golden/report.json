@@ -1,0 +1,315 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "capitalallocator": 1,
+    "executionlab": 1,
+    "markettwin": 1,
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 2,
+    "inferred": 1,
+    "observed": 1,
+    "reported": 1,
+    "simulated": 2
+  },
+  "input_manifest_sha256": "8c360a4e36871ba239049f58bcb76ea3a211ce78fcab94d457145563b8839016",
+  "pack_sha256": "e363424d7c92d7c14792430c28597b4beb7f399edfbb0078b4d8ab4bfde2a828",
+  "source_hashes": [
+    "1766f44d4a04633e5be23a1828017829e2cb981e5665f2632c87a5313e43534e",
+    "4021b0ad2226239b788939492092bfc4c4f90ec14610960130e93b77a61eb3b7",
+    "90425e5fd47142a75d075e5c30737708bab5196378b299fb7bfe2d9bb110643b",
+    "cb7cae699c95239617fcf71544babeda6488e63bf7fc0e0da4b9d72bcc0a4d3a"
+  ],
+  "source_record_ids": [
+    "fixture:markettwin:edge",
+    "fixture:replaystudio:render-contract",
+    "fixture:timevault:record",
+    "fixture:trialcourt:preregistration"
+  ],
+  "source_set_historical_replay_eligible": false,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "artifact-capitalallocator",
+        "artifact_kind": "golden-fixture-result",
+        "artifact_sha256": "8d546fedfba682bc4b41637ba2bd009bb2534117d5e5cd83809e5b3e47e73fe7",
+        "engine": "capitalallocator",
+        "evidence_counts": {
+          "simulated": 1
+        },
+        "limitations": [
+          "Internal deterministic fixture; not a live engine run or external validation."
+        ],
+        "payload": {
+          "engine": "capitalallocator",
+          "fixture": true,
+          "result": "deterministic-capitalallocator-boundary"
+        },
+        "source_hashes": [],
+        "source_record_ids": [],
+        "source_set_historical_replay_eligible": false,
+        "status": "fixture_validated",
+        "upstream_artifact_ids": [
+          "artifact-executionlab",
+          "artifact-trialcourt"
+        ]
+      },
+      {
+        "artifact_id": "artifact-executionlab",
+        "artifact_kind": "golden-fixture-result",
+        "artifact_sha256": "e9ecaf98a5dbdf6a1662a3cb23fdd0215c46cb629a14ef105ca476bfca7b7c4f",
+        "engine": "executionlab",
+        "evidence_counts": {
+          "simulated": 1
+        },
+        "limitations": [
+          "Internal deterministic fixture; not a live engine run or external validation."
+        ],
+        "payload": {
+          "engine": "executionlab",
+          "fixture": true,
+          "result": "deterministic-executionlab-boundary"
+        },
+        "source_hashes": [],
+        "source_record_ids": [],
+        "source_set_historical_replay_eligible": false,
+        "status": "fixture_validated",
+        "upstream_artifact_ids": [
+          "artifact-shockcompiler"
+        ]
+      },
+      {
+        "artifact_id": "artifact-markettwin",
+        "artifact_kind": "golden-fixture-result",
+        "artifact_sha256": "38a37aba57b5d206490b5f9e94e1abc46c123281572841342137eb8c9252871a",
+        "engine": "markettwin",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Internal deterministic fixture; not a live engine run or external validation."
+        ],
+        "payload": {
+          "engine": "markettwin",
+          "fixture": true,
+          "result": "deterministic-markettwin-boundary"
+        },
+        "source_hashes": [
+          "90425e5fd47142a75d075e5c30737708bab5196378b299fb7bfe2d9bb110643b"
+        ],
+        "source_record_ids": [
+          "fixture:markettwin:edge"
+        ],
+        "source_set_historical_replay_eligible": false,
+        "status": "fixture_validated",
+        "upstream_artifact_ids": [
+          "artifact-timevault"
+        ]
+      },
+      {
+        "artifact_id": "artifact-replaystudio",
+        "artifact_kind": "golden-fixture-result",
+        "artifact_sha256": "c8555f44ac0bfb632785724e4c0a9255d3915ad3e48aec8ab1e58651d006ade6",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Internal deterministic fixture; not a live engine run or external validation."
+        ],
+        "payload": {
+          "engine": "replaystudio",
+          "fixture": true,
+          "result": "deterministic-replaystudio-boundary"
+        },
+        "source_hashes": [
+          "4021b0ad2226239b788939492092bfc4c4f90ec14610960130e93b77a61eb3b7"
+        ],
+        "source_record_ids": [
+          "fixture:replaystudio:render-contract"
+        ],
+        "source_set_historical_replay_eligible": false,
+        "status": "fixture_validated",
+        "upstream_artifact_ids": [
+          "artifact-capitalallocator",
+          "artifact-shockcompiler"
+        ]
+      },
+      {
+        "artifact_id": "artifact-shockcompiler",
+        "artifact_kind": "golden-fixture-result",
+        "artifact_sha256": "f13622e0bdeb94f86ca1bd741ad9ba606d1e4c14492014ce63aacb399fabc3b8",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 1
+        },
+        "limitations": [
+          "Internal deterministic fixture; not a live engine run or external validation."
+        ],
+        "payload": {
+          "engine": "shockcompiler",
+          "fixture": true,
+          "result": "deterministic-shockcompiler-boundary"
+        },
+        "source_hashes": [],
+        "source_record_ids": [],
+        "source_set_historical_replay_eligible": false,
+        "status": "fixture_validated",
+        "upstream_artifact_ids": [
+          "artifact-markettwin",
+          "artifact-trialcourt"
+        ]
+      },
+      {
+        "artifact_id": "artifact-timevault",
+        "artifact_kind": "golden-fixture-result",
+        "artifact_sha256": "e3acc55173f4dea26745689feee4a21e08520dae680bdc1993c5f579bea58657",
+        "engine": "timevault",
+        "evidence_counts": {
+          "observed": 1
+        },
+        "limitations": [
+          "Internal deterministic fixture; not a live engine run or external validation."
+        ],
+        "payload": {
+          "engine": "timevault",
+          "fixture": true,
+          "result": "deterministic-timevault-boundary"
+        },
+        "source_hashes": [
+          "1766f44d4a04633e5be23a1828017829e2cb981e5665f2632c87a5313e43534e"
+        ],
+        "source_record_ids": [
+          "fixture:timevault:record"
+        ],
+        "source_set_historical_replay_eligible": false,
+        "status": "fixture_validated",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "artifact-trialcourt",
+        "artifact_kind": "golden-fixture-result",
+        "artifact_sha256": "528527bd92ae437d5b5fcaa026865f13b0b3d1869e89279a16c86082b814b5c5",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "reported": 1
+        },
+        "limitations": [
+          "Internal deterministic fixture; not a live engine run or external validation."
+        ],
+        "payload": {
+          "engine": "trialcourt",
+          "fixture": true,
+          "result": "deterministic-trialcourt-boundary"
+        },
+        "source_hashes": [
+          "cb7cae699c95239617fcf71544babeda6488e63bf7fc0e0da4b9d72bcc0a4d3a"
+        ],
+        "source_record_ids": [
+          "fixture:trialcourt:preregistration"
+        ],
+        "source_set_historical_replay_eligible": false,
+        "status": "fixture_validated",
+        "upstream_artifact_ids": [
+          "artifact-timevault"
+        ]
+      }
+    ],
+    "claim_boundary": "This golden pack proves deterministic packaging, traceability, static rendering, and tamper detection over synthetic fixture artifacts only. It does not prove an historical event reconstruction, source authenticity, external review, production deployment, user impact, or realized financial performance.",
+    "claims": [
+      {
+        "boundary": "The label describes only the internal fixture relationship represented by this pack.",
+        "claim_id": "claim-extracted",
+        "evidence_class": "extracted",
+        "limitations": [
+          "This is not an empirical claim about a historical financial event."
+        ],
+        "statement": "Fixture graph and render-contract fields were extracted into typed artifacts.",
+        "support_artifact_ids": [
+          "artifact-markettwin"
+        ]
+      },
+      {
+        "boundary": "The label describes only the internal fixture relationship represented by this pack.",
+        "claim_id": "claim-inferred",
+        "evidence_class": "inferred",
+        "limitations": [
+          "This is not an empirical claim about a historical financial event."
+        ],
+        "statement": "The fixture shock program is explicitly labelled as an inferred model output.",
+        "support_artifact_ids": [
+          "artifact-shockcompiler"
+        ]
+      },
+      {
+        "boundary": "The label describes only the internal fixture relationship represented by this pack.",
+        "claim_id": "claim-observed",
+        "evidence_class": "observed",
+        "limitations": [
+          "This is not an empirical claim about a historical financial event."
+        ],
+        "statement": "The TimeVault fixture record was present in the compiled input graph.",
+        "support_artifact_ids": [
+          "artifact-timevault"
+        ]
+      },
+      {
+        "boundary": "The label describes only the internal fixture relationship represented by this pack.",
+        "claim_id": "claim-reported",
+        "evidence_class": "reported",
+        "limitations": [
+          "This is not an empirical claim about a historical financial event."
+        ],
+        "statement": "The fixture preregistration was retained as a reported TrialCourt input.",
+        "support_artifact_ids": [
+          "artifact-trialcourt"
+        ]
+      },
+      {
+        "boundary": "The label describes only the internal fixture relationship represented by this pack.",
+        "claim_id": "claim-simulated",
+        "evidence_class": "simulated",
+        "limitations": [
+          "This is not an empirical claim about a historical financial event."
+        ],
+        "statement": "Execution and allocation values in this golden pack are simulated fixtures.",
+        "support_artifact_ids": [
+          "artifact-executionlab"
+        ]
+      }
+    ],
+    "code_commit": "uncommitted",
+    "compressed_input_bytes": 0,
+    "created_at": "2023-03-08T16:00:00Z",
+    "decision_time": "2023-03-08T15:00:00Z",
+    "derived_records": 7,
+    "distinct_input_records": 4,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "Every engine artifact is a compact internal fixture rather than an engine-run result.",
+      "Fixture source identifiers are not official publisher records.",
+      "A zero elapsed time is a deterministic fixture field, not a speed benchmark."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "replaystudio-seven-engine-golden",
+    "require_all_engines": true,
+    "scenario_id": "replaystudio-render-boundary",
+    "scenario_version": "1.0.0",
+    "status": "fixture_validated",
+    "title": "ReplayStudio seven-engine deterministic fixture"
+  },
+  "topological_artifact_ids": [
+    "artifact-timevault",
+    "artifact-markettwin",
+    "artifact-trialcourt",
+    "artifact-shockcompiler",
+    "artifact-executionlab",
+    "artifact-capitalallocator",
+    "artifact-replaystudio"
+  ],
+  "trace_id": "trace:1d61844b4593ebe6baf913bb780b94cdc51825d4de764864c7cdf80531c80f0d"
+}

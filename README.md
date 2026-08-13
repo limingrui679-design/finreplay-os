@@ -18,7 +18,7 @@ investment performance, institutional adoption, external validation, or real-wor
 
 | Target | Current evidence | Completion rule |
 |---|---|---|
-| Seven connected engines | Six implemented individually; end-to-end connection is not yet proven | All seven execute in an end-to-end ReplayPack with tests |
+| Seven connected engines | Seven implemented individually; the ReplayStudio golden pack uses compact fixtures, so an actual end-to-end engine run is not yet proven | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 16 live-validated: 8 FDIC, 3 SEC, 5 Treasury; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
 | 30 historical/boundary scenarios | Scenario specifications in progress | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
@@ -72,6 +72,17 @@ portable content hashes and bounded evidence receipts are committed under `verif
 The latest one-per-adapter evidence inventory can be rebuilt with
 `python scripts/verify_live_receipts.py`; legacy schema-1.0 receipts remain historical Git evidence
 but are excluded from current adapter counts.
+
+ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
+
+```bash
+finreplay build-replaypack spec.json output/replay --archive output/replay.zip
+finreplay verify-replaypack output/replay
+python scripts/verify_replaystudio_golden.py
+```
+
+The committed golden pack proves packaging and rendering over labelled fixtures only; it is not the
+SVB end-to-end replay and does not count toward the 30 historical scenarios.
 
 ## Research and investment disclaimer
 
