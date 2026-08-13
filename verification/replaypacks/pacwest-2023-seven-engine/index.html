@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self'; img-src 'self' data:;
+                 base-uri 'none'; form-action 'none'">
+  <title>PacWest 2023 pre-disclosure funding boundary replay · FinReplay OS</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to report</a>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">FinReplay OS · evidence-labelled replay</p>
+      <h1>PacWest 2023 pre-disclosure funding boundary replay</h1>
+      <p class="lede">Seven actual engine implementations ran over seven locked SEC filing facts for PacWest Bancorp. Filer-reported values remain reported; ratios, network propagation, and TrialCourt disposition are model-derived; execution and allocation inputs are explicitly simulated. The separate post-decision official event lock is not a ReplayPack input. This is a retrospective boundary replay, not causal failure attribution, a historical trading signal, investment advice, client work, production deployment, or external validation.</p>
+    </div>
+    <div class="identity" aria-label="Replay identity">
+      <span>Replay <code>pacwest-2023-seven-engine-v1</code></span>
+      <span>Trace <code>trace:ea712e982b91244c741174069afa890549ef4182a5c8182965eefb5fec21aab3</code></span>
+    </div>
+  </header>
+  <nav aria-label="Report sections">
+    <a href="#summary">Summary</a><a href="#claims">Claims</a>
+    <a href="#artifacts">Artifacts</a><a href="#limitations">Limitations</a>
+  </nav>
+  <main id="main">
+    <section id="summary" aria-labelledby="summary-title">
+      <h2 id="summary-title">Replay summary</h2>
+      <div class="boundary" role="note" aria-label="Truth boundary">
+        <strong>Truth boundary</strong>
+        <span>Contains simulated inputs. All represented source sets are historical-replay eligible.</span>
+        <span>Historical replay is not live trading;
+        modeled output is not realized performance.</span>
+      </div>
+      <dl class="facts">
+        <div><dt>Scenario</dt><dd>pacwest-2023-funding-boundary
+        v1.0.0</dd></div>
+        <div><dt>Mode</dt><dd>bounded_reconstruction</dd></div>
+        <div><dt>Decision time</dt>
+        <dd>2023-05-03T20:00:00Z</dd></div>
+        <div><dt>Artifact status</dt><dd>reproduced</dd></div>
+        <div><dt>Engines represented</dt><dd>7 / 7</dd></div>
+        <div><dt>Pack hash</dt><dd><code>2d0fcab57a64d709317fd4fe22f296d2a756e4638053a275d057a7af5f7a9599</code></dd></div>
+      </dl>
+      <h3>Evidence inventory</h3>
+      <ul class="metrics" aria-label="Evidence counts"><li class="metric"><span class="metric-value">1</span><span>extracted</span></li><li class="metric"><span class="metric-value">4</span><span>inferred</span></li><li class="metric"><span class="metric-value">16</span><span>reported</span></li><li class="metric"><span class="metric-value">3</span><span>simulated</span></li></ul>
+      <p class="downloads"><a href="report.json">Machine-readable report</a>
+      <a href="checksums.sha256">Portable checksums</a>
+      <a href="README.md">Reproduction notes</a></p>
+    </section>
+    <section id="claims" aria-labelledby="claims-title">
+      <h2 id="claims-title">Claim traceability</h2>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Claim traceability table">
+        <table><caption>Each statement retains its evidence label,
+        supporting artifacts and boundary.</caption>
+          <thead><tr><th scope="col">Claim</th><th scope="col">Statement</th>
+          <th scope="col">Label</th><th scope="col">Support</th>
+          <th scope="col">Boundary</th></tr></thead>
+          <tbody><tr><th scope="row"><code>claim-extracted-seven-engine-pack</code></th><td>The ReplayPack contains one content-addressed artifact from each engine.</td><td><span class="badge evidence-extracted">EXTRACTED</span></td><td><code>pacwest.replaystudio.render</code></td><td>Artifact presence proves integration structure, not economic correctness.</td></tr><tr><th scope="row"><code>claim-inferred-htm-bound</code></th><td>The modeled HTM loss-realization interval is 0 to 0.069879571133, the arithmetic ratio of two reported filing facts.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>pacwest.shockcompiler.htm-bound</code></td><td>The upper endpoint is an accounting-derived bound, not realized loss.</td></tr><tr><th scope="row"><code>claim-inferred-trial-rejection</code></th><td>TrialCourt rejected the retrospective attempt after retaining all attack findings.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>pacwest.trialcourt.retrospective-gate</code></td><td>Rejection is an internal method result, not external strategy review.</td></tr><tr><th scope="row"><code>claim-reported-balance-sheet</code></th><td>The locked PacWest Bancorp SEC filing facts report assets of $41,228,936,000, deposits of $33,936,334,000, HTM value of $2,270,635,000, and HTM unrecognized loss of $158,671,000 at the selected balance date.</td><td><span class="badge evidence-reported">REPORTED</span></td><td><code>pacwest.timevault.query</code></td><td>These are filer-reported XBRL facts, not regulator findings.</td></tr><tr><th scope="row"><code>claim-simulated-decision-boundary</code></th><td>The normalized execution envelope and robust allocation are explicit simulations; the allocator retained the all-cash model solution.</td><td><span class="badge evidence-simulated">SIMULATED</span></td><td><code>pacwest.capitalallocator.robust-boundary</code><br><code>pacwest.executionlab.normalized-envelope</code></td><td>This is neither an executable order nor investment advice.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section id="artifacts" aria-labelledby="artifacts-title">
+      <h2 id="artifacts-title">Engine artifacts</h2><article class="artifact">
+  <header><div><p class="eyebrow">capitalallocator</p>
+  <h3><code>pacwest.capitalallocator.robust-boundary</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1, simulated: 1</p>
+  <p><strong>Artifact hash:</strong> <code>6874204cda19569856c33ca86520aef4bd8aaa4eec970114478123e3e0a852b6</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c</code></li><li><code>sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526</code></li></ul>
+    <h4>Limitations</h4><ul><li>The all-cash result follows declared non-positive return bounds and is not a recommendation.</li><li>Execution capacity and costs are simulated; accounting ratios are inferred from reported facts.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;input_lock_sha256&quot;: &quot;8dda5bac69c4c862019c25d6c749db848cace8f51dd4ebb0fbfcb056a91417ae&quot;,
+  &quot;problem&quot;: {
+    &quot;assets&quot;: [
+      {
+        &quot;asset_id&quot;: &quot;asset:pacwest-bancorp-htm-model-exposure&quot;,
+        &quot;available_at&quot;: &quot;2023-05-03T20:00:00Z&quot;,
+        &quot;capacity_usd&quot;: 28382937.5,
+        &quot;current_weight&quot;: 0.0,
+        &quot;derivation&quot;: &quot;Return lower bound is negative MarketTwin issuer loss; the upper bound is zero; capacity and costs come from the simulated ExecutionLab boundary.&quot;,
+        &quot;evidence_class&quot;: &quot;inferred&quot;,
+        &quot;expected_return_lower&quot;: -0.04016447409221697,
+        &quot;expected_return_upper&quot;: 0.0,
+        &quot;label&quot;: &quot;Synthetic PacWest Bancorp HTM model exposure&quot;,
+        &quot;limitations&quot;: [
+          &quot;This synthetic model exposure is not a listed security, forecast, or recommendation.&quot;
+        ],
+        &quot;max_weight&quot;: 0.00283829375,
+        &quot;min_weight&quot;: 0.0,
+        &quot;source_record_ids&quot;: [
+          &quot;sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c&quot;,
+          &quot;sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526&quot;
+        ],
+        &quot;sources&quot;: [
+          {
+            &quot;license_class&quot;: &quot;redistributable&quot;,
+            &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+            &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;,
+            &quot;sha256&quot;: &quot;eb3a2e7479072aeb36973a3a138943d6f47a398b92459fd083d9d484ff309170&quot;,
+            &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+            &quot;source_version&quot;: &quot;CIK0001102112:eb3a2e7479072aeb3697&quot;,
+            &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+            &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0001102112.json&quot;,
+            &quot;vintage_as_of&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;
+          }
+        ],
+        &quot;transaction_cost_bps&quot;: 351.0000000000002
+      }
+    ],
+    &quot;cash_max_weight&quot;: 1.0,
+    &quot;cash_min_weight&quot;: 0.0,
+    &quot;cash_return&quot;: 0.0,
+    &quot;current_cash_weight&quot;: 1.0,
+    &quot;decision_time&quot;: &quot;2023-05-03T20:00:00Z&quot;,
+    &quot;limitations&quot;: [
+      &quot;Research decision boundary only; no live capital, security, order, or investment advice.&quot;
+    ],
+    &quot;linear_constraints&quot;: [],
+    &quot;loss_aversion&quot;: 1.0,
+    &quot;max_one_way_turnover&quot;: 1.0,
+    &quot;max_worst_case_loss&quot;: null,
+    &quot;problem_id&quot;: &quot;problem:pacwest-bancorp-boundary-allocation&quot;,
+    &quot;risk_scenarios&quot;: [
+      {
+        &quot;available_at&quot;: &quot;2023-05-03T20:00:00Z&quot;,
+        &quot;derivation&quot;: &quot;Scenario loss is the upper endpoint of unrecognized HTM loss divided by reported HTM value.&quot;,
+        &quot;evidence_class&quot;: &quot;inferred&quot;,
+        &quot;limitations&quot;: [
+          &quot;Accounting bound; not a probability-weighted market forecast.&quot;
+        ],
+        &quot;loss_fraction_by_asset&quot;: {
+          &quot;asset:pacwest-bancorp-htm-model-exposure&quot;: 0.06987957113318521
+        },
+        &quot;scenario_id&quot;: &quot;scenario:pacwest-bancorp-htm-upper-bound&quot;,
+        &quot;source_record_ids&quot;: [
+          &quot;sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c&quot;,
+          &quot;sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526&quot;
+        ],
+        &quot;sources&quot;: [
+          {
+            &quot;license_class&quot;: &quot;redistributable&quot;,
+            &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+            &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;,
+            &quot;sha256&quot;: &quot;eb3a2e7479072aeb36973a3a138943d6f47a398b92459fd083d9d484ff309170&quot;,
+            &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+            &quot;source_version&quot;: &quot;CIK0001102112:eb3a2e7479072aeb3697&quot;,
+            &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+            &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0001102112.json&quot;,
+            &quot;vintage_as_of&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;
+          }
+        ]
+      }
+    ],
+    &quot;total_capital_usd&quot;: 10000000000.0,
+    &quot;uncertainty_aversion&quot;: 0.25
+  },
+  &quot;result&quot;: {
+    &quot;binding_constraints&quot;: [
+      &quot;asset:asset:pacwest-bancorp-htm-model-exposure:min&quot;,
+      &quot;budget&quot;,
+      &quot;cash:max&quot;
+    ],
+    &quot;cash_weight&quot;: 1.0,
+    &quot;constraint_slacks&quot;: {
+      &quot;asset:asset:pacwest-bancorp-htm-model-exposure:max&quot;: 0.00283829375,
+      &quot;asset:asset:pacwest-bancorp-htm-model-exposure:min&quot;: 0.0,
+      &quot;budget&quot;: 1e-08,
+      &quot;cash:max&quot;: 0.0,
+      &quot;cash:min&quot;: 1.0,
+      &quot;turnover:max&quot;: 1.0
+    },
+    &quot;expected_return_lower&quot;: 0.0,
+    &quot;expected_return_upper&quot;: 0.0,
+    &quot;infeasibility_reasons&quot;: [],
+    &quot;input_sha256&quot;: &quot;0b3cf31ba87bc4bc17b4797baafdce63125cc865cef428874c62c52ee79348da&quot;,
+    &quot;limitations&quot;: [
+      &quot;Research decision boundary only; no live capital, security, order, or investment advice.&quot;,
+      &quot;The result is a model allocation under declared intervals, scenarios, costs, constraints and capital. It is not an order, realized return, or fiduciary advice.&quot;
+    ],
+    &quot;one_way_turnover&quot;: 0.0,
+    &quot;problem_id&quot;: &quot;problem:pacwest-bancorp-boundary-allocation&quot;,
+    &quot;result_sha256&quot;: &quot;7777a065eb69c6818474c97ed4dc4458aed5a9b46a8c18c80b29004f91838f27&quot;,
+    &quot;robust_utility&quot;: 0.0,
+    &quot;solver_iterations&quot;: 0,
+    &quot;solver_message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;solver_status&quot;: 0,
+    &quot;status&quot;: &quot;optimal&quot;,
+    &quot;transaction_cost_fraction&quot;: 0.0,
+    &quot;uncertainty_penalty&quot;: 0.0,
+    &quot;weights&quot;: {
+      &quot;asset:pacwest-bancorp-htm-model-exposure&quot;: 0.0
+    },
+    &quot;worst_case_loss&quot;: 0.0,
+    &quot;worst_scenario_ids&quot;: [
+      &quot;scenario:pacwest-bancorp-htm-upper-bound&quot;
+    ]
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">executionlab</p>
+  <h3><code>pacwest.executionlab.normalized-envelope</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> simulated: 1</p>
+  <p><strong>Artifact hash:</strong> <code>da14b1be1d288860ca623075841ce6b1f86015c42f3315b6636a8c650cd9093b</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li>None declared</li></ul>
+    <h4>Limitations</h4><ul><li>No historical quote, trade, order-book, venue, or volume evidence is represented.</li><li>The envelope is a normalized simulated boundary, not an executable trade.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;envelope&quot;: {
+    &quot;arrival_at&quot;: &quot;2023-05-03T20:00:01Z&quot;,
+    &quot;assumptions&quot;: {
+      &quot;borrow_bps_annual&quot;: 100.0,
+      &quot;capacity_basis&quot;: &quot;estimated_daily_volume_executable_seconds&quot;,
+      &quot;commission_bps&quot;: 1.0,
+      &quot;fallback_session_fraction&quot;: 0.25,
+      &quot;fallback_trading_session_seconds&quot;: 23400,
+      &quot;half_spread_lower_bps&quot;: 10.0,
+      &quot;half_spread_upper_bps&quot;: 100.0,
+      &quot;impact_lower_bps&quot;: 25.0,
+      &quot;impact_upper_bps&quot;: 250.0,
+      &quot;max_participation_rate&quot;: 0.05,
+      &quot;model_half_spread_bps&quot;: 10.0,
+      &quot;model_market_impact_bps&quot;: 25.0,
+      &quot;observation_overlap_fraction&quot;: 0.9999305507326898,
+      &quot;observation_overlap_seconds&quot;: 14398.0
+    },
+    &quot;capacity_shares&quot;: 28382937.5,
+    &quot;decision_at&quot;: &quot;2023-05-03T20:00:00Z&quot;,
+    &quot;effective_price_lower&quot;: 0.9649,
+    &quot;effective_price_upper&quot;: 0.9989,
+    &quot;envelope_sha256&quot;: &quot;a1c44e74f1bf3b01a24dc574bd41af08841f41d1af64bfcae71dd7d09041e750&quot;,
+    &quot;evaluated_at&quot;: &quot;2023-05-03T23:59:59Z&quot;,
+    &quot;evidence_class&quot;: &quot;simulated&quot;,
+    &quot;expires_at&quot;: &quot;2023-05-03T23:59:59Z&quot;,
+    &quot;fill_quantity_lower&quot;: 0.0,
+    &quot;fill_quantity_upper&quot;: 28382937.5,
+    &quot;instrument_id&quot;: &quot;synthetic:pacwest-bancorp-htm-usd-unit&quot;,
+    &quot;kind&quot;: &quot;market&quot;,
+    &quot;limit_price&quot;: null,
+    &quot;limitations&quot;: [
+      &quot;One synthetic unit equals one reported portfolio-value dollar; it is not a quote.&quot;,
+      &quot;Estimated daily volume equals reported portfolio value solely as a stress normalization.&quot;,
+      &quot;The envelope is simulated from market evidence and assumptions; it is not a broker fill, realized P&amp;L, or proof of executable live capacity.&quot;,
+      &quot;The guaranteed fill lower bound is zero because no broker execution confirmation was supplied; modeled market or queue evidence only bounds possible capacity.&quot;,
+      &quot;Borrow cost is retained as a policy assumption but is not applied to this order because order side alone does not prove a newly opened short position or its holding period.&quot;,
+      &quot;The source set does not establish a point-in-time historical replay: it is latest-only, simulated, or lacks an upstream source receipt.&quot;
+    ],
+    &quot;modeled_capacity_lower_shares&quot;: 0.0,
+    &quot;observation_available_at&quot;: &quot;2023-05-03T20:00:00Z&quot;,
+    &quot;observation_id&quot;: &quot;pacwest:simulated:reference-only&quot;,
+    &quot;observation_interval_end&quot;: &quot;2023-05-03T23:59:59Z&quot;,
+    &quot;observation_interval_start&quot;: &quot;2023-05-03T20:00:00Z&quot;,
+    &quot;order_id&quot;: &quot;pacwest-simulated-htm-liquidation&quot;,
+    &quot;precision&quot;: &quot;reference_only&quot;,
+    &quot;queue_evidence_class&quot;: null,
+    &quot;queue_observation_id&quot;: null,
+    &quot;reference_price&quot;: 1.0,
+    &quot;requested_quantity&quot;: 158671000.0,
+    &quot;side&quot;: &quot;sell&quot;,
+    &quot;slippage_bps_lower&quot;: 10.999999999999899,
+    &quot;slippage_bps_upper&quot;: 351.0000000000002,
+    &quot;source_hashes&quot;: [],
+    &quot;source_record_ids&quot;: [],
+    &quot;source_set_historical_replay_eligible&quot;: false,
+    &quot;status&quot;: &quot;bounded&quot;,
+    &quot;total_cost_usd_lower&quot;: 0.0,
+    &quot;total_cost_usd_upper&quot;: 996241.1062500005
+  },
+  &quot;input_lock_sha256&quot;: &quot;8dda5bac69c4c862019c25d6c749db848cace8f51dd4ebb0fbfcb056a91417ae&quot;,
+  &quot;observation&quot;: {
+    &quot;ask&quot;: null,
+    &quot;ask_depth&quot;: null,
+    &quot;available_at&quot;: &quot;2023-05-03T20:00:00Z&quot;,
+    &quot;bar_volume&quot;: null,
+    &quot;bid&quot;: null,
+    &quot;bid_depth&quot;: null,
+    &quot;close_price&quot;: null,
+    &quot;estimated_daily_volume&quot;: 2270635000.0,
+    &quot;evidence_class&quot;: &quot;simulated&quot;,
+    &quot;high_price&quot;: null,
+    &quot;instrument_id&quot;: &quot;synthetic:pacwest-bancorp-htm-usd-unit&quot;,
+    &quot;interval_end&quot;: &quot;2023-05-03T23:59:59Z&quot;,
+    &quot;interval_start&quot;: &quot;2023-05-03T20:00:00Z&quot;,
+    &quot;limitations&quot;: [
+      &quot;One synthetic unit equals one reported portfolio-value dollar; it is not a quote.&quot;,
+      &quot;Estimated daily volume equals reported portfolio value solely as a stress normalization.&quot;
+    ],
+    &quot;low_price&quot;: null,
+    &quot;observation_id&quot;: &quot;pacwest:simulated:reference-only&quot;,
+    &quot;open_price&quot;: null,
+    &quot;precision&quot;: &quot;reference_only&quot;,
+    &quot;recent_volume&quot;: null,
+    &quot;reference_price&quot;: 1.0,
+    &quot;source_record_ids&quot;: [],
+    &quot;sources&quot;: []
+  },
+  &quot;order&quot;: {
+    &quot;decision_at&quot;: &quot;2023-05-03T20:00:00Z&quot;,
+    &quot;instrument_id&quot;: &quot;synthetic:pacwest-bancorp-htm-usd-unit&quot;,
+    &quot;kind&quot;: &quot;market&quot;,
+    &quot;latency_ms&quot;: 1000,
+    &quot;limit_price&quot;: null,
+    &quot;order_id&quot;: &quot;pacwest-simulated-htm-liquidation&quot;,
+    &quot;quantity&quot;: 158671000.0,
+    &quot;side&quot;: &quot;sell&quot;,
+    &quot;time_in_force_ms&quot;: 14398000
+  },
+  &quot;policy&quot;: {
+    &quot;cost_model&quot;: {
+      &quot;borrow_bps_annual&quot;: 100.0,
+      &quot;commission_bps&quot;: 1.0,
+      &quot;half_spread_bps&quot;: 10.0,
+      &quot;market_impact_bps&quot;: 25.0,
+      &quot;max_participation_rate&quot;: 0.05
+    },
+    &quot;fallback_daily_capacity_fraction&quot;: 0.25,
+    &quot;fallback_half_spread_upper_bps&quot;: 100.0,
+    &quot;fallback_impact_upper_bps&quot;: 250.0,
+    &quot;fallback_trading_session_seconds&quot;: 23400,
+    &quot;impact_lower_multiplier&quot;: 0.5,
+    &quot;impact_upper_multiplier&quot;: 2.0
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">markettwin</p>
+  <h3><code>pacwest.markettwin.loss-envelope</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1, reported: 5</p>
+  <p><strong>Artifact hash:</strong> <code>84032e2464a05357fdeacb53147cc4ed4c50ca4c1a74b9999113b72b248e4696</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c</code></li><li><code>sec.xbrl.companyfacts:0001102112:2e9721a11ba5e0c48c8237744307f5278513ae6bc8825ae1bcae2b851795fba1</code></li><li><code>sec.xbrl.companyfacts:0001102112:7f70c740b3e2336ce09748f6a71bd053326baaf62b598495200bc0d961b328e3</code></li><li><code>sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526</code></li><li><code>sec.xbrl.companyfacts:0001102112:c7f3595b949d14d34eda6ddf2488c05e1f7e807dde861e7c1e64af069ee6c5f0</code></li><li><code>sec.xbrl.companyfacts:0001102112:de093d552dff32087ec7293ef975439e44127c18bdfb5a50f1c701d8b623c875</code></li><li><code>sec.xbrl.companyfacts:0001102112:f9414f31a7691fab06d27d7c38d755e46e91d2205c2dfdf48b29d1d26863809e</code></li></ul>
+    <h4>Limitations</h4><ul><li>The three-node graph includes only relationships represented by the locked facts.</li><li>Loss propagation is a mechanical bounded channel, not causal failure attribution.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;append_receipt&quot;: {
+    &quot;attempted_edges&quot;: 2,
+    &quot;attempted_nodes&quot;: 3,
+    &quot;inserted_edges&quot;: 2,
+    &quot;inserted_nodes&quot;: 3
+  },
+  &quot;contagion&quot;: {
+    &quot;converged&quot;: true,
+    &quot;initial_shocks&quot;: {
+      &quot;security:pacwest-bancorp-htm-portfolio&quot;: 0.06987957113318521
+    },
+    &quot;limitations&quot;: [
+      &quot;Exposure bounds are propagated through a monotone linear loss channel capped at total node loss; this is a stress envelope, not a causal forecast.&quot;,
+      &quot;Behavioral responses, fire-sale price formation, netting, collateral and policy interventions require separately evidenced scenario modules.&quot;
+    ],
+    &quot;lower_loss_fraction&quot;: {
+      &quot;issuer:pacwest-bancorp&quot;: 0.04016447409221697,
+      &quot;security:pacwest-bancorp-afs-portfolio&quot;: 0.0,
+      &quot;security:pacwest-bancorp-htm-portfolio&quot;: 0.06987957113318521
+    },
+    &quot;rounds&quot;: 2,
+    &quot;snapshot_sha256&quot;: &quot;df7bab6e6174349c7b5f88ff9fd018a9619f8e8ee599814d0cf511a52a530c2a&quot;,
+    &quot;tolerance&quot;: 1e-10,
+    &quot;upper_loss_fraction&quot;: {
+      &quot;issuer:pacwest-bancorp&quot;: 0.04016447409221697,
+      &quot;security:pacwest-bancorp-afs-portfolio&quot;: 0.0,
+      &quot;security:pacwest-bancorp-htm-portfolio&quot;: 0.06987957113318521
+    }
+  },
+  &quot;input_lock_sha256&quot;: &quot;8dda5bac69c4c862019c25d6c749db848cace8f51dd4ebb0fbfcb056a91417ae&quot;,
+  &quot;manifest&quot;: {
+    &quot;distinct_edges&quot;: 2,
+    &quot;distinct_nodes&quot;: 3,
+    &quot;edge_versions&quot;: 2,
+    &quot;node_versions&quot;: 3,
+    &quot;object_set_sha256&quot;: &quot;cb9f8be73dbebbea664b2f40cfd7ad22247c4c8512e77ea4f09bdce8ef82c93d&quot;
+  },
+  &quot;snapshot&quot;: {
+    &quot;decision_time&quot;: &quot;2023-05-03T20:00:00Z&quot;,
+    &quot;edges&quot;: [
+      {
+        &quot;attributes&quot;: {},
+        &quot;confidence&quot;: 1.0,
+        &quot;edge_id&quot;: &quot;pacwest-bancorp-issuer-holds-afs&quot;,
+        &quot;evidence_class&quot;: &quot;reported&quot;,
+        &quot;exposure_lower_usd&quot;: 4843487000.0,
+        &quot;exposure_upper_usd&quot;: 4843487000.0,
+        &quot;relation&quot;: &quot;reported portfolio exposure&quot;,
+        &quot;source&quot;: {
+          &quot;license_class&quot;: &quot;redistributable&quot;,
+          &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+          &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+          &quot;retrieved_at&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;,
+          &quot;sha256&quot;: &quot;eb3a2e7479072aeb36973a3a138943d6f47a398b92459fd083d9d484ff309170&quot;,
+          &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+          &quot;source_version&quot;: &quot;CIK0001102112:eb3a2e7479072aeb3697&quot;,
+          &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+          &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0001102112.json&quot;,
+          &quot;vintage_as_of&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;
+        },
+        &quot;source_node&quot;: &quot;security:pacwest-bancorp-afs-portfolio&quot;,
+        &quot;target_node&quot;: &quot;issuer:pacwest-bancorp&quot;,
+        &quot;temporal&quot;: {
+          &quot;available_at&quot;: &quot;2023-02-27T16:36:42Z&quot;,
+          &quot;valid_from&quot;: &quot;2022-12-31T00:00:00Z&quot;,
+          &quot;valid_to&quot;: null
+        }
+      },
+      {
+        &quot;attributes&quot;: {},
+        &quot;confidence&quot;: 1.0,
+        &quot;edge_id&quot;: &quot;pacwest-bancorp-issuer-holds-htm&quot;,
+        &quot;evidence_class&quot;: &quot;reported&quot;,
+        &quot;exposure_lower_usd&quot;: 2270635000.0,
+        &quot;exposure_upper_usd&quot;: 2270635000.0,
+        &quot;relation&quot;: &quot;reported portfolio exposure&quot;,
+        &quot;source&quot;: {
+          &quot;license_class&quot;: &quot;redistributable&quot;,
+          &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+          &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+          &quot;retrieved_at&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;,
+          &quot;sha256&quot;: &quot;eb3a2e7479072aeb36973a3a138943d6f47a398b92459fd083d9d484ff309170&quot;,
+          &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+          &quot;source_version&quot;: &quot;CIK0001102112:eb3a2e7479072aeb3697&quot;,
+          &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+          &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0001102112.json&quot;,
+          &quot;vintage_as_of&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;
+        },
+        &quot;source_node&quot;: &quot;security:pacwest-bancorp-htm-portfolio&quot;,
+        &quot;target_node&quot;: &quot;issuer:pacwest-bancorp&quot;,
+        &quot;temporal&quot;: {
+          &quot;available_at&quot;: &quot;2023-02-27T16:36:42Z&quot;,
+          &quot;valid_from&quot;: &quot;2022-12-31T00:00:00Z&quot;,
+          &quot;valid_to&quot;: null
+        }
+      }
+    ],
+    &quot;excluded_latest_only_edges&quot;: 0,
+    &quot;excluded_latest_only_nodes&quot;: 0,
+    &quot;graph_sha256&quot;: &quot;df7bab6e6174349c7b5f88ff9fd018a9619f8e8ee599814d0cf511a52a530c2a&quot;,
+    &quot;nodes&quot;: [
+      {
+        &quot;attributes&quot;: {
+          &quot;assets_usd&quot;: 41228936000,
+          &quot;deposits_usd&quot;: 33936334000,
+          &quot;sec_accession&quot;: &quot;0001628280-23-005257&quot;
+        },
+        &quot;evidence_class&quot;: &quot;reported&quot;,
+        &quot;kind&quot;: &quot;issuer&quot;,
+        &quot;label&quot;: &quot;PacWest Bancorp&quot;,
+        &quot;loss_absorption_usd&quot;: 3950531000.0,
+        &quot;node_id&quot;: &quot;issuer:pacwest-bancorp&quot;,
+        &quot;source&quot;: {
+          &quot;license_class&quot;: &quot;redistributable&quot;,
+          &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+          &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+          &quot;retrieved_at&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;,
+          &quot;sha256&quot;: &quot;eb3a2e7479072aeb36973a3a138943d6f47a398b92459fd083d9d484ff309170&quot;,
+          &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+          &quot;source_version&quot;: &quot;CIK0001102112:eb3a2e7479072aeb3697&quot;,
+          &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+          &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0001102112.json&quot;,
+          &quot;vintage_as_of&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;
+        },
+        &quot;temporal&quot;: {
+          &quot;available_at&quot;: &quot;2023-02-27T16:36:42Z&quot;,
+          &quot;valid_from&quot;: &quot;2022-12-31T00:00:00Z&quot;,
+          &quot;valid_to&quot;: null
+        }
+      },
+      {
+        &quot;attributes&quot;: {
+          &quot;gross_unrealized_loss_usd&quot;: 811136000,
+          &quot;reported_value_usd&quot;: 4843487000
+        },
+        &quot;evidence_class&quot;: &quot;reported&quot;,
+        &quot;kind&quot;: &quot;security&quot;,
+        &quot;label&quot;: &quot;PacWest Bancorp available-for-sale securities portfolio&quot;,
+        &quot;loss_absorption_usd&quot;: 4843487000.0,
+        &quot;node_id&quot;: &quot;security:pacwest-bancorp-afs-portfolio&quot;,
+        &quot;source&quot;: {
+          &quot;license_class&quot;: &quot;redistributable&quot;,
+          &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+          &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+          &quot;retrieved_at&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;,
+          &quot;sha256&quot;: &quot;eb3a2e7479072aeb36973a3a138943d6f47a398b92459fd083d9d484ff309170&quot;,
+          &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+          &quot;source_version&quot;: &quot;CIK0001102112:eb3a2e7479072aeb3697&quot;,
+          &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+          &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0001102112.json&quot;,
+          &quot;vintage_as_of&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;
+        },
+        &quot;temporal&quot;: {
+          &quot;available_at&quot;: &quot;2023-02-27T16:36:42Z&quot;,
+          &quot;valid_from&quot;: &quot;2022-12-31T00:00:00Z&quot;,
+          &quot;valid_to&quot;: null
+        }
+      },
+      {
+        &quot;attributes&quot;: {
+          &quot;carrying_value_usd&quot;: 2270635000,
+          &quot;unrecognized_loss_usd&quot;: 158671000
+        },
+        &quot;evidence_class&quot;: &quot;reported&quot;,
+        &quot;kind&quot;: &quot;security&quot;,
+        &quot;label&quot;: &quot;PacWest Bancorp held-to-maturity securities portfolio&quot;,
+        &quot;loss_absorption_usd&quot;: 2270635000.0,
+        &quot;node_id&quot;: &quot;security:pacwest-bancorp-htm-portfolio&quot;,
+        &quot;source&quot;: {
+          &quot;license_class&quot;: &quot;redistributable&quot;,
+          &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+          &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+          &quot;retrieved_at&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;,
+          &quot;sha256&quot;: &quot;eb3a2e7479072aeb36973a3a138943d6f47a398b92459fd083d9d484ff309170&quot;,
+          &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+          &quot;source_version&quot;: &quot;CIK0001102112:eb3a2e7479072aeb3697&quot;,
+          &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+          &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0001102112.json&quot;,
+          &quot;vintage_as_of&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;
+        },
+        &quot;temporal&quot;: {
+          &quot;available_at&quot;: &quot;2023-02-27T16:36:42Z&quot;,
+          &quot;valid_from&quot;: &quot;2022-12-31T00:00:00Z&quot;,
+          &quot;valid_to&quot;: null
+        }
+      }
+    ],
+    &quot;valid_at&quot;: &quot;2022-12-31T00:00:00Z&quot;
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">replaystudio</p>
+  <h3><code>pacwest.replaystudio.render</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> extracted: 1</p>
+  <p><strong>Artifact hash:</strong> <code>74ca68c5c250bb768a13951730aaa321ed2011d3c7980fbfdd691ceb89b6f8ad</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c</code></li><li><code>sec.xbrl.companyfacts:0001102112:2e9721a11ba5e0c48c8237744307f5278513ae6bc8825ae1bcae2b851795fba1</code></li><li><code>sec.xbrl.companyfacts:0001102112:7f70c740b3e2336ce09748f6a71bd053326baaf62b598495200bc0d961b328e3</code></li><li><code>sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526</code></li><li><code>sec.xbrl.companyfacts:0001102112:c7f3595b949d14d34eda6ddf2488c05e1f7e807dde861e7c1e64af069ee6c5f0</code></li><li><code>sec.xbrl.companyfacts:0001102112:de093d552dff32087ec7293ef975439e44127c18bdfb5a50f1c701d8b623c875</code></li><li><code>sec.xbrl.companyfacts:0001102112:f9414f31a7691fab06d27d7c38d755e46e91d2205c2dfdf48b29d1d26863809e</code></li></ul>
+    <h4>Limitations</h4><ul><li>Static report generation does not independently validate upstream economic methods.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;input_lock_sha256&quot;: &quot;8dda5bac69c4c862019c25d6c749db848cace8f51dd4ebb0fbfcb056a91417ae&quot;,
+  &quot;market_snapshot_sha256&quot;: &quot;df7bab6e6174349c7b5f88ff9fd018a9619f8e8ee599814d0cf511a52a530c2a&quot;,
+  &quot;portable_file_count_excluding_manifest&quot;: 5,
+  &quot;renderer&quot;: &quot;ReplayStudio&quot;,
+  &quot;truth_labels_visible&quot;: true
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">shockcompiler</p>
+  <h3><code>pacwest.shockcompiler.htm-bound</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1</p>
+  <p><strong>Artifact hash:</strong> <code>85e889e494cb464cdc0b5f4df8258dc8c134b49f4651dfbf2d23dd3046c7b5a4</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c</code></li><li><code>sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526</code></li></ul>
+    <h4>Limitations</h4><ul><li>The upper endpoint is an inferred accounting bound, not an observed realized loss.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;applied_upper&quot;: {
+    &quot;security:pacwest-bancorp-htm-portfolio|loss_fraction&quot;: 0.06987957113318521
+  },
+  &quot;compiled&quot;: {
+    &quot;compiled_sha256&quot;: &quot;ca0cf62995717ccb5ab948829be4acf2ccb1b950ac1e769649cac0407d22f727&quot;,
+    &quot;decision_time&quot;: &quot;2023-05-03T20:00:00Z&quot;,
+    &quot;limitations&quot;: [
+      &quot;This shock program supplies a model input and does not forecast an outcome.&quot;
+    ],
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;program_id&quot;: &quot;pacwest-bounded-htm-realization&quot;,
+    &quot;scenario_id&quot;: &quot;pacwest-2023-funding-boundary&quot;,
+    &quot;source_program_sha256&quot;: &quot;30839a447bcb09203382fd79e8d3c439327ba4e21e023e05289ec61c7eb043e9&quot;,
+    &quot;trials&quot;: [
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Bounds realization between zero and filer-reported unrecognized HTM loss divided by filer-reported HTM value.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;The bound omits liquidation timing, hedges, tax effects, funding support, and prices.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;pacwest-bounded-htm-loss-realization&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;eb3a2e7479072aeb36973a3a138943d6f47a398b92459fd083d9d484ff309170&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c&quot;,
+              &quot;sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526&quot;
+            ],
+            &quot;target_id&quot;: &quot;security:pacwest-bancorp-htm-portfolio&quot;,
+            &quot;unit&quot;: &quot;fraction&quot;,
+            &quot;value&quot;: 0.0,
+            &quot;variable&quot;: &quot;loss_fraction&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;pacwest-bounded-htm-realization:00000000:51e2b9d360cba444&quot;,
+        &quot;trial_index&quot;: 0,
+        &quot;vector_sha256&quot;: &quot;51e2b9d360cba444a60e1d1c27fed5fd767619a10e8a204b8c9b40787e93858c&quot;
+      },
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Bounds realization between zero and filer-reported unrecognized HTM loss divided by filer-reported HTM value.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;The bound omits liquidation timing, hedges, tax effects, funding support, and prices.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;pacwest-bounded-htm-loss-realization&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;eb3a2e7479072aeb36973a3a138943d6f47a398b92459fd083d9d484ff309170&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c&quot;,
+              &quot;sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526&quot;
+            ],
+            &quot;target_id&quot;: &quot;security:pacwest-bancorp-htm-portfolio&quot;,
+            &quot;unit&quot;: &quot;fraction&quot;,
+            &quot;value&quot;: 0.06987957113318521,
+            &quot;variable&quot;: &quot;loss_fraction&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;pacwest-bounded-htm-realization:00000001:b9634c135f9ec24b&quot;,
+        &quot;trial_index&quot;: 1,
+        &quot;vector_sha256&quot;: &quot;b9634c135f9ec24b6dcab86408640c15daa446b744e5b25621647915f6982293&quot;
+      }
+    ]
+  },
+  &quot;input_lock_sha256&quot;: &quot;8dda5bac69c4c862019c25d6c749db848cace8f51dd4ebb0fbfcb056a91417ae&quot;,
+  &quot;program&quot;: {
+    &quot;decision_time&quot;: &quot;2023-05-03T20:00:00Z&quot;,
+    &quot;global_limitations&quot;: [
+      &quot;This shock program supplies a model input and does not forecast an outcome.&quot;
+    ],
+    &quot;hypothesis&quot;: &quot;Evaluate both endpoints of a loss-realization interval without assigning an unsupported midpoint or probability.&quot;,
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;parameters&quot;: [
+      {
+        &quot;derivation&quot;: &quot;Bounds realization between zero and filer-reported unrecognized HTM loss divided by filer-reported HTM value.&quot;,
+        &quot;evidence_class&quot;: &quot;inferred&quot;,
+        &quot;grid_points&quot;: 2,
+        &quot;limitations&quot;: [
+          &quot;The bound omits liquidation timing, hedges, tax effects, funding support, and prices.&quot;
+        ],
+        &quot;lower&quot;: 0.0,
+        &quot;operation&quot;: &quot;set&quot;,
+        &quot;parameter_id&quot;: &quot;pacwest-bounded-htm-loss-realization&quot;,
+        &quot;source_record_ids&quot;: [
+          &quot;sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c&quot;,
+          &quot;sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526&quot;
+        ],
+        &quot;sources&quot;: [
+          {
+            &quot;license_class&quot;: &quot;redistributable&quot;,
+            &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+            &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;,
+            &quot;sha256&quot;: &quot;eb3a2e7479072aeb36973a3a138943d6f47a398b92459fd083d9d484ff309170&quot;,
+            &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+            &quot;source_version&quot;: &quot;CIK0001102112:eb3a2e7479072aeb3697&quot;,
+            &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+            &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0001102112.json&quot;,
+            &quot;vintage_as_of&quot;: &quot;2026-08-13T03:08:11.387202Z&quot;
+          }
+        ],
+        &quot;target_id&quot;: &quot;security:pacwest-bancorp-htm-portfolio&quot;,
+        &quot;unit&quot;: &quot;fraction&quot;,
+        &quot;upper&quot;: 0.06987957113318521,
+        &quot;variable&quot;: &quot;loss_fraction&quot;
+      }
+    ],
+    &quot;program_id&quot;: &quot;pacwest-bounded-htm-realization&quot;,
+    &quot;scenario_id&quot;: &quot;pacwest-2023-funding-boundary&quot;
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">timevault</p>
+  <h3><code>pacwest.timevault.query</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> reported: 7</p>
+  <p><strong>Artifact hash:</strong> <code>8ae87ac4eb4e9824ea0a626d9dbe3a2674c1ae48f3a3c2dceb922f3032255e20</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c</code></li><li><code>sec.xbrl.companyfacts:0001102112:2e9721a11ba5e0c48c8237744307f5278513ae6bc8825ae1bcae2b851795fba1</code></li><li><code>sec.xbrl.companyfacts:0001102112:7f70c740b3e2336ce09748f6a71bd053326baaf62b598495200bc0d961b328e3</code></li><li><code>sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526</code></li><li><code>sec.xbrl.companyfacts:0001102112:c7f3595b949d14d34eda6ddf2488c05e1f7e807dde861e7c1e64af069ee6c5f0</code></li><li><code>sec.xbrl.companyfacts:0001102112:de093d552dff32087ec7293ef975439e44127c18bdfb5a50f1c701d8b623c875</code></li><li><code>sec.xbrl.companyfacts:0001102112:f9414f31a7691fab06d27d7c38d755e46e91d2205c2dfdf48b29d1d26863809e</code></li></ul>
+    <h4>Limitations</h4><ul><li>The input lock contains seven selected filing facts, not the complete SEC response.</li><li>Historical eligibility follows exact EDGAR acceptance time and immutable accession facts.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;append&quot;: {
+    &quot;artifact_ids&quot;: [
+      &quot;ee352470a9b3df26f2137e07b051a46dd7daf35124c0f676d77ff07c9318b344&quot;
+    ],
+    &quot;attempted_records&quot;: 7,
+    &quot;fact_hashes&quot;: [
+      &quot;46a281bf8fec5903b41a34b031ac5f0cd64c463103bbdbcae45f1f86f69bd0b9&quot;,
+      &quot;9409bb5d5a9839cbb21236fc5fcfc117cc2e96fc0dd1e84780bcb1db163bafb5&quot;,
+      &quot;f0d0f9cee956b2948201fe43bf62349d7051fe0140b3d935d02f94ca481a983d&quot;,
+      &quot;13b8a37be36d5f36ba5dbdacf69e9428b27beec8708a732eb13b4e14cacffb05&quot;,
+      &quot;7af4dbc3acfe7cfea99dfd11466d529fc7fcc795b03a431f61f634b372b582c3&quot;,
+      &quot;c45a65595864918ab79d79e5852793cbfe6d6a16543409641c148387f65dfca2&quot;,
+      &quot;6742df4c69dfb5da12e6ab0958efe42bf98b0b2932297b4e4492ea9f23a83e8b&quot;
+    ],
+    &quot;idempotent_records&quot;: 0,
+    &quot;inserted_records&quot;: 7
+  },
+  &quot;decision_time&quot;: &quot;2023-05-03T20:00:00Z&quot;,
+  &quot;input_lock_sha256&quot;: &quot;8dda5bac69c4c862019c25d6c749db848cace8f51dd4ebb0fbfcb056a91417ae&quot;,
+  &quot;manifest&quot;: {
+    &quot;database_bytes&quot;: 0,
+    &quot;distinct_records&quot;: 7,
+    &quot;fact_set_sha256&quot;: &quot;bd78a5c378378b2973960f029d28711016e0b7f22f86877e369728674f87a945&quot;,
+    &quot;fact_versions&quot;: 7,
+    &quot;generated_at&quot;: &quot;2026-08-13T05:00:00Z&quot;,
+    &quot;retrieval_receipts&quot;: 1,
+    &quot;source_artifacts&quot;: 1
+  },
+  &quot;max_available_at&quot;: &quot;2023-02-27T16:36:42Z&quot;,
+  &quot;selected_record_ids&quot;: [
+    &quot;sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c&quot;,
+    &quot;sec.xbrl.companyfacts:0001102112:2e9721a11ba5e0c48c8237744307f5278513ae6bc8825ae1bcae2b851795fba1&quot;,
+    &quot;sec.xbrl.companyfacts:0001102112:7f70c740b3e2336ce09748f6a71bd053326baaf62b598495200bc0d961b328e3&quot;,
+    &quot;sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526&quot;,
+    &quot;sec.xbrl.companyfacts:0001102112:c7f3595b949d14d34eda6ddf2488c05e1f7e807dde861e7c1e64af069ee6c5f0&quot;,
+    &quot;sec.xbrl.companyfacts:0001102112:de093d552dff32087ec7293ef975439e44127c18bdfb5a50f1c701d8b623c875&quot;,
+    &quot;sec.xbrl.companyfacts:0001102112:f9414f31a7691fab06d27d7c38d755e46e91d2205c2dfdf48b29d1d26863809e&quot;
+  ],
+  &quot;valid_at&quot;: &quot;2022-12-31T00:00:00Z&quot;
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">trialcourt</p>
+  <h3><code>pacwest.trialcourt.retrospective-gate</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1, reported: 4, simulated: 1</p>
+  <p><strong>Artifact hash:</strong> <code>5bb0ae09207b59bebe5130202a019eb9e0ea70bd7dafa52ddd2a8fd9f724c28a</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c</code></li><li><code>sec.xbrl.companyfacts:0001102112:2e9721a11ba5e0c48c8237744307f5278513ae6bc8825ae1bcae2b851795fba1</code></li><li><code>sec.xbrl.companyfacts:0001102112:7f70c740b3e2336ce09748f6a71bd053326baaf62b598495200bc0d961b328e3</code></li><li><code>sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526</code></li><li><code>sec.xbrl.companyfacts:0001102112:c7f3595b949d14d34eda6ddf2488c05e1f7e807dde861e7c1e64af069ee6c5f0</code></li><li><code>sec.xbrl.companyfacts:0001102112:de093d552dff32087ec7293ef975439e44127c18bdfb5a50f1c701d8b623c875</code></li><li><code>sec.xbrl.companyfacts:0001102112:f9414f31a7691fab06d27d7c38d755e46e91d2205c2dfdf48b29d1d26863809e</code></li></ul>
+    <h4>Limitations</h4><ul><li>The rejected attempt is a retrospective method boundary, not a validated strategy.</li><li>P-value and operational sentinel fields deliberately carry no performance claim.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;attempt&quot;: {
+    &quot;attempt_id&quot;: &quot;pacwest-retrospective-attempt-1&quot;,
+    &quot;attempt_number&quot;: 1,
+    &quot;code_commit&quot;: &quot;01d638f255119b91070499c5b60836f232c89241&quot;,
+    &quot;completed_at&quot;: &quot;2026-08-13T05:00:00Z&quot;,
+    &quot;config_sha256&quot;: &quot;4ce3edfbdacd648dca7e59e628cc269554c45da87a506968fa9043c2927150c3&quot;,
+    &quot;decision_time&quot;: &quot;2023-05-03T20:00:00Z&quot;,
+    &quot;evaluation_end&quot;: &quot;2023-05-08&quot;,
+    &quot;evaluation_start&quot;: &quot;2023-05-04&quot;,
+    &quot;gross_return_bps&quot;: 0.0,
+    &quot;input_manifest_sha256&quot;: &quot;8dda5bac69c4c862019c25d6c749db848cace8f51dd4ebb0fbfcb056a91417ae&quot;,
+    &quot;max_input_available_at&quot;: &quot;2023-02-27T16:36:42Z&quot;,
+    &quot;median_daily_volume_usd&quot;: 1.0,
+    &quot;metric_value&quot;: -0.09758985740043116,
+    &quot;next_training_start&quot;: null,
+    &quot;notes&quot;: [
+      &quot;Retrospective boundary attempt; p=1 records that no inferential test was performed.&quot;,
+      &quot;One-dollar operational fields are non-trading schema sentinels, not capacity evidence.&quot;
+    ],
+    &quot;one_way_turnover&quot;: 0.0,
+    &quot;output_manifest_sha256&quot;: &quot;bf3b1ebfe796fd5b80a9d111582799d1742a8def08824fa13dc1885bdef90205&quot;,
+    &quot;p_value&quot;: 1.0,
+    &quot;regime_metric_values&quot;: {
+      &quot;single-balance-sheet-slice&quot;: -0.09758985740043116
+    },
+    &quot;requested_capital_usd&quot;: 1.0,
+    &quot;sample_size&quot;: 2,
+    &quot;short_fraction&quot;: 0.0,
+    &quot;training_end&quot;: &quot;2022-12-31&quot;,
+    &quot;trial_id&quot;: &quot;pacwest-retrospective-screen&quot;
+  },
+  &quot;attempt_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;8a1c7227b1e9de7dec66e9d75ae1414793ba07264839094ebaa00554b6c4094f&quot;,
+    &quot;entry_hash&quot;: &quot;8a1c7227b1e9de7dec66e9d75ae1414793ba07264839094ebaa00554b6c4094f&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 2
+  },
+  &quot;decision&quot;: {
+    &quot;adjusted_p_values&quot;: {
+      &quot;pacwest-retrospective-attempt-1&quot;: 1.0
+    },
+    &quot;attempt_ids&quot;: [
+      &quot;pacwest-retrospective-attempt-1&quot;
+    ],
+    &quot;attempt_set_sha256&quot;: &quot;d00b4a8a587564ed9c04d0334ebaab4e5b2f5d36b4383bbaf1e348a0dd408c03&quot;,
+    &quot;candidate_attempt_id&quot;: &quot;pacwest-retrospective-attempt-1&quot;,
+    &quot;decided_at&quot;: &quot;2026-08-13T05:00:00Z&quot;,
+    &quot;decision_id&quot;: &quot;decision:pacwest-retrospective-screen:aee9a34caa3390d28c0ab7f9&quot;,
+    &quot;disposition&quot;: &quot;reject&quot;,
+    &quot;findings&quot;: [
+      {
+        &quot;kind&quot;: &quot;preregistration&quot;,
+        &quot;metrics&quot;: {
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;registered_before_holdout&quot;: false
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Registration was retrospective or the observed attempt family exceeded the preregistered declaration.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;leakage&quot;,
+        &quot;metrics&quot;: {
+          &quot;embargo_respected&quot;: true,
+          &quot;evaluation_inside_holdout&quot;: true,
+          &quot;input_available_by_decision&quot;: true,
+          &quot;training_respects_purge&quot;: true
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Point-in-time input, purge, holdout and embargo checks passed.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;multiplicity&quot;,
+        &quot;metrics&quot;: {
+          &quot;adjusted_p_value&quot;: 1.0,
+          &quot;alpha&quot;: 0.05,
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;raw_p_value&quot;: 1.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Candidate does not survive family-wise Holm adjustment.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;regime&quot;,
+        &quot;metrics&quot;: {
+          &quot;regime_count&quot;: 1
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;At least two named regime slices are required.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;execution&quot;,
+        &quot;metrics&quot;: {
+          &quot;borrow_cost_bps&quot;: 0.0,
+          &quot;gross_return_bps&quot;: 0.0,
+          &quot;immediate_cost_bps&quot;: 0.0,
+          &quot;net_return_bps&quot;: 0.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Preregistered execution and borrow costs erase the gross return.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;capacity&quot;,
+        &quot;metrics&quot;: {
+          &quot;allowed_daily_notional_usd&quot;: 0.05,
+          &quot;daily_notional_usd&quot;: 0.0,
+          &quot;max_participation_rate&quot;: 0.05
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Requested capital fits the preregistered participation limit.&quot;
+      }
+    ],
+    &quot;trial_id&quot;: &quot;pacwest-retrospective-screen&quot;
+  },
+  &quot;input_lock_sha256&quot;: &quot;8dda5bac69c4c862019c25d6c749db848cace8f51dd4ebb0fbfcb056a91417ae&quot;,
+  &quot;manifest&quot;: {
+    &quot;attempts&quot;: 1,
+    &quot;chain_tip_sha256&quot;: &quot;a44d09ea49de21f2c62f0841525a3411dfd8b28501d50b0b138c5b231a3be7bd&quot;,
+    &quot;decisions&quot;: 1,
+    &quot;entries&quot;: 3,
+    &quot;registrations&quot;: 1,
+    &quot;rejected_decisions&quot;: 1,
+    &quot;verified&quot;: true
+  },
+  &quot;registration_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;c121683a23d161d32ea759ca29e6448fc0d766306e198531ff0006bd615c578f&quot;,
+    &quot;entry_hash&quot;: &quot;c121683a23d161d32ea759ca29e6448fc0d766306e198531ff0006bd615c578f&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 1
+  },
+  &quot;spec&quot;: {
+    &quot;cost_model&quot;: {
+      &quot;borrow_bps_annual&quot;: 100.0,
+      &quot;commission_bps&quot;: 1.0,
+      &quot;half_spread_bps&quot;: 10.0,
+      &quot;market_impact_bps&quot;: 25.0,
+      &quot;max_participation_rate&quot;: 0.05
+    },
+    &quot;declared_attempts&quot;: 1,
+    &quot;disposition&quot;: &quot;revise&quot;,
+    &quot;economic_mechanism&quot;: &quot;Reported securities valuation gaps can interact with funding pressure, but a retrospective single-event reconstruction cannot establish predictive validity.&quot;,
+    &quot;embargo_days&quot;: 0,
+    &quot;expected_direction&quot;: &quot;positive&quot;,
+    &quot;holdout_end&quot;: &quot;2023-05-09&quot;,
+    &quot;holdout_start&quot;: &quot;2023-05-04&quot;,
+    &quot;hypothesis&quot;: &quot;A retrospectively constructed PacWest Bancorp securities-loss screen qualifies for research eligibility after every adversarial gate.&quot;,
+    &quot;preregistered_at&quot;: &quot;2026-08-13T05:00:00Z&quot;,
+    &quot;primary_metric&quot;: &quot;reported HTM minus AFS loss-ratio difference&quot;,
+    &quot;purge_days&quot;: 5,
+    &quot;trial_id&quot;: &quot;pacwest-retrospective-screen&quot;
+  }
+}</pre>
+  </details>
+</article>
+    </section>
+    <section id="limitations" aria-labelledby="limitations-title">
+      <h2 id="limitations-title">Pack limitations</h2><ul><li>These seven records are a minimal extracted lock of filer-reported SEC XBRL facts accepted before the replay decision time. The lock preserves identities, accession, knowledge timestamps, source URL, response hash, and evidence class. It is not the complete filing, a regulator finding, a causal explanation, a trading signal, or proof that a changing aggregation endpoint will reproduce the exact whole-response bytes indefinitely.</li><li>Post-decision event evidence is excluded from the decision input manifest.</li><li>No historical quote, order-book, venue, or volume data is represented; ExecutionLab uses a normalized simulated reference-only boundary.</li><li>TrialCourt rejects the retrospective non-inferential attempt rather than granting strategy eligibility.</li><li>CapitalAllocator emits a declared model boundary and no order or recommendation.</li><li>A fixed build epoch and zero pack elapsed time preserve deterministic pack identity.</li></ul>
+    </section>
+  </main>
+  <footer><p>Static read-only report. No brokerage connection,
+  tracking script, or external request.</p></footer>
+</body>
+</html>

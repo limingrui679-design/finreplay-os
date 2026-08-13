@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Seven actual engine implementations ran over seven locked SEC filing facts for PacWest Bancorp. Filer-reported values remain reported; ratios, network propagation, and TrialCourt disposition are model-derived; execution and allocation inputs are explicitly simulated. The separate post-decision official event lock is not a ReplayPack input. This is a retrospective boundary replay, not causal failure attribution, a historical trading signal, investment advice, client work, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1285,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "23397dfa3da0e5d30cbb384be5075412ab20353336b1bd8954fc04e9eaa2967f"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "b15db40e38096b7fce9f516383d0da71cd3deb5c4646942556a5bf35d350e0c7"
+    },
+    {
+      "bytes": 56953,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "72516f59d0a5af62f468f00f9cb1e79a726cccbfea9989f5c153821610748402"
+    },
+    {
+      "bytes": 54792,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "b4e4dd25e8c0dc5de8b9d5b62910914f19de4f8c00bb5f9a92ae9fbf8daa251b"
+    }
+  ],
+  "pack_sha256": "2d0fcab57a64d709317fd4fe22f296d2a756e4638053a275d057a7af5f7a9599",
+  "receipt_sha256": "409ca607da96a61e0c0128bca2b84fedf0c212b6e895a7da68b8c4640bc8633e",
+  "replay_id": "pacwest-2023-seven-engine-v1",
+  "replay_manifest": {
+    "code_commit": "01d638f255119b91070499c5b60836f232c89241",
+    "compressed_input_bytes": 2663,
+    "created_at": "2026-08-13T05:00:00Z",
+    "derived_records": 13,
+    "distinct_input_records": 7,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "555f0921025020fe03086b14494da060d33b436ede0e32b79688e78a7581e97c",
+    "output_manifest_sha256": "8dc7e4ba23132e9f5ac1f3b0dab8533c0b9dbe120f8268b5c1edda7e25b3552d",
+    "replay_id": "pacwest-2023-seven-engine-v1",
+    "scenario_id": "pacwest-2023-funding-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "b4e4dd25e8c0dc5de8b9d5b62910914f19de4f8c00bb5f9a92ae9fbf8daa251b",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:ea712e982b91244c741174069afa890549ef4182a5c8182965eefb5fec21aab3"
+}
