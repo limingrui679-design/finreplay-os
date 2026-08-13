@@ -1,0 +1,66 @@
+{
+  "artifact_sha256": {
+    "replaystudio": "be015dd87ad4f52def45490cbb4f2b452c085ac5bcd620cc9a006891768e65fa",
+    "shockcompiler": "aa20fe1a7c1fb937231c813bf408d945efeaae8b19e3f7b306ae95770663737f",
+    "timevault": "4ffeca22ae876214c9e620978dced9dc00df9b9fa79a640c59f3fc301ba78ee0",
+    "trialcourt": "e26d35fb3958abcb6634a55719cd205d5fee86f2997ef3dfaddf4c79ac277978"
+  },
+  "assertions": {
+    "all_artifacts_reproduced": true,
+    "byte_identical_directory_rebuilds": true,
+    "byte_identical_zip_rebuilds": true,
+    "compiled_pack_matches_rebuild": true,
+    "cross_engine_trace_is_stable": true,
+    "distinct_locked_inputs_equal_four": true,
+    "future_event_excluded_from_bound_construction": true,
+    "historical_source_sets_eligible": true,
+    "naive_baseline_is_latest_known_payroll_persistence": true,
+    "no_probability_is_assigned": true,
+    "only_relevant_engines_present": true,
+    "post_decision_event_is_disjoint": true,
+    "post_decision_event_timing_is_later": true,
+    "reported_post_event_payroll_inside_declared_range": true,
+    "simulation_remains_visible": true,
+    "trialcourt_rejects_retrospective_attempt": true
+  },
+  "claim_boundary": "This receipt proves two fresh local executions of the four relevant engines rebuild the committed directory and deterministic ZIP bytes from four locked pre-decision BLS headline facts. It verifies the separately locked March 10 payroll fact is disjoint and, as an evaluation only, falls inside the previously declared no-probability range. It does not prove forecast skill, calibrated coverage, a stationary sample across annual benchmarking, causal labor-market attribution, policy effectiveness, deployment, external review, or user impact.",
+  "code_commit": "b560ed8009164576e6ed7fa36a587801f2252e2f",
+  "event_lock_sha256": "1afba8601bb8c0dae38ad6d9066ac821b3f211c18f767cb698825ecbb07b5457",
+  "file_sha256": {
+    "README.md": "81fad3bedeaff6af13260c0a65bd606d17ad17c3008b19a943d3ef0d7d817b99",
+    "assets/styles.css": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677",
+    "checksums.sha256": "53b582b97e58d8c5924dbd70888395f76d4489a9a5155906db09a32f9ff28634",
+    "index.html": "2fa5a1ef10feb91cc8e46dc7ad147e22088354c6425c1185848bd43b6e86f11b",
+    "manifest.json": "eae26b92144dc6d40af754e119c45523a1fab95cb441f1ee172cb700f9d5b617",
+    "report.json": "0f1121787c73a3d505910d965f083b636e3c49028dd0a2af8e26fe2212d55c38"
+  },
+  "input_lock_sha256": "2b9beda0051462c07c479b88c99f4c52afae9fbd7e221b10df98ba2bdee6ae94",
+  "pack_receipt_sha256": "0f5676574027204fce6b04622c80cef36309f5bd963b84c1802e852ddfba7353",
+  "pack_sha256": "bfc14686983f676195b1175e5efecc6b8f4e8619d1ce937f3b1d871a972ee343",
+  "post_event_evaluation": {
+    "declared_lower_payroll_change_thousands": 223,
+    "declared_upper_payroll_change_thousands": 517,
+    "latest_known_persistence_baseline_thousands": 517,
+    "probability_assigned": false,
+    "reported_february_payroll_change_thousands": 311,
+    "used_as_decision_input": false
+  },
+  "receipt_sha256": "8dccee1c6920833b912ae97699313c90218f697b4f77877a0f698006dfb7aa9c",
+  "runtime": {
+    "duckdb": "1.5.5",
+    "finreplay": "0.1.0a0",
+    "machine": "arm64",
+    "measured_at": "2026-08-13T04:45:10.486787+00:00",
+    "numpy": "2.2.6",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "pydantic": "2.13.4",
+    "python": "3.12.13",
+    "runner_commit": "007f4d391304d7949e876d05fcb96caed858157c",
+    "runner_dirty": true,
+    "scipy": "1.18.0",
+    "two_rebuild_elapsed_seconds": 0.3132191250042524
+  },
+  "schema_version": "1.0.0",
+  "semantic_sha256": "f260a5a60693500713403e89072158177d5d20562e04a74cfb9d083c4ccec05e",
+  "trace_id": "trace:93586d2362769bcfd48846586d4eefa3b7fbdf6a4b596e62297e775971802013"
+}
