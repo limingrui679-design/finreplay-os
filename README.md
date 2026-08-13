@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 10/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll and CPI release boundaries, FOMC target range, an ALFRED Treasury-curve boundary, and a Treasury DTS TGA cash boundary pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 11/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll and CPI release boundaries, FOMC target range, ALFRED Treasury-curve and Treasury DTS TGA boundaries, and the September 2019 New York Fed SOFR spike boundary pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -133,7 +133,7 @@ strictly parses and arithmetically reconciles Table I, and uses Treasury's follo
 as the exact publication instant. Full PDFs stay in ignored download-only storage and this source
 also remains outside the formal 30-adapter inventory.
 
-The planned SOFR boundary uses `nyfed.sofr.final_historical_rate` as another supporting source. It
+The counted SOFR boundary uses `nyfed.sofr.final_historical_rate` as another supporting source. It
 retrieves only the September 13, 16, and 17, 2019 effective dates from the official New York Fed
 Markets API, normalizes each final percentage to exact integer basis points, and permits use only
 at 3:00 p.m. New York time on the following publication business day—after the stated same-day
@@ -225,6 +225,14 @@ release headline. It locks the May 31 and June 1 TGA closing balances, uses the 
 `23,368` million dollars in a disjoint later event lock. The event lies inside the declared range
 but differs from the latest-balance persistence baseline by `476` million dollars. See
 [`docs/scenarios/treasury-tga-2023.md`](docs/scenarios/treasury-tga-2023.md).
+
+The eleventh counted flow uses final historical New York Fed SOFR rows. It locks the September 13
+and 16 rates of `220` and `243` basis points before a September 17 decision boundary and keeps the
+September 17 rate of `525` basis points in a disjoint event lock that becomes final only after the
+following business day's revision window. The event is `282` basis points above the declared
+upper endpoint. The verifier requires that breach to remain visible and does not widen the
+no-probability range after observing it. See
+[`docs/scenarios/nyfed-sofr-2019.md`](docs/scenarios/nyfed-sofr-2019.md).
 
 ## Research and investment disclaimer
 
