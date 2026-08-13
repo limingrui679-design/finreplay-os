@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 3/30 internally replay-proven: SVB, PacWest, and Western Alliance 2023 boundary packs pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 4/30 internally replay-proven: three 2023 bank boundaries plus a distinct ALFRED GDP revision-vintage boundary pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -86,6 +86,12 @@ response but are excluded from the monthly normalized stream. CFTC historical ro
 published observations, yet the generic API receipts remain ineligible for historical
 decision-time use until a row-specific release timestamp is independently bound.
 
+The GDP revision scenario uses `fred.alfred.vintage_gdp` as a separately verified supporting
+source. It retrieves four explicitly named ALFRED snapshots, retains raw CSV only in local ignored
+storage, and applies a two-calendar-day conservative knowledge bound because a vintage date does
+not establish an intraday release timestamp. It is deliberately absent from the formal adapter
+inventory, so the capped target remains exactly 30 rather than silently becoming 31.
+
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
 ```bash
@@ -123,6 +129,13 @@ same-day 17:08:31 UTC EDGAR acceptance of its post-decision 8-K. It is the final
 current regional-bank filing template before scenario work moves to different mechanisms and
 official data families. See
 [`docs/scenarios/western-alliance-2023.md`](docs/scenarios/western-alliance-2023.md).
+
+The fourth counted flow changes both mechanism and source family. It sets a 2023-02-01 decision
+boundary over four native-vintage ALFRED GDP facts, derives a no-probability Q4 revision envelope
+from the already known Q3 revision path, and keeps the February 23 Q4 second estimate in a disjoint
+post-decision event lock. Only TimeVault, ShockCompiler, TrialCourt, and ReplayStudio run because
+the scenario makes no market-network, execution, or allocation claim. See
+[`docs/scenarios/gdp-revision-2022q4.md`](docs/scenarios/gdp-revision-2022q4.md).
 
 ## Research and investment disclaimer
 

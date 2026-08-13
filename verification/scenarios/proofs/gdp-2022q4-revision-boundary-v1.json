@@ -1,0 +1,125 @@
+{
+  "build_script": {
+    "path": "scripts/build_macro_revision_replaypack.py",
+    "sha256": "8b1626da5b9680c5dd1d7fa99bec38cd475f3c39967343c530fe9535cc192392"
+  },
+  "claim_boundary": "This proof counts one internally reproduced macro vintage boundary scenario because four official pre-decision ALFRED facts, deterministic conservative knowledge timing, a separately locked post-decision official estimate, an immutable input lock, separated truth labels, an explicit zero-revision naive baseline, a no-probability bounded revision program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The later estimate is excluded from ReplayPack inputs and used only for a labelled post-event coverage check. This does not establish forecasting skill, calibrated coverage, causal correctness, external validation, deployment, policy value, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "gdp-revision.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective single-quarter attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "gdp-revision.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain exactly one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "02aa53bc4d578f59cfce204c4996ebf4b374f34778fa4a59269cb50df1154c0f",
+      "path": "scenarios/gdp-revision-2022q4/event-lock.json",
+      "record_ids": [
+        "fred.alfred.vintage_gdp:GDP:20230223:2022-10-01"
+      ],
+      "sha256": "1baf04dfc4ffb2d9d7bb81f65fced3140d8761b4eafbf5e9ec7d63c0c024100e"
+    }
+  ],
+  "expected_input_manifest_sha256": "d8e73c70287b95f5e66b031772d18e64cb0c49df0cfc261a29368f279fab3e4d",
+  "expected_pack_sha256": "5f9f64b719003d2677c1fb5bef7e33be745c2644356a364d53faa8fbfed9a8a9",
+  "expected_trace_id": "trace:0318d33e4e29fce0de5555c94e4cef24a4605bddaca362a57637319322ed194d",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "GDP values are official reported estimates rather than direct physical observations of the underlying economy. The later official estimate is kept only in the disjoint post-decision event lock."
+    },
+    "bounded_artifact_ids": [
+      "gdp-revision.shockcompiler.revision-bound"
+    ],
+    "extracted_artifact_ids": [
+      "gdp-revision.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "gdp-revision.shockcompiler.revision-bound",
+      "gdp-revision.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "fred.alfred.vintage_gdp:GDP:20221027:2022-07-01",
+      "fred.alfred.vintage_gdp:GDP:20221130:2022-07-01",
+      "fred.alfred.vintage_gdp:GDP:20230126:2022-07-01",
+      "fred.alfred.vintage_gdp:GDP:20230126:2022-10-01"
+    ],
+    "simulated_artifact_ids": [
+      "gdp-revision.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "c762b5790a1f6f517668892d145747fc4e2548376a347912cbfdc4448da1efa7",
+      "path": "scenarios/gdp-revision-2022q4/input-lock.json",
+      "record_ids": [
+        "fred.alfred.vintage_gdp:GDP:20221027:2022-07-01",
+        "fred.alfred.vintage_gdp:GDP:20221130:2022-07-01",
+        "fred.alfred.vintage_gdp:GDP:20230126:2022-07-01",
+        "fred.alfred.vintage_gdp:GDP:20230126:2022-10-01"
+      ],
+      "sha256": "65cb06a4c52a512c08c1d73018242b883de6dc5b4c04c06f702735b091614f5b"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "gdp-revision.shockcompiler.revision-bound",
+      "description": "The explicit historical-decision baseline assumes no revision to the Q4 advance estimate.",
+      "expected_value": 0.0,
+      "payload_pointer": "/naive_baseline/revision_billions"
+    },
+    {
+      "artifact_id": "gdp-revision.shockcompiler.revision-bound",
+      "description": "The two inferred endpoints deliberately carry no probability or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/alfred/latest-summary.json",
+  "pack_directory": "verification/replaypacks/gdp-revision-2022q4",
+  "proof_sha256": "e90f2cceb3ad0f02ab7cc96ce629786a4536e1042b671c1f47f06c4fd913ef9a",
+  "rebuild_receipt": {
+    "path": "verification/evidence/gdp-revision-four-engine-rebuild.json",
+    "sha256": "a2efa912d7f823657e58c5c2c7385c3d37163449b343c45559743ee5975a07fd"
+  },
+  "replay_id": "gdp-2022q4-revision-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "distinct_locked_inputs_equal_four",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "naive_baseline_is_zero_revision",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_timing_is_later",
+    "reported_post_event_revision_inside_declared_envelope",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "gdp-2022q4-revision-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "fred.alfred.vintage_gdp:GDP:20221027:2022-07-01",
+    "fred.alfred.vintage_gdp:GDP:20221130:2022-07-01",
+    "fred.alfred.vintage_gdp:GDP:20230126:2022-07-01",
+    "fred.alfred.vintage_gdp:GDP:20230126:2022-10-01"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_macro_revision_replaypack.py",
+    "sha256": "e21773c63731237542f0a449700d002c5a009b9b4112228dd40af305ba87b2dc"
+  }
+}

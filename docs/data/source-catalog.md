@@ -63,6 +63,21 @@ states that historical COT data are not updated after publication. However, a re
 release timestamp, and holiday or exceptional delays occur; these generic API receipts therefore do
 not claim historical decision-time eligibility without separate release evidence.
 
+## Scenario-specific supporting source outside the capped 30
+
+`fred.alfred.vintage_gdp` retrieves one explicitly selected ALFRED GDP vintage over a bounded
+observation interval. Four live snapshots used by the GDP revision scenario are verified under
+`verification/supporting/alfred/`; their six normalized facts are `vintage_native` and historically
+eligible under the adapter's conservative rule. Because ALFRED exposes a calendar vintage rather
+than an intraday publication timestamp, FinReplay permits each snapshot only from 00:00 UTC two
+calendar days later. This is a safe deterministic bound, not a claimed release time.
+
+This connector is a supporting scenario source and is deliberately excluded from
+`verification/live/latest-summary.json`. The formal completion target remains exactly 30 adapters.
+Raw ALFRED CSV is kept only in the ignored local content-addressed store; repository locks preserve
+the minimal facts, source hashes, provenance, and knowledge times rather than redistributing the
+raw response.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

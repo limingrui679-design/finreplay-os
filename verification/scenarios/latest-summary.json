@@ -2,6 +2,18 @@
   "claim_boundary": "Each counted scenario passed the repository's eight-gate proof verifier, including a disjoint official post-decision event lock. This is internal reproducibility evidence, not external method validation, deployment, investment performance, or real-world impact.",
   "scenarios": [
     {
+      "decision_time": "2023-02-01T12:00:00+00:00",
+      "distinct_input_records": 4,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "5f9f64b719003d2677c1fb5bef7e33be745c2644356a364d53faa8fbfed9a8a9",
+      "proof": "gdp-2022q4-revision-boundary-v1.json",
+      "proof_sha256": "e90f2cceb3ad0f02ab7cc96ce629786a4536e1042b671c1f47f06c4fd913ef9a",
+      "replay_id": "gdp-2022q4-revision-boundary-v1",
+      "scenario_id": "gdp-2022q4-revision-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:0318d33e4e29fce0de5555c94e4cef24a4605bddaca362a57637319322ed194d"
+    },
+    {
       "decision_time": "2023-05-03T20:00:00+00:00",
       "distinct_input_records": 7,
       "mode": "bounded_reconstruction",
@@ -39,5 +51,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 3
+  "verified_scenario_count": 4
 }

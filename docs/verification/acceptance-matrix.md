@@ -54,15 +54,18 @@ Each of the 30 planned scenarios must independently provide:
 7. a limitations file and non-causal/non-deployment boundary;
 8. a fresh-clone replay receipt.
 
-Current status: **IN_PROGRESS; 3/30 replay-proven scenarios.** The SVB, PacWest, and Western Alliance
-2023 boundary replays are counted. `scripts/verify_scenario_catalog.py` opens each scenario's
-official SEC timing records, immutable decision input lock, separately locked post-decision SEC
-event record, ReplayPack, source-label map, explicit naive status-quo baseline, deliberate
-TrialCourt rejection, build and verification routes, and clean-worktree double-rebuild receipt. It
-fails if post-decision event evidence appears in a ReplayPack source manifest. Further scenarios
-must introduce other mechanisms and source families rather than duplicating this bank template.
-It then recomputes the deterministic inventory under `verification/scenarios/`. A scenario title,
-plan row, unverified pack directory, or self-reported status still counts as 0.
+Current status: **IN_PROGRESS; 4/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
+and 2022 Q4 GDP revision boundary replays are counted. `scripts/verify_scenario_catalog.py` opens
+each scenario's official timing records, immutable decision input lock, separately locked
+post-decision official event record, ReplayPack, source-label map, explicit naive baseline,
+deliberate TrialCourt rejection, build and verification routes, and clean-worktree double-rebuild
+receipt. It fails if post-decision event evidence appears in a ReplayPack source manifest. The GDP
+case is the first non-bank template: it uses four native ALFRED vintages, a conservative
+date-granular knowledge bound, a symmetric no-probability revision envelope, four relevant engines,
+and a labelled post-event coverage check. Further scenarios must continue to diversify mechanisms
+and source families. The verifier recomputes the deterministic inventory under
+`verification/scenarios/`. A scenario title, plan row, unverified pack directory, or self-reported
+status still counts as 0.
 
 ## D. Scale and performance — 15 points
 

@@ -26,6 +26,7 @@ PACWEST_PROOF_PATH = PROOF_DIRECTORY / "pacwest-2023-funding-boundary-v1.json"
 WESTERN_ALLIANCE_PROOF_PATH = (
     PROOF_DIRECTORY / "western-alliance-2023-deposit-boundary-v1.json"
 )
+GDP_REVISION_PROOF_PATH = PROOF_DIRECTORY / "gdp-2022q4-revision-boundary-v1.json"
 
 
 def proof_values() -> dict[str, Any]:
@@ -80,7 +81,7 @@ def reseal_rebuild_receipt(path: Path, *, semantic_changed: bool) -> None:
     path.write_text(json.dumps(values, sort_keys=True, indent=2) + "\n")
 
 
-def test_committed_svb_proof_and_deterministic_catalog_are_fully_verified() -> None:
+def test_committed_proofs_and_deterministic_catalog_are_fully_verified() -> None:
     verified = verify_scenario_proof(PROOF_PATH, repository_root=REPOSITORY)
     assert verified.scenario_id == "svb-2023-boundary"
     assert verified.mode == "bounded_reconstruction"
@@ -99,8 +100,16 @@ def test_committed_svb_proof_and_deterministic_catalog_are_fully_verified() -> N
     assert western_alliance.mode == "bounded_reconstruction"
     assert western_alliance.distinct_input_records == 7
 
+    gdp_revision = verify_scenario_proof(
+        GDP_REVISION_PROOF_PATH,
+        repository_root=REPOSITORY,
+    )
+    assert gdp_revision.scenario_id == "gdp-2022q4-revision-boundary"
+    assert gdp_revision.mode == "bounded_reconstruction"
+    assert gdp_revision.distinct_input_records == 4
+
     catalog = verify_scenario_catalog(PROOF_DIRECTORY, repository_root=REPOSITORY)
-    assert len(catalog) == 3
+    assert len(catalog) == 4
     summary = scenario_catalog_summary(catalog, proof_directory=PROOF_DIRECTORY)
     committed = json.loads((REPOSITORY / "verification/scenarios/latest-summary.json").read_text())
     assert summary == committed
