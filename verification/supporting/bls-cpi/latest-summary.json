@@ -1,0 +1,18 @@
+{
+  "adapters": [
+    {
+      "adapter_id": "bls.cpi.archived_release",
+      "historical_replay_eligible": true,
+      "idempotent_records": 0,
+      "inserted_records": 6,
+      "receipt": "bls.cpi.archived_release-a0d106a7ce842aae.json",
+      "record_count": 6,
+      "retrieved_at": "2026-08-13T05:11:40.122668Z",
+      "temporal_coverage": "versioned_snapshot"
+    }
+  ],
+  "historical_replay_eligible_count": 1,
+  "latest_only_count": 0,
+  "schema_version": "1.0.0",
+  "verified_adapter_count": 1
+}

@@ -12,6 +12,7 @@ from finreplay.adapters.base import (
     SourceSchemaError,
 )
 from finreplay.adapters.bls import BLSCPIUAllItemsAdapter
+from finreplay.adapters.bls_cpi_release import BLSCPIArchiveAdapter
 from finreplay.adapters.bls_employment import BLSEmploymentSituationArchiveAdapter
 from finreplay.adapters.cftc import (
     CFTC_COT_BY_SLUG,
@@ -60,6 +61,7 @@ __all__ = [
     "AdapterError",
     "AdapterMetadata",
     "AuthenticationMode",
+    "BLSCPIArchiveAdapter",
     "BLSCPIUAllItemsAdapter",
     "BLSEmploymentSituationArchiveAdapter",
     "CFTCCOTAdapter",

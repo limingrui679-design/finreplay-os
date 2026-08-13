@@ -111,6 +111,14 @@ strictly parses their target endpoints, and validates each page's 2:00 p.m. EST/
 against `America/New_York` before UTC conversion. Full HTML remains local; this source is also
 outside the formal 30-adapter inventory.
 
+The CPI-release scenario uses `bls.cpi.archived_release` as another verified supporting source.
+It retrieves only the January 12, February 14, and March 14, 2023 archive pages, strictly parses
+their CPI-U all-items headlines, and validates the 8:30 a.m. Eastern embargo end with
+`America/New_York`. Each value remains tied to its archived release snapshot. The February page's
+annual weight update and five-year seasonal recalculation are an explicit comparability limit, so
+the resulting interval is a release-snapshot stress range rather than a calibrated forecast. Full
+HTML remains local and this source is outside the formal 30-adapter inventory.
+
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
 ```bash

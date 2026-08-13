@@ -103,6 +103,16 @@ timezone abbreviation is validated against `America/New_York` before UTC convers
 statements never overwrite earlier ranges. Full HTML remains local and the connector is excluded
 from the formal 30-adapter inventory.
 
+`bls.cpi.archived_release` retrieves one explicitly dated archived Consumer Price Index page and
+strictly parses its embargo statement, report-period heading, and CPI-U all-items headline facts.
+Three releases used by the CPI boundary scenario are verified under
+`verification/supporting/bls-cpi/`; their six facts are versioned release snapshots. The stated
+8:30 a.m. Eastern embargo end is converted with `America/New_York`. The February 2023 page records
+annual weight updates and recalculation of the previous five years of seasonally adjusted indexes,
+so the December value on the January page is preserved instead of silently replaced by its later
+vintage. These adjacent snapshots are a stress range, not a calibrated stationary sample. Full
+HTML remains local and this connector is excluded from the formal 30-adapter inventory.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;
