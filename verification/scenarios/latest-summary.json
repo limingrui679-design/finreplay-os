@@ -2,6 +2,18 @@
   "claim_boundary": "Each counted scenario passed the repository's eight-gate proof verifier, including a disjoint official post-decision event lock. This is internal reproducibility evidence, not external method validation, deployment, investment performance, or real-world impact.",
   "scenarios": [
     {
+      "decision_time": "2023-02-15T12:00:00+00:00",
+      "distinct_input_records": 4,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "fac8e503c37804217d3db00634330cdb62ac02466f7a58a1b04e703d6ffc6d06",
+      "proof": "bls-2023-cpi-release-boundary-v1.json",
+      "proof_sha256": "e63802bd472f01adc33bdb57bc41715f87914f1b886f599be98e1c13a004d639",
+      "replay_id": "bls-2023-cpi-release-boundary-v1",
+      "scenario_id": "bls-2023-cpi-release-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:8634250349fc349378cf09f74ae129613d54fdd87257232ccd5547b62f1b1bb6"
+    },
+    {
       "decision_time": "2023-02-04T12:00:00+00:00",
       "distinct_input_records": 4,
       "mode": "bounded_reconstruction",
@@ -87,5 +99,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 7
+  "verified_scenario_count": 8
 }

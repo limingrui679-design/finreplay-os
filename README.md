@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 7/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll-release, and FOMC target-range boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 8/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll and CPI release boundaries, and the FOMC target-range boundary pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -182,6 +182,13 @@ locks the February and March federal-funds target endpoints before a March 23 de
 uses persistence or one repeat of the already-known 25-basis-point step as a no-probability
 next-upper-target range, and keeps the May 3 upper target in a disjoint event lock. See
 [`docs/scenarios/fomc-target-2023.md`](docs/scenarios/fomc-target-2023.md).
+
+The eighth counted flow uses archived BLS CPI releases with exact embargo-end timing. It locks
+December and January monthly and 12-month changes before a February 15 decision boundary, uses the
+two already-known monthly changes only as a no-probability release-snapshot stress range, and keeps
+the March 14 February monthly change in a disjoint event lock. The documented annual weight update
+and five-year seasonal recalculation prevent a stationary-sample claim. See
+[`docs/scenarios/bls-cpi-2023.md`](docs/scenarios/bls-cpi-2023.md).
 
 ## Research and investment disclaimer
 
