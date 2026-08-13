@@ -1,0 +1,124 @@
+{
+  "build_script": {
+    "path": "scripts/build_bea_saving_rate_boundary_replaypack.py",
+    "sha256": "720cf046581197063db502279593198fa0beb8ee75add06ff73d3a694bfff091"
+  },
+  "claim_boundary": "This proof counts one internally reproduced March 2020 BEA personal-saving-rate boundary because two pre-decision archived HTML/PDF release snapshots, exact 8:30 a.m. America/New_York embargo timing, a separately locked post-decision March saving-rate release, immutable locks, separated truth labels, an explicit latest-value persistence baseline, a no-probability persistence-or-one-known-increase program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The March value is excluded from ReplayPack inputs and used only for a labelled post-event check that preserves its 460-basis-point upper-bound breach rather than widening the range. The April release's revision of February from 8.2 to 8.0 percent stays in the event snapshot and never overwrites the decision input. This does not establish forecast skill, calibrated coverage, household behavior, pandemic or policy causality, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "bea-pio.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective one-increase attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "bea-pio.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "2abf857c9e8b801ba7a414ffe882dc745d1fc6a3f602d510d23f73198dc130da",
+      "path": "scenarios/bea-pio-2020/event-lock.json",
+      "record_ids": [
+        "bea.pio.archived_personal_saving_rate:202003:personal_saving_rate"
+      ],
+      "sha256": "5e79055e34a456387635762f31ee986c33cf23486478ccff121f3cb8fa929650"
+    }
+  ],
+  "expected_input_manifest_sha256": "7a392f72d1bd3a0e4b3778a62f72808db4005ed5b2041c16985b02b9be2109e4",
+  "expected_pack_sha256": "2522341e031ba822486db54c2b908eb68ce6788d52a6f1b0975d1b877f4069cb",
+  "expected_trace_id": "trace:1c524d19917ec6fc124e8ce9fa43efd1d01f9090240163f99019e2e311eca6da",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate personal-saving-rate estimates reported in archived BEA releases, not household-level observations, direct behavioral measures, causal effects, transactions, positions, or a future saving rate. The March value is only in the event lock."
+    },
+    "bounded_artifact_ids": [
+      "bea-pio.shockcompiler.saving-rate-range"
+    ],
+    "extracted_artifact_ids": [
+      "bea-pio.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "bea-pio.shockcompiler.saving-rate-range",
+      "bea-pio.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "bea.pio.archived_personal_saving_rate:202001:personal_saving_rate",
+      "bea.pio.archived_personal_saving_rate:202002:personal_saving_rate"
+    ],
+    "simulated_artifact_ids": [
+      "bea-pio.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "0620471d0f5667af1b505a1d9cc70149ca8b443da137f2638f6e26a2dcbfd630",
+      "path": "scenarios/bea-pio-2020/input-lock.json",
+      "record_ids": [
+        "bea.pio.archived_personal_saving_rate:202001:personal_saving_rate",
+        "bea.pio.archived_personal_saving_rate:202002:personal_saving_rate"
+      ],
+      "sha256": "c07993a4afd5c2b76cecb508c3733551408b494f47a51ecfa9b569f5c150a5da"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "bea-pio.shockcompiler.saving-rate-range",
+      "description": "The decision-time baseline persists the latest known February personal saving rate of 820 basis points from its March 27 release snapshot.",
+      "expected_value": 820,
+      "payload_pointer": "/naive_baseline/next_personal_saving_rate_basis_points"
+    },
+    {
+      "artifact_id": "bea-pio.shockcompiler.saving-rate-range",
+      "description": "The persistence-or-one-known-increase endpoints carry no probability or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/bea-pio/latest-summary.json",
+  "pack_directory": "verification/replaypacks/bea-pio-2020",
+  "proof_sha256": "2273a23d05b218574aabc91516457fe4e823b65281da75cfdb0050a5cc0257c2",
+  "rebuild_receipt": {
+    "path": "verification/evidence/bea-pio-four-engine-rebuild.json",
+    "sha256": "39855ab74ad839f95c8fe3138a64a03be3907f5499c2df17566bf584ec296abb"
+  },
+  "replay_id": "bea-pio-2020-saving-rate-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "declared_range_reuses_only_known_monthly_increase",
+    "distinct_locked_inputs_equal_two",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "locked_pre_decision_release_pair_is_exact",
+    "naive_baseline_is_latest_known_saving_rate_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_archived_bea_fact",
+    "post_decision_event_timing_is_later",
+    "post_decision_february_revision_remains_later_snapshot_only",
+    "post_event_upper_bound_breach_equals_460_basis_points",
+    "reported_post_event_rate_is_above_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "bea-pio-2020-saving-rate-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "bea.pio.archived_personal_saving_rate:202001:personal_saving_rate",
+    "bea.pio.archived_personal_saving_rate:202002:personal_saving_rate"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_bea_saving_rate_boundary_replaypack.py",
+    "sha256": "9e8b4740f8bd9122ffe1831a7c66c188a447f88c9fe65c9639af26bb7f661f69"
+  }
+}

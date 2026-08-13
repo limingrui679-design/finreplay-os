@@ -2,6 +2,18 @@
   "claim_boundary": "Each counted scenario passed the repository's eight-gate proof verifier, including a disjoint official post-decision event lock. This is internal reproducibility evidence, not external method validation, deployment, investment performance, or real-world impact.",
   "scenarios": [
     {
+      "decision_time": "2020-04-01T12:00:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "2522341e031ba822486db54c2b908eb68ce6788d52a6f1b0975d1b877f4069cb",
+      "proof": "bea-pio-2020-saving-rate-boundary-v1.json",
+      "proof_sha256": "2273a23d05b218574aabc91516457fe4e823b65281da75cfdb0050a5cc0257c2",
+      "replay_id": "bea-pio-2020-saving-rate-boundary-v1",
+      "scenario_id": "bea-pio-2020-saving-rate-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:1c524d19917ec6fc124e8ce9fa43efd1d01f9090240163f99019e2e311eca6da"
+    },
+    {
       "decision_time": "2023-02-15T12:00:00+00:00",
       "distinct_input_records": 4,
       "mode": "bounded_reconstruction",
@@ -171,5 +183,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 14
+  "verified_scenario_count": 15
 }

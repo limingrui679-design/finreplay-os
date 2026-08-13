@@ -35,6 +35,7 @@ NYFED_SOFR_PROOF_PATH = PROOF_DIRECTORY / "nyfed-sofr-2019-spike-boundary-v1.jso
 EIA_WPSR_PROOF_PATH = PROOF_DIRECTORY / "eia-wpsr-2020-crude-stock-boundary-v1.json"
 DOL_UI_PROOF_PATH = PROOF_DIRECTORY / "dol-ui-2020-initial-claims-boundary-v1.json"
 TREASURY_AUCTION_PROOF_PATH = PROOF_DIRECTORY / "treasury-auction-2020-zero-rate-boundary-v1.json"
+BEA_PIO_PROOF_PATH = PROOF_DIRECTORY / "bea-pio-2020-saving-rate-boundary-v1.json"
 
 
 def proof_values() -> dict[str, Any]:
@@ -196,8 +197,16 @@ def test_committed_proofs_and_deterministic_catalog_are_fully_verified() -> None
     assert treasury_auction.mode == "bounded_reconstruction"
     assert treasury_auction.distinct_input_records == 2
 
+    bea_pio = verify_scenario_proof(
+        BEA_PIO_PROOF_PATH,
+        repository_root=REPOSITORY,
+    )
+    assert bea_pio.scenario_id == "bea-pio-2020-saving-rate-boundary"
+    assert bea_pio.mode == "bounded_reconstruction"
+    assert bea_pio.distinct_input_records == 2
+
     catalog = verify_scenario_catalog(PROOF_DIRECTORY, repository_root=REPOSITORY)
-    assert len(catalog) == 14
+    assert len(catalog) == 15
     summary = scenario_catalog_summary(catalog, proof_directory=PROOF_DIRECTORY)
     committed = json.loads((REPOSITORY / "verification/scenarios/latest-summary.json").read_text())
     assert summary == committed
