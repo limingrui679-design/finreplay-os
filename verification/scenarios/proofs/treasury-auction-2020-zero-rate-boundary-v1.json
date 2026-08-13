@@ -1,0 +1,123 @@
+{
+  "build_script": {
+    "path": "scripts/build_treasury_auction_boundary_replaypack.py",
+    "sha256": "6369ec977f9062b5a125e6dc0c28d102c8eece30b68a91dcfec691ae30efb608"
+  },
+  "claim_boundary": "This proof counts one internally reproduced March 2020 Treasury 91-day bill auction-rate boundary because two pre-decision paired official XML/PDF result snapshots, explicit XML release times interpreted under Treasury's stated timeline and conservatively delayed to next local midnight, a separately locked post-decision zero-rate result, immutable locks, separated truth labels, an explicit latest-rate persistence baseline, a no-probability persistence-or-one-known-decline program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The March 23 value is excluded from ReplayPack inputs and used only for a labelled post-event check that preserves its 19-basis-point lower-bound breach rather than widening the range. This does not establish forecast skill, calibrated coverage, bidder demand or policy causality, investment performance, external validation, deployment, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "treasury-auction.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective one-decline attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "treasury-auction.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "e45ba58cd5f2af3932ef37fcf3db6b6850de2eee6d6bf8780cd94cee39d1ae26",
+      "path": "scenarios/treasury-auction-2020/event-lock.json",
+      "record_ids": [
+        "treasury.auctions.archived_91_day_bill_results:20200323:912796UA5:high_discount_rate"
+      ],
+      "sha256": "17cd91b7a71c8d2f16fc0e4f6370e1c141f40b522b902e2c7846f360de825484"
+    }
+  ],
+  "expected_input_manifest_sha256": "84d9e55031687f71d0f4d1066fe3dfc94ab9cc5fcd530d053c2d7ef8d956deeb",
+  "expected_pack_sha256": "84adfcfbada5dc7676e46a2aca7545b73f609f4c80eb8a99d97aed470ef35c60",
+  "expected_trace_id": "trace:402e025e428e17a945b90b2e2279bf242c2534eec4dee6ab96103fe3bdba0b09",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate Treasury auction results reported in paired official XML/PDF releases, not individual bids, bidder motivations, orders, policy effects, or future auction rates. The March 23 zero-rate result is only in the event lock."
+    },
+    "bounded_artifact_ids": [
+      "treasury-auction.shockcompiler.high-rate-range"
+    ],
+    "extracted_artifact_ids": [
+      "treasury-auction.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "treasury-auction.shockcompiler.high-rate-range",
+      "treasury-auction.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "treasury.auctions.archived_91_day_bill_results:20200309:912796TZ2:high_discount_rate",
+      "treasury.auctions.archived_91_day_bill_results:20200316:912796SV2:high_discount_rate"
+    ],
+    "simulated_artifact_ids": [
+      "treasury-auction.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "a250bf97a734616774a23420609eb73ad7b73f620e3071230dfdb7b6b1f29f05",
+      "path": "scenarios/treasury-auction-2020/input-lock.json",
+      "record_ids": [
+        "treasury.auctions.archived_91_day_bill_results:20200309:912796TZ2:high_discount_rate",
+        "treasury.auctions.archived_91_day_bill_results:20200316:912796SV2:high_discount_rate"
+      ],
+      "sha256": "7219a998a0c0c9f0262ae0e648c6659a53a79ea80f437ed4dbbce16fb63214a3"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "treasury-auction.shockcompiler.high-rate-range",
+      "description": "The decision-time baseline persists the latest known March 16 91-day bill high discount rate of 29 basis points.",
+      "expected_value": 29,
+      "payload_pointer": "/naive_baseline/next_91_day_bill_high_rate_basis_points"
+    },
+    {
+      "artifact_id": "treasury-auction.shockcompiler.high-rate-range",
+      "description": "The persistence-or-one-known-decline endpoints carry no probability or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/treasury-auction-results/latest-summary.json",
+  "pack_directory": "verification/replaypacks/treasury-auction-2020",
+  "proof_sha256": "c5c210c02fd8eaff562607613b350c3f09192f9a601871c113d44d3f811291ea",
+  "rebuild_receipt": {
+    "path": "verification/evidence/treasury-auction-four-engine-rebuild.json",
+    "sha256": "b6570b73d430626d059accda26002bf5d89e9cfca376b4469f83199581869bd5"
+  },
+  "replay_id": "treasury-auction-2020-zero-rate-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "declared_range_reuses_only_known_weekly_decline",
+    "distinct_locked_inputs_equal_two",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "locked_pre_decision_auction_pair_is_exact",
+    "naive_baseline_is_latest_known_high_rate_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_archived_treasury_fact",
+    "post_decision_event_timing_is_later",
+    "post_event_lower_bound_breach_equals_19_basis_points",
+    "reported_post_event_rate_is_below_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "treasury-auction-2020-zero-rate-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "treasury.auctions.archived_91_day_bill_results:20200309:912796TZ2:high_discount_rate",
+    "treasury.auctions.archived_91_day_bill_results:20200316:912796SV2:high_discount_rate"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_treasury_auction_boundary_replaypack.py",
+    "sha256": "524093c887e611bff0d50b44c23e104614d08fb2e7b5508095f8ab5a2c158683"
+  }
+}
