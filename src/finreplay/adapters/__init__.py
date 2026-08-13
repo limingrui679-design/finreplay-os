@@ -12,6 +12,7 @@ from finreplay.adapters.base import (
     ResponseLimitError,
     SourceSchemaError,
 )
+from finreplay.adapters.bea_pio import BEAPersonalIncomeOutlaysArchiveAdapter
 from finreplay.adapters.bls import BLSCPIUAllItemsAdapter
 from finreplay.adapters.bls_cpi_release import BLSCPIArchiveAdapter
 from finreplay.adapters.bls_employment import BLSEmploymentSituationArchiveAdapter
@@ -68,6 +69,7 @@ __all__ = [
     "AdapterError",
     "AdapterMetadata",
     "AuthenticationMode",
+    "BEAPersonalIncomeOutlaysArchiveAdapter",
     "BLSCPIArchiveAdapter",
     "BLSCPIUAllItemsAdapter",
     "BLSEmploymentSituationArchiveAdapter",
