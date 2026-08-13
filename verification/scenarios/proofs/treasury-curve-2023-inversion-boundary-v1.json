@@ -1,0 +1,128 @@
+{
+  "build_script": {
+    "path": "scripts/build_treasury_curve_boundary_replaypack.py",
+    "sha256": "cdd875d53aaa50f4498476eda2a77ee26227dd4dbc64488af4cdf34444ce087b"
+  },
+  "claim_boundary": "This proof counts one internally reproduced Treasury-curve boundary because four pre-decision native-vintage yield facts, conservative date-plus-two-day knowledge timing, a separately locked post-decision DGS2/DGS10 pair, an immutable input lock, separated truth labels, an explicit latest-spread persistence baseline, a no-probability bounded spread program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The March 15 pair is excluded from ReplayPack inputs and used only for a labelled post-event check that preserves its 6-basis-point range breach. This does not establish forecast skill, calibrated coverage, stationary behavior, causal banking, recession, or policy attribution, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "treasury-curve.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective two-date attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "treasury-curve.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "4839086f0456c109a2a483e7e51d32e3c1046c24408859d03f8440b94b82ca7f",
+      "path": "scenarios/treasury-curve-2023/event-lock.json",
+      "record_ids": [
+        "fred.alfred.vintage_treasury_yield:DGS10:20230316:2023-03-15",
+        "fred.alfred.vintage_treasury_yield:DGS2:20230316:2023-03-15"
+      ],
+      "sha256": "9570b624c822c013461f9ffb9496b5f1c70366c621c30ca77fc5deab1249552e"
+    }
+  ],
+  "expected_input_manifest_sha256": "fcc44ba24ea1626972b6c7c1885551359292c339bb79287ba2c5cb950c15d565",
+  "expected_pack_sha256": "f05a5b1f0a143f3bd99dbd1777efcb814f791a1da8d1f8190ece4a73d7ad3ccb",
+  "expected_trace_id": "trace:582d084d96526fffb25f544af2fb1ceca86cd71b53578c51823c04b5dbfed41c",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains constant-maturity yields reported in native ALFRED vintages, not direct security trades, positions, flows, or causal yield-curve observations. The March 15 yield pair is only in the event lock."
+    },
+    "bounded_artifact_ids": [
+      "treasury-curve.shockcompiler.spread-range"
+    ],
+    "extracted_artifact_ids": [
+      "treasury-curve.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "treasury-curve.shockcompiler.spread-range",
+      "treasury-curve.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "fred.alfred.vintage_treasury_yield:DGS10:20230309:2023-03-08",
+      "fred.alfred.vintage_treasury_yield:DGS10:20230314:2023-03-13",
+      "fred.alfred.vintage_treasury_yield:DGS2:20230309:2023-03-08",
+      "fred.alfred.vintage_treasury_yield:DGS2:20230314:2023-03-13"
+    ],
+    "simulated_artifact_ids": [
+      "treasury-curve.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "eb49c0c8d96ff99b59a5495d428dacc61b142a151d4d7e2ab358055c53a7b085",
+      "path": "scenarios/treasury-curve-2023/input-lock.json",
+      "record_ids": [
+        "fred.alfred.vintage_treasury_yield:DGS10:20230309:2023-03-08",
+        "fred.alfred.vintage_treasury_yield:DGS10:20230314:2023-03-13",
+        "fred.alfred.vintage_treasury_yield:DGS2:20230309:2023-03-08",
+        "fred.alfred.vintage_treasury_yield:DGS2:20230314:2023-03-13"
+      ],
+      "sha256": "d60c826e67e162a4556140de791de7dad10a0dc45454d5574a99ea480ad2e746"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "treasury-curve.shockcompiler.spread-range",
+      "description": "The decision-time baseline persists the latest known March 13 derived DGS10-minus-DGS2 spread of -48 basis points.",
+      "expected_value": -48,
+      "payload_pointer": "/naive_baseline/next_dgs10_minus_dgs2_spread_basis_points"
+    },
+    {
+      "artifact_id": "treasury-curve.shockcompiler.spread-range",
+      "description": "The two Treasury-curve spread endpoints carry no probability or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/alfred-treasury-yields/latest-summary.json",
+  "pack_directory": "verification/replaypacks/treasury-curve-2023",
+  "proof_sha256": "7de85b4b1bd547ab5accfd7ead155b0e67c69c53c7c1bbdbfd07846e21544d9b",
+  "rebuild_receipt": {
+    "path": "verification/evidence/treasury-curve-four-engine-rebuild.json",
+    "sha256": "683e9535e551642f0194b06a39a9919544209b12a0045969607d49d1f2465966"
+  },
+  "replay_id": "treasury-curve-2023-inversion-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "distinct_locked_inputs_equal_four",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "naive_baseline_is_latest_known_spread_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_native_vintage_yield_pair",
+    "post_decision_event_timing_is_later",
+    "post_event_range_breach_equals_six_basis_points",
+    "post_event_spread_breaches_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "treasury-curve-2023-inversion-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "fred.alfred.vintage_treasury_yield:DGS10:20230309:2023-03-08",
+    "fred.alfred.vintage_treasury_yield:DGS10:20230314:2023-03-13",
+    "fred.alfred.vintage_treasury_yield:DGS2:20230309:2023-03-08",
+    "fred.alfred.vintage_treasury_yield:DGS2:20230314:2023-03-13"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_treasury_curve_boundary_replaypack.py",
+    "sha256": "9bb0491d05400dc010355aba8ee9cd1a296bd72f9a87f32fffbb86bf3164207f"
+  }
+}
