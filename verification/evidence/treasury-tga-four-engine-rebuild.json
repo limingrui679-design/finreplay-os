@@ -1,0 +1,70 @@
+{
+  "artifact_sha256": {
+    "replaystudio": "3b34b66bff8baf5d19699d486e8af92ab1b798087cb65246de3e10ce236ec77b",
+    "shockcompiler": "0863c82b34d05d7763f51a3707ba88afd9397f030718b5c2533611b13c387887",
+    "timevault": "8cf1ec227e31dcb5b63e82ac765b97ea024efde9e4812709c31c41266074db14",
+    "trialcourt": "6df42bc2d3164adaf20616295596734f1b423c76a1d7ef15fb83d8bedb71ad76"
+  },
+  "assertions": {
+    "all_artifacts_reproduced": true,
+    "byte_identical_directory_rebuilds": true,
+    "byte_identical_zip_rebuilds": true,
+    "compiled_pack_matches_rebuild": true,
+    "cross_engine_trace_is_stable": true,
+    "distinct_locked_inputs_equal_two": true,
+    "future_event_excluded_from_bound_construction": true,
+    "historical_source_sets_eligible": true,
+    "naive_baseline_is_latest_known_tga_persistence": true,
+    "no_probability_is_assigned": true,
+    "only_relevant_engines_present": true,
+    "post_decision_event_is_disjoint": true,
+    "post_decision_event_is_exact_archived_dts_fact": true,
+    "post_decision_event_timing_is_later": true,
+    "post_event_differs_from_persistence_baseline": true,
+    "reported_post_event_balance_inside_declared_range": true,
+    "simulation_remains_visible": true,
+    "trialcourt_rejects_retrospective_attempt": true
+  },
+  "claim_boundary": "This receipt proves two fresh local executions of the four relevant engines rebuild the committed directory and deterministic ZIP bytes from two locked pre-decision Treasury DTS Table I facts. It verifies the separately locked June 2 TGA balance is disjoint and, as an evaluation only, falls inside the previously declared no-probability range while differing from persistence. It does not prove forecast skill, calibrated coverage, debt-limit causality, fiscal solvency, policy effectiveness, deployment, external review, or user impact.",
+  "code_commit": "bb015ea9b753f4348baa11ec15bdba64a452cac7",
+  "event_lock_sha256": "4c848c0afa25959e66eb888fab03405b3ecc189f31f88e43d9ce761fffc27df8",
+  "file_sha256": {
+    "README.md": "b58e5e9fff607cde9982c332adfc64ad0409b467620dfaf39f4f6254b374b4df",
+    "assets/styles.css": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677",
+    "checksums.sha256": "189d09902b12f145e5f42423c43d2563006649e9999e31963f8d92a7dbaf8065",
+    "index.html": "3e96b29dbe9643c75268848d6c64fada7e38094c3259bfe7760639f3a6b68724",
+    "manifest.json": "187b27c68e661928971af5abddd3329925422a7d68eb290aa41ab7bc6f2cd205",
+    "report.json": "bb6e12b7a50e475b48f841c4a53853883dc659f57e90201f47c251c75cf586bb"
+  },
+  "input_lock_sha256": "34fc00a83ce917eeb21b8ef0d039a4d7e446bb344d653269714a9dc7d8022975",
+  "pack_receipt_sha256": "190770aadecb784b7d1badfbc0a17c557bd2942160f6356c17af70668dc0fcb0",
+  "pack_sha256": "a74daab723834be217a925b19bc5306094bc9d7eb3791085a6a067fc504ed18e",
+  "post_event_evaluation": {
+    "declared_lower_balance_millions": 22892,
+    "declared_upper_balance_millions": 48512,
+    "difference_from_persistence_millions": 476,
+    "latest_known_persistence_baseline_millions": 22892,
+    "probability_assigned": false,
+    "reported_june02_tga_closing_balance_millions": 23368,
+    "used_as_decision_input": false
+  },
+  "receipt_sha256": "ddf95c74f4924ccccba4ac5afefd397e7a05c0f1883ff6741a839c247accf3a7",
+  "runtime": {
+    "duckdb": "1.5.5",
+    "finreplay": "0.1.0a0",
+    "machine": "arm64",
+    "measured_at": "2026-08-13T06:03:20.694392+00:00",
+    "numpy": "2.2.6",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "pydantic": "2.13.4",
+    "pypdf": "6.15.0",
+    "python": "3.12.13",
+    "runner_commit": "c8411785eb9b67c828cbd6f87d9764a681b9e748",
+    "runner_dirty": false,
+    "scipy": "1.18.0",
+    "two_rebuild_elapsed_seconds": 0.5558528749970719
+  },
+  "schema_version": "1.0.0",
+  "semantic_sha256": "8383a3c9cf1f913c7827627f6639519cf7e2db951a635640e3b6c97a96f2d17a",
+  "trace_id": "trace:077515977a23370bda2bc75cd4f7b9905f7f46e7b202b5807a67b03b1e7322bb"
+}
