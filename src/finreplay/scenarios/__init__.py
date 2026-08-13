@@ -6,6 +6,13 @@ from finreplay.scenarios.bank_boundary import (
     build_bank_boundary_replay_spec,
     load_bank_boundary_input_lock,
 )
+from finreplay.scenarios.cpi_boundary import (
+    BLS_CPI_SOURCE_ID,
+    CPIBoundaryInputLock,
+    CPIBoundaryRoles,
+    build_cpi_boundary_replay_spec,
+    load_cpi_boundary_input_lock,
+)
 from finreplay.scenarios.employment_boundary import (
     BLS_EMPLOYMENT_SOURCE_ID,
     EmploymentBoundaryInputLock,
@@ -61,6 +68,7 @@ from finreplay.scenarios.svb import (
 
 __all__ = [
     "ALFRED_GDP_SOURCE_ID",
+    "BLS_CPI_SOURCE_ID",
     "BLS_EMPLOYMENT_SOURCE_ID",
     "FED_FOMC_SOURCE_ID",
     "FED_H41_BTFP_SOURCE_ID",
@@ -70,6 +78,8 @@ __all__ = [
     "ArtifactValueExpectation",
     "BankBoundaryInputLock",
     "BankFactConcepts",
+    "CPIBoundaryInputLock",
+    "CPIBoundaryRoles",
     "EmploymentBoundaryInputLock",
     "EmploymentBoundaryRoles",
     "EventLockEvidence",
@@ -87,12 +97,14 @@ __all__ = [
     "ScenarioProof",
     "VerifiedScenarioProof",
     "build_bank_boundary_replay_spec",
+    "build_cpi_boundary_replay_spec",
     "build_employment_boundary_replay_spec",
     "build_facility_growth_replay_spec",
     "build_fomc_target_boundary_replay_spec",
     "build_macro_revision_replay_spec",
     "build_svb_replay_spec",
     "load_bank_boundary_input_lock",
+    "load_cpi_boundary_input_lock",
     "load_employment_boundary_input_lock",
     "load_facility_growth_input_lock",
     "load_fomc_target_boundary_input_lock",

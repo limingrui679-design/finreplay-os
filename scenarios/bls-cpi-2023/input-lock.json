@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "bls-2023-cpi-release-boundary",
+  "scenario_version": "1.0.0",
+  "replay_id": "bls-2023-cpi-release-boundary-v1",
+  "artifact_prefix": "bls-cpi",
+  "title": "BLS CPI-U all-items release boundary, early 2023",
+  "decision_time": "2023-02-15T12:00:00Z",
+  "build_epoch": "2026-08-13T05:20:00Z",
+  "roles": {
+    "december_monthly": "bls.cpi.archived_release:20230112:all_items_monthly_change_seasonally_adjusted",
+    "december_yoy": "bls.cpi.archived_release:20230112:all_items_12_month_change_not_seasonally_adjusted",
+    "january_monthly": "bls.cpi.archived_release:20230214:all_items_monthly_change_seasonally_adjusted",
+    "january_yoy": "bls.cpi.archived_release:20230214:all_items_12_month_change_not_seasonally_adjusted"
+  },
+  "source_response_sha256s": [
+    "499497984f419ab8df6f67a6740509729242cc048107d7cd63f087d5216b9467",
+    "5981cc5faf9306b5cf4f85865a981c31d5832987e9e1c4c602469581f2a49b55"
+  ],
+  "records": [
+    {
+      "record_id": "bls.cpi.archived_release:20230112:all_items_12_month_change_not_seasonally_adjusted",
+      "entity_id": "bls_cpi_u_all_items:united_states",
+      "source": {
+        "source_id": "bls.cpi.archived_release",
+        "publisher": "U.S. Bureau of Labor Statistics",
+        "url": "https://www.bls.gov/news.release/archives/cpi_01122023.htm",
+        "retrieved_at": "2026-08-13T05:11:37.049602Z",
+        "source_version": "CPIRelease:2023-01-12:USDL-23-0017:sha256:499497984f419ab8df6f67a6",
+        "sha256": "499497984f419ab8df6f67a6740509729242cc048107d7cd63f087d5216b9467",
+        "license_class": "redistributable",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-01-12T13:30:00Z",
+        "redistribution_note": "BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem."
+      },
+      "interval": {
+        "valid_from": "2022-12-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-01-12T13:30:00Z",
+        "available_at": "2023-01-12T13:30:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T05:11:37.049602Z",
+        "availability_rule": "The archived CPI release explicitly states that transmission is embargoed until 8:30 a.m. Eastern Time on its named release date. FinReplay parses that timestamp in America/New_York and converts it to UTC without backdating.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "adjustment": "Not Seasonally Adjusted",
+        "availability_method": "explicit_bls_embargo_end_america_new_york",
+        "metric": "all_items_12_month_change_not_seasonally_adjusted",
+        "release_date": "2023-01-12",
+        "release_number": "USDL-23-0017",
+        "release_time_eastern": "08:30:00",
+        "report_period": "2022-12",
+        "series": "Consumer Price Index for All Urban Consumers, All Items",
+        "snapshot_semantics": "headline value reported in this archived release",
+        "source_text_encoding": "utf-8",
+        "unit": "Tenths of a Percent",
+        "value_tenths_percent": 65
+      }
+    },
+    {
+      "record_id": "bls.cpi.archived_release:20230112:all_items_monthly_change_seasonally_adjusted",
+      "entity_id": "bls_cpi_u_all_items:united_states",
+      "source": {
+        "source_id": "bls.cpi.archived_release",
+        "publisher": "U.S. Bureau of Labor Statistics",
+        "url": "https://www.bls.gov/news.release/archives/cpi_01122023.htm",
+        "retrieved_at": "2026-08-13T05:11:37.049602Z",
+        "source_version": "CPIRelease:2023-01-12:USDL-23-0017:sha256:499497984f419ab8df6f67a6",
+        "sha256": "499497984f419ab8df6f67a6740509729242cc048107d7cd63f087d5216b9467",
+        "license_class": "redistributable",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-01-12T13:30:00Z",
+        "redistribution_note": "BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem."
+      },
+      "interval": {
+        "valid_from": "2022-12-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-01-12T13:30:00Z",
+        "available_at": "2023-01-12T13:30:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T05:11:37.049602Z",
+        "availability_rule": "The archived CPI release explicitly states that transmission is embargoed until 8:30 a.m. Eastern Time on its named release date. FinReplay parses that timestamp in America/New_York and converts it to UTC without backdating.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "adjustment": "Seasonally Adjusted",
+        "availability_method": "explicit_bls_embargo_end_america_new_york",
+        "direction_word": "declined",
+        "metric": "all_items_monthly_change_seasonally_adjusted",
+        "prior_month": "November",
+        "prior_month_change_tenths_percent": 1,
+        "release_date": "2023-01-12",
+        "release_number": "USDL-23-0017",
+        "release_time_eastern": "08:30:00",
+        "report_period": "2022-12",
+        "series": "Consumer Price Index for All Urban Consumers, All Items",
+        "snapshot_semantics": "headline value reported in this archived release",
+        "source_text_encoding": "utf-8",
+        "unit": "Tenths of a Percent",
+        "value_tenths_percent": -1
+      }
+    },
+    {
+      "record_id": "bls.cpi.archived_release:20230214:all_items_12_month_change_not_seasonally_adjusted",
+      "entity_id": "bls_cpi_u_all_items:united_states",
+      "source": {
+        "source_id": "bls.cpi.archived_release",
+        "publisher": "U.S. Bureau of Labor Statistics",
+        "url": "https://www.bls.gov/news.release/archives/cpi_02142023.htm",
+        "retrieved_at": "2026-08-13T05:11:38.744973Z",
+        "source_version": "CPIRelease:2023-02-14:USDL-23-0277:sha256:5981cc5faf9306b5cf4f8586",
+        "sha256": "5981cc5faf9306b5cf4f85865a981c31d5832987e9e1c4c602469581f2a49b55",
+        "license_class": "redistributable",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-02-14T13:30:00Z",
+        "redistribution_note": "BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem."
+      },
+      "interval": {
+        "valid_from": "2023-01-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-02-14T13:30:00Z",
+        "available_at": "2023-02-14T13:30:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T05:11:38.744973Z",
+        "availability_rule": "The archived CPI release explicitly states that transmission is embargoed until 8:30 a.m. Eastern Time on its named release date. FinReplay parses that timestamp in America/New_York and converts it to UTC without backdating.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "adjustment": "Not Seasonally Adjusted",
+        "availability_method": "explicit_bls_embargo_end_america_new_york",
+        "metric": "all_items_12_month_change_not_seasonally_adjusted",
+        "release_date": "2023-02-14",
+        "release_number": "USDL-23-0277",
+        "release_time_eastern": "08:30:00",
+        "report_period": "2023-01",
+        "series": "Consumer Price Index for All Urban Consumers, All Items",
+        "snapshot_semantics": "headline value reported in this archived release",
+        "source_text_encoding": "utf-8",
+        "unit": "Tenths of a Percent",
+        "value_tenths_percent": 64
+      }
+    },
+    {
+      "record_id": "bls.cpi.archived_release:20230214:all_items_monthly_change_seasonally_adjusted",
+      "entity_id": "bls_cpi_u_all_items:united_states",
+      "source": {
+        "source_id": "bls.cpi.archived_release",
+        "publisher": "U.S. Bureau of Labor Statistics",
+        "url": "https://www.bls.gov/news.release/archives/cpi_02142023.htm",
+        "retrieved_at": "2026-08-13T05:11:38.744973Z",
+        "source_version": "CPIRelease:2023-02-14:USDL-23-0277:sha256:5981cc5faf9306b5cf4f8586",
+        "sha256": "5981cc5faf9306b5cf4f85865a981c31d5832987e9e1c4c602469581f2a49b55",
+        "license_class": "redistributable",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-02-14T13:30:00Z",
+        "redistribution_note": "BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem."
+      },
+      "interval": {
+        "valid_from": "2023-01-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-02-14T13:30:00Z",
+        "available_at": "2023-02-14T13:30:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T05:11:38.744973Z",
+        "availability_rule": "The archived CPI release explicitly states that transmission is embargoed until 8:30 a.m. Eastern Time on its named release date. FinReplay parses that timestamp in America/New_York and converts it to UTC without backdating.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "adjustment": "Seasonally Adjusted",
+        "availability_method": "explicit_bls_embargo_end_america_new_york",
+        "direction_word": "rose",
+        "metric": "all_items_monthly_change_seasonally_adjusted",
+        "prior_month": "December",
+        "prior_month_change_tenths_percent": 1,
+        "release_date": "2023-02-14",
+        "release_number": "USDL-23-0277",
+        "release_time_eastern": "08:30:00",
+        "report_period": "2023-01",
+        "series": "Consumer Price Index for All Urban Consumers, All Items",
+        "snapshot_semantics": "headline value reported in this archived release",
+        "source_text_encoding": "utf-8",
+        "unit": "Tenths of a Percent",
+        "value_tenths_percent": 5
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves four minimal headline facts from the January 12 and February 14, 2023 archived BLS Consumer Price Index releases that were explicitly available before the replay decision time. It excludes the March 14 release, later revised values, all detailed tables, micro price-quote or item-level records, a probability distribution, forecast, calibrated interval, causal attribution, or investment and policy performance. The February release documents annual weight updates and recalculation of the previous five years of seasonally adjusted indexes, limiting cross-release comparability.",
+  "lock_sha256": "7d726e741ca9a4631be4f7ba49b70c1d8ac106853ab72af66c2ba6ae01c8cdda"
+}
