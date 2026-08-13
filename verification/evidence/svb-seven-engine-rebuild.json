@@ -1,0 +1,56 @@
+{
+  "artifact_sha256": {
+    "capitalallocator": "0a28ceea1cc0dd8ade772aaa81b2f03334175774f9f3486cc337499579fe5ec7",
+    "executionlab": "b52f283865bbe652538745caf45aef57e28f9430875a891f40324cc9548a69cd",
+    "markettwin": "b0e1a4c0697ff55bb882feddb18c00f278e34fc6825ca8f27db8628e1f0ed901",
+    "replaystudio": "78b9b844516a7fc9d77a83afe4a83abde8cdc25c940b7b75d658042213ef5b15",
+    "shockcompiler": "d0bd96bf65195771632bd8ac90649c7d0439a278df895f3942e2265de1b20174",
+    "timevault": "2fa55f0981122f94a6d7e6d4b7f572b92b2e9f74d69307e9c651a814d6f7f906",
+    "trialcourt": "c2962de964514e3a4a0bc8dcd0208062586bb47764d348019f4c308216db783e"
+  },
+  "assertions": {
+    "all_artifacts_reproduced": true,
+    "all_seven_engines_present": true,
+    "allocator_retains_all_cash_boundary": true,
+    "byte_identical_directory_rebuilds": true,
+    "byte_identical_zip_rebuilds": true,
+    "compiled_pack_matches_rebuild": true,
+    "cross_engine_trace_is_stable": true,
+    "distinct_locked_inputs_equal_seven": true,
+    "execution_is_reference_only_simulation": true,
+    "historical_source_sets_eligible": true,
+    "simulation_remains_visible": true,
+    "trialcourt_rejects_retrospective_attempt": true
+  },
+  "claim_boundary": "This receipt proves two fresh local executions of all seven engine implementations rebuild the committed directory and deterministic ZIP bytes from the locked SEC facts. It does not prove source authenticity beyond the lock, causal correctness, live deployment, trading performance, external review, or user impact.",
+  "code_commit": "6a412b415dc22789feee3e96b03ed26f8589dce3",
+  "file_sha256": {
+    "README.md": "b432880142737536d58f960b72d15fe19eafce4a7acdf36b75ec505d97bb484d",
+    "assets/styles.css": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677",
+    "checksums.sha256": "9a032de77d29d748f1a0cb16a8eaece9c0a1cb590344afefc614ba1e9258444e",
+    "index.html": "0f1b372aed6fdad76637570741ee7a3487c5aae8fbd7f5d11eef3242ec8cb98d",
+    "manifest.json": "e130cdc1cefe83a7efd9e2be4f65b780aeee791f3d8e5d1bcfe1eeff6c4b4608",
+    "report.json": "73ab0e373abe1136b52c4eefb5c6f272d636fd6398ba9a0346b226a691503803"
+  },
+  "input_lock_sha256": "cc383954d23e7b2c44756e3d33636a1df15f19cec993849b28c341deae6fecd0",
+  "pack_receipt_sha256": "e90d186ddddf730e5d4cea029a713d605fca119ef5fc3126e4aaab796d3d239b",
+  "pack_sha256": "c62c22dcbd15e29592a10811117a565d2bf9bee34877a4fbcbf24994383efd35",
+  "receipt_sha256": "2f1fc430ec37a9fc14fb556d994380781271a223e974ba9466c3df5e013c808f",
+  "runtime": {
+    "duckdb": "1.5.5",
+    "finreplay": "0.1.0a0",
+    "machine": "arm64",
+    "measured_at": "2026-08-13T02:06:11.730644+00:00",
+    "numpy": "2.2.6",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "pydantic": "2.13.4",
+    "python": "3.12.13",
+    "runner_commit": "2805bc8d43ac78d4eab0b891c069047a60e10429",
+    "runner_dirty": false,
+    "scipy": "1.18.0",
+    "two_rebuild_elapsed_seconds": 0.8170193750120234
+  },
+  "schema_version": "1.0.0",
+  "semantic_sha256": "c7d9d91eac65368eb7c436291fbb63322243947f71d8093b63edf88db9a23cd3",
+  "trace_id": "trace:7c6888e9ecebd390acb2f7fecbcde816d7e50906632483215244acf0f17462bf"
+}

@@ -18,7 +18,7 @@ investment performance, institutional adoption, external validation, or real-wor
 
 | Target | Current evidence | Completion rule |
 |---|---|---|
-| Seven connected engines | Seven implemented individually; the SVB flow now runs all seven over a locked historical-safe SEC fact set, while clean-checkout rebuild evidence is being finalized | All seven execute in an end-to-end ReplayPack with tests |
+| Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 16 live-validated: 8 FDIC, 3 SEC, 5 Treasury; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
 | 30 historical/boundary scenarios | Scenario specifications in progress | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
@@ -93,7 +93,9 @@ python scripts/verify_svb_replaypack.py
 
 It deliberately excludes current FDIC/Treasury snapshots from the 2023 decision input, rejects a
 retrospective TrialCourt attempt, and labels the no-microstructure execution/allocation boundary as
-simulated. See [`docs/scenarios/svb-2023.md`](docs/scenarios/svb-2023.md).
+simulated. The committed evidence proves internal deterministic integration, not historical
+completeness, method correctness, deployment, or external validation. See
+[`docs/scenarios/svb-2023.md`](docs/scenarios/svb-2023.md).
 
 ## Research and investment disclaimer
 
