@@ -47,6 +47,13 @@ def main() -> None:
     allocator = CapitalAllocator()
     golden_problem = _golden_problem()
     golden = allocator.solve(golden_problem)
+    if (
+        golden.cash_weight is None
+        or golden.expected_return_lower is None
+        or golden.transaction_cost_fraction is None
+        or golden.robust_utility is None
+    ):
+        raise RuntimeError("golden allocation omitted required optimal-solution values")
     expected = {
         "weight_asset_a": 0.7,
         "weight_asset_b": 0.3,
@@ -63,9 +70,7 @@ def main() -> None:
         "transaction_cost_fraction": golden.transaction_cost_fraction,
         "robust_utility": golden.robust_utility,
     }
-    absolute_error = {
-        key: abs(float(actual[key]) - value) for key, value in expected.items()
-    }
+    absolute_error = {key: abs(float(actual[key]) - value) for key, value in expected.items()}
     infeasible = allocator.solve(_infeasible_problem())
     return_axis = SensitivityAxis(
         axis_id="axis:a-return",
@@ -84,18 +89,16 @@ def main() -> None:
     information = allocator.value_of_perfect_information(
         _information_problem(),
         (
-            _information_state(
-                "state:good-a", 0.5, {"asset:a": 0.2, "asset:b": 0.0}
-            ),
-            _information_state(
-                "state:good-b", 0.5, {"asset:a": 0.0, "asset:b": 0.2}
-            ),
+            _information_state("state:good-a", 0.5, {"asset:a": 0.2, "asset:b": 0.0}),
+            _information_state("state:good-b", 0.5, {"asset:a": 0.0, "asset:b": 0.2}),
         ),
     )
     stress_problem = _stress_problem(asset_count=100, scenario_count=40)
     started = time.perf_counter()
     stress = allocator.solve(stress_problem)
     elapsed = time.perf_counter() - started
+    if stress.cash_weight is None:
+        raise RuntimeError("stress allocation omitted the required cash weight")
 
     assertions = {
         "golden_optimal": golden.status is AllocationStatus.OPTIMAL,
@@ -163,9 +166,7 @@ def main() -> None:
     }
     payload["receipt_sha256"] = _hash(payload)
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(
-        json.dumps(payload, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
-    )
+    args.output.write_text(json.dumps(payload, ensure_ascii=False, sort_keys=True, indent=2) + "\n")
     print(
         f"golden_pass=true infeasible_pass=true reversals={surface.adjacent_reversal_count} "
         f"evpi={information.expected_value_of_perfect_information:.6f} "
