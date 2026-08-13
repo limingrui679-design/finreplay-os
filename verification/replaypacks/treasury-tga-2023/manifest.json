@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over two locked Treasury DTS Table I facts available before the decision time. Reported balances remain reported; the next-balance range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The June 2 balance is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, debt-limit causal model, fiscal-solvency measure, trading signal, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1261,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "b58e5e9fff607cde9982c332adfc64ad0409b467620dfaf39f4f6254b374b4df"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "189d09902b12f145e5f42423c43d2563006649e9999e31963f8d92a7dbaf8065"
+    },
+    {
+      "bytes": 29648,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "3e96b29dbe9643c75268848d6c64fada7e38094c3259bfe7760639f3a6b68724"
+    },
+    {
+      "bytes": 28402,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "bb6e12b7a50e475b48f841c4a53853883dc659f57e90201f47c251c75cf586bb"
+    }
+  ],
+  "pack_sha256": "a74daab723834be217a925b19bc5306094bc9d7eb3791085a6a067fc504ed18e",
+  "receipt_sha256": "190770aadecb784b7d1badfbc0a17c557bd2942160f6356c17af70668dc0fcb0",
+  "replay_id": "treasury-tga-2023-cash-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "bb015ea9b753f4348baa11ec15bdba64a452cac7",
+    "compressed_input_bytes": 1579,
+    "created_at": "2026-08-13T06:10:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "e9e35cdd24b65e6faba41a3637a52b6658623fa56a3a211e1208a7184178d5b9",
+    "output_manifest_sha256": "f133c8f202848d3eff92c0fe7b9ceeeb4a28a6b5274b425c6bd9e61391f3bf7b",
+    "replay_id": "treasury-tga-2023-cash-boundary-v1",
+    "scenario_id": "treasury-tga-2023-cash-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "bb6e12b7a50e475b48f841c4a53853883dc659f57e90201f47c251c75cf586bb",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:077515977a23370bda2bc75cd4f7b9905f7f46e7b202b5807a67b03b1e7322bb"
+}

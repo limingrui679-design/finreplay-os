@@ -1,0 +1,582 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 4,
+    "reported": 4,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "e9e35cdd24b65e6faba41a3637a52b6658623fa56a3a211e1208a7184178d5b9",
+  "pack_sha256": "a74daab723834be217a925b19bc5306094bc9d7eb3791085a6a067fc504ed18e",
+  "source_hashes": [
+    "b35dc7c619e5684e907643da4697795ef459ddac274f9a8bcbc36528c60cef04",
+    "f11a5bb0f1d7c371c480768dd53d902d97446b56500465935772cffd2ab5738e"
+  ],
+  "source_record_ids": [
+    "treasury.dts.published_report:20230531:tga_closing_balance",
+    "treasury.dts.published_report:20230601:tga_closing_balance"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "treasury-tga.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "3b34b66bff8baf5d19699d486e8af92ab1b798087cb65246de3e10ce236ec77b",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not independently validate the TGA cash-range heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This aggregate Treasury cash boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no security, order, portfolio, or allocation input is invented.",
+          "input_lock_sha256": "34fc00a83ce917eeb21b8ef0d039a4d7e446bb344d653269714a9dc7d8022975",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "b35dc7c619e5684e907643da4697795ef459ddac274f9a8bcbc36528c60cef04",
+          "f11a5bb0f1d7c371c480768dd53d902d97446b56500465935772cffd2ab5738e"
+        ],
+        "source_record_ids": [
+          "treasury.dts.published_report:20230531:tga_closing_balance",
+          "treasury.dts.published_report:20230601:tga_closing_balance"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "treasury-tga.shockcompiler.balance-range",
+          "treasury-tga.timevault.report-query",
+          "treasury-tga.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "treasury-tga.shockcompiler.balance-range",
+        "artifact_kind": "bounded-tga-cash-program",
+        "artifact_sha256": "0863c82b34d05d7763f51a3707ba88afd9397f030718b5c2533611b13c387887",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 3
+        },
+        "limitations": [
+          "The two endpoints mechanically reuse only two known reported balances.",
+          "The June 2 balance is absent from the bound construction and sources.",
+          "A TGA balance range is not a debt-default probability or fiscal-solvency measure."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": 22892.0,
+            "upper": 48512.0
+          },
+          "bound_construction": {
+            "endpoint_method": "minimum_and_maximum_of_two_known_reported_balances",
+            "future_event_used": false,
+            "lower_balance_millions": 22892,
+            "probability_assigned": false,
+            "range_width_millions": 25620,
+            "upper_balance_millions": 48512
+          },
+          "compiled": {
+            "compiled_sha256": "23c3a1f9256ac06fe3b84446825281eb5c00b3c2f238e3902f4d3bbaefa3ed87",
+            "decision_time": "2023-06-02T21:00:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, causal, or policy interpretation.",
+              "The June 2 report is excluded from construction and evaluated only afterward."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "treasury-tga-next-closing-envelope",
+            "scenario_id": "treasury-tga-2023-cash-boundary",
+            "source_program_sha256": "4880dec172a95f54acd915c9535a014d5ea06daf3458b1727816d8a836fb1377",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use the minimum and maximum of the two reported TGA closing balances already knowable at the decision time as transparent next-report stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two adjacent published balances define a descriptive range, not a forecast, confidence interval, or stationary statistical sample."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "treasury-tga-next-closing-range",
+                    "source_hashes": [
+                      "f11a5bb0f1d7c371c480768dd53d902d97446b56500465935772cffd2ab5738e",
+                      "b35dc7c619e5684e907643da4697795ef459ddac274f9a8bcbc36528c60cef04"
+                    ],
+                    "source_record_ids": [
+                      "treasury.dts.published_report:20230531:tga_closing_balance",
+                      "treasury.dts.published_report:20230601:tga_closing_balance"
+                    ],
+                    "target_id": "us_treasury:treasury_general_account",
+                    "unit": "millions_usd",
+                    "value": 22892.0,
+                    "variable": "next_reported_tga_closing_balance_millions"
+                  }
+                ],
+                "trial_id": "treasury-tga-next-closing-envelope:00000000:64eda1dd77c0bd02",
+                "trial_index": 0,
+                "vector_sha256": "64eda1dd77c0bd02760ffc92e67e66d32bffc9b35ea5efa313e0ee4b89e57338"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use the minimum and maximum of the two reported TGA closing balances already knowable at the decision time as transparent next-report stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two adjacent published balances define a descriptive range, not a forecast, confidence interval, or stationary statistical sample."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "treasury-tga-next-closing-range",
+                    "source_hashes": [
+                      "f11a5bb0f1d7c371c480768dd53d902d97446b56500465935772cffd2ab5738e",
+                      "b35dc7c619e5684e907643da4697795ef459ddac274f9a8bcbc36528c60cef04"
+                    ],
+                    "source_record_ids": [
+                      "treasury.dts.published_report:20230531:tga_closing_balance",
+                      "treasury.dts.published_report:20230601:tga_closing_balance"
+                    ],
+                    "target_id": "us_treasury:treasury_general_account",
+                    "unit": "millions_usd",
+                    "value": 48512.0,
+                    "variable": "next_reported_tga_closing_balance_millions"
+                  }
+                ],
+                "trial_id": "treasury-tga-next-closing-envelope:00000001:85b7c96474b45764",
+                "trial_index": 1,
+                "vector_sha256": "85b7c96474b457646a58dddaac6d5064ddaffb03ddf99775b62c75540141ec7b"
+              }
+            ]
+          },
+          "input_lock_sha256": "34fc00a83ce917eeb21b8ef0d039a4d7e446bb344d653269714a9dc7d8022975",
+          "known_balances": {
+            "balance_lower_millions": 22892,
+            "balance_range_width_millions": 25620,
+            "balance_upper_millions": 48512,
+            "june01_closing_balance_millions": 22892,
+            "may31_closing_balance_millions": 48512
+          },
+          "naive_baseline": {
+            "definition": "persistence of the latest known reported TGA closing balance",
+            "next_reported_tga_closing_balance_millions": 22892
+          },
+          "program": {
+            "decision_time": "2023-06-02T21:00:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, causal, or policy interpretation.",
+              "The June 2 report is excluded from construction and evaluated only afterward."
+            ],
+            "hypothesis": "Evaluate the two known DTS closing-balance endpoints using only report snapshots available at the historical decision boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use the minimum and maximum of the two reported TGA closing balances already knowable at the decision time as transparent next-report stress endpoints.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "Two adjacent published balances define a descriptive range, not a forecast, confidence interval, or stationary statistical sample."
+                ],
+                "lower": 22892.0,
+                "operation": "set",
+                "parameter_id": "treasury-tga-next-closing-range",
+                "source_record_ids": [
+                  "treasury.dts.published_report:20230531:tga_closing_balance",
+                  "treasury.dts.published_report:20230601:tga_closing_balance"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Department of the Treasury, Bureau of the Fiscal Service",
+                    "redistribution_note": "Keep full Treasury report PDFs in local content-addressed storage. Repository scenarios retain only minimal reported balances, source links, hashes, and Treasury attribution.",
+                    "retrieved_at": "2026-08-13T05:53:55.390983Z",
+                    "sha256": "f11a5bb0f1d7c371c480768dd53d902d97446b56500465935772cffd2ab5738e",
+                    "source_id": "treasury.dts.published_report",
+                    "source_version": "DTS:2023-05-31:sha256:f11a5bb0f1d7c371c480768d",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://fiscaldata.treasury.gov/static-data/published-reports/dts/DailyTreasuryStatement_20230531.pdf",
+                    "vintage_as_of": "2023-05-31T00:00:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Department of the Treasury, Bureau of the Fiscal Service",
+                    "redistribution_note": "Keep full Treasury report PDFs in local content-addressed storage. Repository scenarios retain only minimal reported balances, source links, hashes, and Treasury attribution.",
+                    "retrieved_at": "2026-08-13T05:53:57.431124Z",
+                    "sha256": "b35dc7c619e5684e907643da4697795ef459ddac274f9a8bcbc36528c60cef04",
+                    "source_id": "treasury.dts.published_report",
+                    "source_version": "DTS:2023-06-01:sha256:b35dc7c619e5684e907643da",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://fiscaldata.treasury.gov/static-data/published-reports/dts/DailyTreasuryStatement_20230601.pdf",
+                    "vintage_as_of": "2023-06-01T00:00:00Z"
+                  }
+                ],
+                "target_id": "us_treasury:treasury_general_account",
+                "unit": "millions_usd",
+                "upper": 48512.0,
+                "variable": "next_reported_tga_closing_balance_millions"
+              }
+            ],
+            "program_id": "treasury-tga-next-closing-envelope",
+            "scenario_id": "treasury-tga-2023-cash-boundary"
+          }
+        },
+        "source_hashes": [
+          "b35dc7c619e5684e907643da4697795ef459ddac274f9a8bcbc36528c60cef04",
+          "f11a5bb0f1d7c371c480768dd53d902d97446b56500465935772cffd2ab5738e"
+        ],
+        "source_record_ids": [
+          "treasury.dts.published_report:20230531:tga_closing_balance",
+          "treasury.dts.published_report:20230601:tga_closing_balance"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "treasury-tga.timevault.report-query"
+        ]
+      },
+      {
+        "artifact_id": "treasury-tga.timevault.report-query",
+        "artifact_kind": "versioned-treasury-report-query",
+        "artifact_sha256": "8cf1ec227e31dcb5b63e82ac765b97ea024efde9e4812709c31c41266074db14",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 2
+        },
+        "limitations": [
+          "The lock contains only two published TGA closing balances from DTS Table I.",
+          "Knowledge time is the official following-business-day 4:00 p.m. deadline, not the exact publication instant.",
+          "The reports describe aggregate Treasury cash operations, not causes or forecasts."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "cbbf635f0dbfe41eb128db6308572c3495ba908dc8443c23dbc08c06e5a4848e",
+              "d7c0ca11cf5788011b5ee4d9cdb7e9ce68add4cf814de0e88c15de2839ac824e"
+            ],
+            "attempted_records": 2,
+            "fact_hashes": [
+              "ed6512879a10c94b5ba7da876e5ca78d830760da5a83a4dca56855e17682c706",
+              "71878d42e9814417630040859ce03eab55b5251908bcc32d21b3224630af74c1"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 2
+          },
+          "decision_time": "2023-06-02T21:00:00Z",
+          "input_lock_sha256": "34fc00a83ce917eeb21b8ef0d039a4d7e446bb344d653269714a9dc7d8022975",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 2,
+            "fact_set_sha256": "46766ce060e9821bec5603abe9032c7d43b0730162d380bc651c4960892e15ed",
+            "fact_versions": 2,
+            "generated_at": "2026-08-13T06:10:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2023-06-02T20:00:00Z",
+          "selected_record_ids": [
+            "treasury.dts.published_report:20230531:tga_closing_balance",
+            "treasury.dts.published_report:20230601:tga_closing_balance"
+          ]
+        },
+        "source_hashes": [
+          "b35dc7c619e5684e907643da4697795ef459ddac274f9a8bcbc36528c60cef04",
+          "f11a5bb0f1d7c371c480768dd53d902d97446b56500465935772cffd2ab5738e"
+        ],
+        "source_record_ids": [
+          "treasury.dts.published_report:20230531:tga_closing_balance",
+          "treasury.dts.published_report:20230601:tga_closing_balance"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "treasury-tga.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "6df42bc2d3164adaf20616295596734f1b423c76a1d7ef15fb83d8bedb71ad76",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 2,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "treasury-tga-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "bb015ea9b753f4348baa11ec15bdba64a452cac7",
+            "completed_at": "2026-08-13T06:10:00Z",
+            "config_sha256": "b92ef85a1e3c0aff092aebdeaa51c9002c86c6259097101b76ae9256d620892a",
+            "decision_time": "2023-06-02T21:00:00Z",
+            "evaluation_end": "2023-07-08",
+            "evaluation_start": "2023-06-03",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "34fc00a83ce917eeb21b8ef0d039a4d7e446bb344d653269714a9dc7d8022975",
+            "max_input_available_at": "2023-06-02T20:00:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 25620.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No June 2 DTS event fact is present in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "879d5b6bd9cac78d9e26356cece3440b6d56ef4dbd72cf30537348d25a0473cc",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "two-report-balance-difference": 25620.0,
+              "two-report-range-width": 25620.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 2,
+            "short_fraction": 0.0,
+            "training_end": "2023-05-31",
+            "trial_id": "treasury-tga-retrospective-range-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "2e841ec13b55255f1c9ce716e2107c3aeda20a5559a504d496350766ff31009e",
+            "entry_hash": "2e841ec13b55255f1c9ce716e2107c3aeda20a5559a504d496350766ff31009e",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "treasury-tga-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "treasury-tga-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "9446d97a8c0f4b26427b273bfd3ee0fd975d0c5058392965aa927d859282cfa6",
+            "candidate_attempt_id": "treasury-tga-retrospective-attempt-1",
+            "decided_at": "2026-08-13T06:10:00Z",
+            "decision_id": "decision:treasury-tga-retrospective-range-screen:6feb661f5960a08c901715cd",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 25620.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 25620.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "treasury-tga-retrospective-range-screen"
+          },
+          "input_lock_sha256": "34fc00a83ce917eeb21b8ef0d039a4d7e446bb344d653269714a9dc7d8022975",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "60eec5cbe756976dfbda6814ccb24b8e3021ea5b93fd0d6fa2458318a4c86977",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "1f6cf62d89865eb0e0d5bc2ab5380aced625d69a49e62e5c121247f6557c21ad",
+            "entry_hash": "1f6cf62d89865eb0e0d5bc2ab5380aced625d69a49e62e5c121247f6557c21ad",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "DTS Table I reports aggregate cash operations, but two closing balances and one later outcome cannot establish predictive validity, debt-limit causality, or policy effects.",
+            "embargo_days": 0,
+            "expected_direction": "two-sided",
+            "holdout_end": "2023-07-08",
+            "holdout_start": "2023-06-03",
+            "hypothesis": "A retrospectively constructed two-report TGA cash range qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-13T06:10:00Z",
+            "primary_metric": "two-report TGA closing-balance range width in millions of dollars",
+            "purge_days": 2,
+            "trial_id": "treasury-tga-retrospective-range-screen"
+          }
+        },
+        "source_hashes": [
+          "b35dc7c619e5684e907643da4697795ef459ddac274f9a8bcbc36528c60cef04",
+          "f11a5bb0f1d7c371c480768dd53d902d97446b56500465935772cffd2ab5738e"
+        ],
+        "source_record_ids": [
+          "treasury.dts.published_report:20230531:tga_closing_balance",
+          "treasury.dts.published_report:20230601:tga_closing_balance"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "treasury-tga.shockcompiler.balance-range",
+          "treasury-tga.timevault.report-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over two locked Treasury DTS Table I facts available before the decision time. Reported balances remain reported; the next-balance range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The June 2 balance is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, debt-limit causal model, fiscal-solvency measure, trading signal, production deployment, or external validation.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "treasury-tga.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no assigned probability or coverage guarantee.",
+        "claim_id": "claim-inferred-tga-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The June 2 report was not used to set the interval.",
+          "The two-point range has no debt-default, solvency, or policy interpretation."
+        ],
+        "statement": "The next-report stress endpoints reuse the two known balances: [22,892, 48,512] million dollars, with the June 1 balance as the explicit persistence baseline.",
+        "support_artifact_ids": [
+          "treasury-tga.shockcompiler.balance-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external fiscal-domain review.",
+        "claim_id": "claim-inferred-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective two-report TGA range attempt.",
+        "support_artifact_ids": [
+          "treasury-tga.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are published aggregate balances, not a forecast or causal estimate.",
+        "claim_id": "claim-reported-tga-balances",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes only two report dates and Table I balances."
+        ],
+        "statement": "Treasury DTS Table I reports TGA closing balances of 48,512 million dollars for May 31 and 22,892 million dollars for June 1, 2023.",
+        "support_artifact_ids": [
+          "treasury-tga.timevault.report-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not orders, capacity, capital, or returns.",
+        "claim_id": "claim-simulated-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "treasury-tga.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "bb015ea9b753f4348baa11ec15bdba64a452cac7",
+    "compressed_input_bytes": 1579,
+    "created_at": "2026-08-13T06:10:00Z",
+    "decision_time": "2023-06-02T21:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves the May 31 and June 1, 2023 TGA closing balances from two date-stamped Daily Treasury Statement PDFs conservatively knowable before the replay decision time. It excludes the June 2 event balance, all other DTS rows, a probability distribution, forecast, calibrated interval, debt-limit causal attribution, fiscal-solvency conclusion, policy recommendation, execution, investment performance, external review, deployment, and user impact.",
+      "The endpoints are only the minimum and maximum of two known closing balances; they have no probability or coverage guarantee.",
+      "The June 2 report is excluded from every decision input and artifact.",
+      "The publication deadline is a conservative knowledge time, not an exact instant.",
+      "Aggregate TGA balances do not identify causal policy, counterparties, or future cash.",
+      "No security, order, portfolio, allocation, or return is represented.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "treasury-tga-2023-cash-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "treasury-tga-2023-cash-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "U.S. Treasury General Account cash-balance boundary, June 2023"
+  },
+  "topological_artifact_ids": [
+    "treasury-tga.timevault.report-query",
+    "treasury-tga.shockcompiler.balance-range",
+    "treasury-tga.trialcourt.retrospective-gate",
+    "treasury-tga.replaystudio.render"
+  ],
+  "trace_id": "trace:077515977a23370bda2bc75cd4f7b9905f7f46e7b202b5807a67b03b1e7322bb"
+}
