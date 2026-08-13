@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over four locked DGS2/DGS10 facts from two native ALFRED vintages available before the decision time. Reported yields remain reported; the DGS10-minus-DGS2 spreads and next-spread range remain inferred with no assigned probability; TrialCourt rejects retrospective promotion. Two March 15 yields are held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, causal yield-curve model, policy recommendation, trading signal, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1320,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "3938e45c10d330c3767bceb873da77b231748d8eb059da4f08cf778c704ab349"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "55ebcc9b532cd131f0e1e306285e032e8beaa32cf3c22299ffc1f0bb600d8071"
+    },
+    {
+      "bytes": 34900,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "203b24dcc60f2abb14ca4ddf1acab1a00ebca5966df37f618bdb547a58006c57"
+    },
+    {
+      "bytes": 34224,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "e13ef4ccae838ea8d4c11c9a6330f272e3283026f47e9cc265b3323bead536f2"
+    }
+  ],
+  "pack_sha256": "f05a5b1f0a143f3bd99dbd1777efcb814f791a1da8d1f8190ece4a73d7ad3ccb",
+  "receipt_sha256": "f0a4f7ac664649b1405fb069e30e9489b6df59692c53e4208586c5f5ae118758",
+  "replay_id": "treasury-curve-2023-inversion-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "12cd22fe84433d51eab47f9b384b34c6848205e6",
+    "compressed_input_bytes": 1896,
+    "created_at": "2026-08-13T05:40:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 4,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "fcc44ba24ea1626972b6c7c1885551359292c339bb79287ba2c5cb950c15d565",
+    "output_manifest_sha256": "813e7d7e0438b88ed6a97098358b25d69cc9355f9dd0cc1e59f46e5e79ebc899",
+    "replay_id": "treasury-curve-2023-inversion-boundary-v1",
+    "scenario_id": "treasury-curve-2023-inversion-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "e13ef4ccae838ea8d4c11c9a6330f272e3283026f47e9cc265b3323bead536f2",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:582d084d96526fffb25f544af2fb1ceca86cd71b53578c51823c04b5dbfed41c"
+}

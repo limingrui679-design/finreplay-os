@@ -1,0 +1,646 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 4,
+    "reported": 8,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "fcc44ba24ea1626972b6c7c1885551359292c339bb79287ba2c5cb950c15d565",
+  "pack_sha256": "f05a5b1f0a143f3bd99dbd1777efcb814f791a1da8d1f8190ece4a73d7ad3ccb",
+  "source_hashes": [
+    "0003b1f470d6b29578014689c8011b2e9aaa2ce29c4a8537737d08a181e65414",
+    "1e5b1a801e181fa2af4bb48061b178246347fae6d601ac0e48d71a875e6513d2",
+    "20b39d907a53af16c8c83487eeae24795ef364293f95e9d36e5e124f996d54d8",
+    "f5c9b35d38e48d2bff3eaf537c739dd0f74c28f9eb3d571c33c0f69f0c57f409"
+  ],
+  "source_record_ids": [
+    "fred.alfred.vintage_treasury_yield:DGS10:20230309:2023-03-08",
+    "fred.alfred.vintage_treasury_yield:DGS10:20230314:2023-03-13",
+    "fred.alfred.vintage_treasury_yield:DGS2:20230309:2023-03-08",
+    "fred.alfred.vintage_treasury_yield:DGS2:20230314:2023-03-13"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "treasury-curve.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "839b817445b4fa6a46db173a0afb4e8e3715772b8339d66f009e3a4cf2dfd2e8",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not independently validate the Treasury-curve boundary heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This aggregate Treasury-curve boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no order, execution, portfolio, or allocation input is invented.",
+          "input_lock_sha256": "eb49c0c8d96ff99b59a5495d428dacc61b142a151d4d7e2ab358055c53a7b085",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "0003b1f470d6b29578014689c8011b2e9aaa2ce29c4a8537737d08a181e65414",
+          "1e5b1a801e181fa2af4bb48061b178246347fae6d601ac0e48d71a875e6513d2",
+          "20b39d907a53af16c8c83487eeae24795ef364293f95e9d36e5e124f996d54d8",
+          "f5c9b35d38e48d2bff3eaf537c739dd0f74c28f9eb3d571c33c0f69f0c57f409"
+        ],
+        "source_record_ids": [
+          "fred.alfred.vintage_treasury_yield:DGS10:20230309:2023-03-08",
+          "fred.alfred.vintage_treasury_yield:DGS10:20230314:2023-03-13",
+          "fred.alfred.vintage_treasury_yield:DGS2:20230309:2023-03-08",
+          "fred.alfred.vintage_treasury_yield:DGS2:20230314:2023-03-13"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "treasury-curve.shockcompiler.spread-range",
+          "treasury-curve.timevault.vintage-query",
+          "treasury-curve.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "treasury-curve.shockcompiler.spread-range",
+        "artifact_kind": "bounded-treasury-curve-program",
+        "artifact_sha256": "3d7f82f39652def43e913c343a24fbfa36579115cd12122cfd980a9423cdfa04",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 3
+        },
+        "limitations": [
+          "The two endpoints mechanically reuse only two known derived spreads.",
+          "The two March 15 yield facts are absent from the bound construction and sources.",
+          "A curve spread is not a direct observation of expectations, recession probability, bank stress, or policy effects."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": -107.0,
+            "upper": -48.0
+          },
+          "bound_construction": {
+            "endpoint_method": "minimum_and_maximum_of_two_known_derived_spreads",
+            "future_event_used": false,
+            "lower_spread_basis_points": -107,
+            "probability_assigned": false,
+            "range_width_basis_points": 59,
+            "upper_spread_basis_points": -48
+          },
+          "compiled": {
+            "compiled_sha256": "de3639dab2ee8aaccd9c44c11197c1e31c0e8f11ff8e5dbc5361cf2c603fa309",
+            "decision_time": "2023-03-16T12:00:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, forecast, or policy interpretation.",
+              "ALFRED provides date-granular vintages, so knowledge timing uses a conservative two-calendar-day lag."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "treasury-curve-next-spread-envelope",
+            "scenario_id": "treasury-curve-2023-inversion-boundary",
+            "source_program_sha256": "f9291f2a83309486dca49a8413a37412b47676d0de19dca81cbf2faabf3e77cf",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Subtract the reported DGS2 yield from DGS10 on each of the two dates already knowable at the decision time, then use the minimum and maximum derived spreads as transparent next-observation stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two derived spreads define a descriptive range, not a forecast, confidence interval, or stationary statistical sample."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "treasury-curve-next-spread-range",
+                    "source_hashes": [
+                      "1e5b1a801e181fa2af4bb48061b178246347fae6d601ac0e48d71a875e6513d2",
+                      "20b39d907a53af16c8c83487eeae24795ef364293f95e9d36e5e124f996d54d8",
+                      "0003b1f470d6b29578014689c8011b2e9aaa2ce29c4a8537737d08a181e65414",
+                      "f5c9b35d38e48d2bff3eaf537c739dd0f74c28f9eb3d571c33c0f69f0c57f409"
+                    ],
+                    "source_record_ids": [
+                      "fred.alfred.vintage_treasury_yield:DGS10:20230309:2023-03-08",
+                      "fred.alfred.vintage_treasury_yield:DGS10:20230314:2023-03-13",
+                      "fred.alfred.vintage_treasury_yield:DGS2:20230309:2023-03-08",
+                      "fred.alfred.vintage_treasury_yield:DGS2:20230314:2023-03-13"
+                    ],
+                    "target_id": "treasury_curve:united_states",
+                    "unit": "basis_points",
+                    "value": -107.0,
+                    "variable": "next_dgs10_minus_dgs2_spread_basis_points"
+                  }
+                ],
+                "trial_id": "treasury-curve-next-spread-envelope:00000000:f046ce82d2c8ae9e",
+                "trial_index": 0,
+                "vector_sha256": "f046ce82d2c8ae9e7881f7d9ee26be91eb18170814cb0c3a00a1944f2dc12558"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Subtract the reported DGS2 yield from DGS10 on each of the two dates already knowable at the decision time, then use the minimum and maximum derived spreads as transparent next-observation stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two derived spreads define a descriptive range, not a forecast, confidence interval, or stationary statistical sample."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "treasury-curve-next-spread-range",
+                    "source_hashes": [
+                      "1e5b1a801e181fa2af4bb48061b178246347fae6d601ac0e48d71a875e6513d2",
+                      "20b39d907a53af16c8c83487eeae24795ef364293f95e9d36e5e124f996d54d8",
+                      "0003b1f470d6b29578014689c8011b2e9aaa2ce29c4a8537737d08a181e65414",
+                      "f5c9b35d38e48d2bff3eaf537c739dd0f74c28f9eb3d571c33c0f69f0c57f409"
+                    ],
+                    "source_record_ids": [
+                      "fred.alfred.vintage_treasury_yield:DGS10:20230309:2023-03-08",
+                      "fred.alfred.vintage_treasury_yield:DGS10:20230314:2023-03-13",
+                      "fred.alfred.vintage_treasury_yield:DGS2:20230309:2023-03-08",
+                      "fred.alfred.vintage_treasury_yield:DGS2:20230314:2023-03-13"
+                    ],
+                    "target_id": "treasury_curve:united_states",
+                    "unit": "basis_points",
+                    "value": -48.0,
+                    "variable": "next_dgs10_minus_dgs2_spread_basis_points"
+                  }
+                ],
+                "trial_id": "treasury-curve-next-spread-envelope:00000001:bb48689a12e5b328",
+                "trial_index": 1,
+                "vector_sha256": "bb48689a12e5b328742c0f1305593dc8a5290bc101ec5eee4066e54feb6fd988"
+              }
+            ]
+          },
+          "input_lock_sha256": "eb49c0c8d96ff99b59a5495d428dacc61b142a151d4d7e2ab358055c53a7b085",
+          "known_yields_and_derived_spreads": {
+            "march08_spread_basis_points": -107,
+            "march08_ten_year_basis_points": 398,
+            "march08_two_year_basis_points": 505,
+            "march13_spread_basis_points": -48,
+            "march13_ten_year_basis_points": 355,
+            "march13_two_year_basis_points": 403,
+            "spread_lower_basis_points": -107,
+            "spread_range_width": 59,
+            "spread_upper_basis_points": -48
+          },
+          "naive_baseline": {
+            "definition": "persistence of the latest known derived DGS10-minus-DGS2 spread",
+            "next_dgs10_minus_dgs2_spread_basis_points": -48
+          },
+          "program": {
+            "decision_time": "2023-03-16T12:00:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, forecast, or policy interpretation.",
+              "ALFRED provides date-granular vintages, so knowledge timing uses a conservative two-calendar-day lag."
+            ],
+            "hypothesis": "Evaluate the two known DGS10-minus-DGS2 endpoints using only native ALFRED vintages available at the historical decision boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Subtract the reported DGS2 yield from DGS10 on each of the two dates already knowable at the decision time, then use the minimum and maximum derived spreads as transparent next-observation stress endpoints.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "Two derived spreads define a descriptive range, not a forecast, confidence interval, or stationary statistical sample."
+                ],
+                "lower": -107.0,
+                "operation": "set",
+                "parameter_id": "treasury-curve-next-spread-range",
+                "source_record_ids": [
+                  "fred.alfred.vintage_treasury_yield:DGS10:20230309:2023-03-08",
+                  "fred.alfred.vintage_treasury_yield:DGS10:20230314:2023-03-13",
+                  "fred.alfred.vintage_treasury_yield:DGS2:20230309:2023-03-08",
+                  "fred.alfred.vintage_treasury_yield:DGS2:20230314:2023-03-13"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "Federal Reserve Bank of St. Louis",
+                    "redistribution_note": "Retain raw ALFRED CSV only in local content-addressed storage. Attribute FRED/ALFRED and the underlying Board of Governors H.15 series; do not redistribute the raw response or imply ownership of source data.",
+                    "retrieved_at": "2026-08-13T05:27:10.460915Z",
+                    "sha256": "1e5b1a801e181fa2af4bb48061b178246347fae6d601ac0e48d71a875e6513d2",
+                    "source_id": "fred.alfred.vintage_treasury_yield",
+                    "source_version": "DGS10:vintage:2023-03-09:observation:2023-03-08:sha256:1e5b1a801e181fa2af4bb480",
+                    "temporal_coverage": "vintage_native",
+                    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DGS10&cosd=2023-03-08&coed=2023-03-08&vintage_date=2023-03-09",
+                    "vintage_as_of": "2023-03-09T00:00:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "Federal Reserve Bank of St. Louis",
+                    "redistribution_note": "Retain raw ALFRED CSV only in local content-addressed storage. Attribute FRED/ALFRED and the underlying Board of Governors H.15 series; do not redistribute the raw response or imply ownership of source data.",
+                    "retrieved_at": "2026-08-13T05:27:12.429355Z",
+                    "sha256": "20b39d907a53af16c8c83487eeae24795ef364293f95e9d36e5e124f996d54d8",
+                    "source_id": "fred.alfred.vintage_treasury_yield",
+                    "source_version": "DGS10:vintage:2023-03-14:observation:2023-03-13:sha256:20b39d907a53af16c8c83487",
+                    "temporal_coverage": "vintage_native",
+                    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DGS10&cosd=2023-03-13&coed=2023-03-13&vintage_date=2023-03-14",
+                    "vintage_as_of": "2023-03-14T00:00:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "Federal Reserve Bank of St. Louis",
+                    "redistribution_note": "Retain raw ALFRED CSV only in local content-addressed storage. Attribute FRED/ALFRED and the underlying Board of Governors H.15 series; do not redistribute the raw response or imply ownership of source data.",
+                    "retrieved_at": "2026-08-13T05:27:11.451927Z",
+                    "sha256": "0003b1f470d6b29578014689c8011b2e9aaa2ce29c4a8537737d08a181e65414",
+                    "source_id": "fred.alfred.vintage_treasury_yield",
+                    "source_version": "DGS2:vintage:2023-03-09:observation:2023-03-08:sha256:0003b1f470d6b29578014689",
+                    "temporal_coverage": "vintage_native",
+                    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DGS2&cosd=2023-03-08&coed=2023-03-08&vintage_date=2023-03-09",
+                    "vintage_as_of": "2023-03-09T00:00:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "Federal Reserve Bank of St. Louis",
+                    "redistribution_note": "Retain raw ALFRED CSV only in local content-addressed storage. Attribute FRED/ALFRED and the underlying Board of Governors H.15 series; do not redistribute the raw response or imply ownership of source data.",
+                    "retrieved_at": "2026-08-13T05:27:13.417590Z",
+                    "sha256": "f5c9b35d38e48d2bff3eaf537c739dd0f74c28f9eb3d571c33c0f69f0c57f409",
+                    "source_id": "fred.alfred.vintage_treasury_yield",
+                    "source_version": "DGS2:vintage:2023-03-14:observation:2023-03-13:sha256:f5c9b35d38e48d2bff3eaf53",
+                    "temporal_coverage": "vintage_native",
+                    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DGS2&cosd=2023-03-13&coed=2023-03-13&vintage_date=2023-03-14",
+                    "vintage_as_of": "2023-03-14T00:00:00Z"
+                  }
+                ],
+                "target_id": "treasury_curve:united_states",
+                "unit": "basis_points",
+                "upper": -48.0,
+                "variable": "next_dgs10_minus_dgs2_spread_basis_points"
+              }
+            ],
+            "program_id": "treasury-curve-next-spread-envelope",
+            "scenario_id": "treasury-curve-2023-inversion-boundary"
+          }
+        },
+        "source_hashes": [
+          "0003b1f470d6b29578014689c8011b2e9aaa2ce29c4a8537737d08a181e65414",
+          "1e5b1a801e181fa2af4bb48061b178246347fae6d601ac0e48d71a875e6513d2",
+          "20b39d907a53af16c8c83487eeae24795ef364293f95e9d36e5e124f996d54d8",
+          "f5c9b35d38e48d2bff3eaf537c739dd0f74c28f9eb3d571c33c0f69f0c57f409"
+        ],
+        "source_record_ids": [
+          "fred.alfred.vintage_treasury_yield:DGS10:20230309:2023-03-08",
+          "fred.alfred.vintage_treasury_yield:DGS10:20230314:2023-03-13",
+          "fred.alfred.vintage_treasury_yield:DGS2:20230309:2023-03-08",
+          "fred.alfred.vintage_treasury_yield:DGS2:20230314:2023-03-13"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "treasury-curve.timevault.vintage-query"
+        ]
+      },
+      {
+        "artifact_id": "treasury-curve.timevault.vintage-query",
+        "artifact_kind": "native-vintage-yield-query",
+        "artifact_sha256": "2c6a1dbadefb253f5d21f4ae319b60a310dac3d4d1eeb84e1becba88e8ba869d",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 4
+        },
+        "limitations": [
+          "The lock contains only DGS2 and DGS10 observations on two dates.",
+          "ALFRED vintage dates are date-granular, so each fact uses a conservative two-day knowledge lag rather than a claimed intraday H.15 release time.",
+          "The 10-year-minus-2-year spread is derived, not upstream reported."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "465c4c0434a4aa78be6bf9dea24a2e9ab9de400112a88da6ac120e6778e3b904",
+              "89d6a24e8be61cf5ae4b4e2462e78b72c6a94f7c505c89a1bb9a85e4d0d69ebe",
+              "98b023f7fbaf897138d1cfd6fece7265de076e8b51b2d7553fc497b28fc58955",
+              "ecae398e81dc1db45d6d69ce4abf4f82ec7781c6ad1ec31ae5e6d9bbc21fcc89"
+            ],
+            "attempted_records": 4,
+            "fact_hashes": [
+              "5b11ff094dc4249868819dcf73718bd7071e680f7f00d762b5da57c5e94e83c4",
+              "3363177ebfc2389390b92930c7a78241d6a38e4213c4b0b9dacefc97569f86b0",
+              "f49fa50ec216ddde1a669a09220bef5120f75b193d7b62b890901a287b7bb422",
+              "4d8c0d058898ee57feeb0697890eff946319042337b17ec71fd2f7eb53b725d6"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 4
+          },
+          "decision_time": "2023-03-16T12:00:00Z",
+          "input_lock_sha256": "eb49c0c8d96ff99b59a5495d428dacc61b142a151d4d7e2ab358055c53a7b085",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 4,
+            "fact_set_sha256": "7c5aaea35a0b82c833e8e557b20538db7b78fecc2dd24ee6bec07e6cbf2776a8",
+            "fact_versions": 4,
+            "generated_at": "2026-08-13T05:40:00Z",
+            "retrieval_receipts": 4,
+            "source_artifacts": 4
+          },
+          "max_available_at": "2023-03-16T00:00:00Z",
+          "selected_record_ids": [
+            "fred.alfred.vintage_treasury_yield:DGS10:20230309:2023-03-08",
+            "fred.alfred.vintage_treasury_yield:DGS10:20230314:2023-03-13",
+            "fred.alfred.vintage_treasury_yield:DGS2:20230309:2023-03-08",
+            "fred.alfred.vintage_treasury_yield:DGS2:20230314:2023-03-13"
+          ]
+        },
+        "source_hashes": [
+          "0003b1f470d6b29578014689c8011b2e9aaa2ce29c4a8537737d08a181e65414",
+          "1e5b1a801e181fa2af4bb48061b178246347fae6d601ac0e48d71a875e6513d2",
+          "20b39d907a53af16c8c83487eeae24795ef364293f95e9d36e5e124f996d54d8",
+          "f5c9b35d38e48d2bff3eaf537c739dd0f74c28f9eb3d571c33c0f69f0c57f409"
+        ],
+        "source_record_ids": [
+          "fred.alfred.vintage_treasury_yield:DGS10:20230309:2023-03-08",
+          "fred.alfred.vintage_treasury_yield:DGS10:20230314:2023-03-13",
+          "fred.alfred.vintage_treasury_yield:DGS2:20230309:2023-03-08",
+          "fred.alfred.vintage_treasury_yield:DGS2:20230314:2023-03-13"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "treasury-curve.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "93a450e1ef9af8fc446220b85ef340f5e6b02292039f201d59e6e2bec022cc1c",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 4,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "treasury-curve-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "12cd22fe84433d51eab47f9b384b34c6848205e6",
+            "completed_at": "2026-08-13T05:40:00Z",
+            "config_sha256": "768656c67f3978ca8e3e08bbc2a2d290807c24fc2da4609f0eb6ee5b83ad3c43",
+            "decision_time": "2023-03-16T12:00:00Z",
+            "evaluation_end": "2023-04-21",
+            "evaluation_start": "2023-03-17",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "eb49c0c8d96ff99b59a5495d428dacc61b142a151d4d7e2ab358055c53a7b085",
+            "max_input_available_at": "2023-03-16T00:00:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 59.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No March 15 yield fact is present in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "6b1703096c93704a134e0dc03a70785a38e884e19f357f0542e1a66a8e827464",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "two-date-range-width": 59.0,
+              "two-date-spread-difference": 59.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 4,
+            "short_fraction": 0.0,
+            "training_end": "2023-03-14",
+            "trial_id": "treasury-curve-retrospective-range-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "22defb1ca81444ab882d1be0d3d71698e6f7e7bad156f79dc832beaefe4e449c",
+            "entry_hash": "22defb1ca81444ab882d1be0d3d71698e6f7e7bad156f79dc832beaefe4e449c",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "treasury-curve-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "treasury-curve-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "d9b44cb8aa918344c920177145440be1583d93a03174bda8f37bc447ddb1e654",
+            "candidate_attempt_id": "treasury-curve-retrospective-attempt-1",
+            "decided_at": "2026-08-13T05:40:00Z",
+            "decision_id": "decision:treasury-curve-retrospective-range-screen:8371280a036d89a83d752aa6",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 59.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 59.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "treasury-curve-retrospective-range-screen"
+          },
+          "input_lock_sha256": "eb49c0c8d96ff99b59a5495d428dacc61b142a151d4d7e2ab358055c53a7b085",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "95ac929e90f46c4915f423b5887643cace6ed23187fa099b4275bef81f43a4ae",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "972f9528507a02bb72b2b225c74cde03fdc785b8f388c13b8ca1a8f7eb8b103f",
+            "entry_hash": "972f9528507a02bb72b2b225c74cde03fdc785b8f388c13b8ca1a8f7eb8b103f",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "DGS2 and DGS10 describe constant-maturity market yields, but two derived spreads and one later outcome cannot establish predictive validity, recession signals, banking causes, or policy effects.",
+            "embargo_days": 0,
+            "expected_direction": "two-sided",
+            "holdout_end": "2023-04-21",
+            "holdout_start": "2023-03-17",
+            "hypothesis": "A retrospectively constructed two-date Treasury-curve spread range qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-13T05:40:00Z",
+            "primary_metric": "two-date DGS10-minus-DGS2 range width in basis points",
+            "purge_days": 2,
+            "trial_id": "treasury-curve-retrospective-range-screen"
+          }
+        },
+        "source_hashes": [
+          "0003b1f470d6b29578014689c8011b2e9aaa2ce29c4a8537737d08a181e65414",
+          "1e5b1a801e181fa2af4bb48061b178246347fae6d601ac0e48d71a875e6513d2",
+          "20b39d907a53af16c8c83487eeae24795ef364293f95e9d36e5e124f996d54d8",
+          "f5c9b35d38e48d2bff3eaf537c739dd0f74c28f9eb3d571c33c0f69f0c57f409"
+        ],
+        "source_record_ids": [
+          "fred.alfred.vintage_treasury_yield:DGS10:20230309:2023-03-08",
+          "fred.alfred.vintage_treasury_yield:DGS10:20230314:2023-03-13",
+          "fred.alfred.vintage_treasury_yield:DGS2:20230309:2023-03-08",
+          "fred.alfred.vintage_treasury_yield:DGS2:20230314:2023-03-13"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "treasury-curve.shockcompiler.spread-range",
+          "treasury-curve.timevault.vintage-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over four locked DGS2/DGS10 facts from two native ALFRED vintages available before the decision time. Reported yields remain reported; the DGS10-minus-DGS2 spreads and next-spread range remain inferred with no assigned probability; TrialCourt rejects retrospective promotion. Two March 15 yields are held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, causal yield-curve model, policy recommendation, trading signal, production deployment, or external validation.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "treasury-curve.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no assigned probability or coverage guarantee.",
+        "claim_id": "claim-inferred-spread-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The March 15 yields were not used to set the interval.",
+          "A two-point curve range has no recession, banking, or policy interpretation."
+        ],
+        "statement": "DGS10 minus DGS2 equals -107 basis points on March 8 and -48 basis points on March 13; the next-observation stress endpoints reuse those two derived values, with the latest spread as the explicit persistence baseline.",
+        "support_artifact_ids": [
+          "treasury-curve.shockcompiler.spread-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external forecast review.",
+        "claim_id": "claim-inferred-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective two-date Treasury-curve range attempt.",
+        "support_artifact_ids": [
+          "treasury-curve.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are separately reported constant-maturity yields, not a reported curve spread, security trades, positions, or flows.",
+        "claim_id": "claim-reported-treasury-yields",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes only two maturities on two observation dates."
+        ],
+        "statement": "The locked ALFRED vintages report DGS2/DGS10 yields of 505 and 398 basis points for March 8, and 403 and 355 basis points for March 13, 2023.",
+        "support_artifact_ids": [
+          "treasury-curve.timevault.vintage-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not orders, capacity, capital, or returns.",
+        "claim_id": "claim-simulated-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "treasury-curve.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "12cd22fe84433d51eab47f9b384b34c6848205e6",
+    "compressed_input_bytes": 1896,
+    "created_at": "2026-08-13T05:40:00Z",
+    "decision_time": "2023-03-16T12:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 4,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves DGS2 and DGS10 values observed on March 8 and March 13, 2023 from four explicitly selected native ALFRED vintages conservatively knowable before the replay decision time. It excludes both March 15 event yields, other maturities and dates, security trades, positions, flows, a probability distribution, forecast, calibrated interval, causal banking or policy attribution, and investment performance. The DGS10-minus-DGS2 spreads are derived downstream rather than relabelled as reported source facts.",
+      "The spread endpoints are only the minimum and maximum of two known derived spreads; they have no probability or coverage guarantee.",
+      "The March 15 yield facts are excluded from all decision inputs and artifacts.",
+      "Date-granular ALFRED timing is conservative rather than intraday release evidence.",
+      "Aggregate yields do not identify trades, holders, flows, or causal mechanisms.",
+      "No market network, security, order, portfolio, allocation, or return is represented.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "treasury-curve-2023-inversion-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "treasury-curve-2023-inversion-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "U.S. Treasury 2-year/10-year curve inversion boundary, March 2023"
+  },
+  "topological_artifact_ids": [
+    "treasury-curve.timevault.vintage-query",
+    "treasury-curve.shockcompiler.spread-range",
+    "treasury-curve.trialcourt.retrospective-gate",
+    "treasury-curve.replaystudio.render"
+  ],
+  "trace_id": "trace:582d084d96526fffb25f544af2fb1ceca86cd71b53578c51823c04b5dbfed41c"
+}
