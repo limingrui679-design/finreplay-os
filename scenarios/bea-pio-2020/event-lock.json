@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "bea-pio-2020-saving-rate-boundary",
+  "scenario_version": "1.0.0",
+  "decision_time": "2020-04-01T12:00:00Z",
+  "event_role": "post_decision_official_event",
+  "records": [
+    {
+      "record_id": "bea.pio.archived_personal_saving_rate:202003:personal_saving_rate",
+      "entity_id": "bea_pio:united_states",
+      "source": {
+        "source_id": "bea.pio.archived_personal_saving_rate",
+        "publisher": "U.S. Bureau of Economic Analysis",
+        "url": "https://www.bea.gov/sites/default/files/2020-04/pi0320_0_0.pdf",
+        "retrieved_at": "2026-08-13T08:11:26.801684Z",
+        "source_version": "BEA-PIO:2020-03:BEA-20-20:html:4f39a136a6928dc92746:pdf:5d9a42350b6af8aefac5",
+        "sha256": "5d9a42350b6af8aefac5820db7e270b93aef974fe86cd94defbe515c5bae689d",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2020-04-30T12:30:00Z",
+        "redistribution_note": "Full BEA HTML and PDF releases remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred here."
+      },
+      "interval": {
+        "valid_from": "2020-03-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2020-04-30T12:30:00Z",
+        "available_at": "2020-04-30T12:30:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T08:11:26.801684Z",
+        "availability_rule": "Each selected BEA archived release page and paired full-release PDF state the same 8:30 a.m. EST/EDT embargo end on a named date. FinReplay validates the timezone abbreviation against America/New_York and makes the release eligible at that exact embargo end. Current server Last-Modified headers are not used to backdate the bytes.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "explicit_embargo_end_in_both_html_and_pdf",
+        "disposable_income_monthly_change_percent": "-2.0",
+        "html_pdf_crosscheck_verified": true,
+        "metric": "personal_saving_rate",
+        "official_release_at": "2020-04-30T12:30:00+00:00",
+        "pce_monthly_change_percent": "-7.5",
+        "personal_income_monthly_change_percent": "-2.0",
+        "personal_saving_trillion_dollars": "2.17",
+        "prior_month_rate_in_current_release_basis_points": 800,
+        "prior_month_rate_in_previous_release_basis_points": 820,
+        "prior_month_revision_delta_basis_points": -20,
+        "real_pce_monthly_change_percent": "-7.3",
+        "reference_month": "2020-03",
+        "release_date": "2020-04-30",
+        "release_html_sha256": "4f39a136a6928dc927467260dfc9c13130335d7e31b00f472d1c54c8612f78f2",
+        "release_html_url": "https://www.bea.gov/news/2020/personal-income-and-outlays-march-2020",
+        "release_number": "BEA 20-20",
+        "release_pdf_pages": 12,
+        "release_pdf_sha256": "5d9a42350b6af8aefac5820db7e270b93aef974fe86cd94defbe515c5bae689d",
+        "release_pdf_url": "https://www.bea.gov/sites/default/files/2020-04/pi0320_0_0.pdf",
+        "release_time_local": "08:30:00",
+        "release_timezone": "America/New_York",
+        "release_timezone_abbreviation": "EDT",
+        "reported_saving_rate_percent": "13.1",
+        "snapshot_semantics": "headline value reported in this archived release",
+        "table1_snapshot_verified": true,
+        "unit": "Basis Points",
+        "value_basis_points": 1310
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the 13.1-percent personal saving rate for March 2020 from the April 30 archived BEA Personal Income and Outlays release solely as a post-decision official event. It also preserves that release's revision of February from 8.2 to 8.0 percent. The event and revision are excluded from all ReplayPack inputs and do not establish forecast skill, calibrated coverage, household behavior, pandemic or policy causality, investment performance, external review, deployment, or user impact.",
+  "lock_sha256": "2abf857c9e8b801ba7a414ffe882dc745d1fc6a3f602d510d23f73198dc130da"
+}

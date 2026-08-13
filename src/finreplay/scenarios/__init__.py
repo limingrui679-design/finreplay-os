@@ -6,6 +6,13 @@ from finreplay.scenarios.bank_boundary import (
     build_bank_boundary_replay_spec,
     load_bank_boundary_input_lock,
 )
+from finreplay.scenarios.bea_saving_rate_boundary import (
+    BEA_PIO_SOURCE_ID,
+    BEASavingRateBoundaryInputLock,
+    BEASavingRateBoundaryRoles,
+    build_bea_saving_rate_boundary_replay_spec,
+    load_bea_saving_rate_boundary_input_lock,
+)
 from finreplay.scenarios.cpi_boundary import (
     BLS_CPI_SOURCE_ID,
     CPIBoundaryInputLock,
@@ -111,6 +118,7 @@ from finreplay.scenarios.treasury_curve_boundary import (
 __all__ = [
     "ALFRED_GDP_SOURCE_ID",
     "ALFRED_TREASURY_YIELD_SOURCE_ID",
+    "BEA_PIO_SOURCE_ID",
     "BLS_CPI_SOURCE_ID",
     "BLS_EMPLOYMENT_SOURCE_ID",
     "DOL_UI_CLAIMS_SOURCE_ID",
@@ -124,6 +132,8 @@ __all__ = [
     "TREASURY_AUCTION_SOURCE_ID",
     "TREASURY_DTS_SOURCE_ID",
     "ArtifactValueExpectation",
+    "BEASavingRateBoundaryInputLock",
+    "BEASavingRateBoundaryRoles",
     "BankBoundaryInputLock",
     "BankFactConcepts",
     "CPIBoundaryInputLock",
@@ -157,6 +167,7 @@ __all__ = [
     "TreasuryCurveBoundaryRoles",
     "VerifiedScenarioProof",
     "build_bank_boundary_replay_spec",
+    "build_bea_saving_rate_boundary_replay_spec",
     "build_cpi_boundary_replay_spec",
     "build_eia_crude_stock_boundary_replay_spec",
     "build_employment_boundary_replay_spec",
@@ -170,6 +181,7 @@ __all__ = [
     "build_treasury_auction_boundary_replay_spec",
     "build_treasury_curve_boundary_replay_spec",
     "load_bank_boundary_input_lock",
+    "load_bea_saving_rate_boundary_input_lock",
     "load_cpi_boundary_input_lock",
     "load_eia_crude_stock_boundary_input_lock",
     "load_employment_boundary_input_lock",
