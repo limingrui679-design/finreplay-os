@@ -40,7 +40,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--receipt",
         type=Path,
-        default=Path("verification/runs/svb-seven-engine.json"),
+        default=Path("verification/evidence/svb-seven-engine-rebuild.json"),
     )
     parser.add_argument("--write-receipt", action="store_true")
     return parser.parse_args()
@@ -87,7 +87,9 @@ def main() -> None:
         ),
         "byte_identical_directory_rebuilds": byte_identical_rebuilds,
         "byte_identical_zip_rebuilds": byte_identical_archives,
-        "compiled_spec_matches_rebuild": compiled.spec == first_spec == second_spec,
+        "compiled_pack_matches_rebuild": (
+            compiled == studio.compile(first_spec) == studio.compile(second_spec)
+        ),
         "cross_engine_trace_is_stable": (
             committed_receipt.trace_id
             == studio.compile(first_spec).trace_id

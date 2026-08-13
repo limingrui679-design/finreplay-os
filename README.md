@@ -18,7 +18,7 @@ investment performance, institutional adoption, external validation, or real-wor
 
 | Target | Current evidence | Completion rule |
 |---|---|---|
-| Seven connected engines | Seven implemented individually; the ReplayStudio golden pack uses compact fixtures, so an actual end-to-end engine run is not yet proven | All seven execute in an end-to-end ReplayPack with tests |
+| Seven connected engines | Seven implemented individually; the SVB flow now runs all seven over a locked historical-safe SEC fact set, while clean-checkout rebuild evidence is being finalized | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 16 live-validated: 8 FDIC, 3 SEC, 5 Treasury; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
 | 30 historical/boundary scenarios | Scenario specifications in progress | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
@@ -83,6 +83,17 @@ python scripts/verify_replaystudio_golden.py
 
 The committed golden pack proves packaging and rendering over labelled fixtures only; it is not the
 SVB end-to-end replay and does not count toward the 30 historical scenarios.
+
+The first actual integration flow can be rebuilt with:
+
+```bash
+python scripts/build_svb_replaypack.py
+python scripts/verify_svb_replaypack.py
+```
+
+It deliberately excludes current FDIC/Treasury snapshots from the 2023 decision input, rejects a
+retrospective TrialCourt attempt, and labels the no-microstructure execution/allocation boundary as
+simulated. See [`docs/scenarios/svb-2023.md`](docs/scenarios/svb-2023.md).
 
 ## Research and investment disclaimer
 
