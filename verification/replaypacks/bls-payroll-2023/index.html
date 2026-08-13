@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self'; img-src 'self' data:;
+                 base-uri 'none'; form-action 'none'">
+  <title>BLS Employment Situation payroll headline boundary, early 2023 · FinReplay OS</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to report</a>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">FinReplay OS · evidence-labelled replay</p>
+      <h1>BLS Employment Situation payroll headline boundary, early 2023</h1>
+      <p class="lede">Four actual engines ran over four locked headline facts from two archived BLS Employment Situation releases available before the decision time. Reported payroll changes and unemployment rates remain reported; the next-release payroll range is a two-point arithmetic heuristic with no assigned probability; TrialCourt rejects retrospective promotion. The March 10 release is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, causal labor-market model, policy recommendation, trading signal, production deployment, or external validation.</p>
+    </div>
+    <div class="identity" aria-label="Replay identity">
+      <span>Replay <code>bls-2023-payroll-release-boundary-v1</code></span>
+      <span>Trace <code>trace:93586d2362769bcfd48846586d4eefa3b7fbdf6a4b596e62297e775971802013</code></span>
+    </div>
+  </header>
+  <nav aria-label="Report sections">
+    <a href="#summary">Summary</a><a href="#claims">Claims</a>
+    <a href="#artifacts">Artifacts</a><a href="#limitations">Limitations</a>
+  </nav>
+  <main id="main">
+    <section id="summary" aria-labelledby="summary-title">
+      <h2 id="summary-title">Replay summary</h2>
+      <div class="boundary" role="note" aria-label="Truth boundary">
+        <strong>Truth boundary</strong>
+        <span>Contains simulated inputs. All represented source sets are historical-replay eligible.</span>
+        <span>Historical replay is not live trading;
+        modeled output is not realized performance.</span>
+      </div>
+      <dl class="facts">
+        <div><dt>Scenario</dt><dd>bls-2023-payroll-release-boundary
+        v1.0.0</dd></div>
+        <div><dt>Mode</dt><dd>bounded_reconstruction</dd></div>
+        <div><dt>Decision time</dt>
+        <dd>2023-02-04T12:00:00Z</dd></div>
+        <div><dt>Artifact status</dt><dd>reproduced</dd></div>
+        <div><dt>Engines represented</dt><dd>4 / 7</dd></div>
+        <div><dt>Pack hash</dt><dd><code>bfc14686983f676195b1175e5efecc6b8f4e8619d1ce937f3b1d871a972ee343</code></dd></div>
+      </dl>
+      <h3>Evidence inventory</h3>
+      <ul class="metrics" aria-label="Evidence counts"><li class="metric"><span class="metric-value">1</span><span>extracted</span></li><li class="metric"><span class="metric-value">2</span><span>inferred</span></li><li class="metric"><span class="metric-value">8</span><span>reported</span></li><li class="metric"><span class="metric-value">1</span><span>simulated</span></li></ul>
+      <p class="downloads"><a href="report.json">Machine-readable report</a>
+      <a href="checksums.sha256">Portable checksums</a>
+      <a href="README.md">Reproduction notes</a></p>
+    </section>
+    <section id="claims" aria-labelledby="claims-title">
+      <h2 id="claims-title">Claim traceability</h2>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Claim traceability table">
+        <table><caption>Each statement retains its evidence label,
+        supporting artifacts and boundary.</caption>
+          <thead><tr><th scope="col">Claim</th><th scope="col">Statement</th>
+          <th scope="col">Label</th><th scope="col">Support</th>
+          <th scope="col">Boundary</th></tr></thead>
+          <tbody><tr><th scope="row"><code>claim-extracted-four-engine-pack</code></th><td>The pack contains outputs from the four engines relevant to this boundary.</td><td><span class="badge evidence-extracted">EXTRACTED</span></td><td><code>bls-payroll.replaystudio.render</code></td><td>Artifact presence proves integration structure, not economic correctness.</td></tr><tr><th scope="row"><code>claim-inferred-payroll-range</code></th><td>The next-release payroll stress range uses endpoints of 223 and 517 thousand, with the latest known value as the explicit persistence baseline.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>bls-payroll.shockcompiler.payroll-range</code></td><td>The endpoints have no assigned probability or coverage guarantee.</td></tr><tr><th scope="row"><code>claim-inferred-trial-rejection</code></th><td>TrialCourt rejected the retrospective two-release payroll-range attempt.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>bls-payroll.trialcourt.retrospective-gate</code></td><td>This is an internal method result, not external forecast review.</td></tr><tr><th scope="row"><code>claim-reported-employment-headlines</code></th><td>The locked BLS releases report headline nonfarm payroll changes of 223 thousand for December 2022 and 517 thousand for January 2023, alongside unemployment rates of 3.5 and 3.4 percent.</td><td><span class="badge evidence-reported">REPORTED</span></td><td><code>bls-payroll.timevault.release-query</code></td><td>These are aggregate BLS release-snapshot facts, not worker-level records.</td></tr><tr><th scope="row"><code>claim-simulated-schema-sentinels</code></th><td>Trial operational values are simulated schema sentinels only.</td><td><span class="badge evidence-simulated">SIMULATED</span></td><td><code>bls-payroll.trialcourt.retrospective-gate</code></td><td>The sentinels are not orders, capacity, capital, or returns.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section id="artifacts" aria-labelledby="artifacts-title">
+      <h2 id="artifacts-title">Engine artifacts</h2><article class="artifact">
+  <header><div><p class="eyebrow">replaystudio</p>
+  <h3><code>bls-payroll.replaystudio.render</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> extracted: 1</p>
+  <p><strong>Artifact hash:</strong> <code>be015dd87ad4f52def45490cbb4f2b452c085ac5bcd620cc9a006891768e65fa</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>bls.employment_situation.archived_release:20230106:nonfarm_payroll_change</code></li><li><code>bls.employment_situation.archived_release:20230106:unemployment_rate</code></li><li><code>bls.employment_situation.archived_release:20230203:nonfarm_payroll_change</code></li><li><code>bls.employment_situation.archived_release:20230203:unemployment_rate</code></li></ul>
+    <h4>Limitations</h4><ul><li>Static rendering does not independently validate the employment-boundary heuristic.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;engine_selection&quot;: &quot;This aggregate labor-release boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no security, order, or allocation input is invented.&quot;,
+  &quot;input_lock_sha256&quot;: &quot;2b9beda0051462c07c479b88c99f4c52afae9fbd7e221b10df98ba2bdee6ae94&quot;,
+  &quot;portable_file_count_excluding_manifest&quot;: 5,
+  &quot;renderer&quot;: &quot;ReplayStudio&quot;,
+  &quot;truth_labels_visible&quot;: true
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">shockcompiler</p>
+  <h3><code>bls-payroll.shockcompiler.payroll-range</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1</p>
+  <p><strong>Artifact hash:</strong> <code>aa20fe1a7c1fb937231c813bf408d945efeaae8b19e3f7b306ae95770663737f</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>bls.employment_situation.archived_release:20230106:nonfarm_payroll_change</code></li><li><code>bls.employment_situation.archived_release:20230203:nonfarm_payroll_change</code></li></ul>
+    <h4>Limitations</h4><ul><li>The two endpoints mechanically reuse only the two known headline values.</li><li>The March 10 release is absent from the bound construction and artifact sources.</li><li>Annual benchmarking limits interpretation of change across adjacent releases.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;applied_endpoints&quot;: {
+    &quot;lower&quot;: 223.0,
+    &quot;upper&quot;: 517.0
+  },
+  &quot;bound_construction&quot;: {
+    &quot;endpoint_method&quot;: &quot;minimum_and_maximum_of_two_known_headline_values&quot;,
+    &quot;future_event_used&quot;: false,
+    &quot;lower_payroll_change_thousands&quot;: 223,
+    &quot;probability_assigned&quot;: false,
+    &quot;range_width_thousands&quot;: 294,
+    &quot;upper_payroll_change_thousands&quot;: 517
+  },
+  &quot;compiled&quot;: {
+    &quot;compiled_sha256&quot;: &quot;eb9304f77a2720b652da7c593935ea8fcde88bec84a891e750f694a724b397f9&quot;,
+    &quot;decision_time&quot;: &quot;2023-02-04T12:00:00Z&quot;,
+    &quot;limitations&quot;: [
+      &quot;The endpoints have no likelihood, coverage, forecast, or policy interpretation.&quot;,
+      &quot;The January 2023 release documents annual benchmarking and seasonal-factor updates.&quot;
+    ],
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;program_id&quot;: &quot;bls-payroll-next-release-payroll-envelope&quot;,
+    &quot;scenario_id&quot;: &quot;bls-2023-payroll-release-boundary&quot;,
+    &quot;source_program_sha256&quot;: &quot;c39879e1fa2896110d725c681ed952285c7828e4b9b6d8779f7a475634187fc0&quot;,
+    &quot;trials&quot;: [
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Use the minimum and maximum of the two payroll headline changes already knowable at the decision time as transparent next-release stress endpoints.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;Two release snapshots define a descriptive range, not a forecast, confidence interval, or stationary statistical sample.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;bls-payroll-next-release-payroll-range&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;8e50e59c53d5d72be1c08c0e86501e7a933469d32a51970c3cf2da95601fa1e5&quot;,
+              &quot;b45ea39fc0df33a5501a79d1dfbbbea57376bda28c223db72ce98e26708266a5&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;bls.employment_situation.archived_release:20230106:nonfarm_payroll_change&quot;,
+              &quot;bls.employment_situation.archived_release:20230203:nonfarm_payroll_change&quot;
+            ],
+            &quot;target_id&quot;: &quot;bls_employment_situation:united_states&quot;,
+            &quot;unit&quot;: &quot;thousands_persons&quot;,
+            &quot;value&quot;: 223.0,
+            &quot;variable&quot;: &quot;next_headline_payroll_change_thousands&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;bls-payroll-next-release-payroll-envelope:00000000:c865d2ee823f19e2&quot;,
+        &quot;trial_index&quot;: 0,
+        &quot;vector_sha256&quot;: &quot;c865d2ee823f19e22a2381b69f21eaa737fee88d17e85fc3fd9efc3ddc8f6254&quot;
+      },
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Use the minimum and maximum of the two payroll headline changes already knowable at the decision time as transparent next-release stress endpoints.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;Two release snapshots define a descriptive range, not a forecast, confidence interval, or stationary statistical sample.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;bls-payroll-next-release-payroll-range&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;8e50e59c53d5d72be1c08c0e86501e7a933469d32a51970c3cf2da95601fa1e5&quot;,
+              &quot;b45ea39fc0df33a5501a79d1dfbbbea57376bda28c223db72ce98e26708266a5&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;bls.employment_situation.archived_release:20230106:nonfarm_payroll_change&quot;,
+              &quot;bls.employment_situation.archived_release:20230203:nonfarm_payroll_change&quot;
+            ],
+            &quot;target_id&quot;: &quot;bls_employment_situation:united_states&quot;,
+            &quot;unit&quot;: &quot;thousands_persons&quot;,
+            &quot;value&quot;: 517.0,
+            &quot;variable&quot;: &quot;next_headline_payroll_change_thousands&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;bls-payroll-next-release-payroll-envelope:00000001:a1a61fbde3cb44d1&quot;,
+        &quot;trial_index&quot;: 1,
+        &quot;vector_sha256&quot;: &quot;a1a61fbde3cb44d1fe614dcea5f0617a5275e5bb4f94234000cc53a7b9dbdc31&quot;
+      }
+    ]
+  },
+  &quot;input_lock_sha256&quot;: &quot;2b9beda0051462c07c479b88c99f4c52afae9fbd7e221b10df98ba2bdee6ae94&quot;,
+  &quot;known_headlines&quot;: {
+    &quot;december_payroll&quot;: 223,
+    &quot;december_unemployment&quot;: 3.5,
+    &quot;january_payroll&quot;: 517,
+    &quot;january_unemployment&quot;: 3.4,
+    &quot;payroll_lower&quot;: 223,
+    &quot;payroll_range_width&quot;: 294,
+    &quot;payroll_upper&quot;: 517
+  },
+  &quot;naive_baseline&quot;: {
+    &quot;definition&quot;: &quot;persistence of the latest known headline payroll change&quot;,
+    &quot;next_headline_payroll_change_thousands&quot;: 517
+  },
+  &quot;program&quot;: {
+    &quot;decision_time&quot;: &quot;2023-02-04T12:00:00Z&quot;,
+    &quot;global_limitations&quot;: [
+      &quot;The endpoints have no likelihood, coverage, forecast, or policy interpretation.&quot;,
+      &quot;The January 2023 release documents annual benchmarking and seasonal-factor updates.&quot;
+    ],
+    &quot;hypothesis&quot;: &quot;Evaluate the two known payroll-headline endpoints using only archived BLS releases available at the historical decision boundary.&quot;,
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;parameters&quot;: [
+      {
+        &quot;derivation&quot;: &quot;Use the minimum and maximum of the two payroll headline changes already knowable at the decision time as transparent next-release stress endpoints.&quot;,
+        &quot;evidence_class&quot;: &quot;inferred&quot;,
+        &quot;grid_points&quot;: 2,
+        &quot;limitations&quot;: [
+          &quot;Two release snapshots define a descriptive range, not a forecast, confidence interval, or stationary statistical sample.&quot;
+        ],
+        &quot;lower&quot;: 223.0,
+        &quot;operation&quot;: &quot;set&quot;,
+        &quot;parameter_id&quot;: &quot;bls-payroll-next-release-payroll-range&quot;,
+        &quot;source_record_ids&quot;: [
+          &quot;bls.employment_situation.archived_release:20230106:nonfarm_payroll_change&quot;,
+          &quot;bls.employment_situation.archived_release:20230203:nonfarm_payroll_change&quot;
+        ],
+        &quot;sources&quot;: [
+          {
+            &quot;license_class&quot;: &quot;redistributable&quot;,
+            &quot;publisher&quot;: &quot;U.S. Bureau of Labor Statistics&quot;,
+            &quot;redistribution_note&quot;: &quot;BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-13T04:35:41.415496Z&quot;,
+            &quot;sha256&quot;: &quot;8e50e59c53d5d72be1c08c0e86501e7a933469d32a51970c3cf2da95601fa1e5&quot;,
+            &quot;source_id&quot;: &quot;bls.employment_situation.archived_release&quot;,
+            &quot;source_version&quot;: &quot;EmploymentSituation:2023-01-06:USDL-23-0002:sha256:8e50e59c53d5d72be1c08c0e&quot;,
+            &quot;temporal_coverage&quot;: &quot;versioned_snapshot&quot;,
+            &quot;url&quot;: &quot;https://www.bls.gov/news.release/archives/empsit_01062023.htm&quot;,
+            &quot;vintage_as_of&quot;: &quot;2023-01-06T13:30:00Z&quot;
+          },
+          {
+            &quot;license_class&quot;: &quot;redistributable&quot;,
+            &quot;publisher&quot;: &quot;U.S. Bureau of Labor Statistics&quot;,
+            &quot;redistribution_note&quot;: &quot;BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-13T04:35:43.123023Z&quot;,
+            &quot;sha256&quot;: &quot;b45ea39fc0df33a5501a79d1dfbbbea57376bda28c223db72ce98e26708266a5&quot;,
+            &quot;source_id&quot;: &quot;bls.employment_situation.archived_release&quot;,
+            &quot;source_version&quot;: &quot;EmploymentSituation:2023-02-03:USDL-23-0151:sha256:b45ea39fc0df33a5501a79d1&quot;,
+            &quot;temporal_coverage&quot;: &quot;versioned_snapshot&quot;,
+            &quot;url&quot;: &quot;https://www.bls.gov/news.release/archives/empsit_02032023.htm&quot;,
+            &quot;vintage_as_of&quot;: &quot;2023-02-03T13:30:00Z&quot;
+          }
+        ],
+        &quot;target_id&quot;: &quot;bls_employment_situation:united_states&quot;,
+        &quot;unit&quot;: &quot;thousands_persons&quot;,
+        &quot;upper&quot;: 517.0,
+        &quot;variable&quot;: &quot;next_headline_payroll_change_thousands&quot;
+      }
+    ],
+    &quot;program_id&quot;: &quot;bls-payroll-next-release-payroll-envelope&quot;,
+    &quot;scenario_id&quot;: &quot;bls-2023-payroll-release-boundary&quot;
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">timevault</p>
+  <h3><code>bls-payroll.timevault.release-query</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> reported: 4</p>
+  <p><strong>Artifact hash:</strong> <code>4ffeca22ae876214c9e620978dced9dc00df9b9fa79a640c59f3fc301ba78ee0</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>bls.employment_situation.archived_release:20230106:nonfarm_payroll_change</code></li><li><code>bls.employment_situation.archived_release:20230106:unemployment_rate</code></li><li><code>bls.employment_situation.archived_release:20230203:nonfarm_payroll_change</code></li><li><code>bls.employment_situation.archived_release:20230203:unemployment_rate</code></li></ul>
+    <h4>Limitations</h4><ul><li>The lock contains two headline measures from each of two releases, not all tables.</li><li>Knowability uses each page&#x27;s explicit 8:30 a.m. Eastern embargo end.</li><li>The January 2023 release documents annual benchmarking and seasonal-factor updates.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;append&quot;: {
+    &quot;artifact_ids&quot;: [
+      &quot;2451395793d1bcca3777850fa11ec273731b7fce56e1ecc2ae4eaec1ca8b150c&quot;,
+      &quot;7a28a4e11d4a9157dcb9128f3113ae23c3f31c832b66c29e2f9dc3c131a17752&quot;
+    ],
+    &quot;attempted_records&quot;: 4,
+    &quot;fact_hashes&quot;: [
+      &quot;dd7f000284090e1d4ea8f91b6fa1625a7844d2e7e0a49899cc42253ed3e8ffe2&quot;,
+      &quot;36ad93fd7b0d4196a54e2c167b136f8273c1a38f228a71fded89eaa1312926cf&quot;,
+      &quot;92ce0c31da36a5a02767b86897b73d84d85f114c5288718bc2d30bd9f5de6856&quot;,
+      &quot;99808e3044be8a2976da23ee646ed46817f5d6b26f3e78100e385a9477fa23a8&quot;
+    ],
+    &quot;idempotent_records&quot;: 0,
+    &quot;inserted_records&quot;: 4
+  },
+  &quot;decision_time&quot;: &quot;2023-02-04T12:00:00Z&quot;,
+  &quot;input_lock_sha256&quot;: &quot;2b9beda0051462c07c479b88c99f4c52afae9fbd7e221b10df98ba2bdee6ae94&quot;,
+  &quot;manifest&quot;: {
+    &quot;database_bytes&quot;: 0,
+    &quot;distinct_records&quot;: 4,
+    &quot;fact_set_sha256&quot;: &quot;263d7b232f1e0f5989c1ce40ee206ebfa72c06ec945fb5fdc99b4e8f5ea8f99b&quot;,
+    &quot;fact_versions&quot;: 4,
+    &quot;generated_at&quot;: &quot;2026-08-13T05:00:00Z&quot;,
+    &quot;retrieval_receipts&quot;: 2,
+    &quot;source_artifacts&quot;: 2
+  },
+  &quot;max_available_at&quot;: &quot;2023-02-03T13:30:00Z&quot;,
+  &quot;selected_record_ids&quot;: [
+    &quot;bls.employment_situation.archived_release:20230106:nonfarm_payroll_change&quot;,
+    &quot;bls.employment_situation.archived_release:20230106:unemployment_rate&quot;,
+    &quot;bls.employment_situation.archived_release:20230203:nonfarm_payroll_change&quot;,
+    &quot;bls.employment_situation.archived_release:20230203:unemployment_rate&quot;
+  ]
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">trialcourt</p>
+  <h3><code>bls-payroll.trialcourt.retrospective-gate</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1, reported: 4, simulated: 1</p>
+  <p><strong>Artifact hash:</strong> <code>e26d35fb3958abcb6634a55719cd205d5fee86f2997ef3dfaddf4c79ac277978</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>bls.employment_situation.archived_release:20230106:nonfarm_payroll_change</code></li><li><code>bls.employment_situation.archived_release:20230106:unemployment_rate</code></li><li><code>bls.employment_situation.archived_release:20230203:nonfarm_payroll_change</code></li><li><code>bls.employment_situation.archived_release:20230203:unemployment_rate</code></li></ul>
+    <h4>Limitations</h4><ul><li>The rejected attempt is a retrospective method boundary, not a validated forecast.</li><li>Operational sentinel fields contain no execution, capacity, or return evidence.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;attempt&quot;: {
+    &quot;attempt_id&quot;: &quot;bls-payroll-retrospective-attempt-1&quot;,
+    &quot;attempt_number&quot;: 1,
+    &quot;code_commit&quot;: &quot;b560ed8009164576e6ed7fa36a587801f2252e2f&quot;,
+    &quot;completed_at&quot;: &quot;2026-08-13T05:00:00Z&quot;,
+    &quot;config_sha256&quot;: &quot;1bc03b1d6fe7120914ec009b2c7d450623c10ffa38976e2b915393002ed689d3&quot;,
+    &quot;decision_time&quot;: &quot;2023-02-04T12:00:00Z&quot;,
+    &quot;evaluation_end&quot;: &quot;2023-03-12&quot;,
+    &quot;evaluation_start&quot;: &quot;2023-02-05&quot;,
+    &quot;gross_return_bps&quot;: 0.0,
+    &quot;input_manifest_sha256&quot;: &quot;2b9beda0051462c07c479b88c99f4c52afae9fbd7e221b10df98ba2bdee6ae94&quot;,
+    &quot;max_input_available_at&quot;: &quot;2023-02-03T13:30:00Z&quot;,
+    &quot;median_daily_volume_usd&quot;: 1.0,
+    &quot;metric_value&quot;: 294.0,
+    &quot;next_training_start&quot;: null,
+    &quot;notes&quot;: [
+      &quot;Retrospective method-boundary attempt; p=1 records no inferential test.&quot;,
+      &quot;One-dollar and zero-return fields are non-trading schema sentinels.&quot;,
+      &quot;No March 10 release fact is present in the attempt manifest.&quot;
+    ],
+    &quot;one_way_turnover&quot;: 0.0,
+    &quot;output_manifest_sha256&quot;: &quot;285b5975afb8fea2f240d80c63b1fae6d0880170efc054b152907e62254a2139&quot;,
+    &quot;p_value&quot;: 1.0,
+    &quot;regime_metric_values&quot;: {
+      &quot;december-to-january-headline-difference&quot;: 294.0,
+      &quot;two-release-range-width&quot;: 294.0
+    },
+    &quot;requested_capital_usd&quot;: 1.0,
+    &quot;sample_size&quot;: 4,
+    &quot;short_fraction&quot;: 0.0,
+    &quot;training_end&quot;: &quot;2023-02-02&quot;,
+    &quot;trial_id&quot;: &quot;bls-payroll-retrospective-range-screen&quot;
+  },
+  &quot;attempt_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;44c1de1bded1b618fec9d2b2298d9d218c7ebb651fd1a29506dfafd7ae9fd0e3&quot;,
+    &quot;entry_hash&quot;: &quot;44c1de1bded1b618fec9d2b2298d9d218c7ebb651fd1a29506dfafd7ae9fd0e3&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 2
+  },
+  &quot;decision&quot;: {
+    &quot;adjusted_p_values&quot;: {
+      &quot;bls-payroll-retrospective-attempt-1&quot;: 1.0
+    },
+    &quot;attempt_ids&quot;: [
+      &quot;bls-payroll-retrospective-attempt-1&quot;
+    ],
+    &quot;attempt_set_sha256&quot;: &quot;16a0852e599ee9c4dd291a4b2ede6123660b5ea04660a0c5a07ad697f9a780d6&quot;,
+    &quot;candidate_attempt_id&quot;: &quot;bls-payroll-retrospective-attempt-1&quot;,
+    &quot;decided_at&quot;: &quot;2026-08-13T05:00:00Z&quot;,
+    &quot;decision_id&quot;: &quot;decision:bls-payroll-retrospective-range-screen:0beca72cbd6c901cf49e48cb&quot;,
+    &quot;disposition&quot;: &quot;reject&quot;,
+    &quot;findings&quot;: [
+      {
+        &quot;kind&quot;: &quot;preregistration&quot;,
+        &quot;metrics&quot;: {
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;registered_before_holdout&quot;: false
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Registration was retrospective or the observed attempt family exceeded the preregistered declaration.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;leakage&quot;,
+        &quot;metrics&quot;: {
+          &quot;embargo_respected&quot;: true,
+          &quot;evaluation_inside_holdout&quot;: true,
+          &quot;input_available_by_decision&quot;: true,
+          &quot;training_respects_purge&quot;: true
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Point-in-time input, purge, holdout and embargo checks passed.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;multiplicity&quot;,
+        &quot;metrics&quot;: {
+          &quot;adjusted_p_value&quot;: 1.0,
+          &quot;alpha&quot;: 0.05,
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;raw_p_value&quot;: 1.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Candidate does not survive family-wise Holm adjustment.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;regime&quot;,
+        &quot;metrics&quot;: {
+          &quot;best_regime_metric&quot;: 294.0,
+          &quot;regime_count&quot;: 2,
+          &quot;worst_regime_metric&quot;: 294.0
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Metric direction is stable across named regimes.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;execution&quot;,
+        &quot;metrics&quot;: {
+          &quot;borrow_cost_bps&quot;: 0.0,
+          &quot;gross_return_bps&quot;: 0.0,
+          &quot;immediate_cost_bps&quot;: 0.0,
+          &quot;net_return_bps&quot;: 0.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Preregistered execution and borrow costs erase the gross return.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;capacity&quot;,
+        &quot;metrics&quot;: {
+          &quot;allowed_daily_notional_usd&quot;: 0.05,
+          &quot;daily_notional_usd&quot;: 0.0,
+          &quot;max_participation_rate&quot;: 0.05
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Requested capital fits the preregistered participation limit.&quot;
+      }
+    ],
+    &quot;trial_id&quot;: &quot;bls-payroll-retrospective-range-screen&quot;
+  },
+  &quot;input_lock_sha256&quot;: &quot;2b9beda0051462c07c479b88c99f4c52afae9fbd7e221b10df98ba2bdee6ae94&quot;,
+  &quot;manifest&quot;: {
+    &quot;attempts&quot;: 1,
+    &quot;chain_tip_sha256&quot;: &quot;f88e68f0a3bfd89bf8186a0d1d29df993264c6d74da3d56a25966d65a44e8254&quot;,
+    &quot;decisions&quot;: 1,
+    &quot;entries&quot;: 3,
+    &quot;registrations&quot;: 1,
+    &quot;rejected_decisions&quot;: 1,
+    &quot;verified&quot;: true
+  },
+  &quot;registration_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;b7037eb2874d82d1c98010ef53c637d17b2b248cf2b61c4720b45b0836b14e38&quot;,
+    &quot;entry_hash&quot;: &quot;b7037eb2874d82d1c98010ef53c637d17b2b248cf2b61c4720b45b0836b14e38&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 1
+  },
+  &quot;spec&quot;: {
+    &quot;cost_model&quot;: {
+      &quot;borrow_bps_annual&quot;: 0.0,
+      &quot;commission_bps&quot;: 1.0,
+      &quot;half_spread_bps&quot;: 1.0,
+      &quot;market_impact_bps&quot;: 1.0,
+      &quot;max_participation_rate&quot;: 0.05
+    },
+    &quot;declared_attempts&quot;: 1,
+    &quot;disposition&quot;: &quot;revise&quot;,
+    &quot;economic_mechanism&quot;: &quot;Monthly payroll headlines measure aggregate employment change, but two releases and one later outcome cannot establish predictive validity or identify labor-market causes.&quot;,
+    &quot;embargo_days&quot;: 0,
+    &quot;expected_direction&quot;: &quot;two-sided&quot;,
+    &quot;holdout_end&quot;: &quot;2023-03-12&quot;,
+    &quot;holdout_start&quot;: &quot;2023-02-05&quot;,
+    &quot;hypothesis&quot;: &quot;A retrospectively constructed two-release payroll range qualifies for research eligibility after every adversarial gate.&quot;,
+    &quot;preregistered_at&quot;: &quot;2026-08-13T05:00:00Z&quot;,
+    &quot;primary_metric&quot;: &quot;two-release payroll headline range width in thousands&quot;,
+    &quot;purge_days&quot;: 2,
+    &quot;trial_id&quot;: &quot;bls-payroll-retrospective-range-screen&quot;
+  }
+}</pre>
+  </details>
+</article>
+    </section>
+    <section id="limitations" aria-labelledby="limitations-title">
+      <h2 id="limitations-title">Pack limitations</h2><ul><li>This lock preserves four minimal headline facts from the January 6 and February 3, 2023 archived BLS Employment Situation releases that were explicitly available before the replay decision time. It excludes the March 10 release, later revised series values, all detailed tables, worker- or employer-level records, a probability distribution, forecast, calibrated interval, causal attribution, or investment and policy performance. The January release documents annual benchmarking and seasonal-factor updates, limiting cross-release comparability.</li><li>The payroll endpoints are only the minimum and maximum of two known headline values; they have no probability or coverage guarantee.</li><li>The March 10 BLS release is excluded from all decision inputs and artifacts.</li><li>Annual benchmarking and seasonal-factor updates limit comparability across releases.</li><li>Aggregate headline values do not identify workers, employers, or causal mechanisms.</li><li>No market network, security, order, portfolio, allocation, or return is represented.</li><li>A fixed build epoch and zero elapsed time preserve deterministic pack identity.</li></ul>
+    </section>
+  </main>
+  <footer><p>Static read-only report. No brokerage connection,
+  tracking script, or external request.</p></footer>
+</body>
+</html>

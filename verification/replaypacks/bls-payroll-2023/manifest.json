@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over four locked headline facts from two archived BLS Employment Situation releases available before the decision time. Reported payroll changes and unemployment rates remain reported; the next-release payroll range is a two-point arithmetic heuristic with no assigned probability; TrialCourt rejects retrospective promotion. The March 10 release is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, causal labor-market model, policy recommendation, trading signal, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1363,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "81fad3bedeaff6af13260c0a65bd606d17ad17c3008b19a943d3ef0d7d817b99"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "53b582b97e58d8c5924dbd70888395f76d4489a9a5155906db09a32f9ff28634"
+    },
+    {
+      "bytes": 31053,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "2fa5a1ef10feb91cc8e46dc7ad147e22088354c6425c1185848bd43b6e86f11b"
+    },
+    {
+      "bytes": 29923,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "0f1121787c73a3d505910d965f083b636e3c49028dd0a2af8e26fe2212d55c38"
+    }
+  ],
+  "pack_sha256": "bfc14686983f676195b1175e5efecc6b8f4e8619d1ce937f3b1d871a972ee343",
+  "receipt_sha256": "0f5676574027204fce6b04622c80cef36309f5bd963b84c1802e852ddfba7353",
+  "replay_id": "bls-2023-payroll-release-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "b560ed8009164576e6ed7fa36a587801f2252e2f",
+    "compressed_input_bytes": 1716,
+    "created_at": "2026-08-13T05:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 4,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "1811b0a44a67c928f5a26a98f6096909d9a5bfc0ee1b08b3677912c0290bdb2a",
+    "output_manifest_sha256": "15102ba05546c33c7219138181f0d1b0b982b3f04e7aaeb9712f30d4f63e019d",
+    "replay_id": "bls-2023-payroll-release-boundary-v1",
+    "scenario_id": "bls-2023-payroll-release-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "0f1121787c73a3d505910d965f083b636e3c49028dd0a2af8e26fe2212d55c38",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:93586d2362769bcfd48846586d4eefa3b7fbdf6a4b596e62297e775971802013"
+}

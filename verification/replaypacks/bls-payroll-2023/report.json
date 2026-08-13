@@ -1,0 +1,596 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 2,
+    "reported": 8,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "1811b0a44a67c928f5a26a98f6096909d9a5bfc0ee1b08b3677912c0290bdb2a",
+  "pack_sha256": "bfc14686983f676195b1175e5efecc6b8f4e8619d1ce937f3b1d871a972ee343",
+  "source_hashes": [
+    "8e50e59c53d5d72be1c08c0e86501e7a933469d32a51970c3cf2da95601fa1e5",
+    "b45ea39fc0df33a5501a79d1dfbbbea57376bda28c223db72ce98e26708266a5"
+  ],
+  "source_record_ids": [
+    "bls.employment_situation.archived_release:20230106:nonfarm_payroll_change",
+    "bls.employment_situation.archived_release:20230106:unemployment_rate",
+    "bls.employment_situation.archived_release:20230203:nonfarm_payroll_change",
+    "bls.employment_situation.archived_release:20230203:unemployment_rate"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "bls-payroll.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "be015dd87ad4f52def45490cbb4f2b452c085ac5bcd620cc9a006891768e65fa",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not independently validate the employment-boundary heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This aggregate labor-release boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no security, order, or allocation input is invented.",
+          "input_lock_sha256": "2b9beda0051462c07c479b88c99f4c52afae9fbd7e221b10df98ba2bdee6ae94",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "8e50e59c53d5d72be1c08c0e86501e7a933469d32a51970c3cf2da95601fa1e5",
+          "b45ea39fc0df33a5501a79d1dfbbbea57376bda28c223db72ce98e26708266a5"
+        ],
+        "source_record_ids": [
+          "bls.employment_situation.archived_release:20230106:nonfarm_payroll_change",
+          "bls.employment_situation.archived_release:20230106:unemployment_rate",
+          "bls.employment_situation.archived_release:20230203:nonfarm_payroll_change",
+          "bls.employment_situation.archived_release:20230203:unemployment_rate"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "bls-payroll.shockcompiler.payroll-range",
+          "bls-payroll.timevault.release-query",
+          "bls-payroll.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "bls-payroll.shockcompiler.payroll-range",
+        "artifact_kind": "bounded-payroll-headline-program",
+        "artifact_sha256": "aa20fe1a7c1fb937231c813bf408d945efeaae8b19e3f7b306ae95770663737f",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 1
+        },
+        "limitations": [
+          "The two endpoints mechanically reuse only the two known headline values.",
+          "The March 10 release is absent from the bound construction and artifact sources.",
+          "Annual benchmarking limits interpretation of change across adjacent releases."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": 223.0,
+            "upper": 517.0
+          },
+          "bound_construction": {
+            "endpoint_method": "minimum_and_maximum_of_two_known_headline_values",
+            "future_event_used": false,
+            "lower_payroll_change_thousands": 223,
+            "probability_assigned": false,
+            "range_width_thousands": 294,
+            "upper_payroll_change_thousands": 517
+          },
+          "compiled": {
+            "compiled_sha256": "eb9304f77a2720b652da7c593935ea8fcde88bec84a891e750f694a724b397f9",
+            "decision_time": "2023-02-04T12:00:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, forecast, or policy interpretation.",
+              "The January 2023 release documents annual benchmarking and seasonal-factor updates."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "bls-payroll-next-release-payroll-envelope",
+            "scenario_id": "bls-2023-payroll-release-boundary",
+            "source_program_sha256": "c39879e1fa2896110d725c681ed952285c7828e4b9b6d8779f7a475634187fc0",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use the minimum and maximum of the two payroll headline changes already knowable at the decision time as transparent next-release stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two release snapshots define a descriptive range, not a forecast, confidence interval, or stationary statistical sample."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "bls-payroll-next-release-payroll-range",
+                    "source_hashes": [
+                      "8e50e59c53d5d72be1c08c0e86501e7a933469d32a51970c3cf2da95601fa1e5",
+                      "b45ea39fc0df33a5501a79d1dfbbbea57376bda28c223db72ce98e26708266a5"
+                    ],
+                    "source_record_ids": [
+                      "bls.employment_situation.archived_release:20230106:nonfarm_payroll_change",
+                      "bls.employment_situation.archived_release:20230203:nonfarm_payroll_change"
+                    ],
+                    "target_id": "bls_employment_situation:united_states",
+                    "unit": "thousands_persons",
+                    "value": 223.0,
+                    "variable": "next_headline_payroll_change_thousands"
+                  }
+                ],
+                "trial_id": "bls-payroll-next-release-payroll-envelope:00000000:c865d2ee823f19e2",
+                "trial_index": 0,
+                "vector_sha256": "c865d2ee823f19e22a2381b69f21eaa737fee88d17e85fc3fd9efc3ddc8f6254"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use the minimum and maximum of the two payroll headline changes already knowable at the decision time as transparent next-release stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two release snapshots define a descriptive range, not a forecast, confidence interval, or stationary statistical sample."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "bls-payroll-next-release-payroll-range",
+                    "source_hashes": [
+                      "8e50e59c53d5d72be1c08c0e86501e7a933469d32a51970c3cf2da95601fa1e5",
+                      "b45ea39fc0df33a5501a79d1dfbbbea57376bda28c223db72ce98e26708266a5"
+                    ],
+                    "source_record_ids": [
+                      "bls.employment_situation.archived_release:20230106:nonfarm_payroll_change",
+                      "bls.employment_situation.archived_release:20230203:nonfarm_payroll_change"
+                    ],
+                    "target_id": "bls_employment_situation:united_states",
+                    "unit": "thousands_persons",
+                    "value": 517.0,
+                    "variable": "next_headline_payroll_change_thousands"
+                  }
+                ],
+                "trial_id": "bls-payroll-next-release-payroll-envelope:00000001:a1a61fbde3cb44d1",
+                "trial_index": 1,
+                "vector_sha256": "a1a61fbde3cb44d1fe614dcea5f0617a5275e5bb4f94234000cc53a7b9dbdc31"
+              }
+            ]
+          },
+          "input_lock_sha256": "2b9beda0051462c07c479b88c99f4c52afae9fbd7e221b10df98ba2bdee6ae94",
+          "known_headlines": {
+            "december_payroll": 223,
+            "december_unemployment": 3.5,
+            "january_payroll": 517,
+            "january_unemployment": 3.4,
+            "payroll_lower": 223,
+            "payroll_range_width": 294,
+            "payroll_upper": 517
+          },
+          "naive_baseline": {
+            "definition": "persistence of the latest known headline payroll change",
+            "next_headline_payroll_change_thousands": 517
+          },
+          "program": {
+            "decision_time": "2023-02-04T12:00:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, forecast, or policy interpretation.",
+              "The January 2023 release documents annual benchmarking and seasonal-factor updates."
+            ],
+            "hypothesis": "Evaluate the two known payroll-headline endpoints using only archived BLS releases available at the historical decision boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use the minimum and maximum of the two payroll headline changes already knowable at the decision time as transparent next-release stress endpoints.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "Two release snapshots define a descriptive range, not a forecast, confidence interval, or stationary statistical sample."
+                ],
+                "lower": 223.0,
+                "operation": "set",
+                "parameter_id": "bls-payroll-next-release-payroll-range",
+                "source_record_ids": [
+                  "bls.employment_situation.archived_release:20230106:nonfarm_payroll_change",
+                  "bls.employment_situation.archived_release:20230203:nonfarm_payroll_change"
+                ],
+                "sources": [
+                  {
+                    "license_class": "redistributable",
+                    "publisher": "U.S. Bureau of Labor Statistics",
+                    "redistribution_note": "BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem.",
+                    "retrieved_at": "2026-08-13T04:35:41.415496Z",
+                    "sha256": "8e50e59c53d5d72be1c08c0e86501e7a933469d32a51970c3cf2da95601fa1e5",
+                    "source_id": "bls.employment_situation.archived_release",
+                    "source_version": "EmploymentSituation:2023-01-06:USDL-23-0002:sha256:8e50e59c53d5d72be1c08c0e",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.bls.gov/news.release/archives/empsit_01062023.htm",
+                    "vintage_as_of": "2023-01-06T13:30:00Z"
+                  },
+                  {
+                    "license_class": "redistributable",
+                    "publisher": "U.S. Bureau of Labor Statistics",
+                    "redistribution_note": "BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem.",
+                    "retrieved_at": "2026-08-13T04:35:43.123023Z",
+                    "sha256": "b45ea39fc0df33a5501a79d1dfbbbea57376bda28c223db72ce98e26708266a5",
+                    "source_id": "bls.employment_situation.archived_release",
+                    "source_version": "EmploymentSituation:2023-02-03:USDL-23-0151:sha256:b45ea39fc0df33a5501a79d1",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.bls.gov/news.release/archives/empsit_02032023.htm",
+                    "vintage_as_of": "2023-02-03T13:30:00Z"
+                  }
+                ],
+                "target_id": "bls_employment_situation:united_states",
+                "unit": "thousands_persons",
+                "upper": 517.0,
+                "variable": "next_headline_payroll_change_thousands"
+              }
+            ],
+            "program_id": "bls-payroll-next-release-payroll-envelope",
+            "scenario_id": "bls-2023-payroll-release-boundary"
+          }
+        },
+        "source_hashes": [
+          "8e50e59c53d5d72be1c08c0e86501e7a933469d32a51970c3cf2da95601fa1e5",
+          "b45ea39fc0df33a5501a79d1dfbbbea57376bda28c223db72ce98e26708266a5"
+        ],
+        "source_record_ids": [
+          "bls.employment_situation.archived_release:20230106:nonfarm_payroll_change",
+          "bls.employment_situation.archived_release:20230203:nonfarm_payroll_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "bls-payroll.timevault.release-query"
+        ]
+      },
+      {
+        "artifact_id": "bls-payroll.timevault.release-query",
+        "artifact_kind": "versioned-release-query",
+        "artifact_sha256": "4ffeca22ae876214c9e620978dced9dc00df9b9fa79a640c59f3fc301ba78ee0",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 4
+        },
+        "limitations": [
+          "The lock contains two headline measures from each of two releases, not all tables.",
+          "Knowability uses each page's explicit 8:30 a.m. Eastern embargo end.",
+          "The January 2023 release documents annual benchmarking and seasonal-factor updates."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "2451395793d1bcca3777850fa11ec273731b7fce56e1ecc2ae4eaec1ca8b150c",
+              "7a28a4e11d4a9157dcb9128f3113ae23c3f31c832b66c29e2f9dc3c131a17752"
+            ],
+            "attempted_records": 4,
+            "fact_hashes": [
+              "dd7f000284090e1d4ea8f91b6fa1625a7844d2e7e0a49899cc42253ed3e8ffe2",
+              "36ad93fd7b0d4196a54e2c167b136f8273c1a38f228a71fded89eaa1312926cf",
+              "92ce0c31da36a5a02767b86897b73d84d85f114c5288718bc2d30bd9f5de6856",
+              "99808e3044be8a2976da23ee646ed46817f5d6b26f3e78100e385a9477fa23a8"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 4
+          },
+          "decision_time": "2023-02-04T12:00:00Z",
+          "input_lock_sha256": "2b9beda0051462c07c479b88c99f4c52afae9fbd7e221b10df98ba2bdee6ae94",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 4,
+            "fact_set_sha256": "263d7b232f1e0f5989c1ce40ee206ebfa72c06ec945fb5fdc99b4e8f5ea8f99b",
+            "fact_versions": 4,
+            "generated_at": "2026-08-13T05:00:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2023-02-03T13:30:00Z",
+          "selected_record_ids": [
+            "bls.employment_situation.archived_release:20230106:nonfarm_payroll_change",
+            "bls.employment_situation.archived_release:20230106:unemployment_rate",
+            "bls.employment_situation.archived_release:20230203:nonfarm_payroll_change",
+            "bls.employment_situation.archived_release:20230203:unemployment_rate"
+          ]
+        },
+        "source_hashes": [
+          "8e50e59c53d5d72be1c08c0e86501e7a933469d32a51970c3cf2da95601fa1e5",
+          "b45ea39fc0df33a5501a79d1dfbbbea57376bda28c223db72ce98e26708266a5"
+        ],
+        "source_record_ids": [
+          "bls.employment_situation.archived_release:20230106:nonfarm_payroll_change",
+          "bls.employment_situation.archived_release:20230106:unemployment_rate",
+          "bls.employment_situation.archived_release:20230203:nonfarm_payroll_change",
+          "bls.employment_situation.archived_release:20230203:unemployment_rate"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "bls-payroll.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "e26d35fb3958abcb6634a55719cd205d5fee86f2997ef3dfaddf4c79ac277978",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 4,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "bls-payroll-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "b560ed8009164576e6ed7fa36a587801f2252e2f",
+            "completed_at": "2026-08-13T05:00:00Z",
+            "config_sha256": "1bc03b1d6fe7120914ec009b2c7d450623c10ffa38976e2b915393002ed689d3",
+            "decision_time": "2023-02-04T12:00:00Z",
+            "evaluation_end": "2023-03-12",
+            "evaluation_start": "2023-02-05",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "2b9beda0051462c07c479b88c99f4c52afae9fbd7e221b10df98ba2bdee6ae94",
+            "max_input_available_at": "2023-02-03T13:30:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 294.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No March 10 release fact is present in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "285b5975afb8fea2f240d80c63b1fae6d0880170efc054b152907e62254a2139",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "december-to-january-headline-difference": 294.0,
+              "two-release-range-width": 294.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 4,
+            "short_fraction": 0.0,
+            "training_end": "2023-02-02",
+            "trial_id": "bls-payroll-retrospective-range-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "44c1de1bded1b618fec9d2b2298d9d218c7ebb651fd1a29506dfafd7ae9fd0e3",
+            "entry_hash": "44c1de1bded1b618fec9d2b2298d9d218c7ebb651fd1a29506dfafd7ae9fd0e3",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "bls-payroll-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "bls-payroll-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "16a0852e599ee9c4dd291a4b2ede6123660b5ea04660a0c5a07ad697f9a780d6",
+            "candidate_attempt_id": "bls-payroll-retrospective-attempt-1",
+            "decided_at": "2026-08-13T05:00:00Z",
+            "decision_id": "decision:bls-payroll-retrospective-range-screen:0beca72cbd6c901cf49e48cb",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 294.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 294.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "bls-payroll-retrospective-range-screen"
+          },
+          "input_lock_sha256": "2b9beda0051462c07c479b88c99f4c52afae9fbd7e221b10df98ba2bdee6ae94",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "f88e68f0a3bfd89bf8186a0d1d29df993264c6d74da3d56a25966d65a44e8254",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "b7037eb2874d82d1c98010ef53c637d17b2b248cf2b61c4720b45b0836b14e38",
+            "entry_hash": "b7037eb2874d82d1c98010ef53c637d17b2b248cf2b61c4720b45b0836b14e38",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "Monthly payroll headlines measure aggregate employment change, but two releases and one later outcome cannot establish predictive validity or identify labor-market causes.",
+            "embargo_days": 0,
+            "expected_direction": "two-sided",
+            "holdout_end": "2023-03-12",
+            "holdout_start": "2023-02-05",
+            "hypothesis": "A retrospectively constructed two-release payroll range qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-13T05:00:00Z",
+            "primary_metric": "two-release payroll headline range width in thousands",
+            "purge_days": 2,
+            "trial_id": "bls-payroll-retrospective-range-screen"
+          }
+        },
+        "source_hashes": [
+          "8e50e59c53d5d72be1c08c0e86501e7a933469d32a51970c3cf2da95601fa1e5",
+          "b45ea39fc0df33a5501a79d1dfbbbea57376bda28c223db72ce98e26708266a5"
+        ],
+        "source_record_ids": [
+          "bls.employment_situation.archived_release:20230106:nonfarm_payroll_change",
+          "bls.employment_situation.archived_release:20230106:unemployment_rate",
+          "bls.employment_situation.archived_release:20230203:nonfarm_payroll_change",
+          "bls.employment_situation.archived_release:20230203:unemployment_rate"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "bls-payroll.shockcompiler.payroll-range",
+          "bls-payroll.timevault.release-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over four locked headline facts from two archived BLS Employment Situation releases available before the decision time. Reported payroll changes and unemployment rates remain reported; the next-release payroll range is a two-point arithmetic heuristic with no assigned probability; TrialCourt rejects retrospective promotion. The March 10 release is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, causal labor-market model, policy recommendation, trading signal, production deployment, or external validation.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "bls-payroll.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no assigned probability or coverage guarantee.",
+        "claim_id": "claim-inferred-payroll-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The March 10 release was not used to set the interval.",
+          "Annual benchmarking and seasonal-factor updates limit comparability."
+        ],
+        "statement": "The next-release payroll stress range uses endpoints of 223 and 517 thousand, with the latest known value as the explicit persistence baseline.",
+        "support_artifact_ids": [
+          "bls-payroll.shockcompiler.payroll-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external forecast review.",
+        "claim_id": "claim-inferred-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective two-release payroll-range attempt.",
+        "support_artifact_ids": [
+          "bls-payroll.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are aggregate BLS release-snapshot facts, not worker-level records.",
+        "claim_id": "claim-reported-employment-headlines",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes only two headline measures from each of two releases."
+        ],
+        "statement": "The locked BLS releases report headline nonfarm payroll changes of 223 thousand for December 2022 and 517 thousand for January 2023, alongside unemployment rates of 3.5 and 3.4 percent.",
+        "support_artifact_ids": [
+          "bls-payroll.timevault.release-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not orders, capacity, capital, or returns.",
+        "claim_id": "claim-simulated-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "bls-payroll.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "b560ed8009164576e6ed7fa36a587801f2252e2f",
+    "compressed_input_bytes": 1716,
+    "created_at": "2026-08-13T05:00:00Z",
+    "decision_time": "2023-02-04T12:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 4,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves four minimal headline facts from the January 6 and February 3, 2023 archived BLS Employment Situation releases that were explicitly available before the replay decision time. It excludes the March 10 release, later revised series values, all detailed tables, worker- or employer-level records, a probability distribution, forecast, calibrated interval, causal attribution, or investment and policy performance. The January release documents annual benchmarking and seasonal-factor updates, limiting cross-release comparability.",
+      "The payroll endpoints are only the minimum and maximum of two known headline values; they have no probability or coverage guarantee.",
+      "The March 10 BLS release is excluded from all decision inputs and artifacts.",
+      "Annual benchmarking and seasonal-factor updates limit comparability across releases.",
+      "Aggregate headline values do not identify workers, employers, or causal mechanisms.",
+      "No market network, security, order, portfolio, allocation, or return is represented.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "bls-2023-payroll-release-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "bls-2023-payroll-release-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "BLS Employment Situation payroll headline boundary, early 2023"
+  },
+  "topological_artifact_ids": [
+    "bls-payroll.timevault.release-query",
+    "bls-payroll.shockcompiler.payroll-range",
+    "bls-payroll.trialcourt.retrospective-gate",
+    "bls-payroll.replaystudio.render"
+  ],
+  "trace_id": "trace:93586d2362769bcfd48846586d4eefa3b7fbdf6a4b596e62297e775971802013"
+}
