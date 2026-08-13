@@ -1,0 +1,124 @@
+{
+  "build_script": {
+    "path": "scripts/build_industrial_production_boundary_replaypack.py",
+    "sha256": "686cab7b0dd7b84943decdf900ad71ad0e2fdc325a9a508737c372772f4d7002"
+  },
+  "claim_boundary": "This proof counts one internally reproduced March 2020 Federal Reserve G.17 industrial-production boundary because two pre-decision archived HTML/PDF release snapshots, exact 9:15 a.m. America/New_York publication timing, a separately locked post-decision March release, immutable locks, separated truth labels, an explicit latest-value persistence baseline, a no-probability persistence-or-one-known-increase program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The March value is excluded from ReplayPack inputs and used only for a labelled post-event check that preserves its 600-basis-point lower-bound breach rather than widening the range. The April release's revision of February from 0.6 to 0.5 percent stays in the event snapshot and never overwrites the decision input. This does not establish forecast skill, calibrated coverage, plant, pandemic, policy, sector, or industrial causality, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "fed-g17.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective one-increase attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "fed-g17.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "c57adc76a1390654561568133e6bd96fe9fb20c7b15d062270304ab0f95376bc",
+      "path": "scenarios/fed-g17-2020/event-lock.json",
+      "record_ids": [
+        "federalreserve.g17.archived_industrial_production:202003:monthly_change"
+      ],
+      "sha256": "157ddebc66e275ce3e3d1196070cf035a36a176c493cd71750999017d748908d"
+    }
+  ],
+  "expected_input_manifest_sha256": "214c7571f406edb68208e96eeae907c0f26dccfc6d1b88bed164e2f0b7157f4e",
+  "expected_pack_sha256": "6d918334fff44d2cb860072858f7235e6f1fe0710583aff349b6fa2767986f3d",
+  "expected_trace_id": "trace:bb70dc79258184ab9c187f71b7aad8b28f08ac4cb2a79bfabce991ae2ace38ea",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate industrial-production changes reported in archived Federal Reserve releases, not plant-level observations, direct causal measurements, transactions, positions, or a future production change. The March value is only in the event lock."
+    },
+    "bounded_artifact_ids": [
+      "fed-g17.shockcompiler.monthly-change-range"
+    ],
+    "extracted_artifact_ids": [
+      "fed-g17.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "fed-g17.shockcompiler.monthly-change-range",
+      "fed-g17.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "federalreserve.g17.archived_industrial_production:202001:monthly_change",
+      "federalreserve.g17.archived_industrial_production:202002:monthly_change"
+    ],
+    "simulated_artifact_ids": [
+      "fed-g17.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "6e066395b303bd4f941b4c92f7b78be7ce84c3f859f76c1af47961165be40b0a",
+      "path": "scenarios/fed-g17-2020/input-lock.json",
+      "record_ids": [
+        "federalreserve.g17.archived_industrial_production:202001:monthly_change",
+        "federalreserve.g17.archived_industrial_production:202002:monthly_change"
+      ],
+      "sha256": "f903041344f0ecff53e3716dde9f18bedb6f0a3d71e33e49e4c6651e5b5209fd"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "fed-g17.shockcompiler.monthly-change-range",
+      "description": "The decision-time baseline persists the latest known February total industrial-production monthly change of 60 basis points from its March 17 archived release snapshot.",
+      "expected_value": 60,
+      "payload_pointer": "/naive_baseline/next_monthly_change_basis_points"
+    },
+    {
+      "artifact_id": "fed-g17.shockcompiler.monthly-change-range",
+      "description": "The persistence-or-one-known-increase endpoints carry no probability or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/fed-g17/latest-summary.json",
+  "pack_directory": "verification/replaypacks/fed-g17-2020",
+  "proof_sha256": "c143f52e39a45ce819e0b10f022b8b4152903d5229ab60a7100158aa0be31ea8",
+  "rebuild_receipt": {
+    "path": "verification/evidence/fed-g17-four-engine-rebuild.json",
+    "sha256": "df29d1ea341e05185aaab162cd66d019054ea50c4b467725bc54c61768b44279"
+  },
+  "replay_id": "fed-g17-2020-industrial-production-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "declared_range_reuses_only_known_monthly_increase",
+    "distinct_locked_inputs_equal_two",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "locked_pre_decision_release_pair_is_exact",
+    "naive_baseline_is_latest_known_monthly_change_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_archived_fed_g17_fact",
+    "post_decision_event_timing_is_later",
+    "post_decision_february_revision_remains_later_snapshot_only",
+    "post_event_lower_bound_breach_equals_600_basis_points",
+    "reported_post_event_change_is_below_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "fed-g17-2020-industrial-production-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "federalreserve.g17.archived_industrial_production:202001:monthly_change",
+    "federalreserve.g17.archived_industrial_production:202002:monthly_change"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_industrial_production_boundary_replaypack.py",
+    "sha256": "60659a1602cbbc9d1adb6d4b5feb24ca03d6374bc7fd3d14a8c629ec763149e6"
+  }
+}

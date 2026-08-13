@@ -55,21 +55,21 @@
     "reported_march_change_basis_points": -540,
     "used_as_decision_input": false
   },
-  "receipt_sha256": "106533421241939fb321711b30bf77146c89feaf15c6265c34f90c8f0d3ba883",
+  "receipt_sha256": "12ec2adc573eefa8c05439d569af4662ee026d45ba012bb9735c23906aab06f2",
   "runtime": {
     "duckdb": "1.5.5",
     "finreplay": "0.1.0a0",
     "machine": "arm64",
-    "measured_at": "2026-08-13T09:14:46.653281+00:00",
+    "measured_at": "2026-08-13T09:40:45.956110+00:00",
     "numpy": "2.2.6",
     "platform": "macOS-26.5.2-arm64-arm-64bit",
     "pydantic": "2.13.4",
     "pypdf": "6.15.0",
     "python": "3.12.13",
-    "runner_commit": "7ce9bbd95eb18fb65387c4efbe14912fafec5730",
-    "runner_dirty": true,
+    "runner_commit": "3b38742a7cdebc9e95dcc23ae00b927e9100ea90",
+    "runner_dirty": false,
     "scipy": "1.18.0",
-    "two_rebuild_elapsed_seconds": 0.6408292079868261
+    "two_rebuild_elapsed_seconds": 0.8250805829884484
   },
   "schema_version": "1.0.0",
   "semantic_sha256": "970659a8ca3fba602a986f9fa9954d9dd0e974b4ea6826a4ea74720fec1c73a7",
