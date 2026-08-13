@@ -34,7 +34,7 @@ python scripts/verify_live_receipts.py \
 
 Two consecutive live runs are retained: the first inserts the three normalized facts and the
 second proves they are idempotent even though all three HTML response hashes change. This is the
-supporting source for the in-progress sixteenth scenario; that scenario does not count until its
-immutable locks, ReplayPack, clean rebuild receipt, and eight-gate proof all pass. This evidence
-does not establish a forecast, calibrated probability, pandemic or industrial causality,
-external validation, deployment, investment performance, or user impact.
+supporting source for the sixteenth counted scenario. Its immutable locks, ReplayPack, clean
+double-rebuild receipt, and eight-gate proof bind the same three source snapshots independently.
+This evidence does not establish a forecast, calibrated probability, pandemic or industrial
+causality, external validation, deployment, investment performance, or user impact.

@@ -74,6 +74,18 @@
       "trace_id": "trace:02607eb05647ea0f55341031c4c55035a27f86fadfd8e20ffada0a15dd1a8780"
     },
     {
+      "decision_time": "2020-03-18T12:00:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "6d918334fff44d2cb860072858f7235e6f1fe0710583aff349b6fa2767986f3d",
+      "proof": "fed-g17-2020-industrial-production-boundary-v1.json",
+      "proof_sha256": "c143f52e39a45ce819e0b10f022b8b4152903d5229ab60a7100158aa0be31ea8",
+      "replay_id": "fed-g17-2020-industrial-production-boundary-v1",
+      "scenario_id": "fed-g17-2020-industrial-production-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:bb70dc79258184ab9c187f71b7aad8b28f08ac4cb2a79bfabce991ae2ace38ea"
+    },
+    {
       "decision_time": "2023-03-23T12:00:00+00:00",
       "distinct_input_records": 4,
       "mode": "bounded_reconstruction",
@@ -183,5 +195,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 15
+  "verified_scenario_count": 16
 }

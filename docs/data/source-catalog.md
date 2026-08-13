@@ -169,6 +169,16 @@ the following `America/New_York` midnight before making the pair knowledge-eligi
 `Last-Modified` headers are ignored because later site migration can change them. Raw pairs remain
 in ignored local storage, and this supporting connector is excluded from the formal 30.
 
+`federalreserve.g17.archived_industrial_production` retrieves paired archived Federal Reserve
+G.17 HTML and 19-page PDF releases for February 14, March 17, and April 15, 2020. It requires exact
+release identity and 9:15 a.m. EST/EDT timing, then cross-checks the total industrial-production
+monthly change, total index, capacity utilization, manufacturing, mining, utilities, year-over-year
+change, and prior-month revision bridge across both forms. The current HTML shell contains changing
+Cloudflare tokens, so raw response hashes remain in fetch receipts while a normalized semantic
+HTML-fact hash and the stable PDF hash identify each release snapshot. Later revisions never
+overwrite earlier records. Raw pairs remain in ignored local storage, and this supporting
+connector is excluded from the formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

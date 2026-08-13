@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 15/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll and CPI, FOMC target range, ALFRED Treasury-curve, Treasury DTS TGA, New York Fed SOFR, EIA commercial-crude-stock, DOL initial-claims, Treasury 91-day-bill auction, and BEA personal-saving-rate boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 16/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll and CPI, FOMC target range, ALFRED Treasury-curve, Treasury DTS TGA, New York Fed SOFR, EIA commercial-crude-stock, DOL initial-claims, Treasury 91-day-bill auction, BEA personal-saving-rate, and Federal Reserve G.17 industrial-production boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -294,6 +294,15 @@ March rate is `1,310` basis points, a required visible `460`-basis-point breach 
 endpoint. The April release's revision of February from `820` to `800` basis points remains in the
 event snapshot and never overwrites the decision input. See
 [`docs/scenarios/bea-pio-2020.md`](docs/scenarios/bea-pio-2020.md).
+
+The sixteenth counted flow uses paired archived Federal Reserve G.17 Industrial Production and
+Capacity Utilization HTML and PDF releases. It locks the January and February 2020 headline
+monthly changes of `-30` and `60` basis points before a March 18 decision boundary, then constructs
+only latest persistence or one repeat of the known `90`-basis-point increase: `[60, 150]`, with no
+probability. The separately locked March change is `-540` basis points, a required visible
+`600`-basis-point breach below the lower endpoint. The April release's revision of February from
+`60` to `50` basis points remains in the event snapshot and never overwrites the decision input.
+See [`docs/scenarios/fed-g17-2020.md`](docs/scenarios/fed-g17-2020.md).
 
 ## Research and investment disclaimer
 
