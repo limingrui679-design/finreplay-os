@@ -29,14 +29,17 @@ implemented adapter. An adapter counts only when it has:
 - an opt-in live receipt containing response hash, retrieval time, record count, and source version;
 - an honest failure path that never substitutes a current value for a missing historical vintage.
 
-Current status: **IN_PROGRESS; 25/30 live-validated adapters.** Eight FDIC BankFind
-products, three SEC EDGAR/XBRL products, five U.S. Treasury Fiscal Data tables, and nine distinct
-New York Fed Markets API products have current schema-1.1 live receipts under
-`verification/live/`. The 22 FDIC/Treasury/New York Fed current-snapshot products deliberately
-remain `latest_only`; only the three SEC accession/event products are currently historical-replay
-eligible. `scripts/verify_live_receipts.py` recomputes every current receipt self-hash and raw-response
-hash and reconciles counts before selecting one receipt per adapter. A count here proves connector
-behavior and live retrieval, not historical-vintage depth.
+Current status: **PROVEN; 30/30 live-validated adapters.** Eight FDIC BankFind products, three SEC
+EDGAR/XBRL products, five U.S. Treasury Fiscal Data tables, nine distinct New York Fed Markets API
+products, one fixed BLS CPI-U product, and four independently classified CFTC COT products have
+current schema-1.1 live receipts under `verification/live/`. The 23
+FDIC/Treasury/New York Fed/BLS current-snapshot products deliberately remain `latest_only`; only the
+three SEC accession/event products are currently historical-replay eligible. The four CFTC products
+contain regulator-described immutable historical observations, but their generic API report dates do
+not establish row-specific release times, so their receipts remain historical-replay ineligible.
+`scripts/verify_live_receipts.py` recomputes every current receipt self-hash and raw-response hash and
+reconciles counts before selecting one receipt per adapter. A count here proves connector behavior
+and live retrieval, not historical-vintage depth, analytical correctness, or external validation.
 
 ## C. Thirty historical or boundary ReplayPacks — 20 points
 

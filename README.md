@@ -19,7 +19,7 @@ investment performance, institutional adoption, external validation, or real-wor
 | Target | Current evidence | Completion rule |
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
-| 20–30 official-data adapters | 25 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
+| 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
 | 30 historical/boundary scenarios | Scenario specifications in progress | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
@@ -78,6 +78,13 @@ The nine New York Fed products can be revalidated with
 release, and `lastUpdated` fields remain in the payload but do not backdate the exact retrieved
 value. Source-content reuse remains subject to the current New York Fed Terms of Use, including
 the additional reference-rate attribution and non-endorsement conditions.
+
+The fixed BLS CPI-U product and four independently classified CFTC COT products can be
+revalidated with `python scripts/validate_bls.py` and
+`python scripts/validate_cftc_catalog.py`. BLS annual-average `M13` rows remain in the hashed raw
+response but are excluded from the monthly normalized stream. CFTC historical rows are immutable
+published observations, yet the generic API receipts remain ineligible for historical
+decision-time use until a row-specific release timestamp is independently bound.
 
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
