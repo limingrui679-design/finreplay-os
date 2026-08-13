@@ -1,0 +1,71 @@
+{
+  "artifact_sha256": {
+    "replaystudio": "8fecc8f65361c7f61c85855799ec9c54caa0eea963ea52658d5ac6c9a1e6e0bc",
+    "shockcompiler": "756d26d71ac774df4476a48a5a2ecc3fdef8f56d5623ab9254b52e1192c6a39c",
+    "timevault": "45737ac4a6ce36cbeeb89544758ba9b054661a767cd74bf7e9ef0e2fda9efe16",
+    "trialcourt": "b00134110ed8a4de276f832d46e8a034d456e2ef32e4a2df46dcfa25fc05b2f0"
+  },
+  "assertions": {
+    "all_artifacts_reproduced": true,
+    "byte_identical_directory_rebuilds": true,
+    "byte_identical_zip_rebuilds": true,
+    "compiled_pack_matches_rebuild": true,
+    "cross_engine_trace_is_stable": true,
+    "distinct_locked_inputs_equal_two": true,
+    "future_event_excluded_from_bound_construction": true,
+    "historical_source_sets_eligible": true,
+    "naive_baseline_is_latest_known_eia_stock_persistence": true,
+    "no_probability_is_assigned": true,
+    "only_relevant_engines_present": true,
+    "post_decision_event_is_disjoint": true,
+    "post_decision_event_is_exact_archived_eia_wpsr_fact": true,
+    "post_decision_event_timing_is_later": true,
+    "post_event_upper_bound_breach_equals_15022_thousand_barrels": true,
+    "reported_post_event_stock_breaches_declared_range": true,
+    "simulation_remains_visible": true,
+    "trialcourt_rejects_retrospective_attempt": true
+  },
+  "claim_boundary": "This receipt proves two fresh local executions of the four relevant engines rebuild the committed directory and deterministic ZIP bytes from two locked pre-decision archived EIA WPSR commercial-crude-stock facts. It verifies the separately locked April 17 stock is disjoint and, as an evaluation only, breaches the previously declared no-probability range by 15,022 thousand barrels. The range is not widened after the fact. This does not prove forecast skill, calibrated coverage, storage-capacity limits, pandemic or oil-market causality, policy effectiveness, deployment, external review, or user impact.",
+  "code_commit": "77f191df5a98fdecdc67b24bbf1ca97a403a6e48",
+  "event_lock_sha256": "1ab43221bbf09ebe6f43a3c5b2553d3b9c929c20ef39b08f1305907cf1791470",
+  "file_sha256": {
+    "README.md": "b69314e1ce9bd976d4dab59fa4c359a4f06c3f62be6bb919097976fa4247b878",
+    "assets/styles.css": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677",
+    "checksums.sha256": "b0d724b919be83bebbed886026fb90b602098d08a8da558ed3e454fe0e422f63",
+    "index.html": "12a0dcbc493eae89e0f801e2f7fefc629604dcee1842b56070dc47418c5cd1ed",
+    "manifest.json": "551207e7864d1c0493230318cfd9df8ba4abe9855fe085d672c1cd54a6a6f2a2",
+    "report.json": "9863be574b19a7531d95f7c6b573d183a9ed098b775fd30928563a0520999c75"
+  },
+  "input_lock_sha256": "be38d822b5f5044c688f4ca5eee25f9046ffecc6b264f4e4e7d24599d3bd0936",
+  "pack_receipt_sha256": "f32c7f354cd0447b817f00708b54acaa604c35e8134da889e5764e1a55fb76d5",
+  "pack_sha256": "baf7d20f12097dbc58745d1e2eeb19fb0229ff062c987425addddc2d96c1f7c4",
+  "post_event_evaluation": {
+    "declared_lower_stock_thousand_barrels": 484370,
+    "declared_upper_stock_thousand_barrels": 503618,
+    "latest_known_persistence_baseline_thousand_barrels": 503618,
+    "probability_assigned": false,
+    "range_breached": true,
+    "reported_april17_stock_thousand_barrels": 518640,
+    "upper_bound_breach_thousand_barrels": 15022,
+    "used_as_decision_input": false
+  },
+  "receipt_sha256": "dfd9bde56cf181784978e0fbc75e3967dfb64840b4c7d4c38bb8398a1f9c5861",
+  "runtime": {
+    "duckdb": "1.5.5",
+    "finreplay": "0.1.0a0",
+    "machine": "arm64",
+    "measured_at": "2026-08-13T06:54:32.648445+00:00",
+    "numpy": "2.2.6",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "pydantic": "2.13.4",
+    "pypdf": "6.15.0",
+    "python": "3.12.13",
+    "runner_commit": "5b69a074b3faad1a92d32105d1067d28f902abaa",
+    "runner_dirty": false,
+    "scipy": "1.18.0",
+    "two_rebuild_elapsed_seconds": 0.8352670830208808
+  },
+  "schema_version": "1.0.0",
+  "semantic_sha256": "6abea6428ac3f81a9b92c2b4ad7a9078ad5f299b41c15ba47413521baf4f8a48",
+  "trace_id": "trace:02607eb05647ea0f55341031c4c55035a27f86fadfd8e20ffada0a15dd1a8780"
+}
