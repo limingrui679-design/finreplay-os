@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over four locked target endpoints from two archived FOMC statements available before the decision time. Official target ranges remain reported; the next upper-bound range is an arithmetic heuristic with no assigned probability; TrialCourt rejects retrospective promotion. The May 3 upper target is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, causal monetary-policy model, policy recommendation, trading signal, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1303,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "c6f45c42ff036c2e22a9fa7ce663e35d66f6283a6968dd382314af6efdb038f8"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "12a68c74bd051bbdfa9de29105b16ed01668c96ef527a4246793ea02b575648d"
+    },
+    {
+      "bytes": 30840,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "a9150835d7860fc1161f3942bf5d2420e85aa34a87b24922349a17a0da2ec7c2"
+    },
+    {
+      "bytes": 29686,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "6cc11ea744233ee346ea2b66b50c8449c5cd1f21328f49bc861f97aba165597d"
+    }
+  ],
+  "pack_sha256": "4421dbfebff7e2e3e66124090d27cd6b9031bcb89c9b8726cf28d8fdf358f7e5",
+  "receipt_sha256": "df00b28e4468b332bf91b04b346625820891d0b32a3ae698bb1abedba8f49b2c",
+  "replay_id": "fomc-2023-target-range-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "332430dd1a22b9a1874375549f7d67103cf67149",
+    "compressed_input_bytes": 1616,
+    "created_at": "2026-08-13T05:30:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 4,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "2f02efea42a2a55f37325e1606f4a8c19289292ccf5bb73027a86a5d0e3b50cc",
+    "output_manifest_sha256": "6bbf7085869606f468a98be14b0a5cdc15fab063322ef134d014974be8d116b4",
+    "replay_id": "fomc-2023-target-range-boundary-v1",
+    "scenario_id": "fomc-2023-target-range-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "6cc11ea744233ee346ea2b66b50c8449c5cd1f21328f49bc861f97aba165597d",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:4d1e9d9df61c5baffffb8bced078829ec4ba1064f07e7c65f68ba9a1368f7df7"
+}

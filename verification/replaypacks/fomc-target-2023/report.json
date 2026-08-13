@@ -1,0 +1,594 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 2,
+    "reported": 8,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "2f02efea42a2a55f37325e1606f4a8c19289292ccf5bb73027a86a5d0e3b50cc",
+  "pack_sha256": "4421dbfebff7e2e3e66124090d27cd6b9031bcb89c9b8726cf28d8fdf358f7e5",
+  "source_hashes": [
+    "36e956cb6d1d4c261b7ca87ad2d81fd15599231edb8ad20f318f4b03ef4f978c",
+    "833f994c90a7d6a14a817080337bbe225133973c64015aa9052060dda2ae0a4d"
+  ],
+  "source_record_ids": [
+    "federal_reserve.fomc.archived_statement:20230201:target_range_lower",
+    "federal_reserve.fomc.archived_statement:20230201:target_range_upper",
+    "federal_reserve.fomc.archived_statement:20230322:target_range_lower",
+    "federal_reserve.fomc.archived_statement:20230322:target_range_upper"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "fomc-target.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "d22812b64149d675539d732c036ee0b020f3e2531be59b016955b639dd905e27",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not independently validate the fomc-target-boundary heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This aggregate policy-release boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no security, order, or allocation input is invented.",
+          "input_lock_sha256": "555fd627dcdee673d11db6acca889900cba51cfb15e7aa16fe645ac7f137f61f",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "36e956cb6d1d4c261b7ca87ad2d81fd15599231edb8ad20f318f4b03ef4f978c",
+          "833f994c90a7d6a14a817080337bbe225133973c64015aa9052060dda2ae0a4d"
+        ],
+        "source_record_ids": [
+          "federal_reserve.fomc.archived_statement:20230201:target_range_lower",
+          "federal_reserve.fomc.archived_statement:20230201:target_range_upper",
+          "federal_reserve.fomc.archived_statement:20230322:target_range_lower",
+          "federal_reserve.fomc.archived_statement:20230322:target_range_upper"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "fomc-target.shockcompiler.upper-bound",
+          "fomc-target.timevault.release-query",
+          "fomc-target.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "fomc-target.shockcompiler.upper-bound",
+        "artifact_kind": "bounded-fomc-upper-target-program",
+        "artifact_sha256": "98d0f50ab8d1bda2e5d16a5d852a1c19095d29137d2914ea172a6ae8bd830da8",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 1
+        },
+        "limitations": [
+          "The upper endpoint mechanically repeats one known 25-basis-point policy step.",
+          "The May 3 statement is absent from the bound construction and artifact sources.",
+          "No market-implied expectation, voting model, macro forecast, or causal effect is used."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": 500.0,
+            "upper": 525.0
+          },
+          "bound_construction": {
+            "endpoint_method": "zero_or_one_continuation_of_known_upper_endpoint_step",
+            "future_event_used": false,
+            "known_step_basis_points": 25,
+            "lower_next_upper_basis_points": 500,
+            "probability_assigned": false,
+            "upper_next_upper_basis_points": 525
+          },
+          "compiled": {
+            "compiled_sha256": "18b5b5b5d623e34e4b0091a6ee7fec3dd0976a41c503bb45598ffc8ae6b4e670",
+            "decision_time": "2023-03-23T12:00:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, forecast, causal, or normative policy interpretation."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "fomc-target-next-upper-target-envelope",
+            "scenario_id": "fomc-2023-target-range-boundary",
+            "source_program_sha256": "e1bfdd6ccf45f8df1ab2caa44d2f390120366b70754d2f9c3037a5f758a93952",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Bound the next target-range upper endpoint between persistence of the March upper endpoint and one continuation of the already known February-to-March 25-basis-point upper-endpoint step.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Repeating zero or one known policy step defines a transparent stress range, not a forecast, confidence interval, or policy recommendation."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "fomc-target-next-upper-target-bound",
+                    "source_hashes": [
+                      "36e956cb6d1d4c261b7ca87ad2d81fd15599231edb8ad20f318f4b03ef4f978c",
+                      "833f994c90a7d6a14a817080337bbe225133973c64015aa9052060dda2ae0a4d"
+                    ],
+                    "source_record_ids": [
+                      "federal_reserve.fomc.archived_statement:20230201:target_range_upper",
+                      "federal_reserve.fomc.archived_statement:20230322:target_range_upper"
+                    ],
+                    "target_id": "fomc_policy:federal_funds_target_range",
+                    "unit": "basis_points",
+                    "value": 500.0,
+                    "variable": "next_target_range_upper_basis_points"
+                  }
+                ],
+                "trial_id": "fomc-target-next-upper-target-envelope:00000000:5d495faf51520eb9",
+                "trial_index": 0,
+                "vector_sha256": "5d495faf51520eb96e819c2109e2ad350f6aa2ca8edae12a6a7f72151483ea43"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Bound the next target-range upper endpoint between persistence of the March upper endpoint and one continuation of the already known February-to-March 25-basis-point upper-endpoint step.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Repeating zero or one known policy step defines a transparent stress range, not a forecast, confidence interval, or policy recommendation."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "fomc-target-next-upper-target-bound",
+                    "source_hashes": [
+                      "36e956cb6d1d4c261b7ca87ad2d81fd15599231edb8ad20f318f4b03ef4f978c",
+                      "833f994c90a7d6a14a817080337bbe225133973c64015aa9052060dda2ae0a4d"
+                    ],
+                    "source_record_ids": [
+                      "federal_reserve.fomc.archived_statement:20230201:target_range_upper",
+                      "federal_reserve.fomc.archived_statement:20230322:target_range_upper"
+                    ],
+                    "target_id": "fomc_policy:federal_funds_target_range",
+                    "unit": "basis_points",
+                    "value": 525.0,
+                    "variable": "next_target_range_upper_basis_points"
+                  }
+                ],
+                "trial_id": "fomc-target-next-upper-target-envelope:00000001:00d4fbf9667a9ff5",
+                "trial_index": 1,
+                "vector_sha256": "00d4fbf9667a9ff5ca5ccd70128193ab9dae97ac9a869178fe035df6ad62a4ff"
+              }
+            ]
+          },
+          "input_lock_sha256": "555fd627dcdee673d11db6acca889900cba51cfb15e7aa16fe645ac7f137f61f",
+          "known_target_ranges": {
+            "february_lower_basis_points": 450,
+            "february_upper_basis_points": 475,
+            "known_lower_step_basis_points": 25,
+            "known_upper_step_basis_points": 25,
+            "march_lower_basis_points": 475,
+            "march_upper_basis_points": 500,
+            "next_upper_lower_basis_points": 500,
+            "next_upper_upper_basis_points": 525
+          },
+          "naive_baseline": {
+            "definition": "persistence of the latest known upper target endpoint",
+            "next_target_range_upper_basis_points": 500
+          },
+          "program": {
+            "decision_time": "2023-03-23T12:00:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, forecast, causal, or normative policy interpretation."
+            ],
+            "hypothesis": "Evaluate persistence and one-step-continuation endpoints using only archived FOMC statements available at the historical decision boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Bound the next target-range upper endpoint between persistence of the March upper endpoint and one continuation of the already known February-to-March 25-basis-point upper-endpoint step.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "Repeating zero or one known policy step defines a transparent stress range, not a forecast, confidence interval, or policy recommendation."
+                ],
+                "lower": 500.0,
+                "operation": "set",
+                "parameter_id": "fomc-target-next-upper-target-bound",
+                "source_record_ids": [
+                  "federal_reserve.fomc.archived_statement:20230201:target_range_upper",
+                  "federal_reserve.fomc.archived_statement:20230322:target_range_upper"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "Board of Governors of the Federal Reserve System",
+                    "redistribution_note": "Keep downloaded HTML in local content-addressed storage. Repository scenarios retain only minimal target-range facts, source links, hashes, and attribution to the Board of Governors; do not imply endorsement or redistribute third-party page material.",
+                    "retrieved_at": "2026-08-13T04:54:28.440073Z",
+                    "sha256": "36e956cb6d1d4c261b7ca87ad2d81fd15599231edb8ad20f318f4b03ef4f978c",
+                    "source_id": "federal_reserve.fomc.archived_statement",
+                    "source_version": "FOMCStatement:2023-02-01:sha256:36e956cb6d1d4c261b7ca87a",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230201a.htm",
+                    "vintage_as_of": "2023-02-01T19:00:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "Board of Governors of the Federal Reserve System",
+                    "redistribution_note": "Keep downloaded HTML in local content-addressed storage. Repository scenarios retain only minimal target-range facts, source links, hashes, and attribution to the Board of Governors; do not imply endorsement or redistribute third-party page material.",
+                    "retrieved_at": "2026-08-13T04:54:29.311357Z",
+                    "sha256": "833f994c90a7d6a14a817080337bbe225133973c64015aa9052060dda2ae0a4d",
+                    "source_id": "federal_reserve.fomc.archived_statement",
+                    "source_version": "FOMCStatement:2023-03-22:sha256:833f994c90a7d6a14a817080",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230322a.htm",
+                    "vintage_as_of": "2023-03-22T18:00:00Z"
+                  }
+                ],
+                "target_id": "fomc_policy:federal_funds_target_range",
+                "unit": "basis_points",
+                "upper": 525.0,
+                "variable": "next_target_range_upper_basis_points"
+              }
+            ],
+            "program_id": "fomc-target-next-upper-target-envelope",
+            "scenario_id": "fomc-2023-target-range-boundary"
+          }
+        },
+        "source_hashes": [
+          "36e956cb6d1d4c261b7ca87ad2d81fd15599231edb8ad20f318f4b03ef4f978c",
+          "833f994c90a7d6a14a817080337bbe225133973c64015aa9052060dda2ae0a4d"
+        ],
+        "source_record_ids": [
+          "federal_reserve.fomc.archived_statement:20230201:target_range_upper",
+          "federal_reserve.fomc.archived_statement:20230322:target_range_upper"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "fomc-target.timevault.release-query"
+        ]
+      },
+      {
+        "artifact_id": "fomc-target.timevault.release-query",
+        "artifact_kind": "versioned-release-query",
+        "artifact_sha256": "8b854d838e7ac7c246eb935f0561467caba35bdec6495922f825800ba53cc003",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 4
+        },
+        "limitations": [
+          "The lock contains only target-range endpoints from two policy statements.",
+          "Knowability uses each page's explicit 2:00 p.m. EST or EDT release label.",
+          "Statement text is not converted into a causal policy or market-response model."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "5960b04a6f93ef072e407782ac528c1b0a43bd983357696b554981f6505b503e",
+              "791e495e22569ec38a8e5250026b0cd0cf88bce1f8b1684769cf11ef86a5c531"
+            ],
+            "attempted_records": 4,
+            "fact_hashes": [
+              "56a68987bae99556720b34ccd1b2627e86ec34ca8cf94a9aabd4511a21466989",
+              "329643ca3927b49298cb94405b2425282e11b10ccc83cd3f8a05607a458e43e1",
+              "f0ebe6ae883f889da4331caa9a0703b2f921e705bd6476d86bdcf3b8fb4f85cf",
+              "6efb3c086a8cfcdc5c02aa571947fee3f48855d0f44b390929749f799597e6e4"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 4
+          },
+          "decision_time": "2023-03-23T12:00:00Z",
+          "input_lock_sha256": "555fd627dcdee673d11db6acca889900cba51cfb15e7aa16fe645ac7f137f61f",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 4,
+            "fact_set_sha256": "fed5f2d2f6dd3cd42ab05c5ea82c9ba6f7a90dd884e9f118b728fb4d7ea25627",
+            "fact_versions": 4,
+            "generated_at": "2026-08-13T05:30:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2023-03-22T18:00:00Z",
+          "selected_record_ids": [
+            "federal_reserve.fomc.archived_statement:20230201:target_range_lower",
+            "federal_reserve.fomc.archived_statement:20230201:target_range_upper",
+            "federal_reserve.fomc.archived_statement:20230322:target_range_lower",
+            "federal_reserve.fomc.archived_statement:20230322:target_range_upper"
+          ]
+        },
+        "source_hashes": [
+          "36e956cb6d1d4c261b7ca87ad2d81fd15599231edb8ad20f318f4b03ef4f978c",
+          "833f994c90a7d6a14a817080337bbe225133973c64015aa9052060dda2ae0a4d"
+        ],
+        "source_record_ids": [
+          "federal_reserve.fomc.archived_statement:20230201:target_range_lower",
+          "federal_reserve.fomc.archived_statement:20230201:target_range_upper",
+          "federal_reserve.fomc.archived_statement:20230322:target_range_lower",
+          "federal_reserve.fomc.archived_statement:20230322:target_range_upper"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "fomc-target.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "5fcb3fe0250865006cfee7f37ce14024dec4082fd71464919212d69325b61945",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 4,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "fomc-target-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "332430dd1a22b9a1874375549f7d67103cf67149",
+            "completed_at": "2026-08-13T05:30:00Z",
+            "config_sha256": "cab4b94e762fc1bf02448db7b77bba423c270056c5b590e2ec3a8e5b0c386dd3",
+            "decision_time": "2023-03-23T12:00:00Z",
+            "evaluation_end": "2023-05-08",
+            "evaluation_start": "2023-03-24",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "555fd627dcdee673d11db6acca889900cba51cfb15e7aa16fe645ac7f137f61f",
+            "max_input_available_at": "2023-03-22T18:00:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 25.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No May 3 statement fact is present in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "cf5f9bfb9f84368dfb650f99d9fbc2a5a72efea4317224b3134437547b853bde",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "february-to-march-lower-step": 25.0,
+              "february-to-march-upper-step": 25.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 4,
+            "short_fraction": 0.0,
+            "training_end": "2023-03-21",
+            "trial_id": "fomc-target-retrospective-step-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "4e4a6d5d16e77162763bf88fcc67f0ba07194f89ab78ee96d48157685c1a91f5",
+            "entry_hash": "4e4a6d5d16e77162763bf88fcc67f0ba07194f89ab78ee96d48157685c1a91f5",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "fomc-target-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "fomc-target-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "60d95729a90bdafe61854d4f3a1e2013844a2abf1a05cdfa66efcc9b6f9ebac1",
+            "candidate_attempt_id": "fomc-target-retrospective-attempt-1",
+            "decided_at": "2026-08-13T05:30:00Z",
+            "decision_id": "decision:fomc-target-retrospective-step-screen:174cd5bb2077cf273eb48d42",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 25.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 25.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "fomc-target-retrospective-step-screen"
+          },
+          "input_lock_sha256": "555fd627dcdee673d11db6acca889900cba51cfb15e7aa16fe645ac7f137f61f",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "f59a2091fc5053a8d7e50c8b3a7637f3cf3d71ab42b5002c35a2beca1dca02ff",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "6296a00f4ecc5c0e11d87d53b52446f7582794a9ed7d9ab5350607392553ffcb",
+            "entry_hash": "6296a00f4ecc5c0e11d87d53b52446f7582794a9ed7d9ab5350607392553ffcb",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "Successive target ranges record policy decisions, but two statements and one later outcome cannot establish predictive validity, policy correctness, or causal effects.",
+            "embargo_days": 0,
+            "expected_direction": "positive",
+            "holdout_end": "2023-05-08",
+            "holdout_start": "2023-03-24",
+            "hypothesis": "A retrospectively constructed zero-or-one-step FOMC target boundary qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-13T05:30:00Z",
+            "primary_metric": "known FOMC upper-target step in basis points",
+            "purge_days": 2,
+            "trial_id": "fomc-target-retrospective-step-screen"
+          }
+        },
+        "source_hashes": [
+          "36e956cb6d1d4c261b7ca87ad2d81fd15599231edb8ad20f318f4b03ef4f978c",
+          "833f994c90a7d6a14a817080337bbe225133973c64015aa9052060dda2ae0a4d"
+        ],
+        "source_record_ids": [
+          "federal_reserve.fomc.archived_statement:20230201:target_range_lower",
+          "federal_reserve.fomc.archived_statement:20230201:target_range_upper",
+          "federal_reserve.fomc.archived_statement:20230322:target_range_lower",
+          "federal_reserve.fomc.archived_statement:20230322:target_range_upper"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "fomc-target.shockcompiler.upper-bound",
+          "fomc-target.timevault.release-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over four locked target endpoints from two archived FOMC statements available before the decision time. Official target ranges remain reported; the next upper-bound range is an arithmetic heuristic with no assigned probability; TrialCourt rejects retrospective promotion. The May 3 upper target is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, causal monetary-policy model, policy recommendation, trading signal, production deployment, or external validation.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "fomc-target.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no assigned probability or coverage guarantee.",
+        "claim_id": "claim-inferred-next-upper-bound",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The May 3 statement was not used to set the interval.",
+          "The range is not a monetary-policy forecast or recommendation."
+        ],
+        "statement": "The next statement's upper target uses a 500-basis-point persistence baseline and a 525-basis-point one-known-step-continuation endpoint.",
+        "support_artifact_ids": [
+          "fomc-target.shockcompiler.upper-bound"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external forecast review.",
+        "claim_id": "claim-inferred-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective FOMC policy-step attempt.",
+        "support_artifact_ids": [
+          "fomc-target.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are official policy-release facts, not forecasts or market prices.",
+        "claim_id": "claim-reported-fomc-target-ranges",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes only the two target endpoints from each statement."
+        ],
+        "statement": "The locked FOMC statements report federal-funds target ranges of 450 to 475 basis points on February 1, 2023 and 475 to 500 basis points on March 22, 2023.",
+        "support_artifact_ids": [
+          "fomc-target.timevault.release-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not orders, capacity, capital, or returns.",
+        "claim_id": "claim-simulated-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "fomc-target.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "332430dd1a22b9a1874375549f7d67103cf67149",
+    "compressed_input_bytes": 1616,
+    "created_at": "2026-08-13T05:30:00Z",
+    "decision_time": "2023-03-23T12:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 4,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves four minimal federal-funds target endpoints from the February 1 and March 22, 2023 archived FOMC statements that were explicitly available before the decision time. It excludes the May 3 statement, implementation-note details, statement language beyond the target facts, market expectations, vote or macro models, a probability distribution, forecast, calibrated interval, causal policy-effect claim, recommendation, or investment-performance evidence.",
+      "The next-upper endpoints only repeat zero or one known 25-basis-point step; they have no probability or coverage guarantee.",
+      "The May 3 FOMC statement is excluded from all decision inputs and artifacts.",
+      "Target ranges do not establish market expectations, policy correctness, or effects.",
+      "No market network, security, order, portfolio, allocation, or return is represented.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "fomc-2023-target-range-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "fomc-2023-target-range-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "FOMC federal-funds target-range boundary, spring 2023"
+  },
+  "topological_artifact_ids": [
+    "fomc-target.timevault.release-query",
+    "fomc-target.shockcompiler.upper-bound",
+    "fomc-target.trialcourt.retrospective-gate",
+    "fomc-target.replaystudio.render"
+  ],
+  "trace_id": "trace:4d1e9d9df61c5baffffb8bced078829ec4ba1064f07e7c65f68ba9a1368f7df7"
+}
