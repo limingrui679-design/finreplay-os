@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "fed-g17-2020-industrial-production-boundary",
+  "scenario_version": "1.0.0",
+  "decision_time": "2020-03-18T12:00:00Z",
+  "event_role": "post_decision_official_event",
+  "records": [
+    {
+      "record_id": "federalreserve.g17.archived_industrial_production:202003:monthly_change",
+      "entity_id": "federal_reserve_g17:total_industrial_production",
+      "source": {
+        "source_id": "federalreserve.g17.archived_industrial_production",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/releases/g17/20200415/g17.pdf",
+        "retrieved_at": "2026-08-13T09:02:34.763544Z",
+        "source_version": "FED-G17:2020-03:G17-419:html-facts:d3275c766873dfa8cc1c:pdf:b3d2cfdb733546959552",
+        "sha256": "b3d2cfdb733546959552b7cd637311ccea0db0b8d6514db5c523cfdacb61af05",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2020-04-15T13:15:00Z",
+        "redistribution_note": "Full Federal Reserve HTML and PDF releases remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred."
+      },
+      "interval": {
+        "valid_from": "2020-03-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2020-04-15T13:15:00Z",
+        "available_at": "2020-04-15T13:15:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T09:02:34.763544Z",
+        "availability_rule": "Each selected Federal Reserve G.17 PDF states an exact 9:15 a.m. EST/EDT release time and date; its paired archived HTML confirms the same release date and facts. FinReplay validates the timezone abbreviation against America/New_York and makes the pair eligible at that exact PDF-stated time. Current server headers are not backdated.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "exact_time_in_pdf_and_release_date_in_both_forms",
+        "capacity_utilization_percent": "72.7",
+        "html_pdf_crosscheck_verified": true,
+        "manufacturing_monthly_change_percent": "-6.3",
+        "metric": "total_industrial_production_monthly_change",
+        "mining_monthly_change_percent": "-2.0",
+        "official_release_at": "2020-04-15T13:15:00+00:00",
+        "prior_month_change_in_current_release_basis_points": 50,
+        "prior_month_change_in_previous_release_basis_points": 60,
+        "prior_month_revision_delta_basis_points": -10,
+        "reference_month": "2020-03",
+        "release_date": "2020-04-15",
+        "release_html_fact_sha256": "d3275c766873dfa8cc1c3e4a17f9d3018cf13c6390119ceecb7c8b90a274c0a3",
+        "release_html_url": "https://www.federalreserve.gov/releases/g17/20200415/default.htm",
+        "release_pdf_pages": 19,
+        "release_pdf_sha256": "b3d2cfdb733546959552b7cd637311ccea0db0b8d6514db5c523cfdacb61af05",
+        "release_pdf_url": "https://www.federalreserve.gov/releases/g17/20200415/g17.pdf",
+        "release_series": "G.17 (419)",
+        "release_time_local": "09:15:00",
+        "release_timezone": "America/New_York",
+        "release_timezone_abbreviation": "EDT",
+        "reported_monthly_change_percent": "-5.4",
+        "snapshot_semantics": "headline value reported in this archived release",
+        "summary_table_snapshot_verified": true,
+        "total_index_2012_equals_100": "103.7",
+        "unit": "Basis Points",
+        "utilities_monthly_change_percent": "-3.9",
+        "value_basis_points": -540,
+        "year_over_year_change_percent": "-5.5"
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the reported -5.4-percent total industrial-production change for March 2020 from the April 15 archived Federal Reserve G.17 release solely as a post-decision official event. It also preserves that release's revision of February from 0.6 to 0.5 percent. The event and revision are excluded from all ReplayPack inputs and do not establish forecast skill, calibrated coverage, plant or industrial causality, investment performance, external review, deployment, or user impact.",
+  "lock_sha256": "c57adc76a1390654561568133e6bd96fe9fb20c7b15d062270304ab0f95376bc"
+}
