@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from datetime import UTC, date, datetime
-from typing import Any
+from typing import Any, cast
 
 import httpx
 import pytest
@@ -173,8 +173,8 @@ def test_response_url_and_future_release_cannot_be_backdated() -> None:
             )()
             return snapshot, html_bytes(), datetime(2026, 1, 1, tzinfo=UTC)
 
-    wrong = BLSEmploymentSituationArchiveAdapter(  # type: ignore[arg-type]
-        WrongURLClient(),
+    wrong = BLSEmploymentSituationArchiveAdapter(
+        cast(SafeHttpClient, WrongURLClient()),
         release_date=RELEASE_DATE,
     )
     with pytest.raises(SourceSchemaError, match="requested release"):
@@ -195,8 +195,8 @@ def test_response_url_and_future_release_cannot_be_backdated() -> None:
             )()
             return snapshot, html_bytes(), datetime(2023, 2, 3, 13, 29, tzinfo=UTC)
 
-    early = BLSEmploymentSituationArchiveAdapter(  # type: ignore[arg-type]
-        EarlyClient(),
+    early = BLSEmploymentSituationArchiveAdapter(
+        cast(SafeHttpClient, EarlyClient()),
         release_date=RELEASE_DATE,
     )
     with pytest.raises(SourceSchemaError, match="not yet knowable"):

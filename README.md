@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 5/30 internally replay-proven: three bank boundaries, one ALFRED GDP revision boundary, and one Federal Reserve H.4.1 BTFP growth boundary pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 6/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, and BLS payroll-release boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -98,6 +98,13 @@ retrieves only three explicitly dated archived H.4.1 pages, parses the BTFP Tabl
 full HTML locally, and applies the same conservative date-plus-two-day rule. It also remains outside
 the formal 30-adapter inventory.
 
+The payroll-release scenario uses `bls.employment_situation.archived_release` as a third verified
+supporting source. It retrieves only the January 6, February 3, and March 10, 2023 BLS archive
+pages, strictly parses the report-period headline and stated 8:30 a.m. Eastern embargo end, and
+keeps each headline value as a versioned release-snapshot fact rather than replacing it with later
+revisions. The January release's annual benchmark and seasonal-factor changes remain an explicit
+comparability limitation. This source is also outside the formal 30-adapter inventory.
+
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
 ```bash
@@ -148,6 +155,13 @@ The fifth counted flow changes publisher and mechanism again. It locks the March
 no-probability next-week growth interval from the one already known Wednesday change, and keeps the
 March 30 balance in a disjoint event lock. See
 [`docs/scenarios/btfp-growth-2023.md`](docs/scenarios/btfp-growth-2023.md).
+
+The sixth counted flow uses archived BLS Employment Situation releases with exact embargo-end
+timing. It locks December and January payroll changes and unemployment rates before a February 4
+decision boundary, uses the two already-known payroll headlines only as a no-probability stress
+range, and keeps the March 10 February payroll headline in a disjoint event lock. The annual
+benchmarking caveat prevents a stationary-sample claim. See
+[`docs/scenarios/bls-payroll-2023.md`](docs/scenarios/bls-payroll-2023.md).
 
 ## Research and investment disclaimer
 
