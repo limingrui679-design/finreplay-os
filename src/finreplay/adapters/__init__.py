@@ -10,6 +10,14 @@ from finreplay.adapters.base import (
     ResponseLimitError,
     SourceSchemaError,
 )
+from finreplay.adapters.bls import BLSCPIUAllItemsAdapter
+from finreplay.adapters.cftc import (
+    CFTC_COT_BY_SLUG,
+    CFTC_COT_SPECS,
+    CFTCCOTAdapter,
+    CFTCCOTSpec,
+    CFTCReportKind,
+)
 from finreplay.adapters.fdic import FDICFinancialsAdapter
 from finreplay.adapters.fdic_catalog import (
     FDIC_DATASET_BY_SLUG,
@@ -35,6 +43,8 @@ from finreplay.adapters.sec import SECHistoricalSubmissionsAdapter, SECSubmissio
 from finreplay.adapters.sec_xbrl import SECCompanyFactsAdapter
 
 __all__ = [
+    "CFTC_COT_BY_SLUG",
+    "CFTC_COT_SPECS",
     "FDIC_DATASET_BY_SLUG",
     "FDIC_DATASET_SPECS",
     "FISCAL_DATA_BY_SLUG",
@@ -45,6 +55,10 @@ __all__ = [
     "AdapterError",
     "AdapterMetadata",
     "AuthenticationMode",
+    "BLSCPIUAllItemsAdapter",
+    "CFTCCOTAdapter",
+    "CFTCCOTSpec",
+    "CFTCReportKind",
     "FDICDatasetAdapter",
     "FDICDatasetSpec",
     "FDICFinancialsAdapter",
