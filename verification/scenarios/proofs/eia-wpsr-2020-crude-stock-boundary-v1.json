@@ -1,0 +1,121 @@
+{
+  "build_script": {
+    "path": "scripts/build_eia_crude_stock_boundary_replaypack.py",
+    "sha256": "2dac229454188275646eb1e174d78816239e7454c5bcdf9d054e7cd6cc5e27fe"
+  },
+  "claim_boundary": "This proof counts one internally reproduced April 2020 EIA commercial-crude-stock boundary because two pre-decision paired archived CSV/PDF releases, conservative next-local-midnight knowledge timing, a separately locked post-decision April 17 stock, an immutable input lock, separated truth labels, an explicit latest-stock persistence baseline, a no-probability bounded program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The April 17 stock is excluded from ReplayPack inputs and used only for a labelled post-event check that preserves the 15,022-thousand-barrel range breach rather than widening the range. This does not establish forecast skill, calibrated coverage, storage-capacity limits, pandemic or oil-market causality, policy effectiveness, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "eia-wpsr.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective two-release attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "eia-wpsr.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "1ab43221bbf09ebe6f43a3c5b2553d3b9c929c20ef39b08f1305907cf1791470",
+      "path": "scenarios/eia-wpsr-2020/event-lock.json",
+      "record_ids": [
+        "eia.wpsr.archived_commercial_crude_stocks:20200422:commercial_crude_excluding_spr"
+      ],
+      "sha256": "414f7a66f860c2ee37dde980b88a89fd23d9e6927d0bf42ca40e9069a65ff012"
+    }
+  ],
+  "expected_input_manifest_sha256": "62a55e480996255c6138002331198d557bd1ee53bed79b5cef72caa5f73b8da2",
+  "expected_pack_sha256": "baf7d20f12097dbc58745d1e2eeb19fb0229ff062c987425addddc2d96c1f7c4",
+  "expected_trace_id": "trace:02607eb05647ea0f55341031c4c55035a27f86fadfd8e20ffada0a15dd1a8780",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate commercial-crude stocks reported in archived EIA WPSR releases, not direct facility measurements, transactions, flows, storage constraints, causal effects, or future stocks. The April 17 value is only in the event lock."
+    },
+    "bounded_artifact_ids": [
+      "eia-wpsr.shockcompiler.stock-range"
+    ],
+    "extracted_artifact_ids": [
+      "eia-wpsr.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "eia-wpsr.shockcompiler.stock-range",
+      "eia-wpsr.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "eia.wpsr.archived_commercial_crude_stocks:20200408:commercial_crude_excluding_spr",
+      "eia.wpsr.archived_commercial_crude_stocks:20200415:commercial_crude_excluding_spr"
+    ],
+    "simulated_artifact_ids": [
+      "eia-wpsr.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "be38d822b5f5044c688f4ca5eee25f9046ffecc6b264f4e4e7d24599d3bd0936",
+      "path": "scenarios/eia-wpsr-2020/input-lock.json",
+      "record_ids": [
+        "eia.wpsr.archived_commercial_crude_stocks:20200408:commercial_crude_excluding_spr",
+        "eia.wpsr.archived_commercial_crude_stocks:20200415:commercial_crude_excluding_spr"
+      ],
+      "sha256": "f89caa8b3eac6e1468fb795c4bb0d0670c25590bd7c1091cc18c0d705703e69d"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "eia-wpsr.shockcompiler.stock-range",
+      "description": "The decision-time baseline persists the latest known April 10 WPSR commercial-crude stock of 503,618 thousand barrels.",
+      "expected_value": 503618,
+      "payload_pointer": "/naive_baseline/next_reported_commercial_crude_stocks_thousand_barrels"
+    },
+    {
+      "artifact_id": "eia-wpsr.shockcompiler.stock-range",
+      "description": "The two commercial-crude-stock endpoints carry no probability or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/eia-wpsr/latest-summary.json",
+  "pack_directory": "verification/replaypacks/eia-wpsr-2020",
+  "proof_sha256": "0bfbce4b4058cc118cb5f644e5ce6a7121f63a6a18be2a8203ff060ce86ddf2a",
+  "rebuild_receipt": {
+    "path": "verification/evidence/eia-wpsr-four-engine-rebuild.json",
+    "sha256": "67727a13539b71cdb1595c6e16868105c410a779d340849cf5642f260ae21905"
+  },
+  "replay_id": "eia-wpsr-2020-crude-stock-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "distinct_locked_inputs_equal_two",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "naive_baseline_is_latest_known_eia_stock_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_archived_eia_wpsr_fact",
+    "post_decision_event_timing_is_later",
+    "post_event_upper_bound_breach_equals_15022_thousand_barrels",
+    "reported_post_event_stock_breaches_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "eia-wpsr-2020-crude-stock-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "eia.wpsr.archived_commercial_crude_stocks:20200408:commercial_crude_excluding_spr",
+    "eia.wpsr.archived_commercial_crude_stocks:20200415:commercial_crude_excluding_spr"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_eia_crude_stock_boundary_replaypack.py",
+    "sha256": "efb601be909900b8015a0c6fc26dcd4c4b763ff4d9f732dfc009ac68047d189a"
+  }
+}
