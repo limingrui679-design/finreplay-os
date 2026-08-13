@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "treasury-curve-2023-inversion-boundary",
+  "scenario_version": "1.0.0",
+  "decision_time": "2023-03-16T12:00:00Z",
+  "event_role": "post_decision_official_event",
+  "records": [
+    {
+      "record_id": "fred.alfred.vintage_treasury_yield:DGS10:20230316:2023-03-15",
+      "entity_id": "fred_series:DGS10",
+      "source": {
+        "source_id": "fred.alfred.vintage_treasury_yield",
+        "publisher": "Federal Reserve Bank of St. Louis",
+        "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DGS10&cosd=2023-03-15&coed=2023-03-15&vintage_date=2023-03-16",
+        "retrieved_at": "2026-08-13T05:27:14.299281Z",
+        "source_version": "DGS10:vintage:2023-03-16:observation:2023-03-15:sha256:c69270e7606d012e19cd87e8",
+        "sha256": "c69270e7606d012e19cd87e87e535006732c724b62c3a532336d91a840a935e5",
+        "license_class": "download_only",
+        "temporal_coverage": "vintage_native",
+        "vintage_as_of": "2023-03-16T00:00:00Z",
+        "redistribution_note": "Retain raw ALFRED CSV only in local content-addressed storage. Attribute FRED/ALFRED and the underlying Board of Governors H.15 series; do not redistribute the raw response or imply ownership of source data."
+      },
+      "interval": {
+        "valid_from": "2023-03-15T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-03-18T00:00:00Z",
+        "available_at": "2023-03-18T00:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T05:27:14.299281Z",
+        "availability_rule": "ALFRED identifies only a calendar vintage date, not an intraday availability time. FinReplay therefore permits use only from 00:00 UTC two calendar days later. This is a deterministic conservative knowledge bound, not a claimed H.15 release timestamp.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "vintage_date_plus_two_calendar_days_utc",
+        "frequency": "Daily",
+        "maturity_years": 10,
+        "observation_date": "2023-03-15",
+        "reported_value_percent": "3.51",
+        "seasonal_adjustment": "Not Seasonally Adjusted",
+        "series_id": "DGS10",
+        "series_title": "Market Yield on U.S. Treasury Securities at 10-Year Constant Maturity",
+        "underlying_release": "H.15 Selected Interest Rates",
+        "unit": "Basis Points",
+        "value_basis_points": 351,
+        "vintage_date": "2023-03-16"
+      }
+    },
+    {
+      "record_id": "fred.alfred.vintage_treasury_yield:DGS2:20230316:2023-03-15",
+      "entity_id": "fred_series:DGS2",
+      "source": {
+        "source_id": "fred.alfred.vintage_treasury_yield",
+        "publisher": "Federal Reserve Bank of St. Louis",
+        "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DGS2&cosd=2023-03-15&coed=2023-03-15&vintage_date=2023-03-16",
+        "retrieved_at": "2026-08-13T05:27:15.229439Z",
+        "source_version": "DGS2:vintage:2023-03-16:observation:2023-03-15:sha256:9473025642330fb6951c7857",
+        "sha256": "9473025642330fb6951c7857937aca174fcd88f8ad1f4705a5ec5d397f062ed8",
+        "license_class": "download_only",
+        "temporal_coverage": "vintage_native",
+        "vintage_as_of": "2023-03-16T00:00:00Z",
+        "redistribution_note": "Retain raw ALFRED CSV only in local content-addressed storage. Attribute FRED/ALFRED and the underlying Board of Governors H.15 series; do not redistribute the raw response or imply ownership of source data."
+      },
+      "interval": {
+        "valid_from": "2023-03-15T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-03-18T00:00:00Z",
+        "available_at": "2023-03-18T00:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T05:27:15.229439Z",
+        "availability_rule": "ALFRED identifies only a calendar vintage date, not an intraday availability time. FinReplay therefore permits use only from 00:00 UTC two calendar days later. This is a deterministic conservative knowledge bound, not a claimed H.15 release timestamp.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "vintage_date_plus_two_calendar_days_utc",
+        "frequency": "Daily",
+        "maturity_years": 2,
+        "observation_date": "2023-03-15",
+        "reported_value_percent": "3.93",
+        "seasonal_adjustment": "Not Seasonally Adjusted",
+        "series_id": "DGS2",
+        "series_title": "Market Yield on U.S. Treasury Securities at 2-Year Constant Maturity",
+        "underlying_release": "H.15 Selected Interest Rates",
+        "unit": "Basis Points",
+        "value_basis_points": 393,
+        "vintage_date": "2023-03-16"
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the March 15, 2023 DGS2 and DGS10 observations from their March 16 native ALFRED vintages solely as a post-decision official event pair. The conservative knowledge time is 00:00 UTC two calendar days after the vintage date. Both facts are excluded from ReplayPack inputs. Their derived spread does not establish forecast skill, calibrated coverage, recession or banking causality, policy effectiveness, investment performance, external review, deployment, or user impact.",
+  "lock_sha256": "4839086f0456c109a2a483e7e51d32e3c1046c24408859d03f8440b94b82ca7f"
+}

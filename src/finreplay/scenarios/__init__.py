@@ -65,9 +65,17 @@ from finreplay.scenarios.svb import (
     build_svb_replay_spec,
     load_svb_input_lock,
 )
+from finreplay.scenarios.treasury_curve_boundary import (
+    ALFRED_TREASURY_YIELD_SOURCE_ID,
+    TreasuryCurveBoundaryInputLock,
+    TreasuryCurveBoundaryRoles,
+    build_treasury_curve_boundary_replay_spec,
+    load_treasury_curve_boundary_input_lock,
+)
 
 __all__ = [
     "ALFRED_GDP_SOURCE_ID",
+    "ALFRED_TREASURY_YIELD_SOURCE_ID",
     "BLS_CPI_SOURCE_ID",
     "BLS_EMPLOYMENT_SOURCE_ID",
     "FED_FOMC_SOURCE_ID",
@@ -95,6 +103,8 @@ __all__ = [
     "SVBInputLock",
     "ScenarioInputLabels",
     "ScenarioProof",
+    "TreasuryCurveBoundaryInputLock",
+    "TreasuryCurveBoundaryRoles",
     "VerifiedScenarioProof",
     "build_bank_boundary_replay_spec",
     "build_cpi_boundary_replay_spec",
@@ -103,6 +113,7 @@ __all__ = [
     "build_fomc_target_boundary_replay_spec",
     "build_macro_revision_replay_spec",
     "build_svb_replay_spec",
+    "build_treasury_curve_boundary_replay_spec",
     "load_bank_boundary_input_lock",
     "load_cpi_boundary_input_lock",
     "load_employment_boundary_input_lock",
@@ -111,6 +122,7 @@ __all__ = [
     "load_macro_revision_input_lock",
     "load_scenario_proof",
     "load_svb_input_lock",
+    "load_treasury_curve_boundary_input_lock",
     "scenario_catalog_summary",
     "seal_official_event_lock",
     "seal_scenario_proof",
