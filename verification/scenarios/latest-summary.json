@@ -50,6 +50,18 @@
       "trace_id": "trace:48018b32d8fec0765cb14afed5aef57beec65b77ae5629b10e05e3ab08ec68c2"
     },
     {
+      "decision_time": "2020-03-18T12:00:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "356f456c96a448e7a7c9f9e27f2436b317e1b94b6674ce331f150d8adea9f9bd",
+      "proof": "census-marts-2020-retail-sales-boundary-v1.json",
+      "proof_sha256": "2cab9c53bfb90c728515995545a268b22419a977e38d66908607acdf220f7427",
+      "replay_id": "census-marts-2020-retail-sales-boundary-v1",
+      "scenario_id": "census-marts-2020-retail-sales-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:003837c4d189436a7549faef47d21b3a8a4b9a8635106ef249a1b0fc67ccd00f"
+    },
+    {
       "decision_time": "2020-03-20T12:00:00+00:00",
       "distinct_input_records": 2,
       "mode": "bounded_reconstruction",
@@ -195,5 +207,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 16
+  "verified_scenario_count": 17
 }

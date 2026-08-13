@@ -1,0 +1,124 @@
+{
+  "build_script": {
+    "path": "scripts/build_retail_sales_boundary_replaypack.py",
+    "sha256": "4e5cdef8fa355dd4c0802f6733be6289b9a3ac7020998761a6910a27e089f387"
+  },
+  "claim_boundary": "This proof counts one internally reproduced March 2020 U.S. Census MARTS retail-sales boundary because two paired pre-decision archived PDF/XLS release snapshots, exact 8:30 a.m. America/New_York publication timing, a separately locked post-decision March release, immutable locks, separated truth labels, an explicit latest-value persistence baseline, a no-probability persistence-or-one-known-decrease program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The March value is excluded from ReplayPack inputs and used only for a labelled post-event check that preserves its 740-basis-point lower-bound breach rather than widening the range. The April release's revision of February from -0.5 to -0.4 percent stays in the event snapshot and never overwrites the decision input. Census's reported 90-percent sampling margins remain official release facts and are never represented as the FinReplay stress range. This does not establish forecast skill, calibrated coverage, retailer, household, category, pandemic, policy, or retail causality, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "census-marts.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective one-decrease attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "census-marts.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "d170fab1a3e1cad8197deee220bc88e24355ba9a039898ecb9aa4aa43d0c5325",
+      "path": "scenarios/census-marts-2020/event-lock.json",
+      "record_ids": [
+        "census.marts.archived_retail_sales:202003:monthly_change"
+      ],
+      "sha256": "6248e4d4172a032406eae40cfd5efc438afa980f7bed61f1c185c7a3687e3166"
+    }
+  ],
+  "expected_input_manifest_sha256": "2556b1f02238f6d0b4cf668f0c2260451c6bb4f26dbf4df54e52c68795a52bbf",
+  "expected_pack_sha256": "356f456c96a448e7a7c9f9e27f2436b317e1b94b6674ce331f150d8adea9f9bd",
+  "expected_trace_id": "trace:003837c4d189436a7549faef47d21b3a8a4b9a8635106ef249a1b0fc67ccd00f",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate retail-and-food-services changes reported in archived Census MARTS releases, not retailer, household, category, transaction, position, direct causal, or future-event observations. The March value is only in the event lock."
+    },
+    "bounded_artifact_ids": [
+      "census-marts.shockcompiler.monthly-change-range"
+    ],
+    "extracted_artifact_ids": [
+      "census-marts.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "census-marts.shockcompiler.monthly-change-range",
+      "census-marts.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "census.marts.archived_retail_sales:202001:monthly_change",
+      "census.marts.archived_retail_sales:202002:monthly_change"
+    ],
+    "simulated_artifact_ids": [
+      "census-marts.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "979a7d9fcf3d0ee1b8b4e1b4df52f75bb0a30ac900c0c78437bae920f60a8118",
+      "path": "scenarios/census-marts-2020/input-lock.json",
+      "record_ids": [
+        "census.marts.archived_retail_sales:202001:monthly_change",
+        "census.marts.archived_retail_sales:202002:monthly_change"
+      ],
+      "sha256": "d86e019c1dc6b6819c4ef849f4669fcd11f491391f383e644675bf5b15431749"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "census-marts.shockcompiler.monthly-change-range",
+      "description": "The decision-time baseline persists the latest known February total retail-and-food-services monthly change of -50 basis points from its March 17 archived release snapshot.",
+      "expected_value": -50,
+      "payload_pointer": "/naive_baseline/next_monthly_change_basis_points"
+    },
+    {
+      "artifact_id": "census-marts.shockcompiler.monthly-change-range",
+      "description": "The persistence-or-one-known-decrease endpoints carry no probability, confidence, or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/census-marts/latest-summary.json",
+  "pack_directory": "verification/replaypacks/census-marts-2020",
+  "proof_sha256": "2cab9c53bfb90c728515995545a268b22419a977e38d66908607acdf220f7427",
+  "rebuild_receipt": {
+    "path": "verification/evidence/census-marts-four-engine-rebuild.json",
+    "sha256": "420f0eca73226fd579e7d20800453e6aff7d501b0969863bb0d83caff3fa2473"
+  },
+  "replay_id": "census-marts-2020-retail-sales-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "declared_range_reuses_only_known_monthly_decrease",
+    "distinct_locked_inputs_equal_two",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "locked_pre_decision_release_pair_is_exact",
+    "naive_baseline_is_latest_known_monthly_change_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_archived_census_marts_fact",
+    "post_decision_event_timing_is_later",
+    "post_decision_february_revision_remains_later_snapshot_only",
+    "post_event_lower_bound_breach_equals_740_basis_points",
+    "reported_post_event_change_is_below_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "census-marts-2020-retail-sales-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "census.marts.archived_retail_sales:202001:monthly_change",
+    "census.marts.archived_retail_sales:202002:monthly_change"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_retail_sales_boundary_replaypack.py",
+    "sha256": "dbc65216c157ae48114cefdcde5c735297e9d7aac1e661ac75a85b2d2aaead53"
+  }
+}
