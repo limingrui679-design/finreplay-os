@@ -35,7 +35,9 @@ python scripts/verify_live_receipts.py \
   --output verification/supporting/treasury-auction-results/latest-summary.json
 ```
 
-This evidence establishes internal source retrieval, paired XML/PDF identity, arithmetic,
-conservative timing, hashing, and local ingestion. It does not yet count a fourteenth scenario and
-does not establish a forecast, calibrated range, auction-demand causality, policy effectiveness,
-external validation, deployment, investment performance, or user impact.
+This evidence now supports the fourteenth counted scenario through a separate immutable input
+lock, disjoint post-decision event lock, four-engine ReplayPack, clean-worktree double-rebuild
+receipt, and eight-gate scenario proof. That count establishes internal source retrieval, paired
+XML/PDF identity, arithmetic, conservative timing, hashing, local ingestion, and deterministic
+reproduction. It does not establish a forecast, calibrated range, auction-demand causality,
+policy effectiveness, external validation, deployment, investment performance, or user impact.

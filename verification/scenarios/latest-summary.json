@@ -122,6 +122,18 @@
       "trace_id": "trace:7c6888e9ecebd390acb2f7fecbcde816d7e50906632483215244acf0f17462bf"
     },
     {
+      "decision_time": "2020-03-18T12:00:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "84adfcfbada5dc7676e46a2aca7545b73f609f4c80eb8a99d97aed470ef35c60",
+      "proof": "treasury-auction-2020-zero-rate-boundary-v1.json",
+      "proof_sha256": "c5c210c02fd8eaff562607613b350c3f09192f9a601871c113d44d3f811291ea",
+      "replay_id": "treasury-auction-2020-zero-rate-boundary-v1",
+      "scenario_id": "treasury-auction-2020-zero-rate-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:402e025e428e17a945b90b2e2279bf242c2534eec4dee6ab96103fe3bdba0b09"
+    },
+    {
       "decision_time": "2023-03-16T12:00:00+00:00",
       "distinct_input_records": 4,
       "mode": "bounded_reconstruction",
@@ -159,5 +171,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 13
+  "verified_scenario_count": 14
 }

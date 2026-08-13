@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 13/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll and CPI, FOMC target range, ALFRED Treasury-curve, Treasury DTS TGA, New York Fed SOFR, EIA commercial-crude-stock, and DOL initial-claims boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 14/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll and CPI, FOMC target range, ALFRED Treasury-curve, Treasury DTS TGA, New York Fed SOFR, EIA commercial-crude-stock, DOL initial-claims, and Treasury 91-day-bill auction boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -158,7 +158,7 @@ revision remains an explicit comparability boundary, and the March 26 revision o
 is preserved only in that later release snapshot. Raw PDFs stay local and this source remains
 outside the formal 30-adapter inventory.
 
-The planned 91-day Treasury-bill auction boundary uses
+The counted 91-day Treasury-bill auction boundary uses
 `treasury.auctions.archived_91_day_bill_results` as another supporting source. It retrieves paired
 TreasuryDirect result XML and one-page PDF files for March 9, 16, and 23, 2020, and cross-checks
 CUSIP, dates, rates, price, tender amounts, bidder totals, bid-to-cover arithmetic, and result
@@ -276,6 +276,15 @@ advance seasonally adjusted initial claims of `211,000` and `281,000` persons be
 prior week from `281,000` to `282,000` remains in the event snapshot and never overwrites the
 decision input. See
 [`docs/scenarios/dol-ui-2020.md`](docs/scenarios/dol-ui-2020.md).
+
+The fourteenth counted flow uses paired TreasuryDirect auction-result XML and one-page PDF files.
+It locks March 9 and March 16, 2020 91-day bill high discount rates of `39` and `29` basis points
+before a March 18 decision boundary, then constructs only latest persistence or one repeat of the
+known `10`-basis-point decline: `[19, 29]`, with no probability. The separately locked March 23
+result is `0` basis points, a required visible `19`-basis-point breach below the lower endpoint.
+The official XML release time is retained, but eligibility is conservatively delayed to the next
+New York midnight. See
+[`docs/scenarios/treasury-auction-2020.md`](docs/scenarios/treasury-auction-2020.md).
 
 ## Research and investment disclaimer
 
