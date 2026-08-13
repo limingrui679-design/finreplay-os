@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over four locked BTFP facts from two archived Federal Reserve H.4.1 releases that were conservatively knowable at the decision time. Reported balances remain reported; growth and the next-week envelope are arithmetic inferences with no assigned probability; TrialCourt rejects retrospective promotion. The March 30 release is held only in a disjoint post-decision event lock. This is not a forecast, systemic-stress attribution, causal model, policy recommendation, trading signal, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1331,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "375341a69a61c596eff8b1910cb018155a5f68e51ea7da721200c347cec64078"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "e95486771d9ebd0d3767aac0e1ad5c98f9824d44b4a15c395cf5cc60ef5dbeee"
+    },
+    {
+      "bytes": 30074,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "51ff1e6bca81d6d4b0a988c4a046ad7d6e571574c297f9eb7a614be72814fa2e"
+    },
+    {
+      "bytes": 28862,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "479aa3ac1459f9b975449638770cea207c266a69846256370cda0e8c0c2d33d0"
+    }
+  ],
+  "pack_sha256": "f595429d8a547a669f36b84ee6058933eb9c12ec5ee5a19632d8f510fe8b0141",
+  "receipt_sha256": "dc64205bb12fcc75cf50759f2a8b8bd328e6bbe267abc8d744f54635de6411c2",
+  "replay_id": "btfp-2023-early-growth-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "142d96828d6fc3bc887ef5b50a34d0960814c733",
+    "compressed_input_bytes": 1560,
+    "created_at": "2026-08-13T04:30:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 4,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "3cc0c17291ee616876e958ce9dec202c87a1fd2153efc3c3f141847e9af493fb",
+    "output_manifest_sha256": "c2922fe4d4954f78039c24843760e2b22f78c4b59d62657c949c41d8b1dd0a4c",
+    "replay_id": "btfp-2023-early-growth-boundary-v1",
+    "scenario_id": "btfp-2023-early-growth-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "479aa3ac1459f9b975449638770cea207c266a69846256370cda0e8c0c2d33d0",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:48018b32d8fec0765cb14afed5aef57beec65b77ae5629b10e05e3ab08ec68c2"
+}

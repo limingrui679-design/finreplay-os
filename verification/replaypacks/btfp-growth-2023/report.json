@@ -1,0 +1,589 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 2,
+    "reported": 8,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "3cc0c17291ee616876e958ce9dec202c87a1fd2153efc3c3f141847e9af493fb",
+  "pack_sha256": "f595429d8a547a669f36b84ee6058933eb9c12ec5ee5a19632d8f510fe8b0141",
+  "source_hashes": [
+    "0288922996ba960f593787db2273be3ac94a99eb563d3879a8623c9cefba6cf4",
+    "6d6d70188a1ddfb2c06d9314853e6f740ec07c02db011a684a8025b061d81a63"
+  ],
+  "source_record_ids": [
+    "federal_reserve.h41.btfp_historical_release:20230316:wednesday_outstanding",
+    "federal_reserve.h41.btfp_historical_release:20230316:weekly_average",
+    "federal_reserve.h41.btfp_historical_release:20230323:wednesday_outstanding",
+    "federal_reserve.h41.btfp_historical_release:20230323:weekly_average"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "btfp-growth.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "c65b644156d985809d0159a6c08fb2cbdc75df0d291371e5ec096d5d15ddf7e6",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not independently validate the facility-growth heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This aggregate facility-release boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no network, order, or allocation input is invented.",
+          "input_lock_sha256": "155bac5cbf63771831e4833d8a32a33c6508422efbf8aa910ed40988d24e6ffd",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "0288922996ba960f593787db2273be3ac94a99eb563d3879a8623c9cefba6cf4",
+          "6d6d70188a1ddfb2c06d9314853e6f740ec07c02db011a684a8025b061d81a63"
+        ],
+        "source_record_ids": [
+          "federal_reserve.h41.btfp_historical_release:20230316:wednesday_outstanding",
+          "federal_reserve.h41.btfp_historical_release:20230316:weekly_average",
+          "federal_reserve.h41.btfp_historical_release:20230323:wednesday_outstanding",
+          "federal_reserve.h41.btfp_historical_release:20230323:weekly_average"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "btfp-growth.shockcompiler.growth-bound",
+          "btfp-growth.timevault.release-query",
+          "btfp-growth.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "btfp-growth.shockcompiler.growth-bound",
+        "artifact_kind": "bounded-facility-growth-program",
+        "artifact_sha256": "dc7daced15a512cc7e139045dc37ce1954c44167b982297bbf62709febeca7d2",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 1
+        },
+        "limitations": [
+          "The upper endpoint mechanically repeats one prior Wednesday balance change.",
+          "The March 30 release is absent from the bound construction and artifact sources."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": 0.0,
+            "upper": 41726.0
+          },
+          "bound_construction": {
+            "future_event_used": false,
+            "lower_balance_millions": 53669,
+            "lower_growth_millions": 0,
+            "probability_assigned": false,
+            "upper_balance_millions": 95395,
+            "upper_growth_millions": 41726
+          },
+          "compiled": {
+            "compiled_sha256": "7d8d3561622b32146b5ad05996dc765bd8ec074f6544d779d2b39fc7394b2c19",
+            "decision_time": "2023-03-25T12:00:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, forecast, confidence, or policy interpretation."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "btfp-growth-next-week-growth-envelope",
+            "scenario_id": "btfp-2023-early-growth-boundary",
+            "source_program_sha256": "01219f0c376e84385109df09f7bd8ae9b9bba9b58d6c6c1fc2eccdbf47e6de39",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Bound the next reported Wednesday balance between no additional growth and one continuation of the already known March 15-to-March 22 Wednesday increase.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "One observed weekly change is a transparent stress envelope, not a forecast or statistical interval."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "btfp-growth-next-week-growth-bound",
+                    "source_hashes": [
+                      "0288922996ba960f593787db2273be3ac94a99eb563d3879a8623c9cefba6cf4",
+                      "6d6d70188a1ddfb2c06d9314853e6f740ec07c02db011a684a8025b061d81a63"
+                    ],
+                    "source_record_ids": [
+                      "federal_reserve.h41.btfp_historical_release:20230316:wednesday_outstanding",
+                      "federal_reserve.h41.btfp_historical_release:20230323:wednesday_outstanding"
+                    ],
+                    "target_id": "federal_reserve_facility:btfp",
+                    "unit": "millions_usd",
+                    "value": 0.0,
+                    "variable": "next_week_growth_millions"
+                  }
+                ],
+                "trial_id": "btfp-growth-next-week-growth-envelope:00000000:2894873825515062",
+                "trial_index": 0,
+                "vector_sha256": "2894873825515062d5965a9c07a8d2209542e8c63d63955d426a044b6ffb0d73"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Bound the next reported Wednesday balance between no additional growth and one continuation of the already known March 15-to-March 22 Wednesday increase.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "One observed weekly change is a transparent stress envelope, not a forecast or statistical interval."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "btfp-growth-next-week-growth-bound",
+                    "source_hashes": [
+                      "0288922996ba960f593787db2273be3ac94a99eb563d3879a8623c9cefba6cf4",
+                      "6d6d70188a1ddfb2c06d9314853e6f740ec07c02db011a684a8025b061d81a63"
+                    ],
+                    "source_record_ids": [
+                      "federal_reserve.h41.btfp_historical_release:20230316:wednesday_outstanding",
+                      "federal_reserve.h41.btfp_historical_release:20230323:wednesday_outstanding"
+                    ],
+                    "target_id": "federal_reserve_facility:btfp",
+                    "unit": "millions_usd",
+                    "value": 41726.0,
+                    "variable": "next_week_growth_millions"
+                  }
+                ],
+                "trial_id": "btfp-growth-next-week-growth-envelope:00000001:dc6721a802319f26",
+                "trial_index": 1,
+                "vector_sha256": "dc6721a802319f2655128a08f96b54c225d9993206aea6a4ec77a9f739ac33f5"
+              }
+            ]
+          },
+          "input_lock_sha256": "155bac5cbf63771831e4833d8a32a33c6508422efbf8aa910ed40988d24e6ffd",
+          "known_growth_millions": {
+            "average_growth": 32166,
+            "first_average": 2443,
+            "first_wednesday": 11943,
+            "second_average": 34609,
+            "second_wednesday": 53669,
+            "wednesday_growth": 41726
+          },
+          "naive_baseline": {
+            "next_wednesday_balance_millions": 53669,
+            "next_week_growth_millions": 0.0
+          },
+          "program": {
+            "decision_time": "2023-03-25T12:00:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, forecast, confidence, or policy interpretation."
+            ],
+            "hypothesis": "Evaluate no-growth and one-week-growth-continuation endpoints using only archived H.4.1 releases knowable at the historical decision boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Bound the next reported Wednesday balance between no additional growth and one continuation of the already known March 15-to-March 22 Wednesday increase.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "One observed weekly change is a transparent stress envelope, not a forecast or statistical interval."
+                ],
+                "lower": 0.0,
+                "operation": "set",
+                "parameter_id": "btfp-growth-next-week-growth-bound",
+                "source_record_ids": [
+                  "federal_reserve.h41.btfp_historical_release:20230316:wednesday_outstanding",
+                  "federal_reserve.h41.btfp_historical_release:20230323:wednesday_outstanding"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "Board of Governors of the Federal Reserve System",
+                    "redistribution_note": "Keep full downloaded HTML only in local content-addressed storage. Attribute the Board of Governors and preserve source links; repository scenarios retain only minimal reported facts and hashes, not the full source page.",
+                    "retrieved_at": "2026-08-13T04:17:09.560567Z",
+                    "sha256": "0288922996ba960f593787db2273be3ac94a99eb563d3879a8623c9cefba6cf4",
+                    "source_id": "federal_reserve.h41.btfp_historical_release",
+                    "source_version": "H41:2023-03-16:sha256:0288922996ba960f593787db",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.federalreserve.gov/releases/h41/20230316/",
+                    "vintage_as_of": "2023-03-16T00:00:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "Board of Governors of the Federal Reserve System",
+                    "redistribution_note": "Keep full downloaded HTML only in local content-addressed storage. Attribute the Board of Governors and preserve source links; repository scenarios retain only minimal reported facts and hashes, not the full source page.",
+                    "retrieved_at": "2026-08-13T04:17:11.162764Z",
+                    "sha256": "6d6d70188a1ddfb2c06d9314853e6f740ec07c02db011a684a8025b061d81a63",
+                    "source_id": "federal_reserve.h41.btfp_historical_release",
+                    "source_version": "H41:2023-03-23:sha256:6d6d70188a1ddfb2c06d9314",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.federalreserve.gov/releases/h41/20230323/",
+                    "vintage_as_of": "2023-03-23T00:00:00Z"
+                  }
+                ],
+                "target_id": "federal_reserve_facility:btfp",
+                "unit": "millions_usd",
+                "upper": 41726.0,
+                "variable": "next_week_growth_millions"
+              }
+            ],
+            "program_id": "btfp-growth-next-week-growth-envelope",
+            "scenario_id": "btfp-2023-early-growth-boundary"
+          }
+        },
+        "source_hashes": [
+          "0288922996ba960f593787db2273be3ac94a99eb563d3879a8623c9cefba6cf4",
+          "6d6d70188a1ddfb2c06d9314853e6f740ec07c02db011a684a8025b061d81a63"
+        ],
+        "source_record_ids": [
+          "federal_reserve.h41.btfp_historical_release:20230316:wednesday_outstanding",
+          "federal_reserve.h41.btfp_historical_release:20230323:wednesday_outstanding"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "btfp-growth.timevault.release-query"
+        ]
+      },
+      {
+        "artifact_id": "btfp-growth.timevault.release-query",
+        "artifact_kind": "versioned-release-query",
+        "artifact_sha256": "294a2ad052cc72364b2963ff2faa579404dd46dbb4700c8551be301f2b231934",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 4
+        },
+        "limitations": [
+          "The lock contains two measures from each of two releases, not all H.4.1 tables.",
+          "Release dates use a conservative two-day knowledge bound, not exact intraday time."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "0311b15980e93f424f8a228e825c212185a0c98299d94a2f23507fbc9d973caf",
+              "2562f9bbdf70ae609d637c815639dbdd5cd8d10c3230195b4a2ae5fa4baac0eb"
+            ],
+            "attempted_records": 4,
+            "fact_hashes": [
+              "394be0d895449d66f2930ee2a9f5301fc7a79654d7e0f828899536cef7eda926",
+              "2e0b4752b988444afb8ef77e954873e312eb6d9a53186e95c810e53a830b2ddd",
+              "b86248bb443b890b4a57d96543ca3519400b51b6e5eb838686ea78625a448d8f",
+              "d65784aa95f25a79fb4660204c93d82efc07b298182db9ea97b342391e12cdd6"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 4
+          },
+          "decision_time": "2023-03-25T12:00:00Z",
+          "input_lock_sha256": "155bac5cbf63771831e4833d8a32a33c6508422efbf8aa910ed40988d24e6ffd",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 4,
+            "fact_set_sha256": "52e6e948f3ccbea0e28cfd472543b5df35178f0631ea3eafb39f825fa741a894",
+            "fact_versions": 4,
+            "generated_at": "2026-08-13T04:30:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2023-03-25T00:00:00Z",
+          "selected_record_ids": [
+            "federal_reserve.h41.btfp_historical_release:20230316:wednesday_outstanding",
+            "federal_reserve.h41.btfp_historical_release:20230316:weekly_average",
+            "federal_reserve.h41.btfp_historical_release:20230323:wednesday_outstanding",
+            "federal_reserve.h41.btfp_historical_release:20230323:weekly_average"
+          ]
+        },
+        "source_hashes": [
+          "0288922996ba960f593787db2273be3ac94a99eb563d3879a8623c9cefba6cf4",
+          "6d6d70188a1ddfb2c06d9314853e6f740ec07c02db011a684a8025b061d81a63"
+        ],
+        "source_record_ids": [
+          "federal_reserve.h41.btfp_historical_release:20230316:wednesday_outstanding",
+          "federal_reserve.h41.btfp_historical_release:20230316:weekly_average",
+          "federal_reserve.h41.btfp_historical_release:20230323:wednesday_outstanding",
+          "federal_reserve.h41.btfp_historical_release:20230323:weekly_average"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "btfp-growth.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "877c3a99aaa00b689a7ae89ef5410a772b71215139212a2e649f144bc56128f7",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 4,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "btfp-growth-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "142d96828d6fc3bc887ef5b50a34d0960814c733",
+            "completed_at": "2026-08-13T04:30:00Z",
+            "config_sha256": "4b4b8f0cb9ae333324640ceb7b1425874a28db0ce057454fdb9a7c343a194924",
+            "decision_time": "2023-03-25T12:00:00Z",
+            "evaluation_end": "2023-04-02",
+            "evaluation_start": "2023-03-26",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "155bac5cbf63771831e4833d8a32a33c6508422efbf8aa910ed40988d24e6ffd",
+            "max_input_available_at": "2023-03-25T00:00:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 41726.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No March 30 release fact is present in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "3477632945b661c0680b5bb99ded964d712920df3709c55ea3906e69126698b6",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "wednesday-balance-growth": 41726.0,
+              "weekly-average-growth": 41726.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 4,
+            "short_fraction": 0.0,
+            "training_end": "2023-03-23",
+            "trial_id": "btfp-growth-retrospective-growth-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "ea432f8315e8fdba600f4e285dfa583480146a9eb8184ea0d42050aedf2b9464",
+            "entry_hash": "ea432f8315e8fdba600f4e285dfa583480146a9eb8184ea0d42050aedf2b9464",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "btfp-growth-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "btfp-growth-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "2b710a194e7359c91fe223de2f7d9ca8ea24149a8790da81155018ad4e73f46c",
+            "candidate_attempt_id": "btfp-growth-retrospective-attempt-1",
+            "decided_at": "2026-08-13T04:30:00Z",
+            "decision_id": "decision:btfp-growth-retrospective-growth-screen:ddc21e9c5fd9997555be15b0",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 41726.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 41726.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "btfp-growth-retrospective-growth-screen"
+          },
+          "input_lock_sha256": "155bac5cbf63771831e4833d8a32a33c6508422efbf8aa910ed40988d24e6ffd",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "9e5e3f4517113ebe57b06f7cea915f45921e255dde28ce4f028de4c431fc5ad0",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "7375e146351bfa190b097ed991613915c7ce0329ffd72be97fdb13495093d809",
+            "entry_hash": "7375e146351bfa190b097ed991613915c7ce0329ffd72be97fdb13495093d809",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "BTFP balances can change with aggregate facility use, but two releases and one later outcome cannot establish predictive validity or identify stress causes.",
+            "embargo_days": 0,
+            "expected_direction": "positive",
+            "holdout_end": "2023-04-02",
+            "holdout_start": "2023-03-26",
+            "hypothesis": "A retrospectively constructed one-week BTFP growth boundary qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-13T04:30:00Z",
+            "primary_metric": "inferred next-week BTFP Wednesday growth-bound magnitude",
+            "purge_days": 2,
+            "trial_id": "btfp-growth-retrospective-growth-screen"
+          }
+        },
+        "source_hashes": [
+          "0288922996ba960f593787db2273be3ac94a99eb563d3879a8623c9cefba6cf4",
+          "6d6d70188a1ddfb2c06d9314853e6f740ec07c02db011a684a8025b061d81a63"
+        ],
+        "source_record_ids": [
+          "federal_reserve.h41.btfp_historical_release:20230316:wednesday_outstanding",
+          "federal_reserve.h41.btfp_historical_release:20230316:weekly_average",
+          "federal_reserve.h41.btfp_historical_release:20230323:wednesday_outstanding",
+          "federal_reserve.h41.btfp_historical_release:20230323:weekly_average"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "btfp-growth.shockcompiler.growth-bound",
+          "btfp-growth.timevault.release-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over four locked BTFP facts from two archived Federal Reserve H.4.1 releases that were conservatively knowable at the decision time. Reported balances remain reported; growth and the next-week envelope are arithmetic inferences with no assigned probability; TrialCourt rejects retrospective promotion. The March 30 release is held only in a disjoint post-decision event lock. This is not a forecast, systemic-stress attribution, causal model, policy recommendation, trading signal, production deployment, or external validation.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "btfp-growth.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no assigned probability or coverage guarantee.",
+        "claim_id": "claim-inferred-btfp-growth-envelope",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The March 30 release was not used to set the interval."
+        ],
+        "statement": "The next reported Wednesday balance uses a no-growth baseline and an upper growth endpoint of 41,726 million dollars, matching the one prior known weekly change.",
+        "support_artifact_ids": [
+          "btfp-growth.shockcompiler.growth-bound"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external forecast review.",
+        "claim_id": "claim-inferred-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective one-week facility-growth attempt.",
+        "support_artifact_ids": [
+          "btfp-growth.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are aggregate Federal Reserve reported balances, not borrower data.",
+        "claim_id": "claim-reported-btfp-releases",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes two measures from two releases only."
+        ],
+        "statement": "The locked H.4.1 releases report BTFP Wednesday balances of 11,943 and 53,669 million dollars for March 15 and March 22, 2023.",
+        "support_artifact_ids": [
+          "btfp-growth.timevault.release-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not orders, capacity, capital, or returns.",
+        "claim_id": "claim-simulated-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "btfp-growth.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "142d96828d6fc3bc887ef5b50a34d0960814c733",
+    "compressed_input_bytes": 1560,
+    "created_at": "2026-08-13T04:30:00Z",
+    "decision_time": "2023-03-25T12:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 4,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves four minimal reported BTFP facts from two archived Federal Reserve H.4.1 releases that were conservatively knowable before the replay decision time. It excludes the March 30 release and does not contain all H.4.1 tables, exact intraday publication times, borrower identities, collateral, a probability distribution, forecast, causal stress attribution, or policy and investment performance evidence.",
+      "The next-week growth interval uses a single prior weekly Wednesday change and has no probability or coverage guarantee.",
+      "The March 30 H.4.1 release is excluded from all decision inputs and artifacts.",
+      "Aggregate facility balances do not identify borrowers, collateral, motives, or causal stress channels.",
+      "No market network, security, order, portfolio, allocation, or return is represented.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "btfp-2023-early-growth-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "btfp-2023-early-growth-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "Federal Reserve BTFP early weekly growth boundary, March 2023"
+  },
+  "topological_artifact_ids": [
+    "btfp-growth.timevault.release-query",
+    "btfp-growth.shockcompiler.growth-bound",
+    "btfp-growth.trialcourt.retrospective-gate",
+    "btfp-growth.replaystudio.render"
+  ],
+  "trace_id": "trace:48018b32d8fec0765cb14afed5aef57beec65b77ae5629b10e05e3ab08ec68c2"
+}
