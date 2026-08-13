@@ -126,6 +126,13 @@ conservative date-plus-two-day knowledge bound used by the GDP connector. The de
 10-year-minus-2-year spread is not represented as upstream reported data. Raw CSV stays in ignored
 download-only storage and this source is outside the formal 30-adapter inventory.
 
+The TGA cash-boundary scenario uses `treasury.dts.published_report` as another supporting source.
+It retrieves only the May 31, June 1, and June 2, 2023 date-stamped Daily Treasury Statement PDFs,
+strictly parses and arithmetically reconciles Table I, and uses Treasury's following-business-day
+4:00 p.m. publication deadline as the conservative knowledge time. The deadline is not represented
+as the exact publication instant. Full PDFs stay in ignored download-only storage and this source
+also remains outside the formal 30-adapter inventory.
+
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
 ```bash

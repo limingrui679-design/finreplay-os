@@ -121,6 +121,14 @@ The 10-year-minus-2-year spread is derived downstream from two separately report
 remains in ignored download-only storage, and this supporting connector is excluded from the
 formal 30-adapter inventory.
 
+`treasury.dts.published_report` retrieves three explicitly dated Daily Treasury Statement PDFs for
+May 31, June 1, and June 2, 2023. It requires the four-page Treasury report identity, extracts one
+TGA opening balance, deposits, withdrawals, and closing balance from Table I, and rejects any PDF
+whose arithmetic does not reconcile. Treasury states that a DTS is available by 4:00 p.m. the
+following business day; the connector uses that deadline in `America/New_York` as a conservative
+knowledge time for the verified three-date calendar, not as an exact publication timestamp. Full
+PDFs remain in ignored local storage, and this connector is excluded from the formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

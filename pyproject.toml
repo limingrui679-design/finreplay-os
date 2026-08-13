@@ -33,6 +33,7 @@ dependencies = [
   "numpy>=2.1,<2.3",
   "pyarrow>=18,<23",
   "pydantic>=2.10,<3",
+  "pypdf>=6,<7",
   "pytz>=2024.1",
   "rich>=13.9,<15",
   "scipy>=1.14,<2",
@@ -85,7 +86,7 @@ strict = true
 packages = ["finreplay"]
 
 [[tool.mypy.overrides]]
-module = ["duckdb", "numpy", "numpy.*", "pyarrow", "pyarrow.*"]
+module = ["duckdb", "numpy", "numpy.*", "pyarrow", "pyarrow.*", "pypdf", "pypdf.*"]
 follow_imports = "skip"
 
 [[tool.mypy.overrides]]

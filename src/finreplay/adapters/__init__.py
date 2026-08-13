@@ -38,6 +38,7 @@ from finreplay.adapters.fiscaldata import (
     FiscalDataSemanticKind,
     FiscalDataSpec,
 )
+from finreplay.adapters.fiscaldata_dts_report import TreasuryDTSPublishedReportAdapter
 from finreplay.adapters.nyfed import (
     NYFED_DATASET_BY_SLUG,
     NYFED_DATASET_SPECS,
@@ -87,4 +88,5 @@ __all__ = [
     "SECHistoricalSubmissionsAdapter",
     "SECSubmissionsAdapter",
     "SourceSchemaError",
+    "TreasuryDTSPublishedReportAdapter",
 ]
