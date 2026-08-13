@@ -1,0 +1,585 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 4,
+    "reported": 4,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "2556b1f02238f6d0b4cf668f0c2260451c6bb4f26dbf4df54e52c68795a52bbf",
+  "pack_sha256": "356f456c96a448e7a7c9f9e27f2436b317e1b94b6674ce331f150d8adea9f9bd",
+  "source_hashes": [
+    "c78fcc9bfdba9414ac8d27eceafb417af495b942994c1dbb66c5a0d00d095aa8",
+    "f4d1d478abc141e5169f96ba358b012fca0d82d65cff2f83b7b69fe15ff6197d"
+  ],
+  "source_record_ids": [
+    "census.marts.archived_retail_sales:202001:monthly_change",
+    "census.marts.archived_retail_sales:202002:monthly_change"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "census-marts.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "e74e9a5756be8bf10393b22dd493d92866fe1743cfcf786958c96d82eb4ea387",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not validate the monthly-change range heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This aggregate retail-sales release boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no retailer, household, transaction, position, order, portfolio, or allocation input is invented.",
+          "input_lock_sha256": "979a7d9fcf3d0ee1b8b4e1b4df52f75bb0a30ac900c0c78437bae920f60a8118",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "c78fcc9bfdba9414ac8d27eceafb417af495b942994c1dbb66c5a0d00d095aa8",
+          "f4d1d478abc141e5169f96ba358b012fca0d82d65cff2f83b7b69fe15ff6197d"
+        ],
+        "source_record_ids": [
+          "census.marts.archived_retail_sales:202001:monthly_change",
+          "census.marts.archived_retail_sales:202002:monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-marts.shockcompiler.monthly-change-range",
+          "census-marts.timevault.release-query",
+          "census-marts.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "census-marts.shockcompiler.monthly-change-range",
+        "artifact_kind": "bounded-census-marts-retail-sales-program",
+        "artifact_sha256": "58adb5d9932ed3f7b0962de1591b43dd6d68b0365f326284d1f57dcc1b538267",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 3
+        },
+        "limitations": [
+          "The endpoints mechanically reuse one known release-to-release decrease.",
+          "The April 15 March value and revised February value are absent from construction.",
+          "The range is not a retail-sales probability or causal explanation."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": -130.0,
+            "upper": -50.0
+          },
+          "bound_construction": {
+            "endpoint_method": "repeat_known_monthly_decrease_or_latest_persistence",
+            "future_event_used": false,
+            "known_decrease_basis_points": 80,
+            "lower_change_basis_points": -130,
+            "probability_assigned": false,
+            "range_width_basis_points": 80,
+            "upper_change_basis_points": -50
+          },
+          "compiled": {
+            "compiled_sha256": "70bfc6a630f24e3d349dbee8dbbb88849509d852d27ab24ffc7d4a04343fabe2",
+            "decision_time": "2020-03-18T12:00:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, retail-causality, or regime meaning.",
+              "The April 15 release and its revisions are excluded and evaluated only afterward."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "census-marts-next-retail-sales-change-envelope",
+            "scenario_id": "census-marts-2020-retail-sales-boundary",
+            "source_program_sha256": "22c43157cbf4a3ec664d45b168a3819bee94891813ed87c856e86f5121b637a2",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use one repeat of the only known release-to-release decrease or latest-change persistence as transparent next-release stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two release snapshots and one decrease define a stress range, not a forecast or confidence interval."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "census-marts-next-retail-sales-change-range",
+                    "source_hashes": [
+                      "f4d1d478abc141e5169f96ba358b012fca0d82d65cff2f83b7b69fe15ff6197d",
+                      "c78fcc9bfdba9414ac8d27eceafb417af495b942994c1dbb66c5a0d00d095aa8"
+                    ],
+                    "source_record_ids": [
+                      "census.marts.archived_retail_sales:202001:monthly_change",
+                      "census.marts.archived_retail_sales:202002:monthly_change"
+                    ],
+                    "target_id": "census_marts:retail_and_food_services_total",
+                    "unit": "basis_points",
+                    "value": -130.0,
+                    "variable": "next_total_retail_sales_monthly_change_basis_points"
+                  }
+                ],
+                "trial_id": "census-marts-next-retail-sales-change-envelope:00000000:5b020ae273792b2a",
+                "trial_index": 0,
+                "vector_sha256": "5b020ae273792b2a2733b4512c9e55a7c2feeb9ec6b6ddfe221b3dec5303cf18"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use one repeat of the only known release-to-release decrease or latest-change persistence as transparent next-release stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two release snapshots and one decrease define a stress range, not a forecast or confidence interval."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "census-marts-next-retail-sales-change-range",
+                    "source_hashes": [
+                      "f4d1d478abc141e5169f96ba358b012fca0d82d65cff2f83b7b69fe15ff6197d",
+                      "c78fcc9bfdba9414ac8d27eceafb417af495b942994c1dbb66c5a0d00d095aa8"
+                    ],
+                    "source_record_ids": [
+                      "census.marts.archived_retail_sales:202001:monthly_change",
+                      "census.marts.archived_retail_sales:202002:monthly_change"
+                    ],
+                    "target_id": "census_marts:retail_and_food_services_total",
+                    "unit": "basis_points",
+                    "value": -50.0,
+                    "variable": "next_total_retail_sales_monthly_change_basis_points"
+                  }
+                ],
+                "trial_id": "census-marts-next-retail-sales-change-envelope:00000001:99da4ef57c5ea07b",
+                "trial_index": 1,
+                "vector_sha256": "99da4ef57c5ea07b085592d1f9eb92c222f035297b6ff9f8edb46e2bdf2b0755"
+              }
+            ]
+          },
+          "input_lock_sha256": "979a7d9fcf3d0ee1b8b4e1b4df52f75bb0a30ac900c0c78437bae920f60a8118",
+          "known_changes": {
+            "february_monthly_change_basis_points": -50,
+            "january_monthly_change_basis_points": 30,
+            "known_decrease_basis_points": 80,
+            "lower_change_basis_points": -130,
+            "range_width_basis_points": 80,
+            "upper_change_basis_points": -50
+          },
+          "naive_baseline": {
+            "definition": "persistence of the latest known MARTS headline monthly change",
+            "next_monthly_change_basis_points": -50
+          },
+          "program": {
+            "decision_time": "2020-03-18T12:00:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, retail-causality, or regime meaning.",
+              "The April 15 release and its revisions are excluded and evaluated only afterward."
+            ],
+            "hypothesis": "Evaluate one repetition of the known headline monthly-change decrease or latest persistence using only MARTS snapshots available at the historical boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use one repeat of the only known release-to-release decrease or latest-change persistence as transparent next-release stress endpoints.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "Two release snapshots and one decrease define a stress range, not a forecast or confidence interval."
+                ],
+                "lower": -130.0,
+                "operation": "set",
+                "parameter_id": "census-marts-next-retail-sales-change-range",
+                "source_record_ids": [
+                  "census.marts.archived_retail_sales:202001:monthly_change",
+                  "census.marts.archived_retail_sales:202002:monthly_change"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Census Bureau",
+                    "redistribution_note": "Full Census PDF and XLS releases remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred.",
+                    "retrieved_at": "2026-08-13T12:02:04.098687Z",
+                    "sha256": "f4d1d478abc141e5169f96ba358b012fca0d82d65cff2f83b7b69fe15ff6197d",
+                    "source_id": "census.marts.archived_retail_sales",
+                    "source_version": "CENSUS-MARTS:2020-01:CB20-22:pdf:f4d1d478abc141e5169f:xls:c466ee4847a324cbe0a8",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www2.census.gov/retail/releases/historical/marts/adv2001.pdf",
+                    "vintage_as_of": "2020-02-14T13:30:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Census Bureau",
+                    "redistribution_note": "Full Census PDF and XLS releases remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred.",
+                    "retrieved_at": "2026-08-13T12:02:06.453579Z",
+                    "sha256": "c78fcc9bfdba9414ac8d27eceafb417af495b942994c1dbb66c5a0d00d095aa8",
+                    "source_id": "census.marts.archived_retail_sales",
+                    "source_version": "CENSUS-MARTS:2020-02:CB20-36:pdf:c78fcc9bfdba9414ac8d:xls:731f01ed7c36fc9cad98",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www2.census.gov/retail/releases/historical/marts/adv2002.pdf",
+                    "vintage_as_of": "2020-03-17T12:30:00Z"
+                  }
+                ],
+                "target_id": "census_marts:retail_and_food_services_total",
+                "unit": "basis_points",
+                "upper": -50.0,
+                "variable": "next_total_retail_sales_monthly_change_basis_points"
+              }
+            ],
+            "program_id": "census-marts-next-retail-sales-change-envelope",
+            "scenario_id": "census-marts-2020-retail-sales-boundary"
+          }
+        },
+        "source_hashes": [
+          "c78fcc9bfdba9414ac8d27eceafb417af495b942994c1dbb66c5a0d00d095aa8",
+          "f4d1d478abc141e5169f96ba358b012fca0d82d65cff2f83b7b69fe15ff6197d"
+        ],
+        "source_record_ids": [
+          "census.marts.archived_retail_sales:202001:monthly_change",
+          "census.marts.archived_retail_sales:202002:monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-marts.timevault.release-query"
+        ]
+      },
+      {
+        "artifact_id": "census-marts.timevault.release-query",
+        "artifact_kind": "versioned-census-marts-release-query",
+        "artifact_sha256": "472d0bebc1c1d225b15b2b68b9e04f2f769dc03a56477edbfcd11da4c66cb392",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 2
+        },
+        "limitations": [
+          "The lock contains only two monthly MARTS release snapshots.",
+          "Each release is a preliminary/revised vintage and may later change.",
+          "Aggregate retail-sales estimates do not identify individual retailers or households.",
+          "Paired full PDF/XLS release files remain local download evidence."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "6ad7d9795fe295027fc3d72679c08ce32c5c2c181835c03bf049dd56d9afa3d5",
+              "706cf8bff8b4c73fb73be8eda9a7f961fc98494d6ab946da72492d1efda8b111"
+            ],
+            "attempted_records": 2,
+            "fact_hashes": [
+              "4fcf698a379e735844746a6b3e41a892784d6f06be0a6dae9ba7273a768b2ffb",
+              "212271ef51d74ed1a94b7515c44b0a63bf57ba14d98a9e99cc74a0c267960e71"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 2
+          },
+          "decision_time": "2020-03-18T12:00:00Z",
+          "input_lock_sha256": "979a7d9fcf3d0ee1b8b4e1b4df52f75bb0a30ac900c0c78437bae920f60a8118",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 2,
+            "fact_set_sha256": "8067e021535d424ca0d68ea42e391a7afe46e185b5d1e6d7edf71ef0c594f769",
+            "fact_versions": 2,
+            "generated_at": "2026-08-13T12:15:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2020-03-17T12:30:00Z",
+          "selected_record_ids": [
+            "census.marts.archived_retail_sales:202001:monthly_change",
+            "census.marts.archived_retail_sales:202002:monthly_change"
+          ]
+        },
+        "source_hashes": [
+          "c78fcc9bfdba9414ac8d27eceafb417af495b942994c1dbb66c5a0d00d095aa8",
+          "f4d1d478abc141e5169f96ba358b012fca0d82d65cff2f83b7b69fe15ff6197d"
+        ],
+        "source_record_ids": [
+          "census.marts.archived_retail_sales:202001:monthly_change",
+          "census.marts.archived_retail_sales:202002:monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "census-marts.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "fc086d7c9d7476d892dcd66aa3e15c2fe3d0caf61647dcba8deeef96d3e6c9db",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 2,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "census-marts-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "922aef8d057ee3b9f51cb016f077f0c926af3fc3",
+            "completed_at": "2026-08-13T12:15:00Z",
+            "config_sha256": "b66a16ac7576a8da5ffa07f364dfa6a2ed999905a37b0fede113832ea10be979",
+            "decision_time": "2020-03-18T12:00:00Z",
+            "evaluation_end": "2020-05-03",
+            "evaluation_start": "2020-03-19",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "979a7d9fcf3d0ee1b8b4e1b4df52f75bb0a30ac900c0c78437bae920f60a8118",
+            "max_input_available_at": "2020-03-17T12:30:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 80.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No April 15 MARTS release fact or February revision is in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "b2f9757d19b9cb2e590c53e0867e3d615cb2fe487af110fdcea6f5c348e78db7",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "continuation-range-width": 80.0,
+              "known-monthly-change-decrease": 80.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 2,
+            "short_fraction": 0.0,
+            "training_end": "2020-03-16",
+            "trial_id": "census-marts-retrospective-range-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "da66a23b3d748a5fe31e65ad28373cfb245246caaaa9e2a1a13a5fca13966b44",
+            "entry_hash": "da66a23b3d748a5fe31e65ad28373cfb245246caaaa9e2a1a13a5fca13966b44",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "census-marts-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "census-marts-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "607840946f700493e6ab070c29e46374c417265a2fc7e8135b2ee5533b376795",
+            "candidate_attempt_id": "census-marts-retrospective-attempt-1",
+            "decided_at": "2026-08-13T12:15:00Z",
+            "decision_id": "decision:census-marts-retrospective-range-screen:32c955ffed9170131e14cfde",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 80.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 80.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "census-marts-retrospective-range-screen"
+          },
+          "input_lock_sha256": "979a7d9fcf3d0ee1b8b4e1b4df52f75bb0a30ac900c0c78437bae920f60a8118",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "eafd0647911ed9ca25c8534968f50ccb0e3f114d29f2d24c80d2b6804cdd438c",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "742c3e7531e3fb04dde23d0b6376cec1a69ab2e72f2db4e4c8c7e2e5287be019",
+            "entry_hash": "742c3e7531e3fb04dde23d0b6376cec1a69ab2e72f2db4e4c8c7e2e5287be019",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "Retail sales is a reported aggregate output estimate, but two release snapshots and one later outcome cannot establish predictive validity or retailer, pandemic, policy, category, or macroeconomic causality.",
+            "embargo_days": 0,
+            "expected_direction": "positive",
+            "holdout_end": "2020-05-03",
+            "holdout_start": "2020-03-19",
+            "hypothesis": "A retrospectively constructed one-decrease MARTS retail-sales boundary qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-13T12:15:00Z",
+            "primary_metric": "one-decrease MARTS monthly-change range width in basis points",
+            "purge_days": 2,
+            "trial_id": "census-marts-retrospective-range-screen"
+          }
+        },
+        "source_hashes": [
+          "c78fcc9bfdba9414ac8d27eceafb417af495b942994c1dbb66c5a0d00d095aa8",
+          "f4d1d478abc141e5169f96ba358b012fca0d82d65cff2f83b7b69fe15ff6197d"
+        ],
+        "source_record_ids": [
+          "census.marts.archived_retail_sales:202001:monthly_change",
+          "census.marts.archived_retail_sales:202002:monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-marts.shockcompiler.monthly-change-range",
+          "census-marts.timevault.release-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over two locked U.S. Census MARTS monthly-change facts available before the decision time. Reported release-snapshot values remain reported; the repeat-known-decrease-or-persistence range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The April 15 March value and its revision of February are held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, retailer or consumer causal model, trading signal, production deployment, or external validation.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-marts-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "census-marts.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no probability or coverage guarantee.",
+        "claim_id": "claim-inferred-marts-monthly-change-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The April 15 event and its February revision were not used to set the interval.",
+          "The range has no pandemic, policy, sector, or retail causal interpretation."
+        ],
+        "statement": "The next-release stress endpoints are one repeat of the known 80-basis-point decrease or latest persistence: [-130, -50] basis points.",
+        "support_artifact_ids": [
+          "census-marts.shockcompiler.monthly-change-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external review.",
+        "claim_id": "claim-inferred-marts-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective one-decrease MARTS attempt.",
+        "support_artifact_ids": [
+          "census-marts.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are aggregate release-snapshot estimates, not individual retailer or household observations.",
+        "claim_id": "claim-reported-marts-retail-sales-changes",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes only two release vintages."
+        ],
+        "statement": "Paired archived U.S. Census MARTS PDF/XLS releases report total retail and food services monthly changes of 30 basis points for January and -50 basis points for February 2020.",
+        "support_artifact_ids": [
+          "census-marts.timevault.release-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not transactions, capital, capacity, or returns.",
+        "claim_id": "claim-simulated-marts-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "census-marts.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "922aef8d057ee3b9f51cb016f077f0c926af3fc3",
+    "compressed_input_bytes": 2177,
+    "created_at": "2026-08-13T12:15:00Z",
+    "decision_time": "2020-03-18T12:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves the reported retail-and-food-services monthly changes for January and February 2020 from paired official archived U.S. Census MARTS PDF/XLS release snapshots knowable before the replay decision time. It excludes the April 15 March-value event and later February revision, individual retailers and households, a probability distribution, forecast, calibrated interval, pandemic or policy causality, recommendation, execution, investment performance, external review, deployment, and user impact.",
+      "The endpoints are one repetition of the single known 80-basis-point decrease or latest-change persistence, with no probability.",
+      "The April 15 release and its February revision are excluded from every decision input.",
+      "Two release snapshots do not identify retail-sales causes or a stable regime.",
+      "The range has no policy, return, or forecast interpretation.",
+      "No position, order, portfolio, allocation, or return is represented.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "census-marts-2020-retail-sales-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "census-marts-2020-retail-sales-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "U.S. Census MARTS boundary before the March 2020 retail-sales decline"
+  },
+  "topological_artifact_ids": [
+    "census-marts.timevault.release-query",
+    "census-marts.shockcompiler.monthly-change-range",
+    "census-marts.trialcourt.retrospective-gate",
+    "census-marts.replaystudio.render"
+  ],
+  "trace_id": "trace:003837c4d189436a7549faef47d21b3a8a4b9a8635106ef249a1b0fc67ccd00f"
+}

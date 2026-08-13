@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over two locked U.S. Census MARTS monthly-change facts available before the decision time. Reported release-snapshot values remain reported; the repeat-known-decrease-or-persistence range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The April 15 March value and its revision of February are held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, retailer or consumer causal model, trading signal, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1348,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "00df94c68af5139ca406f98cae2c04004852d19d0c264cff8846e80075329d91"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "dc1e5df7fdac898f7dfa3eaee42825e2174cdefb44fce8d612d5150c26449a59"
+    },
+    {
+      "bytes": 30114,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "3f70b3ac0568fd1ebfb90aecd5d8aa9577d9a05d05ae101bbc71205049ca36f1"
+    },
+    {
+      "bytes": 28915,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "6b4a76ddd80c3809752bc011b0e2180ca900269ce159dad8f07e1839648cbc96"
+    }
+  ],
+  "pack_sha256": "356f456c96a448e7a7c9f9e27f2436b317e1b94b6674ce331f150d8adea9f9bd",
+  "receipt_sha256": "94fa537c8f3a129985e43ddc087f547e9edcb5c7b2c96639ffee6cd659b49e65",
+  "replay_id": "census-marts-2020-retail-sales-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "922aef8d057ee3b9f51cb016f077f0c926af3fc3",
+    "compressed_input_bytes": 2177,
+    "created_at": "2026-08-13T12:15:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "2556b1f02238f6d0b4cf668f0c2260451c6bb4f26dbf4df54e52c68795a52bbf",
+    "output_manifest_sha256": "1c008b846e3fc268a8f4c04176bc243ecf200bf0e4a2eee2ee84edac7f9d99b0",
+    "replay_id": "census-marts-2020-retail-sales-boundary-v1",
+    "scenario_id": "census-marts-2020-retail-sales-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "6b4a76ddd80c3809752bc011b0e2180ca900269ce159dad8f07e1839648cbc96",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:003837c4d189436a7549faef47d21b3a8a4b9a8635106ef249a1b0fc67ccd00f"
+}
