@@ -1,0 +1,58 @@
+{
+  "artifact_sha256": {
+    "capitalallocator": "f8ad7a812f86dd947734aec6f98b9e55f81610887d207ab2e79fa4cfc2ba0715",
+    "executionlab": "1fe86ed3ccee282a4ae7299058c8bf95cfa14645f72a96980907d71ce18e50d1",
+    "markettwin": "aa1520aeb99c80763fa2c174fe400a4af6999935cf362cde75abf068508acbe3",
+    "replaystudio": "e14f66c67366f5ab58de914dccfd59520b808e27596454f065ddf3ae9b282c84",
+    "shockcompiler": "3250f7302db927b0528d1437f7a700a600bb14720e704f5a291c5cc4b6b128e1",
+    "timevault": "0595a685cbd0c885b1b53f58bdc826895e99c0b2f762d2cda2f75c05a9c6df0c",
+    "trialcourt": "937c182c1ada6f8b8b166967b621530c74f909d50b958331944ad9843da65a37"
+  },
+  "assertions": {
+    "all_artifacts_reproduced": true,
+    "all_seven_engines_present": true,
+    "allocator_retains_all_cash_boundary": true,
+    "byte_identical_directory_rebuilds": true,
+    "byte_identical_zip_rebuilds": true,
+    "compiled_pack_matches_rebuild": true,
+    "cross_engine_trace_is_stable": true,
+    "distinct_locked_inputs_equal_seven": true,
+    "execution_is_reference_only_simulation": true,
+    "historical_source_sets_eligible": true,
+    "post_decision_event_is_disjoint": true,
+    "simulation_remains_visible": true,
+    "trialcourt_rejects_retrospective_attempt": true
+  },
+  "claim_boundary": "This receipt proves two fresh local executions of every engine rebuild the committed directory and deterministic ZIP bytes from the locked SEC facts, while the separately locked post-decision official event remains excluded. It does not prove source authenticity beyond the locks, causal correctness, deployment, trading performance, external review, or user impact.",
+  "code_commit": "f17041b2c430df967f2ec3c61e062036ae793cf1",
+  "event_lock_sha256": "5db59f4a1941edce486667381cde0927b176fc4640723df8e570a8196bf282a6",
+  "file_sha256": {
+    "README.md": "1fd239c571cc5fd7b05822b136b0347630dde2cba3a2429dba6723104ca35d39",
+    "assets/styles.css": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677",
+    "checksums.sha256": "238d3877ef5c23c58d6caae7f98a6557b5ad4ea0bdfc38ea5242e5de41f4e76d",
+    "index.html": "b198474860393cce9f41ca9e72d8dd1ca4b89aabad96b8f062e2d2382fd7369c",
+    "manifest.json": "2d1c9b88790fa385045927f5e8482b6ca82f9b7f795eb44bc9b69e85a28c0fc2",
+    "report.json": "845025806177bd316b94c9bef72aac385454b274c326932d87a8386f6c1d5230"
+  },
+  "input_lock_sha256": "7bc1ed3729b84f642ca158cdf68560909e9cb75eb0582c2c671a32a0684118d1",
+  "pack_receipt_sha256": "6c7f9fe0c0128513769dd07cce263e861098c97d5c44c6b1126c2718e7968c87",
+  "pack_sha256": "1ed3dc968add623c1c9a95f37bb514a7d1f27dc6f6ae16bbe586f1d39bff9b11",
+  "receipt_sha256": "732e2c983d23e2a4f03614e5ed7ec24aba07643c60f23743ba4989ece663c2d4",
+  "runtime": {
+    "duckdb": "1.5.5",
+    "finreplay": "0.1.0a0",
+    "machine": "arm64",
+    "measured_at": "2026-08-13T03:34:30.167757+00:00",
+    "numpy": "2.2.6",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "pydantic": "2.13.4",
+    "python": "3.12.13",
+    "runner_commit": "902fe20554e892db1f79d234d993c8d2721686b2",
+    "runner_dirty": false,
+    "scipy": "1.18.0",
+    "two_rebuild_elapsed_seconds": 0.7150740420038346
+  },
+  "schema_version": "1.0.0",
+  "semantic_sha256": "f3b4af5cda4668320ce1dc47fe00d6ac22c661cfaf1c119a9f4ec004c419233f",
+  "trace_id": "trace:abb13b47a3d70fdd943ba67f810e635e79d46f771d566289152eebc4d5c03d05"
+}
