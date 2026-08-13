@@ -17,6 +17,7 @@ from finreplay.adapters.bls import BLSCPIUAllItemsAdapter
 from finreplay.adapters.bls_cpi_release import BLSCPIArchiveAdapter
 from finreplay.adapters.bls_employment import BLSEmploymentSituationArchiveAdapter
 from finreplay.adapters.census_marts import CensusMARTSArchiveAdapter
+from finreplay.adapters.census_nrc import CensusHUDNRCArchiveAdapter
 from finreplay.adapters.cftc import (
     CFTC_COT_BY_SLUG,
     CFTC_COT_SPECS,
@@ -78,6 +79,7 @@ __all__ = [
     "CFTCCOTAdapter",
     "CFTCCOTSpec",
     "CFTCReportKind",
+    "CensusHUDNRCArchiveAdapter",
     "CensusMARTSArchiveAdapter",
     "DOLWeeklyClaimsArchiveAdapter",
     "EIAWPSRCommercialCrudeStocksAdapter",
