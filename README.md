@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 1/30 internally replay-proven: the SVB 2023 boundary pack passes the eight-gate scenario verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 2/30 internally replay-proven: SVB and PacWest 2023 boundary packs pass the eight-gate scenario verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -111,6 +111,12 @@ simulated. Its post-decision SEC event lock is verified separately and cannot ap
 decision-input manifest. The committed evidence proves internal deterministic integration, not
 historical completeness, method correctness, deployment, or external validation. See
 [`docs/scenarios/svb-2023.md`](docs/scenarios/svb-2023.md).
+
+The second counted flow locks seven PacWest Bancorp facts accepted on 2023-02-27, sets a
+2023-05-03 20:00 UTC decision boundary, and separately locks the post-decision 2023-05-04 SEC 8-K
+event. It uses the reusable bank-boundary builder and verifier while preserving scenario-specific
+identities, concepts, values, hashes, and claims. See
+[`docs/scenarios/pacwest-2023.md`](docs/scenarios/pacwest-2023.md).
 
 ## Research and investment disclaimer
 

@@ -1,0 +1,138 @@
+{
+  "build_script": {
+    "path": "scripts/build_bank_boundary_replaypack.py",
+    "sha256": "6c06365d6b438042db440573cda99c73f0a96866d6fac415c8f47d0480337115"
+  },
+  "claim_boundary": "This proof counts one internally reproduced historical boundary scenario for PacWest Bancorp because official SEC decision-input timing, a separately locked post-decision SEC event, immutable inputs, separated evidence labels, an explicit status-quo baseline, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The event lock is excluded from replay inputs. This does not establish causal completeness, external method correctness, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "pacwest.trialcourt.retrospective-gate",
+      "description": "The retrospective non-inferential screen must be rejected rather than promoted.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "pacwest.trialcourt.retrospective-gate",
+      "description": "The immutable TrialCourt ledger must retain exactly one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "193de2606851cdfc4cf2f8a2243a5b1130ec49d0b0e19d319e9b4ad38b6ff722",
+      "path": "scenarios/pacwest-2023/event-lock.json",
+      "record_ids": [
+        "sec.edgar.submissions:0001102112:0001104659-23-055748"
+      ],
+      "sha256": "20d6c1273659166645dcedcaf6c57520bda4177458be98977741146aee092a63"
+    }
+  ],
+  "expected_input_manifest_sha256": "555f0921025020fe03086b14494da060d33b436ede0e32b79688e78a7581e97c",
+  "expected_pack_sha256": "2d0fcab57a64d709317fd4fe22f296d2a756e4638053a275d057a7af5f7a9599",
+  "expected_trace_id": "trace:ea712e982b91244c741174069afa890549ef4182a5c8182965eefb5fec21aab3",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The minimal decision lock contains filer-reported SEC accounting facts and no direct market-tape, order-book, deposit-flow, or regulator-observed record. Post-decision official event metadata is kept in a separate lock."
+    },
+    "bounded_artifact_ids": [
+      "pacwest.capitalallocator.robust-boundary",
+      "pacwest.executionlab.normalized-envelope",
+      "pacwest.markettwin.loss-envelope",
+      "pacwest.shockcompiler.htm-bound"
+    ],
+    "extracted_artifact_ids": [
+      "pacwest.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "pacwest.capitalallocator.robust-boundary",
+      "pacwest.markettwin.loss-envelope",
+      "pacwest.shockcompiler.htm-bound",
+      "pacwest.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c",
+      "sec.xbrl.companyfacts:0001102112:2e9721a11ba5e0c48c8237744307f5278513ae6bc8825ae1bcae2b851795fba1",
+      "sec.xbrl.companyfacts:0001102112:7f70c740b3e2336ce09748f6a71bd053326baaf62b598495200bc0d961b328e3",
+      "sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526",
+      "sec.xbrl.companyfacts:0001102112:c7f3595b949d14d34eda6ddf2488c05e1f7e807dde861e7c1e64af069ee6c5f0",
+      "sec.xbrl.companyfacts:0001102112:de093d552dff32087ec7293ef975439e44127c18bdfb5a50f1c701d8b623c875",
+      "sec.xbrl.companyfacts:0001102112:f9414f31a7691fab06d27d7c38d755e46e91d2205c2dfdf48b29d1d26863809e"
+    ],
+    "simulated_artifact_ids": [
+      "pacwest.capitalallocator.robust-boundary",
+      "pacwest.executionlab.normalized-envelope",
+      "pacwest.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "8dda5bac69c4c862019c25d6c749db848cace8f51dd4ebb0fbfcb056a91417ae",
+      "path": "scenarios/pacwest-2023/input-lock.json",
+      "record_ids": [
+        "sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c",
+        "sec.xbrl.companyfacts:0001102112:2e9721a11ba5e0c48c8237744307f5278513ae6bc8825ae1bcae2b851795fba1",
+        "sec.xbrl.companyfacts:0001102112:7f70c740b3e2336ce09748f6a71bd053326baaf62b598495200bc0d961b328e3",
+        "sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526",
+        "sec.xbrl.companyfacts:0001102112:c7f3595b949d14d34eda6ddf2488c05e1f7e807dde861e7c1e64af069ee6c5f0",
+        "sec.xbrl.companyfacts:0001102112:de093d552dff32087ec7293ef975439e44127c18bdfb5a50f1c701d8b623c875",
+        "sec.xbrl.companyfacts:0001102112:f9414f31a7691fab06d27d7c38d755e46e91d2205c2dfdf48b29d1d26863809e"
+      ],
+      "sha256": "aea6693147cbf1b4783456c118b43353db5968dfb4e0fead49e6cb6c0774922a"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "pacwest.capitalallocator.robust-boundary",
+      "description": "The explicit status-quo baseline assigns zero weight to the synthetic model exposure.",
+      "expected_value": 0.0,
+      "payload_pointer": "/problem/assets/0/current_weight"
+    },
+    {
+      "artifact_id": "pacwest.capitalallocator.robust-boundary",
+      "description": "The explicit status-quo baseline begins with the entire model portfolio in cash.",
+      "expected_value": 1.0,
+      "payload_pointer": "/problem/current_cash_weight"
+    }
+  ],
+  "official_adapter_inventory": "verification/live/latest-summary.json",
+  "pack_directory": "verification/replaypacks/pacwest-2023-seven-engine",
+  "proof_sha256": "a1937e177dfc51d73393b541c4590547720056f9771e1ebf9b4b21c238d32aea",
+  "rebuild_receipt": {
+    "path": "verification/evidence/pacwest-seven-engine-rebuild.json",
+    "sha256": "9a8cd7f9f69d06a9630a5ecbc95a39de147f7bd01dd8c9a96e2a6956fd942fc6"
+  },
+  "replay_id": "pacwest-2023-seven-engine-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "all_seven_engines_present",
+    "allocator_retains_all_cash_boundary",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "distinct_locked_inputs_equal_seven",
+    "execution_is_reference_only_simulation",
+    "historical_source_sets_eligible",
+    "post_decision_event_is_disjoint",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "pacwest-2023-funding-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "sec.xbrl.companyfacts:0001102112:2792a95798e6b049a1ad0b395f904f72e974ec4c6ec2e2af9a5768728dd3d23c",
+    "sec.xbrl.companyfacts:0001102112:2e9721a11ba5e0c48c8237744307f5278513ae6bc8825ae1bcae2b851795fba1",
+    "sec.xbrl.companyfacts:0001102112:7f70c740b3e2336ce09748f6a71bd053326baaf62b598495200bc0d961b328e3",
+    "sec.xbrl.companyfacts:0001102112:c3935ba004e400bf174bce3550cbf792be28f6f63a518843a8675efe88377526",
+    "sec.xbrl.companyfacts:0001102112:c7f3595b949d14d34eda6ddf2488c05e1f7e807dde861e7c1e64af069ee6c5f0",
+    "sec.xbrl.companyfacts:0001102112:de093d552dff32087ec7293ef975439e44127c18bdfb5a50f1c701d8b623c875",
+    "sec.xbrl.companyfacts:0001102112:f9414f31a7691fab06d27d7c38d755e46e91d2205c2dfdf48b29d1d26863809e"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_bank_boundary_replaypack.py",
+    "sha256": "20d93aea029bd735af13b9189938a4ffa01cc40f5489328fc947f5fbefa52568"
+  }
+}

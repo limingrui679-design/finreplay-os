@@ -22,6 +22,7 @@ from finreplay.scenarios import (
 REPOSITORY = Path(__file__).resolve().parents[2]
 PROOF_DIRECTORY = REPOSITORY / "verification/scenarios/proofs"
 PROOF_PATH = PROOF_DIRECTORY / "svb-2023-boundary-v1.json"
+PACWEST_PROOF_PATH = PROOF_DIRECTORY / "pacwest-2023-funding-boundary-v1.json"
 
 
 def proof_values() -> dict[str, Any]:
@@ -82,8 +83,13 @@ def test_committed_svb_proof_and_deterministic_catalog_are_fully_verified() -> N
     assert verified.mode == "bounded_reconstruction"
     assert verified.distinct_input_records == 7
 
+    pacwest = verify_scenario_proof(PACWEST_PROOF_PATH, repository_root=REPOSITORY)
+    assert pacwest.scenario_id == "pacwest-2023-funding-boundary"
+    assert pacwest.mode == "bounded_reconstruction"
+    assert pacwest.distinct_input_records == 7
+
     catalog = verify_scenario_catalog(PROOF_DIRECTORY, repository_root=REPOSITORY)
-    assert len(catalog) == 1
+    assert len(catalog) == 2
     summary = scenario_catalog_summary(catalog, proof_directory=PROOF_DIRECTORY)
     committed = json.loads((REPOSITORY / "verification/scenarios/latest-summary.json").read_text())
     assert summary == committed

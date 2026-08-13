@@ -54,12 +54,12 @@ Each of the 30 planned scenarios must independently provide:
 7. a limitations file and non-causal/non-deployment boundary;
 8. a fresh-clone replay receipt.
 
-Current status: **IN_PROGRESS; 1/30 replay-proven scenarios.** The SVB 2023 boundary replay is the
-first counted scenario. `scripts/verify_scenario_catalog.py` opens its official SEC timing records,
-immutable decision input lock, separately locked post-decision SEC event record, ReplayPack,
-source-label map, explicit naive status-quo baseline, deliberate TrialCourt rejection, build and
-verification routes, and clean-worktree double-rebuild receipt. It fails if post-decision event
-evidence appears in the ReplayPack source manifest.
+Current status: **IN_PROGRESS; 2/30 replay-proven scenarios.** The SVB and PacWest 2023 boundary
+replays are counted. `scripts/verify_scenario_catalog.py` opens each scenario's official SEC timing
+records, immutable decision input lock, separately locked post-decision SEC event record,
+ReplayPack, source-label map, explicit naive status-quo baseline, deliberate TrialCourt rejection,
+build and verification routes, and clean-worktree double-rebuild receipt. It fails if
+post-decision event evidence appears in a ReplayPack source manifest.
 It then recomputes the deterministic inventory under `verification/scenarios/`. A scenario title,
 plan row, unverified pack directory, or self-reported status still counts as 0.
 

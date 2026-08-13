@@ -2,6 +2,18 @@
   "claim_boundary": "Each counted scenario passed the repository's eight-gate proof verifier, including a disjoint official post-decision event lock. This is internal reproducibility evidence, not external method validation, deployment, investment performance, or real-world impact.",
   "scenarios": [
     {
+      "decision_time": "2023-05-03T20:00:00+00:00",
+      "distinct_input_records": 7,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "2d0fcab57a64d709317fd4fe22f296d2a756e4638053a275d057a7af5f7a9599",
+      "proof": "pacwest-2023-funding-boundary-v1.json",
+      "proof_sha256": "a1937e177dfc51d73393b541c4590547720056f9771e1ebf9b4b21c238d32aea",
+      "replay_id": "pacwest-2023-seven-engine-v1",
+      "scenario_id": "pacwest-2023-funding-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:ea712e982b91244c741174069afa890549ef4182a5c8182965eefb5fec21aab3"
+    },
+    {
       "decision_time": "2023-03-08T18:00:00+00:00",
       "distinct_input_records": 7,
       "mode": "bounded_reconstruction",
@@ -15,5 +27,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 1
+  "verified_scenario_count": 2
 }
