@@ -38,6 +38,7 @@ dependencies = [
   "rich>=13.9,<15",
   "scipy>=1.14,<2",
   "typer>=0.15,<1",
+  "xlrd>=2.0,<3",
 ]
 
 [project.optional-dependencies]
@@ -53,6 +54,7 @@ dev = [
   "respx>=0.22,<1",
   "ruff>=0.9,<1",
   "types-networkx>=3.4,<4",
+  "types-xlrd>=2.0,<3",
 ]
 
 [project.scripts]
@@ -86,7 +88,7 @@ strict = true
 packages = ["finreplay"]
 
 [[tool.mypy.overrides]]
-module = ["duckdb", "numpy", "numpy.*", "pyarrow", "pyarrow.*", "pypdf", "pypdf.*"]
+module = ["duckdb", "numpy", "numpy.*", "pyarrow", "pyarrow.*", "pypdf", "pypdf.*", "xlrd", "xlrd.*"]
 follow_imports = "skip"
 
 [[tool.mypy.overrides]]
