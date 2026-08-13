@@ -1,0 +1,125 @@
+{
+  "build_script": {
+    "path": "scripts/build_employment_boundary_replaypack.py",
+    "sha256": "58b7a6084229b44fbb0bba39c19a2f4e932e2ff49271d043d56cf3265708464e"
+  },
+  "claim_boundary": "This proof counts one internally reproduced BLS payroll-release boundary because four official pre-decision headline facts, exact embargo-end knowledge timing, a separately locked post-decision headline fact, an immutable input lock, separated truth labels, an explicit latest-value persistence baseline, a no-probability bounded payroll program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The later headline is excluded from ReplayPack inputs and used only for a labelled post-event range check. This does not establish forecast skill, calibrated coverage, stationarity across annual benchmarking, causal labor-market attribution, policy effectiveness, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "bls-payroll.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective two-release attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "bls-payroll.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "1afba8601bb8c0dae38ad6d9066ac821b3f211c18f767cb698825ecbb07b5457",
+      "path": "scenarios/bls-payroll-2023/event-lock.json",
+      "record_ids": [
+        "bls.employment_situation.archived_release:20230310:nonfarm_payroll_change"
+      ],
+      "sha256": "5441045e611a1d5a38fdcae09515fca21d6b66bef491dca1e21f660cf33b7467"
+    }
+  ],
+  "expected_input_manifest_sha256": "1811b0a44a67c928f5a26a98f6096909d9a5bfc0ee1b08b3677912c0290bdb2a",
+  "expected_pack_sha256": "bfc14686983f676195b1175e5efecc6b8f4e8619d1ce937f3b1d871a972ee343",
+  "expected_trace_id": "trace:93586d2362769bcfd48846586d4eefa3b7fbdf6a4b596e62297e775971802013",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate headline facts reported in BLS releases, not direct worker, employer, payroll-record, or causal labor observations. The later headline fact is only in the event lock."
+    },
+    "bounded_artifact_ids": [
+      "bls-payroll.shockcompiler.payroll-range"
+    ],
+    "extracted_artifact_ids": [
+      "bls-payroll.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "bls-payroll.shockcompiler.payroll-range",
+      "bls-payroll.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "bls.employment_situation.archived_release:20230106:nonfarm_payroll_change",
+      "bls.employment_situation.archived_release:20230106:unemployment_rate",
+      "bls.employment_situation.archived_release:20230203:nonfarm_payroll_change",
+      "bls.employment_situation.archived_release:20230203:unemployment_rate"
+    ],
+    "simulated_artifact_ids": [
+      "bls-payroll.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "2b9beda0051462c07c479b88c99f4c52afae9fbd7e221b10df98ba2bdee6ae94",
+      "path": "scenarios/bls-payroll-2023/input-lock.json",
+      "record_ids": [
+        "bls.employment_situation.archived_release:20230106:nonfarm_payroll_change",
+        "bls.employment_situation.archived_release:20230106:unemployment_rate",
+        "bls.employment_situation.archived_release:20230203:nonfarm_payroll_change",
+        "bls.employment_situation.archived_release:20230203:unemployment_rate"
+      ],
+      "sha256": "c2b0718d5b6e0477e1e824ceafc03823c880286245524b3553a572d94f09f9b2"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "bls-payroll.shockcompiler.payroll-range",
+      "description": "The explicit decision-time baseline persists the latest known January headline payroll change of 517 thousand.",
+      "expected_value": 517,
+      "payload_pointer": "/naive_baseline/next_headline_payroll_change_thousands"
+    },
+    {
+      "artifact_id": "bls-payroll.shockcompiler.payroll-range",
+      "description": "The two payroll endpoints carry no probability or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/bls-employment/latest-summary.json",
+  "pack_directory": "verification/replaypacks/bls-payroll-2023",
+  "proof_sha256": "d4590166159024d5982609ac04a83264fb288424f45f035a86d8e6eaa77b6399",
+  "rebuild_receipt": {
+    "path": "verification/evidence/bls-payroll-four-engine-rebuild.json",
+    "sha256": "4b326df919f030246d186e967519f61669cacf76dc13c38b48551f26e3314058"
+  },
+  "replay_id": "bls-2023-payroll-release-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "distinct_locked_inputs_equal_four",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "naive_baseline_is_latest_known_payroll_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_timing_is_later",
+    "reported_post_event_payroll_inside_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "bls-2023-payroll-release-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "bls.employment_situation.archived_release:20230106:nonfarm_payroll_change",
+    "bls.employment_situation.archived_release:20230106:unemployment_rate",
+    "bls.employment_situation.archived_release:20230203:nonfarm_payroll_change",
+    "bls.employment_situation.archived_release:20230203:unemployment_rate"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_employment_boundary_replaypack.py",
+    "sha256": "6e76f4647a3129e7a69f977c7cdee98900d8cabe5241a54e67a76989a0fd8d56"
+  }
+}
