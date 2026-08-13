@@ -1,0 +1,71 @@
+{
+  "artifact_sha256": {
+    "replaystudio": "7ef91f09ba262462e725ffad7fb3181cb48e8fcd5f3869fd14a81965e1d63e75",
+    "shockcompiler": "b3cb0964e83931116a757c0ae24a7a369f6d02380e39330b4b9e8701a5c9bf6c",
+    "timevault": "e9679fb62b43b82be77597879918c0786862b36d31f360c3cfd7fad27b632eb2",
+    "trialcourt": "6690d78671cafaef1a6ef05531b0c70e99b86d312d7004b69b8ab05c306bac66"
+  },
+  "assertions": {
+    "all_artifacts_reproduced": true,
+    "byte_identical_directory_rebuilds": true,
+    "byte_identical_zip_rebuilds": true,
+    "compiled_pack_matches_rebuild": true,
+    "cross_engine_trace_is_stable": true,
+    "distinct_locked_inputs_equal_two": true,
+    "future_event_excluded_from_bound_construction": true,
+    "historical_source_sets_eligible": true,
+    "naive_baseline_is_latest_known_sofr_persistence": true,
+    "no_probability_is_assigned": true,
+    "only_relevant_engines_present": true,
+    "post_decision_event_is_disjoint": true,
+    "post_decision_event_is_exact_final_nyfed_sofr_fact": true,
+    "post_decision_event_timing_is_later": true,
+    "post_event_upper_bound_breach_equals_282_basis_points": true,
+    "reported_post_event_rate_breaches_declared_range": true,
+    "simulation_remains_visible": true,
+    "trialcourt_rejects_retrospective_attempt": true
+  },
+  "claim_boundary": "This receipt proves two fresh local executions of the four relevant engines rebuild the committed directory and deterministic ZIP bytes from two locked pre-decision final New York Fed SOFR facts. It verifies the separately locked September 17 final SOFR rate is disjoint and, as an evaluation only, breaches the previously declared no-probability range by 282 basis points. The range is not widened after the fact. This does not prove forecast skill, calibrated coverage, repo-market causality, policy effectiveness, deployment, external review, or user impact.",
+  "code_commit": "4fe5c75323ee32731d29431ed568c7d16e9651c2",
+  "event_lock_sha256": "7ad5bcf1cf50536e86bcbd5361930535c0dd2951efe0393dba557e878527e5d2",
+  "file_sha256": {
+    "README.md": "f9f7bd7c45827308f7141820c4e24f2aec1cd75d473c01e56a2bcb4f998b98df",
+    "assets/styles.css": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677",
+    "checksums.sha256": "79eeea834171748ba33d8f94170c82b02c3da2378331280f92ad31af56162c61",
+    "index.html": "eb190862158fdb580474a27df498bf8db30b5bd613e7642a41451dad2b104078",
+    "manifest.json": "7143ec4a54c8dd2e76f6e83e39022b489e1c469a626ddd87640c6368cc847cab",
+    "report.json": "a50fe87b2531682a934f35ee0534a09d0d7c05e06f081f35eb00565a5cc2d869"
+  },
+  "input_lock_sha256": "51bb4fac60709af2cdae2cb819efeee06d180229d627323667cc707f96f745ab",
+  "pack_receipt_sha256": "e9f85b19feeac220621bcdb786fe03a9386fd42607d99951aba1014e2d79b985",
+  "pack_sha256": "00475798a6bdfc0b713a272d340b0586d8b647f95c8a11435d809777037b106e",
+  "post_event_evaluation": {
+    "declared_lower_rate_basis_points": 220,
+    "declared_upper_rate_basis_points": 243,
+    "latest_known_persistence_baseline_basis_points": 243,
+    "probability_assigned": false,
+    "range_breached": true,
+    "reported_september17_final_sofr_basis_points": 525,
+    "upper_bound_breach_basis_points": 282,
+    "used_as_decision_input": false
+  },
+  "receipt_sha256": "579dc63d989decf13f6c94637da8e44c63ffb14c62cf652d18565b17c1c8a080",
+  "runtime": {
+    "duckdb": "1.5.5",
+    "finreplay": "0.1.0a0",
+    "machine": "arm64",
+    "measured_at": "2026-08-13T06:24:03.475916+00:00",
+    "numpy": "2.2.6",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "pydantic": "2.13.4",
+    "pypdf": "6.15.0",
+    "python": "3.12.13",
+    "runner_commit": "1cbd19d39e57ff502c860ab0a147a6e1e48c86e0",
+    "runner_dirty": false,
+    "scipy": "1.18.0",
+    "two_rebuild_elapsed_seconds": 0.30514654199942015
+  },
+  "schema_version": "1.0.0",
+  "semantic_sha256": "46c9c69f393854b430803749663f98add0429ea819d5cfe82c550440ab5a4ae3",
+  "trace_id": "trace:7402c1952f5bbaf31f5f5d89a85a8864f64ee146bd142e25da1872f4292ee636"
+}
