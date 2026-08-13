@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over two locked DOL initial-claims release facts available before the decision time. Reported claims remain reported; the persistence-or-one-known-increase range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The March 21 claims release is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, pandemic or labor-market causal model, trading signal, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1288,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "e1b90ad8753aed88ef51543e42ad399d616e98f43cedeef52b4af4005e8efbd9"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "d2ecc0a4b38bb65501ec5b031d843f3803ce5fd749d6b2f7f4b7d5eb6efbc60e"
+    },
+    {
+      "bytes": 30717,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "e31599b07a8cb9a5eb7032f6d9b8deccf01def2a48eacc6fc5d2c41381ba1bd1"
+    },
+    {
+      "bytes": 29487,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "264c38041a6ab430bc56d8e5c3d93f56648b2902f8b6e38a7ed4ab6c454c6290"
+    }
+  ],
+  "pack_sha256": "d0f96d2cc2097bb731370f33a294efb1e621b9cf91c458136e5b818896e814b5",
+  "receipt_sha256": "000a68c706c061fb8b4673cd3b550b217b7b7915823736f0bd9b9b7645b5bc34",
+  "replay_id": "dol-ui-2020-initial-claims-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "7190b14574c69b24884145ede97abc5135c637c8",
+    "compressed_input_bytes": 1851,
+    "created_at": "2026-08-13T07:15:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "98d8e63b16b3d041b7695c86ccc390ac58ce9fd57bc4d671010d5c8fe55d8558",
+    "output_manifest_sha256": "9715d5a5bef78bc949a756ee0f428b1fb41bed20ca8305c1dd026d5c1ddf8251",
+    "replay_id": "dol-ui-2020-initial-claims-boundary-v1",
+    "scenario_id": "dol-ui-2020-initial-claims-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "264c38041a6ab430bc56d8e5c3d93f56648b2902f8b6e38a7ed4ab6c454c6290",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:c2e0c997c19f77b1dd753f8dc93ac7575f07137c1dd38f6df1777792b9cbca24"
+}

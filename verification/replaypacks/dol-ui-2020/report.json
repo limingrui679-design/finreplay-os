@@ -1,0 +1,588 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 4,
+    "reported": 4,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "98d8e63b16b3d041b7695c86ccc390ac58ce9fd57bc4d671010d5c8fe55d8558",
+  "pack_sha256": "d0f96d2cc2097bb731370f33a294efb1e621b9cf91c458136e5b818896e814b5",
+  "source_hashes": [
+    "4bdbd0afab5bd74cd767506ac0b933fc961ef387c42b5096ec3ff3313e75c144",
+    "7374040b0f7b2fb1b2d262f6ceca41441dcaa8a5449e8b887211611b3ce86599"
+  ],
+  "source_record_ids": [
+    "dol.eta.archived_weekly_initial_claims:20200312:seasonally_adjusted_initial_claims",
+    "dol.eta.archived_weekly_initial_claims:20200319:seasonally_adjusted_initial_claims"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "dol-ui.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "f2171b92c3edfdc0b7eb7d1ff016208fdad931795f56d15fbd65d1e3c410e0f5",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not validate the claims-range heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This aggregate initial-claims boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no individual claimant, employer network, position, order, execution, portfolio, or allocation input is invented.",
+          "input_lock_sha256": "6d84b41e0afa23fb6a47f1d7ef9429e4329bf984bb3b0c913d08a90f09cb23e5",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "4bdbd0afab5bd74cd767506ac0b933fc961ef387c42b5096ec3ff3313e75c144",
+          "7374040b0f7b2fb1b2d262f6ceca41441dcaa8a5449e8b887211611b3ce86599"
+        ],
+        "source_record_ids": [
+          "dol.eta.archived_weekly_initial_claims:20200312:seasonally_adjusted_initial_claims",
+          "dol.eta.archived_weekly_initial_claims:20200319:seasonally_adjusted_initial_claims"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "dol-ui.shockcompiler.claims-range",
+          "dol-ui.timevault.release-query",
+          "dol-ui.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "dol-ui.shockcompiler.claims-range",
+        "artifact_kind": "bounded-initial-claims-continuation-program",
+        "artifact_sha256": "456627ce027d00444abfd1257f675a96b8a8fd415158da961c68374cd8e321b2",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 3
+        },
+        "limitations": [
+          "The upper endpoint mechanically repeats one known weekly increase.",
+          "The March 21 claims release is absent from the bound construction.",
+          "The range is not a claims probability, pandemic model, or causal claim."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": 281000.0,
+            "upper": 351000.0
+          },
+          "bound_construction": {
+            "endpoint_method": "latest_persistence_or_repeat_known_weekly_increase",
+            "future_event_used": false,
+            "known_weekly_increase_persons": 70000,
+            "lower_claims_persons": 281000,
+            "probability_assigned": false,
+            "range_width_persons": 70000,
+            "upper_claims_persons": 351000
+          },
+          "compiled": {
+            "compiled_sha256": "115bd9589c2e3f3eefffed4c44e348df569823f25526db4ab6e0b1e325e61884",
+            "decision_time": "2020-03-20T12:00:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, causal, pandemic, or policy interpretation.",
+              "The March 21 claims release is excluded and evaluated only afterward."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "dol-ui-next-claims-envelope",
+            "scenario_id": "dol-ui-2020-initial-claims-boundary",
+            "source_program_sha256": "d1e6340d7b213396d8631f18a1ab35df4ff05cb85079641217b8331c4c875993",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use latest-value persistence as the lower endpoint and one repetition of the only known March 7-to-March 14 increase as the upper endpoint.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "One known weekly increase defines a transparent stress envelope, not a forecast or confidence interval.",
+                      "The March 19 annual seasonal-factor revision limits adjacent-snapshot comparability."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "dol-ui-next-claims-range",
+                    "source_hashes": [
+                      "4bdbd0afab5bd74cd767506ac0b933fc961ef387c42b5096ec3ff3313e75c144",
+                      "7374040b0f7b2fb1b2d262f6ceca41441dcaa8a5449e8b887211611b3ce86599"
+                    ],
+                    "source_record_ids": [
+                      "dol.eta.archived_weekly_initial_claims:20200312:seasonally_adjusted_initial_claims",
+                      "dol.eta.archived_weekly_initial_claims:20200319:seasonally_adjusted_initial_claims"
+                    ],
+                    "target_id": "dol_ui_claims:united_states",
+                    "unit": "persons",
+                    "value": 281000.0,
+                    "variable": "next_reported_seasonally_adjusted_initial_claims_persons"
+                  }
+                ],
+                "trial_id": "dol-ui-next-claims-envelope:00000000:71d3e59703cfd4e4",
+                "trial_index": 0,
+                "vector_sha256": "71d3e59703cfd4e4216d88c1d76fa6d363742bb34744359f6d89449a6f9c2580"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use latest-value persistence as the lower endpoint and one repetition of the only known March 7-to-March 14 increase as the upper endpoint.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "One known weekly increase defines a transparent stress envelope, not a forecast or confidence interval.",
+                      "The March 19 annual seasonal-factor revision limits adjacent-snapshot comparability."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "dol-ui-next-claims-range",
+                    "source_hashes": [
+                      "4bdbd0afab5bd74cd767506ac0b933fc961ef387c42b5096ec3ff3313e75c144",
+                      "7374040b0f7b2fb1b2d262f6ceca41441dcaa8a5449e8b887211611b3ce86599"
+                    ],
+                    "source_record_ids": [
+                      "dol.eta.archived_weekly_initial_claims:20200312:seasonally_adjusted_initial_claims",
+                      "dol.eta.archived_weekly_initial_claims:20200319:seasonally_adjusted_initial_claims"
+                    ],
+                    "target_id": "dol_ui_claims:united_states",
+                    "unit": "persons",
+                    "value": 351000.0,
+                    "variable": "next_reported_seasonally_adjusted_initial_claims_persons"
+                  }
+                ],
+                "trial_id": "dol-ui-next-claims-envelope:00000001:bd54324df7383cbe",
+                "trial_index": 1,
+                "vector_sha256": "bd54324df7383cbe3d05f9b17829dc822e0b18a0348a1c863b2855c1076c1f21"
+              }
+            ]
+          },
+          "input_lock_sha256": "6d84b41e0afa23fb6a47f1d7ef9429e4329bf984bb3b0c913d08a90f09cb23e5",
+          "known_claims": {
+            "claims_lower_persons": 281000,
+            "claims_range_width_persons": 70000,
+            "claims_upper_persons": 351000,
+            "known_weekly_increase_persons": 70000,
+            "march07_claims_persons": 211000,
+            "march14_claims_persons": 281000
+          },
+          "naive_baseline": {
+            "definition": "persistence of the latest known DOL initial-claims value",
+            "next_reported_seasonally_adjusted_initial_claims_persons": 281000
+          },
+          "program": {
+            "decision_time": "2020-03-20T12:00:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, causal, pandemic, or policy interpretation.",
+              "The March 21 claims release is excluded and evaluated only afterward."
+            ],
+            "hypothesis": "Evaluate persistence and one repetition of the known weekly increase using only DOL releases available at the historical decision boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use latest-value persistence as the lower endpoint and one repetition of the only known March 7-to-March 14 increase as the upper endpoint.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "One known weekly increase defines a transparent stress envelope, not a forecast or confidence interval.",
+                  "The March 19 annual seasonal-factor revision limits adjacent-snapshot comparability."
+                ],
+                "lower": 281000.0,
+                "operation": "set",
+                "parameter_id": "dol-ui-next-claims-range",
+                "source_record_ids": [
+                  "dol.eta.archived_weekly_initial_claims:20200312:seasonally_adjusted_initial_claims",
+                  "dol.eta.archived_weekly_initial_claims:20200319:seasonally_adjusted_initial_claims"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Department of Labor Employment and Training Administration",
+                    "redistribution_note": "DOL says federal materials are generally public domain with attribution and no implied endorsement, but not all site materials are necessarily federal works and the DOL seal is protected. Full PDFs remain in local content-addressed storage; the repository retains minimal facts, attribution, URLs, and hashes only.",
+                    "retrieved_at": "2026-08-13T07:10:53.659803Z",
+                    "sha256": "4bdbd0afab5bd74cd767506ac0b933fc961ef387c42b5096ec3ff3313e75c144",
+                    "source_id": "dol.eta.archived_weekly_initial_claims",
+                    "source_version": "DOL-UI:2020-03-12:USDL-20-432-NAT:sha256:4bdbd0afab5bd74cd767506a",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.dol.gov/sites/dolgov/files/OPA/newsreleases/ui-claims/eta20200432.pdf",
+                    "vintage_as_of": "2020-03-12T12:30:10Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Department of Labor Employment and Training Administration",
+                    "redistribution_note": "DOL says federal materials are generally public domain with attribution and no implied endorsement, but not all site materials are necessarily federal works and the DOL seal is protected. Full PDFs remain in local content-addressed storage; the repository retains minimal facts, attribution, URLs, and hashes only.",
+                    "retrieved_at": "2026-08-13T07:10:56.102201Z",
+                    "sha256": "7374040b0f7b2fb1b2d262f6ceca41441dcaa8a5449e8b887211611b3ce86599",
+                    "source_id": "dol.eta.archived_weekly_initial_claims",
+                    "source_version": "DOL-UI:2020-03-19:USDL-20-480-NAT:sha256:7374040b0f7b2fb1b2d262f6",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.dol.gov/sites/dolgov/files/OPA/newsreleases/ui-claims/20200480.pdf",
+                    "vintage_as_of": "2020-03-19T12:29:55Z"
+                  }
+                ],
+                "target_id": "dol_ui_claims:united_states",
+                "unit": "persons",
+                "upper": 351000.0,
+                "variable": "next_reported_seasonally_adjusted_initial_claims_persons"
+              }
+            ],
+            "program_id": "dol-ui-next-claims-envelope",
+            "scenario_id": "dol-ui-2020-initial-claims-boundary"
+          }
+        },
+        "source_hashes": [
+          "4bdbd0afab5bd74cd767506ac0b933fc961ef387c42b5096ec3ff3313e75c144",
+          "7374040b0f7b2fb1b2d262f6ceca41441dcaa8a5449e8b887211611b3ce86599"
+        ],
+        "source_record_ids": [
+          "dol.eta.archived_weekly_initial_claims:20200312:seasonally_adjusted_initial_claims",
+          "dol.eta.archived_weekly_initial_claims:20200319:seasonally_adjusted_initial_claims"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "dol-ui.timevault.release-query"
+        ]
+      },
+      {
+        "artifact_id": "dol-ui.timevault.release-query",
+        "artifact_kind": "versioned-dol-initial-claims-release-query",
+        "artifact_sha256": "2ddb168bbfea87957b59604456b0782c56c45accedec81cadb7c18e83822b023",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 2
+        },
+        "limitations": [
+          "The lock contains only two archived advance initial-claims releases.",
+          "Each PDF is eligible at the later of its embargo end or Last-Modified time.",
+          "The March 19 release applies annual seasonal-factor revisions.",
+          "Weekly administrative claims are volatile and subject to following-week revision."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "2070d25a8b311d9293346c9ee22dfcf67de3e1a2d8e2a9793a28c9d93af0a087",
+              "5c8d292b6d1db2b87dec35709a70b75de3daf0d1ab367b3cf949ec1e90daae85"
+            ],
+            "attempted_records": 2,
+            "fact_hashes": [
+              "f43a2f393862321f91315d856f9cbd131d7063345664411f7e8c6a4f06ce7872",
+              "0f9c42090e55e9ac0c163e697559c6b06d90395880c966f836dbac647968562c"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 2
+          },
+          "decision_time": "2020-03-20T12:00:00Z",
+          "input_lock_sha256": "6d84b41e0afa23fb6a47f1d7ef9429e4329bf984bb3b0c913d08a90f09cb23e5",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 2,
+            "fact_set_sha256": "3b4a4d134ff72e78443e29492b76d0a34e3750c6f190676891dde52750ff4bff",
+            "fact_versions": 2,
+            "generated_at": "2026-08-13T07:15:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2020-03-19T12:30:00Z",
+          "selected_record_ids": [
+            "dol.eta.archived_weekly_initial_claims:20200312:seasonally_adjusted_initial_claims",
+            "dol.eta.archived_weekly_initial_claims:20200319:seasonally_adjusted_initial_claims"
+          ]
+        },
+        "source_hashes": [
+          "4bdbd0afab5bd74cd767506ac0b933fc961ef387c42b5096ec3ff3313e75c144",
+          "7374040b0f7b2fb1b2d262f6ceca41441dcaa8a5449e8b887211611b3ce86599"
+        ],
+        "source_record_ids": [
+          "dol.eta.archived_weekly_initial_claims:20200312:seasonally_adjusted_initial_claims",
+          "dol.eta.archived_weekly_initial_claims:20200319:seasonally_adjusted_initial_claims"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "dol-ui.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "765835af5a84506a2371d99b4fab541318dcb176d78c97b58555613dfe8f00e8",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 2,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "dol-ui-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "7190b14574c69b24884145ede97abc5135c637c8",
+            "completed_at": "2026-08-13T07:15:00Z",
+            "config_sha256": "61bc7cb557cfaf5ea9e243d69c57bc385167bb658c9442c0973af9bc45bdab6b",
+            "decision_time": "2020-03-20T12:00:00Z",
+            "evaluation_end": "2020-04-25",
+            "evaluation_start": "2020-03-21",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "6d84b41e0afa23fb6a47f1d7ef9429e4329bf984bb3b0c913d08a90f09cb23e5",
+            "max_input_available_at": "2020-03-19T12:30:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 70000.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No March 21 claims event fact is present in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "ee362846bbfb94952c888b74988cbfef95b97c9225ba2788e9a4ebc9a64fb111",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "continuation-range-width": 70000.0,
+              "known-weekly-increase": 70000.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 2,
+            "short_fraction": 0.0,
+            "training_end": "2020-03-18",
+            "trial_id": "dol-ui-retrospective-claims-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "d22e85fd08be40e385ee841f5d5c893d52dee1a5cd020b38819422c18b7e40b5",
+            "entry_hash": "d22e85fd08be40e385ee841f5d5c893d52dee1a5cd020b38819422c18b7e40b5",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "dol-ui-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "dol-ui-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "990c1d2c921a8b8c031050255c8f3f30be30ea925167fea3b96cc60d649aaae3",
+            "candidate_attempt_id": "dol-ui-retrospective-attempt-1",
+            "decided_at": "2026-08-13T07:15:00Z",
+            "decision_id": "decision:dol-ui-retrospective-claims-screen:fcb672ac095823d29aca1be4",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 70000.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 70000.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "dol-ui-retrospective-claims-screen"
+          },
+          "input_lock_sha256": "6d84b41e0afa23fb6a47f1d7ef9429e4329bf984bb3b0c913d08a90f09cb23e5",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "50bc89793854ec5b307ec92d006b19fb3aa25962f793c93ea35a6acb215f869b",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "4355a7dd08760e595bfd3d0f2d91bc802560f11e6de2c385fea59d1a501466b5",
+            "entry_hash": "4355a7dd08760e595bfd3d0f2d91bc802560f11e6de2c385fea59d1a501466b5",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "Weekly initial claims are administrative labor-market counts, but two release snapshots and one later outcome cannot establish predictive validity or causality.",
+            "embargo_days": 0,
+            "expected_direction": "positive",
+            "holdout_end": "2020-04-25",
+            "holdout_start": "2020-03-21",
+            "hypothesis": "A retrospectively constructed one-increase initial-claims boundary qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-13T07:15:00Z",
+            "primary_metric": "one-increase continuation range width in persons",
+            "purge_days": 2,
+            "trial_id": "dol-ui-retrospective-claims-screen"
+          }
+        },
+        "source_hashes": [
+          "4bdbd0afab5bd74cd767506ac0b933fc961ef387c42b5096ec3ff3313e75c144",
+          "7374040b0f7b2fb1b2d262f6ceca41441dcaa8a5449e8b887211611b3ce86599"
+        ],
+        "source_record_ids": [
+          "dol.eta.archived_weekly_initial_claims:20200312:seasonally_adjusted_initial_claims",
+          "dol.eta.archived_weekly_initial_claims:20200319:seasonally_adjusted_initial_claims"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "dol-ui.shockcompiler.claims-range",
+          "dol-ui.timevault.release-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over two locked DOL initial-claims release facts available before the decision time. Reported claims remain reported; the persistence-or-one-known-increase range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The March 21 claims release is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, pandemic or labor-market causal model, trading signal, production deployment, or external validation.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "dol-ui.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no probability or coverage guarantee.",
+        "claim_id": "claim-inferred-initial-claims-continuation-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The March 21 claims value was not used to set the interval.",
+          "The range has no causal, pandemic, or policy interpretation."
+        ],
+        "statement": "The next-release stress endpoints are persistence or one repeat of the known 70,000-person increase: [281,000, 351,000] persons.",
+        "support_artifact_ids": [
+          "dol-ui.shockcompiler.claims-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external review.",
+        "claim_id": "claim-inferred-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective one-increase claims attempt.",
+        "support_artifact_ids": [
+          "dol-ui.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are aggregate advance administrative counts, not forecasts or causal estimates.",
+        "claim_id": "claim-reported-initial-claims-releases",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes only two release snapshots across an annual revision."
+        ],
+        "statement": "Archived DOL releases report seasonally adjusted initial claims of 211,000 persons for the week ending March 7 and 281,000 persons for the week ending March 14, 2020.",
+        "support_artifact_ids": [
+          "dol-ui.timevault.release-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not orders, capacity, capital, or returns.",
+        "claim_id": "claim-simulated-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "dol-ui.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "7190b14574c69b24884145ede97abc5135c637c8",
+    "compressed_input_bytes": 1851,
+    "created_at": "2026-08-13T07:15:00Z",
+    "decision_time": "2020-03-20T12:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves the DOL seasonally adjusted advance initial-claims values for weeks ending March 7 and 14, 2020 from two official archived PDFs knowable before the replay decision time. It preserves the March 19 annual seasonal-factor revision warning and excludes the March 21 event value, individual claimants, employers, a probability distribution, forecast, calibrated interval, pandemic or labor-market causal attribution, policy recommendation, execution, investment performance, external review, deployment, and user impact.",
+      "The endpoints are latest-value persistence or one repetition of the single known weekly increase; they carry no probability or coverage guarantee.",
+      "The March 21 claims release is excluded from every decision input and artifact.",
+      "The March 19 annual seasonal-factor revision prevents a stationary-sample claim.",
+      "Two aggregate releases do not identify people, employers, causes, or policy effects.",
+      "No position, order, portfolio, allocation, or return is represented.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "dol-ui-2020-initial-claims-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "dol-ui-2020-initial-claims-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "DOL initial-claims boundary before the March 2020 record surge"
+  },
+  "topological_artifact_ids": [
+    "dol-ui.timevault.release-query",
+    "dol-ui.shockcompiler.claims-range",
+    "dol-ui.trialcourt.retrospective-gate",
+    "dol-ui.replaystudio.render"
+  ],
+  "trace_id": "trace:c2e0c997c19f77b1dd753f8dc93ac7575f07137c1dd38f6df1777792b9cbca24"
+}
