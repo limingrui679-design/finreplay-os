@@ -1,0 +1,18 @@
+{
+  "adapters": [
+    {
+      "adapter_id": "federalreserve.g17.archived_industrial_production",
+      "historical_replay_eligible": true,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "federalreserve.g17.archived_industrial_production-802f0d2715c009be.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-13T09:02:49.485035Z",
+      "temporal_coverage": "versioned_snapshot"
+    }
+  ],
+  "historical_replay_eligible_count": 1,
+  "latest_only_count": 0,
+  "schema_version": "1.0.0",
+  "verified_adapter_count": 1
+}
