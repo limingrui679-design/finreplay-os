@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over four locked headline facts from two archived BLS Consumer Price Index releases available before the decision time. Reported monthly and 12-month changes remain reported; the next-release monthly-change range is a two-point arithmetic heuristic with no assigned probability; TrialCourt rejects retrospective promotion. The March 14 release is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, causal inflation model, policy recommendation, trading signal, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1339,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "ddbf5981e522cccde446128efcc3a52e206731f893e899f7d12d9f40d4377969"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "2c6563d4076776a9a7a2a3dc8d77e53f7d69475042f69b84d60e849cf7ba6726"
+    },
+    {
+      "bytes": 31236,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "b6a7b4c82ba93d043e6817ee242d1ef19f8cc5deefc637d10438276675b15ff2"
+    },
+    {
+      "bytes": 30111,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "37c4ae5eb4fc227566e2324cf262bfc1be7acfed55bd92b55038f186225e22eb"
+    }
+  ],
+  "pack_sha256": "fac8e503c37804217d3db00634330cdb62ac02466f7a58a1b04e703d6ffc6d06",
+  "receipt_sha256": "6133508972d884219c87cc01211e9929c080f1f81ba1332d29fb8f15536eaa41",
+  "replay_id": "bls-2023-cpi-release-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "5133cbf098a739bd0b67a1c3d43c59543ef5a3cd",
+    "compressed_input_bytes": 1803,
+    "created_at": "2026-08-13T05:20:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 4,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "3d0a8ece52fc984f8a54372f45e41c368846e70b28293286a923c806f4da0baf",
+    "output_manifest_sha256": "8ff0371d048ed41f4cf54b1a057531805a5dce77e4d1aa4f2eea9068c5051068",
+    "replay_id": "bls-2023-cpi-release-boundary-v1",
+    "scenario_id": "bls-2023-cpi-release-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "37c4ae5eb4fc227566e2324cf262bfc1be7acfed55bd92b55038f186225e22eb",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:8634250349fc349378cf09f74ae129613d54fdd87257232ccd5547b62f1b1bb6"
+}

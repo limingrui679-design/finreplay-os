@@ -1,0 +1,596 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 2,
+    "reported": 8,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "3d0a8ece52fc984f8a54372f45e41c368846e70b28293286a923c806f4da0baf",
+  "pack_sha256": "fac8e503c37804217d3db00634330cdb62ac02466f7a58a1b04e703d6ffc6d06",
+  "source_hashes": [
+    "499497984f419ab8df6f67a6740509729242cc048107d7cd63f087d5216b9467",
+    "5981cc5faf9306b5cf4f85865a981c31d5832987e9e1c4c602469581f2a49b55"
+  ],
+  "source_record_ids": [
+    "bls.cpi.archived_release:20230112:all_items_12_month_change_not_seasonally_adjusted",
+    "bls.cpi.archived_release:20230112:all_items_monthly_change_seasonally_adjusted",
+    "bls.cpi.archived_release:20230214:all_items_12_month_change_not_seasonally_adjusted",
+    "bls.cpi.archived_release:20230214:all_items_monthly_change_seasonally_adjusted"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "bls-cpi.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "d1a64363d2914dee95dd1839a541c78c16cd851d251e948d72d25fdd0e3207c8",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not independently validate the CPI-boundary heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This aggregate CPI-release boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no security, order, or allocation input is invented.",
+          "input_lock_sha256": "7d726e741ca9a4631be4f7ba49b70c1d8ac106853ab72af66c2ba6ae01c8cdda",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "499497984f419ab8df6f67a6740509729242cc048107d7cd63f087d5216b9467",
+          "5981cc5faf9306b5cf4f85865a981c31d5832987e9e1c4c602469581f2a49b55"
+        ],
+        "source_record_ids": [
+          "bls.cpi.archived_release:20230112:all_items_12_month_change_not_seasonally_adjusted",
+          "bls.cpi.archived_release:20230112:all_items_monthly_change_seasonally_adjusted",
+          "bls.cpi.archived_release:20230214:all_items_12_month_change_not_seasonally_adjusted",
+          "bls.cpi.archived_release:20230214:all_items_monthly_change_seasonally_adjusted"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "bls-cpi.shockcompiler.cpi-range",
+          "bls-cpi.timevault.release-query",
+          "bls-cpi.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "bls-cpi.shockcompiler.cpi-range",
+        "artifact_kind": "bounded-cpi-monthly-change-program",
+        "artifact_sha256": "174049b403dd4cb01b238ee89201029ab94d50533593d4453e91fd3e7bc6664f",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 1
+        },
+        "limitations": [
+          "The two endpoints mechanically reuse only the two known headline values.",
+          "The March 14 release is absent from the bound construction and artifact sources.",
+          "Annual seasonal recalculation limits interpretation of change across adjacent releases."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": -1.0,
+            "upper": 5.0
+          },
+          "bound_construction": {
+            "endpoint_method": "minimum_and_maximum_of_two_known_headline_values",
+            "future_event_used": false,
+            "lower_monthly_change_tenths_percent": -1,
+            "probability_assigned": false,
+            "range_width_tenths_percent": 6,
+            "upper_monthly_change_tenths_percent": 5
+          },
+          "compiled": {
+            "compiled_sha256": "ab1391a7535b7696caf868dda66082c62461f34cab9e050e952755a1d03d6ac8",
+            "decision_time": "2023-02-15T12:00:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, forecast, or policy interpretation.",
+              "The February 2023 release documents annual weight updates and recalculation of the previous five years of seasonally adjusted indexes."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "bls-cpi-next-release-cpi-envelope",
+            "scenario_id": "bls-2023-cpi-release-boundary",
+            "source_program_sha256": "ce72cf4f7ac1076ae7a8834d384fec37c26ab88d656fea9934d2d34d92b116e3",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use the minimum and maximum of the two CPI monthly changes already knowable at the decision time as transparent next-release stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two release snapshots define a descriptive range, not a forecast, confidence interval, or stationary statistical sample."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "bls-cpi-next-release-cpi-range",
+                    "source_hashes": [
+                      "499497984f419ab8df6f67a6740509729242cc048107d7cd63f087d5216b9467",
+                      "5981cc5faf9306b5cf4f85865a981c31d5832987e9e1c4c602469581f2a49b55"
+                    ],
+                    "source_record_ids": [
+                      "bls.cpi.archived_release:20230112:all_items_monthly_change_seasonally_adjusted",
+                      "bls.cpi.archived_release:20230214:all_items_monthly_change_seasonally_adjusted"
+                    ],
+                    "target_id": "bls_cpi_u_all_items:united_states",
+                    "unit": "tenths_percent",
+                    "value": -1.0,
+                    "variable": "next_release_monthly_change_tenths_percent"
+                  }
+                ],
+                "trial_id": "bls-cpi-next-release-cpi-envelope:00000000:d1fc411c0fd298d6",
+                "trial_index": 0,
+                "vector_sha256": "d1fc411c0fd298d6c7b5eb762890cdb91f7769230865fed38c6861d438ac215f"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use the minimum and maximum of the two CPI monthly changes already knowable at the decision time as transparent next-release stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two release snapshots define a descriptive range, not a forecast, confidence interval, or stationary statistical sample."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "bls-cpi-next-release-cpi-range",
+                    "source_hashes": [
+                      "499497984f419ab8df6f67a6740509729242cc048107d7cd63f087d5216b9467",
+                      "5981cc5faf9306b5cf4f85865a981c31d5832987e9e1c4c602469581f2a49b55"
+                    ],
+                    "source_record_ids": [
+                      "bls.cpi.archived_release:20230112:all_items_monthly_change_seasonally_adjusted",
+                      "bls.cpi.archived_release:20230214:all_items_monthly_change_seasonally_adjusted"
+                    ],
+                    "target_id": "bls_cpi_u_all_items:united_states",
+                    "unit": "tenths_percent",
+                    "value": 5.0,
+                    "variable": "next_release_monthly_change_tenths_percent"
+                  }
+                ],
+                "trial_id": "bls-cpi-next-release-cpi-envelope:00000001:0d0fac78f730df5b",
+                "trial_index": 1,
+                "vector_sha256": "0d0fac78f730df5b1eeaf0d365729fe8385c3dacc3fcf515956be14895bb2478"
+              }
+            ]
+          },
+          "input_lock_sha256": "7d726e741ca9a4631be4f7ba49b70c1d8ac106853ab72af66c2ba6ae01c8cdda",
+          "known_headlines": {
+            "december_monthly": -1,
+            "december_yoy": 65,
+            "january_monthly": 5,
+            "january_yoy": 64,
+            "monthly_lower": -1,
+            "monthly_range_width": 6,
+            "monthly_upper": 5
+          },
+          "naive_baseline": {
+            "definition": "persistence of the latest known headline CPI monthly change",
+            "next_release_monthly_change_tenths_percent": 5
+          },
+          "program": {
+            "decision_time": "2023-02-15T12:00:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, forecast, or policy interpretation.",
+              "The February 2023 release documents annual weight updates and recalculation of the previous five years of seasonally adjusted indexes."
+            ],
+            "hypothesis": "Evaluate the two known CPI monthly-change endpoints using only archived BLS releases available at the historical decision boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use the minimum and maximum of the two CPI monthly changes already knowable at the decision time as transparent next-release stress endpoints.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "Two release snapshots define a descriptive range, not a forecast, confidence interval, or stationary statistical sample."
+                ],
+                "lower": -1.0,
+                "operation": "set",
+                "parameter_id": "bls-cpi-next-release-cpi-range",
+                "source_record_ids": [
+                  "bls.cpi.archived_release:20230112:all_items_monthly_change_seasonally_adjusted",
+                  "bls.cpi.archived_release:20230214:all_items_monthly_change_seasonally_adjusted"
+                ],
+                "sources": [
+                  {
+                    "license_class": "redistributable",
+                    "publisher": "U.S. Bureau of Labor Statistics",
+                    "redistribution_note": "BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem.",
+                    "retrieved_at": "2026-08-13T05:11:37.049602Z",
+                    "sha256": "499497984f419ab8df6f67a6740509729242cc048107d7cd63f087d5216b9467",
+                    "source_id": "bls.cpi.archived_release",
+                    "source_version": "CPIRelease:2023-01-12:USDL-23-0017:sha256:499497984f419ab8df6f67a6",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.bls.gov/news.release/archives/cpi_01122023.htm",
+                    "vintage_as_of": "2023-01-12T13:30:00Z"
+                  },
+                  {
+                    "license_class": "redistributable",
+                    "publisher": "U.S. Bureau of Labor Statistics",
+                    "redistribution_note": "BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem.",
+                    "retrieved_at": "2026-08-13T05:11:38.744973Z",
+                    "sha256": "5981cc5faf9306b5cf4f85865a981c31d5832987e9e1c4c602469581f2a49b55",
+                    "source_id": "bls.cpi.archived_release",
+                    "source_version": "CPIRelease:2023-02-14:USDL-23-0277:sha256:5981cc5faf9306b5cf4f8586",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.bls.gov/news.release/archives/cpi_02142023.htm",
+                    "vintage_as_of": "2023-02-14T13:30:00Z"
+                  }
+                ],
+                "target_id": "bls_cpi_u_all_items:united_states",
+                "unit": "tenths_percent",
+                "upper": 5.0,
+                "variable": "next_release_monthly_change_tenths_percent"
+              }
+            ],
+            "program_id": "bls-cpi-next-release-cpi-envelope",
+            "scenario_id": "bls-2023-cpi-release-boundary"
+          }
+        },
+        "source_hashes": [
+          "499497984f419ab8df6f67a6740509729242cc048107d7cd63f087d5216b9467",
+          "5981cc5faf9306b5cf4f85865a981c31d5832987e9e1c4c602469581f2a49b55"
+        ],
+        "source_record_ids": [
+          "bls.cpi.archived_release:20230112:all_items_monthly_change_seasonally_adjusted",
+          "bls.cpi.archived_release:20230214:all_items_monthly_change_seasonally_adjusted"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "bls-cpi.timevault.release-query"
+        ]
+      },
+      {
+        "artifact_id": "bls-cpi.timevault.release-query",
+        "artifact_kind": "versioned-release-query",
+        "artifact_sha256": "16fc1ca55847ac278ea68418efe458d80ef5a7791d4e85281b94c4ad3d257a33",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 4
+        },
+        "limitations": [
+          "The lock contains two headline measures from each of two releases, not all tables.",
+          "Knowability uses each page's explicit 8:30 a.m. Eastern embargo end.",
+          "The February 2023 release documents annual weight updates and recalculation of the previous five years of seasonally adjusted indexes."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "12135dbbb0bb2194e6af2d45a5c0ecde93d5ebfe43070ba5521407f264ee05e3",
+              "8f12736ae0091929694e571be2f7a57dc47b32776a70b870d54f145438ee59d8"
+            ],
+            "attempted_records": 4,
+            "fact_hashes": [
+              "1c95290fba03a49b7cc29aeec6674ccb206584ee8ef77930225975ffe4eaf037",
+              "164b98f1cde5416046c31e53d21083b19453de303ad3beccf9851b33409f2a76",
+              "92e6b0d868dd24fd3ac36ef716ae83579bddc01bb34206c50a86731eeef94620",
+              "b9a563a48b59734f6eef491c3adb88bfe93a5e8b151085b94a10edebfd69fdf7"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 4
+          },
+          "decision_time": "2023-02-15T12:00:00Z",
+          "input_lock_sha256": "7d726e741ca9a4631be4f7ba49b70c1d8ac106853ab72af66c2ba6ae01c8cdda",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 4,
+            "fact_set_sha256": "882e1b2601ca5e80f92069724d78b70bf33f32a0ecd7cb812c5786dde24e7280",
+            "fact_versions": 4,
+            "generated_at": "2026-08-13T05:20:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2023-02-14T13:30:00Z",
+          "selected_record_ids": [
+            "bls.cpi.archived_release:20230112:all_items_12_month_change_not_seasonally_adjusted",
+            "bls.cpi.archived_release:20230112:all_items_monthly_change_seasonally_adjusted",
+            "bls.cpi.archived_release:20230214:all_items_12_month_change_not_seasonally_adjusted",
+            "bls.cpi.archived_release:20230214:all_items_monthly_change_seasonally_adjusted"
+          ]
+        },
+        "source_hashes": [
+          "499497984f419ab8df6f67a6740509729242cc048107d7cd63f087d5216b9467",
+          "5981cc5faf9306b5cf4f85865a981c31d5832987e9e1c4c602469581f2a49b55"
+        ],
+        "source_record_ids": [
+          "bls.cpi.archived_release:20230112:all_items_12_month_change_not_seasonally_adjusted",
+          "bls.cpi.archived_release:20230112:all_items_monthly_change_seasonally_adjusted",
+          "bls.cpi.archived_release:20230214:all_items_12_month_change_not_seasonally_adjusted",
+          "bls.cpi.archived_release:20230214:all_items_monthly_change_seasonally_adjusted"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "bls-cpi.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "46477dc4eeaeb0fabcf5f83a71ac63018ad78039ea0dea2e90684eeafe4c24b2",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 4,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "bls-cpi-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "5133cbf098a739bd0b67a1c3d43c59543ef5a3cd",
+            "completed_at": "2026-08-13T05:20:00Z",
+            "config_sha256": "925406c3fcafcbfa20b746f6b7468dd1667db5ab74038f62b8fb95b7b6202b06",
+            "decision_time": "2023-02-15T12:00:00Z",
+            "evaluation_end": "2023-03-23",
+            "evaluation_start": "2023-02-16",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "7d726e741ca9a4631be4f7ba49b70c1d8ac106853ab72af66c2ba6ae01c8cdda",
+            "max_input_available_at": "2023-02-14T13:30:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 6.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No March 14 release fact is present in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "79a172a36085ffbcaa7e92d2f6486b1a413fa51c46ab45e6679a0c41ae60a257",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "december-to-january-headline-difference": 6.0,
+              "two-release-range-width": 6.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 4,
+            "short_fraction": 0.0,
+            "training_end": "2023-02-13",
+            "trial_id": "bls-cpi-retrospective-range-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "e2afa9161e48803d8d8f625d67154c0d8319e1b430ddeeb8eb2865d22e02bf49",
+            "entry_hash": "e2afa9161e48803d8d8f625d67154c0d8319e1b430ddeeb8eb2865d22e02bf49",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "bls-cpi-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "bls-cpi-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "8b4c87aa8fe95ddca5b5be514204c1b3202f9cafd207167b4880d5e4f58e51e2",
+            "candidate_attempt_id": "bls-cpi-retrospective-attempt-1",
+            "decided_at": "2026-08-13T05:20:00Z",
+            "decision_id": "decision:bls-cpi-retrospective-range-screen:f267dec2c50b4b63a9535580",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 6.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 6.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "bls-cpi-retrospective-range-screen"
+          },
+          "input_lock_sha256": "7d726e741ca9a4631be4f7ba49b70c1d8ac106853ab72af66c2ba6ae01c8cdda",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "4995fea4289ecd3ef14eacf9eef987f17e2c513f0aafb0dcf1b3b5b7857bf2ca",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "f6b3c84064f8db1847652b1aa3533d7cf60dbfdc1b1c07d3fca7c7cdbfba93e9",
+            "entry_hash": "f6b3c84064f8db1847652b1aa3533d7cf60dbfdc1b1c07d3fca7c7cdbfba93e9",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "Monthly CPI-U headlines describe aggregate price-index changes, but two releases and one later outcome cannot establish predictive validity or identify inflation causes.",
+            "embargo_days": 0,
+            "expected_direction": "two-sided",
+            "holdout_end": "2023-03-23",
+            "holdout_start": "2023-02-16",
+            "hypothesis": "A retrospectively constructed two-release CPI monthly-change range qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-13T05:20:00Z",
+            "primary_metric": "two-release CPI monthly-change range width in tenths of a percent",
+            "purge_days": 2,
+            "trial_id": "bls-cpi-retrospective-range-screen"
+          }
+        },
+        "source_hashes": [
+          "499497984f419ab8df6f67a6740509729242cc048107d7cd63f087d5216b9467",
+          "5981cc5faf9306b5cf4f85865a981c31d5832987e9e1c4c602469581f2a49b55"
+        ],
+        "source_record_ids": [
+          "bls.cpi.archived_release:20230112:all_items_12_month_change_not_seasonally_adjusted",
+          "bls.cpi.archived_release:20230112:all_items_monthly_change_seasonally_adjusted",
+          "bls.cpi.archived_release:20230214:all_items_12_month_change_not_seasonally_adjusted",
+          "bls.cpi.archived_release:20230214:all_items_monthly_change_seasonally_adjusted"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "bls-cpi.shockcompiler.cpi-range",
+          "bls-cpi.timevault.release-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over four locked headline facts from two archived BLS Consumer Price Index releases available before the decision time. Reported monthly and 12-month changes remain reported; the next-release monthly-change range is a two-point arithmetic heuristic with no assigned probability; TrialCourt rejects retrospective promotion. The March 14 release is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, causal inflation model, policy recommendation, trading signal, production deployment, or external validation.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "bls-cpi.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no assigned probability or coverage guarantee.",
+        "claim_id": "claim-inferred-cpi-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The March 14 release was not used to set the interval.",
+          "Annual weight updates and seasonal recalculation limit comparability."
+        ],
+        "statement": "The next-release CPI monthly-change stress range uses endpoints of -0.1 and 0.5 percent, with the latest known value as the explicit persistence baseline.",
+        "support_artifact_ids": [
+          "bls-cpi.shockcompiler.cpi-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external forecast review.",
+        "claim_id": "claim-inferred-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective two-release CPI-range attempt.",
+        "support_artifact_ids": [
+          "bls-cpi.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are aggregate BLS release-snapshot facts, not micro price-quote records.",
+        "claim_id": "claim-reported-cpi-headlines",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes only two headline measures from each of two releases."
+        ],
+        "statement": "The locked BLS releases report seasonally adjusted CPI-U all-items monthly changes of -0.1 percent for December 2022 and 0.5 percent for January 2023, alongside not-seasonally-adjusted 12-month changes of 6.5 and 6.4 percent.",
+        "support_artifact_ids": [
+          "bls-cpi.timevault.release-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not orders, capacity, capital, or returns.",
+        "claim_id": "claim-simulated-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "bls-cpi.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "5133cbf098a739bd0b67a1c3d43c59543ef5a3cd",
+    "compressed_input_bytes": 1803,
+    "created_at": "2026-08-13T05:20:00Z",
+    "decision_time": "2023-02-15T12:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 4,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves four minimal headline facts from the January 12 and February 14, 2023 archived BLS Consumer Price Index releases that were explicitly available before the replay decision time. It excludes the March 14 release, later revised values, all detailed tables, micro price-quote or item-level records, a probability distribution, forecast, calibrated interval, causal attribution, or investment and policy performance. The February release documents annual weight updates and recalculation of the previous five years of seasonally adjusted indexes, limiting cross-release comparability.",
+      "The CPI monthly-change endpoints are only the minimum and maximum of two known headline values; they have no probability or coverage guarantee.",
+      "The March 14 BLS release is excluded from all decision inputs and artifacts.",
+      "Annual weight updates and seasonal recalculation limit comparability across releases.",
+      "Aggregate headline values do not identify households, goods, or causal mechanisms.",
+      "No market network, security, order, portfolio, allocation, or return is represented.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "bls-2023-cpi-release-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "bls-2023-cpi-release-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "BLS CPI-U all-items release boundary, early 2023"
+  },
+  "topological_artifact_ids": [
+    "bls-cpi.timevault.release-query",
+    "bls-cpi.shockcompiler.cpi-range",
+    "bls-cpi.trialcourt.retrospective-gate",
+    "bls-cpi.replaystudio.render"
+  ],
+  "trace_id": "trace:8634250349fc349378cf09f74ae129613d54fdd87257232ccd5547b62f1b1bb6"
+}
