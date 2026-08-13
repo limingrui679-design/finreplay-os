@@ -86,6 +86,15 @@ scenario locks retain only minimal balances and source metadata. Date-only relea
 knowable at 00:00 UTC two calendar days later. This supporting connector is also excluded from the
 formal 30-adapter inventory.
 
+`bls.employment_situation.archived_release` retrieves one explicitly dated archived Employment
+Situation page and strictly parses its embargo statement, report-period heading, and first headline
+sentence. Three releases used by the payroll boundary scenario are verified under
+`verification/supporting/bls-employment/`; their six facts are versioned release snapshots. The
+stated 8:30 a.m. Eastern embargo end is converted with `America/New_York`, so no arbitrary date lag
+is introduced. Later revised series values do not overwrite these archived facts. The January 2023
+release documents annual benchmarking and seasonal-factor updates, so adjacent release changes are
+not represented as a calibrated stationary sample. This connector is excluded from the formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

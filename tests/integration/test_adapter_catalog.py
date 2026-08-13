@@ -10,6 +10,7 @@ from finreplay.adapters import (
     NYFED_DATASET_SPECS,
     ALFREDGDPVintageAdapter,
     BLSCPIUAllItemsAdapter,
+    BLSEmploymentSituationArchiveAdapter,
     FDICFinancialsAdapter,
     FederalReserveH41BTFPAdapter,
     SECCompanyFactsAdapter,
@@ -72,5 +73,23 @@ def test_h41_is_a_verified_supporting_source_not_a_thirty_first_counted_adapter(
     assert (
         supporting["adapters"][0]["adapter_id"]
         == FederalReserveH41BTFPAdapter.metadata.adapter_id
+    )
+    assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()
+
+
+def test_bls_employment_is_supporting_source_not_a_thirty_first_counted_adapter() -> None:
+    repository = Path(__file__).resolve().parents[2]
+    formal = json.loads((repository / "verification/live/latest-summary.json").read_text())
+    supporting_root = repository / "verification/supporting/bls-employment"
+    supporting = json.loads((supporting_root / "latest-summary.json").read_text())
+
+    formal_ids = {item["adapter_id"] for item in formal["adapters"]}
+    assert BLSEmploymentSituationArchiveAdapter.metadata.adapter_id not in formal_ids
+    assert supporting["verified_adapter_count"] == 1
+    assert supporting["historical_replay_eligible_count"] == 1
+    assert supporting["latest_only_count"] == 0
+    assert (
+        supporting["adapters"][0]["adapter_id"]
+        == BLSEmploymentSituationArchiveAdapter.metadata.adapter_id
     )
     assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()
