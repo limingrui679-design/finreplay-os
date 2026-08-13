@@ -1,0 +1,66 @@
+{
+  "artifact_sha256": {
+    "replaystudio": "d22812b64149d675539d732c036ee0b020f3e2531be59b016955b639dd905e27",
+    "shockcompiler": "98d0f50ab8d1bda2e5d16a5d852a1c19095d29137d2914ea172a6ae8bd830da8",
+    "timevault": "8b854d838e7ac7c246eb935f0561467caba35bdec6495922f825800ba53cc003",
+    "trialcourt": "5fcb3fe0250865006cfee7f37ce14024dec4082fd71464919212d69325b61945"
+  },
+  "assertions": {
+    "all_artifacts_reproduced": true,
+    "byte_identical_directory_rebuilds": true,
+    "byte_identical_zip_rebuilds": true,
+    "compiled_pack_matches_rebuild": true,
+    "cross_engine_trace_is_stable": true,
+    "distinct_locked_inputs_equal_four": true,
+    "future_event_excluded_from_bound_construction": true,
+    "historical_source_sets_eligible": true,
+    "naive_baseline_is_latest_known_upper_target_persistence": true,
+    "no_probability_is_assigned": true,
+    "only_relevant_engines_present": true,
+    "post_decision_event_is_disjoint": true,
+    "post_decision_event_timing_is_later": true,
+    "reported_post_event_upper_target_inside_declared_range": true,
+    "simulation_remains_visible": true,
+    "trialcourt_rejects_retrospective_attempt": true
+  },
+  "claim_boundary": "This receipt proves two fresh local executions of the four relevant engines rebuild the committed directory and deterministic ZIP bytes from four locked pre-decision FOMC target facts. It verifies the separately locked May 3 upper target is disjoint and, as an evaluation only, falls inside the previously declared no-probability range. It does not prove forecast skill, calibrated coverage, monetary-policy correctness or causal effects, policy effectiveness, deployment, external review, or user impact.",
+  "code_commit": "332430dd1a22b9a1874375549f7d67103cf67149",
+  "event_lock_sha256": "3d3485cbc62edfff2e61812a1245293541c1e85d5c67d9d0b1a6e0f03d3b1799",
+  "file_sha256": {
+    "README.md": "c6f45c42ff036c2e22a9fa7ce663e35d66f6283a6968dd382314af6efdb038f8",
+    "assets/styles.css": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677",
+    "checksums.sha256": "12a68c74bd051bbdfa9de29105b16ed01668c96ef527a4246793ea02b575648d",
+    "index.html": "a9150835d7860fc1161f3942bf5d2420e85aa34a87b24922349a17a0da2ec7c2",
+    "manifest.json": "bc3f89ea03a5d1bea980bac20d347c03e1241ff6ec8034aac39350a76bdc13fa",
+    "report.json": "6cc11ea744233ee346ea2b66b50c8449c5cd1f21328f49bc861f97aba165597d"
+  },
+  "input_lock_sha256": "555fd627dcdee673d11db6acca889900cba51cfb15e7aa16fe645ac7f137f61f",
+  "pack_receipt_sha256": "df00b28e4468b332bf91b04b346625820891d0b32a3ae698bb1abedba8f49b2c",
+  "pack_sha256": "4421dbfebff7e2e3e66124090d27cd6b9031bcb89c9b8726cf28d8fdf358f7e5",
+  "post_event_evaluation": {
+    "declared_lower_upper_target_basis_points": 500,
+    "declared_upper_upper_target_basis_points": 525,
+    "latest_known_persistence_baseline_basis_points": 500,
+    "probability_assigned": false,
+    "reported_may_upper_target_basis_points": 525,
+    "used_as_decision_input": false
+  },
+  "receipt_sha256": "854882db7582e46e75be9b8ba698a9301c63078546ab778d696b8f933214a2bf",
+  "runtime": {
+    "duckdb": "1.5.5",
+    "finreplay": "0.1.0a0",
+    "machine": "arm64",
+    "measured_at": "2026-08-13T05:02:12.118868+00:00",
+    "numpy": "2.2.6",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "pydantic": "2.13.4",
+    "python": "3.12.13",
+    "runner_commit": "61409d4cf37379594e20d2ff00294288d37e15cb",
+    "runner_dirty": true,
+    "scipy": "1.18.0",
+    "two_rebuild_elapsed_seconds": 0.36387279198970646
+  },
+  "schema_version": "1.0.0",
+  "semantic_sha256": "ef35ee6eda912c0a2210207e76643aa935363667de8ffa937f80c22aed400a98",
+  "trace_id": "trace:4d1e9d9df61c5baffffb8bced078829ec4ba1064f07e7c65f68ba9a1368f7df7"
+}
