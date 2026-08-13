@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Seven actual engine implementations ran over a locked seven-record SEC fact set. Filer-reported balance-sheet values remain reported; ratios, network propagation, and the TrialCourt disposition are model-derived; execution and capital-allocation inputs are explicitly simulated research boundaries. This is a retrospective historical boundary replay, not a live 2023 system, causal failure attribution, trading performance, investment advice, client work, production deployment, or external validation. Runtime is excluded from deterministic pack identity and is recorded separately by the replay verifier.",
+  "files": [
+    {
+      "bytes": 1352,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "b432880142737536d58f960b72d15fe19eafce4a7acdf36b75ec505d97bb484d"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "9a032de77d29d748f1a0cb16a8eaece9c0a1cb590344afefc614ba1e9258444e"
+    },
+    {
+      "bytes": 56177,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "0f1b372aed6fdad76637570741ee7a3487c5aae8fbd7f5d11eef3242ec8cb98d"
+    },
+    {
+      "bytes": 54037,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "73ab0e373abe1136b52c4eefb5c6f272d636fd6398ba9a0346b226a691503803"
+    }
+  ],
+  "pack_sha256": "c62c22dcbd15e29592a10811117a565d2bf9bee34877a4fbcbf24994383efd35",
+  "receipt_sha256": "e90d186ddddf730e5d4cea029a713d605fca119ef5fc3126e4aaab796d3d239b",
+  "replay_id": "svb-2023-seven-engine-v1",
+  "replay_manifest": {
+    "code_commit": "6a412b415dc22789feee3e96b03ed26f8589dce3",
+    "compressed_input_bytes": 2466,
+    "created_at": "2026-08-13T02:00:00Z",
+    "derived_records": 13,
+    "distinct_input_records": 7,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "8959db8334f2b1e13572eec536ca8c049aabc0bf95a673b3f13e4eca566c83cd",
+    "output_manifest_sha256": "41c643e27b91c1f09c338fd768df223beab723ca5dad0922ccc69dd8c2cbfd49",
+    "replay_id": "svb-2023-seven-engine-v1",
+    "scenario_id": "svb-2023-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "73ab0e373abe1136b52c4eefb5c6f272d636fd6398ba9a0346b226a691503803",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:7c6888e9ecebd390acb2f7fecbcde816d7e50906632483215244acf0f17462bf"
+}

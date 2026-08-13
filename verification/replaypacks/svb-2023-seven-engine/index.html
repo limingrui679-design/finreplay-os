@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self'; img-src 'self' data:;
+                 base-uri 'none'; form-action 'none'">
+  <title>SVB 2023 point-in-time boundary replay · FinReplay OS</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to report</a>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">FinReplay OS · evidence-labelled replay</p>
+      <h1>SVB 2023 point-in-time boundary replay</h1>
+      <p class="lede">Seven actual engine implementations ran over a locked seven-record SEC fact set. Filer-reported balance-sheet values remain reported; ratios, network propagation, and the TrialCourt disposition are model-derived; execution and capital-allocation inputs are explicitly simulated research boundaries. This is a retrospective historical boundary replay, not a live 2023 system, causal failure attribution, trading performance, investment advice, client work, production deployment, or external validation. Runtime is excluded from deterministic pack identity and is recorded separately by the replay verifier.</p>
+    </div>
+    <div class="identity" aria-label="Replay identity">
+      <span>Replay <code>svb-2023-seven-engine-v1</code></span>
+      <span>Trace <code>trace:7c6888e9ecebd390acb2f7fecbcde816d7e50906632483215244acf0f17462bf</code></span>
+    </div>
+  </header>
+  <nav aria-label="Report sections">
+    <a href="#summary">Summary</a><a href="#claims">Claims</a>
+    <a href="#artifacts">Artifacts</a><a href="#limitations">Limitations</a>
+  </nav>
+  <main id="main">
+    <section id="summary" aria-labelledby="summary-title">
+      <h2 id="summary-title">Replay summary</h2>
+      <div class="boundary" role="note" aria-label="Truth boundary">
+        <strong>Truth boundary</strong>
+        <span>Contains simulated inputs. All represented source sets are historical-replay eligible.</span>
+        <span>Historical replay is not live trading;
+        modeled output is not realized performance.</span>
+      </div>
+      <dl class="facts">
+        <div><dt>Scenario</dt><dd>svb-2023-boundary
+        v1.0.0</dd></div>
+        <div><dt>Mode</dt><dd>bounded_reconstruction</dd></div>
+        <div><dt>Decision time</dt>
+        <dd>2023-03-08T18:00:00Z</dd></div>
+        <div><dt>Artifact status</dt><dd>reproduced</dd></div>
+        <div><dt>Engines represented</dt><dd>7 / 7</dd></div>
+        <div><dt>Pack hash</dt><dd><code>c62c22dcbd15e29592a10811117a565d2bf9bee34877a4fbcbf24994383efd35</code></dd></div>
+      </dl>
+      <h3>Evidence inventory</h3>
+      <ul class="metrics" aria-label="Evidence counts"><li class="metric"><span class="metric-value">1</span><span>extracted</span></li><li class="metric"><span class="metric-value">4</span><span>inferred</span></li><li class="metric"><span class="metric-value">16</span><span>reported</span></li><li class="metric"><span class="metric-value">3</span><span>simulated</span></li></ul>
+      <p class="downloads"><a href="report.json">Machine-readable report</a>
+      <a href="checksums.sha256">Portable checksums</a>
+      <a href="README.md">Reproduction notes</a></p>
+    </section>
+    <section id="claims" aria-labelledby="claims-title">
+      <h2 id="claims-title">Claim traceability</h2>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Claim traceability table">
+        <table><caption>Each statement retains its evidence label,
+        supporting artifacts and boundary.</caption>
+          <thead><tr><th scope="col">Claim</th><th scope="col">Statement</th>
+          <th scope="col">Label</th><th scope="col">Support</th>
+          <th scope="col">Boundary</th></tr></thead>
+          <tbody><tr><th scope="row"><code>claim-extracted-seven-engine-pack</code></th><td>The static ReplayPack contains one content-addressed artifact from each engine.</td><td><span class="badge evidence-extracted">EXTRACTED</span></td><td><code>svb.replaystudio.render</code></td><td>Artifact presence proves integration structure, not economic correctness.</td></tr><tr><th scope="row"><code>claim-inferred-htm-bound</code></th><td>The modeled HTM loss-realization interval is 0 to 0.165996912195, the arithmetic ratio of two reported filing facts.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>svb.shockcompiler.htm-bound</code></td><td>The upper endpoint is an accounting-derived bound, not realized loss.</td></tr><tr><th scope="row"><code>claim-inferred-trial-rejection</code></th><td>TrialCourt rejected the retrospective attempt after retaining all six attack findings.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>svb.trialcourt.retrospective-gate</code></td><td>Rejection is an internal method result, not external strategy review.</td></tr><tr><th scope="row"><code>claim-reported-balance-sheet</code></th><td>The locked SEC filing facts report assets of $211,793,000,000, deposits of $173,109,000,000, HTM securities of $91,327,000,000, and HTM unrecognized loss of $15,160,000,000 for the selected 2022 year-end frame.</td><td><span class="badge evidence-reported">REPORTED</span></td><td><code>svb.timevault.query</code></td><td>These are filer-reported XBRL facts from the locked accession, not regulator findings.</td></tr><tr><th scope="row"><code>claim-simulated-decision-boundary</code></th><td>The normalized reference-only execution envelope and robust allocation are explicit simulations; the allocator retained the all-cash model solution.</td><td><span class="badge evidence-simulated">SIMULATED</span></td><td><code>svb.capitalallocator.robust-boundary</code><br><code>svb.executionlab.normalized-envelope</code></td><td>This is neither an executable order nor investment advice.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section id="artifacts" aria-labelledby="artifacts-title">
+      <h2 id="artifacts-title">Engine artifacts</h2><article class="artifact">
+  <header><div><p class="eyebrow">capitalallocator</p>
+  <h3><code>svb.capitalallocator.robust-boundary</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1, simulated: 1</p>
+  <p><strong>Artifact hash:</strong> <code>0a28ceea1cc0dd8ade772aaa81b2f03334175774f9f3486cc337499579fe5ec7</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682</code></li><li><code>sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2</code></li></ul>
+    <h4>Limitations</h4><ul><li>The all-cash result follows declared non-positive return bounds and is not a recommendation.</li><li>Execution capacity and costs are simulated, while accounting ratios are inferred from reported facts.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;problem&quot;: {
+    &quot;assets&quot;: [
+      {
+        &quot;asset_id&quot;: &quot;asset:svb-htm-model-exposure&quot;,
+        &quot;available_at&quot;: &quot;2023-03-08T18:00:00Z&quot;,
+        &quot;capacity_usd&quot;: 1141587500.0,
+        &quot;current_weight&quot;: 0.0,
+        &quot;derivation&quot;: &quot;Return lower bound is the negative MarketTwin issuer-loss envelope; the upper bound is zero, and capacity/costs come from the simulated ExecutionLab boundary.&quot;,
+        &quot;evidence_class&quot;: &quot;inferred&quot;,
+        &quot;expected_return_lower&quot;: -0.9472631842039491,
+        &quot;expected_return_upper&quot;: 0.0,
+        &quot;label&quot;: &quot;Synthetic SVB HTM model exposure&quot;,
+        &quot;limitations&quot;: [
+          &quot;This synthetic model exposure is not a listed security, forecast, or recommendation.&quot;
+        ],
+        &quot;max_weight&quot;: 0.11415875,
+        &quot;min_weight&quot;: 0.0,
+        &quot;source_record_ids&quot;: [
+          &quot;sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682&quot;,
+          &quot;sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2&quot;
+        ],
+        &quot;sources&quot;: [
+          {
+            &quot;license_class&quot;: &quot;redistributable&quot;,
+            &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+            &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;,
+            &quot;sha256&quot;: &quot;2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31&quot;,
+            &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+            &quot;source_version&quot;: &quot;CIK0000719739:2b1278480cfaa1439509&quot;,
+            &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+            &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0000719739.json&quot;,
+            &quot;vintage_as_of&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;
+          }
+        ],
+        &quot;transaction_cost_bps&quot;: 351.0000000000002
+      }
+    ],
+    &quot;cash_max_weight&quot;: 1.0,
+    &quot;cash_min_weight&quot;: 0.0,
+    &quot;cash_return&quot;: 0.0,
+    &quot;current_cash_weight&quot;: 1.0,
+    &quot;decision_time&quot;: &quot;2023-03-08T18:00:00Z&quot;,
+    &quot;limitations&quot;: [
+      &quot;Research decision boundary only; no live capital, security, order, or investment advice.&quot;
+    ],
+    &quot;linear_constraints&quot;: [],
+    &quot;loss_aversion&quot;: 1.0,
+    &quot;max_one_way_turnover&quot;: 1.0,
+    &quot;max_worst_case_loss&quot;: null,
+    &quot;problem_id&quot;: &quot;problem:svb-boundary-allocation&quot;,
+    &quot;risk_scenarios&quot;: [
+      {
+        &quot;available_at&quot;: &quot;2023-03-08T18:00:00Z&quot;,
+        &quot;derivation&quot;: &quot;Scenario loss is the upper endpoint of reported unrecognized HTM loss divided by reported HTM carrying value.&quot;,
+        &quot;evidence_class&quot;: &quot;inferred&quot;,
+        &quot;limitations&quot;: [
+          &quot;Accounting bound; not a probability-weighted market forecast.&quot;
+        ],
+        &quot;loss_fraction_by_asset&quot;: {
+          &quot;asset:svb-htm-model-exposure&quot;: 0.16599691219464124
+        },
+        &quot;scenario_id&quot;: &quot;scenario:svb-htm-upper-bound&quot;,
+        &quot;source_record_ids&quot;: [
+          &quot;sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682&quot;,
+          &quot;sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2&quot;
+        ],
+        &quot;sources&quot;: [
+          {
+            &quot;license_class&quot;: &quot;redistributable&quot;,
+            &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+            &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;,
+            &quot;sha256&quot;: &quot;2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31&quot;,
+            &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+            &quot;source_version&quot;: &quot;CIK0000719739:2b1278480cfaa1439509&quot;,
+            &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+            &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0000719739.json&quot;,
+            &quot;vintage_as_of&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;
+          }
+        ]
+      }
+    ],
+    &quot;total_capital_usd&quot;: 10000000000.0,
+    &quot;uncertainty_aversion&quot;: 0.25
+  },
+  &quot;result&quot;: {
+    &quot;binding_constraints&quot;: [
+      &quot;asset:asset:svb-htm-model-exposure:min&quot;,
+      &quot;budget&quot;,
+      &quot;cash:max&quot;
+    ],
+    &quot;cash_weight&quot;: 1.0,
+    &quot;constraint_slacks&quot;: {
+      &quot;asset:asset:svb-htm-model-exposure:max&quot;: 0.11415875,
+      &quot;asset:asset:svb-htm-model-exposure:min&quot;: 0.0,
+      &quot;budget&quot;: 1e-08,
+      &quot;cash:max&quot;: 0.0,
+      &quot;cash:min&quot;: 1.0,
+      &quot;turnover:max&quot;: 1.0
+    },
+    &quot;expected_return_lower&quot;: 0.0,
+    &quot;expected_return_upper&quot;: 0.0,
+    &quot;infeasibility_reasons&quot;: [],
+    &quot;input_sha256&quot;: &quot;e8f78b31a3316fffb211cdef25695eb94d4be2892947b1ccfc67d2ca0ebea649&quot;,
+    &quot;limitations&quot;: [
+      &quot;Research decision boundary only; no live capital, security, order, or investment advice.&quot;,
+      &quot;The result is a model allocation under declared intervals, scenarios, costs, constraints and capital. It is not an order, realized return, or fiduciary advice.&quot;
+    ],
+    &quot;one_way_turnover&quot;: 0.0,
+    &quot;problem_id&quot;: &quot;problem:svb-boundary-allocation&quot;,
+    &quot;result_sha256&quot;: &quot;c48495573bbeac697cfa123c5437212941867f7cf0f79dbc8faac255917274cb&quot;,
+    &quot;robust_utility&quot;: 0.0,
+    &quot;solver_iterations&quot;: 0,
+    &quot;solver_message&quot;: &quot;Optimization terminated successfully. (HiGHS Status 7: Optimal)&quot;,
+    &quot;solver_status&quot;: 0,
+    &quot;status&quot;: &quot;optimal&quot;,
+    &quot;transaction_cost_fraction&quot;: 0.0,
+    &quot;uncertainty_penalty&quot;: 0.0,
+    &quot;weights&quot;: {
+      &quot;asset:svb-htm-model-exposure&quot;: 0.0
+    },
+    &quot;worst_case_loss&quot;: 0.0,
+    &quot;worst_scenario_ids&quot;: [
+      &quot;scenario:svb-htm-upper-bound&quot;
+    ]
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">executionlab</p>
+  <h3><code>svb.executionlab.normalized-envelope</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> simulated: 1</p>
+  <p><strong>Artifact hash:</strong> <code>b52f283865bbe652538745caf45aef57e28f9430875a891f40324cc9548a69cd</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li>None declared</li></ul>
+    <h4>Limitations</h4><ul><li>No historical quote, trade, order-book, venue, or volume evidence is represented.</li><li>The envelope is a normalized simulated capacity/cost boundary, not an executable trade.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;envelope&quot;: {
+    &quot;arrival_at&quot;: &quot;2023-03-08T18:00:01Z&quot;,
+    &quot;assumptions&quot;: {
+      &quot;borrow_bps_annual&quot;: 100.0,
+      &quot;capacity_basis&quot;: &quot;estimated_daily_volume_executable_seconds&quot;,
+      &quot;commission_bps&quot;: 1.0,
+      &quot;fallback_session_fraction&quot;: 0.25,
+      &quot;fallback_trading_session_seconds&quot;: 23400,
+      &quot;half_spread_lower_bps&quot;: 10.0,
+      &quot;half_spread_upper_bps&quot;: 100.0,
+      &quot;impact_lower_bps&quot;: 25.0,
+      &quot;impact_upper_bps&quot;: 250.0,
+      &quot;max_participation_rate&quot;: 0.05,
+      &quot;model_half_spread_bps&quot;: 10.0,
+      &quot;model_market_impact_bps&quot;: 25.0,
+      &quot;observation_overlap_fraction&quot;: 0.9999537015602574,
+      &quot;observation_overlap_seconds&quot;: 21598.0
+    },
+    &quot;capacity_shares&quot;: 1141587500.0,
+    &quot;decision_at&quot;: &quot;2023-03-08T18:00:00Z&quot;,
+    &quot;effective_price_lower&quot;: 0.9649,
+    &quot;effective_price_upper&quot;: 0.9989,
+    &quot;envelope_sha256&quot;: &quot;ed6eca122a9d08f20822d90ade8b07785d20ef3a1493070d8ec4d6ae8f4ea7c4&quot;,
+    &quot;evaluated_at&quot;: &quot;2023-03-08T23:59:59Z&quot;,
+    &quot;evidence_class&quot;: &quot;simulated&quot;,
+    &quot;expires_at&quot;: &quot;2023-03-08T23:59:59Z&quot;,
+    &quot;fill_quantity_lower&quot;: 0.0,
+    &quot;fill_quantity_upper&quot;: 1141587500.0,
+    &quot;instrument_id&quot;: &quot;synthetic:svb-htm-usd-unit&quot;,
+    &quot;kind&quot;: &quot;market&quot;,
+    &quot;limit_price&quot;: null,
+    &quot;limitations&quot;: [
+      &quot;One synthetic unit equals one reported carrying-value dollar; this is not a security quote.&quot;,
+      &quot;Estimated daily volume equals the portfolio carrying value solely as a declared stress normalization.&quot;,
+      &quot;The envelope is simulated from market evidence and assumptions; it is not a broker fill, realized P&amp;L, or proof of executable live capacity.&quot;,
+      &quot;The guaranteed fill lower bound is zero because no broker execution confirmation was supplied; modeled market or queue evidence only bounds possible capacity.&quot;,
+      &quot;Borrow cost is retained as a policy assumption but is not applied to this order because order side alone does not prove a newly opened short position or its holding period.&quot;,
+      &quot;The source set does not establish a point-in-time historical replay: it is latest-only, simulated, or lacks an upstream source receipt.&quot;
+    ],
+    &quot;modeled_capacity_lower_shares&quot;: 0.0,
+    &quot;observation_available_at&quot;: &quot;2023-03-08T18:00:00Z&quot;,
+    &quot;observation_id&quot;: &quot;svb:simulated:reference-only&quot;,
+    &quot;observation_interval_end&quot;: &quot;2023-03-08T23:59:59Z&quot;,
+    &quot;observation_interval_start&quot;: &quot;2023-03-08T18:00:00Z&quot;,
+    &quot;order_id&quot;: &quot;svb-simulated-htm-liquidation&quot;,
+    &quot;precision&quot;: &quot;reference_only&quot;,
+    &quot;queue_evidence_class&quot;: null,
+    &quot;queue_observation_id&quot;: null,
+    &quot;reference_price&quot;: 1.0,
+    &quot;requested_quantity&quot;: 15160000000.0,
+    &quot;side&quot;: &quot;sell&quot;,
+    &quot;slippage_bps_lower&quot;: 10.999999999999899,
+    &quot;slippage_bps_upper&quot;: 351.0000000000002,
+    &quot;source_hashes&quot;: [],
+    &quot;source_record_ids&quot;: [],
+    &quot;source_set_historical_replay_eligible&quot;: false,
+    &quot;status&quot;: &quot;bounded&quot;,
+    &quot;total_cost_usd_lower&quot;: 0.0,
+    &quot;total_cost_usd_upper&quot;: 40069721.25000002
+  },
+  &quot;observation&quot;: {
+    &quot;ask&quot;: null,
+    &quot;ask_depth&quot;: null,
+    &quot;available_at&quot;: &quot;2023-03-08T18:00:00Z&quot;,
+    &quot;bar_volume&quot;: null,
+    &quot;bid&quot;: null,
+    &quot;bid_depth&quot;: null,
+    &quot;close_price&quot;: null,
+    &quot;estimated_daily_volume&quot;: 91327000000.0,
+    &quot;evidence_class&quot;: &quot;simulated&quot;,
+    &quot;high_price&quot;: null,
+    &quot;instrument_id&quot;: &quot;synthetic:svb-htm-usd-unit&quot;,
+    &quot;interval_end&quot;: &quot;2023-03-08T23:59:59Z&quot;,
+    &quot;interval_start&quot;: &quot;2023-03-08T18:00:00Z&quot;,
+    &quot;limitations&quot;: [
+      &quot;One synthetic unit equals one reported carrying-value dollar; this is not a security quote.&quot;,
+      &quot;Estimated daily volume equals the portfolio carrying value solely as a declared stress normalization.&quot;
+    ],
+    &quot;low_price&quot;: null,
+    &quot;observation_id&quot;: &quot;svb:simulated:reference-only&quot;,
+    &quot;open_price&quot;: null,
+    &quot;precision&quot;: &quot;reference_only&quot;,
+    &quot;recent_volume&quot;: null,
+    &quot;reference_price&quot;: 1.0,
+    &quot;source_record_ids&quot;: [],
+    &quot;sources&quot;: []
+  },
+  &quot;order&quot;: {
+    &quot;decision_at&quot;: &quot;2023-03-08T18:00:00Z&quot;,
+    &quot;instrument_id&quot;: &quot;synthetic:svb-htm-usd-unit&quot;,
+    &quot;kind&quot;: &quot;market&quot;,
+    &quot;latency_ms&quot;: 1000,
+    &quot;limit_price&quot;: null,
+    &quot;order_id&quot;: &quot;svb-simulated-htm-liquidation&quot;,
+    &quot;quantity&quot;: 15160000000.0,
+    &quot;side&quot;: &quot;sell&quot;,
+    &quot;time_in_force_ms&quot;: 21598000
+  },
+  &quot;policy&quot;: {
+    &quot;cost_model&quot;: {
+      &quot;borrow_bps_annual&quot;: 100.0,
+      &quot;commission_bps&quot;: 1.0,
+      &quot;half_spread_bps&quot;: 10.0,
+      &quot;market_impact_bps&quot;: 25.0,
+      &quot;max_participation_rate&quot;: 0.05
+    },
+    &quot;fallback_daily_capacity_fraction&quot;: 0.25,
+    &quot;fallback_half_spread_upper_bps&quot;: 100.0,
+    &quot;fallback_impact_upper_bps&quot;: 250.0,
+    &quot;fallback_trading_session_seconds&quot;: 23400,
+    &quot;impact_lower_multiplier&quot;: 0.5,
+    &quot;impact_upper_multiplier&quot;: 2.0
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">markettwin</p>
+  <h3><code>svb.markettwin.loss-envelope</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1, reported: 5</p>
+  <p><strong>Artifact hash:</strong> <code>b0e1a4c0697ff55bb882feddb18c00f278e34fc6825ca8f27db8628e1f0ed901</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682</code></li><li><code>sec.xbrl.companyfacts:0000719739:318feb9e5559f8e51b2af8a07c0e515f53e34b59dab02b5f7ea0cbdbdb69abe7</code></li><li><code>sec.xbrl.companyfacts:0000719739:4a919079a99119cd6d08ff11d9108eac8a68140e32cff60e92eadc7eae2d9f50</code></li><li><code>sec.xbrl.companyfacts:0000719739:8bdbe98d21df87a35bf1f36f05ddfefae946314aeadeccb7dffe676ca905b87b</code></li><li><code>sec.xbrl.companyfacts:0000719739:a85813dd2278f8e487608e48d7f6d6bb051869ef3bfafa53fe935f8326137184</code></li><li><code>sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2</code></li><li><code>sec.xbrl.companyfacts:0000719739:ff4c973cc025f892f47bef7c44879aa08180b1f09121022017566ea4e787fc90</code></li></ul>
+    <h4>Limitations</h4><ul><li>The three-node two-edge graph includes only balance-sheet relationships directly represented by the locked facts.</li><li>Loss propagation is a mechanical bounded channel, not causal failure attribution.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;append_receipt&quot;: {
+    &quot;attempted_edges&quot;: 2,
+    &quot;attempted_nodes&quot;: 3,
+    &quot;inserted_edges&quot;: 2,
+    &quot;inserted_nodes&quot;: 3
+  },
+  &quot;contagion&quot;: {
+    &quot;converged&quot;: true,
+    &quot;initial_shocks&quot;: {
+      &quot;security:svb-htm-portfolio&quot;: 0.16599691219464124
+    },
+    &quot;limitations&quot;: [
+      &quot;Exposure bounds are propagated through a monotone linear loss channel capped at total node loss; this is a stress envelope, not a causal forecast.&quot;,
+      &quot;Behavioral responses, fire-sale price formation, netting, collateral and policy interventions require separately evidenced scenario modules.&quot;
+    ],
+    &quot;lower_loss_fraction&quot;: {
+      &quot;issuer:svb-financial-group&quot;: 0.9472631842039491,
+      &quot;security:svb-afs-portfolio&quot;: 0.0,
+      &quot;security:svb-htm-portfolio&quot;: 0.16599691219464124
+    },
+    &quot;rounds&quot;: 2,
+    &quot;snapshot_sha256&quot;: &quot;facb22d3691e62ea0ad2b1c1b65a5b3a59da7f1209028d91e88f364dc9892895&quot;,
+    &quot;tolerance&quot;: 1e-10,
+    &quot;upper_loss_fraction&quot;: {
+      &quot;issuer:svb-financial-group&quot;: 0.9472631842039491,
+      &quot;security:svb-afs-portfolio&quot;: 0.0,
+      &quot;security:svb-htm-portfolio&quot;: 0.16599691219464124
+    }
+  },
+  &quot;manifest&quot;: {
+    &quot;distinct_edges&quot;: 2,
+    &quot;distinct_nodes&quot;: 3,
+    &quot;edge_versions&quot;: 2,
+    &quot;node_versions&quot;: 3,
+    &quot;object_set_sha256&quot;: &quot;bc44daa3464b6cadd9fceaa517a614a0189ff5154d51df1b9b56e5a639c9b890&quot;
+  },
+  &quot;snapshot&quot;: {
+    &quot;decision_time&quot;: &quot;2023-03-08T18:00:00Z&quot;,
+    &quot;edges&quot;: [
+      {
+        &quot;attributes&quot;: {},
+        &quot;confidence&quot;: 1.0,
+        &quot;edge_id&quot;: &quot;svb-issuer-holds-afs&quot;,
+        &quot;evidence_class&quot;: &quot;reported&quot;,
+        &quot;exposure_lower_usd&quot;: 26069000000.0,
+        &quot;exposure_upper_usd&quot;: 26069000000.0,
+        &quot;relation&quot;: &quot;reported portfolio exposure&quot;,
+        &quot;source&quot;: {
+          &quot;license_class&quot;: &quot;redistributable&quot;,
+          &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+          &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+          &quot;retrieved_at&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;,
+          &quot;sha256&quot;: &quot;2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31&quot;,
+          &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+          &quot;source_version&quot;: &quot;CIK0000719739:2b1278480cfaa1439509&quot;,
+          &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+          &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0000719739.json&quot;,
+          &quot;vintage_as_of&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;
+        },
+        &quot;source_node&quot;: &quot;security:svb-afs-portfolio&quot;,
+        &quot;target_node&quot;: &quot;issuer:svb-financial-group&quot;,
+        &quot;temporal&quot;: {
+          &quot;available_at&quot;: &quot;2023-02-24T16:43:08Z&quot;,
+          &quot;valid_from&quot;: &quot;2022-12-31T00:00:00Z&quot;,
+          &quot;valid_to&quot;: null
+        }
+      },
+      {
+        &quot;attributes&quot;: {},
+        &quot;confidence&quot;: 1.0,
+        &quot;edge_id&quot;: &quot;svb-issuer-holds-htm&quot;,
+        &quot;evidence_class&quot;: &quot;reported&quot;,
+        &quot;exposure_lower_usd&quot;: 91327000000.0,
+        &quot;exposure_upper_usd&quot;: 91327000000.0,
+        &quot;relation&quot;: &quot;reported portfolio exposure&quot;,
+        &quot;source&quot;: {
+          &quot;license_class&quot;: &quot;redistributable&quot;,
+          &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+          &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+          &quot;retrieved_at&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;,
+          &quot;sha256&quot;: &quot;2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31&quot;,
+          &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+          &quot;source_version&quot;: &quot;CIK0000719739:2b1278480cfaa1439509&quot;,
+          &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+          &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0000719739.json&quot;,
+          &quot;vintage_as_of&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;
+        },
+        &quot;source_node&quot;: &quot;security:svb-htm-portfolio&quot;,
+        &quot;target_node&quot;: &quot;issuer:svb-financial-group&quot;,
+        &quot;temporal&quot;: {
+          &quot;available_at&quot;: &quot;2023-02-24T16:43:08Z&quot;,
+          &quot;valid_from&quot;: &quot;2022-12-31T00:00:00Z&quot;,
+          &quot;valid_to&quot;: null
+        }
+      }
+    ],
+    &quot;excluded_latest_only_edges&quot;: 0,
+    &quot;excluded_latest_only_nodes&quot;: 0,
+    &quot;graph_sha256&quot;: &quot;facb22d3691e62ea0ad2b1c1b65a5b3a59da7f1209028d91e88f364dc9892895&quot;,
+    &quot;nodes&quot;: [
+      {
+        &quot;attributes&quot;: {
+          &quot;assets_usd&quot;: 211793000000,
+          &quot;deposits_usd&quot;: 173109000000,
+          &quot;sec_accession&quot;: &quot;0000719739-23-000021&quot;
+        },
+        &quot;evidence_class&quot;: &quot;reported&quot;,
+        &quot;kind&quot;: &quot;issuer&quot;,
+        &quot;label&quot;: &quot;SVB Financial Group&quot;,
+        &quot;loss_absorption_usd&quot;: 16004000000.0,
+        &quot;node_id&quot;: &quot;issuer:svb-financial-group&quot;,
+        &quot;source&quot;: {
+          &quot;license_class&quot;: &quot;redistributable&quot;,
+          &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+          &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+          &quot;retrieved_at&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;,
+          &quot;sha256&quot;: &quot;2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31&quot;,
+          &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+          &quot;source_version&quot;: &quot;CIK0000719739:2b1278480cfaa1439509&quot;,
+          &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+          &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0000719739.json&quot;,
+          &quot;vintage_as_of&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;
+        },
+        &quot;temporal&quot;: {
+          &quot;available_at&quot;: &quot;2023-02-24T16:43:08Z&quot;,
+          &quot;valid_from&quot;: &quot;2022-12-31T00:00:00Z&quot;,
+          &quot;valid_to&quot;: null
+        }
+      },
+      {
+        &quot;attributes&quot;: {
+          &quot;fair_value_usd&quot;: 26069000000,
+          &quot;gross_unrealized_loss_usd&quot;: 2533000000
+        },
+        &quot;evidence_class&quot;: &quot;reported&quot;,
+        &quot;kind&quot;: &quot;security&quot;,
+        &quot;label&quot;: &quot;SVB available-for-sale securities portfolio&quot;,
+        &quot;loss_absorption_usd&quot;: 26069000000.0,
+        &quot;node_id&quot;: &quot;security:svb-afs-portfolio&quot;,
+        &quot;source&quot;: {
+          &quot;license_class&quot;: &quot;redistributable&quot;,
+          &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+          &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+          &quot;retrieved_at&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;,
+          &quot;sha256&quot;: &quot;2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31&quot;,
+          &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+          &quot;source_version&quot;: &quot;CIK0000719739:2b1278480cfaa1439509&quot;,
+          &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+          &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0000719739.json&quot;,
+          &quot;vintage_as_of&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;
+        },
+        &quot;temporal&quot;: {
+          &quot;available_at&quot;: &quot;2023-02-24T16:43:08Z&quot;,
+          &quot;valid_from&quot;: &quot;2022-12-31T00:00:00Z&quot;,
+          &quot;valid_to&quot;: null
+        }
+      },
+      {
+        &quot;attributes&quot;: {
+          &quot;carrying_value_usd&quot;: 91327000000,
+          &quot;unrecognized_loss_usd&quot;: 15160000000
+        },
+        &quot;evidence_class&quot;: &quot;reported&quot;,
+        &quot;kind&quot;: &quot;security&quot;,
+        &quot;label&quot;: &quot;SVB held-to-maturity securities portfolio&quot;,
+        &quot;loss_absorption_usd&quot;: 91327000000.0,
+        &quot;node_id&quot;: &quot;security:svb-htm-portfolio&quot;,
+        &quot;source&quot;: {
+          &quot;license_class&quot;: &quot;redistributable&quot;,
+          &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+          &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+          &quot;retrieved_at&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;,
+          &quot;sha256&quot;: &quot;2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31&quot;,
+          &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+          &quot;source_version&quot;: &quot;CIK0000719739:2b1278480cfaa1439509&quot;,
+          &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+          &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0000719739.json&quot;,
+          &quot;vintage_as_of&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;
+        },
+        &quot;temporal&quot;: {
+          &quot;available_at&quot;: &quot;2023-02-24T16:43:08Z&quot;,
+          &quot;valid_from&quot;: &quot;2022-12-31T00:00:00Z&quot;,
+          &quot;valid_to&quot;: null
+        }
+      }
+    ],
+    &quot;valid_at&quot;: &quot;2022-12-31T00:00:00Z&quot;
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">replaystudio</p>
+  <h3><code>svb.replaystudio.render</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> extracted: 1</p>
+  <p><strong>Artifact hash:</strong> <code>78b9b844516a7fc9d77a83afe4a83abde8cdc25c940b7b75d658042213ef5b15</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682</code></li><li><code>sec.xbrl.companyfacts:0000719739:318feb9e5559f8e51b2af8a07c0e515f53e34b59dab02b5f7ea0cbdbdb69abe7</code></li><li><code>sec.xbrl.companyfacts:0000719739:4a919079a99119cd6d08ff11d9108eac8a68140e32cff60e92eadc7eae2d9f50</code></li><li><code>sec.xbrl.companyfacts:0000719739:8bdbe98d21df87a35bf1f36f05ddfefae946314aeadeccb7dffe676ca905b87b</code></li><li><code>sec.xbrl.companyfacts:0000719739:a85813dd2278f8e487608e48d7f6d6bb051869ef3bfafa53fe935f8326137184</code></li><li><code>sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2</code></li><li><code>sec.xbrl.companyfacts:0000719739:ff4c973cc025f892f47bef7c44879aa08180b1f09121022017566ea4e787fc90</code></li></ul>
+    <h4>Limitations</h4><ul><li>Static report generation does not independently validate upstream economic methods.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;market_snapshot_sha256&quot;: &quot;facb22d3691e62ea0ad2b1c1b65a5b3a59da7f1209028d91e88f364dc9892895&quot;,
+  &quot;portable_file_count_excluding_manifest&quot;: 5,
+  &quot;renderer&quot;: &quot;ReplayStudio&quot;,
+  &quot;truth_labels_visible&quot;: true
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">shockcompiler</p>
+  <h3><code>svb.shockcompiler.htm-bound</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1</p>
+  <p><strong>Artifact hash:</strong> <code>d0bd96bf65195771632bd8ac90649c7d0439a278df895f3942e2265de1b20174</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682</code></li><li><code>sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2</code></li></ul>
+    <h4>Limitations</h4><ul><li>The upper endpoint is an inferred accounting bound, not an observed realized loss.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;applied_upper&quot;: {
+    &quot;security:svb-htm-portfolio|loss_fraction&quot;: 0.16599691219464124
+  },
+  &quot;compiled&quot;: {
+    &quot;compiled_sha256&quot;: &quot;b60875c19730b80458c9313f0cc483a77d38f8012c63560aae08cbe3ab5d5378&quot;,
+    &quot;decision_time&quot;: &quot;2023-03-08T18:00:00Z&quot;,
+    &quot;limitations&quot;: [
+      &quot;This shock program supplies a model input and does not forecast an outcome.&quot;
+    ],
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;program_id&quot;: &quot;svb-bounded-htm-realization&quot;,
+    &quot;scenario_id&quot;: &quot;svb-2023-boundary&quot;,
+    &quot;source_program_sha256&quot;: &quot;9779bbce9da8564b6a1288bef283930d082e957ed5d206f27ed3285c8050d940&quot;,
+    &quot;trials&quot;: [
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Bounds modeled realization between zero and filer-reported unrecognized HTM loss divided by filer-reported HTM carrying value.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;The bound omits liquidation timing, hedges, tax effects, funding support, and prices.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;bounded-htm-loss-realization&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682&quot;,
+              &quot;sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2&quot;
+            ],
+            &quot;target_id&quot;: &quot;security:svb-htm-portfolio&quot;,
+            &quot;unit&quot;: &quot;fraction&quot;,
+            &quot;value&quot;: 0.0,
+            &quot;variable&quot;: &quot;loss_fraction&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;svb-bounded-htm-realization:00000000:636654ef22f36197&quot;,
+        &quot;trial_index&quot;: 0,
+        &quot;vector_sha256&quot;: &quot;636654ef22f36197b2d94f0ecaf2cb6fe4ba6a6c32331fcfdbad3f58aa1f8f5d&quot;
+      },
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Bounds modeled realization between zero and filer-reported unrecognized HTM loss divided by filer-reported HTM carrying value.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;The bound omits liquidation timing, hedges, tax effects, funding support, and prices.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;bounded-htm-loss-realization&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682&quot;,
+              &quot;sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2&quot;
+            ],
+            &quot;target_id&quot;: &quot;security:svb-htm-portfolio&quot;,
+            &quot;unit&quot;: &quot;fraction&quot;,
+            &quot;value&quot;: 0.16599691219464124,
+            &quot;variable&quot;: &quot;loss_fraction&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;svb-bounded-htm-realization:00000001:4d8667b4dfa04d5c&quot;,
+        &quot;trial_index&quot;: 1,
+        &quot;vector_sha256&quot;: &quot;4d8667b4dfa04d5c942b6e82d1d76242f841f80ce94d34d6516dc9e2f4962033&quot;
+      }
+    ]
+  },
+  &quot;program&quot;: {
+    &quot;decision_time&quot;: &quot;2023-03-08T18:00:00Z&quot;,
+    &quot;global_limitations&quot;: [
+      &quot;This shock program supplies a model input and does not forecast an outcome.&quot;
+    ],
+    &quot;hypothesis&quot;: &quot;Evaluate both endpoints of a loss-realization interval without assigning an unsupported midpoint or probability.&quot;,
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;parameters&quot;: [
+      {
+        &quot;derivation&quot;: &quot;Bounds modeled realization between zero and filer-reported unrecognized HTM loss divided by filer-reported HTM carrying value.&quot;,
+        &quot;evidence_class&quot;: &quot;inferred&quot;,
+        &quot;grid_points&quot;: 2,
+        &quot;limitations&quot;: [
+          &quot;The bound omits liquidation timing, hedges, tax effects, funding support, and prices.&quot;
+        ],
+        &quot;lower&quot;: 0.0,
+        &quot;operation&quot;: &quot;set&quot;,
+        &quot;parameter_id&quot;: &quot;bounded-htm-loss-realization&quot;,
+        &quot;source_record_ids&quot;: [
+          &quot;sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682&quot;,
+          &quot;sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2&quot;
+        ],
+        &quot;sources&quot;: [
+          {
+            &quot;license_class&quot;: &quot;redistributable&quot;,
+            &quot;publisher&quot;: &quot;U.S. Securities and Exchange Commission&quot;,
+            &quot;redistribution_note&quot;: &quot;SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;,
+            &quot;sha256&quot;: &quot;2b1278480cfaa1439509ba399dcff93565427be053b9b9f43e4c27f581a15c31&quot;,
+            &quot;source_id&quot;: &quot;sec.xbrl.companyfacts&quot;,
+            &quot;source_version&quot;: &quot;CIK0000719739:2b1278480cfaa1439509&quot;,
+            &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+            &quot;url&quot;: &quot;https://data.sec.gov/api/xbrl/companyfacts/CIK0000719739.json&quot;,
+            &quot;vintage_as_of&quot;: &quot;2026-08-12T10:46:15.363781Z&quot;
+          }
+        ],
+        &quot;target_id&quot;: &quot;security:svb-htm-portfolio&quot;,
+        &quot;unit&quot;: &quot;fraction&quot;,
+        &quot;upper&quot;: 0.16599691219464124,
+        &quot;variable&quot;: &quot;loss_fraction&quot;
+      }
+    ],
+    &quot;program_id&quot;: &quot;svb-bounded-htm-realization&quot;,
+    &quot;scenario_id&quot;: &quot;svb-2023-boundary&quot;
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">timevault</p>
+  <h3><code>svb.timevault.query</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> reported: 7</p>
+  <p><strong>Artifact hash:</strong> <code>2fa55f0981122f94a6d7e6d4b7f572b92b2e9f74d69307e9c651a814d6f7f906</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682</code></li><li><code>sec.xbrl.companyfacts:0000719739:318feb9e5559f8e51b2af8a07c0e515f53e34b59dab02b5f7ea0cbdbdb69abe7</code></li><li><code>sec.xbrl.companyfacts:0000719739:4a919079a99119cd6d08ff11d9108eac8a68140e32cff60e92eadc7eae2d9f50</code></li><li><code>sec.xbrl.companyfacts:0000719739:8bdbe98d21df87a35bf1f36f05ddfefae946314aeadeccb7dffe676ca905b87b</code></li><li><code>sec.xbrl.companyfacts:0000719739:a85813dd2278f8e487608e48d7f6d6bb051869ef3bfafa53fe935f8326137184</code></li><li><code>sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2</code></li><li><code>sec.xbrl.companyfacts:0000719739:ff4c973cc025f892f47bef7c44879aa08180b1f09121022017566ea4e787fc90</code></li></ul>
+    <h4>Limitations</h4><ul><li>The committed input lock contains seven extracted facts, not the complete SEC response.</li><li>Historical eligibility follows SEC filing acceptance timestamps and immutable accession facts.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;append&quot;: {
+    &quot;artifact_ids&quot;: [
+      &quot;21c43ee1262a6ac02cad67d6dcec6db2282b22c5da51527c7e2d38969a79af9f&quot;
+    ],
+    &quot;attempted_records&quot;: 7,
+    &quot;fact_hashes&quot;: [
+      &quot;a042b9ec9af84222863dea43881c8a2a391169aafc5d253205d12b1c5bbfff7d&quot;,
+      &quot;5901f1bac85db873619939ecebe4bc053968cfd9e4761b04aa2b332e8f886ef1&quot;,
+      &quot;4f41b7b4c21943407de461f9431ee31c104294eaa33af83335af336c9bcc9b96&quot;,
+      &quot;906dbb3d1b5dfa25eba0230bfb3f9512a04591a56716d773f51a4da67800ab2d&quot;,
+      &quot;60f1cea183bf5eccea7a81716149124a0fea0676b421ee6fc0e6408fee59f6f3&quot;,
+      &quot;7b1d7bee0ef8f0568e96a13997399bc22789416af89dd0af0cf011224a0abf87&quot;,
+      &quot;7afc36cccd86b1f162f5d655dd8262bfd1925b9e4d72099b359a7123189aded5&quot;
+    ],
+    &quot;idempotent_records&quot;: 0,
+    &quot;inserted_records&quot;: 7
+  },
+  &quot;decision_time&quot;: &quot;2023-03-08T18:00:00Z&quot;,
+  &quot;input_lock_sha256&quot;: &quot;cc383954d23e7b2c44756e3d33636a1df15f19cec993849b28c341deae6fecd0&quot;,
+  &quot;manifest&quot;: {
+    &quot;database_bytes&quot;: 0,
+    &quot;distinct_records&quot;: 7,
+    &quot;fact_set_sha256&quot;: &quot;40dc41e17938fcee610ee3479b5e0b3308b63b48c5ed758e34f1da7ecadc16c6&quot;,
+    &quot;fact_versions&quot;: 7,
+    &quot;generated_at&quot;: &quot;2026-08-13T02:00:00Z&quot;,
+    &quot;retrieval_receipts&quot;: 1,
+    &quot;source_artifacts&quot;: 1
+  },
+  &quot;max_available_at&quot;: &quot;2023-02-24T16:43:08Z&quot;,
+  &quot;selected_record_ids&quot;: [
+    &quot;sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682&quot;,
+    &quot;sec.xbrl.companyfacts:0000719739:318feb9e5559f8e51b2af8a07c0e515f53e34b59dab02b5f7ea0cbdbdb69abe7&quot;,
+    &quot;sec.xbrl.companyfacts:0000719739:4a919079a99119cd6d08ff11d9108eac8a68140e32cff60e92eadc7eae2d9f50&quot;,
+    &quot;sec.xbrl.companyfacts:0000719739:8bdbe98d21df87a35bf1f36f05ddfefae946314aeadeccb7dffe676ca905b87b&quot;,
+    &quot;sec.xbrl.companyfacts:0000719739:a85813dd2278f8e487608e48d7f6d6bb051869ef3bfafa53fe935f8326137184&quot;,
+    &quot;sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2&quot;,
+    &quot;sec.xbrl.companyfacts:0000719739:ff4c973cc025f892f47bef7c44879aa08180b1f09121022017566ea4e787fc90&quot;
+  ],
+  &quot;valid_at&quot;: &quot;2022-12-31T00:00:00Z&quot;
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">trialcourt</p>
+  <h3><code>svb.trialcourt.retrospective-gate</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1, reported: 4, simulated: 1</p>
+  <p><strong>Artifact hash:</strong> <code>c2962de964514e3a4a0bc8dcd0208062586bb47764d348019f4c308216db783e</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682</code></li><li><code>sec.xbrl.companyfacts:0000719739:318feb9e5559f8e51b2af8a07c0e515f53e34b59dab02b5f7ea0cbdbdb69abe7</code></li><li><code>sec.xbrl.companyfacts:0000719739:4a919079a99119cd6d08ff11d9108eac8a68140e32cff60e92eadc7eae2d9f50</code></li><li><code>sec.xbrl.companyfacts:0000719739:8bdbe98d21df87a35bf1f36f05ddfefae946314aeadeccb7dffe676ca905b87b</code></li><li><code>sec.xbrl.companyfacts:0000719739:a85813dd2278f8e487608e48d7f6d6bb051869ef3bfafa53fe935f8326137184</code></li><li><code>sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2</code></li><li><code>sec.xbrl.companyfacts:0000719739:ff4c973cc025f892f47bef7c44879aa08180b1f09121022017566ea4e787fc90</code></li></ul>
+    <h4>Limitations</h4><ul><li>The rejected attempt is a retrospective method boundary, not a validated strategy.</li><li>P-value and operational sentinel fields deliberately carry no performance claim.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;attempt&quot;: {
+    &quot;attempt_id&quot;: &quot;svb-retrospective-attempt-1&quot;,
+    &quot;attempt_number&quot;: 1,
+    &quot;code_commit&quot;: &quot;6a412b415dc22789feee3e96b03ed26f8589dce3&quot;,
+    &quot;completed_at&quot;: &quot;2026-08-13T02:00:00Z&quot;,
+    &quot;config_sha256&quot;: &quot;e9bc67c88c3d95feaed58c4fa1adb7c016dcd0f521e0f6fb3bc6775a70ebf166&quot;,
+    &quot;decision_time&quot;: &quot;2023-03-08T18:00:00Z&quot;,
+    &quot;evaluation_end&quot;: &quot;2023-03-13&quot;,
+    &quot;evaluation_start&quot;: &quot;2023-03-09&quot;,
+    &quot;gross_return_bps&quot;: 0.0,
+    &quot;input_manifest_sha256&quot;: &quot;cc383954d23e7b2c44756e3d33636a1df15f19cec993849b28c341deae6fecd0&quot;,
+    &quot;max_input_available_at&quot;: &quot;2023-02-24T16:43:08Z&quot;,
+    &quot;median_daily_volume_usd&quot;: 1.0,
+    &quot;metric_value&quot;: 0.06883169680471452,
+    &quot;next_training_start&quot;: null,
+    &quot;notes&quot;: [
+      &quot;Retrospective boundary attempt; p=1 records that no inferential test was performed.&quot;,
+      &quot;One-dollar operational fields are non-trading schema sentinels and not capacity evidence.&quot;
+    ],
+    &quot;one_way_turnover&quot;: 0.0,
+    &quot;output_manifest_sha256&quot;: &quot;7fac94fb63b53fda9156295a4efcabf573c0a1f3780cbe2027c6328c9cff81fc&quot;,
+    &quot;p_value&quot;: 1.0,
+    &quot;regime_metric_values&quot;: {
+      &quot;single-balance-sheet-slice&quot;: 0.06883169680471452
+    },
+    &quot;requested_capital_usd&quot;: 1.0,
+    &quot;sample_size&quot;: 2,
+    &quot;short_fraction&quot;: 0.0,
+    &quot;training_end&quot;: &quot;2022-12-31&quot;,
+    &quot;trial_id&quot;: &quot;svb-retrospective-screen&quot;
+  },
+  &quot;attempt_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;052fe51c7617c9c7d8a7cb08dc076d5c61a39ec06c6e0bb2daf3c8c12ac85e86&quot;,
+    &quot;entry_hash&quot;: &quot;052fe51c7617c9c7d8a7cb08dc076d5c61a39ec06c6e0bb2daf3c8c12ac85e86&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 2
+  },
+  &quot;decision&quot;: {
+    &quot;adjusted_p_values&quot;: {
+      &quot;svb-retrospective-attempt-1&quot;: 1.0
+    },
+    &quot;attempt_ids&quot;: [
+      &quot;svb-retrospective-attempt-1&quot;
+    ],
+    &quot;attempt_set_sha256&quot;: &quot;cd34c2aa97fa5f39d1228643d187d0740bd6a60ff8df88490f38f84d284da8aa&quot;,
+    &quot;candidate_attempt_id&quot;: &quot;svb-retrospective-attempt-1&quot;,
+    &quot;decided_at&quot;: &quot;2026-08-13T02:00:00Z&quot;,
+    &quot;decision_id&quot;: &quot;decision:svb-retrospective-screen:cdb7c0d3d83dabfa282bca1d&quot;,
+    &quot;disposition&quot;: &quot;reject&quot;,
+    &quot;findings&quot;: [
+      {
+        &quot;kind&quot;: &quot;preregistration&quot;,
+        &quot;metrics&quot;: {
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;registered_before_holdout&quot;: false
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Registration was retrospective or the observed attempt family exceeded the preregistered declaration.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;leakage&quot;,
+        &quot;metrics&quot;: {
+          &quot;embargo_respected&quot;: true,
+          &quot;evaluation_inside_holdout&quot;: true,
+          &quot;input_available_by_decision&quot;: true,
+          &quot;training_respects_purge&quot;: true
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Point-in-time input, purge, holdout and embargo checks passed.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;multiplicity&quot;,
+        &quot;metrics&quot;: {
+          &quot;adjusted_p_value&quot;: 1.0,
+          &quot;alpha&quot;: 0.05,
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;raw_p_value&quot;: 1.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Candidate does not survive family-wise Holm adjustment.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;regime&quot;,
+        &quot;metrics&quot;: {
+          &quot;regime_count&quot;: 1
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;At least two named regime slices are required.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;execution&quot;,
+        &quot;metrics&quot;: {
+          &quot;borrow_cost_bps&quot;: 0.0,
+          &quot;gross_return_bps&quot;: 0.0,
+          &quot;immediate_cost_bps&quot;: 0.0,
+          &quot;net_return_bps&quot;: 0.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Preregistered execution and borrow costs erase the gross return.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;capacity&quot;,
+        &quot;metrics&quot;: {
+          &quot;allowed_daily_notional_usd&quot;: 0.05,
+          &quot;daily_notional_usd&quot;: 0.0,
+          &quot;max_participation_rate&quot;: 0.05
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Requested capital fits the preregistered participation limit.&quot;
+      }
+    ],
+    &quot;trial_id&quot;: &quot;svb-retrospective-screen&quot;
+  },
+  &quot;manifest&quot;: {
+    &quot;attempts&quot;: 1,
+    &quot;chain_tip_sha256&quot;: &quot;e468a8158298c517c3e5e15491d96929ec6d1d2d5e83e81eaa8e84884b24eda9&quot;,
+    &quot;decisions&quot;: 1,
+    &quot;entries&quot;: 3,
+    &quot;registrations&quot;: 1,
+    &quot;rejected_decisions&quot;: 1,
+    &quot;verified&quot;: true
+  },
+  &quot;registration_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;b9b1de6df6498a1dad2284f58f1ce60a37c8c5dd873ca33c01e67609d9641c43&quot;,
+    &quot;entry_hash&quot;: &quot;b9b1de6df6498a1dad2284f58f1ce60a37c8c5dd873ca33c01e67609d9641c43&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 1
+  },
+  &quot;spec&quot;: {
+    &quot;cost_model&quot;: {
+      &quot;borrow_bps_annual&quot;: 100.0,
+      &quot;commission_bps&quot;: 1.0,
+      &quot;half_spread_bps&quot;: 10.0,
+      &quot;market_impact_bps&quot;: 25.0,
+      &quot;max_participation_rate&quot;: 0.05
+    },
+    &quot;declared_attempts&quot;: 1,
+    &quot;disposition&quot;: &quot;revise&quot;,
+    &quot;economic_mechanism&quot;: &quot;Reported securities valuation gaps can interact with funding pressure, but a retrospective single-event reconstruction cannot establish predictive validity.&quot;,
+    &quot;embargo_days&quot;: 0,
+    &quot;expected_direction&quot;: &quot;positive&quot;,
+    &quot;holdout_end&quot;: &quot;2023-03-14&quot;,
+    &quot;holdout_start&quot;: &quot;2023-03-09&quot;,
+    &quot;hypothesis&quot;: &quot;A retrospectively constructed SVB securities-loss screen qualifies for research eligibility after all preregistration and adversarial gates.&quot;,
+    &quot;preregistered_at&quot;: &quot;2026-08-13T02:00:00Z&quot;,
+    &quot;primary_metric&quot;: &quot;reported HTM minus AFS loss-ratio difference&quot;,
+    &quot;purge_days&quot;: 5,
+    &quot;trial_id&quot;: &quot;svb-retrospective-screen&quot;
+  }
+}</pre>
+  </details>
+</article>
+    </section>
+    <section id="limitations" aria-labelledby="limitations-title">
+      <h2 id="limitations-title">Pack limitations</h2><ul><li>These seven records are a minimal extracted lock of filer-reported SEC XBRL facts accepted before the replay decision time. The lock preserves record IDs, accession, availability timestamps, source URL, response hash, and evidence class. It is not the complete SEC response, a regulator finding, an observed trading signal, a causal explanation of the bank failure, or proof that the current SEC endpoint can reproduce the exact 2026 response bytes forever.</li><li>FDIC and Treasury current-table snapshots are excluded from the 2023 decision input.</li><li>No historical quote, order-book, or venue data was available; ExecutionLab uses a normalized simulated reference-only boundary.</li><li>TrialCourt correctly rejects the retrospective, non-inferential attempt rather than granting strategy eligibility.</li><li>CapitalAllocator operates on declared simulated/inferred bounds and emits no order or recommendation.</li><li>A fixed build epoch and zero pack elapsed time support byte reproducibility; measured runtime lives in a separate receipt.</li></ul>
+    </section>
+  </main>
+  <footer><p>Static read-only report. No brokerage connection,
+  tracking script, or external request.</p></footer>
+</body>
+</html>
