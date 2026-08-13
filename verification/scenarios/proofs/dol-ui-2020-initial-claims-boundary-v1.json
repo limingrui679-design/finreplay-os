@@ -1,0 +1,123 @@
+{
+  "build_script": {
+    "path": "scripts/build_initial_claims_boundary_replaypack.py",
+    "sha256": "ebaaa5f048fde16e1c234e9ae20fa27befb87433004e7610b44ec5d595fffe6b"
+  },
+  "claim_boundary": "This proof counts one internally reproduced March 2020 DOL initial-claims boundary because two pre-decision archived PDF release snapshots, exact embargo timing plus official Last-Modified bounds, a separately locked post-decision March 21 claims value, an immutable input lock, separated truth labels, an explicit latest-value persistence baseline, a no-probability persistence-or-one-known-increase program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The March 21 value is excluded from ReplayPack inputs and used only for a labelled post-event check that preserves the 2,932,000-person range breach rather than widening the range. The later revision of March 14 from 281,000 to 282,000 stays in the event snapshot and never overwrites the decision input. This does not establish forecast skill, calibrated coverage, pandemic or labor-market causality, policy effectiveness, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "dol-ui.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective one-increase attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "dol-ui.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "b3b8bc99d3a3d2989768259374dd7a77613c9afa10ab5d3bb839bba1ccdcbf2a",
+      "path": "scenarios/dol-ui-2020/event-lock.json",
+      "record_ids": [
+        "dol.eta.archived_weekly_initial_claims:20200326:seasonally_adjusted_initial_claims"
+      ],
+      "sha256": "f5a21027477141084cce9c021ee0b15cf78ec6a572dac76c7caa7b6a16c84c32"
+    }
+  ],
+  "expected_input_manifest_sha256": "98d8e63b16b3d041b7695c86ccc390ac58ce9fd57bc4d671010d5c8fe55d8558",
+  "expected_pack_sha256": "d0f96d2cc2097bb731370f33a294efb1e621b9cf91c458136e5b818896e814b5",
+  "expected_trace_id": "trace:c2e0c997c19f77b1dd753f8dc93ac7575f07137c1dd38f6df1777792b9cbca24",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate advance initial claims reported in archived DOL releases, not individual claimants, employers, direct observations of labor-market causes, policy effects, or future claims. The March 21 value is only in the event lock."
+    },
+    "bounded_artifact_ids": [
+      "dol-ui.shockcompiler.claims-range"
+    ],
+    "extracted_artifact_ids": [
+      "dol-ui.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "dol-ui.shockcompiler.claims-range",
+      "dol-ui.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "dol.eta.archived_weekly_initial_claims:20200312:seasonally_adjusted_initial_claims",
+      "dol.eta.archived_weekly_initial_claims:20200319:seasonally_adjusted_initial_claims"
+    ],
+    "simulated_artifact_ids": [
+      "dol-ui.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "6d84b41e0afa23fb6a47f1d7ef9429e4329bf984bb3b0c913d08a90f09cb23e5",
+      "path": "scenarios/dol-ui-2020/input-lock.json",
+      "record_ids": [
+        "dol.eta.archived_weekly_initial_claims:20200312:seasonally_adjusted_initial_claims",
+        "dol.eta.archived_weekly_initial_claims:20200319:seasonally_adjusted_initial_claims"
+      ],
+      "sha256": "330b0e4cfa5fd71a74b1012e7a86203d8ffdd44de4c9c543fde12a283b1b6ed0"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "dol-ui.shockcompiler.claims-range",
+      "description": "The decision-time baseline persists the latest known March 14 advance seasonally adjusted initial-claims value of 281,000 persons.",
+      "expected_value": 281000,
+      "payload_pointer": "/naive_baseline/next_reported_seasonally_adjusted_initial_claims_persons"
+    },
+    {
+      "artifact_id": "dol-ui.shockcompiler.claims-range",
+      "description": "The persistence-or-one-known-increase endpoints carry no probability or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/dol-ui-claims/latest-summary.json",
+  "pack_directory": "verification/replaypacks/dol-ui-2020",
+  "proof_sha256": "27f9af4268c47c6f7ed28743e5bb0b40b1ae30c4544b8fa78ac0cfc271d261fb",
+  "rebuild_receipt": {
+    "path": "verification/evidence/dol-ui-four-engine-rebuild.json",
+    "sha256": "a3bcc103190d9fc3514286af8cb0c5add5fc420acbbaaaafe3858d4605df4fb7"
+  },
+  "replay_id": "dol-ui-2020-initial-claims-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "continuation_range_reuses_only_known_weekly_increase",
+    "cross_engine_trace_is_stable",
+    "distinct_locked_inputs_equal_two",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "naive_baseline_is_latest_known_dol_claims_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_archived_dol_claims_fact",
+    "post_decision_event_timing_is_later",
+    "post_decision_prior_week_revision_remains_later_snapshot_only",
+    "post_event_upper_bound_breach_equals_2932000_persons",
+    "reported_post_event_claims_breach_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "dol-ui-2020-initial-claims-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "dol.eta.archived_weekly_initial_claims:20200312:seasonally_adjusted_initial_claims",
+    "dol.eta.archived_weekly_initial_claims:20200319:seasonally_adjusted_initial_claims"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_initial_claims_boundary_replaypack.py",
+    "sha256": "72a680bc8599e21f0fdf6e9eb0c1e3f76ddeffaa82218862d40cda3e10f8866c"
+  }
+}
