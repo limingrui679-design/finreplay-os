@@ -1,0 +1,65 @@
+{
+  "artifact_sha256": {
+    "replaystudio": "866386457a884fc19857da2611235f6408eaa2a047b7c027fb3ad6f75db47007",
+    "shockcompiler": "7b0b9a484eb54f5fd746d490051641942098defe1770191b4815570f87a58330",
+    "timevault": "f49f8e98bc32a0d0c06c98be13b3f3584176ee6f1c59731416c384aff4ddf5c3",
+    "trialcourt": "21e7b452ee3f58b815e0a6e9f1039cc005a7381bc176b31f9c8fbf7a3272079b"
+  },
+  "assertions": {
+    "all_artifacts_reproduced": true,
+    "byte_identical_directory_rebuilds": true,
+    "byte_identical_zip_rebuilds": true,
+    "compiled_pack_matches_rebuild": true,
+    "cross_engine_trace_is_stable": true,
+    "distinct_locked_inputs_equal_four": true,
+    "future_event_excluded_from_bound_construction": true,
+    "historical_source_sets_eligible": true,
+    "naive_baseline_is_zero_revision": true,
+    "no_probability_is_assigned": true,
+    "only_relevant_engines_present": true,
+    "post_decision_event_is_disjoint": true,
+    "post_decision_event_timing_is_later": true,
+    "reported_post_event_revision_inside_declared_envelope": true,
+    "simulation_remains_visible": true,
+    "trialcourt_rejects_retrospective_attempt": true
+  },
+  "claim_boundary": "This receipt proves two fresh local executions of the four relevant engines rebuild the committed directory and deterministic ZIP bytes from four locked pre-decision ALFRED facts. It also verifies that the separately locked post-decision estimate is disjoint and, as an evaluation only, falls inside the previously declared no-probability envelope. It does not prove forecasting skill, calibrated coverage, causal correctness, deployment, policy value, external review, or user impact.",
+  "code_commit": "7b95933f364eafed4b1c6b6e20f4897c5ab2f9cc",
+  "event_lock_sha256": "02aa53bc4d578f59cfce204c4996ebf4b374f34778fa4a59269cb50df1154c0f",
+  "file_sha256": {
+    "README.md": "b6b1f1e56cb57dba4283b96a9f8ae05d71eeb1d002f580ac5f3150b67586a83b",
+    "assets/styles.css": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677",
+    "checksums.sha256": "2c430677d4f2a82849e540888570f67f889806776b48675fa9cf3eb4173fc8d4",
+    "index.html": "b7f47f71f8de009efd73ef1356c0b4d9b4444881850ccb9d89ccbaf889153719",
+    "manifest.json": "81c243cc8ad8ed47c0da3f4f9641534602ac723feac737cdd0d5e4c5371a1c7a",
+    "report.json": "cd91d9a55f855b5d3e0513c8da263901c847ba9fdbb8c393ceeac5c9184ad1ee"
+  },
+  "input_lock_sha256": "c762b5790a1f6f517668892d145747fc4e2548376a347912cbfdc4448da1efa7",
+  "pack_receipt_sha256": "7efbf382f492d404176179148e9b7eb8db8cd061ae2e40811835de16054d0e0d",
+  "pack_sha256": "5f9f64b719003d2677c1fb5bef7e33be745c2644356a364d53faa8fbfed9a8a9",
+  "post_event_evaluation": {
+    "declared_lower_revision_billions": "-60.652",
+    "declared_upper_revision_billions": "60.652",
+    "reported_q4_second_estimate_billions": "26144.956",
+    "reported_revision_from_advance_billions": "12.498",
+    "used_as_decision_input": false
+  },
+  "receipt_sha256": "27d6778e5c43c10607ff0e98c492050c9e5f1cd6f6083dcc610b3f9395a7e47d",
+  "runtime": {
+    "duckdb": "1.5.5",
+    "finreplay": "0.1.0a0",
+    "machine": "arm64",
+    "measured_at": "2026-08-13T04:07:27.096493+00:00",
+    "numpy": "2.2.6",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "pydantic": "2.13.4",
+    "python": "3.12.13",
+    "runner_commit": "269835cf5f68c4b0b05fca0198ecc65d9f40bc59",
+    "runner_dirty": false,
+    "scipy": "1.18.0",
+    "two_rebuild_elapsed_seconds": 0.2989005839917809
+  },
+  "schema_version": "1.0.0",
+  "semantic_sha256": "c636c65f69e6f85e7064b03c2adbdb40db2588f8e30a8083db8bff9414fe2b13",
+  "trace_id": "trace:0318d33e4e29fce0de5555c94e4cef24a4605bddaca362a57637319322ed194d"
+}
