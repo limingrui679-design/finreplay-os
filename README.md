@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 8/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll and CPI release boundaries, and the FOMC target-range boundary pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 9/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll and CPI release boundaries, FOMC target range, and an ALFRED Treasury-curve boundary pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -196,6 +196,13 @@ two already-known monthly changes only as a no-probability release-snapshot stre
 the March 14 February monthly change in a disjoint event lock. The documented annual weight update
 and five-year seasonal recalculation prevent a stationary-sample claim. See
 [`docs/scenarios/bls-cpi-2023.md`](docs/scenarios/bls-cpi-2023.md).
+
+The ninth counted flow changes mechanism to the U.S. Treasury curve. It locks DGS2 and DGS10 on
+March 8 and March 13 using native ALFRED vintages and a conservative date-plus-two-day knowledge
+rule, then bounds the next DGS10-minus-DGS2 spread at `[-107, -48]` basis points with no
+probability. The disjoint March 15 pair yields `-42`, a required visible 6-basis-point breach rather
+than a retrospectively widened success. See
+[`docs/scenarios/treasury-curve-2023.md`](docs/scenarios/treasury-curve-2023.md).
 
 ## Research and investment disclaimer
 

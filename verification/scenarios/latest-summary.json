@@ -86,6 +86,18 @@
       "trace_id": "trace:7c6888e9ecebd390acb2f7fecbcde816d7e50906632483215244acf0f17462bf"
     },
     {
+      "decision_time": "2023-03-16T12:00:00+00:00",
+      "distinct_input_records": 4,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "f05a5b1f0a143f3bd99dbd1777efcb814f791a1da8d1f8190ece4a73d7ad3ccb",
+      "proof": "treasury-curve-2023-inversion-boundary-v1.json",
+      "proof_sha256": "7de85b4b1bd547ab5accfd7ead155b0e67c69c53c7c1bbdbfd07846e21544d9b",
+      "replay_id": "treasury-curve-2023-inversion-boundary-v1",
+      "scenario_id": "treasury-curve-2023-inversion-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:582d084d96526fffb25f544af2fb1ceca86cd71b53578c51823c04b5dbfed41c"
+    },
+    {
       "decision_time": "2023-05-02T16:00:00+00:00",
       "distinct_input_records": 7,
       "mode": "bounded_reconstruction",
@@ -99,5 +111,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 8
+  "verified_scenario_count": 9
 }
