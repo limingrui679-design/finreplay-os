@@ -1,0 +1,585 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 4,
+    "reported": 4,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "7a392f72d1bd3a0e4b3778a62f72808db4005ed5b2041c16985b02b9be2109e4",
+  "pack_sha256": "2522341e031ba822486db54c2b908eb68ce6788d52a6f1b0975d1b877f4069cb",
+  "source_hashes": [
+    "4ec56d420a41e9bdade7caeaa6e4a494d51c6b03f0fac5dc5d1fa45b835d8763",
+    "eea65b8761823dcf6837f99df8b5a01b26f8f21ee6f8d3bf06eda38441903dde"
+  ],
+  "source_record_ids": [
+    "bea.pio.archived_personal_saving_rate:202001:personal_saving_rate",
+    "bea.pio.archived_personal_saving_rate:202002:personal_saving_rate"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "bea-pio.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "ce23e3cdb1ee383113a3f144f51622d7508bab7d2622c3772bb302e83506b66c",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not validate the saving-rate range heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This aggregate household-account release boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no household, transaction, position, order, portfolio, or allocation input is invented.",
+          "input_lock_sha256": "0620471d0f5667af1b505a1d9cc70149ca8b443da137f2638f6e26a2dcbfd630",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "4ec56d420a41e9bdade7caeaa6e4a494d51c6b03f0fac5dc5d1fa45b835d8763",
+          "eea65b8761823dcf6837f99df8b5a01b26f8f21ee6f8d3bf06eda38441903dde"
+        ],
+        "source_record_ids": [
+          "bea.pio.archived_personal_saving_rate:202001:personal_saving_rate",
+          "bea.pio.archived_personal_saving_rate:202002:personal_saving_rate"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "bea-pio.shockcompiler.saving-rate-range",
+          "bea-pio.timevault.release-query",
+          "bea-pio.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "bea-pio.shockcompiler.saving-rate-range",
+        "artifact_kind": "bounded-bea-personal-saving-rate-program",
+        "artifact_sha256": "4817a02138d95dd0176f7b0a212ec4309652a1b55bbb311c64780e19fda3f8ec",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 3
+        },
+        "limitations": [
+          "The endpoints mechanically reuse one known release-to-release increase.",
+          "The April 30 March value and revised February value are absent from construction.",
+          "The range is not a household-behavior probability or causal explanation."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": 820.0,
+            "upper": 850.0
+          },
+          "bound_construction": {
+            "endpoint_method": "latest_persistence_or_repeat_known_monthly_increase",
+            "future_event_used": false,
+            "known_monthly_increase_basis_points": 30,
+            "lower_rate_basis_points": 820,
+            "probability_assigned": false,
+            "range_width_basis_points": 30,
+            "upper_rate_basis_points": 850
+          },
+          "compiled": {
+            "compiled_sha256": "d036cc9bccbf902a3ab0f0ca96057202b0625cdf1d97b2d4b3a5c46e24569bbd",
+            "decision_time": "2020-04-01T12:00:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, household-behavior, or causal meaning.",
+              "The April 30 release and its revision are excluded and evaluated only afterward."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "bea-pio-next-saving-rate-envelope",
+            "scenario_id": "bea-pio-2020-saving-rate-boundary",
+            "source_program_sha256": "0bb7bb61ad6ea301fc8b2a378436c733c8037869e3cc112a1c9e45ce71b227d8",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use latest-rate persistence or one repeat of the only known release-to-release saving-rate increase as transparent next-release stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two release snapshots and one increase define a stress range, not a forecast or confidence interval."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "bea-pio-next-saving-rate-range",
+                    "source_hashes": [
+                      "eea65b8761823dcf6837f99df8b5a01b26f8f21ee6f8d3bf06eda38441903dde",
+                      "4ec56d420a41e9bdade7caeaa6e4a494d51c6b03f0fac5dc5d1fa45b835d8763"
+                    ],
+                    "source_record_ids": [
+                      "bea.pio.archived_personal_saving_rate:202001:personal_saving_rate",
+                      "bea.pio.archived_personal_saving_rate:202002:personal_saving_rate"
+                    ],
+                    "target_id": "bea_pio:united_states",
+                    "unit": "basis_points",
+                    "value": 820.0,
+                    "variable": "next_personal_saving_rate_basis_points"
+                  }
+                ],
+                "trial_id": "bea-pio-next-saving-rate-envelope:00000000:f7a3c30455d99ee0",
+                "trial_index": 0,
+                "vector_sha256": "f7a3c30455d99ee03115e3b70e95b989f18c31180821f2d7967d5de476112d59"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use latest-rate persistence or one repeat of the only known release-to-release saving-rate increase as transparent next-release stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two release snapshots and one increase define a stress range, not a forecast or confidence interval."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "bea-pio-next-saving-rate-range",
+                    "source_hashes": [
+                      "eea65b8761823dcf6837f99df8b5a01b26f8f21ee6f8d3bf06eda38441903dde",
+                      "4ec56d420a41e9bdade7caeaa6e4a494d51c6b03f0fac5dc5d1fa45b835d8763"
+                    ],
+                    "source_record_ids": [
+                      "bea.pio.archived_personal_saving_rate:202001:personal_saving_rate",
+                      "bea.pio.archived_personal_saving_rate:202002:personal_saving_rate"
+                    ],
+                    "target_id": "bea_pio:united_states",
+                    "unit": "basis_points",
+                    "value": 850.0,
+                    "variable": "next_personal_saving_rate_basis_points"
+                  }
+                ],
+                "trial_id": "bea-pio-next-saving-rate-envelope:00000001:64aa7855ee3544ea",
+                "trial_index": 1,
+                "vector_sha256": "64aa7855ee3544eab1d2a186f888b8bec3462362f48812e3dc23a75e6aaa6992"
+              }
+            ]
+          },
+          "input_lock_sha256": "0620471d0f5667af1b505a1d9cc70149ca8b443da137f2638f6e26a2dcbfd630",
+          "known_rates": {
+            "february_saving_rate_basis_points": 820,
+            "january_saving_rate_basis_points": 790,
+            "known_monthly_increase_basis_points": 30,
+            "saving_rate_lower_basis_points": 820,
+            "saving_rate_range_width_basis_points": 30,
+            "saving_rate_upper_basis_points": 850
+          },
+          "naive_baseline": {
+            "definition": "persistence of the latest known BEA saving-rate snapshot",
+            "next_personal_saving_rate_basis_points": 820
+          },
+          "program": {
+            "decision_time": "2020-04-01T12:00:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, household-behavior, or causal meaning.",
+              "The April 30 release and its revision are excluded and evaluated only afterward."
+            ],
+            "hypothesis": "Evaluate latest persistence or one repetition of the known personal-saving-rate increase using only BEA release snapshots available at the historical boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use latest-rate persistence or one repeat of the only known release-to-release saving-rate increase as transparent next-release stress endpoints.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "Two release snapshots and one increase define a stress range, not a forecast or confidence interval."
+                ],
+                "lower": 820.0,
+                "operation": "set",
+                "parameter_id": "bea-pio-next-saving-rate-range",
+                "source_record_ids": [
+                  "bea.pio.archived_personal_saving_rate:202001:personal_saving_rate",
+                  "bea.pio.archived_personal_saving_rate:202002:personal_saving_rate"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Bureau of Economic Analysis",
+                    "redistribution_note": "Full BEA HTML and PDF releases remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred here.",
+                    "retrieved_at": "2026-08-13T08:11:17.667015Z",
+                    "sha256": "eea65b8761823dcf6837f99df8b5a01b26f8f21ee6f8d3bf06eda38441903dde",
+                    "source_id": "bea.pio.archived_personal_saving_rate",
+                    "source_version": "BEA-PIO:2020-01:BEA-20-08:html:d7f235a649ba414a745b:pdf:eea65b8761823dcf6837",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.bea.gov/sites/default/files/2020-02/pi0120_0.pdf",
+                    "vintage_as_of": "2020-02-28T13:30:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Bureau of Economic Analysis",
+                    "redistribution_note": "Full BEA HTML and PDF releases remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred here.",
+                    "retrieved_at": "2026-08-13T08:11:22.722237Z",
+                    "sha256": "4ec56d420a41e9bdade7caeaa6e4a494d51c6b03f0fac5dc5d1fa45b835d8763",
+                    "source_id": "bea.pio.archived_personal_saving_rate",
+                    "source_version": "BEA-PIO:2020-02:BEA-20-14:html:9ca2e876792fc22d37a1:pdf:4ec56d420a41e9bdade7",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.bea.gov/sites/default/files/2020-03/pi0220_1.pdf",
+                    "vintage_as_of": "2020-03-27T12:30:00Z"
+                  }
+                ],
+                "target_id": "bea_pio:united_states",
+                "unit": "basis_points",
+                "upper": 850.0,
+                "variable": "next_personal_saving_rate_basis_points"
+              }
+            ],
+            "program_id": "bea-pio-next-saving-rate-envelope",
+            "scenario_id": "bea-pio-2020-saving-rate-boundary"
+          }
+        },
+        "source_hashes": [
+          "4ec56d420a41e9bdade7caeaa6e4a494d51c6b03f0fac5dc5d1fa45b835d8763",
+          "eea65b8761823dcf6837f99df8b5a01b26f8f21ee6f8d3bf06eda38441903dde"
+        ],
+        "source_record_ids": [
+          "bea.pio.archived_personal_saving_rate:202001:personal_saving_rate",
+          "bea.pio.archived_personal_saving_rate:202002:personal_saving_rate"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "bea-pio.timevault.release-query"
+        ]
+      },
+      {
+        "artifact_id": "bea-pio.timevault.release-query",
+        "artifact_kind": "versioned-bea-pio-release-query",
+        "artifact_sha256": "8c908446cabbf7096fbea96ccc5cb1edd31405413614283e8f50afb4092b0af9",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 2
+        },
+        "limitations": [
+          "The lock contains only two monthly Personal Income and Outlays releases.",
+          "Each release is a vintage snapshot and may later be revised.",
+          "Aggregate household-account estimates do not identify persons or households.",
+          "Paired full-release files remain local download evidence."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "28fabe007e660437e29c44350c5f4eb3d401cc9b0f46a2c6e31b7e7dc1e11acf",
+              "b60c276cd564ff32a37e9319cb89bbabec8e36397587db8b8d2a9b78ac4d2f82"
+            ],
+            "attempted_records": 2,
+            "fact_hashes": [
+              "a223a60fdd928049130bdf4064ac8393db3d7425142606dd25bbf9a7bd3ab4a4",
+              "a0fd56ee19ece276cf8c6b2b67200c69c62ae408ee0236fc6833d0b1480f3b14"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 2
+          },
+          "decision_time": "2020-04-01T12:00:00Z",
+          "input_lock_sha256": "0620471d0f5667af1b505a1d9cc70149ca8b443da137f2638f6e26a2dcbfd630",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 2,
+            "fact_set_sha256": "707892754e4de1dfe21c4b740c263d97b4b4bac8cfb34213b35ac42c94212c43",
+            "fact_versions": 2,
+            "generated_at": "2026-08-13T08:35:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2020-03-27T12:30:00Z",
+          "selected_record_ids": [
+            "bea.pio.archived_personal_saving_rate:202001:personal_saving_rate",
+            "bea.pio.archived_personal_saving_rate:202002:personal_saving_rate"
+          ]
+        },
+        "source_hashes": [
+          "4ec56d420a41e9bdade7caeaa6e4a494d51c6b03f0fac5dc5d1fa45b835d8763",
+          "eea65b8761823dcf6837f99df8b5a01b26f8f21ee6f8d3bf06eda38441903dde"
+        ],
+        "source_record_ids": [
+          "bea.pio.archived_personal_saving_rate:202001:personal_saving_rate",
+          "bea.pio.archived_personal_saving_rate:202002:personal_saving_rate"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "bea-pio.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "833ed7347d03244b9dca964803deaf3307d5c236622b8c7297db16c71e56c1df",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 2,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "bea-pio-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "1fade495626f4f14e667fa6b2ab7ddd49e051bc4",
+            "completed_at": "2026-08-13T08:35:00Z",
+            "config_sha256": "932864c21da6e01dd822f5967fdeb59855b0d0db9f2cbbb059029551e6c7c6c9",
+            "decision_time": "2020-04-01T12:00:00Z",
+            "evaluation_end": "2020-05-17",
+            "evaluation_start": "2020-04-02",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "0620471d0f5667af1b505a1d9cc70149ca8b443da137f2638f6e26a2dcbfd630",
+            "max_input_available_at": "2020-03-27T12:30:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 30.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No April 30 BEA release fact or February revision is in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "25c2f9e265298b31c2eab41a22dc77a1482b567bbe4cb55e1560bfe495b4b220",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "continuation-range-width": 30.0,
+              "known-monthly-saving-rate-increase": 30.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 2,
+            "short_fraction": 0.0,
+            "training_end": "2020-03-30",
+            "trial_id": "bea-pio-retrospective-range-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "9fefa22471262412cd6626f8460df6922520f3eae07fa23ed5349ae86eac7250",
+            "entry_hash": "9fefa22471262412cd6626f8460df6922520f3eae07fa23ed5349ae86eac7250",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "bea-pio-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "bea-pio-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "8fae54009c1854687e24513abb127e87528e332d29205763b0d063990e547c90",
+            "candidate_attempt_id": "bea-pio-retrospective-attempt-1",
+            "decided_at": "2026-08-13T08:35:00Z",
+            "decision_id": "decision:bea-pio-retrospective-range-screen:81940e94efec9340b2ca1f7e",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 30.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 30.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "bea-pio-retrospective-range-screen"
+          },
+          "input_lock_sha256": "0620471d0f5667af1b505a1d9cc70149ca8b443da137f2638f6e26a2dcbfd630",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "1ed76ddf5648b6afaad2e3452b163f4185456026a3e3626691d26860a3f75471",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "c88f5110348343a6e14d33341d3a2a73b1e81eaebc72f879778a3e06853fc215",
+            "entry_hash": "c88f5110348343a6e14d33341d3a2a73b1e81eaebc72f879778a3e06853fc215",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "The personal saving rate is a reported aggregate household-account estimate, but two release snapshots and one later outcome cannot establish predictive validity or household, pandemic, policy, or macroeconomic causality.",
+            "embargo_days": 0,
+            "expected_direction": "positive",
+            "holdout_end": "2020-05-17",
+            "holdout_start": "2020-04-02",
+            "hypothesis": "A retrospectively constructed one-increase BEA saving-rate boundary qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-13T08:35:00Z",
+            "primary_metric": "one-increase BEA saving-rate range width in basis points",
+            "purge_days": 2,
+            "trial_id": "bea-pio-retrospective-range-screen"
+          }
+        },
+        "source_hashes": [
+          "4ec56d420a41e9bdade7caeaa6e4a494d51c6b03f0fac5dc5d1fa45b835d8763",
+          "eea65b8761823dcf6837f99df8b5a01b26f8f21ee6f8d3bf06eda38441903dde"
+        ],
+        "source_record_ids": [
+          "bea.pio.archived_personal_saving_rate:202001:personal_saving_rate",
+          "bea.pio.archived_personal_saving_rate:202002:personal_saving_rate"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "bea-pio.shockcompiler.saving-rate-range",
+          "bea-pio.timevault.release-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over two locked BEA Personal Income and Outlays saving-rate facts available before the decision time. Reported release-snapshot values remain reported; the persistence-or-repeat-known-increase range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The April 30 March value and its revision of February are held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, household-behavior or pandemic causal model, trading signal, production deployment, or external validation.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "bea-pio.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no probability or coverage guarantee.",
+        "claim_id": "claim-inferred-bea-saving-rate-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The April 30 event and its February revision were not used to set the interval.",
+          "The range has no household-behavior, pandemic, or policy causal interpretation."
+        ],
+        "statement": "The next-release stress endpoints are latest persistence or one repeat of the known 30-basis-point increase: [820, 850] basis points.",
+        "support_artifact_ids": [
+          "bea-pio.shockcompiler.saving-rate-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external review.",
+        "claim_id": "claim-inferred-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective one-increase saving-rate attempt.",
+        "support_artifact_ids": [
+          "bea-pio.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are aggregate release-snapshot estimates, not household observations.",
+        "claim_id": "claim-reported-bea-saving-rates",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes only two release vintages."
+        ],
+        "statement": "Paired archived BEA HTML/PDF releases report personal saving rates of 790 basis points for January and 820 basis points for February 2020.",
+        "support_artifact_ids": [
+          "bea-pio.timevault.release-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not transactions, capital, capacity, or returns.",
+        "claim_id": "claim-simulated-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "bea-pio.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "1fade495626f4f14e667fa6b2ab7ddd49e051bc4",
+    "compressed_input_bytes": 2032,
+    "created_at": "2026-08-13T08:35:00Z",
+    "decision_time": "2020-04-01T12:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves the reported personal saving rates for January and February 2020 from paired official archived BEA Personal Income and Outlays HTML/PDF release snapshots knowable before the replay decision time. It excludes the April 30 March-value event and later February revision, individual households and transactions, a probability distribution, forecast, calibrated interval, pandemic or policy causality, recommendation, execution, investment performance, external review, deployment, and user impact.",
+      "The endpoints are latest-rate persistence or one repetition of the single known 30-basis-point increase, with no probability.",
+      "The April 30 release and its February revision are excluded from every decision input.",
+      "Two release snapshots do not identify household behavior, causes, or distribution.",
+      "The range has no policy, return, or forecast interpretation.",
+      "No position, order, portfolio, allocation, or return is represented.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "bea-pio-2020-saving-rate-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "bea-pio-2020-saving-rate-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "BEA personal-saving-rate boundary before the March 2020 surge"
+  },
+  "topological_artifact_ids": [
+    "bea-pio.timevault.release-query",
+    "bea-pio.shockcompiler.saving-rate-range",
+    "bea-pio.trialcourt.retrospective-gate",
+    "bea-pio.replaystudio.render"
+  ],
+  "trace_id": "trace:1c524d19917ec6fc124e8ce9fa43efd1d01f9090240163f99019e2e311eca6da"
+}

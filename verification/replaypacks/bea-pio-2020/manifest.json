@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over two locked BEA Personal Income and Outlays saving-rate facts available before the decision time. Reported release-snapshot values remain reported; the persistence-or-repeat-known-increase range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The April 30 March value and its revision of February are held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, household-behavior or pandemic causal model, trading signal, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1355,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "400a0e47f41e98273816246fa011bd09d739e728d542c44a17a70c75bc39c621"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "b53f76052295840b665de2bb69532afcb46033d47518767374947f3e2761be35"
+    },
+    {
+      "bytes": 29941,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "7bd3917e06fcdaa34e4afa894edfdef6a45383c9754ae79eb21a66a7a442f0cd"
+    },
+    {
+      "bytes": 28707,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "2c0cc93f531e085899ab952f3eac9daaf795d876ec3cf35438618e9ba0346c0e"
+    }
+  ],
+  "pack_sha256": "2522341e031ba822486db54c2b908eb68ce6788d52a6f1b0975d1b877f4069cb",
+  "receipt_sha256": "fb184b534f8655d89633538e5ce8f2e6fd89beb47d2947f9adf1b690a17100a1",
+  "replay_id": "bea-pio-2020-saving-rate-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "1fade495626f4f14e667fa6b2ab7ddd49e051bc4",
+    "compressed_input_bytes": 2032,
+    "created_at": "2026-08-13T08:35:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "7a392f72d1bd3a0e4b3778a62f72808db4005ed5b2041c16985b02b9be2109e4",
+    "output_manifest_sha256": "0078779fde2ba8c3c309d333b5495b214020975089a2c15865385af5696f5880",
+    "replay_id": "bea-pio-2020-saving-rate-boundary-v1",
+    "scenario_id": "bea-pio-2020-saving-rate-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "2c0cc93f531e085899ab952f3eac9daaf795d876ec3cf35438618e9ba0346c0e",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:1c524d19917ec6fc124e8ce9fa43efd1d01f9090240163f99019e2e311eca6da"
+}
