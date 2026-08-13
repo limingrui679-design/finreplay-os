@@ -1,0 +1,65 @@
+{
+  "artifact_sha256": {
+    "replaystudio": "c65b644156d985809d0159a6c08fb2cbdc75df0d291371e5ec096d5d15ddf7e6",
+    "shockcompiler": "dc7daced15a512cc7e139045dc37ce1954c44167b982297bbf62709febeca7d2",
+    "timevault": "294a2ad052cc72364b2963ff2faa579404dd46dbb4700c8551be301f2b231934",
+    "trialcourt": "877c3a99aaa00b689a7ae89ef5410a772b71215139212a2e649f144bc56128f7"
+  },
+  "assertions": {
+    "all_artifacts_reproduced": true,
+    "byte_identical_directory_rebuilds": true,
+    "byte_identical_zip_rebuilds": true,
+    "compiled_pack_matches_rebuild": true,
+    "cross_engine_trace_is_stable": true,
+    "distinct_locked_inputs_equal_four": true,
+    "future_event_excluded_from_bound_construction": true,
+    "historical_source_sets_eligible": true,
+    "naive_baseline_is_zero_growth": true,
+    "no_probability_is_assigned": true,
+    "only_relevant_engines_present": true,
+    "post_decision_event_is_disjoint": true,
+    "post_decision_event_timing_is_later": true,
+    "reported_post_event_growth_inside_declared_envelope": true,
+    "simulation_remains_visible": true,
+    "trialcourt_rejects_retrospective_attempt": true
+  },
+  "claim_boundary": "This receipt proves two fresh local executions of the four relevant engines rebuild the committed directory and deterministic ZIP bytes from four locked pre-decision H.4.1 facts. It verifies the separately locked March 30 balance is disjoint and, as an evaluation only, its reported growth falls inside the previously declared no-probability envelope. It does not prove forecast skill, calibrated coverage, causal systemic stress, policy effectiveness, deployment, external review, or user impact.",
+  "code_commit": "142d96828d6fc3bc887ef5b50a34d0960814c733",
+  "event_lock_sha256": "97b1063608c36fcdc813cfaa916dba9bc5fa0e9874d587f8b7edb9a1216ad5c7",
+  "file_sha256": {
+    "README.md": "375341a69a61c596eff8b1910cb018155a5f68e51ea7da721200c347cec64078",
+    "assets/styles.css": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677",
+    "checksums.sha256": "e95486771d9ebd0d3767aac0e1ad5c98f9824d44b4a15c395cf5cc60ef5dbeee",
+    "index.html": "51ff1e6bca81d6d4b0a988c4a046ad7d6e571574c297f9eb7a614be72814fa2e",
+    "manifest.json": "9cad8a5d726d9fa201450d43d4d6b3e546b90d52f634579b07d537dd557c617a",
+    "report.json": "479aa3ac1459f9b975449638770cea207c266a69846256370cda0e8c0c2d33d0"
+  },
+  "input_lock_sha256": "155bac5cbf63771831e4833d8a32a33c6508422efbf8aa910ed40988d24e6ffd",
+  "pack_receipt_sha256": "dc64205bb12fcc75cf50759f2a8b8bd328e6bbe267abc8d744f54635de6411c2",
+  "pack_sha256": "f595429d8a547a669f36b84ee6058933eb9c12ec5ee5a19632d8f510fe8b0141",
+  "post_event_evaluation": {
+    "declared_lower_growth_millions": 0,
+    "declared_upper_growth_millions": 41726,
+    "reported_growth_from_prior_wednesday_millions": 10734,
+    "reported_march_30_wednesday_balance_millions": 64403,
+    "used_as_decision_input": false
+  },
+  "receipt_sha256": "349b375f14bb06f542adfb4f0eeb0cad0207efa40442eeec3868b816d43613a6",
+  "runtime": {
+    "duckdb": "1.5.5",
+    "finreplay": "0.1.0a0",
+    "machine": "arm64",
+    "measured_at": "2026-08-13T04:25:18.392794+00:00",
+    "numpy": "2.2.6",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "pydantic": "2.13.4",
+    "python": "3.12.13",
+    "runner_commit": "c37161545f7cee06de84ef663b8199acd2f7327c",
+    "runner_dirty": false,
+    "scipy": "1.18.0",
+    "two_rebuild_elapsed_seconds": 0.3826542079914361
+  },
+  "schema_version": "1.0.0",
+  "semantic_sha256": "e890a54b450bcfd09a1d8218d35fe221c2880c1adebcd876792d29de01243c74",
+  "trace_id": "trace:48018b32d8fec0765cb14afed5aef57beec65b77ae5629b10e05e3ab08ec68c2"
+}
