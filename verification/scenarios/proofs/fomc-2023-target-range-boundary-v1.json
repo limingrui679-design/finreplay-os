@@ -1,0 +1,125 @@
+{
+  "build_script": {
+    "path": "scripts/build_fomc_target_replaypack.py",
+    "sha256": "39628e9ecb0d2843bcb507c9d68bf12441c8119291e1729e2a1b2fc12937289c"
+  },
+  "claim_boundary": "This proof counts one internally reproduced FOMC target-range boundary because four official pre-decision target endpoints, exact page-stated release timing, a separately locked post-decision upper target, an immutable input lock, separated truth labels, an explicit latest-upper persistence baseline, a no-probability zero-or-one-known-step program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The later upper target is excluded from ReplayPack inputs and used only for a labelled post-event range check. This does not establish forecast skill, calibrated coverage, monetary-policy correctness or causal effects, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "fomc-target.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective policy-step attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "fomc-target.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "3d3485cbc62edfff2e61812a1245293541c1e85d5c67d9d0b1a6e0f03d3b1799",
+      "path": "scenarios/fomc-target-2023/event-lock.json",
+      "record_ids": [
+        "federal_reserve.fomc.archived_statement:20230503:target_range_upper"
+      ],
+      "sha256": "3294a5335f518e4152720f6593c0a6421395d68bed6ad7b044efa8840e2f34ef"
+    }
+  ],
+  "expected_input_manifest_sha256": "2f02efea42a2a55f37325e1606f4a8c19289292ccf5bb73027a86a5d0e3b50cc",
+  "expected_pack_sha256": "4421dbfebff7e2e3e66124090d27cd6b9031bcb89c9b8726cf28d8fdf358f7e5",
+  "expected_trace_id": "trace:4d1e9d9df61c5baffffb8bced078829ec4ba1064f07e7c65f68ba9a1368f7df7",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains target endpoints reported in FOMC statements, not direct market observations, expectations, votes, or causal policy effects. The later upper target is only in the event lock."
+    },
+    "bounded_artifact_ids": [
+      "fomc-target.shockcompiler.upper-bound"
+    ],
+    "extracted_artifact_ids": [
+      "fomc-target.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "fomc-target.shockcompiler.upper-bound",
+      "fomc-target.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "federal_reserve.fomc.archived_statement:20230201:target_range_lower",
+      "federal_reserve.fomc.archived_statement:20230201:target_range_upper",
+      "federal_reserve.fomc.archived_statement:20230322:target_range_lower",
+      "federal_reserve.fomc.archived_statement:20230322:target_range_upper"
+    ],
+    "simulated_artifact_ids": [
+      "fomc-target.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "555fd627dcdee673d11db6acca889900cba51cfb15e7aa16fe645ac7f137f61f",
+      "path": "scenarios/fomc-target-2023/input-lock.json",
+      "record_ids": [
+        "federal_reserve.fomc.archived_statement:20230201:target_range_lower",
+        "federal_reserve.fomc.archived_statement:20230201:target_range_upper",
+        "federal_reserve.fomc.archived_statement:20230322:target_range_lower",
+        "federal_reserve.fomc.archived_statement:20230322:target_range_upper"
+      ],
+      "sha256": "10a5d30ee02e4d3bf8fccd5ee8290800d0f3796d8f5a5d259b4e16a868e444bf"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "fomc-target.shockcompiler.upper-bound",
+      "description": "The explicit decision-time baseline persists the latest known 500-basis-point upper target endpoint.",
+      "expected_value": 500,
+      "payload_pointer": "/naive_baseline/next_target_range_upper_basis_points"
+    },
+    {
+      "artifact_id": "fomc-target.shockcompiler.upper-bound",
+      "description": "The two next-upper endpoints carry no probability or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/fed-fomc/latest-summary.json",
+  "pack_directory": "verification/replaypacks/fomc-target-2023",
+  "proof_sha256": "34265ce85a5a0bf3b52e4f42f3aa1a20a532b9510634a5be661f4ec015b2389e",
+  "rebuild_receipt": {
+    "path": "verification/evidence/fomc-target-four-engine-rebuild.json",
+    "sha256": "7966c498bf99fc8e349542a1e2f74e419cca36becc77378f8d52fdab1dbbfa4c"
+  },
+  "replay_id": "fomc-2023-target-range-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "distinct_locked_inputs_equal_four",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "naive_baseline_is_latest_known_upper_target_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_timing_is_later",
+    "reported_post_event_upper_target_inside_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "fomc-2023-target-range-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "federal_reserve.fomc.archived_statement:20230201:target_range_lower",
+    "federal_reserve.fomc.archived_statement:20230201:target_range_upper",
+    "federal_reserve.fomc.archived_statement:20230322:target_range_lower",
+    "federal_reserve.fomc.archived_statement:20230322:target_range_upper"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_fomc_target_replaypack.py",
+    "sha256": "ebd05f80a0ffb97993ac5d12774c8550bd4490d9143904e9e3cd2704421c1e7a"
+  }
+}

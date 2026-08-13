@@ -29,6 +29,7 @@ WESTERN_ALLIANCE_PROOF_PATH = (
 GDP_REVISION_PROOF_PATH = PROOF_DIRECTORY / "gdp-2022q4-revision-boundary-v1.json"
 BTFP_GROWTH_PROOF_PATH = PROOF_DIRECTORY / "btfp-2023-early-growth-boundary-v1.json"
 BLS_PAYROLL_PROOF_PATH = PROOF_DIRECTORY / "bls-2023-payroll-release-boundary-v1.json"
+FOMC_TARGET_PROOF_PATH = PROOF_DIRECTORY / "fomc-2023-target-range-boundary-v1.json"
 
 
 def proof_values() -> dict[str, Any]:
@@ -126,8 +127,16 @@ def test_committed_proofs_and_deterministic_catalog_are_fully_verified() -> None
     assert bls_payroll.mode == "bounded_reconstruction"
     assert bls_payroll.distinct_input_records == 4
 
+    fomc_target = verify_scenario_proof(
+        FOMC_TARGET_PROOF_PATH,
+        repository_root=REPOSITORY,
+    )
+    assert fomc_target.scenario_id == "fomc-2023-target-range-boundary"
+    assert fomc_target.mode == "bounded_reconstruction"
+    assert fomc_target.distinct_input_records == 4
+
     catalog = verify_scenario_catalog(PROOF_DIRECTORY, repository_root=REPOSITORY)
-    assert len(catalog) == 6
+    assert len(catalog) == 7
     summary = scenario_catalog_summary(catalog, proof_directory=PROOF_DIRECTORY)
     committed = json.loads((REPOSITORY / "verification/scenarios/latest-summary.json").read_text())
     assert summary == committed
