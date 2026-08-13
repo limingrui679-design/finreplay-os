@@ -1,0 +1,72 @@
+{
+  "artifact_sha256": {
+    "replaystudio": "839b817445b4fa6a46db173a0afb4e8e3715772b8339d66f009e3a4cf2dfd2e8",
+    "shockcompiler": "3d7f82f39652def43e913c343a24fbfa36579115cd12122cfd980a9423cdfa04",
+    "timevault": "2c6a1dbadefb253f5d21f4ae319b60a310dac3d4d1eeb84e1becba88e8ba869d",
+    "trialcourt": "93a450e1ef9af8fc446220b85ef340f5e6b02292039f201d59e6e2bec022cc1c"
+  },
+  "assertions": {
+    "all_artifacts_reproduced": true,
+    "byte_identical_directory_rebuilds": true,
+    "byte_identical_zip_rebuilds": true,
+    "compiled_pack_matches_rebuild": true,
+    "cross_engine_trace_is_stable": true,
+    "distinct_locked_inputs_equal_four": true,
+    "future_event_excluded_from_bound_construction": true,
+    "historical_source_sets_eligible": true,
+    "naive_baseline_is_latest_known_spread_persistence": true,
+    "no_probability_is_assigned": true,
+    "only_relevant_engines_present": true,
+    "post_decision_event_is_disjoint": true,
+    "post_decision_event_is_exact_native_vintage_yield_pair": true,
+    "post_decision_event_timing_is_later": true,
+    "post_event_range_breach_equals_six_basis_points": true,
+    "post_event_spread_breaches_declared_range": true,
+    "simulation_remains_visible": true,
+    "trialcourt_rejects_retrospective_attempt": true
+  },
+  "claim_boundary": "This receipt proves two fresh local executions of the four relevant engines rebuild the committed directory and deterministic ZIP bytes from four locked pre-decision native-vintage DGS2/DGS10 facts. It verifies the separately locked March 15 yield pair is disjoint and, as an evaluation only, produces a -42 basis-point spread that breaches the previously declared [-107, -48] no-probability range by 6 basis points. The miss remains visible rather than widening the range retrospectively. This does not prove forecast skill, calibrated coverage, a stationary sample, causal banking, recession, or policy attribution, deployment, external review, or user impact.",
+  "code_commit": "12cd22fe84433d51eab47f9b384b34c6848205e6",
+  "event_lock_sha256": "4839086f0456c109a2a483e7e51d32e3c1046c24408859d03f8440b94b82ca7f",
+  "file_sha256": {
+    "README.md": "3938e45c10d330c3767bceb873da77b231748d8eb059da4f08cf778c704ab349",
+    "assets/styles.css": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677",
+    "checksums.sha256": "55ebcc9b532cd131f0e1e306285e032e8beaa32cf3c22299ffc1f0bb600d8071",
+    "index.html": "203b24dcc60f2abb14ca4ddf1acab1a00ebca5966df37f618bdb547a58006c57",
+    "manifest.json": "3723546c82e2f3a8b46dc82751bfeaac3a23defe6fcfba860e5de769598a82bc",
+    "report.json": "e13ef4ccae838ea8d4c11c9a6330f272e3283026f47e9cc265b3323bead536f2"
+  },
+  "input_lock_sha256": "eb49c0c8d96ff99b59a5495d428dacc61b142a151d4d7e2ab358055c53a7b085",
+  "pack_receipt_sha256": "f0a4f7ac664649b1405fb069e30e9489b6df59692c53e4208586c5f5ae118758",
+  "pack_sha256": "f05a5b1f0a143f3bd99dbd1777efcb814f791a1da8d1f8190ece4a73d7ad3ccb",
+  "post_event_evaluation": {
+    "declared_lower_spread_basis_points": -107,
+    "declared_upper_spread_basis_points": -48,
+    "latest_known_persistence_baseline_basis_points": -48,
+    "probability_assigned": false,
+    "range_breach_basis_points": 6,
+    "range_result": "outside_upper_endpoint",
+    "reported_march15_dgs10_basis_points": 351,
+    "reported_march15_dgs2_basis_points": 393,
+    "reported_march15_spread_basis_points": -42,
+    "used_as_decision_input": false
+  },
+  "receipt_sha256": "d5394af6a34154b11564a0a699a2bb0c94dee30671e38d5efe9097ab11a4ef01",
+  "runtime": {
+    "duckdb": "1.5.5",
+    "finreplay": "0.1.0a0",
+    "machine": "arm64",
+    "measured_at": "2026-08-13T05:37:07.299677+00:00",
+    "numpy": "2.2.6",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "pydantic": "2.13.4",
+    "python": "3.12.13",
+    "runner_commit": "f6e24128dfebe1a804cca730fe3f65446ac28712",
+    "runner_dirty": false,
+    "scipy": "1.18.0",
+    "two_rebuild_elapsed_seconds": 0.4598317090130877
+  },
+  "schema_version": "1.0.0",
+  "semantic_sha256": "faddc59ac5fa76ddb81f60415906ca1d0b2765252a15fd0666f67bfe6a01c5b5",
+  "trace_id": "trace:582d084d96526fffb25f544af2fb1ceca86cd71b53578c51823c04b5dbfed41c"
+}
