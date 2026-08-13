@@ -1,0 +1,585 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 4,
+    "reported": 4,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "214c7571f406edb68208e96eeae907c0f26dccfc6d1b88bed164e2f0b7157f4e",
+  "pack_sha256": "6d918334fff44d2cb860072858f7235e6f1fe0710583aff349b6fa2767986f3d",
+  "source_hashes": [
+    "6c388e9c67329d42fc624a9c5e0b930d11b68cbb68e1a53b582f72e126add25e",
+    "8388882993acfc4215eb045d4d925cc313807fecf3a3a36694776dbb2f5e2a46"
+  ],
+  "source_record_ids": [
+    "federalreserve.g17.archived_industrial_production:202001:monthly_change",
+    "federalreserve.g17.archived_industrial_production:202002:monthly_change"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "fed-g17.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "41cd5d7052e741b45594de67fb16b6f112f9a6afc19c63b8f567dcaf29be14c8",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not validate the monthly-change range heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This aggregate industrial-output release boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no plant, firm, transaction, position, order, portfolio, or allocation input is invented.",
+          "input_lock_sha256": "6e066395b303bd4f941b4c92f7b78be7ce84c3f859f76c1af47961165be40b0a",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "6c388e9c67329d42fc624a9c5e0b930d11b68cbb68e1a53b582f72e126add25e",
+          "8388882993acfc4215eb045d4d925cc313807fecf3a3a36694776dbb2f5e2a46"
+        ],
+        "source_record_ids": [
+          "federalreserve.g17.archived_industrial_production:202001:monthly_change",
+          "federalreserve.g17.archived_industrial_production:202002:monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "fed-g17.shockcompiler.monthly-change-range",
+          "fed-g17.timevault.release-query",
+          "fed-g17.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "fed-g17.shockcompiler.monthly-change-range",
+        "artifact_kind": "bounded-fed-g17-industrial-production-program",
+        "artifact_sha256": "a2ea86a8cd4d85f891b9a98895ba45cd1ccf59c1cd620d3a95384ef200d9a0b5",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 3
+        },
+        "limitations": [
+          "The endpoints mechanically reuse one known release-to-release increase.",
+          "The April 15 March value and revised February value are absent from construction.",
+          "The range is not an industrial-output probability or causal explanation."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": 60.0,
+            "upper": 150.0
+          },
+          "bound_construction": {
+            "endpoint_method": "latest_persistence_or_repeat_known_monthly_increase",
+            "future_event_used": false,
+            "known_increase_basis_points": 90,
+            "lower_change_basis_points": 60,
+            "probability_assigned": false,
+            "range_width_basis_points": 90,
+            "upper_change_basis_points": 150
+          },
+          "compiled": {
+            "compiled_sha256": "e27faa13b19cce820e8690f85047db3866064f95888b95a0f601cbc859798f02",
+            "decision_time": "2020-03-18T12:00:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, industrial-causality, or regime meaning.",
+              "The April 15 release and its revisions are excluded and evaluated only afterward."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "fed-g17-next-industrial-production-change-envelope",
+            "scenario_id": "fed-g17-2020-industrial-production-boundary",
+            "source_program_sha256": "c15f8c5bb59d9dedf2c59bccd1813f5e75a5100b835256b148bd0eb075540509",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use latest-change persistence or one repeat of the only known release-to-release increase as transparent next-release stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two release snapshots and one increase define a stress range, not a forecast or confidence interval."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "fed-g17-next-industrial-production-change-range",
+                    "source_hashes": [
+                      "8388882993acfc4215eb045d4d925cc313807fecf3a3a36694776dbb2f5e2a46",
+                      "6c388e9c67329d42fc624a9c5e0b930d11b68cbb68e1a53b582f72e126add25e"
+                    ],
+                    "source_record_ids": [
+                      "federalreserve.g17.archived_industrial_production:202001:monthly_change",
+                      "federalreserve.g17.archived_industrial_production:202002:monthly_change"
+                    ],
+                    "target_id": "federal_reserve_g17:total_industrial_production",
+                    "unit": "basis_points",
+                    "value": 60.0,
+                    "variable": "next_total_industrial_production_monthly_change_basis_points"
+                  }
+                ],
+                "trial_id": "fed-g17-next-industrial-production-change-envelope:00000000:7d3d1c91a112a013",
+                "trial_index": 0,
+                "vector_sha256": "7d3d1c91a112a01332880191fb148a9a5437a7176211e5bfbc941f13e866f262"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use latest-change persistence or one repeat of the only known release-to-release increase as transparent next-release stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two release snapshots and one increase define a stress range, not a forecast or confidence interval."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "fed-g17-next-industrial-production-change-range",
+                    "source_hashes": [
+                      "8388882993acfc4215eb045d4d925cc313807fecf3a3a36694776dbb2f5e2a46",
+                      "6c388e9c67329d42fc624a9c5e0b930d11b68cbb68e1a53b582f72e126add25e"
+                    ],
+                    "source_record_ids": [
+                      "federalreserve.g17.archived_industrial_production:202001:monthly_change",
+                      "federalreserve.g17.archived_industrial_production:202002:monthly_change"
+                    ],
+                    "target_id": "federal_reserve_g17:total_industrial_production",
+                    "unit": "basis_points",
+                    "value": 150.0,
+                    "variable": "next_total_industrial_production_monthly_change_basis_points"
+                  }
+                ],
+                "trial_id": "fed-g17-next-industrial-production-change-envelope:00000001:f61e001380189806",
+                "trial_index": 1,
+                "vector_sha256": "f61e001380189806e0f49c27359134827229f9ebc1ef94ea118deaf6efd6b3e2"
+              }
+            ]
+          },
+          "input_lock_sha256": "6e066395b303bd4f941b4c92f7b78be7ce84c3f859f76c1af47961165be40b0a",
+          "known_changes": {
+            "february_monthly_change_basis_points": 60,
+            "january_monthly_change_basis_points": -30,
+            "known_increase_basis_points": 90,
+            "lower_change_basis_points": 60,
+            "range_width_basis_points": 90,
+            "upper_change_basis_points": 150
+          },
+          "naive_baseline": {
+            "definition": "persistence of the latest known G.17 headline monthly change",
+            "next_monthly_change_basis_points": 60
+          },
+          "program": {
+            "decision_time": "2020-03-18T12:00:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, industrial-causality, or regime meaning.",
+              "The April 15 release and its revisions are excluded and evaluated only afterward."
+            ],
+            "hypothesis": "Evaluate latest persistence or one repetition of the known headline monthly-change increase using only G.17 snapshots available at the historical boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use latest-change persistence or one repeat of the only known release-to-release increase as transparent next-release stress endpoints.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "Two release snapshots and one increase define a stress range, not a forecast or confidence interval."
+                ],
+                "lower": 60.0,
+                "operation": "set",
+                "parameter_id": "fed-g17-next-industrial-production-change-range",
+                "source_record_ids": [
+                  "federalreserve.g17.archived_industrial_production:202001:monthly_change",
+                  "federalreserve.g17.archived_industrial_production:202002:monthly_change"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "Board of Governors of the Federal Reserve System",
+                    "redistribution_note": "Full Federal Reserve HTML and PDF releases remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred.",
+                    "retrieved_at": "2026-08-13T09:02:26.965050Z",
+                    "sha256": "8388882993acfc4215eb045d4d925cc313807fecf3a3a36694776dbb2f5e2a46",
+                    "source_id": "federalreserve.g17.archived_industrial_production",
+                    "source_version": "FED-G17:2020-01:G17-419:html-facts:d0c65fdb77aefeb259d1:pdf:8388882993acfc4215eb",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.federalreserve.gov/releases/g17/20200214/g17.pdf",
+                    "vintage_as_of": "2020-02-14T14:15:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "Board of Governors of the Federal Reserve System",
+                    "redistribution_note": "Full Federal Reserve HTML and PDF releases remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred.",
+                    "retrieved_at": "2026-08-13T09:02:31.533504Z",
+                    "sha256": "6c388e9c67329d42fc624a9c5e0b930d11b68cbb68e1a53b582f72e126add25e",
+                    "source_id": "federalreserve.g17.archived_industrial_production",
+                    "source_version": "FED-G17:2020-02:G17-419:html-facts:ea2598ae3a5e1dba2625:pdf:6c388e9c67329d42fc62",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.federalreserve.gov/releases/g17/20200317/g17.pdf",
+                    "vintage_as_of": "2020-03-17T13:15:00Z"
+                  }
+                ],
+                "target_id": "federal_reserve_g17:total_industrial_production",
+                "unit": "basis_points",
+                "upper": 150.0,
+                "variable": "next_total_industrial_production_monthly_change_basis_points"
+              }
+            ],
+            "program_id": "fed-g17-next-industrial-production-change-envelope",
+            "scenario_id": "fed-g17-2020-industrial-production-boundary"
+          }
+        },
+        "source_hashes": [
+          "6c388e9c67329d42fc624a9c5e0b930d11b68cbb68e1a53b582f72e126add25e",
+          "8388882993acfc4215eb045d4d925cc313807fecf3a3a36694776dbb2f5e2a46"
+        ],
+        "source_record_ids": [
+          "federalreserve.g17.archived_industrial_production:202001:monthly_change",
+          "federalreserve.g17.archived_industrial_production:202002:monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "fed-g17.timevault.release-query"
+        ]
+      },
+      {
+        "artifact_id": "fed-g17.timevault.release-query",
+        "artifact_kind": "versioned-fed-g17-release-query",
+        "artifact_sha256": "064821a40c9cd0e38114c2df271fe5d3870e704eb34c2720136b1e41b89b8b6d",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 2
+        },
+        "limitations": [
+          "The lock contains only two monthly G.17 release snapshots.",
+          "Each release is a preliminary/revised vintage and may later change.",
+          "Aggregate industrial-production estimates do not identify plants or firms.",
+          "Paired full-release files remain local download evidence."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "deae557e99c2ff586b2de597dd33db4184230727a448d8e74f49cb87631eab4b",
+              "e628ec1eb550a368288f2fd29dda1de98db934e3a750680fdbb586a9cece9aa6"
+            ],
+            "attempted_records": 2,
+            "fact_hashes": [
+              "64e7bd498434076be739f066e7d1b67b87643f0caf701b87f8d9399b15b29648",
+              "17e16debaf8c0855313205c51f0bb42152d3ef84dc7e65b38acbb82d4f5dc3d9"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 2
+          },
+          "decision_time": "2020-03-18T12:00:00Z",
+          "input_lock_sha256": "6e066395b303bd4f941b4c92f7b78be7ce84c3f859f76c1af47961165be40b0a",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 2,
+            "fact_set_sha256": "406313d362af1bb02c01c3ec1f30cd78ee49ebc4bb6b8a0b0a894f50d418b4a8",
+            "fact_versions": 2,
+            "generated_at": "2026-08-13T09:10:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2020-03-17T13:15:00Z",
+          "selected_record_ids": [
+            "federalreserve.g17.archived_industrial_production:202001:monthly_change",
+            "federalreserve.g17.archived_industrial_production:202002:monthly_change"
+          ]
+        },
+        "source_hashes": [
+          "6c388e9c67329d42fc624a9c5e0b930d11b68cbb68e1a53b582f72e126add25e",
+          "8388882993acfc4215eb045d4d925cc313807fecf3a3a36694776dbb2f5e2a46"
+        ],
+        "source_record_ids": [
+          "federalreserve.g17.archived_industrial_production:202001:monthly_change",
+          "federalreserve.g17.archived_industrial_production:202002:monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "fed-g17.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "85e44927087e58f7b56160d71eb6e5100abffe41855a5bc91cc51278794f9766",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 2,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "fed-g17-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "fe4a64544e22accedac1947dd8f772b538812a0f",
+            "completed_at": "2026-08-13T09:10:00Z",
+            "config_sha256": "bf4e2d7c87fb10f9a7031eece43a7f978a35f4e68609458ccc919208ff75ea6b",
+            "decision_time": "2020-03-18T12:00:00Z",
+            "evaluation_end": "2020-05-03",
+            "evaluation_start": "2020-03-19",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "6e066395b303bd4f941b4c92f7b78be7ce84c3f859f76c1af47961165be40b0a",
+            "max_input_available_at": "2020-03-17T13:15:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 90.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No April 15 G.17 release fact or February revision is in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "36d38a9e838d5c7b1c9d2eb6238b9abed54c3d79954383a981d640f81378d413",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "continuation-range-width": 90.0,
+              "known-monthly-change-increase": 90.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 2,
+            "short_fraction": 0.0,
+            "training_end": "2020-03-16",
+            "trial_id": "fed-g17-retrospective-range-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "f1b941141cb1e916379c187a8c8f74e172268ed1780f1d37409bbdbccf33ff2b",
+            "entry_hash": "f1b941141cb1e916379c187a8c8f74e172268ed1780f1d37409bbdbccf33ff2b",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "fed-g17-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "fed-g17-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "eed71712a064c03d5a7ce0d824fcb136fbbd11bb722a4cec571b584626ea3e75",
+            "candidate_attempt_id": "fed-g17-retrospective-attempt-1",
+            "decided_at": "2026-08-13T09:10:00Z",
+            "decision_id": "decision:fed-g17-retrospective-range-screen:97737a01b6072076d7da79ab",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 90.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 90.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "fed-g17-retrospective-range-screen"
+          },
+          "input_lock_sha256": "6e066395b303bd4f941b4c92f7b78be7ce84c3f859f76c1af47961165be40b0a",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "8a047edd632d4faebfd15ade0ffbe0b09583c40f7217973e1125a6fe3eeb536c",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "6c93a17d6bc8869e8f80dd19a8a51ce2835e7c25bb2cb47a760f9a9b99367de6",
+            "entry_hash": "6c93a17d6bc8869e8f80dd19a8a51ce2835e7c25bb2cb47a760f9a9b99367de6",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "Industrial production is a reported aggregate output estimate, but two release snapshots and one later outcome cannot establish predictive validity or plant, pandemic, policy, sector, or macroeconomic causality.",
+            "embargo_days": 0,
+            "expected_direction": "positive",
+            "holdout_end": "2020-05-03",
+            "holdout_start": "2020-03-19",
+            "hypothesis": "A retrospectively constructed one-increase G.17 industrial-production boundary qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-13T09:10:00Z",
+            "primary_metric": "one-increase G.17 monthly-change range width in basis points",
+            "purge_days": 2,
+            "trial_id": "fed-g17-retrospective-range-screen"
+          }
+        },
+        "source_hashes": [
+          "6c388e9c67329d42fc624a9c5e0b930d11b68cbb68e1a53b582f72e126add25e",
+          "8388882993acfc4215eb045d4d925cc313807fecf3a3a36694776dbb2f5e2a46"
+        ],
+        "source_record_ids": [
+          "federalreserve.g17.archived_industrial_production:202001:monthly_change",
+          "federalreserve.g17.archived_industrial_production:202002:monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "fed-g17.shockcompiler.monthly-change-range",
+          "fed-g17.timevault.release-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over two locked Federal Reserve G.17 monthly-change facts available before the decision time. Reported release-snapshot values remain reported; the persistence-or-repeat-known-increase range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The April 15 March value and its revision of February are held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, plant or industrial causal model, trading signal, production deployment, or external validation.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-g17-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "fed-g17.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no probability or coverage guarantee.",
+        "claim_id": "claim-inferred-g17-monthly-change-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The April 15 event and its February revision were not used to set the interval.",
+          "The range has no pandemic, policy, sector, or industrial causal interpretation."
+        ],
+        "statement": "The next-release stress endpoints are latest persistence or one repeat of the known 90-basis-point increase: [60, 150] basis points.",
+        "support_artifact_ids": [
+          "fed-g17.shockcompiler.monthly-change-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external review.",
+        "claim_id": "claim-inferred-g17-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective one-increase G.17 attempt.",
+        "support_artifact_ids": [
+          "fed-g17.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are aggregate release-snapshot estimates, not plant observations.",
+        "claim_id": "claim-reported-g17-industrial-production-changes",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes only two release vintages."
+        ],
+        "statement": "Paired archived Federal Reserve G.17 HTML/PDF releases report total industrial production monthly changes of -30 basis points for January and 60 basis points for February 2020.",
+        "support_artifact_ids": [
+          "fed-g17.timevault.release-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not transactions, capital, capacity, or returns.",
+        "claim_id": "claim-simulated-g17-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "fed-g17.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "fe4a64544e22accedac1947dd8f772b538812a0f",
+    "compressed_input_bytes": 2036,
+    "created_at": "2026-08-13T09:10:00Z",
+    "decision_time": "2020-03-18T12:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves the reported total industrial-production monthly changes for January and February 2020 from paired official archived Federal Reserve G.17 HTML/PDF release snapshots knowable before the replay decision time. It excludes the April 15 March-value event and later February revision, plants and firms, a probability distribution, forecast, calibrated interval, pandemic or policy causality, recommendation, execution, investment performance, external review, deployment, and user impact.",
+      "The endpoints are latest-change persistence or one repetition of the single known 90-basis-point increase, with no probability.",
+      "The April 15 release and its February revision are excluded from every decision input.",
+      "Two release snapshots do not identify industrial causes or a stable regime.",
+      "The range has no policy, return, or forecast interpretation.",
+      "No position, order, portfolio, allocation, or return is represented.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "fed-g17-2020-industrial-production-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "fed-g17-2020-industrial-production-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "Federal Reserve G.17 boundary before the March 2020 production decline"
+  },
+  "topological_artifact_ids": [
+    "fed-g17.timevault.release-query",
+    "fed-g17.shockcompiler.monthly-change-range",
+    "fed-g17.trialcourt.retrospective-gate",
+    "fed-g17.replaystudio.render"
+  ],
+  "trace_id": "trace:bb70dc79258184ab9c187f71b7aad8b28f08ac4cb2a79bfabce991ae2ace38ea"
+}

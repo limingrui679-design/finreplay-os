@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over two locked Federal Reserve G.17 monthly-change facts available before the decision time. Reported release-snapshot values remain reported; the persistence-or-repeat-known-increase range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The April 15 March value and its revision of February are held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, plant or industrial causal model, trading signal, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1355,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "4cb5055ac05f3101bbb4d30df07ad9b57108c90b344e458e0f2d086463cb7aaf"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "f38a4852ae72f3c174d38c0cee3cda7a1987869223de6c0f02b48e99a5b2e49f"
+    },
+    {
+      "bytes": 30399,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "9773a6016ea9fff53f9f3ded70a629561af46d6813a0d09c51b4fc4b91035f19"
+    },
+    {
+      "bytes": 29182,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "cf9c03bd3cd5ca2e73785b30d1f400c3d76e083b68b3fa68d24b886dcf7a7a23"
+    }
+  ],
+  "pack_sha256": "6d918334fff44d2cb860072858f7235e6f1fe0710583aff349b6fa2767986f3d",
+  "receipt_sha256": "b596f9475b3c119c9dd81176b983ca080fb2d4f9a21f48e911f24705800a3c1c",
+  "replay_id": "fed-g17-2020-industrial-production-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "fe4a64544e22accedac1947dd8f772b538812a0f",
+    "compressed_input_bytes": 2036,
+    "created_at": "2026-08-13T09:10:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "214c7571f406edb68208e96eeae907c0f26dccfc6d1b88bed164e2f0b7157f4e",
+    "output_manifest_sha256": "59932072aa6e6416d1f059998f449a2f539a7937005079b7acd7ab3497f47a93",
+    "replay_id": "fed-g17-2020-industrial-production-boundary-v1",
+    "scenario_id": "fed-g17-2020-industrial-production-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "cf9c03bd3cd5ca2e73785b30d1f400c3d76e083b68b3fa68d24b886dcf7a7a23",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:bb70dc79258184ab9c187f71b7aad8b28f08ac4cb2a79bfabce991ae2ace38ea"
+}
