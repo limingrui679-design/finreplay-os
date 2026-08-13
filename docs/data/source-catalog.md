@@ -113,6 +113,14 @@ so the December value on the January page is preserved instead of silently repla
 vintage. These adjacent snapshots are a stress range, not a calibrated stationary sample. Full
 HTML remains local and this connector is excluded from the formal 30-adapter inventory.
 
+`fred.alfred.vintage_treasury_yield` retrieves six explicitly selected native-vintage DGS2 and
+DGS10 observations from ALFRED for the Treasury-curve scenario. Each request fixes one series,
+observation date, and vintage date; the value is normalized exactly to integer basis points. As
+with GDP, a date-only ALFRED vintage becomes knowable only at 00:00 UTC two calendar days later.
+The 10-year-minus-2-year spread is derived downstream from two separately reported facts. Raw CSV
+remains in ignored download-only storage, and this supporting connector is excluded from the
+formal 30-adapter inventory.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

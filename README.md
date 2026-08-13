@@ -119,6 +119,13 @@ annual weight update and five-year seasonal recalculation are an explicit compar
 the resulting interval is a release-snapshot stress range rather than a calibrated forecast. Full
 HTML remains local and this source is outside the formal 30-adapter inventory.
 
+The Treasury-curve scenario uses `fred.alfred.vintage_treasury_yield` as another supporting
+source. It retrieves only six DGS2/DGS10 observations across three explicitly named ALFRED
+vintages, converts reported percent yields exactly to integer basis points, and applies the same
+conservative date-plus-two-day knowledge bound used by the GDP connector. The derived
+10-year-minus-2-year spread is not represented as upstream reported data. Raw CSV stays in ignored
+download-only storage and this source is outside the formal 30-adapter inventory.
+
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
 ```bash
