@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 12/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll and CPI release boundaries, FOMC target range, ALFRED Treasury-curve, Treasury DTS TGA, September 2019 New York Fed SOFR, and April 2020 EIA commercial-crude-stock boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 13/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll and CPI, FOMC target range, ALFRED Treasury-curve, Treasury DTS TGA, New York Fed SOFR, EIA commercial-crude-stock, and DOL initial-claims boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -150,7 +150,7 @@ instant, the source becomes eligible only at the following local midnight in
 `America/New_York`. Raw CSV/PDF bytes stay local and this source remains outside the formal
 30-adapter inventory.
 
-The planned initial-claims boundary uses `dol.eta.archived_weekly_initial_claims` as another
+The counted initial-claims boundary uses `dol.eta.archived_weekly_initial_claims` as another
 supporting source. It retrieves only the March 12, 19, and 26, 2020 DOL weekly-claims PDFs,
 validates each nine-page report, exact 8:30 a.m. Eastern embargo end, headline arithmetic, USDL
 release number, and official `Last-Modified` timestamp. The March 19 annual seasonal-factor
@@ -258,6 +258,15 @@ the official schedule says only “after 10:30 a.m.” Eastern. The separately l
 is `518,640` thousand barrels, a required visible `15,022`-thousand-barrel breach above the
 no-probability range. See
 [`docs/scenarios/eia-wpsr-2020.md`](docs/scenarios/eia-wpsr-2020.md).
+
+The thirteenth counted flow uses archived DOL Unemployment Insurance Weekly Claims PDFs. It locks
+advance seasonally adjusted initial claims of `211,000` and `281,000` persons before a March 20,
+2020 decision boundary, then constructs only persistence or one repeat of the known
+`70,000`-person increase: `[281,000, 351,000]`, with no probability. The separately locked March
+21 value is `3,283,000`, a required visible `2,932,000`-person breach. Its later revision of the
+prior week from `281,000` to `282,000` remains in the event snapshot and never overwrites the
+decision input. See
+[`docs/scenarios/dol-ui-2020.md`](docs/scenarios/dol-ui-2020.md).
 
 ## Research and investment disclaimer
 

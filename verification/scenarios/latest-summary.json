@@ -38,6 +38,18 @@
       "trace_id": "trace:48018b32d8fec0765cb14afed5aef57beec65b77ae5629b10e05e3ab08ec68c2"
     },
     {
+      "decision_time": "2020-03-20T12:00:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "d0f96d2cc2097bb731370f33a294efb1e621b9cf91c458136e5b818896e814b5",
+      "proof": "dol-ui-2020-initial-claims-boundary-v1.json",
+      "proof_sha256": "27f9af4268c47c6f7ed28743e5bb0b40b1ae30c4544b8fa78ac0cfc271d261fb",
+      "replay_id": "dol-ui-2020-initial-claims-boundary-v1",
+      "scenario_id": "dol-ui-2020-initial-claims-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:c2e0c997c19f77b1dd753f8dc93ac7575f07137c1dd38f6df1777792b9cbca24"
+    },
+    {
       "decision_time": "2020-04-16T12:00:00+00:00",
       "distinct_input_records": 2,
       "mode": "bounded_reconstruction",
@@ -147,5 +159,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 12
+  "verified_scenario_count": 13
 }

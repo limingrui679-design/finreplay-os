@@ -54,11 +54,11 @@ Each of the 30 planned scenarios must independently provide:
 7. a limitations file and non-causal/non-deployment boundary;
 8. a fresh-clone replay receipt.
 
-Current status: **IN_PROGRESS; 12/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
+Current status: **IN_PROGRESS; 13/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
 2022 Q4 GDP revision, March 2023 BTFP early-growth, early-2023 BLS payroll and CPI release,
 spring-2023 FOMC target range, March 2023 Treasury-curve, and June 2023 Treasury TGA cash-boundary
-replays, plus the September 2019 New York Fed SOFR spike and April 2020 EIA commercial-crude-stock
-boundaries, are counted.
+replays, plus the September 2019 New York Fed SOFR spike, April 2020 EIA commercial-crude-stock,
+and March 2020 DOL initial-claims boundaries, are counted.
 `scripts/verify_scenario_catalog.py` opens
 each scenario's official timing records, immutable decision input lock, separately locked
 post-decision official event record, ReplayPack, source-label map, explicit naive baseline,
@@ -80,12 +80,13 @@ Treasury Statement balances, applies Treasury's following-business-day deadline,
 later inside-range event separate from the persistence baseline. The SOFR case verifies two final
 historical reference rates with a conservative post-revision-window knowledge boundary and
 preserves the later 282-basis-point miss above the declared range. The EIA case cross-validates
-exact archived CSV values against paired full-report PDFs, uses a
-conservative next-local-midnight knowledge boundary, and preserves the later
-15,022-thousand-barrel miss. All nine non-bank cases use only four relevant engines and labelled
-post-event checks. Further scenarios must continue to diversify mechanisms and source families.
-The verifier recomputes the
-deterministic inventory under
+exact archived CSV values against paired full-report PDFs, uses a conservative
+next-local-midnight knowledge boundary, and preserves the later
+15,022-thousand-barrel miss. The DOL case adds exact embargo timing, annual seasonal-factor
+comparability warnings, snapshot-preserving prior-week revisions, and a required visible
+2,932,000-person miss above its persistence-or-one-known-increase range. All ten non-bank cases
+use only four relevant engines and labelled post-event checks. Further scenarios must continue to
+diversify mechanisms and source families. The verifier recomputes the deterministic inventory under
 `verification/scenarios/`. A scenario title, plan row, unverified pack directory, or self-reported
 status still counts as 0.
 

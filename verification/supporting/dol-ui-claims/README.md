@@ -34,6 +34,7 @@ python scripts/verify_live_receipts.py \
 ```
 
 This evidence establishes internal source retrieval, PDF identity checks, exact release-snapshot
-arithmetic, revision preservation, conservative timing, hashing, and local ingestion. It does not
-yet count a thirteenth scenario and does not establish a forecast, calibrated range, pandemic or
-labor-market causality, external validation, deployment, or investment results.
+arithmetic, revision preservation, conservative timing, hashing, and local ingestion. The
+separately verified `dol-ui-2020-initial-claims-boundary` proof uses it as supporting evidence for
+the thirteenth counted scenario. Neither artifact establishes a forecast, calibrated range,
+pandemic or labor-market causality, external validation, deployment, or investment results.
