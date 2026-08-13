@@ -95,6 +95,14 @@ is introduced. Later revised series values do not overwrite these archived facts
 release documents annual benchmarking and seasonal-factor updates, so adjacent release changes are
 not represented as a calibrated stationary sample. This connector is excluded from the formal 30.
 
+`federal_reserve.fomc.archived_statement` retrieves one explicitly dated Federal Reserve policy
+statement and strictly parses its page date, 2:00 p.m. EST/EDT release label, Last Update date, and
+federal-funds target range. Three statements used by the policy-range scenario are verified under
+`verification/supporting/fed-fomc/`; their six endpoints are versioned release snapshots. The
+timezone abbreviation is validated against `America/New_York` before UTC conversion. Later policy
+statements never overwrite earlier ranges. Full HTML remains local and the connector is excluded
+from the formal 30-adapter inventory.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

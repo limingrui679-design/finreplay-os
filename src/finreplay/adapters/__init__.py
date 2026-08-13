@@ -27,6 +27,7 @@ from finreplay.adapters.fdic_catalog import (
     FDICDatasetAdapter,
     FDICDatasetSpec,
 )
+from finreplay.adapters.fed_fomc import FederalReserveFOMCStatementAdapter
 from finreplay.adapters.fed_h41 import FederalReserveH41BTFPAdapter
 from finreplay.adapters.fiscaldata import (
     FISCAL_DATA_BY_SLUG,
@@ -67,6 +68,7 @@ __all__ = [
     "FDICDatasetAdapter",
     "FDICDatasetSpec",
     "FDICFinancialsAdapter",
+    "FederalReserveFOMCStatementAdapter",
     "FederalReserveH41BTFPAdapter",
     "FetchReceipt",
     "FiscalDataAdapter",
