@@ -179,6 +179,17 @@ HTML-fact hash and the stable PDF hash identify each release snapshot. Later rev
 overwrite earlier records. Raw pairs remain in ignored local storage, and this supporting
 connector is excluded from the formal 30.
 
+`census.marts.archived_retail_sales` retrieves paired archived U.S. Census Advance Monthly Retail
+Trade Survey PDFs and legacy XLS workbooks for February 14, March 17, and April 15, 2020. It
+requires exact release number, reference month, date, one stated 8:30 a.m. EST/EDT time, verified
+PDF page geometry, and an OLE workbook containing exactly `Table 1.`, `Table 2.`, and `Table 3.`
+with fixed validated dimensions. Headline monthly and year-over-year changes, adjusted sales,
+prior-month revision bridges, sampling margins, and Table 3 revision statistics must reconcile
+across both forms before one reported snapshot is emitted. Official 90-percent sampling-error
+margins remain distinct from downstream FinReplay stress endpoints. Later revisions never
+overwrite earlier records. Raw pairs remain in ignored local storage, and this supporting
+connector is excluded from the formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

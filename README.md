@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 16/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll and CPI, FOMC target range, ALFRED Treasury-curve, Treasury DTS TGA, New York Fed SOFR, EIA commercial-crude-stock, DOL initial-claims, Treasury 91-day-bill auction, BEA personal-saving-rate, and Federal Reserve G.17 industrial-production boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 17/30 internally replay-proven: three bank boundaries plus 14 source-diverse macro, policy, rate, energy, labor, Treasury, production, and retail-sales boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -167,6 +167,15 @@ FinReplay nevertheless waits until the following New York midnight before use. M
 `Last-Modified` headers are not backdated. Raw pairs stay local and the source remains outside the
 formal 30-adapter inventory.
 
+The counted retail-sales boundary uses `census.marts.archived_retail_sales` as another supporting
+source. It retrieves only the February 14, March 17, and April 15, 2020 archived U.S. Census
+Advance Monthly Retail Trade Survey PDF/XLS pairs. The adapter requires exact release identity and
+8:30 a.m. EST/EDT timing, validates the legacy workbook structure, and cross-checks headline
+change, adjusted sales, year-over-year change, prior-month revisions, and sampling metadata across
+both forms. Official 90-percent sampling-error margins remain Census release facts and are never
+represented as FinReplay's inferred stress range. Full source pairs stay local and the connector
+remains outside the formal 30-adapter inventory.
+
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
 ```bash
@@ -303,6 +312,15 @@ probability. The separately locked March change is `-540` basis points, a requir
 `600`-basis-point breach below the lower endpoint. The April release's revision of February from
 `60` to `50` basis points remains in the event snapshot and never overwrites the decision input.
 See [`docs/scenarios/fed-g17-2020.md`](docs/scenarios/fed-g17-2020.md).
+
+The seventeenth counted flow uses paired archived U.S. Census MARTS PDF and legacy XLS releases.
+It locks the January and February 2020 retail-and-food-services headline monthly changes of `30`
+and `-50` basis points before a March 18 decision boundary, then constructs only latest
+persistence or one repeat of the known `80`-basis-point decrease: `[-130, -50]`, with no
+probability. The separately locked March change is `-870` basis points, a required visible
+`740`-basis-point breach below the lower endpoint. The April release's revision of February from
+`-50` to `-40` basis points remains in the event snapshot and never overwrites the decision input.
+See [`docs/scenarios/census-marts-2020.md`](docs/scenarios/census-marts-2020.md).
 
 ## Research and investment disclaimer
 

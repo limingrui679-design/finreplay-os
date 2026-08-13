@@ -2,7 +2,8 @@
 
 This directory proves live retrieval and strict paired-form validation of three archived U.S.
 Census Bureau Advance Monthly Retail Trade Survey releases selected for a March 2020 retail-sales
-boundary. It is separate from the capped formal adapter inventory:
+boundary, the seventeenth scenario accepted by the eight-gate catalog verifier. It is separate
+from the capped formal adapter inventory:
 
 - `census.marts.archived_retail_sales` is a scenario-specific supporting source, not a
   thirty-first counted adapter;
