@@ -1,5 +1,22 @@
 """Connected engines that produce one evidence-preserving ReplayPack."""
 
+from finreplay.engines.capitalallocator import (
+    AllocationError,
+    AllocationProblem,
+    AllocationResult,
+    AllocationStatus,
+    AssetCandidate,
+    CapitalAllocator,
+    InformationState,
+    InformationStateResult,
+    InformationValueResult,
+    LinearAllocationConstraint,
+    ReversalPoint,
+    ReversalSurface,
+    RiskScenario,
+    SensitivityAxis,
+    SensitivityKind,
+)
 from finreplay.engines.executionlab import (
     ExecutionEnvelope,
     ExecutionError,
@@ -56,9 +73,15 @@ from finreplay.engines.trialcourt import (
 )
 
 __all__ = [
+    "AllocationError",
+    "AllocationProblem",
+    "AllocationResult",
+    "AllocationStatus",
     "AppendReceipt",
+    "AssetCandidate",
     "AttackFinding",
     "AttackKind",
+    "CapitalAllocator",
     "CompiledShock",
     "CompiledShockProgram",
     "ContagionResult",
@@ -71,7 +94,11 @@ __all__ = [
     "FindingStatus",
     "GraphAppendReceipt",
     "GraphMutationError",
+    "InformationState",
+    "InformationStateResult",
+    "InformationValueResult",
     "LedgerAppendReceipt",
+    "LinearAllocationConstraint",
     "MarketEdge",
     "MarketNode",
     "MarketObservation",
@@ -83,6 +110,11 @@ __all__ = [
     "OrderSide",
     "OrderSpec",
     "QueueObservation",
+    "ReversalPoint",
+    "ReversalSurface",
+    "RiskScenario",
+    "SensitivityAxis",
+    "SensitivityKind",
     "ShockCompilationError",
     "ShockCompiler",
     "ShockOperation",

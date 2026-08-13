@@ -18,7 +18,7 @@ investment performance, institutional adoption, external validation, or real-wor
 
 | Target | Current evidence | Completion rule |
 |---|---|---|
-| Seven connected engines | Five implemented individually; end-to-end connection is not yet proven | All seven execute in an end-to-end ReplayPack with tests |
+| Seven connected engines | Six implemented individually; end-to-end connection is not yet proven | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 16 live-validated: 8 FDIC, 3 SEC, 5 Treasury; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
 | 30 historical/boundary scenarios | Scenario specifications in progress | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
