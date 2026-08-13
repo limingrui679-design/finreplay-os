@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "eia-wpsr-2020-crude-stock-boundary",
+  "scenario_version": "1.0.0",
+  "decision_time": "2020-04-16T12:00:00Z",
+  "event_role": "post_decision_official_event",
+  "records": [
+    {
+      "record_id": "eia.wpsr.archived_commercial_crude_stocks:20200422:commercial_crude_excluding_spr",
+      "entity_id": "eia_series:weekly_us_commercial_crude_stocks_excluding_spr",
+      "source": {
+        "source_id": "eia.wpsr.archived_commercial_crude_stocks",
+        "publisher": "U.S. Energy Information Administration",
+        "url": "https://www.eia.gov/petroleum/supply/weekly/archive/2020/2020_04_22/csv/table4.csv",
+        "retrieved_at": "2026-08-13T06:43:26.814282Z",
+        "source_version": "EIA-WPSR:2020-04-22:2020-04-17:csv:20f6d312f4e2459863eb:pdf:ab757d2d952fdc82426b",
+        "sha256": "20f6d312f4e2459863ebe8ce5f3d7fd09ed2932cd6b4cf0bd6ff72d39e7f1d60",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2020-04-22T16:41:26Z",
+        "redistribution_note": "EIA states that its government publications and data are reusable with acknowledgment, but full archived PDFs and CSVs remain in local content-addressed storage because reports may contain protected third-party items and the EIA logo. Repository scenarios retain only the minimal Table 4 fact, attribution, URLs, and hashes."
+      },
+      "interval": {
+        "valid_from": "2020-04-17T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2020-04-23T04:00:00Z",
+        "available_at": "2020-04-23T04:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T06:43:26.814282Z",
+        "availability_rule": "The date-stamped archived WPSR PDF identifies its release date and states that CSV and XLS tables are posted after 10:30 a.m. Eastern on Wednesdays. Because that wording does not establish an exact publication instant, FinReplay permits the paired archived CSV and PDF bytes only from 00:00 America/New_York on the next local calendar day. Both official Last-Modified headers must fall on the stated release date and before that conservative knowledge boundary.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "arithmetic_verified": true,
+        "availability_method": "official_release_date_next_local_midnight",
+        "csv_last_modified_at": "2020-04-22T12:21:36+00:00",
+        "metric": "commercial_crude_stocks_excluding_spr",
+        "pdf_last_modified_at": "2020-04-22T16:41:26+00:00",
+        "prior_value_thousand_barrels": 503618,
+        "prior_week_ending": "2020-04-10",
+        "release_date": "2020-04-22",
+        "release_pdf_sha256": "ab757d2d952fdc82426bea5606c5229335984fefab97f330ee4a83cf039ad658",
+        "release_pdf_url": "https://www.eia.gov/petroleum/supply/weekly/archive/2020/2020_04_22/pdf/wpsrall.pdf",
+        "reported_difference_million_barrels": "15.022",
+        "reported_difference_thousand_barrels": 15022,
+        "reported_prior_value_million_barrels": "503.618",
+        "reported_value_million_barrels": "518.640",
+        "table": "Weekly Petroleum Status Report Table 4",
+        "unit": "Thousand Barrels",
+        "value_thousand_barrels": 518640,
+        "week_ending": "2020-04-17"
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the WPSR Table 4 U.S. commercial crude stock excluding SPR for the week ending April 17, 2020 solely as a post-decision official event. The paired April 22 archived release becomes conservatively knowable only after the replay decision. It is excluded from all ReplayPack inputs and does not establish forecast skill, calibrated coverage, storage-capacity limits, pandemic or oil-market causality, policy effectiveness, investment performance, external review, deployment, or user impact.",
+  "lock_sha256": "1ab43221bbf09ebe6f43a3c5b2553d3b9c929c20ef39b08f1305907cf1791470"
+}

@@ -13,6 +13,13 @@ from finreplay.scenarios.cpi_boundary import (
     build_cpi_boundary_replay_spec,
     load_cpi_boundary_input_lock,
 )
+from finreplay.scenarios.eia_crude_stock_boundary import (
+    EIA_WPSR_SOURCE_ID,
+    EIACrudeStockBoundaryInputLock,
+    EIACrudeStockBoundaryRoles,
+    build_eia_crude_stock_boundary_replay_spec,
+    load_eia_crude_stock_boundary_input_lock,
+)
 from finreplay.scenarios.employment_boundary import (
     BLS_EMPLOYMENT_SOURCE_ID,
     EmploymentBoundaryInputLock,
@@ -92,6 +99,7 @@ __all__ = [
     "ALFRED_TREASURY_YIELD_SOURCE_ID",
     "BLS_CPI_SOURCE_ID",
     "BLS_EMPLOYMENT_SOURCE_ID",
+    "EIA_WPSR_SOURCE_ID",
     "FED_FOMC_SOURCE_ID",
     "FED_H41_BTFP_SOURCE_ID",
     "GDP_SERIES_ID",
@@ -104,6 +112,8 @@ __all__ = [
     "BankFactConcepts",
     "CPIBoundaryInputLock",
     "CPIBoundaryRoles",
+    "EIACrudeStockBoundaryInputLock",
+    "EIACrudeStockBoundaryRoles",
     "EmploymentBoundaryInputLock",
     "EmploymentBoundaryRoles",
     "EventLockEvidence",
@@ -128,6 +138,7 @@ __all__ = [
     "VerifiedScenarioProof",
     "build_bank_boundary_replay_spec",
     "build_cpi_boundary_replay_spec",
+    "build_eia_crude_stock_boundary_replay_spec",
     "build_employment_boundary_replay_spec",
     "build_facility_growth_replay_spec",
     "build_fomc_target_boundary_replay_spec",
@@ -138,6 +149,7 @@ __all__ = [
     "build_treasury_curve_boundary_replay_spec",
     "load_bank_boundary_input_lock",
     "load_cpi_boundary_input_lock",
+    "load_eia_crude_stock_boundary_input_lock",
     "load_employment_boundary_input_lock",
     "load_facility_growth_input_lock",
     "load_fomc_target_boundary_input_lock",
