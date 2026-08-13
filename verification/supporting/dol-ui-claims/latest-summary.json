@@ -1,0 +1,18 @@
+{
+  "adapters": [
+    {
+      "adapter_id": "dol.eta.archived_weekly_initial_claims",
+      "historical_replay_eligible": true,
+      "idempotent_records": 0,
+      "inserted_records": 3,
+      "receipt": "dol.eta.archived_weekly_initial_claims-8240a10105b8495c.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-13T07:10:56.948299Z",
+      "temporal_coverage": "versioned_snapshot"
+    }
+  ],
+  "historical_replay_eligible_count": 1,
+  "latest_only_count": 0,
+  "schema_version": "1.0.0",
+  "verified_adapter_count": 1
+}

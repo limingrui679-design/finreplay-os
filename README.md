@@ -150,6 +150,14 @@ instant, the source becomes eligible only at the following local midnight in
 `America/New_York`. Raw CSV/PDF bytes stay local and this source remains outside the formal
 30-adapter inventory.
 
+The planned initial-claims boundary uses `dol.eta.archived_weekly_initial_claims` as another
+supporting source. It retrieves only the March 12, 19, and 26, 2020 DOL weekly-claims PDFs,
+validates each nine-page report, exact 8:30 a.m. Eastern embargo end, headline arithmetic, USDL
+release number, and official `Last-Modified` timestamp. The March 19 annual seasonal-factor
+revision remains an explicit comparability boundary, and the March 26 revision of the prior week
+is preserved only in that later release snapshot. Raw PDFs stay local and this source remains
+outside the formal 30-adapter inventory.
+
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
 ```bash

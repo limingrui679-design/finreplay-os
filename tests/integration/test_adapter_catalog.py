@@ -13,6 +13,7 @@ from finreplay.adapters import (
     BLSCPIArchiveAdapter,
     BLSCPIUAllItemsAdapter,
     BLSEmploymentSituationArchiveAdapter,
+    DOLWeeklyClaimsArchiveAdapter,
     EIAWPSRCommercialCrudeStocksAdapter,
     FDICFinancialsAdapter,
     FederalReserveFOMCStatementAdapter,
@@ -205,6 +206,25 @@ def test_eia_wpsr_is_a_verified_supporting_source_not_a_thirty_first_adapter() -
     assert (
         supporting["adapters"][0]["adapter_id"]
         == EIAWPSRCommercialCrudeStocksAdapter.metadata.adapter_id
+    )
+    assert supporting["adapters"][0]["record_count"] == 3
+    assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()
+
+
+def test_dol_ui_claims_is_a_verified_supporting_source_not_a_thirty_first_adapter() -> None:
+    repository = Path(__file__).resolve().parents[2]
+    formal = json.loads((repository / "verification/live/latest-summary.json").read_text())
+    supporting_root = repository / "verification/supporting/dol-ui-claims"
+    supporting = json.loads((supporting_root / "latest-summary.json").read_text())
+
+    formal_ids = {item["adapter_id"] for item in formal["adapters"]}
+    assert DOLWeeklyClaimsArchiveAdapter.metadata.adapter_id not in formal_ids
+    assert supporting["verified_adapter_count"] == 1
+    assert supporting["historical_replay_eligible_count"] == 1
+    assert supporting["latest_only_count"] == 0
+    assert (
+        supporting["adapters"][0]["adapter_id"]
+        == DOLWeeklyClaimsArchiveAdapter.metadata.adapter_id
     )
     assert supporting["adapters"][0]["record_count"] == 3
     assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()

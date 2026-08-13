@@ -148,6 +148,17 @@ the archive says tables are posted “after 10:30 a.m.” rather than giving an 
 connector waits until midnight `America/New_York` on the following local day. Raw pairs remain in
 ignored local storage, and this supporting connector is excluded from the formal 30.
 
+`dol.eta.archived_weekly_initial_claims` retrieves the fixed March 12, 19, and 26, 2020 DOL
+Unemployment Insurance Weekly Claims PDFs. It requires the official nine-page release identity,
+one page-stated 8:30 a.m. Eastern embargo end, one seasonally adjusted initial-claims headline,
+the matching USDL release number, and the technical notes on ETA 538 advance data and following-
+week revisions. Headline levels, signed changes, and any revised prior-week bridge must reconcile
+exactly. Each PDF becomes eligible at the later of its embargo end or official `Last-Modified`
+timestamp. The March 19 annual seasonal-factor revision is retained as a comparability warning;
+the March 26 revision of the prior week from 281,000 to 282,000 never overwrites the March 19
+advance snapshot. Full PDFs remain in ignored local storage, and this supporting connector is
+excluded from the formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

@@ -22,6 +22,7 @@ from finreplay.adapters.cftc import (
     CFTCCOTSpec,
     CFTCReportKind,
 )
+from finreplay.adapters.dol_ui_claims import DOLWeeklyClaimsArchiveAdapter
 from finreplay.adapters.eia_wpsr import EIAWPSRCommercialCrudeStocksAdapter
 from finreplay.adapters.fdic import FDICFinancialsAdapter
 from finreplay.adapters.fdic_catalog import (
@@ -72,6 +73,7 @@ __all__ = [
     "CFTCCOTAdapter",
     "CFTCCOTSpec",
     "CFTCReportKind",
+    "DOLWeeklyClaimsArchiveAdapter",
     "EIAWPSRCommercialCrudeStocksAdapter",
     "FDICDatasetAdapter",
     "FDICDatasetSpec",
