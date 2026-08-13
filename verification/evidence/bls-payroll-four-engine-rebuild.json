@@ -45,20 +45,20 @@
     "reported_february_payroll_change_thousands": 311,
     "used_as_decision_input": false
   },
-  "receipt_sha256": "8dccee1c6920833b912ae97699313c90218f697b4f77877a0f698006dfb7aa9c",
+  "receipt_sha256": "abf624641663a8b6995c44de09151db7fdaf1d998c9b43bc6c8e442ee0c40857",
   "runtime": {
     "duckdb": "1.5.5",
     "finreplay": "0.1.0a0",
     "machine": "arm64",
-    "measured_at": "2026-08-13T04:45:10.486787+00:00",
+    "measured_at": "2026-08-13T04:45:26.532185+00:00",
     "numpy": "2.2.6",
     "platform": "macOS-26.5.2-arm64-arm-64bit",
     "pydantic": "2.13.4",
     "python": "3.12.13",
-    "runner_commit": "007f4d391304d7949e876d05fcb96caed858157c",
-    "runner_dirty": true,
+    "runner_commit": "495e7e408c8d179799e7e403e248ae2fe29f899f",
+    "runner_dirty": false,
     "scipy": "1.18.0",
-    "two_rebuild_elapsed_seconds": 0.3132191250042524
+    "two_rebuild_elapsed_seconds": 0.29746720800176263
   },
   "schema_version": "1.0.0",
   "semantic_sha256": "f260a5a60693500713403e89072158177d5d20562e04a74cfb9d083c4ccec05e",
