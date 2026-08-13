@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engine implementations ran over four locked native-vintage ALFRED GDP facts available before the historical decision time. Reported estimates remain reported; revision deltas and the symmetric boundary are arithmetic inferences; TrialCourt rejects retrospective promotion. The later Q4 second estimate is held only in a disjoint post-decision event lock and is not a ReplayPack input. This is not a forecast, probability distribution, causal model, trading signal, policy recommendation, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1322,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "b6b1f1e56cb57dba4283b96a9f8ae05d71eeb1d002f580ac5f3150b67586a83b"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "2c430677d4f2a82849e540888570f67f889806776b48675fa9cf3eb4173fc8d4"
+    },
+    {
+      "bytes": 30637,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "b7f47f71f8de009efd73ef1356c0b4d9b4444881850ccb9d89ccbaf889153719"
+    },
+    {
+      "bytes": 29608,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "cd91d9a55f855b5d3e0513c8da263901c847ba9fdbb8c393ceeac5c9184ad1ee"
+    }
+  ],
+  "pack_sha256": "5f9f64b719003d2677c1fb5bef7e33be745c2644356a364d53faa8fbfed9a8a9",
+  "receipt_sha256": "7efbf382f492d404176179148e9b7eb8db8cd061ae2e40811835de16054d0e0d",
+  "replay_id": "gdp-2022q4-revision-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "7b95933f364eafed4b1c6b6e20f4897c5ab2f9cc",
+    "compressed_input_bytes": 1659,
+    "created_at": "2026-08-13T04:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 4,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "d8e73c70287b95f5e66b031772d18e64cb0c49df0cfc261a29368f279fab3e4d",
+    "output_manifest_sha256": "143a251acf897f86e33ad4a9914ee78742552b0f6b290d5feab3c89cfb8a256a",
+    "replay_id": "gdp-2022q4-revision-boundary-v1",
+    "scenario_id": "gdp-2022q4-revision-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "cd91d9a55f855b5d3e0513c8da263901c847ba9fdbb8c393ceeac5c9184ad1ee",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:0318d33e4e29fce0de5555c94e4cef24a4605bddaca362a57637319322ed194d"
+}

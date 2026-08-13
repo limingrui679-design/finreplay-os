@@ -1,0 +1,600 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 2,
+    "reported": 8,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "d8e73c70287b95f5e66b031772d18e64cb0c49df0cfc261a29368f279fab3e4d",
+  "pack_sha256": "5f9f64b719003d2677c1fb5bef7e33be745c2644356a364d53faa8fbfed9a8a9",
+  "source_hashes": [
+    "7f22b801255e869ed067f9155a936b0eaf7e4e63f957e984cebf520d3f1ce00b",
+    "dcca354ec2251c2c16a917836725e57f1241708a0887aec08307731b47729c44",
+    "faefda3659af8d6f68111e0a4a982daaf84743605295dec44f3ee6964cb437ed"
+  ],
+  "source_record_ids": [
+    "fred.alfred.vintage_gdp:GDP:20221027:2022-07-01",
+    "fred.alfred.vintage_gdp:GDP:20221130:2022-07-01",
+    "fred.alfred.vintage_gdp:GDP:20230126:2022-07-01",
+    "fred.alfred.vintage_gdp:GDP:20230126:2022-10-01"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "gdp-revision.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "866386457a884fc19857da2611235f6408eaa2a047b7c027fb3ad6f75db47007",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static report generation does not independently validate the revision heuristic."
+        ],
+        "payload": {
+          "engine_selection": "TimeVault, ShockCompiler, TrialCourt, and ReplayStudio are the four engines relevant to this macro-vintage boundary; no trading or network engine is invented for padding.",
+          "input_lock_sha256": "c762b5790a1f6f517668892d145747fc4e2548376a347912cbfdc4448da1efa7",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "7f22b801255e869ed067f9155a936b0eaf7e4e63f957e984cebf520d3f1ce00b",
+          "dcca354ec2251c2c16a917836725e57f1241708a0887aec08307731b47729c44",
+          "faefda3659af8d6f68111e0a4a982daaf84743605295dec44f3ee6964cb437ed"
+        ],
+        "source_record_ids": [
+          "fred.alfred.vintage_gdp:GDP:20221027:2022-07-01",
+          "fred.alfred.vintage_gdp:GDP:20221130:2022-07-01",
+          "fred.alfred.vintage_gdp:GDP:20230126:2022-07-01",
+          "fred.alfred.vintage_gdp:GDP:20230126:2022-10-01"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "gdp-revision.shockcompiler.revision-bound",
+          "gdp-revision.timevault.vintage-query",
+          "gdp-revision.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "gdp-revision.shockcompiler.revision-bound",
+        "artifact_kind": "bounded-revision-program",
+        "artifact_sha256": "7b0b9a484eb54f5fd746d490051641942098defe1770191b4815570f87a58330",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 1
+        },
+        "limitations": [
+          "The symmetric interval is inferred from one prior-quarter revision path.",
+          "The Q4 second estimate and every later revision are absent from the artifact."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": -60.652,
+            "upper": 60.652
+          },
+          "bound_construction": {
+            "future_event_used": false,
+            "lower_revision_billions": "-60.652",
+            "magnitude_billions": "60.652",
+            "probability_assigned": false,
+            "upper_revision_billions": "60.652"
+          },
+          "candidate_q4_gdp_billions": {
+            "lower": "26071.806",
+            "upper": "26193.110"
+          },
+          "compiled": {
+            "compiled_sha256": "0af54bf7f26f06e1bbca9a3b1c8dd68a41d4bf7123503fbb78511bcf28676f68",
+            "decision_time": "2023-02-01T12:00:00Z",
+            "limitations": [
+              "The two endpoints are scenario bounds and do not imply likelihood, confidence, or an expected revision."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "gdp-revision-q4-revision-envelope",
+            "scenario_id": "gdp-2022q4-revision-boundary",
+            "source_program_sha256": "6ae3feb90d97492010c0958c335cbc96860b0bcb0c89dbe36ea5edd29e85067d",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use the absolute Q3 advance-to-predecision GDP revision as a symmetric endpoint magnitude around a zero-revision Q4 naive baseline. The Q4 second estimate is not an input and no probability is assigned.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "A prior-quarter revision magnitude is a transparent heuristic, not a forecast or coverage guarantee."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "gdp-revision-q4-revision-bound",
+                    "source_hashes": [
+                      "dcca354ec2251c2c16a917836725e57f1241708a0887aec08307731b47729c44",
+                      "faefda3659af8d6f68111e0a4a982daaf84743605295dec44f3ee6964cb437ed"
+                    ],
+                    "source_record_ids": [
+                      "fred.alfred.vintage_gdp:GDP:20221027:2022-07-01",
+                      "fred.alfred.vintage_gdp:GDP:20230126:2022-07-01",
+                      "fred.alfred.vintage_gdp:GDP:20230126:2022-10-01"
+                    ],
+                    "target_id": "bea:gdp:2022q4",
+                    "unit": "billions_usd_saar",
+                    "value": -60.652,
+                    "variable": "revision_billions"
+                  }
+                ],
+                "trial_id": "gdp-revision-q4-revision-envelope:00000000:517ebc30f27df98a",
+                "trial_index": 0,
+                "vector_sha256": "517ebc30f27df98a5c21d1645e2b7f5d0c8a9db90f36eb97b9b0ed551883a2e0"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use the absolute Q3 advance-to-predecision GDP revision as a symmetric endpoint magnitude around a zero-revision Q4 naive baseline. The Q4 second estimate is not an input and no probability is assigned.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "A prior-quarter revision magnitude is a transparent heuristic, not a forecast or coverage guarantee."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "gdp-revision-q4-revision-bound",
+                    "source_hashes": [
+                      "dcca354ec2251c2c16a917836725e57f1241708a0887aec08307731b47729c44",
+                      "faefda3659af8d6f68111e0a4a982daaf84743605295dec44f3ee6964cb437ed"
+                    ],
+                    "source_record_ids": [
+                      "fred.alfred.vintage_gdp:GDP:20221027:2022-07-01",
+                      "fred.alfred.vintage_gdp:GDP:20230126:2022-07-01",
+                      "fred.alfred.vintage_gdp:GDP:20230126:2022-10-01"
+                    ],
+                    "target_id": "bea:gdp:2022q4",
+                    "unit": "billions_usd_saar",
+                    "value": 60.652,
+                    "variable": "revision_billions"
+                  }
+                ],
+                "trial_id": "gdp-revision-q4-revision-envelope:00000001:452d855522c60db1",
+                "trial_index": 1,
+                "vector_sha256": "452d855522c60db10917371b667bf0ada057e9397466049fa7a80383fe51d6d7"
+              }
+            ]
+          },
+          "input_lock_sha256": "c762b5790a1f6f517668892d145747fc4e2548376a347912cbfdc4448da1efa7",
+          "known_q3_revision_path_billions": {
+            "advance_to_predecision": "60.652",
+            "advance_to_second": "35.671",
+            "second_to_predecision": "24.981"
+          },
+          "naive_baseline": {
+            "q4_gdp_billions": "26132.458",
+            "revision_billions": 0.0
+          },
+          "program": {
+            "decision_time": "2023-02-01T12:00:00Z",
+            "global_limitations": [
+              "The two endpoints are scenario bounds and do not imply likelihood, confidence, or an expected revision."
+            ],
+            "hypothesis": "Evaluate a no-probability Q4 GDP revision interval using only revision information that was conservatively knowable before the historical decision time.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use the absolute Q3 advance-to-predecision GDP revision as a symmetric endpoint magnitude around a zero-revision Q4 naive baseline. The Q4 second estimate is not an input and no probability is assigned.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "A prior-quarter revision magnitude is a transparent heuristic, not a forecast or coverage guarantee."
+                ],
+                "lower": -60.652,
+                "operation": "set",
+                "parameter_id": "gdp-revision-q4-revision-bound",
+                "source_record_ids": [
+                  "fred.alfred.vintage_gdp:GDP:20221027:2022-07-01",
+                  "fred.alfred.vintage_gdp:GDP:20230126:2022-07-01",
+                  "fred.alfred.vintage_gdp:GDP:20230126:2022-10-01"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "Federal Reserve Bank of St. Louis",
+                    "redistribution_note": "Retain the downloaded response only in the local content-addressed store. Attribute ALFRED/FRED and the underlying U.S. Bureau of Economic Analysis series; do not redistribute the raw response or imply that repository code owns the source data.",
+                    "retrieved_at": "2026-08-13T03:56:15.645743Z",
+                    "sha256": "dcca354ec2251c2c16a917836725e57f1241708a0887aec08307731b47729c44",
+                    "source_id": "fred.alfred.vintage_gdp",
+                    "source_version": "GDP:vintage:2022-10-27:sha256:dcca354ec2251c2c16a91783",
+                    "temporal_coverage": "vintage_native",
+                    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDP&cosd=2022-07-01&coed=2022-10-01&vintage_date=2022-10-27",
+                    "vintage_as_of": "2022-10-27T00:00:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "Federal Reserve Bank of St. Louis",
+                    "redistribution_note": "Retain the downloaded response only in the local content-addressed store. Attribute ALFRED/FRED and the underlying U.S. Bureau of Economic Analysis series; do not redistribute the raw response or imply that repository code owns the source data.",
+                    "retrieved_at": "2026-08-13T03:56:19.135885Z",
+                    "sha256": "faefda3659af8d6f68111e0a4a982daaf84743605295dec44f3ee6964cb437ed",
+                    "source_id": "fred.alfred.vintage_gdp",
+                    "source_version": "GDP:vintage:2023-01-26:sha256:faefda3659af8d6f68111e0a",
+                    "temporal_coverage": "vintage_native",
+                    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDP&cosd=2022-07-01&coed=2022-10-01&vintage_date=2023-01-26",
+                    "vintage_as_of": "2023-01-26T00:00:00Z"
+                  }
+                ],
+                "target_id": "bea:gdp:2022q4",
+                "unit": "billions_usd_saar",
+                "upper": 60.652,
+                "variable": "revision_billions"
+              }
+            ],
+            "program_id": "gdp-revision-q4-revision-envelope",
+            "scenario_id": "gdp-2022q4-revision-boundary"
+          }
+        },
+        "source_hashes": [
+          "7f22b801255e869ed067f9155a936b0eaf7e4e63f957e984cebf520d3f1ce00b",
+          "dcca354ec2251c2c16a917836725e57f1241708a0887aec08307731b47729c44",
+          "faefda3659af8d6f68111e0a4a982daaf84743605295dec44f3ee6964cb437ed"
+        ],
+        "source_record_ids": [
+          "fred.alfred.vintage_gdp:GDP:20221027:2022-07-01",
+          "fred.alfred.vintage_gdp:GDP:20230126:2022-07-01",
+          "fred.alfred.vintage_gdp:GDP:20230126:2022-10-01"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "gdp-revision.timevault.vintage-query"
+        ]
+      },
+      {
+        "artifact_id": "gdp-revision.timevault.vintage-query",
+        "artifact_kind": "native-vintage-query",
+        "artifact_sha256": "f49f8e98bc32a0d0c06c98be13b3f3584176ee6f1c59731416c384aff4ddf5c3",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 4
+        },
+        "limitations": [
+          "The input lock contains four selected GDP vintage facts, not the complete series.",
+          "Date-granular vintages use a conservative knowledge bound, not an exact release timestamp."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "2615ec9cfd42b42c1bcbf69dc3434443ecfad0e9ea4a7977c613789610d2b105",
+              "ad22ac18f9b32b0d4b633fb35db5df7289663e7d00ade9d89eedba5ec858b50f",
+              "b7534e3158ca66a51461473df65cbceac3e06ed1154a16c710482b7a2f1478ee"
+            ],
+            "attempted_records": 4,
+            "fact_hashes": [
+              "f085380fe0b794131915643df2e74b32399b4ed165542282c27e58930f771c72",
+              "677cf2e80ef235fd8ce083ed885b2cf15ea25c7690d2b914e77988833d133187",
+              "c35b57abf9d33840547a009cfff5f521e87d158ee8d0d5228d1b890d1dc51b20",
+              "f6f2c13f6133fcb91e855176bdd1acb876db8b3421a1f4019fa67a0e747c8433"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 4
+          },
+          "availability_interpretation": "Each ALFRED vintage uses the adapter's two-calendar-day conservative knowledge bound; no intraday release time is claimed.",
+          "decision_time": "2023-02-01T12:00:00Z",
+          "input_lock_sha256": "c762b5790a1f6f517668892d145747fc4e2548376a347912cbfdc4448da1efa7",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 4,
+            "fact_set_sha256": "828fdf6a93291a91e2f0db0dbfbffd9f7112afe9ac715e0b9b542f05fe17b311",
+            "fact_versions": 4,
+            "generated_at": "2026-08-13T04:00:00Z",
+            "retrieval_receipts": 3,
+            "source_artifacts": 3
+          },
+          "max_available_at": "2023-01-28T00:00:00Z",
+          "selected_record_ids": [
+            "fred.alfred.vintage_gdp:GDP:20221027:2022-07-01",
+            "fred.alfred.vintage_gdp:GDP:20221130:2022-07-01",
+            "fred.alfred.vintage_gdp:GDP:20230126:2022-07-01",
+            "fred.alfred.vintage_gdp:GDP:20230126:2022-10-01"
+          ]
+        },
+        "source_hashes": [
+          "7f22b801255e869ed067f9155a936b0eaf7e4e63f957e984cebf520d3f1ce00b",
+          "dcca354ec2251c2c16a917836725e57f1241708a0887aec08307731b47729c44",
+          "faefda3659af8d6f68111e0a4a982daaf84743605295dec44f3ee6964cb437ed"
+        ],
+        "source_record_ids": [
+          "fred.alfred.vintage_gdp:GDP:20221027:2022-07-01",
+          "fred.alfred.vintage_gdp:GDP:20221130:2022-07-01",
+          "fred.alfred.vintage_gdp:GDP:20230126:2022-07-01",
+          "fred.alfred.vintage_gdp:GDP:20230126:2022-10-01"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "gdp-revision.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "21e7b452ee3f58b815e0a6e9f1039cc005a7381bc176b31f9c8fbf7a3272079b",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 4,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "P-value, capital, volume, and return fields are explicit non-performance sentinels."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "gdp-revision-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "7b95933f364eafed4b1c6b6e20f4897c5ab2f9cc",
+            "completed_at": "2026-08-13T04:00:00Z",
+            "config_sha256": "f088cd059fee6cced6d7566abe82cd99f5affd880c13225b3a1c17dc7d21ab46",
+            "decision_time": "2023-02-01T12:00:00Z",
+            "evaluation_end": "2023-03-01",
+            "evaluation_start": "2023-02-02",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "c762b5790a1f6f517668892d145747fc4e2548376a347912cbfdc4448da1efa7",
+            "max_input_available_at": "2023-01-28T00:00:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 60.652,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records that no inferential test was performed.",
+              "One-dollar operational fields are non-trading schema sentinels, not market evidence.",
+              "No post-decision GDP estimate is present in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "34422a7a8298710297f3a00a123f23e0be57fedc0a8cb88cdb66db35ba1bf045",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "advance-to-second-stage": 60.652,
+              "predecision-cumulative-stage": 60.652
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 4,
+            "short_fraction": 0.0,
+            "training_end": "2023-01-30",
+            "trial_id": "gdp-revision-retrospective-revision-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "294bb4910eaa238e7e04a753c67ce58a16bbc8774a0cf7512c8a22982704f75f",
+            "entry_hash": "294bb4910eaa238e7e04a753c67ce58a16bbc8774a0cf7512c8a22982704f75f",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "gdp-revision-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "gdp-revision-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "7d42d551d5b2c2fb114f4284f2d4509156997d2a48358a37c3acc2605e56d014",
+            "candidate_attempt_id": "gdp-revision-retrospective-attempt-1",
+            "decided_at": "2026-08-13T04:00:00Z",
+            "decision_id": "decision:gdp-revision-retrospective-revision-screen:83547a8e567e0eb93b5ee026",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 60.652,
+                  "regime_count": 2,
+                  "worst_regime_metric": 60.652
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "gdp-revision-retrospective-revision-screen"
+          },
+          "input_lock_sha256": "c762b5790a1f6f517668892d145747fc4e2548376a347912cbfdc4448da1efa7",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "102b37e0ef7eac45c670481c70d341a35f46ab6d52d95287a2cfa4f5b2436856",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "26836172e4b6d7508749e9768668564700f86404327a06add800f00c9067f253",
+            "entry_hash": "26836172e4b6d7508749e9768668564700f86404327a06add800f00c9067f253",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "National-account estimates are revised as source information changes, but one prior quarter and one later realized revision cannot establish predictive validity.",
+            "embargo_days": 0,
+            "expected_direction": "positive",
+            "holdout_end": "2023-03-01",
+            "holdout_start": "2023-02-02",
+            "hypothesis": "A retrospectively constructed single-quarter GDP revision boundary qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-13T04:00:00Z",
+            "primary_metric": "absolute inferred GDP revision-bound magnitude",
+            "purge_days": 2,
+            "trial_id": "gdp-revision-retrospective-revision-screen"
+          }
+        },
+        "source_hashes": [
+          "7f22b801255e869ed067f9155a936b0eaf7e4e63f957e984cebf520d3f1ce00b",
+          "dcca354ec2251c2c16a917836725e57f1241708a0887aec08307731b47729c44",
+          "faefda3659af8d6f68111e0a4a982daaf84743605295dec44f3ee6964cb437ed"
+        ],
+        "source_record_ids": [
+          "fred.alfred.vintage_gdp:GDP:20221027:2022-07-01",
+          "fred.alfred.vintage_gdp:GDP:20221130:2022-07-01",
+          "fred.alfred.vintage_gdp:GDP:20230126:2022-07-01",
+          "fred.alfred.vintage_gdp:GDP:20230126:2022-10-01"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "gdp-revision.shockcompiler.revision-bound",
+          "gdp-revision.timevault.vintage-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engine implementations ran over four locked native-vintage ALFRED GDP facts available before the historical decision time. Reported estimates remain reported; revision deltas and the symmetric boundary are arithmetic inferences; TrialCourt rejects retrospective promotion. The later Q4 second estimate is held only in a disjoint post-decision event lock and is not a ReplayPack input. This is not a forecast, probability distribution, causal model, trading signal, policy recommendation, production deployment, or external validation.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The ReplayPack contains content-addressed outputs from the four engines relevant to this macro-vintage problem.",
+        "support_artifact_ids": [
+          "gdp-revision.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no assigned probability or coverage guarantee.",
+        "claim_id": "claim-inferred-revision-envelope",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The later Q4 second estimate was not used to set the interval."
+        ],
+        "statement": "The Q4 revision scenario uses a zero-revision naive baseline and symmetric endpoints of plus or minus 60.652 billion dollars, derived from the known Q3 cumulative revision magnitude.",
+        "support_artifact_ids": [
+          "gdp-revision.shockcompiler.revision-bound"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external forecast validation.",
+        "claim_id": "claim-inferred-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical accuracy or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective single-quarter attempt and retained all six adversarial findings.",
+        "support_artifact_ids": [
+          "gdp-revision.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are official reported estimates at named vintages, not final output.",
+        "claim_id": "claim-reported-gdp-vintages",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes four selected facts, not the full GDP series."
+        ],
+        "statement": "The decision lock preserves Q3 2022 GDP at three ALFRED vintages and the Q4 2022 advance estimate of 26132.458 billion dollars SAAR.",
+        "support_artifact_ids": [
+          "gdp-revision.timevault.vintage-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels exist only to exercise mandatory adversarial checks.",
+        "claim_id": "claim-simulated-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They must not be read as investment or execution results."
+        ],
+        "statement": "Trial operational fields are explicit one-dollar and zero-return schema sentinels rather than market or capacity evidence.",
+        "support_artifact_ids": [
+          "gdp-revision.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "7b95933f364eafed4b1c6b6e20f4897c5ab2f9cc",
+    "compressed_input_bytes": 1659,
+    "created_at": "2026-08-13T04:00:00Z",
+    "decision_time": "2023-02-01T12:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 4,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves four minimal ALFRED GDP facts from three explicitly named vintages that were conservatively knowable before the replay decision time. It does not include the later Q4 second estimate, a complete GDP series, an exact intraday release timestamp, a probability distribution, a forecast, or evidence of investment or policy performance.",
+      "The symmetric Q4 revision interval is a transparent heuristic based only on the known Q3 cumulative revision magnitude; it has no assigned probability or coverage guarantee.",
+      "The later Q4 second estimate is excluded from decision inputs and all artifacts.",
+      "ALFRED vintage dates are date-granular, so the adapter delays knowability by two calendar days instead of claiming exact publication time.",
+      "No market data, portfolio, order, network contagion, or execution claim is made.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "gdp-2022q4-revision-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "gdp-2022q4-revision-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "U.S. GDP 2022 Q4 advance-to-second-estimate revision boundary"
+  },
+  "topological_artifact_ids": [
+    "gdp-revision.timevault.vintage-query",
+    "gdp-revision.shockcompiler.revision-bound",
+    "gdp-revision.trialcourt.retrospective-gate",
+    "gdp-revision.replaystudio.render"
+  ],
+  "trace_id": "trace:0318d33e4e29fce0de5555c94e4cef24a4605bddaca362a57637319322ed194d"
+}
