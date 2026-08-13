@@ -54,9 +54,9 @@ Each of the 30 planned scenarios must independently provide:
 7. a limitations file and non-causal/non-deployment boundary;
 8. a fresh-clone replay receipt.
 
-Current status: **IN_PROGRESS; 6/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
-2022 Q4 GDP revision, March 2023 BTFP early-growth, and early-2023 BLS payroll-release boundary
-replays are counted.
+Current status: **IN_PROGRESS; 7/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
+2022 Q4 GDP revision, March 2023 BTFP early-growth, early-2023 BLS payroll-release, and spring-2023
+FOMC target-range boundary replays are counted.
 `scripts/verify_scenario_catalog.py` opens
 each scenario's official timing records, immutable decision input lock, separately locked
 post-decision official event record, ReplayPack, source-label map, explicit naive baseline,
@@ -66,9 +66,12 @@ case is the first non-bank template: it uses four native ALFRED vintages and a s
 no-probability revision envelope. The BTFP case adds date-stamped Federal Reserve H.4.1 archives and
 a one-sided no-growth-to-prior-growth continuation envelope. Both use conservative date-granular
 knowledge bounds. The BLS case adds an exact page-stated 8:30 a.m. Eastern embargo boundary, a
-two-headline no-probability payroll range, and an annual-benchmark comparability limitation. All
-three use only four relevant engines and labelled post-event range checks. Further scenarios must
-continue to diversify mechanisms and source families. The verifier recomputes the
+two-headline no-probability payroll range, and an annual-benchmark comparability limitation. The
+FOMC case adds exact EST/EDT policy-
+release timing and a zero-or-one-known-step next-upper-target boundary, without market-expectation,
+causal-effect, or policy-correctness claims. All four use only four relevant engines and labelled
+post-event range checks. Further scenarios must continue to diversify mechanisms and source
+families. The verifier recomputes the
 deterministic inventory under
 `verification/scenarios/`. A scenario title, plan row, unverified pack directory, or self-reported
 status still counts as 0.

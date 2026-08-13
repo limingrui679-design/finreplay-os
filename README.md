@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 6/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, and BLS payroll-release boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 7/30 internally replay-proven: three bank boundaries plus ALFRED GDP revision, Federal Reserve H.4.1 BTFP growth, BLS payroll-release, and FOMC target-range boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -105,6 +105,12 @@ keeps each headline value as a versioned release-snapshot fact rather than repla
 revisions. The January release's annual benchmark and seasonal-factor changes remain an explicit
 comparability limitation. This source is also outside the formal 30-adapter inventory.
 
+The target-range scenario uses `federal_reserve.fomc.archived_statement` as another verified
+supporting source. It retrieves only the February 1, March 22, and May 3, 2023 statement pages,
+strictly parses their target endpoints, and validates each page's 2:00 p.m. EST/EDT release label
+against `America/New_York` before UTC conversion. Full HTML remains local; this source is also
+outside the formal 30-adapter inventory.
+
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
 ```bash
@@ -162,6 +168,12 @@ decision boundary, uses the two already-known payroll headlines only as a no-pro
 range, and keeps the March 10 February payroll headline in a disjoint event lock. The annual
 benchmarking caveat prevents a stationary-sample claim. See
 [`docs/scenarios/bls-payroll-2023.md`](docs/scenarios/bls-payroll-2023.md).
+
+The seventh counted flow uses archived FOMC statements with exact page-stated release timing. It
+locks the February and March federal-funds target endpoints before a March 23 decision boundary,
+uses persistence or one repeat of the already-known 25-basis-point step as a no-probability
+next-upper-target range, and keeps the May 3 upper target in a disjoint event lock. See
+[`docs/scenarios/fomc-target-2023.md`](docs/scenarios/fomc-target-2023.md).
 
 ## Research and investment disclaimer
 

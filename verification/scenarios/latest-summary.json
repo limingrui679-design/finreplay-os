@@ -26,6 +26,18 @@
       "trace_id": "trace:48018b32d8fec0765cb14afed5aef57beec65b77ae5629b10e05e3ab08ec68c2"
     },
     {
+      "decision_time": "2023-03-23T12:00:00+00:00",
+      "distinct_input_records": 4,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "4421dbfebff7e2e3e66124090d27cd6b9031bcb89c9b8726cf28d8fdf358f7e5",
+      "proof": "fomc-2023-target-range-boundary-v1.json",
+      "proof_sha256": "34265ce85a5a0bf3b52e4f42f3aa1a20a532b9510634a5be661f4ec015b2389e",
+      "replay_id": "fomc-2023-target-range-boundary-v1",
+      "scenario_id": "fomc-2023-target-range-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:4d1e9d9df61c5baffffb8bced078829ec4ba1064f07e7c65f68ba9a1368f7df7"
+    },
+    {
       "decision_time": "2023-02-01T12:00:00+00:00",
       "distinct_input_records": 4,
       "mode": "bounded_reconstruction",
@@ -75,5 +87,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 6
+  "verified_scenario_count": 7
 }
