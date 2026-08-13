@@ -27,6 +27,7 @@ WESTERN_ALLIANCE_PROOF_PATH = (
     PROOF_DIRECTORY / "western-alliance-2023-deposit-boundary-v1.json"
 )
 GDP_REVISION_PROOF_PATH = PROOF_DIRECTORY / "gdp-2022q4-revision-boundary-v1.json"
+BTFP_GROWTH_PROOF_PATH = PROOF_DIRECTORY / "btfp-2023-early-growth-boundary-v1.json"
 
 
 def proof_values() -> dict[str, Any]:
@@ -108,8 +109,16 @@ def test_committed_proofs_and_deterministic_catalog_are_fully_verified() -> None
     assert gdp_revision.mode == "bounded_reconstruction"
     assert gdp_revision.distinct_input_records == 4
 
+    btfp_growth = verify_scenario_proof(
+        BTFP_GROWTH_PROOF_PATH,
+        repository_root=REPOSITORY,
+    )
+    assert btfp_growth.scenario_id == "btfp-2023-early-growth-boundary"
+    assert btfp_growth.mode == "bounded_reconstruction"
+    assert btfp_growth.distinct_input_records == 4
+
     catalog = verify_scenario_catalog(PROOF_DIRECTORY, repository_root=REPOSITORY)
-    assert len(catalog) == 4
+    assert len(catalog) == 5
     summary = scenario_catalog_summary(catalog, proof_directory=PROOF_DIRECTORY)
     committed = json.loads((REPOSITORY / "verification/scenarios/latest-summary.json").read_text())
     assert summary == committed

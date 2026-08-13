@@ -78,6 +78,14 @@ Raw ALFRED CSV is kept only in the ignored local content-addressed store; reposi
 the minimal facts, source hashes, provenance, and knowledge times rather than redistributing the
 raw response.
 
+`federal_reserve.h41.btfp_historical_release` retrieves one explicitly dated archived H.4.1 page
+and strictly parses the Bank Term Funding Program row in Table 1. Three live releases used by the
+BTFP growth scenario are verified under `verification/supporting/fed-h41/`; their six facts use
+`versioned_snapshot` coverage. The full archived HTML stays in ignored local storage, while the
+scenario locks retain only minimal balances and source metadata. Date-only release labels become
+knowable at 00:00 UTC two calendar days later. This supporting connector is also excluded from the
+formal 30-adapter inventory.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

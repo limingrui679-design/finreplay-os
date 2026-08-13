@@ -54,16 +54,19 @@ Each of the 30 planned scenarios must independently provide:
 7. a limitations file and non-causal/non-deployment boundary;
 8. a fresh-clone replay receipt.
 
-Current status: **IN_PROGRESS; 4/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
-and 2022 Q4 GDP revision boundary replays are counted. `scripts/verify_scenario_catalog.py` opens
+Current status: **IN_PROGRESS; 5/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
+2022 Q4 GDP revision, and March 2023 BTFP early-growth boundary replays are counted.
+`scripts/verify_scenario_catalog.py` opens
 each scenario's official timing records, immutable decision input lock, separately locked
 post-decision official event record, ReplayPack, source-label map, explicit naive baseline,
 deliberate TrialCourt rejection, build and verification routes, and clean-worktree double-rebuild
 receipt. It fails if post-decision event evidence appears in a ReplayPack source manifest. The GDP
-case is the first non-bank template: it uses four native ALFRED vintages, a conservative
-date-granular knowledge bound, a symmetric no-probability revision envelope, four relevant engines,
-and a labelled post-event coverage check. Further scenarios must continue to diversify mechanisms
-and source families. The verifier recomputes the deterministic inventory under
+case is the first non-bank template: it uses four native ALFRED vintages and a symmetric
+no-probability revision envelope. The BTFP case adds date-stamped Federal Reserve H.4.1 archives and
+a one-sided no-growth-to-prior-growth continuation envelope. Both use conservative date-granular
+knowledge bounds, only four relevant engines, and labelled post-event coverage checks. Further
+scenarios must continue to diversify mechanisms and source families. The verifier recomputes the
+deterministic inventory under
 `verification/scenarios/`. A scenario title, plan row, unverified pack directory, or self-reported
 status still counts as 0.
 

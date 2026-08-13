@@ -1,0 +1,125 @@
+{
+  "build_script": {
+    "path": "scripts/build_facility_growth_replaypack.py",
+    "sha256": "44626215965f33dc8f4ca0306fd8339cad5b543acbbc4378c421bdc08d250326"
+  },
+  "claim_boundary": "This proof counts one internally reproduced Federal Reserve facility-growth boundary because four official pre-decision H.4.1 facts, deterministic conservative knowledge timing, a separately locked post-decision release fact, an immutable input lock, separated truth labels, an explicit zero-growth naive baseline, a no-probability bounded growth program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The later balance is excluded from ReplayPack inputs and used only for a labelled post-event coverage check. This does not establish forecasting skill, calibrated coverage, causal systemic stress, policy effectiveness, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "btfp-growth.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective one-week attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "btfp-growth.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "97b1063608c36fcdc813cfaa916dba9bc5fa0e9874d587f8b7edb9a1216ad5c7",
+      "path": "scenarios/btfp-growth-2023/event-lock.json",
+      "record_ids": [
+        "federal_reserve.h41.btfp_historical_release:20230330:wednesday_outstanding"
+      ],
+      "sha256": "fa87f7a421ff657e8cd135cc135391e2e12d14c9525a03a64a888c43b7cb2f0c"
+    }
+  ],
+  "expected_input_manifest_sha256": "3cc0c17291ee616876e958ce9dec202c87a1fd2153efc3c3f141847e9af493fb",
+  "expected_pack_sha256": "f595429d8a547a669f36b84ee6058933eb9c12ec5ee5a19632d8f510fe8b0141",
+  "expected_trace_id": "trace:48018b32d8fec0765cb14afed5aef57beec65b77ae5629b10e05e3ab08ec68c2",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate balances reported in Federal Reserve H.4.1 releases, not direct borrower, collateral, transaction, or stress observations. The later balance is only in the event lock."
+    },
+    "bounded_artifact_ids": [
+      "btfp-growth.shockcompiler.growth-bound"
+    ],
+    "extracted_artifact_ids": [
+      "btfp-growth.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "btfp-growth.shockcompiler.growth-bound",
+      "btfp-growth.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "federal_reserve.h41.btfp_historical_release:20230316:wednesday_outstanding",
+      "federal_reserve.h41.btfp_historical_release:20230316:weekly_average",
+      "federal_reserve.h41.btfp_historical_release:20230323:wednesday_outstanding",
+      "federal_reserve.h41.btfp_historical_release:20230323:weekly_average"
+    ],
+    "simulated_artifact_ids": [
+      "btfp-growth.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "155bac5cbf63771831e4833d8a32a33c6508422efbf8aa910ed40988d24e6ffd",
+      "path": "scenarios/btfp-growth-2023/input-lock.json",
+      "record_ids": [
+        "federal_reserve.h41.btfp_historical_release:20230316:wednesday_outstanding",
+        "federal_reserve.h41.btfp_historical_release:20230316:weekly_average",
+        "federal_reserve.h41.btfp_historical_release:20230323:wednesday_outstanding",
+        "federal_reserve.h41.btfp_historical_release:20230323:weekly_average"
+      ],
+      "sha256": "8f26e6bef55bc2d54c004f643ef54af79821672a4b459bfabd67f265c97f5c94"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "btfp-growth.shockcompiler.growth-bound",
+      "description": "The explicit decision-time baseline assumes no additional next-week BTFP Wednesday balance growth.",
+      "expected_value": 0.0,
+      "payload_pointer": "/naive_baseline/next_week_growth_millions"
+    },
+    {
+      "artifact_id": "btfp-growth.shockcompiler.growth-bound",
+      "description": "The growth endpoints deliberately carry no probability or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/fed-h41/latest-summary.json",
+  "pack_directory": "verification/replaypacks/btfp-growth-2023",
+  "proof_sha256": "25b3136dcbd9548cac3eee90476fe836df78710cf1260cb448b48c35e9550d52",
+  "rebuild_receipt": {
+    "path": "verification/evidence/btfp-growth-four-engine-rebuild.json",
+    "sha256": "04b1dd3ae774d5b4703168e3ab59792545b68b7ed7aea97b9ffabca9762d9928"
+  },
+  "replay_id": "btfp-2023-early-growth-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "distinct_locked_inputs_equal_four",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "naive_baseline_is_zero_growth",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_timing_is_later",
+    "reported_post_event_growth_inside_declared_envelope",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "btfp-2023-early-growth-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "federal_reserve.h41.btfp_historical_release:20230316:wednesday_outstanding",
+    "federal_reserve.h41.btfp_historical_release:20230316:weekly_average",
+    "federal_reserve.h41.btfp_historical_release:20230323:wednesday_outstanding",
+    "federal_reserve.h41.btfp_historical_release:20230323:weekly_average"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_facility_growth_replaypack.py",
+    "sha256": "384c909e651c4972e97a76d49e08cafe6479d8e24b4bd838cc4fb197120d7b36"
+  }
+}

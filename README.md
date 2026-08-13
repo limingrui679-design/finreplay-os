@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 4/30 internally replay-proven: three 2023 bank boundaries plus a distinct ALFRED GDP revision-vintage boundary pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 5/30 internally replay-proven: three bank boundaries, one ALFRED GDP revision boundary, and one Federal Reserve H.4.1 BTFP growth boundary pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -92,6 +92,12 @@ storage, and applies a two-calendar-day conservative knowledge bound because a v
 not establish an intraday release timestamp. It is deliberately absent from the formal adapter
 inventory, so the capped target remains exactly 30 rather than silently becoming 31.
 
+The BTFP growth scenario likewise uses
+`federal_reserve.h41.btfp_historical_release` as a separately verified supporting source. It
+retrieves only three explicitly dated archived H.4.1 pages, parses the BTFP Table 1 row, retains
+full HTML locally, and applies the same conservative date-plus-two-day rule. It also remains outside
+the formal 30-adapter inventory.
+
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
 ```bash
@@ -136,6 +142,12 @@ from the already known Q3 revision path, and keeps the February 23 Q4 second est
 post-decision event lock. Only TimeVault, ShockCompiler, TrialCourt, and ReplayStudio run because
 the scenario makes no market-network, execution, or allocation claim. See
 [`docs/scenarios/gdp-revision-2022q4.md`](docs/scenarios/gdp-revision-2022q4.md).
+
+The fifth counted flow changes publisher and mechanism again. It locks the March 16 and March 23,
+2023 Federal Reserve H.4.1 BTFP balances before a March 25 decision boundary, constructs a
+no-probability next-week growth interval from the one already known Wednesday change, and keeps the
+March 30 balance in a disjoint event lock. See
+[`docs/scenarios/btfp-growth-2023.md`](docs/scenarios/btfp-growth-2023.md).
 
 ## Research and investment disclaimer
 
