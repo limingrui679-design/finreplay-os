@@ -38,6 +38,18 @@
       "trace_id": "trace:48018b32d8fec0765cb14afed5aef57beec65b77ae5629b10e05e3ab08ec68c2"
     },
     {
+      "decision_time": "2020-04-16T12:00:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "baf7d20f12097dbc58745d1e2eeb19fb0229ff062c987425addddc2d96c1f7c4",
+      "proof": "eia-wpsr-2020-crude-stock-boundary-v1.json",
+      "proof_sha256": "0bfbce4b4058cc118cb5f644e5ce6a7121f63a6a18be2a8203ff060ce86ddf2a",
+      "replay_id": "eia-wpsr-2020-crude-stock-boundary-v1",
+      "scenario_id": "eia-wpsr-2020-crude-stock-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:02607eb05647ea0f55341031c4c55035a27f86fadfd8e20ffada0a15dd1a8780"
+    },
+    {
       "decision_time": "2023-03-23T12:00:00+00:00",
       "distinct_input_records": 4,
       "mode": "bounded_reconstruction",
@@ -135,5 +147,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 11
+  "verified_scenario_count": 12
 }

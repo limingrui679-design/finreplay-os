@@ -29,6 +29,7 @@ python scripts/verify_live_receipts.py \
 ```
 
 This evidence establishes internal source retrieval, paired CSV/PDF identity checks, exact unit
-normalization, arithmetic reconciliation, conservative timing, hashing, and local ingestion. It
-does not yet count a twelfth scenario and does not establish a forecast, calibrated range, oil-
+normalization, arithmetic reconciliation, conservative timing, hashing, and local ingestion. The
+separately verified `eia-wpsr-2020-crude-stock-boundary` proof uses it as supporting evidence for
+the twelfth counted scenario. Neither artifact establishes a forecast, calibrated range, oil-
 market causality, external validation, deployment, or investment results.
