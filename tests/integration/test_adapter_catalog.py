@@ -10,6 +10,7 @@ from finreplay.adapters import (
     NYFED_DATASET_SPECS,
     ALFREDGDPVintageAdapter,
     ALFREDTreasuryYieldVintageAdapter,
+    BEAPersonalIncomeOutlaysArchiveAdapter,
     BLSCPIArchiveAdapter,
     BLSCPIUAllItemsAdapter,
     BLSEmploymentSituationArchiveAdapter,
@@ -97,8 +98,7 @@ def test_h41_is_a_verified_supporting_source_not_a_thirty_first_counted_adapter(
     assert supporting["historical_replay_eligible_count"] == 1
     assert supporting["latest_only_count"] == 0
     assert (
-        supporting["adapters"][0]["adapter_id"]
-        == FederalReserveH41BTFPAdapter.metadata.adapter_id
+        supporting["adapters"][0]["adapter_id"] == FederalReserveH41BTFPAdapter.metadata.adapter_id
     )
     assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()
 
@@ -132,10 +132,7 @@ def test_bls_cpi_release_is_supporting_source_not_a_thirty_first_counted_adapter
     assert supporting["verified_adapter_count"] == 1
     assert supporting["historical_replay_eligible_count"] == 1
     assert supporting["latest_only_count"] == 0
-    assert (
-        supporting["adapters"][0]["adapter_id"]
-        == BLSCPIArchiveAdapter.metadata.adapter_id
-    )
+    assert supporting["adapters"][0]["adapter_id"] == BLSCPIArchiveAdapter.metadata.adapter_id
     assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()
 
 
@@ -186,10 +183,7 @@ def test_sofr_history_is_a_verified_supporting_source_not_a_thirty_first_adapter
     assert supporting["verified_adapter_count"] == 1
     assert supporting["historical_replay_eligible_count"] == 1
     assert supporting["latest_only_count"] == 0
-    assert (
-        supporting["adapters"][0]["adapter_id"]
-        == NYFedSOFRHistoricalAdapter.metadata.adapter_id
-    )
+    assert supporting["adapters"][0]["adapter_id"] == NYFedSOFRHistoricalAdapter.metadata.adapter_id
     assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()
 
 
@@ -224,8 +218,7 @@ def test_dol_ui_claims_is_a_verified_supporting_source_not_a_thirty_first_adapte
     assert supporting["historical_replay_eligible_count"] == 1
     assert supporting["latest_only_count"] == 0
     assert (
-        supporting["adapters"][0]["adapter_id"]
-        == DOLWeeklyClaimsArchiveAdapter.metadata.adapter_id
+        supporting["adapters"][0]["adapter_id"] == DOLWeeklyClaimsArchiveAdapter.metadata.adapter_id
     )
     assert supporting["adapters"][0]["record_count"] == 3
     assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()
@@ -247,4 +240,25 @@ def test_treasury_auction_results_are_supporting_not_a_thirty_first_adapter() ->
         == TreasuryAuction91DayArchiveAdapter.metadata.adapter_id
     )
     assert supporting["adapters"][0]["record_count"] == 3
+    assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()
+
+
+def test_bea_pio_is_a_verified_supporting_source_not_a_thirty_first_adapter() -> None:
+    repository = Path(__file__).resolve().parents[2]
+    formal = json.loads((repository / "verification/live/latest-summary.json").read_text())
+    supporting_root = repository / "verification/supporting/bea-pio"
+    supporting = json.loads((supporting_root / "latest-summary.json").read_text())
+
+    formal_ids = {item["adapter_id"] for item in formal["adapters"]}
+    assert BEAPersonalIncomeOutlaysArchiveAdapter.metadata.adapter_id not in formal_ids
+    assert supporting["verified_adapter_count"] == 1
+    assert supporting["historical_replay_eligible_count"] == 1
+    assert supporting["latest_only_count"] == 0
+    assert (
+        supporting["adapters"][0]["adapter_id"]
+        == BEAPersonalIncomeOutlaysArchiveAdapter.metadata.adapter_id
+    )
+    assert supporting["adapters"][0]["record_count"] == 3
+    assert supporting["adapters"][0]["idempotent_records"] == 3
+    assert supporting["adapters"][0]["inserted_records"] == 0
     assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()
