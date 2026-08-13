@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "dol-ui-2020-initial-claims-boundary",
+  "scenario_version": "1.0.0",
+  "decision_time": "2020-03-20T12:00:00Z",
+  "event_role": "post_decision_official_event",
+  "records": [
+    {
+      "record_id": "dol.eta.archived_weekly_initial_claims:20200326:seasonally_adjusted_initial_claims",
+      "entity_id": "dol_ui_claims:united_states",
+      "source": {
+        "source_id": "dol.eta.archived_weekly_initial_claims",
+        "publisher": "U.S. Department of Labor Employment and Training Administration",
+        "url": "https://www.dol.gov/sites/dolgov/files/OPA/newsreleases/ui-claims/20200510.pdf",
+        "retrieved_at": "2026-08-13T07:10:56.948299Z",
+        "source_version": "DOL-UI:2020-03-26:USDL-20-510-NAT:sha256:53594f675adcdb36744a7147",
+        "sha256": "53594f675adcdb36744a7147cccc62fb3102dec09dc707693dac8b94476734e8",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2020-03-26T12:46:21Z",
+        "redistribution_note": "DOL says federal materials are generally public domain with attribution and no implied endorsement, but not all site materials are necessarily federal works and the DOL seal is protected. Full PDFs remain in local content-addressed storage; the repository retains minimal facts, attribution, URLs, and hashes only."
+      },
+      "interval": {
+        "valid_from": "2020-03-21T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2020-03-26T12:30:00Z",
+        "available_at": "2020-03-26T12:46:21Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T07:10:56.948299Z",
+        "availability_rule": "Each archived DOL PDF states an 8:30 a.m. Eastern embargo end on its named Thursday. FinReplay converts that timestamp with America/New_York and uses the later of the embargo end or the official PDF Last-Modified timestamp, so the exact archived bytes are never backdated before their server metadata.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "annual_revision_release": false,
+        "arithmetic_verified": true,
+        "availability_method": "max_explicit_embargo_end_and_pdf_last_modified",
+        "metric": "seasonally_adjusted_initial_claims",
+        "pdf_last_modified_at": "2020-03-26T12:46:21+00:00",
+        "prior_level_persons": 282000,
+        "prior_level_revision_delta_persons": 1000,
+        "prior_level_revision_new_persons": 282000,
+        "prior_level_revision_old_persons": 281000,
+        "prior_level_status": "revised",
+        "release_date": "2020-03-26",
+        "release_number": "USDL 20-510-NAT",
+        "release_time_eastern": "08:30:00",
+        "reported_change_persons": 3001000,
+        "reported_direction": "increase",
+        "snapshot_semantics": "advance value reported in this archived release",
+        "unit": "Persons",
+        "value_persons": 3283000,
+        "week_ending": "2020-03-21"
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the DOL advance seasonally adjusted initial-claims value for the week ending March 21, 2020 solely as a post-decision official event. The March 26 PDF became knowable only after the replay decision and also preserves its revision of the prior week from 281,000 to 282,000. It is excluded from all ReplayPack inputs and does not establish forecast skill, calibrated coverage, pandemic or labor-market causality, policy effectiveness, investment performance, external review, deployment, or user impact.",
+  "lock_sha256": "b3b8bc99d3a3d2989768259374dd7a77613c9afa10ab5d3bb839bba1ccdcbf2a"
+}
