@@ -24,8 +24,20 @@
       "scenario_id": "svb-2023-boundary",
       "scenario_version": "1.0.0",
       "trace_id": "trace:7c6888e9ecebd390acb2f7fecbcde816d7e50906632483215244acf0f17462bf"
+    },
+    {
+      "decision_time": "2023-05-02T16:00:00+00:00",
+      "distinct_input_records": 7,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "1ed3dc968add623c1c9a95f37bb514a7d1f27dc6f6ae16bbe586f1d39bff9b11",
+      "proof": "western-alliance-2023-deposit-boundary-v1.json",
+      "proof_sha256": "3a07cb123aef2c38ba8880ba83c7c679978f8d91499e6f22f7f6ce24a1ee4560",
+      "replay_id": "western-alliance-2023-seven-engine-v1",
+      "scenario_id": "western-alliance-2023-deposit-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:abb13b47a3d70fdd943ba67f810e635e79d46f771d566289152eebc4d5c03d05"
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 2
+  "verified_scenario_count": 3
 }

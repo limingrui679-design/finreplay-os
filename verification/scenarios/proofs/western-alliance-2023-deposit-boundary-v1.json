@@ -1,0 +1,138 @@
+{
+  "build_script": {
+    "path": "scripts/build_bank_boundary_replaypack.py",
+    "sha256": "6c06365d6b438042db440573cda99c73f0a96866d6fac415c8f47d0480337115"
+  },
+  "claim_boundary": "This proof counts one internally reproduced historical boundary scenario for Western Alliance Bancorporation because official SEC decision-input timing, a separately locked post-decision SEC event, immutable inputs, separated evidence labels, an explicit status-quo baseline, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The event lock is excluded from replay inputs. This does not establish causal completeness, external method correctness, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "western-alliance.trialcourt.retrospective-gate",
+      "description": "The retrospective non-inferential screen must be rejected rather than promoted.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "western-alliance.trialcourt.retrospective-gate",
+      "description": "The immutable TrialCourt ledger must retain exactly one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "5db59f4a1941edce486667381cde0927b176fc4640723df8e570a8196bf282a6",
+      "path": "scenarios/western-alliance-2023/event-lock.json",
+      "record_ids": [
+        "sec.edgar.submissions:0001212545:0001212545-23-000122"
+      ],
+      "sha256": "cdbea1272f23683a7c7719824075b0a322faea87d4f47fc77715d24ccf29497c"
+    }
+  ],
+  "expected_input_manifest_sha256": "5960e138f0a186b0fa09340e3adfb32b54e0412ac5811ccd690421ca1c44c6c4",
+  "expected_pack_sha256": "1ed3dc968add623c1c9a95f37bb514a7d1f27dc6f6ae16bbe586f1d39bff9b11",
+  "expected_trace_id": "trace:abb13b47a3d70fdd943ba67f810e635e79d46f771d566289152eebc4d5c03d05",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The minimal decision lock contains filer-reported SEC accounting facts and no direct market-tape, order-book, deposit-flow, or regulator-observed record. Post-decision official event metadata is kept in a separate lock."
+    },
+    "bounded_artifact_ids": [
+      "western-alliance.capitalallocator.robust-boundary",
+      "western-alliance.executionlab.normalized-envelope",
+      "western-alliance.markettwin.loss-envelope",
+      "western-alliance.shockcompiler.htm-bound"
+    ],
+    "extracted_artifact_ids": [
+      "western-alliance.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "western-alliance.capitalallocator.robust-boundary",
+      "western-alliance.markettwin.loss-envelope",
+      "western-alliance.shockcompiler.htm-bound",
+      "western-alliance.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+      "sec.xbrl.companyfacts:0001212545:383e6f0ca57387d28ba4d6d950b0f32576d737e01fc3e78dc865a7d8dd8b1ed4",
+      "sec.xbrl.companyfacts:0001212545:4fb6f9f4abf43c420845b740854312884517d3f795376e19d473c16dc4feb136",
+      "sec.xbrl.companyfacts:0001212545:9ea487ee5fac033a755d30e6ace62df0d4a9fcb9e65a52d467fec8d47c26fd5c",
+      "sec.xbrl.companyfacts:0001212545:a5ee3b8b3f87088f2e99603ecba555750a6962a58c10e2d6568506d76926720d",
+      "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d",
+      "sec.xbrl.companyfacts:0001212545:ecb5a406082478d1c90ced081684e4dcb2c412f1423321a8c07e2993f51e430b"
+    ],
+    "simulated_artifact_ids": [
+      "western-alliance.capitalallocator.robust-boundary",
+      "western-alliance.executionlab.normalized-envelope",
+      "western-alliance.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "7bc1ed3729b84f642ca158cdf68560909e9cb75eb0582c2c671a32a0684118d1",
+      "path": "scenarios/western-alliance-2023/input-lock.json",
+      "record_ids": [
+        "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+        "sec.xbrl.companyfacts:0001212545:383e6f0ca57387d28ba4d6d950b0f32576d737e01fc3e78dc865a7d8dd8b1ed4",
+        "sec.xbrl.companyfacts:0001212545:4fb6f9f4abf43c420845b740854312884517d3f795376e19d473c16dc4feb136",
+        "sec.xbrl.companyfacts:0001212545:9ea487ee5fac033a755d30e6ace62df0d4a9fcb9e65a52d467fec8d47c26fd5c",
+        "sec.xbrl.companyfacts:0001212545:a5ee3b8b3f87088f2e99603ecba555750a6962a58c10e2d6568506d76926720d",
+        "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d",
+        "sec.xbrl.companyfacts:0001212545:ecb5a406082478d1c90ced081684e4dcb2c412f1423321a8c07e2993f51e430b"
+      ],
+      "sha256": "456e3991388e4232de0c590559159aece325d5071f34a01ef5c44593f0299595"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "western-alliance.capitalallocator.robust-boundary",
+      "description": "The explicit status-quo baseline assigns zero weight to the synthetic model exposure.",
+      "expected_value": 0.0,
+      "payload_pointer": "/problem/assets/0/current_weight"
+    },
+    {
+      "artifact_id": "western-alliance.capitalallocator.robust-boundary",
+      "description": "The explicit status-quo baseline begins with the entire model portfolio in cash.",
+      "expected_value": 1.0,
+      "payload_pointer": "/problem/current_cash_weight"
+    }
+  ],
+  "official_adapter_inventory": "verification/live/latest-summary.json",
+  "pack_directory": "verification/replaypacks/western-alliance-2023-seven-engine",
+  "proof_sha256": "3a07cb123aef2c38ba8880ba83c7c679978f8d91499e6f22f7f6ce24a1ee4560",
+  "rebuild_receipt": {
+    "path": "verification/evidence/western-alliance-seven-engine-rebuild.json",
+    "sha256": "ec32c30f26e64ba9adaf3e436031e5947332d21d31b4600e48a34c67d19d74d7"
+  },
+  "replay_id": "western-alliance-2023-seven-engine-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "all_seven_engines_present",
+    "allocator_retains_all_cash_boundary",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "distinct_locked_inputs_equal_seven",
+    "execution_is_reference_only_simulation",
+    "historical_source_sets_eligible",
+    "post_decision_event_is_disjoint",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "western-alliance-2023-deposit-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+    "sec.xbrl.companyfacts:0001212545:383e6f0ca57387d28ba4d6d950b0f32576d737e01fc3e78dc865a7d8dd8b1ed4",
+    "sec.xbrl.companyfacts:0001212545:4fb6f9f4abf43c420845b740854312884517d3f795376e19d473c16dc4feb136",
+    "sec.xbrl.companyfacts:0001212545:9ea487ee5fac033a755d30e6ace62df0d4a9fcb9e65a52d467fec8d47c26fd5c",
+    "sec.xbrl.companyfacts:0001212545:a5ee3b8b3f87088f2e99603ecba555750a6962a58c10e2d6568506d76926720d",
+    "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d",
+    "sec.xbrl.companyfacts:0001212545:ecb5a406082478d1c90ced081684e4dcb2c412f1423321a8c07e2993f51e430b"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_bank_boundary_replaypack.py",
+    "sha256": "20d93aea029bd735af13b9189938a4ffa01cc40f5489328fc947f5fbefa52568"
+  }
+}

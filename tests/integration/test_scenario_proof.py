@@ -23,6 +23,9 @@ REPOSITORY = Path(__file__).resolve().parents[2]
 PROOF_DIRECTORY = REPOSITORY / "verification/scenarios/proofs"
 PROOF_PATH = PROOF_DIRECTORY / "svb-2023-boundary-v1.json"
 PACWEST_PROOF_PATH = PROOF_DIRECTORY / "pacwest-2023-funding-boundary-v1.json"
+WESTERN_ALLIANCE_PROOF_PATH = (
+    PROOF_DIRECTORY / "western-alliance-2023-deposit-boundary-v1.json"
+)
 
 
 def proof_values() -> dict[str, Any]:
@@ -88,8 +91,16 @@ def test_committed_svb_proof_and_deterministic_catalog_are_fully_verified() -> N
     assert pacwest.mode == "bounded_reconstruction"
     assert pacwest.distinct_input_records == 7
 
+    western_alliance = verify_scenario_proof(
+        WESTERN_ALLIANCE_PROOF_PATH,
+        repository_root=REPOSITORY,
+    )
+    assert western_alliance.scenario_id == "western-alliance-2023-deposit-boundary"
+    assert western_alliance.mode == "bounded_reconstruction"
+    assert western_alliance.distinct_input_records == 7
+
     catalog = verify_scenario_catalog(PROOF_DIRECTORY, repository_root=REPOSITORY)
-    assert len(catalog) == 2
+    assert len(catalog) == 3
     summary = scenario_catalog_summary(catalog, proof_directory=PROOF_DIRECTORY)
     committed = json.loads((REPOSITORY / "verification/scenarios/latest-summary.json").read_text())
     assert summary == committed
