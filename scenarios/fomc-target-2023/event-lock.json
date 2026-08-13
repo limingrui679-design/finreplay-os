@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "fomc-2023-target-range-boundary",
+  "scenario_version": "1.0.0",
+  "decision_time": "2023-03-23T12:00:00Z",
+  "event_role": "post_decision_official_event",
+  "records": [
+    {
+      "record_id": "federal_reserve.fomc.archived_statement:20230503:target_range_upper",
+      "entity_id": "fomc_policy:federal_funds_target_range",
+      "source": {
+        "source_id": "federal_reserve.fomc.archived_statement",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230503a.htm",
+        "retrieved_at": "2026-08-13T04:54:30.144108Z",
+        "source_version": "FOMCStatement:2023-05-03:sha256:92aedca69289258ecf1a7073",
+        "sha256": "92aedca69289258ecf1a7073dfaa88b45f50357f75f97d456b524f8c4629d18e",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-05-03T18:00:00Z",
+        "redistribution_note": "Keep downloaded HTML in local content-addressed storage. Repository scenarios retain only minimal target-range facts, source links, hashes, and attribution to the Board of Governors; do not imply endorsement or redistribute third-party page material."
+      },
+      "interval": {
+        "valid_from": "2023-05-03T18:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-05-03T18:00:00Z",
+        "available_at": "2023-05-03T18:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:54:30.144108Z",
+        "availability_rule": "The archived FOMC statement explicitly says 'For release at 2:00 p.m.' with an EST or EDT abbreviation. FinReplay validates that abbreviation against America/New_York on the named release date and converts the timestamp to UTC.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "explicit_fomc_release_time_america_new_york",
+        "metric": "target_range_upper",
+        "policy": "Federal funds target range",
+        "range_width_basis_points": 25,
+        "release_date": "2023-05-03",
+        "release_time_eastern": "14:00:00",
+        "release_timezone_abbreviation": "EDT",
+        "source_display_value_percent": "5-1/4",
+        "unit": "Basis Points",
+        "value_basis_points": 525
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the May 3, 2023 archived FOMC statement's 525-basis-point upper target endpoint solely as a post-decision official event marker. Its knowledge time is the page's explicit 2:00 p.m. EDT release time. The fact is excluded from ReplayPack inputs and does not establish forecast skill, calibrated coverage, monetary-policy correctness or causal effects, policy or investment performance, external review, deployment, or user impact.",
+  "lock_sha256": "3d3485cbc62edfff2e61812a1245293541c1e85d5c67d9d0b1a6e0f03d3b1799"
+}

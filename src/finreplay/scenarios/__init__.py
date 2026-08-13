@@ -20,6 +20,13 @@ from finreplay.scenarios.facility_growth import (
     build_facility_growth_replay_spec,
     load_facility_growth_input_lock,
 )
+from finreplay.scenarios.fomc_target_boundary import (
+    FED_FOMC_SOURCE_ID,
+    FOMCTargetBoundaryInputLock,
+    FOMCTargetBoundaryRoles,
+    build_fomc_target_boundary_replay_spec,
+    load_fomc_target_boundary_input_lock,
+)
 from finreplay.scenarios.macro_revision import (
     ALFRED_GDP_SOURCE_ID,
     GDP_SERIES_ID,
@@ -55,6 +62,7 @@ from finreplay.scenarios.svb import (
 __all__ = [
     "ALFRED_GDP_SOURCE_ID",
     "BLS_EMPLOYMENT_SOURCE_ID",
+    "FED_FOMC_SOURCE_ID",
     "FED_H41_BTFP_SOURCE_ID",
     "GDP_SERIES_ID",
     "SVB_BALANCE_DATE",
@@ -65,6 +73,8 @@ __all__ = [
     "EmploymentBoundaryInputLock",
     "EmploymentBoundaryRoles",
     "EventLockEvidence",
+    "FOMCTargetBoundaryInputLock",
+    "FOMCTargetBoundaryRoles",
     "FacilityGrowthInputLock",
     "FacilityGrowthRoles",
     "FileEvidence",
@@ -79,11 +89,13 @@ __all__ = [
     "build_bank_boundary_replay_spec",
     "build_employment_boundary_replay_spec",
     "build_facility_growth_replay_spec",
+    "build_fomc_target_boundary_replay_spec",
     "build_macro_revision_replay_spec",
     "build_svb_replay_spec",
     "load_bank_boundary_input_lock",
     "load_employment_boundary_input_lock",
     "load_facility_growth_input_lock",
+    "load_fomc_target_boundary_input_lock",
     "load_macro_revision_input_lock",
     "load_scenario_proof",
     "load_svb_input_lock",
