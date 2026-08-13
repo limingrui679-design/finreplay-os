@@ -54,12 +54,12 @@ Each of the 30 planned scenarios must independently provide:
 7. a limitations file and non-causal/non-deployment boundary;
 8. a fresh-clone replay receipt.
 
-Current status: **IN_PROGRESS; 14/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
+Current status: **IN_PROGRESS; 15/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
 2022 Q4 GDP revision, March 2023 BTFP early-growth, early-2023 BLS payroll and CPI release,
 spring-2023 FOMC target range, March 2023 Treasury-curve, and June 2023 Treasury TGA cash-boundary
 replays, plus the September 2019 New York Fed SOFR spike, April 2020 EIA commercial-crude-stock,
-March 2020 DOL initial-claims, and March 2020 Treasury 91-day-bill auction-rate boundaries, are
-counted.
+March 2020 DOL initial-claims, March 2020 Treasury 91-day-bill auction-rate, and March 2020 BEA
+personal-saving-rate boundaries, are counted.
 `scripts/verify_scenario_catalog.py` opens
 each scenario's official timing records, immutable decision input lock, separately locked
 post-decision official event record, ReplayPack, source-label map, explicit naive baseline,
@@ -87,7 +87,10 @@ next-local-midnight knowledge boundary, and preserves the later
 comparability warnings, snapshot-preserving prior-week revisions, and a required visible
 2,932,000-person miss above its persistence-or-one-known-increase range. The Treasury auction case
 cross-validates paired XML/PDF results and preserves the later zero-rate result as a 19-basis-point
-miss below its persistence-or-one-known-decline range. All eleven non-bank cases use only four
+miss below its persistence-or-one-known-decline range. The BEA case cross-validates paired
+HTML/PDF release snapshots, preserves the later February revision without overwriting its earlier
+snapshot, and keeps the reported March rate's 460-basis-point miss above the declared range
+visible. All twelve non-bank cases use only four
 relevant engines and labelled post-event checks. Further scenarios must continue to diversify
 mechanisms and source families. The verifier recomputes the deterministic inventory under
 `verification/scenarios/`. A scenario title, plan row, unverified pack directory, or self-reported
