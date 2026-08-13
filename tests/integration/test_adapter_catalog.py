@@ -16,6 +16,7 @@ from finreplay.adapters import (
     FDICFinancialsAdapter,
     FederalReserveFOMCStatementAdapter,
     FederalReserveH41BTFPAdapter,
+    NYFedSOFRHistoricalAdapter,
     SECCompanyFactsAdapter,
     SECHistoricalSubmissionsAdapter,
     SECSubmissionsAdapter,
@@ -167,5 +168,23 @@ def test_treasury_dts_is_a_verified_supporting_source_not_a_thirty_first_adapter
     assert (
         supporting["adapters"][0]["adapter_id"]
         == TreasuryDTSPublishedReportAdapter.metadata.adapter_id
+    )
+    assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()
+
+
+def test_sofr_history_is_a_verified_supporting_source_not_a_thirty_first_adapter() -> None:
+    repository = Path(__file__).resolve().parents[2]
+    formal = json.loads((repository / "verification/live/latest-summary.json").read_text())
+    supporting_root = repository / "verification/supporting/nyfed-sofr-history"
+    supporting = json.loads((supporting_root / "latest-summary.json").read_text())
+
+    formal_ids = {item["adapter_id"] for item in formal["adapters"]}
+    assert NYFedSOFRHistoricalAdapter.metadata.adapter_id not in formal_ids
+    assert supporting["verified_adapter_count"] == 1
+    assert supporting["historical_replay_eligible_count"] == 1
+    assert supporting["latest_only_count"] == 0
+    assert (
+        supporting["adapters"][0]["adapter_id"]
+        == NYFedSOFRHistoricalAdapter.metadata.adapter_id
     )
     assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()

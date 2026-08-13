@@ -133,6 +133,14 @@ strictly parses and arithmetically reconciles Table I, and uses Treasury's follo
 as the exact publication instant. Full PDFs stay in ignored download-only storage and this source
 also remains outside the formal 30-adapter inventory.
 
+The planned SOFR boundary uses `nyfed.sofr.final_historical_rate` as another supporting source. It
+retrieves only the September 13, 16, and 17, 2019 effective dates from the official New York Fed
+Markets API, normalizes each final percentage to exact integer basis points, and permits use only
+at 3:00 p.m. New York time on the following publication business day—after the stated same-day
+revision window. Ancillary percentiles are validated but excluded from normalized historical facts
+because lagged summary statistics can change. Raw JSON stays local and this source remains outside
+the formal 30-adapter inventory.
+
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
 ```bash

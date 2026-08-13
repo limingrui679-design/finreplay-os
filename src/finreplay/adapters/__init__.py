@@ -46,6 +46,7 @@ from finreplay.adapters.nyfed import (
     NYFedMarketsAdapter,
     NYFedSemanticKind,
 )
+from finreplay.adapters.nyfed_sofr_history import NYFedSOFRHistoricalAdapter
 from finreplay.adapters.sec import SECHistoricalSubmissionsAdapter, SECSubmissionsAdapter
 from finreplay.adapters.sec_xbrl import SECCompanyFactsAdapter
 
@@ -81,6 +82,7 @@ __all__ = [
     "FiscalDataSpec",
     "NYFedDatasetSpec",
     "NYFedMarketsAdapter",
+    "NYFedSOFRHistoricalAdapter",
     "NYFedSemanticKind",
     "RawArtifact",
     "ResponseLimitError",

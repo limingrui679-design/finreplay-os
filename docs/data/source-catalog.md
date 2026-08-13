@@ -129,6 +129,16 @@ following business day; the connector uses that deadline in `America/New_York` a
 knowledge time for the verified three-date calendar, not as an exact publication timestamp. Full
 PDFs remain in ignored local storage, and this connector is excluded from the formal 30.
 
+`nyfed.sofr.final_historical_rate` retrieves three explicitly dated final SOFR rows for September
+13, 16, and 17, 2019 from the official New York Fed Markets API. SOFR is initially published at
+approximately 8:00 a.m. ET on the following business day and may be revised at approximately 2:30
+p.m. that same day. The connector therefore makes the selected final rate knowable only at 3:00
+p.m. `America/New_York`, validates an empty revision indicator, and converts the reported percent
+exactly to integer basis points. Ancillary percentile fields are checked for ordering but excluded
+from normalized facts because lagged summary statistics may change. Raw JSON remains local, reuse
+requires the New York Fed's current terms and notices, and this connector is excluded from the
+formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;
