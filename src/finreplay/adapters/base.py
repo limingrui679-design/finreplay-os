@@ -145,6 +145,7 @@ class SafeHttpClient:
         user_agent: str,
         timeout_seconds: float = 30.0,
         max_response_bytes: int = 50_000_000,
+        trust_environment: bool = True,
         client: httpx.Client | None = None,
     ) -> None:
         if not user_agent.strip():
@@ -157,6 +158,7 @@ class SafeHttpClient:
             timeout=timeout_seconds,
             follow_redirects=False,
             headers={"User-Agent": user_agent, "Accept-Encoding": "gzip, deflate"},
+            trust_env=trust_environment,
         )
 
     def __enter__(self) -> SafeHttpClient:

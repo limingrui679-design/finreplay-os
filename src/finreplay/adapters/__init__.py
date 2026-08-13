@@ -1,5 +1,6 @@
 """Official-source adapters and evidence receipts."""
 
+from finreplay.adapters.alfred import ALFREDGDPVintageAdapter
 from finreplay.adapters.base import (
     AdapterBatch,
     AdapterError,
@@ -51,6 +52,7 @@ __all__ = [
     "FISCAL_DATA_SPECS",
     "NYFED_DATASET_BY_SLUG",
     "NYFED_DATASET_SPECS",
+    "ALFREDGDPVintageAdapter",
     "AdapterBatch",
     "AdapterError",
     "AdapterMetadata",
