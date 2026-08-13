@@ -31,8 +31,8 @@ REQUIRED_ASSERTIONS = (
     "post_decision_event_is_disjoint",
     "post_decision_event_is_exact_archived_dts_fact",
     "post_decision_event_timing_is_later",
-    "reported_post_event_balance_inside_declared_range",
     "post_event_differs_from_persistence_baseline",
+    "reported_post_event_balance_inside_declared_range",
     "simulation_remains_visible",
     "trialcourt_rejects_retrospective_attempt",
 )
