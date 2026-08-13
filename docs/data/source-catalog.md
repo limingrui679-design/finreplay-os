@@ -159,6 +159,16 @@ the March 26 revision of the prior week from 281,000 to 282,000 never overwrites
 advance snapshot. Full PDFs remain in ignored local storage, and this supporting connector is
 excluded from the formal 30.
 
+`treasury.auctions.archived_91_day_bill_results` retrieves paired TreasuryDirect result XML and
+one-page PDF files for the March 9, 16, and 23, 2020 91-day bill auctions. Treasury's auction
+timeline says the XML delivery record has been the official result release time since 2003; each
+selected XML records that time and points to the matching dated PDF. The connector cross-checks
+CUSIP, calendar, rates, price, tender and award amounts, bidder-category totals, bid-to-cover
+arithmetic, and result filename across both forms. It records the XML release time but waits until
+the following `America/New_York` midnight before making the pair knowledge-eligible. Current
+`Last-Modified` headers are ignored because later site migration can change them. Raw pairs remain
+in ignored local storage, and this supporting connector is excluded from the formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

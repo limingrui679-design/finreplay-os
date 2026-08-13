@@ -158,6 +158,15 @@ revision remains an explicit comparability boundary, and the March 26 revision o
 is preserved only in that later release snapshot. Raw PDFs stay local and this source remains
 outside the formal 30-adapter inventory.
 
+The planned 91-day Treasury-bill auction boundary uses
+`treasury.auctions.archived_91_day_bill_results` as another supporting source. It retrieves paired
+TreasuryDirect result XML and one-page PDF files for March 9, 16, and 23, 2020, and cross-checks
+CUSIP, dates, rates, price, tender amounts, bidder totals, bid-to-cover arithmetic, and result
+filename. The XML carries the official release time under Treasury's documented auction process;
+FinReplay nevertheless waits until the following New York midnight before use. Migrated current
+`Last-Modified` headers are not backdated. Raw pairs stay local and the source remains outside the
+formal 30-adapter inventory.
+
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
 ```bash

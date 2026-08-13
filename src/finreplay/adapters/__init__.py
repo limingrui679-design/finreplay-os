@@ -51,6 +51,7 @@ from finreplay.adapters.nyfed import (
 from finreplay.adapters.nyfed_sofr_history import NYFedSOFRHistoricalAdapter
 from finreplay.adapters.sec import SECHistoricalSubmissionsAdapter, SECSubmissionsAdapter
 from finreplay.adapters.sec_xbrl import SECCompanyFactsAdapter
+from finreplay.adapters.treasury_auction_results import TreasuryAuction91DayArchiveAdapter
 
 __all__ = [
     "CFTC_COT_BY_SLUG",
@@ -94,5 +95,6 @@ __all__ = [
     "SECHistoricalSubmissionsAdapter",
     "SECSubmissionsAdapter",
     "SourceSchemaError",
+    "TreasuryAuction91DayArchiveAdapter",
     "TreasuryDTSPublishedReportAdapter",
 ]
