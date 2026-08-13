@@ -1,0 +1,126 @@
+{
+  "build_script": {
+    "path": "scripts/build_cpi_boundary_replaypack.py",
+    "sha256": "ad012648ab0fc1e8056025b1187310d11f744ad58b449bfd47b865282cae1ed8"
+  },
+  "claim_boundary": "This proof counts one internally reproduced BLS CPI monthly-change release boundary because four official pre-decision headline facts, exact embargo-end knowledge timing, a separately locked post-decision headline fact, an immutable input lock, separated truth labels, an explicit latest-value persistence baseline, a no-probability bounded CPI monthly-change program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The March monthly-change headline is excluded from ReplayPack inputs and used only for a labelled post-event range check. This does not establish forecast skill, calibrated coverage, stationarity across annual weight updates and seasonal recalculation, causal inflation attribution, policy effectiveness, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "bls-cpi.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective two-release attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "bls-cpi.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "3e07b70ba64926e69c70d93a07b235c2197eb239f2f9ec10f8a089965dbfe6bd",
+      "path": "scenarios/bls-cpi-2023/event-lock.json",
+      "record_ids": [
+        "bls.cpi.archived_release:20230314:all_items_monthly_change_seasonally_adjusted"
+      ],
+      "sha256": "c185b055e83b5b90703796cd01044f8ab5cc29b17967bd7128c136ea91efc2b5"
+    }
+  ],
+  "expected_input_manifest_sha256": "3d0a8ece52fc984f8a54372f45e41c368846e70b28293286a923c806f4da0baf",
+  "expected_pack_sha256": "fac8e503c37804217d3db00634330cdb62ac02466f7a58a1b04e703d6ffc6d06",
+  "expected_trace_id": "trace:8634250349fc349378cf09f74ae129613d54fdd87257232ccd5547b62f1b1bb6",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate headline facts reported in BLS releases, not direct price quotes, item-level records, or causal inflation observations. The March monthly-change headline fact is only in the event lock."
+    },
+    "bounded_artifact_ids": [
+      "bls-cpi.shockcompiler.cpi-range"
+    ],
+    "extracted_artifact_ids": [
+      "bls-cpi.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "bls-cpi.shockcompiler.cpi-range",
+      "bls-cpi.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "bls.cpi.archived_release:20230112:all_items_12_month_change_not_seasonally_adjusted",
+      "bls.cpi.archived_release:20230112:all_items_monthly_change_seasonally_adjusted",
+      "bls.cpi.archived_release:20230214:all_items_12_month_change_not_seasonally_adjusted",
+      "bls.cpi.archived_release:20230214:all_items_monthly_change_seasonally_adjusted"
+    ],
+    "simulated_artifact_ids": [
+      "bls-cpi.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "7d726e741ca9a4631be4f7ba49b70c1d8ac106853ab72af66c2ba6ae01c8cdda",
+      "path": "scenarios/bls-cpi-2023/input-lock.json",
+      "record_ids": [
+        "bls.cpi.archived_release:20230112:all_items_12_month_change_not_seasonally_adjusted",
+        "bls.cpi.archived_release:20230112:all_items_monthly_change_seasonally_adjusted",
+        "bls.cpi.archived_release:20230214:all_items_12_month_change_not_seasonally_adjusted",
+        "bls.cpi.archived_release:20230214:all_items_monthly_change_seasonally_adjusted"
+      ],
+      "sha256": "392604c974b43ef8c62c87d90891c98b1cb40842af682b0592756951a79bf8c1"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "bls-cpi.shockcompiler.cpi-range",
+      "description": "The explicit decision-time baseline persists the latest known January headline monthly change of 0.5 percent.",
+      "expected_value": 5,
+      "payload_pointer": "/naive_baseline/next_release_monthly_change_tenths_percent"
+    },
+    {
+      "artifact_id": "bls-cpi.shockcompiler.cpi-range",
+      "description": "The two CPI monthly-change endpoints carry no probability or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/bls-cpi/latest-summary.json",
+  "pack_directory": "verification/replaypacks/bls-cpi-2023",
+  "proof_sha256": "e63802bd472f01adc33bdb57bc41715f87914f1b886f599be98e1c13a004d639",
+  "rebuild_receipt": {
+    "path": "verification/evidence/bls-cpi-four-engine-rebuild.json",
+    "sha256": "cb9283ff5d4ab14c0ed0bb86be3306c93675ada7d9e9412bbca251ef1e272e5e"
+  },
+  "replay_id": "bls-2023-cpi-release-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "distinct_locked_inputs_equal_four",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "naive_baseline_is_latest_known_cpi_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_archived_cpi_fact",
+    "post_decision_event_timing_is_later",
+    "reported_post_event_monthly_inside_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "bls-2023-cpi-release-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "bls.cpi.archived_release:20230112:all_items_12_month_change_not_seasonally_adjusted",
+    "bls.cpi.archived_release:20230112:all_items_monthly_change_seasonally_adjusted",
+    "bls.cpi.archived_release:20230214:all_items_12_month_change_not_seasonally_adjusted",
+    "bls.cpi.archived_release:20230214:all_items_monthly_change_seasonally_adjusted"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_cpi_boundary_replaypack.py",
+    "sha256": "c8dbf1bc8241cdace3f3145f0edda04a461f93d73460bfa8746b415851a9589e"
+  }
+}
