@@ -141,6 +141,15 @@ revision window. Ancillary percentiles are validated but excluded from normalize
 because lagged summary statistics can change. Raw JSON stays local and this source remains outside
 the formal 30-adapter inventory.
 
+The planned commercial-crude-stock boundary uses
+`eia.wpsr.archived_commercial_crude_stocks` as another supporting source. It pairs exact Table 4
+CSV values with the full archived WPSR PDF for April 8, 15, and 22, 2020. Each pair must agree on
+release identity and rounded values, and the CSV stock arithmetic must reconcile exactly. Because
+the archived release text says tables are posted “after 10:30 a.m.” rather than proving an exact
+instant, the source becomes eligible only at the following local midnight in
+`America/New_York`. Raw CSV/PDF bytes stay local and this source remains outside the formal
+30-adapter inventory.
+
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
 ```bash

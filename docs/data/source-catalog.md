@@ -139,6 +139,15 @@ from normalized facts because lagged summary statistics may change. Raw JSON rem
 requires the New York Fed's current terms and notices, and this connector is excluded from the
 formal 30.
 
+`eia.wpsr.archived_commercial_crude_stocks` retrieves paired Table 4 CSV and full-report PDF
+artifacts from the April 8, 15, and 22, 2020 EIA Weekly Petroleum Status Report archive. The CSV
+provides exact thousand-barrel U.S. commercial crude stocks excluding SPR; the PDF independently
+binds release identity, schedule language, and the corresponding values rounded to one decimal
+million barrels. Both official `Last-Modified` headers must fall on the stated release date. Since
+the archive says tables are posted “after 10:30 a.m.” rather than giving an exact instant, the
+connector waits until midnight `America/New_York` on the following local day. Raw pairs remain in
+ignored local storage, and this supporting connector is excluded from the formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;
