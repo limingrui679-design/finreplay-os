@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Seven actual engine implementations ran over seven locked SEC filing facts for Western Alliance Bancorporation. Filer-reported values remain reported; ratios, network propagation, and TrialCourt disposition are model-derived; execution and allocation inputs are explicitly simulated. The separate post-decision official event lock is not a ReplayPack input. This is a retrospective boundary replay, not causal failure attribution, a historical trading signal, investment advice, client work, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1312,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "1fd239c571cc5fd7b05822b136b0347630dde2cba3a2429dba6723104ca35d39"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "238d3877ef5c23c58d6caae7f98a6557b5ad4ea0bdfc38ea5242e5de41f4e76d"
+    },
+    {
+      "bytes": 57920,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "b198474860393cce9f41ca9e72d8dd1ca4b89aabad96b8f062e2d2382fd7369c"
+    },
+    {
+      "bytes": 55946,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "845025806177bd316b94c9bef72aac385454b274c326932d87a8386f6c1d5230"
+    }
+  ],
+  "pack_sha256": "1ed3dc968add623c1c9a95f37bb514a7d1f27dc6f6ae16bbe586f1d39bff9b11",
+  "receipt_sha256": "6c7f9fe0c0128513769dd07cce263e861098c97d5c44c6b1126c2718e7968c87",
+  "replay_id": "western-alliance-2023-seven-engine-v1",
+  "replay_manifest": {
+    "code_commit": "f17041b2c430df967f2ec3c61e062036ae793cf1",
+    "compressed_input_bytes": 2647,
+    "created_at": "2026-08-13T06:00:00Z",
+    "derived_records": 13,
+    "distinct_input_records": 7,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "5960e138f0a186b0fa09340e3adfb32b54e0412ac5811ccd690421ca1c44c6c4",
+    "output_manifest_sha256": "cfb667bbee6cc8ea639e48031aa8a77b951f4e9ea13d932a7399c9f25afa8e0f",
+    "replay_id": "western-alliance-2023-seven-engine-v1",
+    "scenario_id": "western-alliance-2023-deposit-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "845025806177bd316b94c9bef72aac385454b274c326932d87a8386f6c1d5230",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:abb13b47a3d70fdd943ba67f810e635e79d46f771d566289152eebc4d5c03d05"
+}

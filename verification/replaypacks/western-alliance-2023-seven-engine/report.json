@@ -1,0 +1,1088 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "capitalallocator": 1,
+    "executionlab": 1,
+    "markettwin": 1,
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 4,
+    "reported": 16,
+    "simulated": 3
+  },
+  "input_manifest_sha256": "5960e138f0a186b0fa09340e3adfb32b54e0412ac5811ccd690421ca1c44c6c4",
+  "pack_sha256": "1ed3dc968add623c1c9a95f37bb514a7d1f27dc6f6ae16bbe586f1d39bff9b11",
+  "source_hashes": [
+    "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4"
+  ],
+  "source_record_ids": [
+    "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+    "sec.xbrl.companyfacts:0001212545:383e6f0ca57387d28ba4d6d950b0f32576d737e01fc3e78dc865a7d8dd8b1ed4",
+    "sec.xbrl.companyfacts:0001212545:4fb6f9f4abf43c420845b740854312884517d3f795376e19d473c16dc4feb136",
+    "sec.xbrl.companyfacts:0001212545:9ea487ee5fac033a755d30e6ace62df0d4a9fcb9e65a52d467fec8d47c26fd5c",
+    "sec.xbrl.companyfacts:0001212545:a5ee3b8b3f87088f2e99603ecba555750a6962a58c10e2d6568506d76926720d",
+    "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d",
+    "sec.xbrl.companyfacts:0001212545:ecb5a406082478d1c90ced081684e4dcb2c412f1423321a8c07e2993f51e430b"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "western-alliance.capitalallocator.robust-boundary",
+        "artifact_kind": "robust-allocation-boundary",
+        "artifact_sha256": "f8ad7a812f86dd947734aec6f98b9e55f81610887d207ab2e79fa4cfc2ba0715",
+        "engine": "capitalallocator",
+        "evidence_counts": {
+          "inferred": 1,
+          "simulated": 1
+        },
+        "limitations": [
+          "The all-cash result follows declared non-positive return bounds and is not a recommendation.",
+          "Execution capacity and costs are simulated; accounting ratios are inferred from reported facts."
+        ],
+        "payload": {
+          "input_lock_sha256": "7bc1ed3729b84f642ca158cdf68560909e9cb75eb0582c2c671a32a0684118d1",
+          "problem": {
+            "assets": [
+              {
+                "asset_id": "asset:western-alliance-bancorporation-htm-model-exposure",
+                "available_at": "2023-05-02T16:00:00Z",
+                "capacity_usd": 16112500.0,
+                "current_weight": 0.0,
+                "derivation": "Return lower bound is negative MarketTwin issuer loss; the upper bound is zero; capacity and costs come from the simulated ExecutionLab boundary.",
+                "evidence_class": "inferred",
+                "expected_return_lower": -0.03304705003734129,
+                "expected_return_upper": 0.0,
+                "label": "Synthetic Western Alliance Bancorporation HTM model exposure",
+                "limitations": [
+                  "This synthetic model exposure is not a listed security, forecast, or recommendation."
+                ],
+                "max_weight": 0.00161125,
+                "min_weight": 0.0,
+                "source_record_ids": [
+                  "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+                  "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d"
+                ],
+                "sources": [
+                  {
+                    "license_class": "redistributable",
+                    "publisher": "U.S. Securities and Exchange Commission",
+                    "redistribution_note": "SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.",
+                    "retrieved_at": "2026-08-13T03:32:07.338071Z",
+                    "sha256": "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4",
+                    "source_id": "sec.xbrl.companyfacts",
+                    "source_version": "CIK0001212545:5731540e2ae0fc8f610a",
+                    "temporal_coverage": "immutable_event",
+                    "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001212545.json",
+                    "vintage_as_of": "2026-08-13T03:32:07.338071Z"
+                  }
+                ],
+                "transaction_cost_bps": 351.0000000000002
+              }
+            ],
+            "cash_max_weight": 1.0,
+            "cash_min_weight": 0.0,
+            "cash_return": 0.0,
+            "current_cash_weight": 1.0,
+            "decision_time": "2023-05-02T16:00:00Z",
+            "limitations": [
+              "Research decision boundary only; no live capital, security, order, or investment advice."
+            ],
+            "linear_constraints": [],
+            "loss_aversion": 1.0,
+            "max_one_way_turnover": 1.0,
+            "max_worst_case_loss": null,
+            "problem_id": "problem:western-alliance-bancorporation-boundary-allocation",
+            "risk_scenarios": [
+              {
+                "available_at": "2023-05-02T16:00:00Z",
+                "derivation": "Scenario loss is the upper endpoint of unrecognized HTM loss divided by reported HTM value.",
+                "evidence_class": "inferred",
+                "limitations": [
+                  "Accounting bound; not a probability-weighted market forecast."
+                ],
+                "loss_fraction_by_asset": {
+                  "asset:western-alliance-bancorporation-htm-model-exposure": 0.1373157486423584
+                },
+                "scenario_id": "scenario:western-alliance-bancorporation-htm-upper-bound",
+                "source_record_ids": [
+                  "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+                  "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d"
+                ],
+                "sources": [
+                  {
+                    "license_class": "redistributable",
+                    "publisher": "U.S. Securities and Exchange Commission",
+                    "redistribution_note": "SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.",
+                    "retrieved_at": "2026-08-13T03:32:07.338071Z",
+                    "sha256": "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4",
+                    "source_id": "sec.xbrl.companyfacts",
+                    "source_version": "CIK0001212545:5731540e2ae0fc8f610a",
+                    "temporal_coverage": "immutable_event",
+                    "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001212545.json",
+                    "vintage_as_of": "2026-08-13T03:32:07.338071Z"
+                  }
+                ]
+              }
+            ],
+            "total_capital_usd": 10000000000.0,
+            "uncertainty_aversion": 0.25
+          },
+          "result": {
+            "binding_constraints": [
+              "asset:asset:western-alliance-bancorporation-htm-model-exposure:min",
+              "budget",
+              "cash:max"
+            ],
+            "cash_weight": 1.0,
+            "constraint_slacks": {
+              "asset:asset:western-alliance-bancorporation-htm-model-exposure:max": 0.00161125,
+              "asset:asset:western-alliance-bancorporation-htm-model-exposure:min": 0.0,
+              "budget": 1e-08,
+              "cash:max": 0.0,
+              "cash:min": 1.0,
+              "turnover:max": 1.0
+            },
+            "expected_return_lower": 0.0,
+            "expected_return_upper": 0.0,
+            "infeasibility_reasons": [],
+            "input_sha256": "5adcbcc8db172ed412c3626b6800063396c396579587cffdec72e0c3aec4a357",
+            "limitations": [
+              "Research decision boundary only; no live capital, security, order, or investment advice.",
+              "The result is a model allocation under declared intervals, scenarios, costs, constraints and capital. It is not an order, realized return, or fiduciary advice."
+            ],
+            "one_way_turnover": 0.0,
+            "problem_id": "problem:western-alliance-bancorporation-boundary-allocation",
+            "result_sha256": "e9b787d43f01f07bf8ba3579b81d525498e44f6fdeaeff5154fd2096bf342ec2",
+            "robust_utility": 0.0,
+            "solver_iterations": 0,
+            "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "solver_status": 0,
+            "status": "optimal",
+            "transaction_cost_fraction": 0.0,
+            "uncertainty_penalty": 0.0,
+            "weights": {
+              "asset:western-alliance-bancorporation-htm-model-exposure": 0.0
+            },
+            "worst_case_loss": 0.0,
+            "worst_scenario_ids": [
+              "scenario:western-alliance-bancorporation-htm-upper-bound"
+            ]
+          }
+        },
+        "source_hashes": [
+          "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4"
+        ],
+        "source_record_ids": [
+          "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+          "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "western-alliance.executionlab.normalized-envelope",
+          "western-alliance.shockcompiler.htm-bound",
+          "western-alliance.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "western-alliance.executionlab.normalized-envelope",
+        "artifact_kind": "reference-only-execution-envelope",
+        "artifact_sha256": "1fe86ed3ccee282a4ae7299058c8bf95cfa14645f72a96980907d71ce18e50d1",
+        "engine": "executionlab",
+        "evidence_counts": {
+          "simulated": 1
+        },
+        "limitations": [
+          "No historical quote, trade, order-book, venue, or volume evidence is represented.",
+          "The envelope is a normalized simulated boundary, not an executable trade."
+        ],
+        "payload": {
+          "envelope": {
+            "arrival_at": "2023-05-02T16:00:01Z",
+            "assumptions": {
+              "borrow_bps_annual": 100.0,
+              "capacity_basis": "estimated_daily_volume_executable_seconds",
+              "commission_bps": 1.0,
+              "fallback_session_fraction": 0.25,
+              "fallback_trading_session_seconds": 23400,
+              "half_spread_lower_bps": 10.0,
+              "half_spread_upper_bps": 100.0,
+              "impact_lower_bps": 25.0,
+              "impact_upper_bps": 250.0,
+              "max_participation_rate": 0.05,
+              "model_half_spread_bps": 10.0,
+              "model_market_impact_bps": 25.0,
+              "observation_overlap_fraction": 0.9999652765721032,
+              "observation_overlap_seconds": 28798.0
+            },
+            "capacity_shares": 16112500.0,
+            "decision_at": "2023-05-02T16:00:00Z",
+            "effective_price_lower": 0.9649,
+            "effective_price_upper": 0.9989,
+            "envelope_sha256": "4b4f0c41390703e838e2d0fd8d78c650b71c3951da8bd1329ba97edff9e9cfbe",
+            "evaluated_at": "2023-05-02T23:59:59Z",
+            "evidence_class": "simulated",
+            "expires_at": "2023-05-02T23:59:59Z",
+            "fill_quantity_lower": 0.0,
+            "fill_quantity_upper": 16112500.0,
+            "instrument_id": "synthetic:western-alliance-bancorporation-htm-usd-unit",
+            "kind": "market",
+            "limit_price": null,
+            "limitations": [
+              "One synthetic unit equals one reported portfolio-value dollar; it is not a quote.",
+              "Estimated daily volume equals reported portfolio value solely as a stress normalization.",
+              "The envelope is simulated from market evidence and assumptions; it is not a broker fill, realized P&L, or proof of executable live capacity.",
+              "The guaranteed fill lower bound is zero because no broker execution confirmation was supplied; modeled market or queue evidence only bounds possible capacity.",
+              "Borrow cost is retained as a policy assumption but is not applied to this order because order side alone does not prove a newly opened short position or its holding period.",
+              "The source set does not establish a point-in-time historical replay: it is latest-only, simulated, or lacks an upstream source receipt."
+            ],
+            "modeled_capacity_lower_shares": 0.0,
+            "observation_available_at": "2023-05-02T16:00:00Z",
+            "observation_id": "western-alliance:simulated:reference-only",
+            "observation_interval_end": "2023-05-02T23:59:59Z",
+            "observation_interval_start": "2023-05-02T16:00:00Z",
+            "order_id": "western-alliance-simulated-htm-liquidation",
+            "precision": "reference_only",
+            "queue_evidence_class": null,
+            "queue_observation_id": null,
+            "reference_price": 1.0,
+            "requested_quantity": 176999999.99999997,
+            "side": "sell",
+            "slippage_bps_lower": 10.999999999999899,
+            "slippage_bps_upper": 351.0000000000002,
+            "source_hashes": [],
+            "source_record_ids": [],
+            "source_set_historical_replay_eligible": false,
+            "status": "bounded",
+            "total_cost_usd_lower": 0.0,
+            "total_cost_usd_upper": 565548.7500000003
+          },
+          "input_lock_sha256": "7bc1ed3729b84f642ca158cdf68560909e9cb75eb0582c2c671a32a0684118d1",
+          "observation": {
+            "ask": null,
+            "ask_depth": null,
+            "available_at": "2023-05-02T16:00:00Z",
+            "bar_volume": null,
+            "bid": null,
+            "bid_depth": null,
+            "close_price": null,
+            "estimated_daily_volume": 1289000000.0,
+            "evidence_class": "simulated",
+            "high_price": null,
+            "instrument_id": "synthetic:western-alliance-bancorporation-htm-usd-unit",
+            "interval_end": "2023-05-02T23:59:59Z",
+            "interval_start": "2023-05-02T16:00:00Z",
+            "limitations": [
+              "One synthetic unit equals one reported portfolio-value dollar; it is not a quote.",
+              "Estimated daily volume equals reported portfolio value solely as a stress normalization."
+            ],
+            "low_price": null,
+            "observation_id": "western-alliance:simulated:reference-only",
+            "open_price": null,
+            "precision": "reference_only",
+            "recent_volume": null,
+            "reference_price": 1.0,
+            "source_record_ids": [],
+            "sources": []
+          },
+          "order": {
+            "decision_at": "2023-05-02T16:00:00Z",
+            "instrument_id": "synthetic:western-alliance-bancorporation-htm-usd-unit",
+            "kind": "market",
+            "latency_ms": 1000,
+            "limit_price": null,
+            "order_id": "western-alliance-simulated-htm-liquidation",
+            "quantity": 176999999.99999997,
+            "side": "sell",
+            "time_in_force_ms": 28798000
+          },
+          "policy": {
+            "cost_model": {
+              "borrow_bps_annual": 100.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 10.0,
+              "market_impact_bps": 25.0,
+              "max_participation_rate": 0.05
+            },
+            "fallback_daily_capacity_fraction": 0.25,
+            "fallback_half_spread_upper_bps": 100.0,
+            "fallback_impact_upper_bps": 250.0,
+            "fallback_trading_session_seconds": 23400,
+            "impact_lower_multiplier": 0.5,
+            "impact_upper_multiplier": 2.0
+          }
+        },
+        "source_hashes": [],
+        "source_record_ids": [],
+        "source_set_historical_replay_eligible": false,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "western-alliance.shockcompiler.htm-bound"
+        ]
+      },
+      {
+        "artifact_id": "western-alliance.markettwin.loss-envelope",
+        "artifact_kind": "temporal-network-envelope",
+        "artifact_sha256": "aa1520aeb99c80763fa2c174fe400a4af6999935cf362cde75abf068508acbe3",
+        "engine": "markettwin",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 5
+        },
+        "limitations": [
+          "The three-node graph includes only relationships represented by the locked facts.",
+          "Loss propagation is a mechanical bounded channel, not causal failure attribution."
+        ],
+        "payload": {
+          "append_receipt": {
+            "attempted_edges": 2,
+            "attempted_nodes": 3,
+            "inserted_edges": 2,
+            "inserted_nodes": 3
+          },
+          "contagion": {
+            "converged": true,
+            "initial_shocks": {
+              "security:western-alliance-bancorporation-htm-portfolio": 0.1373157486423584
+            },
+            "limitations": [
+              "Exposure bounds are propagated through a monotone linear loss channel capped at total node loss; this is a stress envelope, not a causal forecast.",
+              "Behavioral responses, fire-sale price formation, netting, collateral and policy interventions require separately evidenced scenario modules."
+            ],
+            "lower_loss_fraction": {
+              "issuer:western-alliance-bancorporation": 0.03304705003734129,
+              "security:western-alliance-bancorporation-afs-portfolio": 0.0,
+              "security:western-alliance-bancorporation-htm-portfolio": 0.1373157486423584
+            },
+            "rounds": 2,
+            "snapshot_sha256": "94f1ed5dcba31064fdf99f7ccfb89ceb454bc1f134cf839ade36ea19644e7c56",
+            "tolerance": 1e-10,
+            "upper_loss_fraction": {
+              "issuer:western-alliance-bancorporation": 0.03304705003734129,
+              "security:western-alliance-bancorporation-afs-portfolio": 0.0,
+              "security:western-alliance-bancorporation-htm-portfolio": 0.1373157486423584
+            }
+          },
+          "input_lock_sha256": "7bc1ed3729b84f642ca158cdf68560909e9cb75eb0582c2c671a32a0684118d1",
+          "manifest": {
+            "distinct_edges": 2,
+            "distinct_nodes": 3,
+            "edge_versions": 2,
+            "node_versions": 3,
+            "object_set_sha256": "ac6be2f964b85f88118a2c48f07d9d76ec257eb0ade29a2647e6ead3e777014b"
+          },
+          "snapshot": {
+            "decision_time": "2023-05-02T16:00:00Z",
+            "edges": [
+              {
+                "attributes": {},
+                "confidence": 1.0,
+                "edge_id": "western-alliance-bancorporation-issuer-holds-afs",
+                "evidence_class": "reported",
+                "exposure_lower_usd": 7092000000.0,
+                "exposure_upper_usd": 7092000000.0,
+                "relation": "reported portfolio exposure",
+                "source": {
+                  "license_class": "redistributable",
+                  "publisher": "U.S. Securities and Exchange Commission",
+                  "redistribution_note": "SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.",
+                  "retrieved_at": "2026-08-13T03:32:07.338071Z",
+                  "sha256": "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4",
+                  "source_id": "sec.xbrl.companyfacts",
+                  "source_version": "CIK0001212545:5731540e2ae0fc8f610a",
+                  "temporal_coverage": "immutable_event",
+                  "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001212545.json",
+                  "vintage_as_of": "2026-08-13T03:32:07.338071Z"
+                },
+                "source_node": "security:western-alliance-bancorporation-afs-portfolio",
+                "target_node": "issuer:western-alliance-bancorporation",
+                "temporal": {
+                  "available_at": "2023-02-23T20:54:24Z",
+                  "valid_from": "2022-12-31T00:00:00Z",
+                  "valid_to": null
+                }
+              },
+              {
+                "attributes": {},
+                "confidence": 1.0,
+                "edge_id": "western-alliance-bancorporation-issuer-holds-htm",
+                "evidence_class": "reported",
+                "exposure_lower_usd": 1289000000.0,
+                "exposure_upper_usd": 1289000000.0,
+                "relation": "reported portfolio exposure",
+                "source": {
+                  "license_class": "redistributable",
+                  "publisher": "U.S. Securities and Exchange Commission",
+                  "redistribution_note": "SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.",
+                  "retrieved_at": "2026-08-13T03:32:07.338071Z",
+                  "sha256": "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4",
+                  "source_id": "sec.xbrl.companyfacts",
+                  "source_version": "CIK0001212545:5731540e2ae0fc8f610a",
+                  "temporal_coverage": "immutable_event",
+                  "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001212545.json",
+                  "vintage_as_of": "2026-08-13T03:32:07.338071Z"
+                },
+                "source_node": "security:western-alliance-bancorporation-htm-portfolio",
+                "target_node": "issuer:western-alliance-bancorporation",
+                "temporal": {
+                  "available_at": "2023-02-23T20:54:24Z",
+                  "valid_from": "2022-12-31T00:00:00Z",
+                  "valid_to": null
+                }
+              }
+            ],
+            "excluded_latest_only_edges": 0,
+            "excluded_latest_only_nodes": 0,
+            "graph_sha256": "94f1ed5dcba31064fdf99f7ccfb89ceb454bc1f134cf839ade36ea19644e7c56",
+            "nodes": [
+              {
+                "attributes": {
+                  "assets_usd": 67734000000,
+                  "deposits_usd": 53644000000,
+                  "sec_accession": "0001212545-23-000093"
+                },
+                "evidence_class": "reported",
+                "kind": "issuer",
+                "label": "Western Alliance Bancorporation",
+                "loss_absorption_usd": 5356000000.0,
+                "node_id": "issuer:western-alliance-bancorporation",
+                "source": {
+                  "license_class": "redistributable",
+                  "publisher": "U.S. Securities and Exchange Commission",
+                  "redistribution_note": "SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.",
+                  "retrieved_at": "2026-08-13T03:32:07.338071Z",
+                  "sha256": "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4",
+                  "source_id": "sec.xbrl.companyfacts",
+                  "source_version": "CIK0001212545:5731540e2ae0fc8f610a",
+                  "temporal_coverage": "immutable_event",
+                  "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001212545.json",
+                  "vintage_as_of": "2026-08-13T03:32:07.338071Z"
+                },
+                "temporal": {
+                  "available_at": "2023-02-23T20:54:24Z",
+                  "valid_from": "2022-12-31T00:00:00Z",
+                  "valid_to": null
+                }
+              },
+              {
+                "attributes": {
+                  "gross_unrealized_loss_usd": 890000000,
+                  "reported_value_usd": 7092000000
+                },
+                "evidence_class": "reported",
+                "kind": "security",
+                "label": "Western Alliance Bancorporation available-for-sale securities portfolio",
+                "loss_absorption_usd": 7092000000.0,
+                "node_id": "security:western-alliance-bancorporation-afs-portfolio",
+                "source": {
+                  "license_class": "redistributable",
+                  "publisher": "U.S. Securities and Exchange Commission",
+                  "redistribution_note": "SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.",
+                  "retrieved_at": "2026-08-13T03:32:07.338071Z",
+                  "sha256": "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4",
+                  "source_id": "sec.xbrl.companyfacts",
+                  "source_version": "CIK0001212545:5731540e2ae0fc8f610a",
+                  "temporal_coverage": "immutable_event",
+                  "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001212545.json",
+                  "vintage_as_of": "2026-08-13T03:32:07.338071Z"
+                },
+                "temporal": {
+                  "available_at": "2023-02-23T20:54:24Z",
+                  "valid_from": "2022-12-31T00:00:00Z",
+                  "valid_to": null
+                }
+              },
+              {
+                "attributes": {
+                  "carrying_value_usd": 1289000000,
+                  "unrecognized_loss_usd": 177000000
+                },
+                "evidence_class": "reported",
+                "kind": "security",
+                "label": "Western Alliance Bancorporation held-to-maturity securities portfolio",
+                "loss_absorption_usd": 1289000000.0,
+                "node_id": "security:western-alliance-bancorporation-htm-portfolio",
+                "source": {
+                  "license_class": "redistributable",
+                  "publisher": "U.S. Securities and Exchange Commission",
+                  "redistribution_note": "SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.",
+                  "retrieved_at": "2026-08-13T03:32:07.338071Z",
+                  "sha256": "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4",
+                  "source_id": "sec.xbrl.companyfacts",
+                  "source_version": "CIK0001212545:5731540e2ae0fc8f610a",
+                  "temporal_coverage": "immutable_event",
+                  "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001212545.json",
+                  "vintage_as_of": "2026-08-13T03:32:07.338071Z"
+                },
+                "temporal": {
+                  "available_at": "2023-02-23T20:54:24Z",
+                  "valid_from": "2022-12-31T00:00:00Z",
+                  "valid_to": null
+                }
+              }
+            ],
+            "valid_at": "2022-12-31T00:00:00Z"
+          }
+        },
+        "source_hashes": [
+          "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4"
+        ],
+        "source_record_ids": [
+          "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+          "sec.xbrl.companyfacts:0001212545:383e6f0ca57387d28ba4d6d950b0f32576d737e01fc3e78dc865a7d8dd8b1ed4",
+          "sec.xbrl.companyfacts:0001212545:4fb6f9f4abf43c420845b740854312884517d3f795376e19d473c16dc4feb136",
+          "sec.xbrl.companyfacts:0001212545:9ea487ee5fac033a755d30e6ace62df0d4a9fcb9e65a52d467fec8d47c26fd5c",
+          "sec.xbrl.companyfacts:0001212545:a5ee3b8b3f87088f2e99603ecba555750a6962a58c10e2d6568506d76926720d",
+          "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d",
+          "sec.xbrl.companyfacts:0001212545:ecb5a406082478d1c90ced081684e4dcb2c412f1423321a8c07e2993f51e430b"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "western-alliance.timevault.query"
+        ]
+      },
+      {
+        "artifact_id": "western-alliance.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "e14f66c67366f5ab58de914dccfd59520b808e27596454f065ddf3ae9b282c84",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static report generation does not independently validate upstream economic methods."
+        ],
+        "payload": {
+          "input_lock_sha256": "7bc1ed3729b84f642ca158cdf68560909e9cb75eb0582c2c671a32a0684118d1",
+          "market_snapshot_sha256": "94f1ed5dcba31064fdf99f7ccfb89ceb454bc1f134cf839ade36ea19644e7c56",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4"
+        ],
+        "source_record_ids": [
+          "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+          "sec.xbrl.companyfacts:0001212545:383e6f0ca57387d28ba4d6d950b0f32576d737e01fc3e78dc865a7d8dd8b1ed4",
+          "sec.xbrl.companyfacts:0001212545:4fb6f9f4abf43c420845b740854312884517d3f795376e19d473c16dc4feb136",
+          "sec.xbrl.companyfacts:0001212545:9ea487ee5fac033a755d30e6ace62df0d4a9fcb9e65a52d467fec8d47c26fd5c",
+          "sec.xbrl.companyfacts:0001212545:a5ee3b8b3f87088f2e99603ecba555750a6962a58c10e2d6568506d76926720d",
+          "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d",
+          "sec.xbrl.companyfacts:0001212545:ecb5a406082478d1c90ced081684e4dcb2c412f1423321a8c07e2993f51e430b"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "western-alliance.capitalallocator.robust-boundary",
+          "western-alliance.executionlab.normalized-envelope",
+          "western-alliance.markettwin.loss-envelope",
+          "western-alliance.shockcompiler.htm-bound",
+          "western-alliance.timevault.query",
+          "western-alliance.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "western-alliance.shockcompiler.htm-bound",
+        "artifact_kind": "bounded-shock-program",
+        "artifact_sha256": "3250f7302db927b0528d1437f7a700a600bb14720e704f5a291c5cc4b6b128e1",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 1
+        },
+        "limitations": [
+          "The upper endpoint is an inferred accounting bound, not an observed realized loss."
+        ],
+        "payload": {
+          "applied_upper": {
+            "security:western-alliance-bancorporation-htm-portfolio|loss_fraction": 0.1373157486423584
+          },
+          "compiled": {
+            "compiled_sha256": "1218b0b119d4388b32e7f486276f6ab093e91c37edac277d99023a720fbda25c",
+            "decision_time": "2023-05-02T16:00:00Z",
+            "limitations": [
+              "This shock program supplies a model input and does not forecast an outcome."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "western-alliance-bounded-htm-realization",
+            "scenario_id": "western-alliance-2023-deposit-boundary",
+            "source_program_sha256": "bfb91b06acdf0a19d000d7372aebf495bf0e9b053697d37958528421f1bef8c3",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Bounds realization between zero and filer-reported unrecognized HTM loss divided by filer-reported HTM value.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "The bound omits liquidation timing, hedges, tax effects, funding support, and prices."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "western-alliance-bounded-htm-loss-realization",
+                    "source_hashes": [
+                      "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4"
+                    ],
+                    "source_record_ids": [
+                      "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+                      "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d"
+                    ],
+                    "target_id": "security:western-alliance-bancorporation-htm-portfolio",
+                    "unit": "fraction",
+                    "value": 0.0,
+                    "variable": "loss_fraction"
+                  }
+                ],
+                "trial_id": "western-alliance-bounded-htm-realization:00000000:86ccee4f8678d6b4",
+                "trial_index": 0,
+                "vector_sha256": "86ccee4f8678d6b473698c0d5dc9689ecdcca1d2398ad4be882472ce8bad0d35"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Bounds realization between zero and filer-reported unrecognized HTM loss divided by filer-reported HTM value.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "The bound omits liquidation timing, hedges, tax effects, funding support, and prices."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "western-alliance-bounded-htm-loss-realization",
+                    "source_hashes": [
+                      "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4"
+                    ],
+                    "source_record_ids": [
+                      "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+                      "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d"
+                    ],
+                    "target_id": "security:western-alliance-bancorporation-htm-portfolio",
+                    "unit": "fraction",
+                    "value": 0.1373157486423584,
+                    "variable": "loss_fraction"
+                  }
+                ],
+                "trial_id": "western-alliance-bounded-htm-realization:00000001:06b393bec84e8141",
+                "trial_index": 1,
+                "vector_sha256": "06b393bec84e81416cee25dedaa4a2c82c0a040f3f491e94843e03cd302723f1"
+              }
+            ]
+          },
+          "input_lock_sha256": "7bc1ed3729b84f642ca158cdf68560909e9cb75eb0582c2c671a32a0684118d1",
+          "program": {
+            "decision_time": "2023-05-02T16:00:00Z",
+            "global_limitations": [
+              "This shock program supplies a model input and does not forecast an outcome."
+            ],
+            "hypothesis": "Evaluate both endpoints of a loss-realization interval without assigning an unsupported midpoint or probability.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Bounds realization between zero and filer-reported unrecognized HTM loss divided by filer-reported HTM value.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "The bound omits liquidation timing, hedges, tax effects, funding support, and prices."
+                ],
+                "lower": 0.0,
+                "operation": "set",
+                "parameter_id": "western-alliance-bounded-htm-loss-realization",
+                "source_record_ids": [
+                  "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+                  "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d"
+                ],
+                "sources": [
+                  {
+                    "license_class": "redistributable",
+                    "publisher": "U.S. Securities and Exchange Commission",
+                    "redistribution_note": "SEC public XBRL facts may be reproduced with attribution and fair-access compliance; this classification is not legal advice.",
+                    "retrieved_at": "2026-08-13T03:32:07.338071Z",
+                    "sha256": "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4",
+                    "source_id": "sec.xbrl.companyfacts",
+                    "source_version": "CIK0001212545:5731540e2ae0fc8f610a",
+                    "temporal_coverage": "immutable_event",
+                    "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001212545.json",
+                    "vintage_as_of": "2026-08-13T03:32:07.338071Z"
+                  }
+                ],
+                "target_id": "security:western-alliance-bancorporation-htm-portfolio",
+                "unit": "fraction",
+                "upper": 0.1373157486423584,
+                "variable": "loss_fraction"
+              }
+            ],
+            "program_id": "western-alliance-bounded-htm-realization",
+            "scenario_id": "western-alliance-2023-deposit-boundary"
+          }
+        },
+        "source_hashes": [
+          "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4"
+        ],
+        "source_record_ids": [
+          "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+          "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "western-alliance.markettwin.loss-envelope",
+          "western-alliance.timevault.query"
+        ]
+      },
+      {
+        "artifact_id": "western-alliance.timevault.query",
+        "artifact_kind": "bitemporal-query",
+        "artifact_sha256": "0595a685cbd0c885b1b53f58bdc826895e99c0b2f762d2cda2f75c05a9c6df0c",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 7
+        },
+        "limitations": [
+          "The input lock contains seven selected filing facts, not the complete SEC response.",
+          "Historical eligibility follows exact EDGAR acceptance time and immutable accession facts."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "ca25b6e3031d800724f901fc2ff016f609d393ad053b2d79240049127cc626a9"
+            ],
+            "attempted_records": 7,
+            "fact_hashes": [
+              "12dc35df8329247592cf4a9e31be3d76f1204ef3fbab1f8778a399c4f844058e",
+              "bf8f9b8d6076d120cc9b2b0cfafe987601c37762639ba3a714ca5ded704d0a45",
+              "261c714528a0766bc4473d4c04e0ee8476081bbd495d28e3dd766f855d249148",
+              "6cb152199aa9cefc5ff8af06c7f209fe93f785189ba5793ea434ea1ed9216bf8",
+              "b36af6300b98b9f27e2499f95e240e0d9b88bde8b2eeb36bb0ca2c8f25533c74",
+              "09d2beb628b09a6bc43c4093d4888a539640765d98d5d714f3745b0612dc3a2e",
+              "c3cfdf15fa00ce54790c49ba4ea3433fdba8320cb01ae065949e174472333a3a"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 7
+          },
+          "decision_time": "2023-05-02T16:00:00Z",
+          "input_lock_sha256": "7bc1ed3729b84f642ca158cdf68560909e9cb75eb0582c2c671a32a0684118d1",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 7,
+            "fact_set_sha256": "882cd3ad02f6e6c23c730eb2b076e88299184db6df0786b32f70e2566a940f11",
+            "fact_versions": 7,
+            "generated_at": "2026-08-13T06:00:00Z",
+            "retrieval_receipts": 1,
+            "source_artifacts": 1
+          },
+          "max_available_at": "2023-02-23T20:54:24Z",
+          "selected_record_ids": [
+            "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+            "sec.xbrl.companyfacts:0001212545:383e6f0ca57387d28ba4d6d950b0f32576d737e01fc3e78dc865a7d8dd8b1ed4",
+            "sec.xbrl.companyfacts:0001212545:4fb6f9f4abf43c420845b740854312884517d3f795376e19d473c16dc4feb136",
+            "sec.xbrl.companyfacts:0001212545:9ea487ee5fac033a755d30e6ace62df0d4a9fcb9e65a52d467fec8d47c26fd5c",
+            "sec.xbrl.companyfacts:0001212545:a5ee3b8b3f87088f2e99603ecba555750a6962a58c10e2d6568506d76926720d",
+            "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d",
+            "sec.xbrl.companyfacts:0001212545:ecb5a406082478d1c90ced081684e4dcb2c412f1423321a8c07e2993f51e430b"
+          ],
+          "valid_at": "2022-12-31T00:00:00Z"
+        },
+        "source_hashes": [
+          "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4"
+        ],
+        "source_record_ids": [
+          "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+          "sec.xbrl.companyfacts:0001212545:383e6f0ca57387d28ba4d6d950b0f32576d737e01fc3e78dc865a7d8dd8b1ed4",
+          "sec.xbrl.companyfacts:0001212545:4fb6f9f4abf43c420845b740854312884517d3f795376e19d473c16dc4feb136",
+          "sec.xbrl.companyfacts:0001212545:9ea487ee5fac033a755d30e6ace62df0d4a9fcb9e65a52d467fec8d47c26fd5c",
+          "sec.xbrl.companyfacts:0001212545:a5ee3b8b3f87088f2e99603ecba555750a6962a58c10e2d6568506d76926720d",
+          "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d",
+          "sec.xbrl.companyfacts:0001212545:ecb5a406082478d1c90ced081684e4dcb2c412f1423321a8c07e2993f51e430b"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "western-alliance.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "937c182c1ada6f8b8b166967b621530c74f909d50b958331944ad9843da65a37",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 4,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated strategy.",
+          "P-value and operational sentinel fields deliberately carry no performance claim."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "western-alliance-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "f17041b2c430df967f2ec3c61e062036ae793cf1",
+            "completed_at": "2026-08-13T06:00:00Z",
+            "config_sha256": "6ae838b70d8b6b90c62e6b3d0bc532df96f1993dc9255cd1c076ddb9bb0ed7f4",
+            "decision_time": "2023-05-02T16:00:00Z",
+            "evaluation_end": "2023-05-07",
+            "evaluation_start": "2023-05-03",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "7bc1ed3729b84f642ca158cdf68560909e9cb75eb0582c2c671a32a0684118d1",
+            "max_input_available_at": "2023-02-23T20:54:24Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 0.01182223482397149,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective boundary attempt; p=1 records that no inferential test was performed.",
+              "One-dollar operational fields are non-trading schema sentinels, not capacity evidence."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "6627ca896c814de72c5244efad9e949e561dda493955f4471382ec8eb34740e9",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "single-balance-sheet-slice": 0.01182223482397149
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 2,
+            "short_fraction": 0.0,
+            "training_end": "2022-12-31",
+            "trial_id": "western-alliance-retrospective-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "e577f735a2bb1003d401d1da30046321dbb1e66ac536de8517062e2b43cbb8ee",
+            "entry_hash": "e577f735a2bb1003d401d1da30046321dbb1e66ac536de8517062e2b43cbb8ee",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "western-alliance-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "western-alliance-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "aa082cd1c4c19813990b43e50b5e6a45727c0b36331f3e4ced2407f1e4c009ed",
+            "candidate_attempt_id": "western-alliance-retrospective-attempt-1",
+            "decided_at": "2026-08-13T06:00:00Z",
+            "decision_id": "decision:western-alliance-retrospective-screen:dca24562490d142150c026f3",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "regime_count": 1
+                },
+                "status": "fail",
+                "summary": "At least two named regime slices are required."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "western-alliance-retrospective-screen"
+          },
+          "input_lock_sha256": "7bc1ed3729b84f642ca158cdf68560909e9cb75eb0582c2c671a32a0684118d1",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "c58c746df088d4e8169308aa62bb7167f1858e0b56203b7760f22e988c155221",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "5aeccf225a0e569a10c27faa1a0bb068e8a952d8f6125b33afece5a6664202b9",
+            "entry_hash": "5aeccf225a0e569a10c27faa1a0bb068e8a952d8f6125b33afece5a6664202b9",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 100.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 10.0,
+              "market_impact_bps": 25.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "Reported securities valuation gaps can interact with funding pressure, but a retrospective single-event reconstruction cannot establish predictive validity.",
+            "embargo_days": 0,
+            "expected_direction": "positive",
+            "holdout_end": "2023-05-08",
+            "holdout_start": "2023-05-03",
+            "hypothesis": "A retrospectively constructed Western Alliance Bancorporation securities-loss screen qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-13T06:00:00Z",
+            "primary_metric": "reported HTM minus AFS loss-ratio difference",
+            "purge_days": 5,
+            "trial_id": "western-alliance-retrospective-screen"
+          }
+        },
+        "source_hashes": [
+          "5731540e2ae0fc8f610af4aa96b062a9fb467752969fc862690f1bbf042202d4"
+        ],
+        "source_record_ids": [
+          "sec.xbrl.companyfacts:0001212545:16a2ef7877a7e91194402e305d592a5f7449a3c4cd8a83c2db846670c25533be",
+          "sec.xbrl.companyfacts:0001212545:383e6f0ca57387d28ba4d6d950b0f32576d737e01fc3e78dc865a7d8dd8b1ed4",
+          "sec.xbrl.companyfacts:0001212545:4fb6f9f4abf43c420845b740854312884517d3f795376e19d473c16dc4feb136",
+          "sec.xbrl.companyfacts:0001212545:9ea487ee5fac033a755d30e6ace62df0d4a9fcb9e65a52d467fec8d47c26fd5c",
+          "sec.xbrl.companyfacts:0001212545:a5ee3b8b3f87088f2e99603ecba555750a6962a58c10e2d6568506d76926720d",
+          "sec.xbrl.companyfacts:0001212545:b739e59f9b84544468c07d104616f60959516e309981951e3ce632139f63191d",
+          "sec.xbrl.companyfacts:0001212545:ecb5a406082478d1c90ced081684e4dcb2c412f1423321a8c07e2993f51e430b"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "western-alliance.timevault.query"
+        ]
+      }
+    ],
+    "claim_boundary": "Seven actual engine implementations ran over seven locked SEC filing facts for Western Alliance Bancorporation. Filer-reported values remain reported; ratios, network propagation, and TrialCourt disposition are model-derived; execution and allocation inputs are explicitly simulated. The separate post-decision official event lock is not a ReplayPack input. This is a retrospective boundary replay, not causal failure attribution, a historical trading signal, investment advice, client work, production deployment, or external validation.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-seven-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The ReplayPack contains one content-addressed artifact from each engine.",
+        "support_artifact_ids": [
+          "western-alliance.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The upper endpoint is an accounting-derived bound, not realized loss.",
+        "claim_id": "claim-inferred-htm-bound",
+        "evidence_class": "inferred",
+        "limitations": [
+          "No probability, timing, hedge, tax, or price path is assigned."
+        ],
+        "statement": "The modeled HTM loss-realization interval is 0 to 0.137315748642, the arithmetic ratio of two reported filing facts.",
+        "support_artifact_ids": [
+          "western-alliance.shockcompiler.htm-bound"
+        ]
+      },
+      {
+        "boundary": "Rejection is an internal method result, not external strategy review.",
+        "claim_id": "claim-inferred-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no valid inferential or return claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective attempt after retaining all attack findings.",
+        "support_artifact_ids": [
+          "western-alliance.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are filer-reported XBRL facts, not regulator findings.",
+        "claim_id": "claim-reported-balance-sheet",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes a selected fact subset, not the complete filing."
+        ],
+        "statement": "The locked Western Alliance Bancorporation SEC filing facts report assets of $67,734,000,000, deposits of $53,644,000,000, HTM value of $1,289,000,000, and HTM unrecognized loss of $177,000,000 at the selected balance date.",
+        "support_artifact_ids": [
+          "western-alliance.timevault.query"
+        ]
+      },
+      {
+        "boundary": "This is neither an executable order nor investment advice.",
+        "claim_id": "claim-simulated-decision-boundary",
+        "evidence_class": "simulated",
+        "limitations": [
+          "No historical microstructure or real portfolio is represented."
+        ],
+        "statement": "The normalized execution envelope and robust allocation are explicit simulations; the allocator retained the all-cash model solution.",
+        "support_artifact_ids": [
+          "western-alliance.capitalallocator.robust-boundary",
+          "western-alliance.executionlab.normalized-envelope"
+        ]
+      }
+    ],
+    "code_commit": "f17041b2c430df967f2ec3c61e062036ae793cf1",
+    "compressed_input_bytes": 2647,
+    "created_at": "2026-08-13T06:00:00Z",
+    "decision_time": "2023-05-02T16:00:00Z",
+    "derived_records": 13,
+    "distinct_input_records": 7,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "These seven records are a minimal extracted lock of filer-reported SEC XBRL facts accepted before the replay decision time. The lock preserves identities, accession, knowledge timestamps, source URL, response hash, and evidence class. It is not the complete filing, a regulator finding, a causal explanation, a trading signal, or proof that a changing aggregation endpoint will reproduce the exact whole-response bytes indefinitely.",
+      "Post-decision event evidence is excluded from the decision input manifest.",
+      "No historical quote, order-book, venue, or volume data is represented; ExecutionLab uses a normalized simulated reference-only boundary.",
+      "TrialCourt rejects the retrospective non-inferential attempt rather than granting strategy eligibility.",
+      "CapitalAllocator emits a declared model boundary and no order or recommendation.",
+      "A fixed build epoch and zero pack elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "western-alliance-2023-seven-engine-v1",
+    "require_all_engines": true,
+    "scenario_id": "western-alliance-2023-deposit-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "Western Alliance 2023 pre-8-K funding boundary replay"
+  },
+  "topological_artifact_ids": [
+    "western-alliance.timevault.query",
+    "western-alliance.markettwin.loss-envelope",
+    "western-alliance.trialcourt.retrospective-gate",
+    "western-alliance.shockcompiler.htm-bound",
+    "western-alliance.executionlab.normalized-envelope",
+    "western-alliance.capitalallocator.robust-boundary",
+    "western-alliance.replaystudio.render"
+  ],
+  "trace_id": "trace:abb13b47a3d70fdd943ba67f810e635e79d46f771d566289152eebc4d5c03d05"
+}
