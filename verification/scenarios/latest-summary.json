@@ -1,0 +1,19 @@
+{
+  "claim_boundary": "Each counted scenario passed the repository's eight-gate proof verifier. This is internal reproducibility evidence, not external method validation, deployment, investment performance, or real-world impact.",
+  "scenarios": [
+    {
+      "decision_time": "2023-03-08T18:00:00+00:00",
+      "distinct_input_records": 7,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "c62c22dcbd15e29592a10811117a565d2bf9bee34877a4fbcbf24994383efd35",
+      "proof": "svb-2023-boundary-v1.json",
+      "proof_sha256": "5bd3a48ba84099e96203511c61f1a6c3ca4716b2648e8358595bfe48ab133495",
+      "replay_id": "svb-2023-seven-engine-v1",
+      "scenario_id": "svb-2023-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:7c6888e9ecebd390acb2f7fecbcde816d7e50906632483215244acf0f17462bf"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "verified_scenario_count": 1
+}

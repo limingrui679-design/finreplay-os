@@ -54,7 +54,12 @@ Each of the 30 planned scenarios must independently provide:
 7. a limitations file and non-causal/non-deployment boundary;
 8. a fresh-clone replay receipt.
 
-Current status: **NOT_STARTED; 0/30 replay-proven scenarios.** A scenario title in a plan is 0.
+Current status: **IN_PROGRESS; 1/30 replay-proven scenarios.** The SVB 2023 boundary replay is the
+first counted scenario. `scripts/verify_scenario_catalog.py` opens its official SEC timing records,
+immutable input lock, ReplayPack, source-label map, explicit naive status-quo baseline, deliberate
+TrialCourt rejection, build and verification routes, and clean-worktree double-rebuild receipt.
+It then recomputes the deterministic inventory under `verification/scenarios/`. A scenario title,
+plan row, unverified pack directory, or self-reported status still counts as 0.
 
 ## D. Scale and performance — 15 points
 

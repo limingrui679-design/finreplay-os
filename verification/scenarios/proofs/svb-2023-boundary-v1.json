@@ -1,0 +1,127 @@
+{
+  "build_script": {
+    "path": "scripts/build_svb_replaypack.py",
+    "sha256": "cb088831ce9d955dc832566b42fa34e0c8d1ded362210e757265f5adccec3095"
+  },
+  "claim_boundary": "This proof counts one internally reproduced historical boundary scenario because the official SEC timing records, immutable input lock, separated evidence labels, explicit status-quo baseline, deliberate TrialCourt failure, deterministic outputs, limitations, and clean-worktree double rebuild all verify. It does not establish causal completeness, external method correctness, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "svb.trialcourt.retrospective-gate",
+      "description": "The deliberately retrospective, non-inferential screen must be rejected rather than promoted.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "svb.trialcourt.retrospective-gate",
+      "description": "The immutable TrialCourt ledger must retain exactly one rejected decision in this replay.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "expected_input_manifest_sha256": "8959db8334f2b1e13572eec536ca8c049aabc0bf95a673b3f13e4eca566c83cd",
+  "expected_pack_sha256": "c62c22dcbd15e29592a10811117a565d2bf9bee34877a4fbcbf24994383efd35",
+  "expected_trace_id": "trace:7c6888e9ecebd390acb2f7fecbcde816d7e50906632483215244acf0f17462bf",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The minimal lock contains filer-reported SEC accounting facts and no direct market-tape, order-book, deposit-flow, or regulator-observed event record."
+    },
+    "bounded_artifact_ids": [
+      "svb.capitalallocator.robust-boundary",
+      "svb.executionlab.normalized-envelope",
+      "svb.markettwin.loss-envelope",
+      "svb.shockcompiler.htm-bound"
+    ],
+    "extracted_artifact_ids": [
+      "svb.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "svb.capitalallocator.robust-boundary",
+      "svb.markettwin.loss-envelope",
+      "svb.shockcompiler.htm-bound",
+      "svb.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682",
+      "sec.xbrl.companyfacts:0000719739:318feb9e5559f8e51b2af8a07c0e515f53e34b59dab02b5f7ea0cbdbdb69abe7",
+      "sec.xbrl.companyfacts:0000719739:4a919079a99119cd6d08ff11d9108eac8a68140e32cff60e92eadc7eae2d9f50",
+      "sec.xbrl.companyfacts:0000719739:8bdbe98d21df87a35bf1f36f05ddfefae946314aeadeccb7dffe676ca905b87b",
+      "sec.xbrl.companyfacts:0000719739:a85813dd2278f8e487608e48d7f6d6bb051869ef3bfafa53fe935f8326137184",
+      "sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2",
+      "sec.xbrl.companyfacts:0000719739:ff4c973cc025f892f47bef7c44879aa08180b1f09121022017566ea4e787fc90"
+    ],
+    "simulated_artifact_ids": [
+      "svb.capitalallocator.robust-boundary",
+      "svb.executionlab.normalized-envelope",
+      "svb.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "cc383954d23e7b2c44756e3d33636a1df15f19cec993849b28c341deae6fecd0",
+      "path": "scenarios/svb-2023/input-lock.json",
+      "record_ids": [
+        "sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682",
+        "sec.xbrl.companyfacts:0000719739:318feb9e5559f8e51b2af8a07c0e515f53e34b59dab02b5f7ea0cbdbdb69abe7",
+        "sec.xbrl.companyfacts:0000719739:4a919079a99119cd6d08ff11d9108eac8a68140e32cff60e92eadc7eae2d9f50",
+        "sec.xbrl.companyfacts:0000719739:8bdbe98d21df87a35bf1f36f05ddfefae946314aeadeccb7dffe676ca905b87b",
+        "sec.xbrl.companyfacts:0000719739:a85813dd2278f8e487608e48d7f6d6bb051869ef3bfafa53fe935f8326137184",
+        "sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2",
+        "sec.xbrl.companyfacts:0000719739:ff4c973cc025f892f47bef7c44879aa08180b1f09121022017566ea4e787fc90"
+      ],
+      "sha256": "6ab189eee80a9eec6d4500f9c9afb775f5fb944ced0d62bf91d1d1a2fc35dc6a"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "svb.capitalallocator.robust-boundary",
+      "description": "The explicit naive status-quo baseline assigns zero weight to the synthetic model exposure.",
+      "expected_value": 0.0,
+      "payload_pointer": "/problem/assets/0/current_weight"
+    },
+    {
+      "artifact_id": "svb.capitalallocator.robust-boundary",
+      "description": "The explicit naive status-quo baseline begins with the entire model portfolio in cash.",
+      "expected_value": 1.0,
+      "payload_pointer": "/problem/current_cash_weight"
+    }
+  ],
+  "official_adapter_inventory": "verification/live/latest-summary.json",
+  "pack_directory": "verification/replaypacks/svb-2023-seven-engine",
+  "proof_sha256": "5bd3a48ba84099e96203511c61f1a6c3ca4716b2648e8358595bfe48ab133495",
+  "rebuild_receipt": {
+    "path": "verification/evidence/svb-seven-engine-rebuild.json",
+    "sha256": "a6f23ff2e2eb0810694eb6666c8133e0c5e29a01a568cafdcdd926ebdfb4440e"
+  },
+  "replay_id": "svb-2023-seven-engine-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "all_seven_engines_present",
+    "allocator_retains_all_cash_boundary",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "distinct_locked_inputs_equal_seven",
+    "execution_is_reference_only_simulation",
+    "historical_source_sets_eligible",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "svb-2023-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "timing_record_ids": [
+    "sec.xbrl.companyfacts:0000719739:219a62ee1f663092085a651758bb6bda18c7322b570cb0cc614b5b00b90fc682",
+    "sec.xbrl.companyfacts:0000719739:318feb9e5559f8e51b2af8a07c0e515f53e34b59dab02b5f7ea0cbdbdb69abe7",
+    "sec.xbrl.companyfacts:0000719739:4a919079a99119cd6d08ff11d9108eac8a68140e32cff60e92eadc7eae2d9f50",
+    "sec.xbrl.companyfacts:0000719739:8bdbe98d21df87a35bf1f36f05ddfefae946314aeadeccb7dffe676ca905b87b",
+    "sec.xbrl.companyfacts:0000719739:a85813dd2278f8e487608e48d7f6d6bb051869ef3bfafa53fe935f8326137184",
+    "sec.xbrl.companyfacts:0000719739:b79fd938ad9b3e4a96706ae472cfa90d871a8c2ff1021412be3133df1f7e0af2",
+    "sec.xbrl.companyfacts:0000719739:ff4c973cc025f892f47bef7c44879aa08180b1f09121022017566ea4e787fc90"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_svb_replaypack.py",
+    "sha256": "4440bc66ef54e7fb3d6eca7b257b10999b9c0774d11e51b3b9b40dbc51d8d24c"
+  }
+}
