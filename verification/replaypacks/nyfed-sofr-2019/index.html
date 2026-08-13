@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self'; img-src 'self' data:;
+                 base-uri 'none'; form-action 'none'">
+  <title>New York Fed SOFR level boundary before the September 2019 spike · FinReplay OS</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to report</a>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">FinReplay OS · evidence-labelled replay</p>
+      <h1>New York Fed SOFR level boundary before the September 2019 spike</h1>
+      <p class="lede">Four actual engines ran over two locked final SOFR facts available before the decision time. Reported rates remain reported; the next-rate range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The September 17 rate is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, repo-market causal model, trading signal, production deployment, or external validation.</p>
+    </div>
+    <div class="identity" aria-label="Replay identity">
+      <span>Replay <code>nyfed-sofr-2019-spike-boundary-v1</code></span>
+      <span>Trace <code>trace:7402c1952f5bbaf31f5f5d89a85a8864f64ee146bd142e25da1872f4292ee636</code></span>
+    </div>
+  </header>
+  <nav aria-label="Report sections">
+    <a href="#summary">Summary</a><a href="#claims">Claims</a>
+    <a href="#artifacts">Artifacts</a><a href="#limitations">Limitations</a>
+  </nav>
+  <main id="main">
+    <section id="summary" aria-labelledby="summary-title">
+      <h2 id="summary-title">Replay summary</h2>
+      <div class="boundary" role="note" aria-label="Truth boundary">
+        <strong>Truth boundary</strong>
+        <span>Contains simulated inputs. All represented source sets are historical-replay eligible.</span>
+        <span>Historical replay is not live trading;
+        modeled output is not realized performance.</span>
+      </div>
+      <dl class="facts">
+        <div><dt>Scenario</dt><dd>nyfed-sofr-2019-spike-boundary
+        v1.0.0</dd></div>
+        <div><dt>Mode</dt><dd>bounded_reconstruction</dd></div>
+        <div><dt>Decision time</dt>
+        <dd>2019-09-17T20:00:00Z</dd></div>
+        <div><dt>Artifact status</dt><dd>reproduced</dd></div>
+        <div><dt>Engines represented</dt><dd>4 / 7</dd></div>
+        <div><dt>Pack hash</dt><dd><code>00475798a6bdfc0b713a272d340b0586d8b647f95c8a11435d809777037b106e</code></dd></div>
+      </dl>
+      <h3>Evidence inventory</h3>
+      <ul class="metrics" aria-label="Evidence counts"><li class="metric"><span class="metric-value">1</span><span>extracted</span></li><li class="metric"><span class="metric-value">4</span><span>inferred</span></li><li class="metric"><span class="metric-value">4</span><span>reported</span></li><li class="metric"><span class="metric-value">1</span><span>simulated</span></li></ul>
+      <p class="downloads"><a href="report.json">Machine-readable report</a>
+      <a href="checksums.sha256">Portable checksums</a>
+      <a href="README.md">Reproduction notes</a></p>
+    </section>
+    <section id="claims" aria-labelledby="claims-title">
+      <h2 id="claims-title">Claim traceability</h2>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Claim traceability table">
+        <table><caption>Each statement retains its evidence label,
+        supporting artifacts and boundary.</caption>
+          <thead><tr><th scope="col">Claim</th><th scope="col">Statement</th>
+          <th scope="col">Label</th><th scope="col">Support</th>
+          <th scope="col">Boundary</th></tr></thead>
+          <tbody><tr><th scope="row"><code>claim-extracted-four-engine-pack</code></th><td>The pack contains outputs from the four engines relevant to this boundary.</td><td><span class="badge evidence-extracted">EXTRACTED</span></td><td><code>nyfed-sofr.replaystudio.render</code></td><td>Artifact presence proves integration structure, not economic correctness.</td></tr><tr><th scope="row"><code>claim-inferred-sofr-range</code></th><td>The next-rate stress endpoints reuse the two known rates: [220, 243] basis points, with September 16 as the persistence baseline.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>nyfed-sofr.shockcompiler.rate-range</code></td><td>The endpoints have no probability or coverage guarantee.</td></tr><tr><th scope="row"><code>claim-inferred-trial-rejection</code></th><td>TrialCourt rejected the retrospective two-rate SOFR attempt.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>nyfed-sofr.trialcourt.retrospective-gate</code></td><td>This is an internal method result, not external review.</td></tr><tr><th scope="row"><code>claim-reported-final-sofr</code></th><td>The New York Fed final historical rows report SOFR of 220 basis points for September 13 and 243 basis points for September 16, 2019.</td><td><span class="badge evidence-reported">REPORTED</span></td><td><code>nyfed-sofr.timevault.final-rate-query</code></td><td>These are final aggregate rates, not forecasts or causal estimates.</td></tr><tr><th scope="row"><code>claim-simulated-schema-sentinels</code></th><td>Trial operational values are simulated schema sentinels only.</td><td><span class="badge evidence-simulated">SIMULATED</span></td><td><code>nyfed-sofr.trialcourt.retrospective-gate</code></td><td>The sentinels are not orders, capacity, capital, or returns.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section id="artifacts" aria-labelledby="artifacts-title">
+      <h2 id="artifacts-title">Engine artifacts</h2><article class="artifact">
+  <header><div><p class="eyebrow">replaystudio</p>
+  <h3><code>nyfed-sofr.replaystudio.render</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> extracted: 1</p>
+  <p><strong>Artifact hash:</strong> <code>7ef91f09ba262462e725ffad7fb3181cb48e8fcd5f3869fd14a81965e1d63e75</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>nyfed.sofr.final_historical_rate:2019-09-13</code></li><li><code>nyfed.sofr.final_historical_rate:2019-09-16</code></li></ul>
+    <h4>Limitations</h4><ul><li>Static rendering does not validate the SOFR range heuristic.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;engine_selection&quot;: &quot;This aggregate SOFR boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no position, order, execution, portfolio, or allocation input is invented.&quot;,
+  &quot;input_lock_sha256&quot;: &quot;51bb4fac60709af2cdae2cb819efeee06d180229d627323667cc707f96f745ab&quot;,
+  &quot;portable_file_count_excluding_manifest&quot;: 5,
+  &quot;renderer&quot;: &quot;ReplayStudio&quot;,
+  &quot;truth_labels_visible&quot;: true
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">shockcompiler</p>
+  <h3><code>nyfed-sofr.shockcompiler.rate-range</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 3</p>
+  <p><strong>Artifact hash:</strong> <code>b3cb0964e83931116a757c0ae24a7a369f6d02380e39330b4b9e8701a5c9bf6c</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>nyfed.sofr.final_historical_rate:2019-09-13</code></li><li><code>nyfed.sofr.final_historical_rate:2019-09-16</code></li></ul>
+    <h4>Limitations</h4><ul><li>The endpoints mechanically reuse two known final rates.</li><li>The September 17 rate is absent from the bound construction.</li><li>The range is not a funding-stress probability or causal explanation.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;applied_endpoints&quot;: {
+    &quot;lower&quot;: 220.0,
+    &quot;upper&quot;: 243.0
+  },
+  &quot;bound_construction&quot;: {
+    &quot;endpoint_method&quot;: &quot;minimum_and_maximum_of_two_known_final_rates&quot;,
+    &quot;future_event_used&quot;: false,
+    &quot;lower_rate_basis_points&quot;: 220,
+    &quot;probability_assigned&quot;: false,
+    &quot;range_width_basis_points&quot;: 23,
+    &quot;upper_rate_basis_points&quot;: 243
+  },
+  &quot;compiled&quot;: {
+    &quot;compiled_sha256&quot;: &quot;17923e005903b7b564afae5d388189cd6fbad9b04ecd826ee19593d801709272&quot;,
+    &quot;decision_time&quot;: &quot;2019-09-17T20:00:00Z&quot;,
+    &quot;limitations&quot;: [
+      &quot;The endpoints have no likelihood, coverage, causal, or policy interpretation.&quot;,
+      &quot;The September 17 rate is excluded and evaluated only afterward.&quot;
+    ],
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;program_id&quot;: &quot;nyfed-sofr-next-rate-envelope&quot;,
+    &quot;scenario_id&quot;: &quot;nyfed-sofr-2019-spike-boundary&quot;,
+    &quot;source_program_sha256&quot;: &quot;240530ac475d4c6ab56df14004f020b21eff152396da6e0f98b2e6e97cc9271d&quot;,
+    &quot;trials&quot;: [
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Use the minimum and maximum of the two final SOFR rates already knowable at the decision time as transparent next-rate stress endpoints.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;Two adjacent final rates define a descriptive range, not a forecast or confidence interval.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;nyfed-sofr-next-rate-range&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;31c5ce41261beb04bbaaf06e3f451c88e69ef3892aef55dc5efc2c1514795384&quot;,
+              &quot;a96acb4e00c8a4b4c5119e3436435cdb3a9c7b4478b1b5d374b5176a8129ab61&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;nyfed.sofr.final_historical_rate:2019-09-13&quot;,
+              &quot;nyfed.sofr.final_historical_rate:2019-09-16&quot;
+            ],
+            &quot;target_id&quot;: &quot;nyfed_reference_rate:SOFR&quot;,
+            &quot;unit&quot;: &quot;basis_points&quot;,
+            &quot;value&quot;: 220.0,
+            &quot;variable&quot;: &quot;next_final_sofr_basis_points&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;nyfed-sofr-next-rate-envelope:00000000:f46980f7f9f93c0a&quot;,
+        &quot;trial_index&quot;: 0,
+        &quot;vector_sha256&quot;: &quot;f46980f7f9f93c0afab68fbd46940be91607da6447065542f839d2680f268cba&quot;
+      },
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Use the minimum and maximum of the two final SOFR rates already knowable at the decision time as transparent next-rate stress endpoints.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;Two adjacent final rates define a descriptive range, not a forecast or confidence interval.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;nyfed-sofr-next-rate-range&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;31c5ce41261beb04bbaaf06e3f451c88e69ef3892aef55dc5efc2c1514795384&quot;,
+              &quot;a96acb4e00c8a4b4c5119e3436435cdb3a9c7b4478b1b5d374b5176a8129ab61&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;nyfed.sofr.final_historical_rate:2019-09-13&quot;,
+              &quot;nyfed.sofr.final_historical_rate:2019-09-16&quot;
+            ],
+            &quot;target_id&quot;: &quot;nyfed_reference_rate:SOFR&quot;,
+            &quot;unit&quot;: &quot;basis_points&quot;,
+            &quot;value&quot;: 243.0,
+            &quot;variable&quot;: &quot;next_final_sofr_basis_points&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;nyfed-sofr-next-rate-envelope:00000001:a48dc855868230fa&quot;,
+        &quot;trial_index&quot;: 1,
+        &quot;vector_sha256&quot;: &quot;a48dc855868230fa00d6688dbd4a0032ac2b7efdfee68348c0fddfe24321739b&quot;
+      }
+    ]
+  },
+  &quot;input_lock_sha256&quot;: &quot;51bb4fac60709af2cdae2cb819efeee06d180229d627323667cc707f96f745ab&quot;,
+  &quot;known_rates&quot;: {
+    &quot;rate_lower_basis_points&quot;: 220,
+    &quot;rate_range_width_basis_points&quot;: 23,
+    &quot;rate_upper_basis_points&quot;: 243,
+    &quot;september13_rate_basis_points&quot;: 220,
+    &quot;september16_rate_basis_points&quot;: 243
+  },
+  &quot;naive_baseline&quot;: {
+    &quot;definition&quot;: &quot;persistence of the latest known final SOFR rate&quot;,
+    &quot;next_final_sofr_basis_points&quot;: 243
+  },
+  &quot;program&quot;: {
+    &quot;decision_time&quot;: &quot;2019-09-17T20:00:00Z&quot;,
+    &quot;global_limitations&quot;: [
+      &quot;The endpoints have no likelihood, coverage, causal, or policy interpretation.&quot;,
+      &quot;The September 17 rate is excluded and evaluated only afterward.&quot;
+    ],
+    &quot;hypothesis&quot;: &quot;Evaluate the two known final SOFR endpoints using only rates available at the historical decision boundary.&quot;,
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;parameters&quot;: [
+      {
+        &quot;derivation&quot;: &quot;Use the minimum and maximum of the two final SOFR rates already knowable at the decision time as transparent next-rate stress endpoints.&quot;,
+        &quot;evidence_class&quot;: &quot;inferred&quot;,
+        &quot;grid_points&quot;: 2,
+        &quot;limitations&quot;: [
+          &quot;Two adjacent final rates define a descriptive range, not a forecast or confidence interval.&quot;
+        ],
+        &quot;lower&quot;: 220.0,
+        &quot;operation&quot;: &quot;set&quot;,
+        &quot;parameter_id&quot;: &quot;nyfed-sofr-next-rate-range&quot;,
+        &quot;source_record_ids&quot;: [
+          &quot;nyfed.sofr.final_historical_rate:2019-09-13&quot;,
+          &quot;nyfed.sofr.final_historical_rate:2019-09-16&quot;
+        ],
+        &quot;sources&quot;: [
+          {
+            &quot;license_class&quot;: &quot;review_required&quot;,
+            &quot;publisher&quot;: &quot;Federal Reserve Bank of New York&quot;,
+            &quot;redistribution_note&quot;: &quot;Apply the current New York Fed Terms of Use, source identification, attribution, same-permissions, modification, and non-endorsement conditions. Repository scenarios retain only the final rate, provenance, and hashes; raw responses remain local.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-13T06:13:52.656916Z&quot;,
+            &quot;sha256&quot;: &quot;31c5ce41261beb04bbaaf06e3f451c88e69ef3892aef55dc5efc2c1514795384&quot;,
+            &quot;source_id&quot;: &quot;nyfed.sofr.final_historical_rate&quot;,
+            &quot;source_version&quot;: &quot;SOFR:effective:2019-09-13:final-at:2019-09-16T19:00:00+00:00:sha256:31c5ce41261beb04bbaaf06e&quot;,
+            &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+            &quot;url&quot;: &quot;https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2019-09-13&amp;endDate=2019-09-13&amp;type=rate&quot;,
+            &quot;vintage_as_of&quot;: &quot;2019-09-16T19:00:00Z&quot;
+          },
+          {
+            &quot;license_class&quot;: &quot;review_required&quot;,
+            &quot;publisher&quot;: &quot;Federal Reserve Bank of New York&quot;,
+            &quot;redistribution_note&quot;: &quot;Apply the current New York Fed Terms of Use, source identification, attribution, same-permissions, modification, and non-endorsement conditions. Repository scenarios retain only the final rate, provenance, and hashes; raw responses remain local.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-13T06:13:54.176614Z&quot;,
+            &quot;sha256&quot;: &quot;a96acb4e00c8a4b4c5119e3436435cdb3a9c7b4478b1b5d374b5176a8129ab61&quot;,
+            &quot;source_id&quot;: &quot;nyfed.sofr.final_historical_rate&quot;,
+            &quot;source_version&quot;: &quot;SOFR:effective:2019-09-16:final-at:2019-09-17T19:00:00+00:00:sha256:a96acb4e00c8a4b4c5119e34&quot;,
+            &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+            &quot;url&quot;: &quot;https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2019-09-16&amp;endDate=2019-09-16&amp;type=rate&quot;,
+            &quot;vintage_as_of&quot;: &quot;2019-09-17T19:00:00Z&quot;
+          }
+        ],
+        &quot;target_id&quot;: &quot;nyfed_reference_rate:SOFR&quot;,
+        &quot;unit&quot;: &quot;basis_points&quot;,
+        &quot;upper&quot;: 243.0,
+        &quot;variable&quot;: &quot;next_final_sofr_basis_points&quot;
+      }
+    ],
+    &quot;program_id&quot;: &quot;nyfed-sofr-next-rate-envelope&quot;,
+    &quot;scenario_id&quot;: &quot;nyfed-sofr-2019-spike-boundary&quot;
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">timevault</p>
+  <h3><code>nyfed-sofr.timevault.final-rate-query</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> reported: 2</p>
+  <p><strong>Artifact hash:</strong> <code>e9679fb62b43b82be77597879918c0786862b36d31f360c3cfd7fad27b632eb2</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>nyfed.sofr.final_historical_rate:2019-09-13</code></li><li><code>nyfed.sofr.final_historical_rate:2019-09-16</code></li></ul>
+    <h4>Limitations</h4><ul><li>The lock contains only two final SOFR rates.</li><li>Knowledge time is 3:00 p.m. New York time after the same-day revision window.</li><li>Ancillary percentile statistics are excluded from normalized facts.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;append&quot;: {
+    &quot;artifact_ids&quot;: [
+      &quot;1d500143b67e278de2bcb64ab4b714a4b75ce6c813547448609b740f76fc3ed9&quot;,
+      &quot;c57b8ab97d400db6d9bb01ac4eef6b286eaf46f07afd6a93cf88c83b94071433&quot;
+    ],
+    &quot;attempted_records&quot;: 2,
+    &quot;fact_hashes&quot;: [
+      &quot;09ad6eab9f117150fd46c4be8204f280bff5fc6f43f47ab4acfb918b20ff7aa5&quot;,
+      &quot;0fc05ff766e3488efdbb7c483a6661589a92b4511361ecd948b49d790d5f57a3&quot;
+    ],
+    &quot;idempotent_records&quot;: 0,
+    &quot;inserted_records&quot;: 2
+  },
+  &quot;decision_time&quot;: &quot;2019-09-17T20:00:00Z&quot;,
+  &quot;input_lock_sha256&quot;: &quot;51bb4fac60709af2cdae2cb819efeee06d180229d627323667cc707f96f745ab&quot;,
+  &quot;manifest&quot;: {
+    &quot;database_bytes&quot;: 0,
+    &quot;distinct_records&quot;: 2,
+    &quot;fact_set_sha256&quot;: &quot;3c6e29bcc385c044f91f5847222ed8b32fbf9dafb737d195798c1f20ba495d12&quot;,
+    &quot;fact_versions&quot;: 2,
+    &quot;generated_at&quot;: &quot;2026-08-13T06:35:00Z&quot;,
+    &quot;retrieval_receipts&quot;: 2,
+    &quot;source_artifacts&quot;: 2
+  },
+  &quot;max_available_at&quot;: &quot;2019-09-17T19:00:00Z&quot;,
+  &quot;selected_record_ids&quot;: [
+    &quot;nyfed.sofr.final_historical_rate:2019-09-13&quot;,
+    &quot;nyfed.sofr.final_historical_rate:2019-09-16&quot;
+  ]
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">trialcourt</p>
+  <h3><code>nyfed-sofr.trialcourt.retrospective-gate</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1, reported: 2, simulated: 1</p>
+  <p><strong>Artifact hash:</strong> <code>6690d78671cafaef1a6ef05531b0c70e99b86d312d7004b69b8ab05c306bac66</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>nyfed.sofr.final_historical_rate:2019-09-13</code></li><li><code>nyfed.sofr.final_historical_rate:2019-09-16</code></li></ul>
+    <h4>Limitations</h4><ul><li>The rejected attempt is a retrospective method boundary, not a validated forecast.</li><li>Operational sentinel fields contain no execution, capacity, or return evidence.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;attempt&quot;: {
+    &quot;attempt_id&quot;: &quot;nyfed-sofr-retrospective-attempt-1&quot;,
+    &quot;attempt_number&quot;: 1,
+    &quot;code_commit&quot;: &quot;4fe5c75323ee32731d29431ed568c7d16e9651c2&quot;,
+    &quot;completed_at&quot;: &quot;2026-08-13T06:35:00Z&quot;,
+    &quot;config_sha256&quot;: &quot;6b4ae82eaccee9949ef6dd5a9e38ec8d2d3508c3a07dc8b7e298ff22f61ffffe&quot;,
+    &quot;decision_time&quot;: &quot;2019-09-17T20:00:00Z&quot;,
+    &quot;evaluation_end&quot;: &quot;2019-10-23&quot;,
+    &quot;evaluation_start&quot;: &quot;2019-09-18&quot;,
+    &quot;gross_return_bps&quot;: 0.0,
+    &quot;input_manifest_sha256&quot;: &quot;51bb4fac60709af2cdae2cb819efeee06d180229d627323667cc707f96f745ab&quot;,
+    &quot;max_input_available_at&quot;: &quot;2019-09-17T19:00:00Z&quot;,
+    &quot;median_daily_volume_usd&quot;: 1.0,
+    &quot;metric_value&quot;: 23.0,
+    &quot;next_training_start&quot;: null,
+    &quot;notes&quot;: [
+      &quot;Retrospective method-boundary attempt; p=1 records no inferential test.&quot;,
+      &quot;One-dollar and zero-return fields are non-trading schema sentinels.&quot;,
+      &quot;No September 17 SOFR event fact is present in the attempt manifest.&quot;
+    ],
+    &quot;one_way_turnover&quot;: 0.0,
+    &quot;output_manifest_sha256&quot;: &quot;c6f716fe87a8a05b68111aaf48b41f7ebf3cf88a848f4117d4175da282ea6521&quot;,
+    &quot;p_value&quot;: 1.0,
+    &quot;regime_metric_values&quot;: {
+      &quot;two-rate-difference&quot;: 23.0,
+      &quot;two-rate-range-width&quot;: 23.0
+    },
+    &quot;requested_capital_usd&quot;: 1.0,
+    &quot;sample_size&quot;: 2,
+    &quot;short_fraction&quot;: 0.0,
+    &quot;training_end&quot;: &quot;2019-09-15&quot;,
+    &quot;trial_id&quot;: &quot;nyfed-sofr-retrospective-range-screen&quot;
+  },
+  &quot;attempt_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;a8500c66d6d33dccd41c283d704974a833726e85332d6b55deac08f5da690cc1&quot;,
+    &quot;entry_hash&quot;: &quot;a8500c66d6d33dccd41c283d704974a833726e85332d6b55deac08f5da690cc1&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 2
+  },
+  &quot;decision&quot;: {
+    &quot;adjusted_p_values&quot;: {
+      &quot;nyfed-sofr-retrospective-attempt-1&quot;: 1.0
+    },
+    &quot;attempt_ids&quot;: [
+      &quot;nyfed-sofr-retrospective-attempt-1&quot;
+    ],
+    &quot;attempt_set_sha256&quot;: &quot;5302335288d1bbac68644da327a5dde258f4fdc94121937d636fe6a596072548&quot;,
+    &quot;candidate_attempt_id&quot;: &quot;nyfed-sofr-retrospective-attempt-1&quot;,
+    &quot;decided_at&quot;: &quot;2026-08-13T06:35:00Z&quot;,
+    &quot;decision_id&quot;: &quot;decision:nyfed-sofr-retrospective-range-screen:6de78f089b0b0087c1c406fe&quot;,
+    &quot;disposition&quot;: &quot;reject&quot;,
+    &quot;findings&quot;: [
+      {
+        &quot;kind&quot;: &quot;preregistration&quot;,
+        &quot;metrics&quot;: {
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;registered_before_holdout&quot;: false
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Registration was retrospective or the observed attempt family exceeded the preregistered declaration.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;leakage&quot;,
+        &quot;metrics&quot;: {
+          &quot;embargo_respected&quot;: true,
+          &quot;evaluation_inside_holdout&quot;: true,
+          &quot;input_available_by_decision&quot;: true,
+          &quot;training_respects_purge&quot;: true
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Point-in-time input, purge, holdout and embargo checks passed.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;multiplicity&quot;,
+        &quot;metrics&quot;: {
+          &quot;adjusted_p_value&quot;: 1.0,
+          &quot;alpha&quot;: 0.05,
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;raw_p_value&quot;: 1.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Candidate does not survive family-wise Holm adjustment.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;regime&quot;,
+        &quot;metrics&quot;: {
+          &quot;best_regime_metric&quot;: 23.0,
+          &quot;regime_count&quot;: 2,
+          &quot;worst_regime_metric&quot;: 23.0
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Metric direction is stable across named regimes.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;execution&quot;,
+        &quot;metrics&quot;: {
+          &quot;borrow_cost_bps&quot;: 0.0,
+          &quot;gross_return_bps&quot;: 0.0,
+          &quot;immediate_cost_bps&quot;: 0.0,
+          &quot;net_return_bps&quot;: 0.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Preregistered execution and borrow costs erase the gross return.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;capacity&quot;,
+        &quot;metrics&quot;: {
+          &quot;allowed_daily_notional_usd&quot;: 0.05,
+          &quot;daily_notional_usd&quot;: 0.0,
+          &quot;max_participation_rate&quot;: 0.05
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Requested capital fits the preregistered participation limit.&quot;
+      }
+    ],
+    &quot;trial_id&quot;: &quot;nyfed-sofr-retrospective-range-screen&quot;
+  },
+  &quot;input_lock_sha256&quot;: &quot;51bb4fac60709af2cdae2cb819efeee06d180229d627323667cc707f96f745ab&quot;,
+  &quot;manifest&quot;: {
+    &quot;attempts&quot;: 1,
+    &quot;chain_tip_sha256&quot;: &quot;122a8c8004655fa4fd6285ceda34628b9eeb0eb433806d874585a09a0a841a60&quot;,
+    &quot;decisions&quot;: 1,
+    &quot;entries&quot;: 3,
+    &quot;registrations&quot;: 1,
+    &quot;rejected_decisions&quot;: 1,
+    &quot;verified&quot;: true
+  },
+  &quot;registration_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;73aa062416e90b4a430c0729e303f8649fe65de3e83ab8a964fc47634046abbf&quot;,
+    &quot;entry_hash&quot;: &quot;73aa062416e90b4a430c0729e303f8649fe65de3e83ab8a964fc47634046abbf&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 1
+  },
+  &quot;spec&quot;: {
+    &quot;cost_model&quot;: {
+      &quot;borrow_bps_annual&quot;: 0.0,
+      &quot;commission_bps&quot;: 1.0,
+      &quot;half_spread_bps&quot;: 1.0,
+      &quot;market_impact_bps&quot;: 1.0,
+      &quot;max_participation_rate&quot;: 0.05
+    },
+    &quot;declared_attempts&quot;: 1,
+    &quot;disposition&quot;: &quot;revise&quot;,
+    &quot;economic_mechanism&quot;: &quot;SOFR measures secured overnight funding costs, but two final rates and one later outcome cannot establish predictive validity or repo-market causality.&quot;,
+    &quot;embargo_days&quot;: 0,
+    &quot;expected_direction&quot;: &quot;two-sided&quot;,
+    &quot;holdout_end&quot;: &quot;2019-10-23&quot;,
+    &quot;holdout_start&quot;: &quot;2019-09-18&quot;,
+    &quot;hypothesis&quot;: &quot;A retrospectively constructed two-rate SOFR range qualifies for research eligibility after every adversarial gate.&quot;,
+    &quot;preregistered_at&quot;: &quot;2026-08-13T06:35:00Z&quot;,
+    &quot;primary_metric&quot;: &quot;two-rate SOFR range width in basis points&quot;,
+    &quot;purge_days&quot;: 2,
+    &quot;trial_id&quot;: &quot;nyfed-sofr-retrospective-range-screen&quot;
+  }
+}</pre>
+  </details>
+</article>
+    </section>
+    <section id="limitations" aria-labelledby="limitations-title">
+      <h2 id="limitations-title">Pack limitations</h2><ul><li>This lock preserves the final SOFR rates effective September 13 and 16, 2019 from two official New York Fed historical API responses conservatively final before the replay decision time. It excludes the September 17 event rate, ancillary lagged summary statistics, positions, transaction-level data, a probability distribution, forecast, calibrated interval, repo-market causal attribution, policy recommendation, execution, investment performance, external review, deployment, and user impact.</li><li>The endpoints are the minimum and maximum of two known final rates only.</li><li>The September 17 rate is excluded from every decision input and artifact.</li><li>The 3:00 p.m. finality time is conservative rather than an exact release instant.</li><li>Two aggregate rates do not identify trades, counterparties, flows, or causes.</li><li>No position, order, portfolio, allocation, or return is represented.</li><li>A fixed build epoch and zero elapsed time preserve deterministic pack identity.</li></ul>
+    </section>
+  </main>
+  <footer><p>Static read-only report. No brokerage connection,
+  tracking script, or external request.</p></footer>
+</body>
+</html>
