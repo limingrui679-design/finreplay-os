@@ -1,0 +1,67 @@
+{
+  "artifact_sha256": {
+    "replaystudio": "d1a64363d2914dee95dd1839a541c78c16cd851d251e948d72d25fdd0e3207c8",
+    "shockcompiler": "174049b403dd4cb01b238ee89201029ab94d50533593d4453e91fd3e7bc6664f",
+    "timevault": "16fc1ca55847ac278ea68418efe458d80ef5a7791d4e85281b94c4ad3d257a33",
+    "trialcourt": "46477dc4eeaeb0fabcf5f83a71ac63018ad78039ea0dea2e90684eeafe4c24b2"
+  },
+  "assertions": {
+    "all_artifacts_reproduced": true,
+    "byte_identical_directory_rebuilds": true,
+    "byte_identical_zip_rebuilds": true,
+    "compiled_pack_matches_rebuild": true,
+    "cross_engine_trace_is_stable": true,
+    "distinct_locked_inputs_equal_four": true,
+    "future_event_excluded_from_bound_construction": true,
+    "historical_source_sets_eligible": true,
+    "naive_baseline_is_latest_known_cpi_persistence": true,
+    "no_probability_is_assigned": true,
+    "only_relevant_engines_present": true,
+    "post_decision_event_is_disjoint": true,
+    "post_decision_event_is_exact_archived_cpi_fact": true,
+    "post_decision_event_timing_is_later": true,
+    "reported_post_event_monthly_inside_declared_range": true,
+    "simulation_remains_visible": true,
+    "trialcourt_rejects_retrospective_attempt": true
+  },
+  "claim_boundary": "This receipt proves two fresh local executions of the four relevant engines rebuild the committed directory and deterministic ZIP bytes from four locked pre-decision BLS headline facts. It verifies the separately locked March 14 CPI monthly-change fact is disjoint and, as an evaluation only, falls inside the previously declared no-probability range. It does not prove forecast skill, calibrated coverage, a stationary sample across annual weight updates and seasonal recalculation, causal inflation attribution, policy effectiveness, deployment, external review, or user impact.",
+  "code_commit": "5133cbf098a739bd0b67a1c3d43c59543ef5a3cd",
+  "event_lock_sha256": "3e07b70ba64926e69c70d93a07b235c2197eb239f2f9ec10f8a089965dbfe6bd",
+  "file_sha256": {
+    "README.md": "ddbf5981e522cccde446128efcc3a52e206731f893e899f7d12d9f40d4377969",
+    "assets/styles.css": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677",
+    "checksums.sha256": "2c6563d4076776a9a7a2a3dc8d77e53f7d69475042f69b84d60e849cf7ba6726",
+    "index.html": "b6a7b4c82ba93d043e6817ee242d1ef19f8cc5deefc637d10438276675b15ff2",
+    "manifest.json": "0a7cf2b3afbe6d5b8ab2ab11fd08c4ba8a200564957c3a43b439c7ea8821d3fe",
+    "report.json": "37c4ae5eb4fc227566e2324cf262bfc1be7acfed55bd92b55038f186225e22eb"
+  },
+  "input_lock_sha256": "7d726e741ca9a4631be4f7ba49b70c1d8ac106853ab72af66c2ba6ae01c8cdda",
+  "pack_receipt_sha256": "6133508972d884219c87cc01211e9929c080f1f81ba1332d29fb8f15536eaa41",
+  "pack_sha256": "fac8e503c37804217d3db00634330cdb62ac02466f7a58a1b04e703d6ffc6d06",
+  "post_event_evaluation": {
+    "declared_lower_monthly_change_tenths_percent": -1,
+    "declared_upper_monthly_change_tenths_percent": 5,
+    "latest_known_persistence_baseline_tenths_percent": 5,
+    "probability_assigned": false,
+    "reported_february_monthly_change_tenths_percent": 4,
+    "used_as_decision_input": false
+  },
+  "receipt_sha256": "ff904b2d332cb02f874b2b380ad2afdec2c51ffb49fe064eaa3c82fe6715c451",
+  "runtime": {
+    "duckdb": "1.5.5",
+    "finreplay": "0.1.0a0",
+    "machine": "arm64",
+    "measured_at": "2026-08-13T05:18:38.425841+00:00",
+    "numpy": "2.2.6",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "pydantic": "2.13.4",
+    "python": "3.12.13",
+    "runner_commit": "f031c0ba3d92993cd060f15c475a88e8befca15c",
+    "runner_dirty": false,
+    "scipy": "1.18.0",
+    "two_rebuild_elapsed_seconds": 0.29171874999883585
+  },
+  "schema_version": "1.0.0",
+  "semantic_sha256": "ad246dd1a41d49a6b08ce8da4629718bf2ba61ad596206e714de2a8f6308f1a0",
+  "trace_id": "trace:8634250349fc349378cf09f74ae129613d54fdd87257232ccd5547b62f1b1bb6"
+}
