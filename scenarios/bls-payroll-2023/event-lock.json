@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "bls-2023-payroll-release-boundary",
+  "scenario_version": "1.0.0",
+  "decision_time": "2023-02-04T12:00:00Z",
+  "event_role": "post_decision_official_event",
+  "records": [
+    {
+      "record_id": "bls.employment_situation.archived_release:20230310:nonfarm_payroll_change",
+      "entity_id": "bls_employment_situation:united_states",
+      "source": {
+        "source_id": "bls.employment_situation.archived_release",
+        "publisher": "U.S. Bureau of Labor Statistics",
+        "url": "https://www.bls.gov/news.release/archives/empsit_03102023.htm",
+        "retrieved_at": "2026-08-13T04:35:44.109109Z",
+        "source_version": "EmploymentSituation:2023-03-10:USDL-23-0436:sha256:078ce413091b8056bb0fba78",
+        "sha256": "078ce413091b8056bb0fba78309c0457d234e0606890091afa7ea3968bd29cb4",
+        "license_class": "redistributable",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-03-10T13:30:00Z",
+        "redistribution_note": "BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem."
+      },
+      "interval": {
+        "valid_from": "2023-02-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-03-10T13:30:00Z",
+        "available_at": "2023-03-10T13:30:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:35:44.109109Z",
+        "availability_rule": "The archived Employment Situation page explicitly states that transmission is embargoed until 8:30 a.m. Eastern Time on its named release date. FinReplay parses that timestamp in America/New_York and converts it to UTC without backdating.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "explicit_bls_embargo_end_america_new_york",
+        "metric": "nonfarm_payroll_change",
+        "release_date": "2023-03-10",
+        "release_number": "USDL-23-0436",
+        "release_time_eastern": "08:30:00",
+        "report_period": "2023-02",
+        "snapshot_semantics": "headline value reported in this archived release",
+        "source_text_encoding": "utf-8",
+        "unit": "Thousands of Persons",
+        "value_thousands": 311,
+        "wording": "rose"
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the March 10, 2023 archived BLS headline payroll change for February solely as a post-decision official event marker. Its knowledge time is the page's explicit 8:30 a.m. Eastern embargo end. The fact is excluded from ReplayPack inputs and does not establish forecast skill, calibrated coverage, stationarity across benchmark changes, causal labor-market attribution, policy or investment performance, external review, deployment, or user impact.",
+  "lock_sha256": "1afba8601bb8c0dae38ad6d9066ac821b3f211c18f767cb698825ecbb07b5457"
+}
