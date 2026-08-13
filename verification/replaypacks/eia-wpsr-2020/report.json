@@ -1,0 +1,586 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 4,
+    "reported": 4,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "62a55e480996255c6138002331198d557bd1ee53bed79b5cef72caa5f73b8da2",
+  "pack_sha256": "baf7d20f12097dbc58745d1e2eeb19fb0229ff062c987425addddc2d96c1f7c4",
+  "source_hashes": [
+    "5cc5a7db7d32c8521a700e57bb93e8e6fadffb82aa5c68c87c8f003e3a881c5a",
+    "ca5b0a93bc4d1fe6b257b75625c1a72b77f798c17a9dcbc576757ecbfdfce083"
+  ],
+  "source_record_ids": [
+    "eia.wpsr.archived_commercial_crude_stocks:20200408:commercial_crude_excluding_spr",
+    "eia.wpsr.archived_commercial_crude_stocks:20200415:commercial_crude_excluding_spr"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "eia-wpsr.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "8fecc8f65361c7f61c85855799ec9c54caa0eea963ea52658d5ac6c9a1e6e0bc",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not validate the stock-range heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This aggregate commercial-crude-stock boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no facility network, position, order, execution, portfolio, or allocation input is invented.",
+          "input_lock_sha256": "be38d822b5f5044c688f4ca5eee25f9046ffecc6b264f4e4e7d24599d3bd0936",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "5cc5a7db7d32c8521a700e57bb93e8e6fadffb82aa5c68c87c8f003e3a881c5a",
+          "ca5b0a93bc4d1fe6b257b75625c1a72b77f798c17a9dcbc576757ecbfdfce083"
+        ],
+        "source_record_ids": [
+          "eia.wpsr.archived_commercial_crude_stocks:20200408:commercial_crude_excluding_spr",
+          "eia.wpsr.archived_commercial_crude_stocks:20200415:commercial_crude_excluding_spr"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "eia-wpsr.shockcompiler.stock-range",
+          "eia-wpsr.timevault.release-query",
+          "eia-wpsr.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "eia-wpsr.shockcompiler.stock-range",
+        "artifact_kind": "bounded-commercial-crude-stock-program",
+        "artifact_sha256": "756d26d71ac774df4476a48a5a2ecc3fdef8f56d5623ab9254b52e1192c6a39c",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 3
+        },
+        "limitations": [
+          "The endpoints mechanically reuse two known aggregate stock levels.",
+          "The April 17 stock is absent from the bound construction.",
+          "The range is not an inventory probability, storage-capacity model, or causal claim."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": 484370.0,
+            "upper": 503618.0
+          },
+          "bound_construction": {
+            "endpoint_method": "minimum_and_maximum_of_two_known_reported_stock_levels",
+            "future_event_used": false,
+            "lower_stock_thousand_barrels": 484370,
+            "probability_assigned": false,
+            "range_width_thousand_barrels": 19248,
+            "upper_stock_thousand_barrels": 503618
+          },
+          "compiled": {
+            "compiled_sha256": "391060104247124a6c0ce8cee0648fbcbc1c8483ab15631352cae51f51adc932",
+            "decision_time": "2020-04-16T12:00:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, causal, storage-capacity, or policy interpretation.",
+              "The April 17 stock is excluded and evaluated only afterward."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "eia-wpsr-next-stock-envelope",
+            "scenario_id": "eia-wpsr-2020-crude-stock-boundary",
+            "source_program_sha256": "f690bcb4ba6663eae6404c52169e94332345b725f0b9f6c97b75414d6d91817f",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use the minimum and maximum of the two archived WPSR stock levels knowable at the decision time as transparent next-release stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two adjacent reported levels define a descriptive range, not a forecast or confidence interval."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "eia-wpsr-next-stock-range",
+                    "source_hashes": [
+                      "5cc5a7db7d32c8521a700e57bb93e8e6fadffb82aa5c68c87c8f003e3a881c5a",
+                      "ca5b0a93bc4d1fe6b257b75625c1a72b77f798c17a9dcbc576757ecbfdfce083"
+                    ],
+                    "source_record_ids": [
+                      "eia.wpsr.archived_commercial_crude_stocks:20200408:commercial_crude_excluding_spr",
+                      "eia.wpsr.archived_commercial_crude_stocks:20200415:commercial_crude_excluding_spr"
+                    ],
+                    "target_id": "eia_series:weekly_us_commercial_crude_stocks_excluding_spr",
+                    "unit": "thousand_barrels",
+                    "value": 484370.0,
+                    "variable": "next_reported_commercial_crude_stocks_thousand_barrels"
+                  }
+                ],
+                "trial_id": "eia-wpsr-next-stock-envelope:00000000:2c4e706f198baa8f",
+                "trial_index": 0,
+                "vector_sha256": "2c4e706f198baa8fc246d080fd14daf1d004cd0ebd7015ff97c1be8a64b94698"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use the minimum and maximum of the two archived WPSR stock levels knowable at the decision time as transparent next-release stress endpoints.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two adjacent reported levels define a descriptive range, not a forecast or confidence interval."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "eia-wpsr-next-stock-range",
+                    "source_hashes": [
+                      "5cc5a7db7d32c8521a700e57bb93e8e6fadffb82aa5c68c87c8f003e3a881c5a",
+                      "ca5b0a93bc4d1fe6b257b75625c1a72b77f798c17a9dcbc576757ecbfdfce083"
+                    ],
+                    "source_record_ids": [
+                      "eia.wpsr.archived_commercial_crude_stocks:20200408:commercial_crude_excluding_spr",
+                      "eia.wpsr.archived_commercial_crude_stocks:20200415:commercial_crude_excluding_spr"
+                    ],
+                    "target_id": "eia_series:weekly_us_commercial_crude_stocks_excluding_spr",
+                    "unit": "thousand_barrels",
+                    "value": 503618.0,
+                    "variable": "next_reported_commercial_crude_stocks_thousand_barrels"
+                  }
+                ],
+                "trial_id": "eia-wpsr-next-stock-envelope:00000001:eea81c9b3604ce8c",
+                "trial_index": 1,
+                "vector_sha256": "eea81c9b3604ce8c507d24dbc205642090719afd03c5bd85ad65e6bda857fcc5"
+              }
+            ]
+          },
+          "input_lock_sha256": "be38d822b5f5044c688f4ca5eee25f9046ffecc6b264f4e4e7d24599d3bd0936",
+          "known_stocks": {
+            "april03_stock_thousand_barrels": 484370,
+            "april10_stock_thousand_barrels": 503618,
+            "stock_lower_thousand_barrels": 484370,
+            "stock_range_width_thousand_barrels": 19248,
+            "stock_upper_thousand_barrels": 503618
+          },
+          "naive_baseline": {
+            "definition": "persistence of the latest known WPSR commercial-crude stock",
+            "next_reported_commercial_crude_stocks_thousand_barrels": 503618
+          },
+          "program": {
+            "decision_time": "2020-04-16T12:00:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, causal, storage-capacity, or policy interpretation.",
+              "The April 17 stock is excluded and evaluated only afterward."
+            ],
+            "hypothesis": "Evaluate the two known WPSR stock endpoints using only releases available at the historical decision boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use the minimum and maximum of the two archived WPSR stock levels knowable at the decision time as transparent next-release stress endpoints.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "Two adjacent reported levels define a descriptive range, not a forecast or confidence interval."
+                ],
+                "lower": 484370.0,
+                "operation": "set",
+                "parameter_id": "eia-wpsr-next-stock-range",
+                "source_record_ids": [
+                  "eia.wpsr.archived_commercial_crude_stocks:20200408:commercial_crude_excluding_spr",
+                  "eia.wpsr.archived_commercial_crude_stocks:20200415:commercial_crude_excluding_spr"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Energy Information Administration",
+                    "redistribution_note": "EIA states that its government publications and data are reusable with acknowledgment, but full archived PDFs and CSVs remain in local content-addressed storage because reports may contain protected third-party items and the EIA logo. Repository scenarios retain only the minimal Table 4 fact, attribution, URLs, and hashes.",
+                    "retrieved_at": "2026-08-13T06:43:21.757555Z",
+                    "sha256": "5cc5a7db7d32c8521a700e57bb93e8e6fadffb82aa5c68c87c8f003e3a881c5a",
+                    "source_id": "eia.wpsr.archived_commercial_crude_stocks",
+                    "source_version": "EIA-WPSR:2020-04-08:2020-04-03:csv:5cc5a7db7d32c8521a70:pdf:554692676b2ec44a704c",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.eia.gov/petroleum/supply/weekly/archive/2020/2020_04_08/csv/table4.csv",
+                    "vintage_as_of": "2020-04-08T18:15:55Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Energy Information Administration",
+                    "redistribution_note": "EIA states that its government publications and data are reusable with acknowledgment, but full archived PDFs and CSVs remain in local content-addressed storage because reports may contain protected third-party items and the EIA logo. Repository scenarios retain only the minimal Table 4 fact, attribution, URLs, and hashes.",
+                    "retrieved_at": "2026-08-13T06:43:23.859078Z",
+                    "sha256": "ca5b0a93bc4d1fe6b257b75625c1a72b77f798c17a9dcbc576757ecbfdfce083",
+                    "source_id": "eia.wpsr.archived_commercial_crude_stocks",
+                    "source_version": "EIA-WPSR:2020-04-15:2020-04-10:csv:ca5b0a93bc4d1fe6b257:pdf:1c0ab9cd1ab0f68d1058",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.eia.gov/petroleum/supply/weekly/archive/2020/2020_04_15/csv/table4.csv",
+                    "vintage_as_of": "2020-04-15T22:45:00Z"
+                  }
+                ],
+                "target_id": "eia_series:weekly_us_commercial_crude_stocks_excluding_spr",
+                "unit": "thousand_barrels",
+                "upper": 503618.0,
+                "variable": "next_reported_commercial_crude_stocks_thousand_barrels"
+              }
+            ],
+            "program_id": "eia-wpsr-next-stock-envelope",
+            "scenario_id": "eia-wpsr-2020-crude-stock-boundary"
+          }
+        },
+        "source_hashes": [
+          "5cc5a7db7d32c8521a700e57bb93e8e6fadffb82aa5c68c87c8f003e3a881c5a",
+          "ca5b0a93bc4d1fe6b257b75625c1a72b77f798c17a9dcbc576757ecbfdfce083"
+        ],
+        "source_record_ids": [
+          "eia.wpsr.archived_commercial_crude_stocks:20200408:commercial_crude_excluding_spr",
+          "eia.wpsr.archived_commercial_crude_stocks:20200415:commercial_crude_excluding_spr"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "eia-wpsr.timevault.release-query"
+        ]
+      },
+      {
+        "artifact_id": "eia-wpsr.timevault.release-query",
+        "artifact_kind": "versioned-eia-wpsr-release-query",
+        "artifact_sha256": "45737ac4a6ce36cbeeb89544758ba9b054661a767cd74bf7e9ef0e2fda9efe16",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 2
+        },
+        "limitations": [
+          "The lock contains only two archived WPSR commercial-crude stock levels.",
+          "Knowledge time is next-local-midnight, not an asserted exact release instant.",
+          "Aggregate stocks do not identify facilities, transactions, flows, or causes."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "a31f2d2256d17956b7f55887fe3d9d59a8a8684b59c7e2a342f5d57591f19313",
+              "b57bfe73b8544d401aca6e54ae390b5b607604199ff262796b1e7f2bb5e06695"
+            ],
+            "attempted_records": 2,
+            "fact_hashes": [
+              "3c3830f9b275d756122b06a29e13c252c3ab3155aff0181b4011542201c0a83a",
+              "57df37099e1a4b976a089fe845bd16dfde501a4dc0d55a457a937b9022b91d26"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 2
+          },
+          "decision_time": "2020-04-16T12:00:00Z",
+          "input_lock_sha256": "be38d822b5f5044c688f4ca5eee25f9046ffecc6b264f4e4e7d24599d3bd0936",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 2,
+            "fact_set_sha256": "ed60f489d74b005587835673c25c763063b12e3166686e3f03ee6e40ead95f3d",
+            "fact_versions": 2,
+            "generated_at": "2026-08-13T06:50:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2020-04-16T04:00:00Z",
+          "release_pdf_sha256s": [
+            "1c0ab9cd1ab0f68d105800702cf3d641da9a37dc9d8f5c89e3b4829952093b01",
+            "554692676b2ec44a704c8ac34579d05868efa431c4082b375733922e5fa857fb"
+          ],
+          "selected_record_ids": [
+            "eia.wpsr.archived_commercial_crude_stocks:20200408:commercial_crude_excluding_spr",
+            "eia.wpsr.archived_commercial_crude_stocks:20200415:commercial_crude_excluding_spr"
+          ]
+        },
+        "source_hashes": [
+          "5cc5a7db7d32c8521a700e57bb93e8e6fadffb82aa5c68c87c8f003e3a881c5a",
+          "ca5b0a93bc4d1fe6b257b75625c1a72b77f798c17a9dcbc576757ecbfdfce083"
+        ],
+        "source_record_ids": [
+          "eia.wpsr.archived_commercial_crude_stocks:20200408:commercial_crude_excluding_spr",
+          "eia.wpsr.archived_commercial_crude_stocks:20200415:commercial_crude_excluding_spr"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "eia-wpsr.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "b00134110ed8a4de276f832d46e8a034d456e2ef32e4a2df46dcfa25fc05b2f0",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 2,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "eia-wpsr-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "77f191df5a98fdecdc67b24bbf1ca97a403a6e48",
+            "completed_at": "2026-08-13T06:50:00Z",
+            "config_sha256": "1a52f5d6b7ccfd0fc7bda991dd1445d6e6fa2b92b968aa9ba6b9ec73797c7d8e",
+            "decision_time": "2020-04-16T12:00:00Z",
+            "evaluation_end": "2020-05-22",
+            "evaluation_start": "2020-04-17",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "be38d822b5f5044c688f4ca5eee25f9046ffecc6b264f4e4e7d24599d3bd0936",
+            "max_input_available_at": "2020-04-16T04:00:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 19248.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No April 17 WPSR event fact is present in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "00ce12aa8e028d402699bfd144f79dfd58c85ada0b91231b62a916a20c5b7516",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "two-release-difference": 19248.0,
+              "two-release-range-width": 19248.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 2,
+            "short_fraction": 0.0,
+            "training_end": "2020-04-14",
+            "trial_id": "eia-wpsr-retrospective-stock-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "793ee1198ccc1bb7486158305a04a5f840e3936642a4c9e6f5e0c19a3155d84e",
+            "entry_hash": "793ee1198ccc1bb7486158305a04a5f840e3936642a4c9e6f5e0c19a3155d84e",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "eia-wpsr-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "eia-wpsr-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "83a347a568d46b5b06a8eb2b43b1675867a7addd129ae77643f5a9c8c260bc9f",
+            "candidate_attempt_id": "eia-wpsr-retrospective-attempt-1",
+            "decided_at": "2026-08-13T06:50:00Z",
+            "decision_id": "decision:eia-wpsr-retrospective-stock-screen:bcd7f063e5a2309fcb962132",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 19248.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 19248.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "eia-wpsr-retrospective-stock-screen"
+          },
+          "input_lock_sha256": "be38d822b5f5044c688f4ca5eee25f9046ffecc6b264f4e4e7d24599d3bd0936",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "503888a774e1a513f2721418cefb0b36542aca95698e25c7c562138c40f3496f",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "b00fc99fad8a096115b3083c4e5573bc19d152f4b3584b3880dc0a02200e5caa",
+            "entry_hash": "b00fc99fad8a096115b3083c4e5573bc19d152f4b3584b3880dc0a02200e5caa",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "Commercial crude stocks summarize aggregate petroleum balances, but two reported levels and one later outcome cannot establish predictive validity or causality.",
+            "embargo_days": 0,
+            "expected_direction": "two-sided",
+            "holdout_end": "2020-05-22",
+            "holdout_start": "2020-04-17",
+            "hypothesis": "A retrospectively constructed two-release WPSR stock range qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-13T06:50:00Z",
+            "primary_metric": "two-release stock range width in thousand barrels",
+            "purge_days": 2,
+            "trial_id": "eia-wpsr-retrospective-stock-screen"
+          }
+        },
+        "source_hashes": [
+          "5cc5a7db7d32c8521a700e57bb93e8e6fadffb82aa5c68c87c8f003e3a881c5a",
+          "ca5b0a93bc4d1fe6b257b75625c1a72b77f798c17a9dcbc576757ecbfdfce083"
+        ],
+        "source_record_ids": [
+          "eia.wpsr.archived_commercial_crude_stocks:20200408:commercial_crude_excluding_spr",
+          "eia.wpsr.archived_commercial_crude_stocks:20200415:commercial_crude_excluding_spr"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "eia-wpsr.shockcompiler.stock-range",
+          "eia-wpsr.timevault.release-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over two locked WPSR commercial-crude-stock facts available before the decision time. Reported stocks remain reported; the next-stock range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The April 17 stock is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, oil-market causal model, trading signal, production deployment, or external validation.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "eia-wpsr.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no probability or coverage guarantee.",
+        "claim_id": "claim-inferred-commercial-crude-stock-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The April 17 stock was not used to set the interval.",
+          "The range has no causal, capacity, or policy interpretation."
+        ],
+        "statement": "The next-stock stress endpoints reuse the two known values: [484370, 503618] thousand barrels, with April 10 as the persistence baseline.",
+        "support_artifact_ids": [
+          "eia-wpsr.shockcompiler.stock-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external review.",
+        "claim_id": "claim-inferred-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective two-release stock attempt.",
+        "support_artifact_ids": [
+          "eia-wpsr.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are aggregate reported stock levels, not forecasts or causal estimates.",
+        "claim_id": "claim-reported-commercial-crude-stocks",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes only two release snapshots."
+        ],
+        "statement": "Archived EIA WPSR Table 4 reports U.S. commercial crude stocks excluding SPR of 484370 thousand barrels for April 3 and 503618 thousand barrels for April 10, 2020.",
+        "support_artifact_ids": [
+          "eia-wpsr.timevault.release-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not orders, capacity, capital, or returns.",
+        "claim_id": "claim-simulated-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "eia-wpsr.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "77f191df5a98fdecdc67b24bbf1ca97a403a6e48",
+    "compressed_input_bytes": 2058,
+    "created_at": "2026-08-13T06:50:00Z",
+    "decision_time": "2020-04-16T12:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves the WPSR Table 4 U.S. commercial crude stocks excluding SPR for weeks ending April 3 and 10, 2020 from two paired official EIA archive CSV/PDF releases conservatively knowable before the replay decision time. It excludes the April 17 event stock, facility-level data, transactions, flows, storage-capacity utilization, a probability distribution, forecast, calibrated interval, pandemic or oil-market causal attribution, policy recommendation, execution, investment performance, external review, deployment, and user impact.",
+      "The endpoints are the minimum and maximum of two known stock levels only.",
+      "The April 17 stock is excluded from every decision input and artifact.",
+      "The next-local-midnight knowledge rule is conservative rather than exact.",
+      "Two aggregate stock levels do not identify facilities, transactions, flows, or causes.",
+      "No position, order, portfolio, allocation, or return is represented.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "eia-wpsr-2020-crude-stock-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "eia-wpsr-2020-crude-stock-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "EIA commercial crude stock boundary before the April 2020 inventory build"
+  },
+  "topological_artifact_ids": [
+    "eia-wpsr.timevault.release-query",
+    "eia-wpsr.shockcompiler.stock-range",
+    "eia-wpsr.trialcourt.retrospective-gate",
+    "eia-wpsr.replaystudio.render"
+  ],
+  "trace_id": "trace:02607eb05647ea0f55341031c4c55035a27f86fadfd8e20ffada0a15dd1a8780"
+}

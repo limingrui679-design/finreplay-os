@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over two locked WPSR commercial-crude-stock facts available before the decision time. Reported stocks remain reported; the next-stock range remains inferred with no assigned probability; TrialCourt rejects retrospective promotion. The April 17 stock is held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, oil-market causal model, trading signal, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1253,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "b69314e1ce9bd976d4dab59fa4c359a4f06c3f62be6bb919097976fa4247b878"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "b0d724b919be83bebbed886026fb90b602098d08a8da558ed3e454fe0e422f63"
+    },
+    {
+      "bytes": 30443,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "12a0dcbc493eae89e0f801e2f7fefc629604dcee1842b56070dc47418c5cd1ed"
+    },
+    {
+      "bytes": 29176,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "9863be574b19a7531d95f7c6b573d183a9ed098b775fd30928563a0520999c75"
+    }
+  ],
+  "pack_sha256": "baf7d20f12097dbc58745d1e2eeb19fb0229ff062c987425addddc2d96c1f7c4",
+  "receipt_sha256": "f32c7f354cd0447b817f00708b54acaa604c35e8134da889e5764e1a55fb76d5",
+  "replay_id": "eia-wpsr-2020-crude-stock-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "77f191df5a98fdecdc67b24bbf1ca97a403a6e48",
+    "compressed_input_bytes": 2058,
+    "created_at": "2026-08-13T06:50:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "62a55e480996255c6138002331198d557bd1ee53bed79b5cef72caa5f73b8da2",
+    "output_manifest_sha256": "586cd2eeabaf7c285c662662d786c529f99d5b7b7dfa56dd4a7a404d4962eeed",
+    "replay_id": "eia-wpsr-2020-crude-stock-boundary-v1",
+    "scenario_id": "eia-wpsr-2020-crude-stock-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "9863be574b19a7531d95f7c6b573d183a9ed098b775fd30928563a0520999c75",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:02607eb05647ea0f55341031c4c55035a27f86fadfd8e20ffada0a15dd1a8780"
+}
