@@ -23,11 +23,11 @@
     {
       "adapter_id": "fdic.bankfind.financials",
       "historical_replay_eligible": false,
-      "idempotent_records": 156,
-      "inserted_records": 0,
-      "receipt": "fdic/fdic.bankfind.financials-895dfa5663a2e376.json",
+      "idempotent_records": 0,
+      "inserted_records": 156,
+      "receipt": "fdic/fdic.bankfind.financials-f8f35cd9fbf8bb23.json",
       "record_count": 156,
-      "retrieved_at": "2026-08-12T14:08:16.635181Z",
+      "retrieved_at": "2026-08-12T14:34:16.605621Z",
       "temporal_coverage": "latest_only"
     },
     {
@@ -81,6 +81,96 @@
       "temporal_coverage": "latest_only"
     },
     {
+      "adapter_id": "nyfed.markets.ambs_operations",
+      "historical_replay_eligible": false,
+      "idempotent_records": 0,
+      "inserted_records": 1,
+      "receipt": "nyfed/nyfed.markets.ambs_operations-f263e63ef1705414.json",
+      "record_count": 1,
+      "retrieved_at": "2026-08-13T02:21:52.322049Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "nyfed.markets.central_bank_liquidity_swaps",
+      "historical_replay_eligible": false,
+      "idempotent_records": 0,
+      "inserted_records": 1,
+      "receipt": "nyfed/nyfed.markets.central_bank_liquidity_swaps-0e2e4fbe6aefbde2.json",
+      "record_count": 1,
+      "retrieved_at": "2026-08-13T02:21:55.747460Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "nyfed.markets.primary_dealer_asof_dates",
+      "historical_replay_eligible": false,
+      "idempotent_records": 0,
+      "inserted_records": 1950,
+      "receipt": "nyfed/nyfed.markets.primary_dealer_asof_dates-c999ecdafbcca840.json",
+      "record_count": 1950,
+      "retrieved_at": "2026-08-13T02:21:58.559135Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "nyfed.markets.primary_dealer_guidesheet",
+      "historical_replay_eligible": false,
+      "idempotent_records": 0,
+      "inserted_records": 1,
+      "receipt": "nyfed/nyfed.markets.primary_dealer_guidesheet-f9a4a00206390eef.json",
+      "record_count": 1,
+      "retrieved_at": "2026-08-13T02:21:56.761177Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "nyfed.markets.reference_rates",
+      "historical_replay_eligible": false,
+      "idempotent_records": 0,
+      "inserted_records": 6,
+      "receipt": "nyfed/nyfed.markets.reference_rates-1d36ebd888683471.json",
+      "record_count": 6,
+      "retrieved_at": "2026-08-13T02:22:01.131888Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "nyfed.markets.repo_operations",
+      "historical_replay_eligible": false,
+      "idempotent_records": 0,
+      "inserted_records": 1,
+      "receipt": "nyfed/nyfed.markets.repo_operations-2b916e0f91b068f1.json",
+      "record_count": 1,
+      "retrieved_at": "2026-08-13T02:22:02.314217Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "nyfed.markets.securities_lending",
+      "historical_replay_eligible": false,
+      "idempotent_records": 0,
+      "inserted_records": 1,
+      "receipt": "nyfed/nyfed.markets.securities_lending-af8e24a91e5142e0.json",
+      "record_count": 1,
+      "retrieved_at": "2026-08-13T02:22:03.639565Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "nyfed.markets.soma_summary",
+      "historical_replay_eligible": false,
+      "idempotent_records": 0,
+      "inserted_records": 1205,
+      "receipt": "nyfed/nyfed.markets.soma_summary-3bba2f6ac733b82b.json",
+      "record_count": 1205,
+      "retrieved_at": "2026-08-13T02:22:05.143509Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
+      "adapter_id": "nyfed.markets.treasury_operations",
+      "historical_replay_eligible": false,
+      "idempotent_records": 0,
+      "inserted_records": 1,
+      "receipt": "nyfed/nyfed.markets.treasury_operations-dcbd5235c4c42320.json",
+      "record_count": 1,
+      "retrieved_at": "2026-08-13T02:22:07.373489Z",
+      "temporal_coverage": "latest_only"
+    },
+    {
       "adapter_id": "sec.edgar.submissions",
       "historical_replay_eligible": true,
       "idempotent_records": 1000,
@@ -123,11 +213,11 @@
     {
       "adapter_id": "treasury.fiscaldata.debt_to_penny",
       "historical_replay_eligible": false,
-      "idempotent_records": 3,
-      "inserted_records": 0,
-      "receipt": "treasury/treasury.fiscaldata.debt_to_penny-4559dd25b0a16553.json",
-      "record_count": 3,
-      "retrieved_at": "2026-08-12T14:08:05.185953Z",
+      "idempotent_records": 0,
+      "inserted_records": 1,
+      "receipt": "treasury/treasury.fiscaldata.debt_to_penny-b0f11f114c7afb73.json",
+      "record_count": 1,
+      "retrieved_at": "2026-08-12T14:34:21.260902Z",
       "temporal_coverage": "latest_only"
     },
     {
@@ -162,7 +252,7 @@
     }
   ],
   "historical_replay_eligible_count": 3,
-  "latest_only_count": 13,
+  "latest_only_count": 22,
   "schema_version": "1.0.0",
-  "verified_adapter_count": 16
+  "verified_adapter_count": 25
 }
