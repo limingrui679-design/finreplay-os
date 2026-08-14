@@ -9,6 +9,7 @@ import os
 import subprocess
 import tempfile
 import time
+from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
 from datetime import UTC, date, datetime
 from pathlib import Path
 
@@ -82,6 +83,12 @@ def main() -> None:
         help="Bound newly built partitions for a smoke or incremental run.",
     )
     parser.add_argument("--download-attempts", type=int, default=5)
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=1,
+        help="Concurrent official archive transfers; deliberately capped at four.",
+    )
     parser.add_argument("--retry-delay-seconds", type=float, default=5.0)
     parser.add_argument("--inter-request-delay-seconds", type=float, default=0.25)
     parser.add_argument(
@@ -136,10 +143,8 @@ def main() -> None:
         f"target={args.target_rows}",
         flush=True,
     )
-    new_partitions = 0
+    candidates: list[SECLogPartition] = []
     for partition in partitions:
-        if total_rows >= args.target_rows:
-            break
         existing = receipt_by_date.get(partition.partition_date)
         if existing is not None:
             if not args.fast_existing:
@@ -153,11 +158,22 @@ def main() -> None:
                     archive_path=args.archive_directory / existing.zip_filename,
                     parquet_path=args.parquet_directory / existing.parquet_filename,
                 )
-            continue
-        if args.max_new_partitions is not None and new_partitions >= args.max_new_partitions:
-            break
-        try:
-            receipt = _build_partition(
+        else:
+            candidates.append(partition)
+    if args.max_new_partitions is not None:
+        candidates = candidates[: args.max_new_partitions]
+    next_candidate = 0
+    pending: dict[Future[SECLogPartitionReceipt], SECLogPartition] = {}
+    with ThreadPoolExecutor(max_workers=args.workers) as executor:
+        while (
+            len(pending) < args.workers
+            and next_candidate < len(candidates)
+            and total_rows < args.target_rows
+        ):
+            partition = candidates[next_candidate]
+            next_candidate += 1
+            future = executor.submit(
+                _build_partition,
                 partition,
                 user_agent=user_agent,
                 archive_directory=args.archive_directory,
@@ -167,40 +183,66 @@ def main() -> None:
                 download_attempts=args.download_attempts,
                 retry_delay_seconds=args.retry_delay_seconds,
             )
-        except (OSError, ValueError) as error:
-            _record_failure(
-                args.failure_log,
-                partition=partition,
-                revision=revision,
-                error=error,
-            )
-            print(
-                f"partition={partition.partition_date} status=failed "
-                f"error={type(error).__name__}: {error}",
-                flush=True,
-            )
-            if args.fail_fast:
-                raise
+            pending[future] = partition
             time.sleep(args.inter_request_delay_seconds)
-            continue
-        receipt_by_date[partition.partition_date] = receipt
-        total_rows += receipt.data_row_count
-        new_partitions += 1
-        manifest = _write_checkpoint(
-            inventories=inventories,
-            receipts=tuple(receipt_by_date.values()),
-            target_rows=args.target_rows,
-            revision=revision,
-            path=args.manifest,
-        )
-        print(
-            f"partition={partition.partition_date} status=sealed rows={receipt.data_row_count} "
-            f"exact_total={manifest.total_distinct_physical_rows} "
-            f"target_met={str(manifest.target_met).lower()} "
-            f"manifest_sha256={manifest.manifest_sha256}",
-            flush=True,
-        )
-        time.sleep(args.inter_request_delay_seconds)
+        while pending:
+            completed, _ = wait(pending, return_when=FIRST_COMPLETED)
+            for future in completed:
+                partition = pending.pop(future)
+                try:
+                    receipt = future.result()
+                except (OSError, ValueError) as error:
+                    _record_failure(
+                        args.failure_log,
+                        partition=partition,
+                        revision=revision,
+                        error=error,
+                    )
+                    print(
+                        f"partition={partition.partition_date} status=failed "
+                        f"error={type(error).__name__}: {error}",
+                        flush=True,
+                    )
+                    if args.fail_fast:
+                        raise
+                else:
+                    receipt_by_date[partition.partition_date] = receipt
+                    total_rows += receipt.data_row_count
+                    manifest = _write_checkpoint(
+                        inventories=inventories,
+                        receipts=tuple(receipt_by_date.values()),
+                        target_rows=args.target_rows,
+                        revision=revision,
+                        path=args.manifest,
+                    )
+                    print(
+                        f"partition={partition.partition_date} status=sealed "
+                        f"rows={receipt.data_row_count} "
+                        f"exact_total={manifest.total_distinct_physical_rows} "
+                        f"target_met={str(manifest.target_met).lower()} "
+                        f"manifest_sha256={manifest.manifest_sha256}",
+                        flush=True,
+                    )
+            while (
+                len(pending) < args.workers
+                and next_candidate < len(candidates)
+                and total_rows < args.target_rows
+            ):
+                partition = candidates[next_candidate]
+                next_candidate += 1
+                future = executor.submit(
+                    _build_partition,
+                    partition,
+                    user_agent=user_agent,
+                    archive_directory=args.archive_directory,
+                    parquet_directory=args.parquet_directory,
+                    download_receipt_directory=args.download_receipt_directory,
+                    partition_receipt_directory=args.partition_receipt_directory,
+                    download_attempts=args.download_attempts,
+                    retry_delay_seconds=args.retry_delay_seconds,
+                )
+                pending[future] = partition
+                time.sleep(args.inter_request_delay_seconds)
     manifest = _write_checkpoint(
         inventories=inventories,
         receipts=tuple(receipt_by_date.values()),
@@ -224,6 +266,8 @@ def _validate_args(args: argparse.Namespace) -> None:
         raise SystemExit("--max-new-partitions must be positive")
     if args.download_attempts <= 0:
         raise SystemExit("--download-attempts must be positive")
+    if args.workers <= 0 or args.workers > 4:
+        raise SystemExit("--workers must be between 1 and 4")
     if args.retry_delay_seconds < 0 or args.inter_request_delay_seconds < 0:
         raise SystemExit("retry and inter-request delays cannot be negative")
     if args.start_date and args.end_date and args.start_date > args.end_date:
