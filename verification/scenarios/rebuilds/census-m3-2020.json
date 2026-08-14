@@ -1,9 +1,9 @@
 {
   "artifact_sha256": {
     "replaystudio": "eab0255cab842b75093dd61f08ad1f84ba4ddae449b815875b1c7c30aed1115e",
-    "shockcompiler": "b810511c4d0cfc4b37a89dd5504e9a331cdd5096907b7329c26a46faafb0d71d",
+    "shockcompiler": "e3b88c2046e14bf58f2e4660ee5081f581e6502593caee7200a92f92fa3703bd",
     "timevault": "75116508b669683e238cdb363515baa720293af070d24d44a6419db0f5168bce",
-    "trialcourt": "2ad8d3d529cc535073be6066e5df8e849226855b87646147d3482f6ef8be3a03"
+    "trialcourt": "efc5dce06b92adf33d00058ba6155bdf91d21232a0dcf54150b41068376626c5"
   },
   "assertions": {
     "all_artifacts_reproduced": true,
@@ -32,19 +32,19 @@
     "two_pdf_hashes_are_bound": true
   },
   "claim_boundary": "This receipt proves two fresh local executions of the four relevant engines rebuild the committed directory and deterministic ZIP bytes from two locked pre-decision Census M3 durable-goods first-report total new-orders monthly changes and two exact current official PDF hashes. All current PDFs have post-release modification metadata, so no release-time byte identity is claimed. It verifies the separately locked March change is disjoint and, as an evaluation only, falls 1,560 basis points below the fixed no-probability range. The range is not widened after the fact, and the April report's January and February snapshot values do not overwrite the first-report inputs. The COVID-19 text proves only a publication-standards statement. This does not prove forecast skill, calibrated coverage, statistical significance, price-adjusted output, a contemporaneous COVID effect, manufacturing, inflation, pandemic, policy, sector, regional, or firm causality, investment performance, deployment, external review, or user impact.",
-  "code_commit": "d2d89ebef0b1ae7033bda41f1bcd67453693e5e1",
+  "code_commit": "f31f0a8a4d53072d70e5a8597542bd1a37975165",
   "event_lock_sha256": "696a6d5bb84f9dea48c298ce311e7cc21b1061f2ced4b87aedc76c2091b40f80",
   "file_sha256": {
-    "README.md": "fae5d74b06b7894eed1d5c34a020c690c61385b57049e0d72d50dbb48c8ac388",
+    "README.md": "cbb2aa2f136e9a6b485c05af6723aecb793437611001109baf2dc041f3de86c9",
     "assets/styles.css": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677",
-    "checksums.sha256": "4e2a9fb9ad9db2426a551202c0036dd7c7830d89600b15cff26d236cc4930079",
-    "index.html": "50f439a2e4a9a8d00835cd1f69d244de907609cacce3359a764ed73fd3e1095b",
-    "manifest.json": "222c0c0345d00393940da62f1a7c743a5f24f8c89b3ef4337b31e31599d0e478",
-    "report.json": "61ca8ef6115523c091e49f26ea36058550b91b75cee9948e30c8554a2a2800fa"
+    "checksums.sha256": "2a90aa1c612a33c8fd96bfce865191c664ab593250d04534bc6a1f1e836cfcd8",
+    "index.html": "736326723fafab893e9249b401344fe147cfd0f40de649e74432a9e2526ea78e",
+    "manifest.json": "1297763ad6c54d88b55e8b6ea2d73aabf2998834dc0b78c1d6e589528a629333",
+    "report.json": "ae1e813ecdbfe6d1fff072490ec3147495aef425db47aabc8439a6d68295df52"
   },
   "input_lock_sha256": "7fe32fee04c2c3db33380e54e16d621f21b6d9076d10f88529f8cd3c1db8756f",
-  "pack_receipt_sha256": "c9f938b6e5088e65f79c229a41bacdd9d276be3399386e8ae6c4b5996bd82688",
-  "pack_sha256": "fd3f33f12605700d6a71d72a7eda64a2b3ade39207cff28727e9f03661e49858",
+  "pack_receipt_sha256": "c7a5e8475872306014af90c48d9ac883aafd83730f5b5585e56efdd3902a5faf",
+  "pack_sha256": "a25e9e89732418e8693ef4af6568312fe4d1966455463a6a72e95220167e5227",
   "post_event_evaluation": {
     "current_pdf_byte_identity_at_release_claimed": false,
     "declared_lower_change_basis_points": 120,
@@ -61,23 +61,23 @@
     "reported_march_change_basis_points": -1440,
     "used_as_decision_input": false
   },
-  "receipt_sha256": "72456d5c736ea0284d567eafbcc8394d075956176e57589972e926de2d2e58a5",
+  "receipt_sha256": "575e53b6620a4b4a0bc26163ad8cc8661d3d801f55c99dcaac86e535e360621e",
   "runtime": {
     "duckdb": "1.5.5",
     "finreplay": "0.1.0a0",
     "machine": "arm64",
-    "measured_at": "2026-08-14T05:37:14.002760+00:00",
+    "measured_at": "2026-08-14T05:45:41.652472+00:00",
     "numpy": "2.2.6",
     "platform": "macOS-26.5.2-arm64-arm-64bit",
     "pydantic": "2.13.4",
     "pypdf": "6.15.0",
     "python": "3.12.13",
-    "runner_commit": "6bd7401927b0226a590058de17dee24f104d7bd1",
+    "runner_commit": "458a5bc86cafb345ef9d5d75e2b5a3bcc1f8b6e1",
     "runner_dirty": false,
     "scipy": "1.18.0",
-    "two_rebuild_elapsed_seconds": 0.634905707964208
+    "two_rebuild_elapsed_seconds": 0.6185955420369282
   },
   "schema_version": "1.0.0",
-  "semantic_sha256": "db6e2f3f5377f4bd38bf9b2107bdcd4ca2b7834c904a128ec4edc4d2c60ca845",
-  "trace_id": "trace:4873c1a521dddfc4d4ea794375a05339b0e465711b9bd9082d7fcc03be5f8d71"
+  "semantic_sha256": "ac1718523c86f5535b2b081a0ee05933dad9a8e87e34df72f847502be354a8ee",
+  "trace_id": "trace:7692bc8465f6f3b9844211d6e95b4f0d434a32473d1d85d62dd50e7ac4a343f8"
 }
