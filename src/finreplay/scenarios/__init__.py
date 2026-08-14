@@ -112,6 +112,13 @@ from finreplay.scenarios.new_home_sales_level_boundary import (
     build_new_home_sales_level_boundary_replay_spec,
     load_new_home_sales_level_boundary_input_lock,
 )
+from finreplay.scenarios.ppi_boundary import (
+    BLS_PPI_SOURCE_ID,
+    PPIBoundaryInputLock,
+    PPIBoundaryRoles,
+    build_ppi_boundary_replay_spec,
+    load_ppi_boundary_input_lock,
+)
 from finreplay.scenarios.proof import (
     ArtifactValueExpectation,
     EventLockEvidence,
@@ -191,6 +198,7 @@ __all__ = [
     "BEA_PIO_SOURCE_ID",
     "BLS_CPI_SOURCE_ID",
     "BLS_EMPLOYMENT_SOURCE_ID",
+    "BLS_PPI_SOURCE_ID",
     "CENSUS_BEA_FT900_SOURCE_ID",
     "CENSUS_C30_SOURCE_ID",
     "CENSUS_DURABLE_GOODS_SOURCE_ID",
@@ -248,6 +256,8 @@ __all__ = [
     "NewHomeSalesLevelBoundaryInputLock",
     "NewHomeSalesLevelBoundaryRoles",
     "OfficialEventLock",
+    "PPIBoundaryInputLock",
+    "PPIBoundaryRoles",
     "RetailSalesBoundaryInputLock",
     "RetailSalesBoundaryRoles",
     "SOFRBoundaryInputLock",
@@ -282,6 +292,7 @@ __all__ = [
     "build_initial_claims_boundary_replay_spec",
     "build_macro_revision_replay_spec",
     "build_new_home_sales_level_boundary_replay_spec",
+    "build_ppi_boundary_replay_spec",
     "build_retail_sales_boundary_replay_spec",
     "build_sofr_boundary_replay_spec",
     "build_svb_replay_spec",
@@ -306,6 +317,7 @@ __all__ = [
     "load_initial_claims_boundary_input_lock",
     "load_macro_revision_input_lock",
     "load_new_home_sales_level_boundary_input_lock",
+    "load_ppi_boundary_input_lock",
     "load_retail_sales_boundary_input_lock",
     "load_scenario_proof",
     "load_sofr_boundary_input_lock",
