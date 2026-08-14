@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over two original EIA WNGSR Lower 48 stock estimates recovered from the official revision-safe archive and cross-checked against the current history and 2020-22 performance evaluation. Reported stocks remain reported; the 2,025-to-2,034 Bcf persistence-or-one-decline envelope remains inferred with no probability. The March 20 event stays only in a disjoint event lock. This is not an EIA forecast, sampling interval, calibrated interval, storage capacity estimate, injection or withdrawal measurement, market signal, causal model, deployment, external validation, investment result, or user-impact claim.",
+  "files": [
+    {
+      "bytes": 1424,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "b89adaf5d8a6dacb60439baf2b2c81e121bc6d28403870330f2696e6ff5b804a"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "38a49e6b7b58a701563462b8fba899285612dd001fc81d7a6fac5254922208ae"
+    },
+    {
+      "bytes": 31662,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "d553dbe9dc75f5e6be7d95e2eda54726e0d4a811aa65104b4114805396014568"
+    },
+    {
+      "bytes": 30873,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "a2d932983ca76a4aa85cbed25cfa22cde47686cffdaac9de51506b5d5b7fc70c"
+    }
+  ],
+  "pack_sha256": "00e71ea907ad3783423f66cf9e933ef949176e563ba4ab559ec76367bb2cf0e7",
+  "receipt_sha256": "196acddabf8563bbc3f9da8a7a12978a84ba9f8b06ea3f6fd869a9825306526a",
+  "replay_id": "eia-wngsr-2020-working-gas-stock-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "0626388d7b93cd948f639acbaf0f26a23d7b5314",
+    "compressed_input_bytes": 2256,
+    "created_at": "2026-08-14T08:10:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "d48b6d60e3a0bc21be51890b4130ba8c2c14b8d7dbd5b17d86112f5bfe73ce1a",
+    "output_manifest_sha256": "977930bb6e8fece54e73c5f45f03d3969e9a8168f8095da0f8276559f0984a88",
+    "replay_id": "eia-wngsr-2020-working-gas-stock-boundary-v1",
+    "scenario_id": "eia-wngsr-2020-working-gas-stock-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "a2d932983ca76a4aa85cbed25cfa22cde47686cffdaac9de51506b5d5b7fc70c",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:cf04545be3a46eba12a13716838e9284c9e91a457c38d950f60dfcffee8bd652"
+}

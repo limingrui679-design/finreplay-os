@@ -1,0 +1,611 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 4,
+    "reported": 4,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "d48b6d60e3a0bc21be51890b4130ba8c2c14b8d7dbd5b17d86112f5bfe73ce1a",
+  "pack_sha256": "00e71ea907ad3783423f66cf9e933ef949176e563ba4ab559ec76367bb2cf0e7",
+  "source_hashes": [
+    "7973c8f5721c1addb2f8df496134aa0697a98f1f4eb9b075223f19f12f513b18",
+    "de3123137bf3d5055181aa709e522caec0afe301a1077fca79a886ee5249536b",
+    "ee7c703c6d30176d0253b879aa4c8c6dc0178b411c36d73036d89aeff412dd3c"
+  ],
+  "source_record_ids": [
+    "eia.wngsr.revision_safe_working_gas:20200312:lower48_working_gas:ee7c703c6d30176d",
+    "eia.wngsr.revision_safe_working_gas:20200319:lower48_working_gas:ee7c703c6d30176d"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "eia-wngsr.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "24cbf05d520b137a40c787802c0a1830de57caebe3bf80e405da14dabf070141",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not validate the one-decline range heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This aggregate working-gas boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no operator, reservoir, pipeline, position, order, execution, portfolio, or allocation input is invented.",
+          "input_lock_sha256": "8defce1bad1048f378b852c1fcf165f921b8bebf9117372d303ef02e73fbd744",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "7973c8f5721c1addb2f8df496134aa0697a98f1f4eb9b075223f19f12f513b18",
+          "de3123137bf3d5055181aa709e522caec0afe301a1077fca79a886ee5249536b",
+          "ee7c703c6d30176d0253b879aa4c8c6dc0178b411c36d73036d89aeff412dd3c"
+        ],
+        "source_record_ids": [
+          "eia.wngsr.revision_safe_working_gas:20200312:lower48_working_gas:ee7c703c6d30176d",
+          "eia.wngsr.revision_safe_working_gas:20200319:lower48_working_gas:ee7c703c6d30176d"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "eia-wngsr.shockcompiler.working-gas-stock-range",
+          "eia-wngsr.timevault.original-vintage-query",
+          "eia-wngsr.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "eia-wngsr.shockcompiler.working-gas-stock-range",
+        "artifact_kind": "bounded-eia-wngsr-working-gas-stock-program",
+        "artifact_sha256": "1abb3cd7a8316262d4604005c1120dfdf0c774d84978bf6922761e8da4968c3c",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 3
+        },
+        "limitations": [
+          "The endpoints mechanically reuse one reported stock decline.",
+          "The March 20 value is absent.",
+          "The range is not an official interval, probability, causal model, or forecast."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": 2025.0,
+            "upper": 2034.0
+          },
+          "bound_construction": {
+            "endpoint_method": "latest_stock_persistence_or_repeat_one_known_decline",
+            "future_event_used": false,
+            "known_decline_bcf": 9,
+            "lower_stock_bcf": 2025,
+            "original_vintage_values_only": true,
+            "probability_assigned": false,
+            "range_width_bcf": 9,
+            "source_statistical_measures_used": false,
+            "upper_stock_bcf": 2034
+          },
+          "compiled": {
+            "compiled_sha256": "84862b3237264400f0722f53e6a17c77bc558353446a38c3723fecefcd744b81",
+            "decision_time": "2020-03-19T14:30:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, causal, or regime meaning.",
+              "The March 20 stock is evaluated only afterward.",
+              "The aggregate estimate is not a facility, flow, transaction, or capacity dataset."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "eia-wngsr-next-working-gas-stock-envelope",
+            "scenario_id": "eia-wngsr-2020-working-gas-stock-boundary",
+            "source_program_sha256": "a90653bc9b765a675515db67ac09a0b3f3a7e45cc4ff49ef389e29c8c72fc05b",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use March 13 stock persistence or one repetition of the only known original-stock decline between the March 6 and March 13 releases.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "One observed decline defines a stress range, not a forecast or probability.",
+                      "The source CV and weekly-net-change standard error do not set either endpoint.",
+                      "The March 20 event is absent from range construction."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "eia-wngsr-next-working-gas-stock-range",
+                    "source_hashes": [
+                      "ee7c703c6d30176d0253b879aa4c8c6dc0178b411c36d73036d89aeff412dd3c",
+                      "ee7c703c6d30176d0253b879aa4c8c6dc0178b411c36d73036d89aeff412dd3c"
+                    ],
+                    "source_record_ids": [
+                      "eia.wngsr.revision_safe_working_gas:20200312:lower48_working_gas:ee7c703c6d30176d",
+                      "eia.wngsr.revision_safe_working_gas:20200319:lower48_working_gas:ee7c703c6d30176d"
+                    ],
+                    "target_id": "eia_series:wngsr_working_gas_lower_48",
+                    "unit": "billion_cubic_feet",
+                    "value": 2025.0,
+                    "variable": "next_lower_48_working_gas_stock_bcf"
+                  }
+                ],
+                "trial_id": "eia-wngsr-next-working-gas-stock-envelope:00000000:578f0a2bacef250a",
+                "trial_index": 0,
+                "vector_sha256": "578f0a2bacef250aac10682ab74fe92bf2b2d5b151566a7cfb5315044b08f378"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use March 13 stock persistence or one repetition of the only known original-stock decline between the March 6 and March 13 releases.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "One observed decline defines a stress range, not a forecast or probability.",
+                      "The source CV and weekly-net-change standard error do not set either endpoint.",
+                      "The March 20 event is absent from range construction."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "eia-wngsr-next-working-gas-stock-range",
+                    "source_hashes": [
+                      "ee7c703c6d30176d0253b879aa4c8c6dc0178b411c36d73036d89aeff412dd3c",
+                      "ee7c703c6d30176d0253b879aa4c8c6dc0178b411c36d73036d89aeff412dd3c"
+                    ],
+                    "source_record_ids": [
+                      "eia.wngsr.revision_safe_working_gas:20200312:lower48_working_gas:ee7c703c6d30176d",
+                      "eia.wngsr.revision_safe_working_gas:20200319:lower48_working_gas:ee7c703c6d30176d"
+                    ],
+                    "target_id": "eia_series:wngsr_working_gas_lower_48",
+                    "unit": "billion_cubic_feet",
+                    "value": 2034.0,
+                    "variable": "next_lower_48_working_gas_stock_bcf"
+                  }
+                ],
+                "trial_id": "eia-wngsr-next-working-gas-stock-envelope:00000001:898437b2b9141d2c",
+                "trial_index": 1,
+                "vector_sha256": "898437b2b9141d2c368d28aa9abf1a3c8368bad56941fbb8675ada0a282d49b9"
+              }
+            ]
+          },
+          "input_lock_sha256": "8defce1bad1048f378b852c1fcf165f921b8bebf9117372d303ef02e73fbd744",
+          "known_original_stock_levels": {
+            "known_decline_bcf": 9,
+            "lower_stock_bcf": 2025,
+            "march06_working_gas_bcf": 2043,
+            "march13_working_gas_bcf": 2034,
+            "range_width_bcf": 9,
+            "upper_stock_bcf": 2034
+          },
+          "naive_baseline": {
+            "definition": "persistence of the March 13 Lower 48 working-gas stock",
+            "next_lower_48_working_gas_stock_bcf": 2034
+          },
+          "program": {
+            "decision_time": "2020-03-19T14:30:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, causal, or regime meaning.",
+              "The March 20 stock is evaluated only afterward.",
+              "The aggregate estimate is not a facility, flow, transaction, or capacity dataset."
+            ],
+            "hypothesis": "Evaluate March 13 stock persistence or one repetition of the known 9 Bcf decline using only original values available at the boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use March 13 stock persistence or one repetition of the only known original-stock decline between the March 6 and March 13 releases.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "One observed decline defines a stress range, not a forecast or probability.",
+                  "The source CV and weekly-net-change standard error do not set either endpoint.",
+                  "The March 20 event is absent from range construction."
+                ],
+                "lower": 2025.0,
+                "operation": "set",
+                "parameter_id": "eia-wngsr-next-working-gas-stock-range",
+                "source_record_ids": [
+                  "eia.wngsr.revision_safe_working_gas:20200312:lower48_working_gas:ee7c703c6d30176d",
+                  "eia.wngsr.revision_safe_working_gas:20200319:lower48_working_gas:ee7c703c6d30176d"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Energy Information Administration",
+                    "redistribution_note": "EIA government data are reusable with acknowledgment, but complete XLS and PDF responses remain in local content-addressed storage. The repository retains only minimal selected facts, URLs, hashes, source semantics, and release timing.",
+                    "retrieved_at": "2026-08-14T07:49:05.334290Z",
+                    "sha256": "ee7c703c6d30176d0253b879aa4c8c6dc0178b411c36d73036d89aeff412dd3c",
+                    "source_id": "eia.wngsr.revision_safe_working_gas",
+                    "source_version": "EIA-WNGSR:2020-03-12:2020-03-06:rev:ee7c703c6d30176d0253:hist:7973c8f5721c1addb2f8:eval:de3123137bf3d5055181",
+                    "temporal_coverage": "vintage_native",
+                    "url": "https://ir.eia.gov/ngs/revisions.xls",
+                    "vintage_as_of": "2020-03-12T14:30:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Energy Information Administration",
+                    "redistribution_note": "EIA government data are reusable with acknowledgment, but complete XLS and PDF responses remain in local content-addressed storage. The repository retains only minimal selected facts, URLs, hashes, source semantics, and release timing.",
+                    "retrieved_at": "2026-08-14T07:49:05.334290Z",
+                    "sha256": "ee7c703c6d30176d0253b879aa4c8c6dc0178b411c36d73036d89aeff412dd3c",
+                    "source_id": "eia.wngsr.revision_safe_working_gas",
+                    "source_version": "EIA-WNGSR:2020-03-19:2020-03-13:rev:ee7c703c6d30176d0253:hist:7973c8f5721c1addb2f8:eval:de3123137bf3d5055181",
+                    "temporal_coverage": "vintage_native",
+                    "url": "https://ir.eia.gov/ngs/revisions.xls",
+                    "vintage_as_of": "2020-03-19T14:30:00Z"
+                  }
+                ],
+                "target_id": "eia_series:wngsr_working_gas_lower_48",
+                "unit": "billion_cubic_feet",
+                "upper": 2034.0,
+                "variable": "next_lower_48_working_gas_stock_bcf"
+              }
+            ],
+            "program_id": "eia-wngsr-next-working-gas-stock-envelope",
+            "scenario_id": "eia-wngsr-2020-working-gas-stock-boundary"
+          }
+        },
+        "source_hashes": [
+          "7973c8f5721c1addb2f8df496134aa0697a98f1f4eb9b075223f19f12f513b18",
+          "de3123137bf3d5055181aa709e522caec0afe301a1077fca79a886ee5249536b",
+          "ee7c703c6d30176d0253b879aa4c8c6dc0178b411c36d73036d89aeff412dd3c"
+        ],
+        "source_record_ids": [
+          "eia.wngsr.revision_safe_working_gas:20200312:lower48_working_gas:ee7c703c6d30176d",
+          "eia.wngsr.revision_safe_working_gas:20200319:lower48_working_gas:ee7c703c6d30176d"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "eia-wngsr.timevault.original-vintage-query"
+        ]
+      },
+      {
+        "artifact_id": "eia-wngsr.timevault.original-vintage-query",
+        "artifact_kind": "vintage-native-eia-wngsr-original-stock-query",
+        "artifact_sha256": "791a48635149ecf0179a5440ad5188328f46f813a33ab699a7ba800a69a56c8c",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 2
+        },
+        "limitations": [
+          "The records are Lower 48 estimates from a sample survey, not facility measurements.",
+          "The consolidated workbooks were retrieved later but explicitly recover originals.",
+          "The March 20 stock is excluded from every ReplayPack input.",
+          "Regional sums may differ by up to 2 Bcf because EIA rounds reported totals.",
+          "Complete source workbooks and the evaluation PDF remain local download evidence."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "002511a8ddd46d07f12aad092db1c6bf9986c5fbf163883bcdb735661367d00e",
+              "eea08d59607da0164f84682bec0225dfddc256cd307028ba5a098899df66d69c"
+            ],
+            "attempted_records": 2,
+            "fact_hashes": [
+              "2058f4a6b564ba6c54c9a985aa67c432c83df3844bae3ea79024a2d93fb9a2d4",
+              "db4a4580f03282ac22a5e0fc9602fc32004c2f6ce1663dd6a3f7b733c541cd13"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 2
+          },
+          "current_history_cross_check_verified": true,
+          "decision_observations": {
+            "march06_lower48_working_gas_bcf": 2043,
+            "march13_lower48_working_gas_bcf": 2034,
+            "march13_reported_net_change_bcf": -9
+          },
+          "decision_time": "2020-03-19T14:30:00Z",
+          "input_lock_sha256": "8defce1bad1048f378b852c1fcf165f921b8bebf9117372d303ef02e73fbd744",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 2,
+            "fact_set_sha256": "2ae0e9677b48620defe7f6132a4e7e8aaf4107528398ce5484feb90a095c271f",
+            "fact_versions": 2,
+            "generated_at": "2026-08-14T08:10:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2020-03-19T14:30:00Z",
+          "original_value_recovery_verified": true,
+          "release_time_rule": "10:30 America/New_York on verified non-holiday Thursdays",
+          "selected_record_ids": [
+            "eia.wngsr.revision_safe_working_gas:20200312:lower48_working_gas:ee7c703c6d30176d",
+            "eia.wngsr.revision_safe_working_gas:20200319:lower48_working_gas:ee7c703c6d30176d"
+          ],
+          "source_evidence_file_count": 3,
+          "source_statistical_measures_used_as_range_input": false
+        },
+        "source_hashes": [
+          "7973c8f5721c1addb2f8df496134aa0697a98f1f4eb9b075223f19f12f513b18",
+          "de3123137bf3d5055181aa709e522caec0afe301a1077fca79a886ee5249536b",
+          "ee7c703c6d30176d0253b879aa4c8c6dc0178b411c36d73036d89aeff412dd3c"
+        ],
+        "source_record_ids": [
+          "eia.wngsr.revision_safe_working_gas:20200312:lower48_working_gas:ee7c703c6d30176d",
+          "eia.wngsr.revision_safe_working_gas:20200319:lower48_working_gas:ee7c703c6d30176d"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "eia-wngsr.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "2f4518e62e0d91ab5a565d5560c0a9866241368695e4ad409f9693d65885bbca",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 2,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "eia-wngsr-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "0626388d7b93cd948f639acbaf0f26a23d7b5314",
+            "completed_at": "2026-08-14T08:10:00Z",
+            "config_sha256": "bb775ed4502f8ac863f337cbbd4fe325647dfaf3c44295383b4b318602dc58e0",
+            "decision_time": "2020-03-19T14:30:00Z",
+            "evaluation_end": "2020-04-17",
+            "evaluation_start": "2020-03-20",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "8defce1bad1048f378b852c1fcf165f921b8bebf9117372d303ef02e73fbd744",
+            "max_input_available_at": "2020-03-19T14:30:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 9.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No March 20 WNGSR fact is in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "1f1d7b26c6c14331dafd93adaa78b9f5a669fb718542dd1993a887f5b6bbdd65",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "continuation-range-width": 9.0,
+              "known-original-stock-decline": 9.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 2,
+            "short_fraction": 0.0,
+            "training_end": "2020-03-17",
+            "trial_id": "eia-wngsr-retrospective-range-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "4a2c72e5bdf7f0d3c39ffd698b99f337dab85d6a1285b94247eaaf8a14bdc0d5",
+            "entry_hash": "4a2c72e5bdf7f0d3c39ffd698b99f337dab85d6a1285b94247eaaf8a14bdc0d5",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "eia-wngsr-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "eia-wngsr-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "4ce3c669c73ac58f4e78a3d44580f23730681fee977df0e23ff3b7149f34522f",
+            "candidate_attempt_id": "eia-wngsr-retrospective-attempt-1",
+            "decided_at": "2026-08-14T08:10:00Z",
+            "decision_id": "decision:eia-wngsr-retrospective-range-screen:deff3035a509018a601f26f6",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 9.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 9.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "eia-wngsr-retrospective-range-screen"
+          },
+          "input_lock_sha256": "8defce1bad1048f378b852c1fcf165f921b8bebf9117372d303ef02e73fbd744",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "468a349225b0c00c3f540e1f810afe4cff184f3c07720494c2082632a8942df0",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "0cb7e95ca080ccc6d455e4e9af586197a632662de274fd2eefbaa798dff7a8d2",
+            "entry_hash": "0cb7e95ca080ccc6d455e4e9af586197a632662de274fd2eefbaa798dff7a8d2",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "WNGSR is a sampled aggregate stock estimate. Two releases and one later outcome cannot establish predictive validity, storage constraints, flows, market response, pandemic effects, or causal mechanisms.",
+            "embargo_days": 0,
+            "expected_direction": "positive",
+            "holdout_end": "2020-04-17",
+            "holdout_start": "2020-03-20",
+            "hypothesis": "A retrospectively constructed one-decline WNGSR stock boundary qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-14T08:10:00Z",
+            "primary_metric": "one-decline working-gas stock range width in Bcf",
+            "purge_days": 2,
+            "trial_id": "eia-wngsr-retrospective-range-screen"
+          }
+        },
+        "source_hashes": [
+          "7973c8f5721c1addb2f8df496134aa0697a98f1f4eb9b075223f19f12f513b18",
+          "de3123137bf3d5055181aa709e522caec0afe301a1077fca79a886ee5249536b",
+          "ee7c703c6d30176d0253b879aa4c8c6dc0178b411c36d73036d89aeff412dd3c"
+        ],
+        "source_record_ids": [
+          "eia.wngsr.revision_safe_working_gas:20200312:lower48_working_gas:ee7c703c6d30176d",
+          "eia.wngsr.revision_safe_working_gas:20200319:lower48_working_gas:ee7c703c6d30176d"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "eia-wngsr.shockcompiler.working-gas-stock-range",
+          "eia-wngsr.timevault.original-vintage-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over two original EIA WNGSR Lower 48 stock estimates recovered from the official revision-safe archive and cross-checked against the current history and 2020-22 performance evaluation. Reported stocks remain reported; the 2,025-to-2,034 Bcf persistence-or-one-decline envelope remains inferred with no probability. The March 20 event stays only in a disjoint event lock. This is not an EIA forecast, sampling interval, calibrated interval, storage capacity estimate, injection or withdrawal measurement, market signal, causal model, deployment, external validation, investment result, or user-impact claim.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not energy-market correctness.",
+        "claim_id": "claim-extracted-eia-wngsr-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "eia-wngsr.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no probability, coverage, official, or causal guarantee.",
+        "claim_id": "claim-inferred-eia-wngsr-stock-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The March 20 event was not used to set the range.",
+          "The source CV and standard error do not set the endpoints."
+        ],
+        "statement": "The next-release stress endpoints are March 13 persistence or one repeat of the known 9-Bcf decline: [2,025, 2,034] Bcf.",
+        "support_artifact_ids": [
+          "eia-wngsr.shockcompiler.working-gas-stock-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external or domain review.",
+        "claim_id": "claim-inferred-eia-wngsr-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective one-decline WNGSR attempt.",
+        "support_artifact_ids": [
+          "eia-wngsr.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "The current history must match both revision-safe original values.",
+        "claim_id": "claim-reported-eia-wngsr-original-stocks",
+        "evidence_class": "reported",
+        "limitations": [
+          "The values are sampled aggregate estimates, not facility or flow measurements."
+        ],
+        "statement": "The March 12 and March 19 WNGSR releases originally reported Lower 48 working-gas stocks of 2,043 and 2,034 Bcf.",
+        "support_artifact_ids": [
+          "eia-wngsr.timevault.original-vintage-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not transactions, capital, capacity, or returns.",
+        "claim_id": "claim-simulated-eia-wngsr-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "eia-wngsr.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "0626388d7b93cd948f639acbaf0f26a23d7b5314",
+    "compressed_input_bytes": 2256,
+    "created_at": "2026-08-14T08:10:00Z",
+    "decision_time": "2020-03-19T14:30:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves the original March 6 and March 13 Lower 48 working-gas stock estimates knowable at the March 19 decision boundary. It binds the official original-estimate revision history, current-history cross-check, and 2020-22 performance evaluation. It excludes the March 20 event, source sampling measures as range inputs, facility or operator measurements, direct injection or withdrawal flows, storage constraints, prices, a probability distribution, forecast, calibrated interval, pandemic or market causality, recommendation, execution, investment performance, external review, deployment, and user impact.",
+      "The endpoints are March 13 persistence or one repetition of the 9 Bcf decline.",
+      "The March 20 release and every later-known value are excluded from every input.",
+      "The source's CV and standard error are metadata, not endpoint inputs.",
+      "Stock changes include injections, withdrawals, and possible reclassifications.",
+      "No facility, operator, reservoir, pipeline, price, return, or recommendation exists.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "eia-wngsr-2020-working-gas-stock-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "eia-wngsr-2020-working-gas-stock-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "EIA WNGSR boundary before the March 2020 working-gas stock decline"
+  },
+  "topological_artifact_ids": [
+    "eia-wngsr.timevault.original-vintage-query",
+    "eia-wngsr.shockcompiler.working-gas-stock-range",
+    "eia-wngsr.trialcourt.retrospective-gate",
+    "eia-wngsr.replaystudio.render"
+  ],
+  "trace_id": "trace:cf04545be3a46eba12a13716838e9284c9e91a457c38d950f60dfcffee8bd652"
+}
