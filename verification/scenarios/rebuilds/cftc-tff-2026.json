@@ -63,21 +63,21 @@
     "upper_bound_breach_contracts": 71513,
     "used_as_decision_input": false
   },
-  "receipt_sha256": "bb19d33412a510e5608b49e546ff604fed4ae469165881a04d66b7b3a60f3075",
+  "receipt_sha256": "c995f8f85a5be203857c66d71a45a341c40e8aeb8bffa003ff70ec3281344f01",
   "runtime": {
     "duckdb": "1.5.5",
     "finreplay": "0.1.0a0",
     "machine": "arm64",
-    "measured_at": "2026-08-14T09:34:03.239549+00:00",
+    "measured_at": "2026-08-14T09:34:21.921123+00:00",
     "numpy": "2.2.6",
     "platform": "macOS-26.5.2-arm64-arm-64bit",
     "pydantic": "2.13.4",
     "pypdf": "6.15.0",
     "python": "3.12.13",
-    "runner_commit": "821b753e256a2b749ddc942ac3e043b8c1d49cb7",
-    "runner_dirty": true,
+    "runner_commit": "b983cea4fc68e8c516a762e8b1b065e8b97b7883",
+    "runner_dirty": false,
     "scipy": "1.18.0",
-    "two_rebuild_elapsed_seconds": 0.2863458340289071
+    "two_rebuild_elapsed_seconds": 0.26970254199113697
   },
   "schema_version": "1.0.0",
   "semantic_sha256": "423a00df8fe1a9db11c7314e113f783c5bf88b18bcbbb0ffa64a106ea902b71b",
