@@ -13,6 +13,13 @@ from finreplay.scenarios.bea_saving_rate_boundary import (
     build_bea_saving_rate_boundary_replay_spec,
     load_bea_saving_rate_boundary_input_lock,
 )
+from finreplay.scenarios.construction_spending_boundary import (
+    CENSUS_C30_SOURCE_ID,
+    ConstructionSpendingBoundaryInputLock,
+    ConstructionSpendingBoundaryRoles,
+    build_construction_spending_boundary_replay_spec,
+    load_construction_spending_boundary_input_lock,
+)
 from finreplay.scenarios.consumer_credit_boundary import (
     FED_G19_SOURCE_ID,
     ConsumerCreditBoundaryInputLock,
@@ -149,6 +156,7 @@ __all__ = [
     "BEA_PIO_SOURCE_ID",
     "BLS_CPI_SOURCE_ID",
     "BLS_EMPLOYMENT_SOURCE_ID",
+    "CENSUS_C30_SOURCE_ID",
     "CENSUS_MARTS_SOURCE_ID",
     "CENSUS_NRC_SOURCE_ID",
     "DOL_UI_CLAIMS_SOURCE_ID",
@@ -170,6 +178,8 @@ __all__ = [
     "BankFactConcepts",
     "CPIBoundaryInputLock",
     "CPIBoundaryRoles",
+    "ConstructionSpendingBoundaryInputLock",
+    "ConstructionSpendingBoundaryRoles",
     "ConsumerCreditBoundaryInputLock",
     "ConsumerCreditBoundaryRoles",
     "EIACrudeStockBoundaryInputLock",
@@ -208,6 +218,7 @@ __all__ = [
     "VerifiedScenarioProof",
     "build_bank_boundary_replay_spec",
     "build_bea_saving_rate_boundary_replay_spec",
+    "build_construction_spending_boundary_replay_spec",
     "build_consumer_credit_boundary_replay_spec",
     "build_cpi_boundary_replay_spec",
     "build_eia_crude_stock_boundary_replay_spec",
@@ -226,6 +237,7 @@ __all__ = [
     "build_treasury_curve_boundary_replay_spec",
     "load_bank_boundary_input_lock",
     "load_bea_saving_rate_boundary_input_lock",
+    "load_construction_spending_boundary_input_lock",
     "load_consumer_credit_boundary_input_lock",
     "load_cpi_boundary_input_lock",
     "load_eia_crude_stock_boundary_input_lock",
