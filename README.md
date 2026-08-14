@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 17/30 internally replay-proven: three bank boundaries plus 14 source-diverse macro, policy, rate, energy, labor, Treasury, production, and retail-sales boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 18/30 internally replay-proven: three bank boundaries plus 15 source-diverse macro, policy, rate, energy, labor, Treasury, production, retail-sales, and housing-starts boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -321,6 +321,18 @@ probability. The separately locked March change is `-870` basis points, a requir
 `740`-basis-point breach below the lower endpoint. The April release's revision of February from
 `-50` to `-40` basis points remains in the event snapshot and never overwrites the decision input.
 See [`docs/scenarios/census-marts-2020.md`](docs/scenarios/census-marts-2020.md).
+
+The eighteenth counted flow uses archived seven-page U.S. Census/HUD New Residential Construction
+PDF releases. It locks the preliminary January and February 2020 total housing-starts SAAR
+headlines of `1,567,000` and `1,599,000` units before a March 19 decision boundary. The mechanical
+stress endpoints are latest-headline persistence or one repeat of that `32,000`-unit
+release-headline increase: `[1,599,000, 1,631,000]`, with no probability. This arithmetic is
+explicitly not the official month-over-month change, which uses a revised prior-month estimate.
+The separately locked March headline is `1,216,000`, a required visible `383,000`-unit breach
+below the lower endpoint. The April release's revision of February from `1,599,000` to `1,564,000`
+stays in the event snapshot and never overwrites the decision input. Official 90-percent sampling
+intervals remain source metadata and are not used as the FinReplay range. See
+[`docs/scenarios/census-nrc-2020.md`](docs/scenarios/census-nrc-2020.md).
 
 ## Research and investment disclaimer
 

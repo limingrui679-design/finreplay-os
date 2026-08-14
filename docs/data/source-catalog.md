@@ -190,6 +190,18 @@ margins remain distinct from downstream FinReplay stress endpoints. Later revisi
 overwrite earlier records. Raw pairs remain in ignored local storage, and this supporting
 connector is excluded from the formal 30.
 
+`census.hud.archived_new_residential_construction` retrieves the fixed February 19, March 18,
+and April 16, 2020 Census/HUD New Residential Construction PDFs. Each response must be a complete
+seven-page `612 x 792` PDF with a nonblank text layer, the exact page-title sequence, release
+number, 8:30 a.m. EST/EDT label, headline facts, explanatory notes, and matching Table 3a total
+housing-starts value, revised prior, monthly change, sampling margin, and average RSE. The page-
+stated time is validated under `America/New_York`; current HTTP headers are retrieval metadata
+only and are never backdated. Preliminary headline levels remain separate release snapshots, so
+the April revision of February does not overwrite the March-release value. Official 90-percent
+sampling-confidence intervals remain reported source metadata rather than downstream probability
+or stress-range inputs. Full PDFs remain in ignored local storage, and this supporting connector
+is excluded from the formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

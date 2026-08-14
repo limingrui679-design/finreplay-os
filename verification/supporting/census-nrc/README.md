@@ -3,7 +3,7 @@
 This directory proves live retrieval and strict validation of three archived U.S. Census
 Bureau/U.S. Department of Housing and Urban Development New Residential Construction releases
 selected for a March 2020 housing-starts boundary. It is separate from the capped formal adapter
-inventory:
+inventory and supports the eighteenth scenario accepted by the eight-gate catalog verifier:
 
 - `census.hud.archived_new_residential_construction` is a scenario-specific supporting source,
   not a thirty-first counted adapter;
@@ -34,6 +34,9 @@ python scripts/verify_live_receipts.py \
 ```
 
 Two consecutive live runs are retained: the first inserts the three normalized facts and the
-second proves all three are idempotent. This evidence does not establish a forecast, calibrated
+second proves all three are idempotent. The counted proof at
+`verification/scenarios/proofs/census-nrc-2020-housing-starts-boundary-v1.json` separately binds
+the two decision inputs, post-decision event, four-engine pack, and clean double rebuild. This
+evidence does not establish a forecast, calibrated
 probability, housing-market or pandemic causality, external validation, deployment, investment
 performance, or user impact.
