@@ -113,6 +113,17 @@ so the December value on the January page is preserved instead of silently repla
 vintage. These adjacent snapshots are a stress range, not a calibrated stationary sample. Full
 HTML remains local and this connector is excluded from the formal 30-adapter inventory.
 
+`bls.ppi.archived_final_demand` retrieves the fixed March 12, April 9, and May 13, 2020
+Producer Price Index HTML/PDF pairs. Both archived formats must agree on the exact 8:30 a.m. EDT
+embargo end, release number, report month, headline and prior changes, 12-month change, Table 1
+row, technical definition, and four-month revision rule. Each 31- or 32-page PDF must also have
+the approved geometry, nonblank text layers, and Technical Note and table sequence. February and
+March retain their first-reported `-0.6%` and `-0.2%` changes when repeated in the next snapshot;
+later values never overwrite them. PPI measures prices received by domestic producers from the
+seller perspective, not consumer costs, quantities, revenues, profits, transactions, or causal
+effects. Full pairs remain in ignored local storage, and this supporting connector is excluded
+from the formal 30-adapter inventory.
+
 `fred.alfred.vintage_treasury_yield` retrieves six explicitly selected native-vintage DGS2 and
 DGS10 observations from ALFRED for the Treasury-curve scenario. Each request fixes one series,
 observation date, and vintage date; the value is normalized exactly to integer basis points. As
