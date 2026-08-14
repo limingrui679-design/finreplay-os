@@ -62,21 +62,21 @@
     "source_auxiliary_measures_used": false,
     "used_as_decision_input": false
   },
-  "receipt_sha256": "539bebb2ff6b7d68c822eb960c5dd1a6e79a08353b9c7d125933cdc2b4f8b2b2",
+  "receipt_sha256": "03fb3e7b1106d5eef997284fb9367b2ff2c01e43c291a42f89fbaf0180da204b",
   "runtime": {
     "duckdb": "1.5.5",
     "finreplay": "0.1.0a0",
     "machine": "arm64",
-    "measured_at": "2026-08-14T08:46:30.868688+00:00",
+    "measured_at": "2026-08-14T08:47:51.949477+00:00",
     "numpy": "2.2.6",
     "platform": "macOS-26.5.2-arm64-arm-64bit",
     "pydantic": "2.13.4",
     "pypdf": "6.15.0",
     "python": "3.12.13",
-    "runner_commit": "4ee8d1281a67286caa7880c371ea24a65f8bf28f",
-    "runner_dirty": true,
+    "runner_commit": "e1bc6f210a2c940d175832903ff9a84caab018ab",
+    "runner_dirty": false,
     "scipy": "1.18.0",
-    "two_rebuild_elapsed_seconds": 0.551712124957703
+    "two_rebuild_elapsed_seconds": 0.818142666015774
   },
   "schema_version": "1.0.0",
   "semantic_sha256": "6d821904429a7bc6a21cbe7ab21e0fb8d3acc063c234371d8bf5f8c3a0e59b9f",
