@@ -134,6 +134,18 @@
       "trace_id": "trace:c2e0c997c19f77b1dd753f8dc93ac7575f07137c1dd38f6df1777792b9cbca24"
     },
     {
+      "decision_time": "2020-03-19T14:30:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "00e71ea907ad3783423f66cf9e933ef949176e563ba4ab559ec76367bb2cf0e7",
+      "proof": "eia-wngsr-2020-working-gas-stock-boundary-v1.json",
+      "proof_sha256": "b5eb42ff77918ae0553cf82a9b51cf4e2ef79ff4461f915c702ba6570ce3caeb",
+      "replay_id": "eia-wngsr-2020-working-gas-stock-boundary-v1",
+      "scenario_id": "eia-wngsr-2020-working-gas-stock-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:cf04545be3a46eba12a13716838e9284c9e91a457c38d950f60dfcffee8bd652"
+    },
+    {
       "decision_time": "2020-04-16T12:00:00+00:00",
       "distinct_input_records": 2,
       "mode": "bounded_reconstruction",
@@ -291,5 +303,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 24
+  "verified_scenario_count": 25
 }
