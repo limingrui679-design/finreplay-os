@@ -177,6 +177,13 @@ from finreplay.scenarios.treasury_curve_boundary import (
     build_treasury_curve_boundary_replay_spec,
     load_treasury_curve_boundary_input_lock,
 )
+from finreplay.scenarios.working_gas_stock_boundary import (
+    EIA_WNGSR_SOURCE_ID,
+    WorkingGasStockBoundaryInputLock,
+    WorkingGasStockBoundaryRoles,
+    build_working_gas_stock_boundary_replay_spec,
+    load_working_gas_stock_boundary_input_lock,
+)
 
 __all__ = [
     "ALFRED_GDP_SOURCE_ID",
@@ -191,6 +198,7 @@ __all__ = [
     "CENSUS_NRC_SOURCE_ID",
     "CENSUS_NRS_SOURCE_ID",
     "DOL_UI_CLAIMS_SOURCE_ID",
+    "EIA_WNGSR_SOURCE_ID",
     "EIA_WPSR_SOURCE_ID",
     "FED_FOMC_SOURCE_ID",
     "FED_G17_SOURCE_ID",
@@ -256,6 +264,8 @@ __all__ = [
     "TreasuryCurveBoundaryInputLock",
     "TreasuryCurveBoundaryRoles",
     "VerifiedScenarioProof",
+    "WorkingGasStockBoundaryInputLock",
+    "WorkingGasStockBoundaryRoles",
     "build_bank_boundary_replay_spec",
     "build_bea_saving_rate_boundary_replay_spec",
     "build_construction_spending_boundary_replay_spec",
@@ -279,6 +289,7 @@ __all__ = [
     "build_trade_deficit_level_boundary_replay_spec",
     "build_treasury_auction_boundary_replay_spec",
     "build_treasury_curve_boundary_replay_spec",
+    "build_working_gas_stock_boundary_replay_spec",
     "load_bank_boundary_input_lock",
     "load_bea_saving_rate_boundary_input_lock",
     "load_construction_spending_boundary_input_lock",
@@ -303,6 +314,7 @@ __all__ = [
     "load_trade_deficit_level_boundary_input_lock",
     "load_treasury_auction_boundary_input_lock",
     "load_treasury_curve_boundary_input_lock",
+    "load_working_gas_stock_boundary_input_lock",
     "scenario_catalog_summary",
     "seal_official_event_lock",
     "seal_scenario_proof",
