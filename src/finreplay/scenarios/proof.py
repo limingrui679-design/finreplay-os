@@ -81,9 +81,19 @@ class OfficialEventLock(_StrictModel):
                     "post-decision event record must become available after decision_time"
                 )
             if record.interval.availability_confidence < 1.0:
-                raise ValueError(
-                    "post-decision event timing must have exact availability confidence"
+                qualified_schedule = (
+                    record.source.source_id == "cftc.cot.tff_scheduled_ust2y"
+                    and record.interval.availability_confidence == 0.98
+                    and record.payload.get("schedule_self_describes_as_tentative") is True
+                    and record.payload.get("actual_row_publication_log_available") is False
+                    and record.payload.get("availability_method")
+                    == "official_current_schedule_exact_time_no_actual_row_log"
                 )
+                if not qualified_schedule:
+                    raise ValueError(
+                        "post-decision event timing must be exact or satisfy the qualified "
+                        "CFTC schedule boundary"
+                    )
             if record.source.temporal_coverage is TemporalCoverage.LATEST_ONLY:
                 raise ValueError("post-decision event timing cannot use a latest-only source")
             if not str(record.source.url).startswith("https://"):

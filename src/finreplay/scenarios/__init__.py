@@ -13,6 +13,13 @@ from finreplay.scenarios.bea_saving_rate_boundary import (
     build_bea_saving_rate_boundary_replay_spec,
     load_bea_saving_rate_boundary_input_lock,
 )
+from finreplay.scenarios.cftc_open_interest_boundary import (
+    CFTC_TFF_SCHEDULE_SOURCE_ID,
+    CFTCOpenInterestBoundaryInputLock,
+    CFTCOpenInterestBoundaryRoles,
+    build_cftc_open_interest_boundary_replay_spec,
+    load_cftc_open_interest_boundary_input_lock,
+)
 from finreplay.scenarios.construction_spending_boundary import (
     CENSUS_C30_SOURCE_ID,
     ConstructionSpendingBoundaryInputLock,
@@ -205,6 +212,7 @@ __all__ = [
     "CENSUS_MARTS_SOURCE_ID",
     "CENSUS_NRC_SOURCE_ID",
     "CENSUS_NRS_SOURCE_ID",
+    "CFTC_TFF_SCHEDULE_SOURCE_ID",
     "DOL_UI_CLAIMS_SOURCE_ID",
     "EIA_WNGSR_SOURCE_ID",
     "EIA_WPSR_SOURCE_ID",
@@ -224,6 +232,8 @@ __all__ = [
     "BEASavingRateBoundaryRoles",
     "BankBoundaryInputLock",
     "BankFactConcepts",
+    "CFTCOpenInterestBoundaryInputLock",
+    "CFTCOpenInterestBoundaryRoles",
     "CPIBoundaryInputLock",
     "CPIBoundaryRoles",
     "ConstructionSpendingBoundaryInputLock",
@@ -278,6 +288,7 @@ __all__ = [
     "WorkingGasStockBoundaryRoles",
     "build_bank_boundary_replay_spec",
     "build_bea_saving_rate_boundary_replay_spec",
+    "build_cftc_open_interest_boundary_replay_spec",
     "build_construction_spending_boundary_replay_spec",
     "build_consumer_credit_boundary_replay_spec",
     "build_cpi_boundary_replay_spec",
@@ -303,6 +314,7 @@ __all__ = [
     "build_working_gas_stock_boundary_replay_spec",
     "load_bank_boundary_input_lock",
     "load_bea_saving_rate_boundary_input_lock",
+    "load_cftc_open_interest_boundary_input_lock",
     "load_construction_spending_boundary_input_lock",
     "load_consumer_credit_boundary_input_lock",
     "load_cpi_boundary_input_lock",
