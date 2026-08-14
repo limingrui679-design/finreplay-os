@@ -1,0 +1,18 @@
+{
+  "adapters": [
+    {
+      "adapter_id": "census.c30.archived_construction_spending",
+      "historical_replay_eligible": true,
+      "idempotent_records": 6,
+      "inserted_records": 0,
+      "receipt": "census.c30.archived_construction_spending-5abfa072ce6ce10c.json",
+      "record_count": 6,
+      "retrieved_at": "2026-08-14T03:42:13.102608Z",
+      "temporal_coverage": "versioned_snapshot"
+    }
+  ],
+  "historical_replay_eligible_count": 1,
+  "latest_only_count": 0,
+  "schema_version": "1.0.0",
+  "verified_adapter_count": 1
+}
