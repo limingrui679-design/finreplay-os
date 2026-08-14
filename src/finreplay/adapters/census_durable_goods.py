@@ -97,10 +97,6 @@ class _ReleaseSpec:
         return self.reference_month.strftime("%B %Y")
 
     @property
-    def prior_label(self) -> str:
-        return self.prior_month.strftime("%B %Y")
-
-    @property
     def endpoint_path(self) -> str:
         return (
             "/manufacturing/m3/historical_data/pressreleases/adv/2020/"

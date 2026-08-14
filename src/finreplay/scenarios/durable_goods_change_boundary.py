@@ -216,7 +216,7 @@ class DurableGoodsChangeBoundaryInputLock(_StrictModel):
 
     @classmethod
     def create(cls, payload: dict[str, Any]) -> DurableGoodsChangeBoundaryInputLock:
-        """Normalize, validate, and self-hash an Census M3 durable-goods input lock."""
+        """Normalize, validate, and self-hash a Census M3 durable-goods input lock."""
 
         values = dict(payload)
         values.pop("lock_sha256", None)
@@ -262,7 +262,7 @@ def build_durable_goods_change_boundary_replay_spec(
         if selected_by_id[record.record_id].model_dump(mode="json") != record.model_dump(
             mode="json"
         ):
-            raise ValueError("TimeVault changed an Census M3 durable-goods locked fact")
+            raise ValueError("TimeVault changed a Census M3 durable-goods locked fact")
 
     prefix = lock.artifact_prefix
     timevault_artifact = ReplayArtifact.create(
@@ -429,7 +429,7 @@ def _run_shockcompiler(
         parameter_id=f"{lock.artifact_prefix}-next-new-orders-change-range",
         target_id=_ENTITY_ID,
         variable=variable,
-        unit="basis_points_of_month_over_month_price_change",
+        unit="basis_points_of_month_over_month_new_orders_change",
         operation=ShockOperation.SET,
         lower=float(lower),
         upper=float(upper),
