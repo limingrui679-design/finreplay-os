@@ -1,0 +1,158 @@
+{
+  "build_script": {
+    "path": "scripts/build_export_price_boundary_replaypack.py",
+    "sha256": "fb3e80126c436f4b15b8dc6fc1675e5edd9fbace6fbe427f7e1cf5e92a8fcdc6"
+  },
+  "claim_boundary": "This proof counts one internally reproduced February 2020 BLS all-export price-change boundary because two pre-decision aggregate releases, four exact official HTML/PDF input hashes, an idempotent six-response supporting receipt, paired-format checks, exact 8:30 a.m. EST/EDT times, immutable locks, separated truth labels, a -110-basis-point February persistence baseline, a no-probability -290-to--110-basis-point persistence-or-one-known-decline program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-checkout double rebuild all verify. The later -10-basis-point January revision remains visible but sets no endpoint. The March first report of -160 basis points is excluded from ReplayPack inputs and used only for a labelled post-event check. It lies inside the fixed range, 130 basis points above the lower endpoint and 50 below the upper. That inclusion remains evaluation only, does not become forecast success, and does not alter the endpoints. Index levels, annual changes, detailed categories, and later revisions remain metadata. The modified-Laspeyres, U.S.-export-transaction-price, non-seasonally-adjusted, three-release revision, and COVID-methodology boundaries are preserved. This proof does not establish a BLS forecast, calibrated coverage, export quantity or nominal export value, tariff or PPI effect, exporter or firm behavior, P&L, pandemic causality, investment performance, external validation, deployment, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "bls-export-price.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective one-decline attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "bls-export-price.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger retains one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "63340c62fca9702eb36151bb258ccb968c4289400b337f52f1ad67621e82ce16",
+      "path": "scenarios/bls-export-prices-2020/event-lock.json",
+      "record_ids": [
+        "bls.export_prices.archived_all_exports:202003:all_exports_monthly_change"
+      ],
+      "sha256": "cea0d8f6fe9301a893c175ea05cc4304a310ca6136403e78d68c0c02960381cb"
+    }
+  ],
+  "expected_input_manifest_sha256": "704c9e2ec8b14f3997ded9e42cfedc6b1029a8edb941d4978bb9deeee4128501",
+  "expected_pack_sha256": "68677526e941a07bd9c0a7ddd5e364f3ca95174b90a899f53223b8083616f933",
+  "expected_trace_id": "trace:60baf01f7379154c3eeeb58e854c73dcc9933c7b9178581f57e33d1c7687547e",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate all-export price changes reported in archived BLS releases, not observations of individual exporter firms, shipments, export quantities, nominal export values, tariffs, PPI, P&L, decisions, or user activity. The March change exists only in the disjoint event lock."
+    },
+    "bounded_artifact_ids": [
+      "bls-export-price.shockcompiler.all-exports-change-range"
+    ],
+    "extracted_artifact_ids": [
+      "bls-export-price.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "bls-export-price.shockcompiler.all-exports-change-range",
+      "bls-export-price.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "bls.export_prices.archived_all_exports:202001:all_exports_monthly_change",
+      "bls.export_prices.archived_all_exports:202002:all_exports_monthly_change"
+    ],
+    "simulated_artifact_ids": [
+      "bls-export-price.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "7acfced46ffb2fec48ac5efc69187af46dd0f3dcc87c6b2fa11d447ffb4eced0",
+      "path": "scenarios/bls-export-prices-2020/input-lock.json",
+      "record_ids": [
+        "bls.export_prices.archived_all_exports:202001:all_exports_monthly_change",
+        "bls.export_prices.archived_all_exports:202002:all_exports_monthly_change"
+      ],
+      "sha256": "ef4a39d7a26eb6a5e3f0e7582b2c3bd034677a561db765a1416786beefd5238c"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "bls-export-price.shockcompiler.all-exports-change-range",
+      "description": "The decision-time baseline persists the February first-reported all-export monthly change of -110 basis points.",
+      "expected_value": -110,
+      "payload_pointer": "/naive_baseline/next_all_exports_monthly_change_basis_points"
+    },
+    {
+      "artifact_id": "bls-export-price.shockcompiler.all-exports-change-range",
+      "description": "The persistence-or-one-known-decline endpoints carry no probability, confidence, or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    },
+    {
+      "artifact_id": "bls-export-price.shockcompiler.all-exports-change-range",
+      "description": "Index levels, annual changes, and detailed categories set no endpoint.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/source_auxiliary_measures_used"
+    },
+    {
+      "artifact_id": "bls-export-price.shockcompiler.all-exports-change-range",
+      "description": "The later -10-basis-point January revision is retained as lineage but does not set either endpoint.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/prior_revision_used_as_endpoint"
+    },
+    {
+      "artifact_id": "bls-export-price.shockcompiler.all-exports-change-range",
+      "description": "The later March all-export change never enters range construction.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/future_event_used"
+    },
+    {
+      "artifact_id": "bls-export-price.shockcompiler.all-exports-change-range",
+      "description": "Only the January and February first-reported changes define endpoints.",
+      "expected_value": true,
+      "payload_pointer": "/bound_construction/original_release_values_only"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/bls-export-prices/latest-summary.json",
+  "pack_directory": "verification/replaypacks/bls-export-prices-2020",
+  "proof_sha256": "a962565a750c729528239973b517105f4daf75b21c8c13da6c7247380752ff6d",
+  "rebuild_receipt": {
+    "path": "verification/scenarios/rebuilds/bls-export-prices-2020.json",
+    "sha256": "af2db8129027f3201b872edd91c9256152f6e5e89b3ac7d73d19bd2c2efaea3c"
+  },
+  "replay_id": "bls-export-prices-2020-all-exports-change-boundary-v1",
+  "required_rebuild_assertions": [
+    "adjacent_january_revision_is_retained",
+    "all_artifacts_reproduced",
+    "auxiliary_and_revision_fields_are_not_used",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "covid_methodology_text_is_not_promoted_to_causality",
+    "cross_engine_trace_is_stable",
+    "declared_range_reuses_only_one_known_decline",
+    "distinct_locked_inputs_equal_two",
+    "fixed_range_is_not_changed_after_event",
+    "four_official_html_pdf_hashes_are_bound",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "idempotent_supporting_receipt_is_bound",
+    "locked_release_pair_is_exact",
+    "measurement_and_revision_boundaries_are_explicit",
+    "naive_baseline_is_february_change_persistence",
+    "no_probability_is_assigned",
+    "official_input_release_times_are_exact",
+    "only_relevant_engines_present",
+    "paired_html_pdf_crosscheck_is_explicit",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_export_price_fact",
+    "post_decision_event_timing_is_later",
+    "post_event_lower_distance_equals_130_basis_points",
+    "post_event_upper_distance_equals_50_basis_points",
+    "range_inclusion_remains_evaluation_without_success_claim",
+    "reported_post_event_change_is_inside_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "bls-export-prices-2020-all-exports-change-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "bls.export_prices.archived_all_exports:202001:all_exports_monthly_change",
+    "bls.export_prices.archived_all_exports:202002:all_exports_monthly_change"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_export_price_boundary_replaypack.py",
+    "sha256": "9c22de4e0105cebfa5e46b0fe2a8636a9b7927dbd10e4f3394ef8f7c20637b2f"
+  }
+}
