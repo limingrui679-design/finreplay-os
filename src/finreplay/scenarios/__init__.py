@@ -34,6 +34,13 @@ from finreplay.scenarios.cpi_boundary import (
     build_cpi_boundary_replay_spec,
     load_cpi_boundary_input_lock,
 )
+from finreplay.scenarios.durable_goods_change_boundary import (
+    CENSUS_DURABLE_GOODS_SOURCE_ID,
+    DurableGoodsChangeBoundaryInputLock,
+    DurableGoodsChangeBoundaryRoles,
+    build_durable_goods_change_boundary_replay_spec,
+    load_durable_goods_change_boundary_input_lock,
+)
 from finreplay.scenarios.eia_crude_stock_boundary import (
     EIA_WPSR_SOURCE_ID,
     EIACrudeStockBoundaryInputLock,
@@ -164,6 +171,7 @@ __all__ = [
     "BLS_CPI_SOURCE_ID",
     "BLS_EMPLOYMENT_SOURCE_ID",
     "CENSUS_C30_SOURCE_ID",
+    "CENSUS_DURABLE_GOODS_SOURCE_ID",
     "CENSUS_MARTS_SOURCE_ID",
     "CENSUS_NRC_SOURCE_ID",
     "DOL_UI_CLAIMS_SOURCE_ID",
@@ -190,6 +198,8 @@ __all__ = [
     "ConstructionSpendingBoundaryRoles",
     "ConsumerCreditBoundaryInputLock",
     "ConsumerCreditBoundaryRoles",
+    "DurableGoodsChangeBoundaryInputLock",
+    "DurableGoodsChangeBoundaryRoles",
     "EIACrudeStockBoundaryInputLock",
     "EIACrudeStockBoundaryRoles",
     "EmploymentBoundaryInputLock",
@@ -231,6 +241,7 @@ __all__ = [
     "build_construction_spending_boundary_replay_spec",
     "build_consumer_credit_boundary_replay_spec",
     "build_cpi_boundary_replay_spec",
+    "build_durable_goods_change_boundary_replay_spec",
     "build_eia_crude_stock_boundary_replay_spec",
     "build_employment_boundary_replay_spec",
     "build_facility_growth_replay_spec",
@@ -251,6 +262,7 @@ __all__ = [
     "load_construction_spending_boundary_input_lock",
     "load_consumer_credit_boundary_input_lock",
     "load_cpi_boundary_input_lock",
+    "load_durable_goods_change_boundary_input_lock",
     "load_eia_crude_stock_boundary_input_lock",
     "load_employment_boundary_input_lock",
     "load_facility_growth_input_lock",

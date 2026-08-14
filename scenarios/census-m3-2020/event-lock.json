@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "census-m3-2020-durable-goods-change-boundary",
+  "scenario_version": "1.0.0",
+  "decision_time": "2020-03-25T12:30:00Z",
+  "event_role": "post_decision_official_event",
+  "records": [
+    {
+      "record_id": "census.m3.archived_advance_durable_goods:202003:total_durable_goods_new_orders_monthly_change",
+      "entity_id": "census_m3:total_durable_goods_new_orders",
+      "source": {
+        "source_id": "census.m3.archived_advance_durable_goods",
+        "publisher": "U.S. Census Bureau",
+        "url": "https://www.census.gov/manufacturing/m3/historical_data/pressreleases/adv/2020/mar20adv.pdf",
+        "retrieved_at": "2026-08-14T05:20:41.700641Z",
+        "source_version": "CENSUS-M3-DURABLE:2020-03:CB20-54:pdf:ffafe420861628e384cbd49e",
+        "sha256": "ffafe420861628e384cbd49e0558157cf7e4b03a608cdcf599d4912e55a816a2",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2020-04-24T12:30:00Z",
+        "redistribution_note": "Full Census M3 PDFs remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred."
+      },
+      "interval": {
+        "valid_from": "2020-03-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2020-04-24T12:30:00Z",
+        "available_at": "2020-04-24T12:30:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-14T05:20:41.700641Z",
+        "availability_rule": "Each selected official Census M3 Advance Durable Goods report states an exact 8:30 a.m. EST/EDT release date and time. FinReplay validates that label against America/New_York and assigns the report's semantic release facts to that stated time. The current archived PDF hash and metadata remain present-retrieval evidence; because each PDF has post-release modification metadata, exact current bytes are not claimed to be identical to the bytes served at the historical release instant.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "adjusted_for_price_changes": false,
+        "annual_benchmark_notice_present": true,
+        "availability_method": "exact_time_in_report_for_semantic_facts_current_pdf_bytes_retrieval_only",
+        "confidence_intervals_computable": false,
+        "covid_publication_standard_statement_present": true,
+        "current_pdf_byte_identity_at_release_claimed": false,
+        "excluding_defense_change_basis_points": -1580,
+        "excluding_transportation_change_basis_points": -20,
+        "full_report_release_date": "2020-05-04",
+        "full_report_release_time_label": "10:00 a.m. EDT",
+        "inventories_change_basis_points": 60,
+        "inventories_value_million_dollars": 437420,
+        "metric": "total_durable_goods_new_orders_monthly_change_basis_points",
+        "new_and_unfilled_orders_exclude_semiconductor_manufacturing": true,
+        "next_advance_release_date": "2020-05-28",
+        "next_advance_release_time_label": "8:30 a.m. EDT",
+        "official_release_at": "2020-04-24T12:30:00+00:00",
+        "older_month_change_basis_points": 10,
+        "older_month_value_million_dollars": 246558,
+        "pdf_table_snapshot_verified": true,
+        "prior_month": "2020-02",
+        "prior_month_revised_change_basis_points": 110,
+        "prior_month_revised_value_million_dollars": 249167,
+        "probability_sample": false,
+        "reference_month": "2020-03",
+        "release_code": "M3-1 (20)-03",
+        "release_date": "2020-04-24",
+        "release_number": "CB 20-54",
+        "release_series": "Monthly Advance Report on Durable Goods",
+        "release_snapshot_change_basis_points": {
+          "2020-01": 10,
+          "2020-02": 110,
+          "2020-03": -1440
+        },
+        "release_snapshot_level_revision_delta_million_dollars": {
+          "2020-01": 17,
+          "2020-02": -242,
+          "2020-03": null
+        },
+        "release_snapshot_new_orders_million_dollars": {
+          "2020-01": 246558,
+          "2020-02": 249167,
+          "2020-03": 213184
+        },
+        "release_snapshot_previous_change_basis_points": {
+          "2020-01": 10,
+          "2020-02": 120,
+          "2020-03": null
+        },
+        "release_snapshot_previous_new_orders_million_dollars": {
+          "2020-01": 246541,
+          "2020-02": 249409,
+          "2020-03": null
+        },
+        "release_snapshot_revision_delta_basis_points": {
+          "2020-01": 0,
+          "2020-02": -10,
+          "2020-03": null
+        },
+        "release_time_local": "08:30:00",
+        "release_timezone": "America/New_York",
+        "release_timezone_abbreviation": "EDT",
+        "report_pdf_metadata_creation_date": "D:20200423152159-04'00'",
+        "report_pdf_metadata_modification_date": "D:20200527104843-04'00'",
+        "report_pdf_metadata_modified_after_release": true,
+        "report_pdf_page_dimensions_points": [
+          [
+            612.0,
+            792.0
+          ],
+          [
+            612.0,
+            792.0
+          ],
+          [
+            612.0,
+            792.0
+          ],
+          [
+            612.0,
+            792.0
+          ],
+          [
+            612.0,
+            792.0
+          ],
+          [
+            612.0,
+            792.0
+          ],
+          [
+            612.0,
+            792.0
+          ]
+        ],
+        "report_pdf_page_rotations": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "report_pdf_pages": 7,
+        "report_pdf_sha256": "ffafe420861628e384cbd49e0558157cf7e4b03a608cdcf599d4912e55a816a2",
+        "report_pdf_url": "https://www.census.gov/manufacturing/m3/historical_data/pressreleases/adv/2020/mar20adv.pdf",
+        "reported_headline_delta_billion_dollars": "36.0",
+        "reported_rounded_value_billion_dollars": "213.2",
+        "sampling_error_measurable": false,
+        "seasonally_adjusted": true,
+        "shipments_change_basis_points": -450,
+        "shipments_value_million_dollars": 240715,
+        "snapshot_semantics": "reported total durable-goods new-orders fact in this archived release",
+        "statistical_significance_measurable": false,
+        "text_describes_not_adjusted_for_inflation": true,
+        "transportation_equipment_change_basis_points": -4100,
+        "transportation_equipment_rounded_level_million_dollars": 51200,
+        "unfilled_orders_change_basis_points": -200,
+        "unfilled_orders_value_million_dollars": 1135165,
+        "unit": "Basis Points of Month-over-Month New Orders Change",
+        "value_basis_points": -1440,
+        "value_million_dollars": 213184,
+        "value_percent": "-14.4"
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the -1,440-basis-point March 2020 total durable-goods new-orders monthly change and 213,184-million-dollar level from the April 24 Census M3 advance report solely as a post-decision official event. That report retains January at +10 basis points and revises February from +120 to +110 basis points; those values do not overwrite the first-report input sequence. The current PDF has May 27 modification metadata, so its exact bytes are verified present official evidence rather than proof of unchanged release-time bytes. The report's COVID-19 statement concerns publication standards and does not establish causality or unaffected measurement. The event and revisions are excluded from all ReplayPack inputs and do not establish forecast skill, calibrated coverage, probability, price-adjusted output, manufacturing, inflation, pandemic, policy, firm or sector causality, investment performance, external review, deployment, or user impact.",
+  "lock_sha256": "696a6d5bb84f9dea48c298ce311e7cc21b1061f2ced4b87aedc76c2091b40f80"
+}
