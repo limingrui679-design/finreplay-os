@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over two locked Census/HUD NRC preliminary headline housing-starts levels available before the decision time. Reported release snapshots remain reported; the latest-persistence-or-repeat-known-headline-increase range remains inferred with no assigned probability. The two-headline difference is not the official month-over-month change, which uses a revised prior month. Official 90-percent sampling intervals are not used in the range. TrialCourt rejects retrospective promotion. The April 16 March value and February revision are held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, housing-market causal model, trading signal, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1536,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "54c73546f81962460781eb45f2ad58c7122a82287024936e64dd7aeac21998b5"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "e685fdbc00041a94903863734a4915f32957818164ecd02e0119e624726d11aa"
+    },
+    {
+      "bytes": 32154,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "9e4245637248db45e81711ee2438e9bd8dc05bc6116af1adf20e07a28663fa84"
+    },
+    {
+      "bytes": 30959,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "2a14fbca9b18505699c048ea5ddc3a67f77429a9d7f0140c5a0940cbd367f9e9"
+    }
+  ],
+  "pack_sha256": "c2cae95fd76a7c16943ba7c6e6b27c72b9ed9cd1047b41dcf7abceb497cee6aa",
+  "receipt_sha256": "5b672acd250466c399b2cf01ae123181fa9570c3f7d761792b5cd510621d3bf5",
+  "replay_id": "census-nrc-2020-housing-starts-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "a98465eb4b74177c0b3c3658bf0599554c9180fe",
+    "compressed_input_bytes": 2194,
+    "created_at": "2026-08-13T14:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "588f32eefa159f9431ef06db24d53db9a496dd234352d6593b0b1d3c02a00ead",
+    "output_manifest_sha256": "372ba6896c109f31dcefd83b9c57aca00e5c815b9a340f69104202961e46568f",
+    "replay_id": "census-nrc-2020-housing-starts-boundary-v1",
+    "scenario_id": "census-nrc-2020-housing-starts-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "2a14fbca9b18505699c048ea5ddc3a67f77429a9d7f0140c5a0940cbd367f9e9",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:f9e49daaed06fe042c5612ef39fcf02463e17a914cda3ec8f9633821c63aea39"
+}

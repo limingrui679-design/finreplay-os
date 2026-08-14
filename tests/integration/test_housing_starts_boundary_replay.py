@@ -8,7 +8,7 @@ import pytest
 from pydantic import ValidationError
 
 from finreplay.contracts import EvidenceClass, TrialDisposition
-from finreplay.engines import EngineName
+from finreplay.engines import EngineName, ReplayStudio
 from finreplay.scenarios import (
     HousingStartsBoundaryInputLock,
     OfficialEventLock,
@@ -18,7 +18,8 @@ from finreplay.scenarios import (
 
 LOCK_PATH = Path("scenarios/census-nrc-2020/input-lock.json")
 EVENT_PATH = Path("scenarios/census-nrc-2020/event-lock.json")
-CODE_COMMIT = "0" * 40
+PACK_PATH = Path("verification/replaypacks/census-nrc-2020")
+CODE_COMMIT = "a98465eb4b74177c0b3c3658bf0599554c9180fe"
 
 
 @pytest.mark.integration
@@ -81,6 +82,7 @@ def test_housing_starts_boundary_runs_four_engines_with_exact_values() -> None:
     assert trial.payload["decision"]["disposition"] == TrialDisposition.REJECT.value
     assert len(trial.payload["decision"]["findings"]) == 6
     assert trial.payload["manifest"]["rejected_decisions"] == 1
+    assert ReplayStudio().compile(spec).pack_sha256 == ReplayStudio().verify(PACK_PATH).pack_sha256
 
 
 @pytest.mark.integration

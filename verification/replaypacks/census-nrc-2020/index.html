@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self'; img-src 'self' data:;
+                 base-uri 'none'; form-action 'none'">
+  <title>Census/HUD NRC boundary before the March 2020 housing-starts decline · FinReplay OS</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to report</a>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">FinReplay OS · evidence-labelled replay</p>
+      <h1>Census/HUD NRC boundary before the March 2020 housing-starts decline</h1>
+      <p class="lede">Four actual engines ran over two locked Census/HUD NRC preliminary headline housing-starts levels available before the decision time. Reported release snapshots remain reported; the latest-persistence-or-repeat-known-headline-increase range remains inferred with no assigned probability. The two-headline difference is not the official month-over-month change, which uses a revised prior month. Official 90-percent sampling intervals are not used in the range. TrialCourt rejects retrospective promotion. The April 16 March value and February revision are held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, housing-market causal model, trading signal, production deployment, or external validation.</p>
+    </div>
+    <div class="identity" aria-label="Replay identity">
+      <span>Replay <code>census-nrc-2020-housing-starts-boundary-v1</code></span>
+      <span>Trace <code>trace:f9e49daaed06fe042c5612ef39fcf02463e17a914cda3ec8f9633821c63aea39</code></span>
+    </div>
+  </header>
+  <nav aria-label="Report sections">
+    <a href="#summary">Summary</a><a href="#claims">Claims</a>
+    <a href="#artifacts">Artifacts</a><a href="#limitations">Limitations</a>
+  </nav>
+  <main id="main">
+    <section id="summary" aria-labelledby="summary-title">
+      <h2 id="summary-title">Replay summary</h2>
+      <div class="boundary" role="note" aria-label="Truth boundary">
+        <strong>Truth boundary</strong>
+        <span>Contains simulated inputs. All represented source sets are historical-replay eligible.</span>
+        <span>Historical replay is not live trading;
+        modeled output is not realized performance.</span>
+      </div>
+      <dl class="facts">
+        <div><dt>Scenario</dt><dd>census-nrc-2020-housing-starts-boundary
+        v1.0.0</dd></div>
+        <div><dt>Mode</dt><dd>bounded_reconstruction</dd></div>
+        <div><dt>Decision time</dt>
+        <dd>2020-03-19T12:00:00Z</dd></div>
+        <div><dt>Artifact status</dt><dd>reproduced</dd></div>
+        <div><dt>Engines represented</dt><dd>4 / 7</dd></div>
+        <div><dt>Pack hash</dt><dd><code>c2cae95fd76a7c16943ba7c6e6b27c72b9ed9cd1047b41dcf7abceb497cee6aa</code></dd></div>
+      </dl>
+      <h3>Evidence inventory</h3>
+      <ul class="metrics" aria-label="Evidence counts"><li class="metric"><span class="metric-value">1</span><span>extracted</span></li><li class="metric"><span class="metric-value">4</span><span>inferred</span></li><li class="metric"><span class="metric-value">4</span><span>reported</span></li><li class="metric"><span class="metric-value">1</span><span>simulated</span></li></ul>
+      <p class="downloads"><a href="report.json">Machine-readable report</a>
+      <a href="checksums.sha256">Portable checksums</a>
+      <a href="README.md">Reproduction notes</a></p>
+    </section>
+    <section id="claims" aria-labelledby="claims-title">
+      <h2 id="claims-title">Claim traceability</h2>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Claim traceability table">
+        <table><caption>Each statement retains its evidence label,
+        supporting artifacts and boundary.</caption>
+          <thead><tr><th scope="col">Claim</th><th scope="col">Statement</th>
+          <th scope="col">Label</th><th scope="col">Support</th>
+          <th scope="col">Boundary</th></tr></thead>
+          <tbody><tr><th scope="row"><code>claim-extracted-census-nrc-four-engine-pack</code></th><td>The pack contains outputs from the four engines relevant to this boundary.</td><td><span class="badge evidence-extracted">EXTRACTED</span></td><td><code>census-nrc.replaystudio.render</code></td><td>Artifact presence proves integration structure, not economic correctness.</td></tr><tr><th scope="row"><code>claim-inferred-census-nrc-level-range</code></th><td>The next-release stress endpoints are latest-headline persistence or one repeat of the known 32,000-unit headline increase: [1,599,000, 1,631,000] SAAR units.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>census-nrc.shockcompiler.housing-starts-level-range</code></td><td>The endpoints have no probability or coverage guarantee and are distinct from official monthly changes and sampling-confidence intervals.</td></tr><tr><th scope="row"><code>claim-inferred-census-nrc-trial-rejection</code></th><td>TrialCourt rejected the retrospective one-headline-increase NRC attempt.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>census-nrc.trialcourt.retrospective-gate</code></td><td>This is an internal method result, not external review.</td></tr><tr><th scope="row"><code>claim-reported-census-nrc-headline-levels</code></th><td>Archived Census/HUD NRC releases report preliminary total housing-starts SAAR headline levels of 1,567,000 units for January and 1,599,000 units for February 2020.</td><td><span class="badge evidence-reported">REPORTED</span></td><td><code>census-nrc.timevault.release-query</code></td><td>These are release-time preliminary aggregate estimates, not project-level observations or later revised values.</td></tr><tr><th scope="row"><code>claim-simulated-census-nrc-schema-sentinels</code></th><td>Trial operational values are simulated schema sentinels only.</td><td><span class="badge evidence-simulated">SIMULATED</span></td><td><code>census-nrc.trialcourt.retrospective-gate</code></td><td>The sentinels are not transactions, capital, capacity, or returns.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section id="artifacts" aria-labelledby="artifacts-title">
+      <h2 id="artifacts-title">Engine artifacts</h2><article class="artifact">
+  <header><div><p class="eyebrow">replaystudio</p>
+  <h3><code>census-nrc.replaystudio.render</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> extracted: 1</p>
+  <p><strong>Artifact hash:</strong> <code>7fe237035e70d966ca2795125eb55370f84ebdb5dbd9b86d5582db25417bd5fd</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>census.hud.archived_new_residential_construction:202001:total_housing_starts</code></li><li><code>census.hud.archived_new_residential_construction:202002:total_housing_starts</code></li></ul>
+    <h4>Limitations</h4><ul><li>Static rendering does not validate the headline-level range heuristic.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;engine_selection&quot;: &quot;This aggregate housing-starts release boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no project, builder, property, transaction, position, order, portfolio, or allocation input is invented.&quot;,
+  &quot;input_lock_sha256&quot;: &quot;6dcf1f27d8f3fdebecf6e5c9508d3249dece138c78c0641d937ccc5b29db31b2&quot;,
+  &quot;portable_file_count_excluding_manifest&quot;: 5,
+  &quot;renderer&quot;: &quot;ReplayStudio&quot;,
+  &quot;truth_labels_visible&quot;: true
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">shockcompiler</p>
+  <h3><code>census-nrc.shockcompiler.housing-starts-level-range</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 3</p>
+  <p><strong>Artifact hash:</strong> <code>6490d567d6b17cc9caa2425c8caa79c9dfa1150b5dff41b1fef2bbf1d993598a</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>census.hud.archived_new_residential_construction:202001:total_housing_starts</code></li><li><code>census.hud.archived_new_residential_construction:202002:total_housing_starts</code></li></ul>
+    <h4>Limitations</h4><ul><li>The endpoints mechanically reuse one release-headline increase.</li><li>The April 16 March value and revised February value are absent from construction.</li><li>The range is not an official confidence interval, probability, or causal model.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;applied_endpoints&quot;: {
+    &quot;lower&quot;: 1599000.0,
+    &quot;upper&quot;: 1631000.0
+  },
+  &quot;bound_construction&quot;: {
+    &quot;basis_is_release_headline_levels_not_official_monthly_change&quot;: true,
+    &quot;endpoint_method&quot;: &quot;latest_headline_persistence_or_repeat_known_headline_increase&quot;,
+    &quot;future_event_used&quot;: false,
+    &quot;known_headline_increase_units&quot;: 32000,
+    &quot;lower_level_units&quot;: 1599000,
+    &quot;official_sampling_confidence_interval_used&quot;: false,
+    &quot;probability_assigned&quot;: false,
+    &quot;range_width_units&quot;: 32000,
+    &quot;upper_level_units&quot;: 1631000
+  },
+  &quot;compiled&quot;: {
+    &quot;compiled_sha256&quot;: &quot;57c8b96d34be39230127f630f49462a36a4459cb7c2455ac5871e0d19742dbd9&quot;,
+    &quot;decision_time&quot;: &quot;2020-03-19T12:00:00Z&quot;,
+    &quot;limitations&quot;: [
+      &quot;The endpoints have no likelihood, coverage, housing-causality, or regime meaning.&quot;,
+      &quot;Official 90-percent sampling intervals are source metadata, not range inputs.&quot;,
+      &quot;The April 16 release and its revision are excluded and evaluated only afterward.&quot;
+    ],
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;program_id&quot;: &quot;census-nrc-next-housing-starts-level-envelope&quot;,
+    &quot;scenario_id&quot;: &quot;census-nrc-2020-housing-starts-boundary&quot;,
+    &quot;source_program_sha256&quot;: &quot;86ff25c8654ef161e19f587677bf4b0a877374e9ad489a5ddc0ead21f9d55d43&quot;,
+    &quot;trials&quot;: [
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Use latest preliminary headline persistence or one repeat of the only known release-headline level increase as transparent next-release stress endpoints.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;The 32,000-unit difference compares two releases&#x27; preliminary headline levels; it is not the official monthly change against a revised prior-month level.&quot;,
+              &quot;Two release snapshots and one increase define a stress range, not a forecast or confidence interval.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;census-nrc-next-housing-starts-level-range&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;7aaddc9c7a6bf3655aad1bbcaa4f3a21047187115625626e94abb38ccdec191e&quot;,
+              &quot;20042627dcaa63068a5bfd271f1fbb2880de0792103cf2fe0c084759f28f6a3e&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;census.hud.archived_new_residential_construction:202001:total_housing_starts&quot;,
+              &quot;census.hud.archived_new_residential_construction:202002:total_housing_starts&quot;
+            ],
+            &quot;target_id&quot;: &quot;census_hud_nrc:privately_owned_housing_starts_total&quot;,
+            &quot;unit&quot;: &quot;housing_units_saar&quot;,
+            &quot;value&quot;: 1599000.0,
+            &quot;variable&quot;: &quot;next_total_housing_starts_saar_units&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;census-nrc-next-housing-starts-level-envelope:00000000:89ea2223c2282049&quot;,
+        &quot;trial_index&quot;: 0,
+        &quot;vector_sha256&quot;: &quot;89ea2223c22820499ee7650150b2a9d26e671456a5fd74423638cdd86a9c701a&quot;
+      },
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Use latest preliminary headline persistence or one repeat of the only known release-headline level increase as transparent next-release stress endpoints.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;The 32,000-unit difference compares two releases&#x27; preliminary headline levels; it is not the official monthly change against a revised prior-month level.&quot;,
+              &quot;Two release snapshots and one increase define a stress range, not a forecast or confidence interval.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;census-nrc-next-housing-starts-level-range&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;7aaddc9c7a6bf3655aad1bbcaa4f3a21047187115625626e94abb38ccdec191e&quot;,
+              &quot;20042627dcaa63068a5bfd271f1fbb2880de0792103cf2fe0c084759f28f6a3e&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;census.hud.archived_new_residential_construction:202001:total_housing_starts&quot;,
+              &quot;census.hud.archived_new_residential_construction:202002:total_housing_starts&quot;
+            ],
+            &quot;target_id&quot;: &quot;census_hud_nrc:privately_owned_housing_starts_total&quot;,
+            &quot;unit&quot;: &quot;housing_units_saar&quot;,
+            &quot;value&quot;: 1631000.0,
+            &quot;variable&quot;: &quot;next_total_housing_starts_saar_units&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;census-nrc-next-housing-starts-level-envelope:00000001:07a5e97cec5076e1&quot;,
+        &quot;trial_index&quot;: 1,
+        &quot;vector_sha256&quot;: &quot;07a5e97cec5076e1832d9727416b6b0384a8eeb17267cd459ac1a9f1b32a3712&quot;
+      }
+    ]
+  },
+  &quot;input_lock_sha256&quot;: &quot;6dcf1f27d8f3fdebecf6e5c9508d3249dece138c78c0641d937ccc5b29db31b2&quot;,
+  &quot;known_headline_levels&quot;: {
+    &quot;february_headline_units&quot;: 1599000,
+    &quot;january_headline_units&quot;: 1567000,
+    &quot;known_headline_increase_units&quot;: 32000,
+    &quot;lower_level_units&quot;: 1599000,
+    &quot;range_width_units&quot;: 32000,
+    &quot;upper_level_units&quot;: 1631000
+  },
+  &quot;naive_baseline&quot;: {
+    &quot;definition&quot;: &quot;persistence of the latest preliminary NRC headline level&quot;,
+    &quot;next_total_housing_starts_saar_units&quot;: 1599000
+  },
+  &quot;program&quot;: {
+    &quot;decision_time&quot;: &quot;2020-03-19T12:00:00Z&quot;,
+    &quot;global_limitations&quot;: [
+      &quot;The endpoints have no likelihood, coverage, housing-causality, or regime meaning.&quot;,
+      &quot;Official 90-percent sampling intervals are source metadata, not range inputs.&quot;,
+      &quot;The April 16 release and its revision are excluded and evaluated only afterward.&quot;
+    ],
+    &quot;hypothesis&quot;: &quot;Evaluate latest-headline persistence or one repetition of the known headline-level increase using only NRC snapshots available at the historical boundary.&quot;,
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;parameters&quot;: [
+      {
+        &quot;derivation&quot;: &quot;Use latest preliminary headline persistence or one repeat of the only known release-headline level increase as transparent next-release stress endpoints.&quot;,
+        &quot;evidence_class&quot;: &quot;inferred&quot;,
+        &quot;grid_points&quot;: 2,
+        &quot;limitations&quot;: [
+          &quot;The 32,000-unit difference compares two releases&#x27; preliminary headline levels; it is not the official monthly change against a revised prior-month level.&quot;,
+          &quot;Two release snapshots and one increase define a stress range, not a forecast or confidence interval.&quot;
+        ],
+        &quot;lower&quot;: 1599000.0,
+        &quot;operation&quot;: &quot;set&quot;,
+        &quot;parameter_id&quot;: &quot;census-nrc-next-housing-starts-level-range&quot;,
+        &quot;source_record_ids&quot;: [
+          &quot;census.hud.archived_new_residential_construction:202001:total_housing_starts&quot;,
+          &quot;census.hud.archived_new_residential_construction:202002:total_housing_starts&quot;
+        ],
+        &quot;sources&quot;: [
+          {
+            &quot;license_class&quot;: &quot;download_only&quot;,
+            &quot;publisher&quot;: &quot;U.S. Census Bureau and U.S. Department of Housing and Urban Development&quot;,
+            &quot;redistribution_note&quot;: &quot;Full Census/HUD PDFs remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-13T13:49:00.920886Z&quot;,
+            &quot;sha256&quot;: &quot;7aaddc9c7a6bf3655aad1bbcaa4f3a21047187115625626e94abb38ccdec191e&quot;,
+            &quot;source_id&quot;: &quot;census.hud.archived_new_residential_construction&quot;,
+            &quot;source_version&quot;: &quot;CENSUS-HUD-NRC:2020-01:CB20-26:pdf:7aaddc9c7a6bf3655aad1bbc&quot;,
+            &quot;temporal_coverage&quot;: &quot;versioned_snapshot&quot;,
+            &quot;url&quot;: &quot;https://www.census.gov/construction/nrc/pdf/newresconst_202001.pdf&quot;,
+            &quot;vintage_as_of&quot;: &quot;2020-02-19T13:30:00Z&quot;
+          },
+          {
+            &quot;license_class&quot;: &quot;download_only&quot;,
+            &quot;publisher&quot;: &quot;U.S. Census Bureau and U.S. Department of Housing and Urban Development&quot;,
+            &quot;redistribution_note&quot;: &quot;Full Census/HUD PDFs remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-13T13:49:04.821412Z&quot;,
+            &quot;sha256&quot;: &quot;20042627dcaa63068a5bfd271f1fbb2880de0792103cf2fe0c084759f28f6a3e&quot;,
+            &quot;source_id&quot;: &quot;census.hud.archived_new_residential_construction&quot;,
+            &quot;source_version&quot;: &quot;CENSUS-HUD-NRC:2020-02:CB20-41:pdf:20042627dcaa63068a5bfd27&quot;,
+            &quot;temporal_coverage&quot;: &quot;versioned_snapshot&quot;,
+            &quot;url&quot;: &quot;https://www.census.gov/construction/nrc/pdf/newresconst_202002.pdf&quot;,
+            &quot;vintage_as_of&quot;: &quot;2020-03-18T12:30:00Z&quot;
+          }
+        ],
+        &quot;target_id&quot;: &quot;census_hud_nrc:privately_owned_housing_starts_total&quot;,
+        &quot;unit&quot;: &quot;housing_units_saar&quot;,
+        &quot;upper&quot;: 1631000.0,
+        &quot;variable&quot;: &quot;next_total_housing_starts_saar_units&quot;
+      }
+    ],
+    &quot;program_id&quot;: &quot;census-nrc-next-housing-starts-level-envelope&quot;,
+    &quot;scenario_id&quot;: &quot;census-nrc-2020-housing-starts-boundary&quot;
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">timevault</p>
+  <h3><code>census-nrc.timevault.release-query</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> reported: 2</p>
+  <p><strong>Artifact hash:</strong> <code>532939fda5202d477d36f043f5ac9d8061346234a7012f4c7be2cc9bc27fb30d</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>census.hud.archived_new_residential_construction:202001:total_housing_starts</code></li><li><code>census.hud.archived_new_residential_construction:202002:total_housing_starts</code></li></ul>
+    <h4>Limitations</h4><ul><li>The lock contains only two monthly NRC release snapshots.</li><li>Each headline is preliminary and may be revised in a later release.</li><li>Aggregate housing-starts estimates do not identify projects, builders, or places.</li><li>Full seven-page PDFs remain local download evidence.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;append&quot;: {
+    &quot;artifact_ids&quot;: [
+      &quot;7fd8b0c79ef4d29c69e0b06052303e251f6babd81947c2b197685bb81d99864a&quot;,
+      &quot;a3281c063e9174f48aea1d81dd5b8cd68e31db4442eb9c514bb3b1a604805ef7&quot;
+    ],
+    &quot;attempted_records&quot;: 2,
+    &quot;fact_hashes&quot;: [
+      &quot;7112e8e6432a09927ebe2acd3eb5d985ff2abff4604084e7e4c732008616e5ff&quot;,
+      &quot;80250a7236c182de7644cfc03f09f4bdccdece740a039abb9b34295198b2e7b1&quot;
+    ],
+    &quot;idempotent_records&quot;: 0,
+    &quot;inserted_records&quot;: 2
+  },
+  &quot;decision_time&quot;: &quot;2020-03-19T12:00:00Z&quot;,
+  &quot;input_lock_sha256&quot;: &quot;6dcf1f27d8f3fdebecf6e5c9508d3249dece138c78c0641d937ccc5b29db31b2&quot;,
+  &quot;manifest&quot;: {
+    &quot;database_bytes&quot;: 0,
+    &quot;distinct_records&quot;: 2,
+    &quot;fact_set_sha256&quot;: &quot;5338e72195175ab2c40fc284337e41b6689a3cf0cd5aa9d9234ef37995981ee0&quot;,
+    &quot;fact_versions&quot;: 2,
+    &quot;generated_at&quot;: &quot;2026-08-13T14:00:00Z&quot;,
+    &quot;retrieval_receipts&quot;: 2,
+    &quot;source_artifacts&quot;: 2
+  },
+  &quot;max_available_at&quot;: &quot;2020-03-18T12:30:00Z&quot;,
+  &quot;selected_record_ids&quot;: [
+    &quot;census.hud.archived_new_residential_construction:202001:total_housing_starts&quot;,
+    &quot;census.hud.archived_new_residential_construction:202002:total_housing_starts&quot;
+  ],
+  &quot;value_semantics&quot;: &quot;release-time preliminary headline levels; not later revised levels&quot;
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">trialcourt</p>
+  <h3><code>census-nrc.trialcourt.retrospective-gate</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1, reported: 2, simulated: 1</p>
+  <p><strong>Artifact hash:</strong> <code>1e7e0dbb3385cee782b51abe2c31e0329c9054d7daff1f68804757c772a2b390</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>census.hud.archived_new_residential_construction:202001:total_housing_starts</code></li><li><code>census.hud.archived_new_residential_construction:202002:total_housing_starts</code></li></ul>
+    <h4>Limitations</h4><ul><li>The rejected attempt is a retrospective method boundary, not a validated forecast.</li><li>Operational sentinel fields contain no execution, capacity, or return evidence.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;attempt&quot;: {
+    &quot;attempt_id&quot;: &quot;census-nrc-retrospective-attempt-1&quot;,
+    &quot;attempt_number&quot;: 1,
+    &quot;code_commit&quot;: &quot;a98465eb4b74177c0b3c3658bf0599554c9180fe&quot;,
+    &quot;completed_at&quot;: &quot;2026-08-13T14:00:00Z&quot;,
+    &quot;config_sha256&quot;: &quot;c403cd56fb5d6a000565f1a070afe0d71e81aa9192f5c43870dad77ba4cd1deb&quot;,
+    &quot;decision_time&quot;: &quot;2020-03-19T12:00:00Z&quot;,
+    &quot;evaluation_end&quot;: &quot;2020-05-04&quot;,
+    &quot;evaluation_start&quot;: &quot;2020-03-20&quot;,
+    &quot;gross_return_bps&quot;: 0.0,
+    &quot;input_manifest_sha256&quot;: &quot;6dcf1f27d8f3fdebecf6e5c9508d3249dece138c78c0641d937ccc5b29db31b2&quot;,
+    &quot;max_input_available_at&quot;: &quot;2020-03-18T12:30:00Z&quot;,
+    &quot;median_daily_volume_usd&quot;: 1.0,
+    &quot;metric_value&quot;: 32000.0,
+    &quot;next_training_start&quot;: null,
+    &quot;notes&quot;: [
+      &quot;Retrospective method-boundary attempt; p=1 records no inferential test.&quot;,
+      &quot;One-dollar and zero-return fields are non-trading schema sentinels.&quot;,
+      &quot;No April 16 NRC fact or February revision is in the attempt manifest.&quot;
+    ],
+    &quot;one_way_turnover&quot;: 0.0,
+    &quot;output_manifest_sha256&quot;: &quot;5887587b803f15af60d049ed28fc1e7e0bee6c986e4b8701ae2a65f35a3a1f74&quot;,
+    &quot;p_value&quot;: 1.0,
+    &quot;regime_metric_values&quot;: {
+      &quot;continuation-range-width&quot;: 32000.0,
+      &quot;known-headline-level-increase&quot;: 32000.0
+    },
+    &quot;requested_capital_usd&quot;: 1.0,
+    &quot;sample_size&quot;: 2,
+    &quot;short_fraction&quot;: 0.0,
+    &quot;training_end&quot;: &quot;2020-03-17&quot;,
+    &quot;trial_id&quot;: &quot;census-nrc-retrospective-range-screen&quot;
+  },
+  &quot;attempt_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;8d9c548b81782f9b55d0f89a53d71ad0787a4ad130bfc94314009b6c4a1dfff1&quot;,
+    &quot;entry_hash&quot;: &quot;8d9c548b81782f9b55d0f89a53d71ad0787a4ad130bfc94314009b6c4a1dfff1&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 2
+  },
+  &quot;decision&quot;: {
+    &quot;adjusted_p_values&quot;: {
+      &quot;census-nrc-retrospective-attempt-1&quot;: 1.0
+    },
+    &quot;attempt_ids&quot;: [
+      &quot;census-nrc-retrospective-attempt-1&quot;
+    ],
+    &quot;attempt_set_sha256&quot;: &quot;ef122394d48e149ef2b4cba3c94c7aa0a985eec3939071f1c3f3fd7b185d7257&quot;,
+    &quot;candidate_attempt_id&quot;: &quot;census-nrc-retrospective-attempt-1&quot;,
+    &quot;decided_at&quot;: &quot;2026-08-13T14:00:00Z&quot;,
+    &quot;decision_id&quot;: &quot;decision:census-nrc-retrospective-range-screen:30058a5f54648ea6212c46e2&quot;,
+    &quot;disposition&quot;: &quot;reject&quot;,
+    &quot;findings&quot;: [
+      {
+        &quot;kind&quot;: &quot;preregistration&quot;,
+        &quot;metrics&quot;: {
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;registered_before_holdout&quot;: false
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Registration was retrospective or the observed attempt family exceeded the preregistered declaration.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;leakage&quot;,
+        &quot;metrics&quot;: {
+          &quot;embargo_respected&quot;: true,
+          &quot;evaluation_inside_holdout&quot;: true,
+          &quot;input_available_by_decision&quot;: true,
+          &quot;training_respects_purge&quot;: true
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Point-in-time input, purge, holdout and embargo checks passed.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;multiplicity&quot;,
+        &quot;metrics&quot;: {
+          &quot;adjusted_p_value&quot;: 1.0,
+          &quot;alpha&quot;: 0.05,
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;raw_p_value&quot;: 1.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Candidate does not survive family-wise Holm adjustment.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;regime&quot;,
+        &quot;metrics&quot;: {
+          &quot;best_regime_metric&quot;: 32000.0,
+          &quot;regime_count&quot;: 2,
+          &quot;worst_regime_metric&quot;: 32000.0
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Metric direction is stable across named regimes.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;execution&quot;,
+        &quot;metrics&quot;: {
+          &quot;borrow_cost_bps&quot;: 0.0,
+          &quot;gross_return_bps&quot;: 0.0,
+          &quot;immediate_cost_bps&quot;: 0.0,
+          &quot;net_return_bps&quot;: 0.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Preregistered execution and borrow costs erase the gross return.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;capacity&quot;,
+        &quot;metrics&quot;: {
+          &quot;allowed_daily_notional_usd&quot;: 0.05,
+          &quot;daily_notional_usd&quot;: 0.0,
+          &quot;max_participation_rate&quot;: 0.05
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Requested capital fits the preregistered participation limit.&quot;
+      }
+    ],
+    &quot;trial_id&quot;: &quot;census-nrc-retrospective-range-screen&quot;
+  },
+  &quot;input_lock_sha256&quot;: &quot;6dcf1f27d8f3fdebecf6e5c9508d3249dece138c78c0641d937ccc5b29db31b2&quot;,
+  &quot;manifest&quot;: {
+    &quot;attempts&quot;: 1,
+    &quot;chain_tip_sha256&quot;: &quot;4fb3a139fa2917fcde1b5fb1d158e32da27229fe796f4866a7359be51e9d0ee1&quot;,
+    &quot;decisions&quot;: 1,
+    &quot;entries&quot;: 3,
+    &quot;registrations&quot;: 1,
+    &quot;rejected_decisions&quot;: 1,
+    &quot;verified&quot;: true
+  },
+  &quot;registration_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;da04272aa94c910ca05dd8562cd4a9aaae51f8d1efa98d6f9c0d4ae3b787508c&quot;,
+    &quot;entry_hash&quot;: &quot;da04272aa94c910ca05dd8562cd4a9aaae51f8d1efa98d6f9c0d4ae3b787508c&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 1
+  },
+  &quot;spec&quot;: {
+    &quot;cost_model&quot;: {
+      &quot;borrow_bps_annual&quot;: 0.0,
+      &quot;commission_bps&quot;: 1.0,
+      &quot;half_spread_bps&quot;: 1.0,
+      &quot;market_impact_bps&quot;: 1.0,
+      &quot;max_participation_rate&quot;: 0.05
+    },
+    &quot;declared_attempts&quot;: 1,
+    &quot;disposition&quot;: &quot;revise&quot;,
+    &quot;economic_mechanism&quot;: &quot;Housing starts are reported aggregate survey estimates, but two preliminary release snapshots and one later outcome cannot establish predictive validity or housing, pandemic, policy, regional, builder, or macroeconomic causality.&quot;,
+    &quot;embargo_days&quot;: 0,
+    &quot;expected_direction&quot;: &quot;positive&quot;,
+    &quot;holdout_end&quot;: &quot;2020-05-04&quot;,
+    &quot;holdout_start&quot;: &quot;2020-03-20&quot;,
+    &quot;hypothesis&quot;: &quot;A retrospectively constructed one-headline-increase NRC housing-starts boundary qualifies for research eligibility after every adversarial gate.&quot;,
+    &quot;preregistered_at&quot;: &quot;2026-08-13T14:00:00Z&quot;,
+    &quot;primary_metric&quot;: &quot;one-headline-increase NRC level range width in housing units&quot;,
+    &quot;purge_days&quot;: 2,
+    &quot;trial_id&quot;: &quot;census-nrc-retrospective-range-screen&quot;
+  }
+}</pre>
+  </details>
+</article>
+    </section>
+    <section id="limitations" aria-labelledby="limitations-title">
+      <h2 id="limitations-title">Pack limitations</h2><ul><li>This lock preserves January and February 2020 preliminary total housing-starts SAAR headline levels from two official archived Census/HUD NRC PDFs knowable before the decision time. The 32,000-unit difference compares those two release-time headline levels; it is not the official month-over-month change, which uses a revised prior-month estimate. The lock excludes the April 16 March event, the later February revision, official sampling intervals as range inputs, projects, builders, properties, a probability distribution, forecast, calibrated interval, pandemic or policy causality, recommendation, execution, investment performance, external review, deployment, and user impact.</li><li>The endpoints are latest-headline persistence or one repetition of the single known 32,000-unit release-headline increase, with no probability.</li><li>The April 16 release and its February revision are excluded from every input.</li><li>The official monthly percentage changes use revised prior-month denominators and are not the arithmetic basis for this release-headline stress range.</li><li>Two snapshots do not identify housing causes, local variation, or a stable regime.</li><li>No position, order, portfolio, allocation, or return is represented.</li><li>A fixed build epoch and zero elapsed time preserve deterministic pack identity.</li></ul>
+    </section>
+  </main>
+  <footer><p>Static read-only report. No brokerage connection,
+  tracking script, or external request.</p></footer>
+</body>
+</html>
