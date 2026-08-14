@@ -14,6 +14,7 @@ from pydantic import ValidationError
 from finreplay.scale import (
     SECLogDownloadReceipt,
     SECLogPartition,
+    SECLogRetryableDownloadError,
     download_sec_log_archive,
     fetch_sec_log_inventory,
     load_sec_log_download_receipt,
@@ -197,6 +198,43 @@ def test_download_receipt_rejects_tampered_hash(tmp_path: Path) -> None:
 
     with pytest.raises(ValidationError, match="receipt_sha256"):
         SECLogDownloadReceipt.model_validate(values)
+
+
+def test_download_classifies_retryable_status_and_retry_after(tmp_path: Path) -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(
+            503,
+            headers={"Retry-After": "17"},
+            request=request,
+        )
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    with pytest.raises(SECLogRetryableDownloadError) as observed:
+        download_sec_log_archive(
+            _partition(),
+            destination=tmp_path / "log20120101.zip",
+            user_agent=USER_AGENT,
+            client=client,
+        )
+
+    assert observed.value.status_code == 503
+    assert observed.value.retry_after_seconds == 17.0
+
+
+def test_download_does_not_retry_classify_permanent_http_status(tmp_path: Path) -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(404, request=request)
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    with pytest.raises(ValueError, match="HTTP 404") as observed:
+        download_sec_log_archive(
+            _partition(),
+            destination=tmp_path / "log20120101.zip",
+            user_agent=USER_AGENT,
+            client=client,
+        )
+
+    assert not isinstance(observed.value, SECLogRetryableDownloadError)
 
 
 def _partition() -> SECLogPartition:

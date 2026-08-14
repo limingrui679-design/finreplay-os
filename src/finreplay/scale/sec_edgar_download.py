@@ -9,6 +9,7 @@ import re
 import tempfile
 import time
 from datetime import UTC, date, datetime
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any, Literal
 
@@ -27,6 +28,21 @@ _CONTENT_RANGE_PATTERN = re.compile(r"^bytes (?P<start>[0-9]+)-(?P<end>[0-9]+)/(
 
 class _StrictModel(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
+
+
+class SECLogRetryableDownloadError(ValueError):
+    """Transient network or HTTP failure with an optional server retry delay."""
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        status_code: int | None = None,
+        retry_after_seconds: float | None = None,
+    ) -> None:
+        super().__init__(message)
+        self.status_code = status_code
+        self.retry_after_seconds = retry_after_seconds
 
 
 class SECLogDownloadReceipt(_StrictModel):
@@ -335,9 +351,9 @@ def download_sec_log_archive(
                 raise ValueError("SEC log archive redirects are disabled")
             status_code = response.status_code
             if state is None and status_code != 200:
-                raise ValueError(f"SEC log archive returned HTTP {status_code}")
+                raise _archive_http_status_error(response)
             if state is not None and status_code not in (200, 206):
-                raise ValueError(f"SEC log archive resume returned HTTP {status_code}")
+                raise _archive_http_status_error(response, resume=True)
             _require_identity_encoding(response)
             source_etag = response.headers.get("ETag")
             source_last_modified = response.headers.get("Last-Modified")
@@ -417,8 +433,8 @@ def download_sec_log_archive(
                 restart.unlink()
             state_path.unlink()
     except httpx.HTTPError as error:
-        raise ValueError(
-            "SEC log archive request failed; resumable partial bytes were kept"
+        raise SECLogRetryableDownloadError(
+            "SEC log archive request failed; resumable partial bytes were kept",
         ) from error
     finally:
         if owns_client:
@@ -521,6 +537,35 @@ def _validate_content_range(value: str | None, *, expected_start: int, content_l
     if end - start + 1 != content_length:
         raise ValueError("SEC log Content-Range length differs from Content-Length")
     return total
+
+
+def _archive_http_status_error(
+    response: httpx.Response, *, resume: bool = False
+) -> ValueError:
+    action = "resume returned" if resume else "returned"
+    message = f"SEC log archive {action} HTTP {response.status_code}"
+    if response.status_code not in {408, 429, 500, 502, 503, 504}:
+        return ValueError(message)
+    return SECLogRetryableDownloadError(
+        message,
+        status_code=response.status_code,
+        retry_after_seconds=_parse_retry_after_seconds(response.headers.get("Retry-After")),
+    )
+
+
+def _parse_retry_after_seconds(value: str | None) -> float | None:
+    if value is None:
+        return None
+    normalized = value.strip()
+    if normalized.isdigit():
+        return float(int(normalized))
+    try:
+        retry_at = parsedate_to_datetime(normalized)
+    except (TypeError, ValueError, OverflowError):
+        return None
+    if retry_at.tzinfo is None or retry_at.utcoffset() is None:
+        return None
+    return max(0.0, (retry_at.astimezone(UTC) - datetime.now(UTC)).total_seconds())
 
 
 def _require_identity_encoding(response: httpx.Response) -> None:

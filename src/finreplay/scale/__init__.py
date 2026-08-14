@@ -9,6 +9,7 @@ from finreplay.scale.sec_edgar_benchmark import (
 )
 from finreplay.scale.sec_edgar_download import (
     SECLogDownloadReceipt,
+    SECLogRetryableDownloadError,
     download_sec_log_archive,
     fetch_sec_log_inventory,
     load_sec_log_download_receipt,
@@ -66,6 +67,7 @@ __all__ = [
     "SECLogPartition",
     "SECLogPartitionReceipt",
     "SECLogQueryBenchmarkReceipt",
+    "SECLogRetryableDownloadError",
     "SECLogScaleManifest",
     "SECLogScalePartitionSummary",
     "build_sec_log_query_benchmark_receipt",

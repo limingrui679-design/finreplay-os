@@ -18,6 +18,7 @@ from finreplay.scale import (
     SECLogInventoryLock,
     SECLogPartition,
     SECLogPartitionReceipt,
+    SECLogRetryableDownloadError,
     SECLogScaleManifest,
     build_sec_log_scale_manifest,
     download_sec_log_archive,
@@ -384,7 +385,7 @@ def _download_with_retries(
     attempts: int,
     retry_delay_seconds: float,
 ) -> SECLogDownloadReceipt:
-    last_error: ValueError | None = None
+    last_error: SECLogRetryableDownloadError | None = None
     for attempt in range(attempts):
         try:
             return download_sec_log_archive(
@@ -392,10 +393,12 @@ def _download_with_retries(
                 destination=destination,
                 user_agent=user_agent,
             )
-        except ValueError as error:
+        except SECLogRetryableDownloadError as error:
             last_error = error
             if attempt + 1 < attempts:
-                time.sleep(retry_delay_seconds * (attempt + 1))
+                linear_delay = retry_delay_seconds * (attempt + 1)
+                server_delay = error.retry_after_seconds or 0.0
+                time.sleep(max(linear_delay, server_delay))
     if last_error is None:
         raise RuntimeError("SEC log download retry loop did not execute")
     raise last_error
