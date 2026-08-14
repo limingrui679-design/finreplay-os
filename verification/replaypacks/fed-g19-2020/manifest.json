@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over two locked G.19 revolving-credit monthly changes in the April 7 release snapshot and available at the decision time. January's revised -270-basis-point value and February's preliminary 460-basis-point value remain reported evidence. The 460-to-1,190-basis-point persistence-or-repeat-known-increase range remains inferred with no probability. TrialCourt rejects retrospective promotion. The May 7 March value and later January/February revisions are held only in a disjoint post-decision event lock. This is not a forecast, calibrated interval, consumer or pandemic causal model, card-spending measure, trading signal, production deployment, or external validation.",
+  "files": [
+    {
+      "bytes": 1499,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "ca01bfa8f233ba7d9bd81cb8bc53b4c54db278cc796adf906b581abd3154ac0a"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "260c6875c6fb17f4de4889e11784f02c3673356d94ea06a57b93b41f900843c9"
+    },
+    {
+      "bytes": 30827,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "e35fec230cc33208c8223b64a2e7ac692c107ba946260f6ff8ae29fbd1fe77dd"
+    },
+    {
+      "bytes": 29255,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "11a0dce98b11b603c15863c19ea6ee998572685012ce98a6ac9656683365b022"
+    }
+  ],
+  "pack_sha256": "74872e2383d0a3020417c43326118ba8f1ffa8a2c4511f58e5a11ce79342a30c",
+  "receipt_sha256": "3f3790661f8224fb62a07734e2778660138f4d56d9237ac82840f40b31cbbfc7",
+  "replay_id": "fed-g19-2020-revolving-credit-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "16c3446142e5b1647becd36066f7f46f4553e9cf",
+    "compressed_input_bytes": 2067,
+    "created_at": "2026-08-14T02:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "81f203daada55b1a2d353f97cfb138e9846f16027b407b3e0a421749e77cafb0",
+    "output_manifest_sha256": "cb6d5ad57e875423c783fe37eaaa7c18cedd19c5f753229263e17edd68112251",
+    "replay_id": "fed-g19-2020-revolving-credit-boundary-v1",
+    "scenario_id": "fed-g19-2020-revolving-credit-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "11a0dce98b11b603c15863c19ea6ee998572685012ce98a6ac9656683365b022",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:b069c82d26438e14b70d8e00152927c4559140ef5cc25b0067f6a731d39947c7"
+}
