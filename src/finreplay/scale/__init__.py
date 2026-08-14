@@ -37,11 +37,18 @@ from finreplay.scale.sec_edgar_manifest import (
     verify_sec_log_scale_manifest,
     write_sec_log_scale_manifest,
 )
+from finreplay.scale.sec_edgar_query import (
+    SECLogAsOfQueryReceipt,
+    load_sec_log_asof_query_receipt,
+    run_sec_log_asof_query,
+    write_sec_log_asof_query_receipt,
+)
 
 __all__ = [
     "EXPECTED_SEC_LOG_PARQUET_COLUMNS",
     "SEC_EDGAR_LOG_HEADER_2003_2017",
     "SEC_EDGAR_LOG_LANDING_URL",
+    "SECLogAsOfQueryReceipt",
     "SECLogDownloadReceipt",
     "SECLogExtractedCSV",
     "SECLogInvalidCounts",
@@ -56,14 +63,17 @@ __all__ = [
     "download_sec_log_archive",
     "extract_sec_log_archive",
     "fetch_sec_log_inventory",
+    "load_sec_log_asof_query_receipt",
     "load_sec_log_download_receipt",
     "load_sec_log_inventory_lock",
     "load_sec_log_partition_receipt",
     "load_sec_log_scale_manifest",
     "materialize_sec_log_csv",
     "parse_sec_log_inventory",
+    "run_sec_log_asof_query",
     "verify_sec_log_partition_receipt",
     "verify_sec_log_scale_manifest",
+    "write_sec_log_asof_query_receipt",
     "write_sec_log_download_receipt",
     "write_sec_log_inventory_lock",
     "write_sec_log_partition_receipt",

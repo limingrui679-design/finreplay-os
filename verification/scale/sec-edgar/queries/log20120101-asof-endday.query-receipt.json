@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_sha256": "b44294dcf92cc22da7c22f23f03173d0d177ed6e8797dd41b2cc4b000c1db454",
+  "scale_target_met": false,
+  "event_cutoff_date": "2012-01-01",
+  "event_cutoff_second": 86399,
+  "knowledge_cutoff": "2026-08-14T15:11:41.433881Z",
+  "executed_at": "2026-08-14T15:27:55.143516Z",
+  "eligible_partition_count": 1,
+  "eligible_partition_receipt_sha256s": [
+    "fe502a7c278c7c7c58abba2d7096b727da76d3fd846959db75c3bdd45216302b"
+  ],
+  "eligible_physical_rows": 1850071,
+  "eligible_parquet_bytes": 19168534,
+  "input_hashes_verified": true,
+  "input_hash_verification_seconds": 0.016700582999874314,
+  "input_scan_rows": 1850071,
+  "temporal_invalid_rows": 0,
+  "rows_at_or_before_cutoff": 1850071,
+  "invalid_rows_at_or_before_cutoff": 3463,
+  "crawler_rows_at_or_before_cutoff": 697605,
+  "http_success_rows_at_or_before_cutoff": 1844769,
+  "unique_ciks_at_or_before_cutoff": 125465,
+  "document_bytes_at_or_before_cutoff": 383774668022,
+  "query_elapsed_seconds": 0.056225833000098646,
+  "duckdb_version": "1.5.5",
+  "cache_state": "fresh_process_os_cache_not_controlled",
+  "query_logic_sha256": "ef7ed8de3def4eebebe0b5158ed2a906fe0930c6d95f69170b762bf1b555d6f6",
+  "claim_boundary": "This receipt measures one aggregate scan over content-addressed Parquet inputs selected by two distinct cutoffs: logged event time and the time this project actually observed the archive. It does not backdate 2026 retrieval into 2012 knowledge, infer SEC's exact historical publication time, or treat access requests as unique users, filings, trades, decisions, customers, or outcomes. Rows with invalid event date/time remain in input_scan_rows and temporal_invalid_rows but are excluded from cutoff aggregates. OS cache state is explicitly not controlled, so elapsed time is a local measurement rather than a universal performance claim. Internal reproducibility does not establish deployment, adoption, external review, or real-world impact.",
+  "receipt_sha256": "b3706adec3988094874dbb8422bccd47393fe2669e8ecba2c366db1d42a6da7b"
+}
