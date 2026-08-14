@@ -110,6 +110,18 @@
       "trace_id": "trace:f9e49daaed06fe042c5612ef39fcf02463e17a914cda3ec8f9633821c63aea39"
     },
     {
+      "decision_time": "2020-03-24T14:00:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "87ea7da019f6ad6255f0375650e9906efd7695108d13618d9630ce0685483d4d",
+      "proof": "census-nrs-2020-new-home-sales-level-boundary-v1.json",
+      "proof_sha256": "fbe73632a91f4a43d1ee06e6e0134228d1c8b6e60e34683f4ee7a0fbbcb55855",
+      "replay_id": "census-nrs-2020-new-home-sales-level-boundary-v1",
+      "scenario_id": "census-nrs-2020-new-home-sales-level-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:3954cc711c3352c64a9af890452323f9318a8a5dcfe936263b5811392aa77f6e"
+    },
+    {
       "decision_time": "2020-03-20T12:00:00+00:00",
       "distinct_input_records": 2,
       "mode": "bounded_reconstruction",
@@ -279,5 +291,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 23
+  "verified_scenario_count": 24
 }
