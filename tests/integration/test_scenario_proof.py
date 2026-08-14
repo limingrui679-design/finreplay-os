@@ -39,6 +39,7 @@ BEA_PIO_PROOF_PATH = PROOF_DIRECTORY / "bea-pio-2020-saving-rate-boundary-v1.jso
 FED_G17_PROOF_PATH = PROOF_DIRECTORY / "fed-g17-2020-industrial-production-boundary-v1.json"
 CENSUS_MARTS_PROOF_PATH = PROOF_DIRECTORY / "census-marts-2020-retail-sales-boundary-v1.json"
 CENSUS_NRC_PROOF_PATH = PROOF_DIRECTORY / "census-nrc-2020-housing-starts-boundary-v1.json"
+FED_G19_PROOF_PATH = PROOF_DIRECTORY / "fed-g19-2020-revolving-credit-boundary-v1.json"
 
 
 def proof_values() -> dict[str, Any]:
@@ -232,8 +233,16 @@ def test_committed_proofs_and_deterministic_catalog_are_fully_verified() -> None
     assert census_nrc.mode == "bounded_reconstruction"
     assert census_nrc.distinct_input_records == 2
 
+    fed_g19 = verify_scenario_proof(
+        FED_G19_PROOF_PATH,
+        repository_root=REPOSITORY,
+    )
+    assert fed_g19.scenario_id == "fed-g19-2020-revolving-credit-boundary"
+    assert fed_g19.mode == "bounded_reconstruction"
+    assert fed_g19.distinct_input_records == 2
+
     catalog = verify_scenario_catalog(PROOF_DIRECTORY, repository_root=REPOSITORY)
-    assert len(catalog) == 18
+    assert len(catalog) == 19
     summary = scenario_catalog_summary(catalog, proof_directory=PROOF_DIRECTORY)
     committed = json.loads((REPOSITORY / "verification/scenarios/latest-summary.json").read_text())
     assert summary == committed

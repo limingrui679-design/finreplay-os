@@ -1,0 +1,132 @@
+{
+  "build_script": {
+    "path": "scripts/build_consumer_credit_boundary_replaypack.py",
+    "sha256": "a501d23b93d5dd8293aae11b66aac334889486c4e98f58a57fc9e0db83fd2bd0"
+  },
+  "claim_boundary": "This proof counts one internally reproduced March 2020 Federal Reserve G.19 revolving-credit boundary because two pre-decision reported monthly values in one archived April 7 PDF, exact 3 p.m. America/New_York publication timing, a separately locked May 7 post-decision March value, immutable locks, separated truth labels, an explicit latest-value persistence baseline, a no-probability persistence-or-one-known-increase program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The March value is excluded from ReplayPack inputs and used only for a labelled post-event check that preserves its 3,550-basis-point lower-bound breach rather than widening the range. The May release's 100-basis-point downward revisions to January and February stay in the event snapshot and never overwrite the April decision inputs. The table values are simple annual rates calculated from unrounded data; they are not card-spending or transaction measures. This does not establish forecast skill, calibrated coverage, household, consumer, pandemic, policy, lender, or macroeconomic causality, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "fed-g19.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective one-increase attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "fed-g19.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "30dcaec9d5eedcda650ff6fc04e89aee7589677dc5af27753333ab865930d113",
+      "path": "scenarios/fed-g19-2020/event-lock.json",
+      "record_ids": [
+        "federalreserve.g19.archived_consumer_credit:202003:revolving_percent_change_annual_rate"
+      ],
+      "sha256": "e0234e63a28cd5c2af2e9e293a312d3d17e08c83d718f410a8ac3d7fbd833777"
+    }
+  ],
+  "expected_input_manifest_sha256": "81f203daada55b1a2d353f97cfb138e9846f16027b407b3e0a421749e77cafb0",
+  "expected_pack_sha256": "74872e2383d0a3020417c43326118ba8f1ffa8a2c4511f58e5a11ce79342a30c",
+  "expected_trace_id": "trace:b069c82d26438e14b70d8e00152927c4559140ef5cc25b0067f6a731d39947c7",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate revolving-credit changes reported in one archived Federal Reserve G.19 release, not household, account, card, transaction, causal, or future-event observations. The March value is present only in the disjoint event lock."
+    },
+    "bounded_artifact_ids": [
+      "fed-g19.shockcompiler.revolving-credit-change-range"
+    ],
+    "extracted_artifact_ids": [
+      "fed-g19.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "fed-g19.shockcompiler.revolving-credit-change-range",
+      "fed-g19.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "federalreserve.g19.archived_consumer_credit:202001:revolving_percent_change_annual_rate",
+      "federalreserve.g19.archived_consumer_credit:202002:revolving_percent_change_annual_rate"
+    ],
+    "simulated_artifact_ids": [
+      "fed-g19.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "889d9f7b5e3eff2db3064646428446c506832da1070cba2083adb6d5a56d11b1",
+      "path": "scenarios/fed-g19-2020/input-lock.json",
+      "record_ids": [
+        "federalreserve.g19.archived_consumer_credit:202001:revolving_percent_change_annual_rate",
+        "federalreserve.g19.archived_consumer_credit:202002:revolving_percent_change_annual_rate"
+      ],
+      "sha256": "b7091e7b4b9079ee96f1192a180608d103798d67a5c3d7e7526be238a83cc9e8"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "fed-g19.shockcompiler.revolving-credit-change-range",
+      "description": "The decision-time baseline persists the latest known February G.19 revolving-credit table value of 460 basis points from the April 7 archived release snapshot.",
+      "expected_value": 460,
+      "payload_pointer": "/naive_baseline/next_revolving_credit_change_annual_rate_basis_points"
+    },
+    {
+      "artifact_id": "fed-g19.shockcompiler.revolving-credit-change-range",
+      "description": "The persistence-or-one-known-increase endpoints carry no probability or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    },
+    {
+      "artifact_id": "fed-g19.shockcompiler.revolving-credit-change-range",
+      "description": "The boundary retains the official table's one-decimal values because G.19 says its simple annual rates are calculated from unrounded data.",
+      "expected_value": true,
+      "payload_pointer": "/bound_construction/table_values_not_rounded_headline_fractions"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/fed-g19/latest-summary.json",
+  "pack_directory": "verification/replaypacks/fed-g19-2020",
+  "proof_sha256": "3c3cd35ff359735aa2e0890e9b89a675c307ce13dae61ce22dd80a6289032146",
+  "rebuild_receipt": {
+    "path": "verification/scenarios/rebuilds/fed-g19-2020.json",
+    "sha256": "b8cb979ad06bbdbd761db3ab5328b1e37ecbc9db052b6cd1a182a09a2b22b97c"
+  },
+  "replay_id": "fed-g19-2020-revolving-credit-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "decision_snapshot_is_one_archived_april_pdf",
+    "declared_range_reuses_only_known_increase",
+    "distinct_locked_inputs_equal_two",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "locked_pre_decision_release_pair_is_exact",
+    "naive_baseline_is_latest_known_value_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_archived_fed_g19_fact",
+    "post_decision_event_timing_is_later",
+    "post_decision_january_february_revisions_remain_later_snapshot_only",
+    "post_event_lower_bound_breach_equals_3550_basis_points",
+    "reported_post_event_change_is_below_declared_range",
+    "simulation_remains_visible",
+    "table_values_are_not_rounded_headline_fractions",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "fed-g19-2020-revolving-credit-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "federalreserve.g19.archived_consumer_credit:202001:revolving_percent_change_annual_rate",
+    "federalreserve.g19.archived_consumer_credit:202002:revolving_percent_change_annual_rate"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_consumer_credit_boundary_replaypack.py",
+    "sha256": "a6fe2e332bdd18bdd0cbf84cad18a7d2251cb156a347c1adbb67eb8d3ae28237"
+  }
+}

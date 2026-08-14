@@ -110,6 +110,18 @@
       "trace_id": "trace:bb70dc79258184ab9c187f71b7aad8b28f08ac4cb2a79bfabce991ae2ace38ea"
     },
     {
+      "decision_time": "2020-04-07T19:00:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "74872e2383d0a3020417c43326118ba8f1ffa8a2c4511f58e5a11ce79342a30c",
+      "proof": "fed-g19-2020-revolving-credit-boundary-v1.json",
+      "proof_sha256": "3c3cd35ff359735aa2e0890e9b89a675c307ce13dae61ce22dd80a6289032146",
+      "replay_id": "fed-g19-2020-revolving-credit-boundary-v1",
+      "scenario_id": "fed-g19-2020-revolving-credit-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:b069c82d26438e14b70d8e00152927c4559140ef5cc25b0067f6a731d39947c7"
+    },
+    {
       "decision_time": "2023-03-23T12:00:00+00:00",
       "distinct_input_records": 4,
       "mode": "bounded_reconstruction",
@@ -219,5 +231,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 18
+  "verified_scenario_count": 19
 }
