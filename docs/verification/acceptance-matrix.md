@@ -54,7 +54,7 @@ Each of the 30 planned scenarios must independently provide:
 7. a limitations file and non-causal/non-deployment boundary;
 8. a fresh-clone replay receipt.
 
-Current status: **IN_PROGRESS; 22/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
+Current status: **IN_PROGRESS; 23/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
 2022 Q4 GDP revision, March 2023 BTFP early-growth, early-2023 BLS payroll and CPI release,
 spring-2023 FOMC target range, March 2023 Treasury-curve, and June 2023 Treasury TGA cash-boundary
 replays, plus the September 2019 New York Fed SOFR spike, April 2020 EIA commercial-crude-stock,
@@ -62,8 +62,8 @@ March 2020 DOL initial-claims, March 2020 Treasury 91-day-bill auction-rate, Mar
 personal-saving-rate, March 2020 Federal Reserve G.17 industrial-production, March 2020 Census
 MARTS retail-sales, March 2020 Census/HUD NRC housing-starts, March 2020 Federal Reserve G.19
 revolving-credit, March 2020 Census C30 construction-spending, March 2020 FHFA purchase-only
-House Price Index monthly-change, and March 2020 Census M3 durable-goods new-orders boundaries,
-are counted.
+House Price Index monthly-change, March 2020 Census M3 durable-goods new-orders, and March 2020
+joint Census/BEA FT-900 goods-and-services-deficit boundaries are counted.
 `scripts/verify_scenario_catalog.py` opens
 each scenario's official timing records, immutable decision input lock, separately locked
 post-decision official event record, ReplayPack, source-label map, explicit naive baseline,
@@ -124,10 +124,15 @@ Table 1/Table 2 cross-checks. The M3 case preserves first-report January and Feb
 keeps the April report's revisions only in the event snapshot, and retains the reported March
 change as a visible 1,560-basis-point miss below the fixed range. It assigns no confidence interval
 because M3 is not a probability sample, distinguishes seasonal adjustment from price adjustment,
-and does not backdate current modified PDF bytes. All nineteen non-bank cases use only four
-relevant engines and labelled post-event checks. Further
-scenarios
-must continue to diversify
+and does not backdate current modified PDF bytes. The FT-900 case validates three joint release
+PDFs against their three 31-member XLS ZIPs and exact 8:30 a.m. Eastern timing. Its range uses the
+revised January and initial February deficit levels co-published in the April 2 decision snapshot,
+not the stale January initial value from the earlier release. It retains the May release's
+February revision only in the event snapshot and preserves the reported March deficit's visible
+4,483-million-dollar miss above the fixed range. Goods-document enumeration is not represented as
+complete economic measurement, and seasonally adjusted nominal dollars are not price-adjusted
+trade volume. All twenty non-bank cases use only four relevant engines and labelled post-event
+checks. Further scenarios must continue to diversify
 mechanisms and source families. The verifier recomputes the deterministic inventory under
 `verification/scenarios/`. A scenario title, plan row, unverified pack directory, or self-reported
 status still counts as 0.

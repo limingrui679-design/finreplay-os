@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 22/30 internally replay-proven: three bank boundaries plus 19 source-diverse macro, policy, rate, energy, labor, Treasury, production, retail-sales, housing, consumer-credit, construction-spending, house-price-index, and durable-goods boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 23/30 internally replay-proven: three bank boundaries plus 20 source-diverse macro, policy, rate, energy, labor, Treasury, production, retail-sales, housing, consumer-credit, construction-spending, house-price-index, durable-goods, and international-trade boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -421,6 +421,23 @@ three current archived PDFs have post-release modification metadata, so their ha
 official evidence rather than release-time byte identity. The March report's COVID-19 text concerns
 publication standards and is not treated as a causal result. See
 [`docs/scenarios/census-m3-2020.md`](docs/scenarios/census-m3-2020.md).
+
+The twenty-third counted flow uses paired archived joint U.S. Census Bureau and Bureau of
+Economic Analysis FT-900 PDF/XLS ZIP releases. At the April 2 8:30 a.m. EDT boundary, the
+February-data release co-publishes a revised January goods-and-services deficit of
+`$45,482 million` and an initial February deficit of `$39,932 million`. The mechanical stress
+endpoints are February persistence or one repeat of that same-snapshot `$5,550 million` decline:
+`[$34,382 million, $39,932 million]`, with no probability. The March 6 release's initial January
+value of `$45,338 million` is retained only for revision lineage and does not numerically set an
+endpoint. The separately locked May 5 release reports March at `$44,415 million`, a required
+visible `$4,483 million` breach above the upper endpoint, while retaining January at
+`$45,482 million` and revising February from `$39,932 million` to `$39,810 million`; those later
+values never overwrite the decision snapshot. The adapter validates exact release timing, PDF
+structure, all 31 XLS ZIP members, Exhibit 1 values, revision lineage, and paired-response hashes.
+The figures are seasonally adjusted but not price adjusted. Goods-document enumeration does not
+eliminate nonsampling error or services-estimation limitations, and the release's COVID text is
+not treated as a causal or unaffected-measurement result. See
+[`docs/scenarios/census-ft900-2020.md`](docs/scenarios/census-ft900-2020.md).
 
 ## Research and investment disclaimer
 

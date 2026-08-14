@@ -62,6 +62,18 @@
       "trace_id": "trace:fd29e6cfcf0a4de919953d297f2880443bd7fa1ff7865ba057eeaed63e7c3a0f"
     },
     {
+      "decision_time": "2020-04-02T12:30:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "4f81f85288e938a00a35c8beb95742967511cd4293058ad0ed6d89d7c55cf0a0",
+      "proof": "census-ft900-2020-trade-deficit-level-boundary-v1.json",
+      "proof_sha256": "afa13e31b0483ee2b99fd076988ca05a9666c65d7a0e49275bc2d58044ec1a17",
+      "replay_id": "census-ft900-2020-trade-deficit-level-boundary-v1",
+      "scenario_id": "census-ft900-2020-trade-deficit-level-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:9c5762c3c388716d5d04e3a6dd1b7a578f2dee26f12493e5173644f9e41e1ce4"
+    },
+    {
       "decision_time": "2020-03-25T12:30:00+00:00",
       "distinct_input_records": 2,
       "mode": "bounded_reconstruction",
@@ -267,5 +279,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 22
+  "verified_scenario_count": 23
 }
