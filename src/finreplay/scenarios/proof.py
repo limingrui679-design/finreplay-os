@@ -80,20 +80,14 @@ class OfficialEventLock(_StrictModel):
                 raise ValueError(
                     "post-decision event record must become available after decision_time"
                 )
-            if record.interval.availability_confidence < 1.0:
-                qualified_schedule = (
-                    record.source.source_id == "cftc.cot.tff_scheduled_ust2y"
-                    and record.interval.availability_confidence == 0.98
-                    and record.payload.get("schedule_self_describes_as_tentative") is True
-                    and record.payload.get("actual_row_publication_log_available") is False
-                    and record.payload.get("availability_method")
-                    == "official_current_schedule_exact_time_no_actual_row_log"
+            if (
+                record.interval.availability_confidence < 1.0
+                and not _is_qualified_cftc_scheduled_timing(record)
+            ):
+                raise ValueError(
+                    "post-decision event timing must be exact or satisfy the qualified "
+                    "CFTC schedule boundary"
                 )
-                if not qualified_schedule:
-                    raise ValueError(
-                        "post-decision event timing must be exact or satisfy the qualified "
-                        "CFTC schedule boundary"
-                    )
             if record.source.temporal_coverage is TemporalCoverage.LATEST_ONLY:
                 raise ValueError("post-decision event timing cannot use a latest-only source")
             if not str(record.source.url).startswith("https://"):
@@ -358,8 +352,13 @@ def verify_scenario_proof(path: Path, *, repository_root: Path) -> VerifiedScena
 
     for record_id in proof.timing_record_ids:
         record = locked_records[record_id]
-        if record.interval.availability_confidence < 1.0:
-            raise ValueError("timing evidence must have exact availability confidence")
+        if (
+            record.interval.availability_confidence < 1.0
+            and not _is_qualified_cftc_scheduled_timing(record)
+        ):
+            raise ValueError(
+                "timing evidence must be exact or satisfy the qualified CFTC schedule boundary"
+            )
         if not str(record.source.url).startswith("https://"):
             raise ValueError("timing evidence must use an HTTPS official source")
 
@@ -495,6 +494,19 @@ def _verify_input_labels(
         kind = artifact.artifact_kind.lower()
         if not any(marker in kind for marker in ("bound", "envelope", "interval")):
             raise ValueError(f"bounded label lacks a bounded artifact kind: {artifact_id}")
+
+
+def _is_qualified_cftc_scheduled_timing(record: BitemporalRecord) -> bool:
+    """Recognize the narrow CFTC schedule case without claiming actual release time."""
+
+    return (
+        record.source.source_id == "cftc.cot.tff_scheduled_ust2y"
+        and record.interval.availability_confidence == 0.98
+        and record.payload.get("schedule_self_describes_as_tentative") is True
+        and record.payload.get("actual_row_publication_log_available") is False
+        and record.payload.get("availability_method")
+        == "official_current_schedule_exact_time_no_actual_row_log"
+    )
 
 
 def _verify_file(reference: FileEvidence, repository_root: Path) -> Path:
