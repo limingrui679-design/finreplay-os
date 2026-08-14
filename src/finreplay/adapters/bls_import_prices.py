@@ -46,6 +46,12 @@ _MEASUREMENT_MARKER = (
     "of the United States Annotated (TSUSA). Import prices are based on U.S. dollar prices "
     "paid by the U.S. importer."
 )
+_EXPORT_MEASUREMENT_MARKER = (
+    "Export Price Goods Indexes - Items are classified by the Harmonized Schedule B "
+    "classification system of the U.S. Bureau of the Census. The prices used are generally "
+    'either "free alongside ship" (f.a.s.) factory or "free on board" (f.o.b.) transaction '
+    "prices, depending on the practices of the individual industry."
+)
 _REVISION_MARKER = "Data may be revised in each of the 3 months after original publication."
 _COVID_MARKER = (
     "Coronavirus (COVID-19) Impact on March 2020 Import and Export Price Index Survey Data "
@@ -170,6 +176,69 @@ _VERIFIED_RELEASES = {
     ),
 }
 
+_VERIFIED_EXPORT_RELEASES = {
+    date(2020, 2, 14): _ReleaseSpec(
+        release_date=date(2020, 2, 14),
+        reference_month=date(2020, 1, 1),
+        release_number="USDL-20-0247",
+        timezone_abbreviation="EST",
+        headline_marker=(
+            "Prices for U.S. exports advanced 0.7 percent in January, after declining "
+            "0.2 percent the previous month."
+        ),
+        monthly_change_tenths_percent=7,
+        prior_month=date(2019, 12, 1),
+        prior_month_change_tenths_percent=-2,
+        second_prior_month=date(2019, 11, 1),
+        second_prior_month_change_tenths_percent=1,
+        year_over_year_change_tenths_percent=5,
+        prior_unadjusted_index="125.0",
+        current_unadjusted_index="125.9",
+        table_monthly_changes_tenths_percent=(0, 1, -2, 7),
+        covid_methodology_marker=None,
+    ),
+    date(2020, 3, 13): _ReleaseSpec(
+        release_date=date(2020, 3, 13),
+        reference_month=date(2020, 2, 1),
+        release_number="USDL-20-0405",
+        timezone_abbreviation="EDT",
+        headline_marker=(
+            "Prices for U.S. exports decreased 1.1 percent in February, after advancing "
+            "0.6 percent the previous month."
+        ),
+        monthly_change_tenths_percent=-11,
+        prior_month=date(2020, 1, 1),
+        prior_month_change_tenths_percent=6,
+        second_prior_month=date(2019, 12, 1),
+        second_prior_month_change_tenths_percent=-2,
+        year_over_year_change_tenths_percent=-13,
+        prior_unadjusted_index="125.8",
+        current_unadjusted_index="124.4",
+        table_monthly_changes_tenths_percent=(1, -2, 6, -11),
+        covid_methodology_marker=None,
+    ),
+    date(2020, 4, 14): _ReleaseSpec(
+        release_date=date(2020, 4, 14),
+        reference_month=date(2020, 3, 1),
+        release_number="USDL-20-0610",
+        timezone_abbreviation="EDT",
+        headline_marker=(
+            "U.S. export prices decreased 1.6 percent in March, after falling 1.1 percent "
+            "in February."
+        ),
+        monthly_change_tenths_percent=-16,
+        prior_month=date(2020, 2, 1),
+        prior_month_change_tenths_percent=-11,
+        second_prior_month=date(2020, 1, 1),
+        second_prior_month_change_tenths_percent=6,
+        year_over_year_change_tenths_percent=-36,
+        prior_unadjusted_index="124.4",
+        current_unadjusted_index="122.4",
+        table_monthly_changes_tenths_percent=(-2, 6, -11, -16),
+        covid_methodology_marker=_COVID_MARKER,
+    ),
+}
+
 
 class _TextParser(HTMLParser):
     def __init__(self) -> None:
@@ -193,6 +262,27 @@ class _TextParser(HTMLParser):
 class BLSImportPriceArchiveAdapter:
     """Retrieve one fixed archived BLS Import Price Index HTML/PDF pair."""
 
+    verified_releases = _VERIFIED_RELEASES
+    series_label = "import-price"
+    entity_id = "bls_import_price_index:all_imports_united_states"
+    record_suffix = "all_imports_monthly_change"
+    metric = "all_imports_monthly_change_not_seasonally_adjusted"
+    table_page_index = 4
+    table_page_marker = "Table 1. U.S. import price indexes and percent changes"
+    table_error_label = "Table 1"
+    table_warning_label = "Table 1"
+    table_payload_prefix = "table1"
+    measurement_marker = _MEASUREMENT_MARKER
+    measurement_boundary = (
+        "U.S. dollar prices paid by U.S. importers; generally f.o.b. foreign-port "
+        "or c.i.f. U.S.-port transaction prices, aggregated as a modified "
+        "Laspeyres price index"
+    )
+    snapshot_semantics = "all-import monthly change reported in this archived release"
+    aggregate_boundary_warning = (
+        "The all-import price index aggregates U.S.-importer transaction prices and is not "
+        "an import quantity, nominal trade value, tariff, CPI, firm result, or return."
+    )
     availability_rule = (
         "Each selected BLS Import and Export Price Index release states that transmission is "
         "embargoed until 8:30 a.m. EST or EDT on its named release date. FinReplay validates "
@@ -233,11 +323,13 @@ class BLSImportPriceArchiveAdapter:
     )
 
     def __init__(self, http: SafeHttpClient, *, release_date: date) -> None:
-        if release_date not in _VERIFIED_RELEASES:
-            raise ValueError("release date is not in the verified BLS import-price calendar")
+        if release_date not in self.verified_releases:
+            raise ValueError(
+                f"release date is not in the verified BLS {self.series_label} calendar"
+            )
         self.http = http
         self.release_date = release_date
-        self.spec = _VERIFIED_RELEASES[release_date]
+        self.spec = self.verified_releases[release_date]
         stem = f"ximpim_{release_date:%m%d%Y}"
         self.html_endpoint = f"https://www.bls.gov/news.release/archives/{stem}.htm"
         self.pdf_endpoint = f"https://www.bls.gov/news.release/archives/{stem}.pdf"
@@ -256,12 +348,12 @@ class BLSImportPriceArchiveAdapter:
         html_content_type = html_response.headers.get("Content-Type", "").split(";", 1)[0]
         if html_content_type not in {"text/html", "application/xhtml+xml"}:
             raise SourceSchemaError(
-                f"unexpected BLS import-price HTML content type: {html_content_type!r}"
+                f"unexpected BLS {self.series_label} HTML content type: {html_content_type!r}"
             )
         pdf_content_type = pdf_response.headers.get("Content-Type", "").split(";", 1)[0]
         if pdf_content_type != "application/pdf":
             raise SourceSchemaError(
-                f"unexpected BLS import-price PDF content type: {pdf_content_type!r}"
+                f"unexpected BLS {self.series_label} PDF content type: {pdf_content_type!r}"
             )
         html_text, html_encoding = self._parse_html(html_content)
         pdf_text = self._parse_pdf(pdf_content)
@@ -271,11 +363,13 @@ class BLSImportPriceArchiveAdapter:
         release_local = datetime.combine(self.release_date, time(8, 30), tzinfo=_NEW_YORK)
         if release_local.tzname() != self.spec.timezone_abbreviation:
             raise SourceSchemaError(
-                "BLS import-price release timezone does not match New York calendar"
+                f"BLS {self.series_label} timezone does not match New York calendar"
             )
         release_at = release_local.astimezone(UTC)
         if html_retrieved_at < release_at or pdf_retrieved_at < release_at:
-            raise SourceSchemaError("selected BLS import-price release is not yet knowable")
+            raise SourceSchemaError(
+                f"selected BLS {self.series_label} release is not yet knowable"
+            )
         retrieved_at = max(html_retrieved_at, pdf_retrieved_at)
 
         html_digest = source_response_sha256(html_content)
@@ -305,9 +399,9 @@ class BLSImportPriceArchiveAdapter:
         record = BitemporalRecord(
             record_id=(
                 f"{self.metadata.adapter_id}:{self.spec.reference_month:%Y%m}:"
-                "all_imports_monthly_change"
+                f"{self.record_suffix}"
             ),
-            entity_id="bls_import_price_index:all_imports_united_states",
+            entity_id=self.entity_id,
             source=source,
             interval=BitemporalInterval(
                 valid_from=datetime.combine(self.spec.reference_month, time.min, tzinfo=UTC),
@@ -324,7 +418,7 @@ class BLSImportPriceArchiveAdapter:
                 "reference_month": self.spec.reference_month.strftime("%Y-%m"),
                 "release_number": self.spec.release_number,
                 "release_series": "U.S. Import and Export Price Indexes",
-                "metric": "all_imports_monthly_change_not_seasonally_adjusted",
+                "metric": self.metric,
                 "value_tenths_percent": self.spec.monthly_change_tenths_percent,
                 "value_basis_points": self.spec.monthly_change_tenths_percent * 10,
                 "value_percent_text": _tenths_text(self.spec.monthly_change_tenths_percent),
@@ -339,19 +433,19 @@ class BLSImportPriceArchiveAdapter:
                 "year_over_year_change_tenths_percent": (
                     self.spec.year_over_year_change_tenths_percent
                 ),
-                "table1_prior_unadjusted_index": self.spec.prior_unadjusted_index,
-                "table1_current_unadjusted_index": self.spec.current_unadjusted_index,
-                "table1_monthly_change_sequence_tenths_percent": list(
+                f"{self.table_payload_prefix}_prior_unadjusted_index": (
+                    self.spec.prior_unadjusted_index
+                ),
+                f"{self.table_payload_prefix}_current_unadjusted_index": (
+                    self.spec.current_unadjusted_index
+                ),
+                f"{self.table_payload_prefix}_monthly_change_sequence_tenths_percent": list(
                     self.spec.table_monthly_changes_tenths_percent
                 ),
                 "revision_window_months": 3,
                 "index_formula": "modified Laspeyres",
                 "seasonally_adjusted": False,
-                "measurement_boundary": (
-                    "U.S. dollar prices paid by U.S. importers; generally f.o.b. foreign-port "
-                    "or c.i.f. U.S.-port transaction prices, aggregated as a modified "
-                    "Laspeyres price index"
-                ),
+                "measurement_boundary": self.measurement_boundary,
                 "covid_methodology_statement_present": (
                     self.spec.covid_methodology_marker is not None
                 ),
@@ -360,9 +454,7 @@ class BLSImportPriceArchiveAdapter:
                 "release_timezone": "America/New_York",
                 "release_timezone_abbreviation": self.spec.timezone_abbreviation,
                 "official_release_at": release_at.isoformat(),
-                "snapshot_semantics": (
-                    "all-import monthly change reported in this archived release"
-                ),
+                "snapshot_semantics": self.snapshot_semantics,
                 "html_pdf_crosscheck_verified": True,
                 "release_html_url": html_response.request_url,
                 "release_html_sha256": html_digest,
@@ -381,11 +473,11 @@ class BLSImportPriceArchiveAdapter:
             "The exact 8:30 a.m. EST/EDT embargo end is stated in both archived formats and "
             "validated against America/New_York; retrieval headers are not historical timing.",
             "The full HTML and every nonblank PDF page are validated; release identity, "
-            "headline, Table 1 values, technical definition, and revision rule must agree.",
+            f"headline, {self.table_warning_label} values, technical definition, and revision "
+            "rule must agree.",
             "Monthly data may be revised for three releases after original publication; later "
             "values never overwrite earlier snapshots.",
-            "The all-import price index aggregates U.S.-importer transaction prices and is not "
-            "an import quantity, nominal trade value, tariff, CPI, firm result, or return.",
+            self.aggregate_boundary_warning,
             "The index is not seasonally adjusted; annual changes and detailed categories are "
             "source facts, not FinReplay range inputs, probabilities, or causal estimates.",
             "The March COVID-19 text reports timing, response-rate, and estimation-procedure "
@@ -445,19 +537,23 @@ class BLSImportPriceArchiveAdapter:
             parser.feed(decoded)
             parser.close()
         except (AssertionError, ValueError) as error:
-            raise SourceSchemaError("BLS import-price HTML is not structurally valid") from error
+            raise SourceSchemaError(
+                f"BLS {self.series_label} HTML is not structurally valid"
+            ) from error
         text = _normalize(" ".join(parser.parts))
         if not text:
-            raise SourceSchemaError("BLS import-price HTML has no visible text")
+            raise SourceSchemaError(f"BLS {self.series_label} HTML has no visible text")
         return text, encoding
 
     def _parse_pdf(self, content: bytes) -> str:
         if not content.startswith(b"%PDF-"):
-            raise SourceSchemaError("BLS import-price release is not a PDF document")
+            raise SourceSchemaError(f"BLS {self.series_label} release is not a PDF document")
         try:
             reader = PdfReader(BytesIO(content), strict=True)
             if len(reader.pages) != 18:
-                raise SourceSchemaError("BLS import-price PDF page count does not match")
+                raise SourceSchemaError(
+                    f"BLS {self.series_label} PDF page count does not match"
+                )
             pages = []
             for page in reader.pages:
                 geometry = (
@@ -465,25 +561,41 @@ class BLSImportPriceArchiveAdapter:
                     round(float(page.mediabox.height), 2),
                 )
                 if geometry != (612.0, 792.0) or page.rotation != 0:
-                    raise SourceSchemaError("BLS import-price PDF page geometry does not match")
+                    raise SourceSchemaError(
+                        f"BLS {self.series_label} PDF page geometry does not match"
+                    )
                 extracted = page.extract_text()
                 if not isinstance(extracted, str) or not extracted.strip():
-                    raise SourceSchemaError("BLS import-price PDF has a blank text layer")
+                    raise SourceSchemaError(
+                        f"BLS {self.series_label} PDF has a blank text layer"
+                    )
                 pages.append(_normalize(extracted))
         except SourceSchemaError:
             raise
         except (PdfReadError, OSError, TypeError, ValueError) as error:
-            raise SourceSchemaError("BLS import-price release PDF could not be parsed") from error
+            raise SourceSchemaError(
+                f"BLS {self.series_label} release PDF could not be parsed"
+            ) from error
         if self.spec.title_marker not in pages[0]:
-            raise SourceSchemaError("BLS import-price PDF first-page identity does not match")
-        if "Table 1. U.S. import price indexes and percent changes" not in pages[4]:
-            raise SourceSchemaError("BLS import-price PDF Table 1 page does not match")
+            raise SourceSchemaError(
+                f"BLS {self.series_label} PDF first-page identity does not match"
+            )
+        if self.table_page_marker not in pages[self.table_page_index]:
+            raise SourceSchemaError(
+                f"BLS {self.series_label} PDF {self.table_error_label} page does not match"
+            )
         if "Table 10. U.S. international price indexes" not in pages[15]:
-            raise SourceSchemaError("BLS import-price PDF Table 10 page does not match")
+            raise SourceSchemaError(
+                f"BLS {self.series_label} PDF Table 10 page does not match"
+            )
         if "TECHNICAL NOTE Import and Export Goods and Services Price Indexes" not in pages[16]:
-            raise SourceSchemaError("BLS import-price PDF technical-note page does not match")
+            raise SourceSchemaError(
+                f"BLS {self.series_label} PDF technical-note page does not match"
+            )
         if "Import Price Indexes by Locality of Origin" not in pages[17]:
-            raise SourceSchemaError("BLS import-price PDF final technical page does not match")
+            raise SourceSchemaError(
+                f"BLS {self.series_label} PDF final technical page does not match"
+            )
         return _normalize(" ".join(pages))
 
     def _validate_release_text(self, text: str, *, source_kind: str) -> None:
@@ -494,27 +606,33 @@ class BLSImportPriceArchiveAdapter:
             self.spec.title_marker,
             self.spec.headline_marker,
             _TECHNICAL_MARKER,
-            _MEASUREMENT_MARKER,
+            self.measurement_marker,
         )
         if any(text.count(marker) != 1 for marker in unique_markers):
             raise SourceSchemaError(
-                f"BLS import-price {source_kind} identity or headline does not match"
+                f"BLS {self.series_label} {source_kind} identity or headline does not match"
             )
         if text.count(_REVISION_MARKER) < 7:
-            raise SourceSchemaError(f"BLS import-price {source_kind} revision rule does not match")
+            raise SourceSchemaError(
+                f"BLS {self.series_label} {source_kind} revision rule does not match"
+            )
         table_text = _normalize(_DOT_LEADERS.sub(" ", text))
         if table_text.count(self.spec.table_row_marker) != 1:
-            raise SourceSchemaError(f"BLS import-price {source_kind} Table 1 values do not match")
+            raise SourceSchemaError(
+                f"BLS {self.series_label} {source_kind} {self.table_error_label} values "
+                "do not match"
+            )
         if (_COVID_MARKER in text) is (self.spec.covid_methodology_marker is None):
             raise SourceSchemaError(
-                f"BLS import-price {source_kind} COVID-19 methodology statement does not match"
+                f"BLS {self.series_label} {source_kind} COVID-19 methodology statement "
+                "does not match"
             )
 
     def _previous_release_same_reference_value(self) -> int | None:
         prior = next(
             (
                 candidate
-                for candidate in _VERIFIED_RELEASES.values()
+                for candidate in self.verified_releases.values()
                 if candidate.reference_month == self.spec.prior_month
             ),
             None,
@@ -525,7 +643,7 @@ class BLSImportPriceArchiveAdapter:
 
     def _validate_response_url(self, response_url: str, *, kind: str) -> None:
         if kind not in {"html", "pdf"}:
-            raise ValueError("BLS import-price response kind must be html or pdf")
+            raise ValueError(f"BLS {self.series_label} response kind must be html or pdf")
         suffix = "htm" if kind == "html" else "pdf"
         expected_path = f"/news.release/archives/ximpim_{self.release_date:%m%d%Y}.{suffix}"
         parsed = urlparse(response_url)
@@ -537,7 +655,65 @@ class BLSImportPriceArchiveAdapter:
             or parsed.query
             or parsed.fragment
         ):
-            raise SourceSchemaError("BLS import-price response URL does not match request")
+            raise SourceSchemaError(
+                f"BLS {self.series_label} response URL does not match request"
+            )
+
+
+class BLSExportPriceArchiveAdapter(BLSImportPriceArchiveAdapter):
+    """Retrieve one fixed archived BLS all-export price HTML/PDF pair."""
+
+    verified_releases = _VERIFIED_EXPORT_RELEASES
+    series_label = "export-price"
+    entity_id = "bls_export_price_index:all_exports_united_states"
+    record_suffix = "all_exports_monthly_change"
+    metric = "all_exports_monthly_change_not_seasonally_adjusted"
+    table_page_index = 5
+    table_page_marker = "Table 2. U.S. export price indexes and percent changes"
+    table_error_label = "Table 2"
+    table_warning_label = "Table 2"
+    table_payload_prefix = "table2"
+    measurement_marker = _EXPORT_MEASUREMENT_MARKER
+    measurement_boundary = (
+        "U.S. export transaction prices, generally f.a.s. factory or f.o.b., classified "
+        "under Schedule B and aggregated as a modified Laspeyres price index"
+    )
+    snapshot_semantics = "all-export monthly change reported in this archived release"
+    aggregate_boundary_warning = (
+        "The all-export price index aggregates U.S.-export transaction prices and is not "
+        "an export quantity, nominal trade value, tariff, PPI, firm result, or return."
+    )
+    metadata = AdapterMetadata(
+        adapter_id="bls.export_prices.archived_all_exports",
+        title="BLS archived all-export price-index release facts",
+        publisher="U.S. Bureau of Labor Statistics",
+        documentation_url=_HTTP_URL_ADAPTER.validate_python(
+            "https://www.bls.gov/bls/news-release/ximpim.htm"
+        ),
+        allowed_hosts=("www.bls.gov",),
+        authentication=AuthenticationMode.NONE,
+        rate_limit_policy=(
+            "Retrieve only the three explicitly approved 2020 HTML/PDF pairs sequentially; "
+            "do not crawl or enumerate the archive. Use a contact-shaped research user agent."
+        ),
+        pagination_policy=(
+            "Each selection uses one complete archived HTML release and one complete 18-page "
+            "PDF without API pagination."
+        ),
+        availability_rule=BLSImportPriceArchiveAdapter.availability_rule,
+        revision_behavior=(
+            "Each release is retained as a versioned snapshot. BLS states that monthly data "
+            "may be revised in each of the three months after original publication. Adjacent "
+            "release values are cross-checked, and later revisions never overwrite first reports."
+        ),
+        temporal_coverage=TemporalCoverage.VERSIONED_SNAPSHOT,
+        license_class=LicenseClass.REDISTRIBUTABLE,
+        redistribution_note=(
+            "BLS-published material is public domain except identified third-party material. "
+            "Attribute the U.S. Bureau of Labor Statistics, retain archive URLs and release "
+            "dates, and do not use the protected BLS emblem."
+        ),
+    )
 
 
 def _tenths_text(value: int) -> str:
@@ -554,7 +730,7 @@ def _decode_html(content: bytes) -> tuple[str, str]:
             return content.decode("windows-1252"), "windows-1252"
         except UnicodeDecodeError as error:
             raise SourceSchemaError(
-                "BLS import-price HTML is neither valid UTF-8 nor Windows-1252"
+                "BLS international-price HTML is neither valid UTF-8 nor Windows-1252"
             ) from error
 
 
