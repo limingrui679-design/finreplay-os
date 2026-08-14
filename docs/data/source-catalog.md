@@ -258,6 +258,20 @@ COVID-19 statement is retained as publication-standard language, not a causal or
 measurement claim. Full PDFs remain in ignored local storage, and this supporting connector is
 excluded from the formal 30.
 
+`census.bea.ft900.archived_trade_balance` retrieves the fixed March 6, April 2, and May 5, 2020
+joint Census/BEA U.S. International Trade in Goods and Services PDF/XLS ZIP pairs. Every pair must
+match the exact 62- or 63-page PDF structure, dimension multiset, rotations, identifying metadata,
+release header, headline, revision and methodology text, exact 31-member ZIP inventory, and
+Exhibit 1 labels and million-dollar rows. The adapter retains exact deficits of `$45,338 million`,
+`$39,932 million`, and `$44,415 million` from the first reports, plus the later January and
+February revisions, rather than substituting rounded PDF headlines. The stated 8:30 a.m. EST/EDT
+time is validated through `America/New_York`; every dated snapshot remains separate. The source
+says headline statistical significance is not applicable or measurable, figures are seasonally
+adjusted but not price-adjusted, and goods enumeration can still contain nonsampling errors. The
+May COVID-19 statement remains publication-standard language, not causal or unaffected-
+measurement evidence. Full PDFs and XLS ZIPs remain in ignored local storage, and this supporting
+connector is excluded from the formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;
