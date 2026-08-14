@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over two paired archived BLS all-import monthly-change releases. Reported changes remain reported; the -100-to--50-basis-point persistence-or-one-known-decline envelope remains inferred with no probability. The March event stays only in a disjoint event lock. This is not a BLS forecast, confidence interval, calibrated range, import-quantity or nominal-trade measure, tariff, CPI, firm result, profit-and-loss, causal model, deployment, external validation, investment result, or user-impact claim.",
+  "files": [
+    {
+      "bytes": 1322,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "e487d416c7e7d1674a270216bf5dd96bbb7bd8165399c64fdb8e48f07e1f1068"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "104608aa9ff0fd5332c8c2c49a303cc90b544e905b6a3ee0dff3e1f583a7d8dd"
+    },
+    {
+      "bytes": 32382,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "1907bbab27f4f0f0fd937de0ea4b5803ee5a6c8167cf855a992844af3ff1e559"
+    },
+    {
+      "bytes": 31926,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "c6a8a21666c0c8e18704c6e92e469f03d4d206ed6854ab5adf6b0b5cd05ef1e1"
+    }
+  ],
+  "pack_sha256": "e6f74743d81e53a82297665e74d90da4718948f19cfeac29c8fe710a82c4eb43",
+  "receipt_sha256": "d37c69e57ca60dd156b3360054556bb97e8112f21354b68e934d31c876111616",
+  "replay_id": "bls-import-prices-2020-all-imports-change-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "5c39012bb6e16482f750b85f32afb33d627ae358",
+    "compressed_input_bytes": 2472,
+    "created_at": "2026-08-14T11:15:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "f2370cb236a89f450387c4a22ba0912e5c9ada73137ef08851507670b139df79",
+    "output_manifest_sha256": "a595afa12e5d45c894d2d8782f20672802e2e5c2184a745f238746b9a1ef7e32",
+    "replay_id": "bls-import-prices-2020-all-imports-change-boundary-v1",
+    "scenario_id": "bls-import-prices-2020-all-imports-change-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "c6a8a21666c0c8e18704c6e92e469f03d4d206ed6854ab5adf6b0b5cd05ef1e1",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:4c7ab74268838bf6a5cc5f70421e607b45ca64eacc1169766ad2dbfdc094cb4a"
+}
