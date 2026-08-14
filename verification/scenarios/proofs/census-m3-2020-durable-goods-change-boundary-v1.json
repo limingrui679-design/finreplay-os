@@ -28,9 +28,9 @@
       "sha256": "17c3279c5a5936a01441fa1e04245cc6af5adba68b9a1c87774d5e8a04814a70"
     }
   ],
-  "expected_input_manifest_sha256": "fe310e7416efff9155dc702fe3e52a7e84ffb804ad3b775c2b02eab1d8072b1c",
-  "expected_pack_sha256": "fd3f33f12605700d6a71d72a7eda64a2b3ade39207cff28727e9f03661e49858",
-  "expected_trace_id": "trace:4873c1a521dddfc4d4ea794375a05339b0e465711b9bd9082d7fcc03be5f8d71",
+  "expected_input_manifest_sha256": "8476d067d1a3965d8a83556f93c9767fb7aef04c11d5e88b0a041a14f3f1f78f",
+  "expected_pack_sha256": "a25e9e89732418e8693ef4af6568312fe4d1966455463a6a72e95220167e5227",
+  "expected_trace_id": "trace:7692bc8465f6f3b9844211d6e95b4f0d434a32473d1d85d62dd50e7ac4a343f8",
   "input_labels": {
     "absence_reasons": {
       "observed": "The lock contains aggregate monthly changes reported in archived Census M3 releases, not firm, product, contract, transaction, price-adjusted, causal, or future-event observations. The March change is present only in the disjoint event lock."
@@ -87,10 +87,10 @@
   ],
   "official_adapter_inventory": "verification/supporting/census-m3-durable-goods/latest-summary.json",
   "pack_directory": "verification/replaypacks/census-m3-2020",
-  "proof_sha256": "dd93d2fc22f5beb6609b06fddefea930998ab38d0ba9ec0f601e34751cfac923",
+  "proof_sha256": "1c4d186658c13b847ec1148acf144ed2a2f6361bd4fc0dfbe50042683e76714e",
   "rebuild_receipt": {
     "path": "verification/scenarios/rebuilds/census-m3-2020.json",
-    "sha256": "dacd900726d57e6a69c3ca006bf1237ae23a64ec6d790297a7767095aa6bf947"
+    "sha256": "26dc2a626bad639f89bedc3d577caccdd540495757ecb9fe8fd5e7b8f83e8801"
   },
   "replay_id": "census-m3-2020-durable-goods-change-boundary-v1",
   "required_rebuild_assertions": [

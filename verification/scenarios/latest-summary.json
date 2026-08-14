@@ -65,13 +65,13 @@
       "decision_time": "2020-03-25T12:30:00+00:00",
       "distinct_input_records": 2,
       "mode": "bounded_reconstruction",
-      "pack_sha256": "fd3f33f12605700d6a71d72a7eda64a2b3ade39207cff28727e9f03661e49858",
+      "pack_sha256": "a25e9e89732418e8693ef4af6568312fe4d1966455463a6a72e95220167e5227",
       "proof": "census-m3-2020-durable-goods-change-boundary-v1.json",
-      "proof_sha256": "dd93d2fc22f5beb6609b06fddefea930998ab38d0ba9ec0f601e34751cfac923",
+      "proof_sha256": "1c4d186658c13b847ec1148acf144ed2a2f6361bd4fc0dfbe50042683e76714e",
       "replay_id": "census-m3-2020-durable-goods-change-boundary-v1",
       "scenario_id": "census-m3-2020-durable-goods-change-boundary",
       "scenario_version": "1.0.0",
-      "trace_id": "trace:4873c1a521dddfc4d4ea794375a05339b0e465711b9bd9082d7fcc03be5f8d71"
+      "trace_id": "trace:7692bc8465f6f3b9844211d6e95b4f0d434a32473d1d85d62dd50e7ac4a343f8"
     },
     {
       "decision_time": "2020-03-18T12:00:00+00:00",
