@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over paired official PDF/XLS evidence for the January and February 2020 joint Census/BEA FT-900 releases. Range construction uses only the 45,482-million-dollar revised January and 39,932-million-dollar initial February deficit values co-published in the April 2 decision snapshot; the 45,338 January initial release is retained only for revision lineage. Reported facts remain reported, while the 34,382-to-39,932 continuation envelope remains inferred with no probability. The May 5 March event and its revisions stay only in a disjoint event lock. This is not an official forecast, confidence interval, calibrated interval, causal or price-adjusted model, trade-policy conclusion, COVID effect, trading signal, deployment, external validation, or user-impact claim.",
+  "files": [
+    {
+      "bytes": 1596,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "dbbfef7cbdbb187d07f423e7347ec4425f0ce59adf2b24f28023852bb9f8f3b4"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "ec2b2c2f4a9713da26ed602fb093b24c04840d062ebdcc5e431690e3aa764688"
+    },
+    {
+      "bytes": 34418,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "696054892a92ab956a18c7a021e38d8b6c2e8d5d6efded60f3f092b431a078a0"
+    },
+    {
+      "bytes": 34095,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "5388311bc93c02ae38f6249e1f039f037f77fb6b3f4c7134bbbe21b99b10b0ea"
+    }
+  ],
+  "pack_sha256": "4f81f85288e938a00a35c8beb95742967511cd4293058ad0ed6d89d7c55cf0a0",
+  "receipt_sha256": "911ab3ab7793c48ef01915ea505418ee79fc05a0ec6643ae9d40f87d34e9e20c",
+  "replay_id": "census-ft900-2020-trade-deficit-level-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "ed5d27ebdbbcae9e0b90c4970216f05f36418975",
+    "compressed_input_bytes": 3775,
+    "created_at": "2026-08-14T07:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "e23230dc7072a17c6b401460a4fdfbf126b383d0e4388cdb602170e6f5796418",
+    "output_manifest_sha256": "c9678de23e7e64fb13947f15f74586ecee10c6695a5cc38b194ed033abf4f91d",
+    "replay_id": "census-ft900-2020-trade-deficit-level-boundary-v1",
+    "scenario_id": "census-ft900-2020-trade-deficit-level-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "5388311bc93c02ae38f6249e1f039f037f77fb6b3f4c7134bbbe21b99b10b0ea",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:9c5762c3c388716d5d04e3a6dd1b7a578f2dee26f12493e5173644f9e41e1ce4"
+}

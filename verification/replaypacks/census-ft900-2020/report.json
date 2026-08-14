@@ -1,0 +1,621 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 4,
+    "reported": 4,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "e23230dc7072a17c6b401460a4fdfbf126b383d0e4388cdb602170e6f5796418",
+  "pack_sha256": "4f81f85288e938a00a35c8beb95742967511cd4293058ad0ed6d89d7c55cf0a0",
+  "source_hashes": [
+    "5c32f19b5b556d479de8a7cd228bda3348e5b1ceec8dfd9d327d6a783847bb7c",
+    "7527ba2aab574733774950ac68480d95d6f4286ddc630fca8198844503941e98",
+    "b1cfa18560bc0bbb4c325d5b49bdba078407d6d247197ce1edc2d6ae30be61bf",
+    "e64a8fb9028b84789ae930db99aa67e3fb0918da7e729349f7b0907bf62193f7"
+  ],
+  "source_record_ids": [
+    "census.bea.ft900.archived_trade_balance:202001:goods_services_deficit_level",
+    "census.bea.ft900.archived_trade_balance:202002:goods_services_deficit_level"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "census-ft900.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "d1fe5d71eabfcc11ea6f0eca74e4e2207d0c564a225958a9dd8ea5b6895ed55b",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not validate the one-decline range heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This FT-900 aggregate release boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no trade flow, shipment, customs entry, firm, position, portfolio, or allocation input is invented.",
+          "input_lock_sha256": "39311a41d14e68af719378e31a06ba3f69659d35765d7c9b6242be3ac32f8a9c",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "5c32f19b5b556d479de8a7cd228bda3348e5b1ceec8dfd9d327d6a783847bb7c",
+          "7527ba2aab574733774950ac68480d95d6f4286ddc630fca8198844503941e98",
+          "b1cfa18560bc0bbb4c325d5b49bdba078407d6d247197ce1edc2d6ae30be61bf",
+          "e64a8fb9028b84789ae930db99aa67e3fb0918da7e729349f7b0907bf62193f7"
+        ],
+        "source_record_ids": [
+          "census.bea.ft900.archived_trade_balance:202001:goods_services_deficit_level",
+          "census.bea.ft900.archived_trade_balance:202002:goods_services_deficit_level"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-ft900.shockcompiler.trade-deficit-level-range",
+          "census-ft900.timevault.release-query",
+          "census-ft900.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "census-ft900.shockcompiler.trade-deficit-level-range",
+        "artifact_kind": "bounded-census-bea-ft900-trade-deficit-level-program",
+        "artifact_sha256": "49feae8449182945d78a2ce01c07dfdac426a630479a27e0a5453dfc92d7d569",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 3
+        },
+        "limitations": [
+          "The endpoints mechanically reuse one decline in one decision-time release snapshot.",
+          "The May 5 March value and revised February value are absent.",
+          "The range is not an official interval, probability, causal model, or forecast."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": 34382.0,
+            "upper": 39932.0
+          },
+          "bound_construction": {
+            "basis_is_single_february_release_snapshot": true,
+            "endpoint_method": "latest_initial_level_persistence_or_repeat_same_release_snapshot_decline",
+            "future_event_used": false,
+            "january_initial_release_used_as_numeric_endpoint_input": false,
+            "known_decision_snapshot_decline_million_dollars": 5550,
+            "lower_level_million_dollars": 34382,
+            "official_confidence_interval_used": false,
+            "probability_assigned": false,
+            "range_width_million_dollars": 5550,
+            "upper_level_million_dollars": 39932
+          },
+          "compiled": {
+            "compiled_sha256": "c6373adb14afd61c2616b470b82e2e1c6e47aa70bf09930b5d2a17028af822fe",
+            "decision_time": "2020-04-02T12:30:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, causal, price, or regime meaning.",
+              "The May 5 release and all its revisions are evaluated only afterward.",
+              "The aggregate release does not represent every firm, shipment, or transaction."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "census-ft900-next-trade-deficit-level-envelope",
+            "scenario_id": "census-ft900-2020-trade-deficit-level-boundary",
+            "source_program_sha256": "afbb2926b4a4ed0cdd64024d6f5d32f944c8bf21f89722aeb7729bb678a500c9",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use February initial-level persistence or one repetition of the only known decline between revised January and initial February values inside the same April 2 FT-900 release snapshot.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "The January initial-release value is revision lineage and does not set the decline.",
+                      "One decision-snapshot decline defines a stress range, not a forecast, probability, confidence interval, or calibrated predictive interval.",
+                      "The May 5 March event and its revisions are absent from range construction."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "census-ft900-next-trade-deficit-level-range",
+                    "source_hashes": [
+                      "b1cfa18560bc0bbb4c325d5b49bdba078407d6d247197ce1edc2d6ae30be61bf",
+                      "5c32f19b5b556d479de8a7cd228bda3348e5b1ceec8dfd9d327d6a783847bb7c"
+                    ],
+                    "source_record_ids": [
+                      "census.bea.ft900.archived_trade_balance:202001:goods_services_deficit_level",
+                      "census.bea.ft900.archived_trade_balance:202002:goods_services_deficit_level"
+                    ],
+                    "target_id": "census_bea_ft900:us_goods_services_deficit",
+                    "unit": "million_us_dollars_seasonally_adjusted_deficit",
+                    "value": 34382.0,
+                    "variable": "next_goods_services_deficit_level_million_dollars"
+                  }
+                ],
+                "trial_id": "census-ft900-next-trade-deficit-level-envelope:00000000:ca9a8f56ec5bf1de",
+                "trial_index": 0,
+                "vector_sha256": "ca9a8f56ec5bf1de0c24d76c9b7a483bb5def6dda4fc19305032931ac7635572"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use February initial-level persistence or one repetition of the only known decline between revised January and initial February values inside the same April 2 FT-900 release snapshot.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "The January initial-release value is revision lineage and does not set the decline.",
+                      "One decision-snapshot decline defines a stress range, not a forecast, probability, confidence interval, or calibrated predictive interval.",
+                      "The May 5 March event and its revisions are absent from range construction."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "census-ft900-next-trade-deficit-level-range",
+                    "source_hashes": [
+                      "b1cfa18560bc0bbb4c325d5b49bdba078407d6d247197ce1edc2d6ae30be61bf",
+                      "5c32f19b5b556d479de8a7cd228bda3348e5b1ceec8dfd9d327d6a783847bb7c"
+                    ],
+                    "source_record_ids": [
+                      "census.bea.ft900.archived_trade_balance:202001:goods_services_deficit_level",
+                      "census.bea.ft900.archived_trade_balance:202002:goods_services_deficit_level"
+                    ],
+                    "target_id": "census_bea_ft900:us_goods_services_deficit",
+                    "unit": "million_us_dollars_seasonally_adjusted_deficit",
+                    "value": 39932.0,
+                    "variable": "next_goods_services_deficit_level_million_dollars"
+                  }
+                ],
+                "trial_id": "census-ft900-next-trade-deficit-level-envelope:00000001:c35146d48bf11822",
+                "trial_index": 1,
+                "vector_sha256": "c35146d48bf11822b1460b4d00f6245b9158cabd63b841d5b94b268b85c69b96"
+              }
+            ]
+          },
+          "input_lock_sha256": "39311a41d14e68af719378e31a06ba3f69659d35765d7c9b6242be3ac32f8a9c",
+          "known_decision_snapshot_levels": {
+            "decision_snapshot_revised_january_deficit_million_dollars": 45482,
+            "february_initial_deficit_million_dollars": 39932,
+            "january_initial_release_deficit_million_dollars": 45338,
+            "january_revision_delta_known_at_decision_million_dollars": 144,
+            "known_decision_snapshot_decline_million_dollars": 5550,
+            "lower_level_million_dollars": 34382,
+            "range_width_million_dollars": 5550,
+            "upper_level_million_dollars": 39932
+          },
+          "naive_baseline": {
+            "definition": "persistence of the February initial FT-900 deficit level",
+            "next_goods_services_deficit_level_million_dollars": 39932
+          },
+          "program": {
+            "decision_time": "2020-04-02T12:30:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, causal, price, or regime meaning.",
+              "The May 5 release and all its revisions are evaluated only afterward.",
+              "The aggregate release does not represent every firm, shipment, or transaction."
+            ],
+            "hypothesis": "Evaluate February deficit-level persistence or one repetition of the known decision-snapshot decline using only facts available at the boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use February initial-level persistence or one repetition of the only known decline between revised January and initial February values inside the same April 2 FT-900 release snapshot.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "The January initial-release value is revision lineage and does not set the decline.",
+                  "One decision-snapshot decline defines a stress range, not a forecast, probability, confidence interval, or calibrated predictive interval.",
+                  "The May 5 March event and its revisions are absent from range construction."
+                ],
+                "lower": 34382.0,
+                "operation": "set",
+                "parameter_id": "census-ft900-next-trade-deficit-level-range",
+                "source_record_ids": [
+                  "census.bea.ft900.archived_trade_balance:202001:goods_services_deficit_level",
+                  "census.bea.ft900.archived_trade_balance:202002:goods_services_deficit_level"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Census Bureau and U.S. Bureau of Economic Analysis",
+                    "redistribution_note": "Full Census/BEA PDFs and XLS ZIPs remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred.",
+                    "retrieved_at": "2026-08-14T06:19:01.141837Z",
+                    "sha256": "b1cfa18560bc0bbb4c325d5b49bdba078407d6d247197ce1edc2d6ae30be61bf",
+                    "source_id": "census.bea.ft900.archived_trade_balance",
+                    "source_version": "CENSUS-BEA-FT900:2020-01:CB20-34:pdf:b1cfa18560bc0bbb4c32:xlszip:e64a8fb9028b84789ae9",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.census.gov/foreign-trade/Press-Release/ft900/ft900_2001.pdf",
+                    "vintage_as_of": "2020-03-06T13:30:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Census Bureau and U.S. Bureau of Economic Analysis",
+                    "redistribution_note": "Full Census/BEA PDFs and XLS ZIPs remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred.",
+                    "retrieved_at": "2026-08-14T06:19:13.179032Z",
+                    "sha256": "5c32f19b5b556d479de8a7cd228bda3348e5b1ceec8dfd9d327d6a783847bb7c",
+                    "source_id": "census.bea.ft900.archived_trade_balance",
+                    "source_version": "CENSUS-BEA-FT900:2020-02:CB20-52:pdf:5c32f19b5b556d479de8:xlszip:7527ba2aab5747337749",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.census.gov/foreign-trade/Press-Release/ft900/ft900_2002.pdf",
+                    "vintage_as_of": "2020-04-02T12:30:00Z"
+                  }
+                ],
+                "target_id": "census_bea_ft900:us_goods_services_deficit",
+                "unit": "million_us_dollars_seasonally_adjusted_deficit",
+                "upper": 39932.0,
+                "variable": "next_goods_services_deficit_level_million_dollars"
+              }
+            ],
+            "program_id": "census-ft900-next-trade-deficit-level-envelope",
+            "scenario_id": "census-ft900-2020-trade-deficit-level-boundary"
+          }
+        },
+        "source_hashes": [
+          "5c32f19b5b556d479de8a7cd228bda3348e5b1ceec8dfd9d327d6a783847bb7c",
+          "7527ba2aab574733774950ac68480d95d6f4286ddc630fca8198844503941e98",
+          "b1cfa18560bc0bbb4c325d5b49bdba078407d6d247197ce1edc2d6ae30be61bf",
+          "e64a8fb9028b84789ae930db99aa67e3fb0918da7e729349f7b0907bf62193f7"
+        ],
+        "source_record_ids": [
+          "census.bea.ft900.archived_trade_balance:202001:goods_services_deficit_level",
+          "census.bea.ft900.archived_trade_balance:202002:goods_services_deficit_level"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-ft900.timevault.release-query"
+        ]
+      },
+      {
+        "artifact_id": "census-ft900.timevault.release-query",
+        "artifact_kind": "versioned-census-bea-ft900-release-query",
+        "artifact_sha256": "e04181bca9b3dfcd97e72ede8943f0009d9179181cfcfe2ae5a27248722f969c",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 2
+        },
+        "limitations": [
+          "The boundary uses only the decision-time revised January and initial February levels from the April 2 release snapshot.",
+          "The March deficit and May 5 revision snapshot are excluded from every input.",
+          "The current archive bytes prove present retrieval, not byte identity at release.",
+          "The figures are seasonally adjusted nominal dollars, not price-adjusted volume.",
+          "Goods document coverage does not eliminate nonsampling error or service-estimation limitations.",
+          "Full official PDF and XLS ZIP responses remain local download evidence."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "ab7240809f3f236c1124a23d2002d394a0d209323a9e21fbe8d4eafad9abe42a",
+              "d98e258c8e571e5f7303dc1df7213958c39dcc80da9a8983159b4c10e08a7e02"
+            ],
+            "attempted_records": 2,
+            "fact_hashes": [
+              "81fd80d2f37ae7d273b166773b4634c6030b26c26bc19c057e42cb37f18cddd6",
+              "5c1a57ad62f9acd2544abaa0a18bc81772ad38ec2a90118104267692bf537f3c"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 2
+          },
+          "current_archive_byte_identity_at_release_claimed": false,
+          "decision_snapshot": {
+            "initial_february_deficit_million_dollars": 39932,
+            "revised_january_deficit_million_dollars": 45482
+          },
+          "decision_time": "2020-04-02T12:30:00Z",
+          "input_lock_sha256": "39311a41d14e68af719378e31a06ba3f69659d35765d7c9b6242be3ac32f8a9c",
+          "january_initial_release_retained_for_revision_lineage": true,
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 2,
+            "fact_set_sha256": "79067843a1265ac5a2d2600b2a848c327d144afa12e8708b2e60e6ce1019492a",
+            "fact_versions": 2,
+            "generated_at": "2026-08-14T07:00:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2020-04-02T12:30:00Z",
+          "paired_pdf_xls_crosscheck_verified": true,
+          "release_time_rule": "08:30 America/New_York from each dated FT-900 PDF",
+          "selected_record_ids": [
+            "census.bea.ft900.archived_trade_balance:202001:goods_services_deficit_level",
+            "census.bea.ft900.archived_trade_balance:202002:goods_services_deficit_level"
+          ],
+          "source_evidence_file_count": 4,
+          "value_semantics": "seasonally adjusted U.S. goods-and-services deficit levels in million dollars; the boundary uses revised January and initial February values from the single February-data release snapshot"
+        },
+        "source_hashes": [
+          "5c32f19b5b556d479de8a7cd228bda3348e5b1ceec8dfd9d327d6a783847bb7c",
+          "7527ba2aab574733774950ac68480d95d6f4286ddc630fca8198844503941e98",
+          "b1cfa18560bc0bbb4c325d5b49bdba078407d6d247197ce1edc2d6ae30be61bf",
+          "e64a8fb9028b84789ae930db99aa67e3fb0918da7e729349f7b0907bf62193f7"
+        ],
+        "source_record_ids": [
+          "census.bea.ft900.archived_trade_balance:202001:goods_services_deficit_level",
+          "census.bea.ft900.archived_trade_balance:202002:goods_services_deficit_level"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "census-ft900.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "baf5740eda8af2f8ad3b081c1779d49bb1b82d1ff3efc24c1ec14e6b8c4370eb",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 2,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "census-ft900-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "ed5d27ebdbbcae9e0b90c4970216f05f36418975",
+            "completed_at": "2026-08-14T07:00:00Z",
+            "config_sha256": "d1888ca421d3cb4a60e3918c946e09112548cc49b0774bf681bcb5659b2bb153",
+            "decision_time": "2020-04-02T12:30:00Z",
+            "evaluation_end": "2020-05-18",
+            "evaluation_start": "2020-04-03",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "39311a41d14e68af719378e31a06ba3f69659d35765d7c9b6242be3ac32f8a9c",
+            "max_input_available_at": "2020-04-02T12:30:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 5550.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No May 5 FT-900 fact or revision is in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "97a3ea48536f69475a1faee03ccf0bae41b658218f1052bc95b395e2e3ac87f4",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "continuation-range-width": 5550.0,
+              "known-decision-snapshot-decline": 5550.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 2,
+            "short_fraction": 0.0,
+            "training_end": "2020-03-31",
+            "trial_id": "census-ft900-retrospective-range-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "9870275c9ad8b77809388fe754dc026fecabfa1bd3e00ed196bf4722b8a18e9a",
+            "entry_hash": "9870275c9ad8b77809388fe754dc026fecabfa1bd3e00ed196bf4722b8a18e9a",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "census-ft900-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "census-ft900-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "ea617990ec02cbcfa995b41deded229625c51b00e34ebb22b9090a98dd5aa341",
+            "candidate_attempt_id": "census-ft900-retrospective-attempt-1",
+            "decided_at": "2026-08-14T07:00:00Z",
+            "decision_id": "decision:census-ft900-retrospective-range-screen:c7047dc935284d3a5e8ed46c",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 5550.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 5550.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "census-ft900-retrospective-range-screen"
+          },
+          "input_lock_sha256": "39311a41d14e68af719378e31a06ba3f69659d35765d7c9b6242be3ac32f8a9c",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "c4d879b0e51b97558e9b5966f750990503daefa726faaccc55dd0981b1b8ac2a",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "1ae4bb306490fd21df9af16c6af33a8da5c6e016458a5e6c7abb3c85159ddce4",
+            "entry_hash": "1ae4bb306490fd21df9af16c6af33a8da5c6e016458a5e6c7abb3c85159ddce4",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "The joint release is an aggregate statistical product combining goods records and estimated services. One decision-time decline and one later outcome cannot establish predictive validity or trade, price, pandemic, policy, firm, sector, or macroeconomic causality.",
+            "embargo_days": 0,
+            "expected_direction": "positive",
+            "holdout_end": "2020-05-18",
+            "holdout_start": "2020-04-03",
+            "hypothesis": "A retrospectively constructed one-decline FT-900 deficit boundary qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-14T07:00:00Z",
+            "primary_metric": "one-decision-snapshot FT-900 range width in million dollars",
+            "purge_days": 2,
+            "trial_id": "census-ft900-retrospective-range-screen"
+          }
+        },
+        "source_hashes": [
+          "5c32f19b5b556d479de8a7cd228bda3348e5b1ceec8dfd9d327d6a783847bb7c",
+          "7527ba2aab574733774950ac68480d95d6f4286ddc630fca8198844503941e98",
+          "b1cfa18560bc0bbb4c325d5b49bdba078407d6d247197ce1edc2d6ae30be61bf",
+          "e64a8fb9028b84789ae930db99aa67e3fb0918da7e729349f7b0907bf62193f7"
+        ],
+        "source_record_ids": [
+          "census.bea.ft900.archived_trade_balance:202001:goods_services_deficit_level",
+          "census.bea.ft900.archived_trade_balance:202002:goods_services_deficit_level"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-ft900.shockcompiler.trade-deficit-level-range",
+          "census-ft900.timevault.release-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over paired official PDF/XLS evidence for the January and February 2020 joint Census/BEA FT-900 releases. Range construction uses only the 45,482-million-dollar revised January and 39,932-million-dollar initial February deficit values co-published in the April 2 decision snapshot; the 45,338 January initial release is retained only for revision lineage. Reported facts remain reported, while the 34,382-to-39,932 continuation envelope remains inferred with no probability. The May 5 March event and its revisions stay only in a disjoint event lock. This is not an official forecast, confidence interval, calibrated interval, causal or price-adjusted model, trade-policy conclusion, COVID effect, trading signal, deployment, external validation, or user-impact claim.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-census-bea-ft900-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "census-ft900.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no probability, coverage, official, or causal guarantee.",
+        "claim_id": "claim-inferred-census-bea-ft900-deficit-level-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The May 5 event and every revision in that release were not used to set the range.",
+          "The range has no trade, price, pandemic, policy, or sector causality."
+        ],
+        "statement": "The next-release stress endpoints are February-level persistence or one repeat of the known 5,550-million-dollar decision-snapshot decline: [34,382, 39,932] million dollars.",
+        "support_artifact_ids": [
+          "census-ft900.shockcompiler.trade-deficit-level-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external or domain review.",
+        "claim_id": "claim-inferred-census-bea-ft900-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective one-decline FT-900 attempt.",
+        "support_artifact_ids": [
+          "census-ft900.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "The January release's 45,338-million-dollar initial value is retained for revision lineage, not substituted for the decision-time revised value.",
+        "claim_id": "claim-reported-census-bea-ft900-decision-levels",
+        "evidence_class": "reported",
+        "limitations": [
+          "These are seasonally adjusted nominal aggregate release facts, not real trade volume, firm records, shipments, customs entries, or transactions."
+        ],
+        "statement": "The April 2 joint Census/BEA FT-900 release reports a revised January deficit of 45,482 million dollars and an initial February deficit of 39,932 million dollars.",
+        "support_artifact_ids": [
+          "census-ft900.timevault.release-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not transactions, capital, capacity, or returns.",
+        "claim_id": "claim-simulated-census-bea-ft900-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "census-ft900.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "ed5d27ebdbbcae9e0b90c4970216f05f36418975",
+    "compressed_input_bytes": 3775,
+    "created_at": "2026-08-14T07:00:00Z",
+    "decision_time": "2020-04-02T12:30:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves paired official PDF and XLS ZIP evidence for the March 6 January-data and April 2 February-data joint Census/BEA FT-900 releases. At the decision time, the April 2 snapshot reported revised January at 45,482 million dollars and initial February at 39,932 million dollars; their 5,550-million-dollar decline is the only numerical change used to construct the later stress range. The January release's 45,338-million-dollar initial value remains revision lineage and does not set an endpoint. The lock excludes the May 5 March event, its February revision, and every later-known value. Current archive hashes prove present official retrieval, not byte identity at historical release. The series is seasonally adjusted but not price adjusted; goods-document completeness does not remove nonsampling or services-estimation limitations. This lock contains no official forecast, probability, confidence interval, statistical-significance result, calibrated coverage, trade-policy or COVID effect, causal model, trading recommendation, deployment, external review, or user-impact claim.",
+      "The endpoints are February-level persistence or one repetition of the single 5,550-million-dollar decline visible inside the April 2 release snapshot.",
+      "The January initial-release level does not numerically set either endpoint.",
+      "The May 5 release and every later-known value are excluded from every input.",
+      "No official confidence interval, probability, or statistical-significance result is available for this headline level construction.",
+      "The series is seasonally adjusted but not adjusted for price changes.",
+      "No firm, shipment, customs entry, transaction, return, or recommendation exists.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "census-ft900-2020-trade-deficit-level-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "census-ft900-2020-trade-deficit-level-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "Census/BEA FT-900 boundary before the March 2020 trade-deficit widening"
+  },
+  "topological_artifact_ids": [
+    "census-ft900.timevault.release-query",
+    "census-ft900.shockcompiler.trade-deficit-level-range",
+    "census-ft900.trialcourt.retrospective-gate",
+    "census-ft900.replaystudio.render"
+  ],
+  "trace_id": "trace:9c5762c3c388716d5d04e3a6dd1b7a578f2dee26f12493e5173644f9e41e1ce4"
+}
