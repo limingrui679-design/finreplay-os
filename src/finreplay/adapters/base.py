@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from datetime import UTC, datetime
 from enum import StrEnum
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 import httpx
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl, model_validator
@@ -187,31 +187,115 @@ class SafeHttpClient:
                 )
             if response.status_code != 200:
                 raise AdapterError(f"upstream returned HTTP {response.status_code}")
-            content_length = response.headers.get("Content-Length")
-            if content_length is not None and int(content_length) > self.max_response_bytes:
-                raise ResponseLimitError(
-                    f"declared response size {content_length} exceeds {self.max_response_bytes}"
-                )
-            chunks: list[bytes] = []
-            received = 0
-            for chunk in response.iter_bytes():
-                received += len(chunk)
-                if received > self.max_response_bytes:
-                    raise ResponseLimitError(
-                        f"response exceeded {self.max_response_bytes} bytes while streaming"
-                    )
-                chunks.append(chunk)
-            content = b"".join(chunks)
-            # iter_bytes() has already decoded content encodings. A detached httpx.Response
-            # retaining Content-Encoding would decode twice, so preserve metadata in a neutral
-            # immutable snapshot instead.
-            detached = HttpResponseSnapshot(
-                status_code=response.status_code,
-                headers=httpx.Headers(response.headers),
-                request_url=str(response.request.url),
-                content=content,
+            detached, content = self._read_successful_response(
+                response,
+                canonical_request_url=str(response.request.url),
             )
         return detached, content, retrieved_at
+
+    def get_same_host_signed_redirect(
+        self,
+        url: str,
+        *,
+        allowed_hosts: tuple[str, ...],
+        expected_redirect_path: str,
+    ) -> tuple[HttpResponseSnapshot, bytes, datetime]:
+        """Follow one narrowly validated CloudFront-style signed redirect on the same host."""
+
+        self._validate_url(url, allowed_hosts)
+        initial = urlparse(url)
+        if initial.query or initial.fragment or initial.params:
+            raise AdapterError("signed-redirect canonical URL must not contain extra components")
+        if not expected_redirect_path.startswith("/"):
+            raise ValueError("expected_redirect_path must be absolute")
+        retrieved_at = datetime.now(UTC)
+        with self._client.stream("GET", url) as response:
+            if response.status_code != 302:
+                if response.is_redirect:
+                    raise AdapterError(
+                        f"unsupported signed redirect status: {response.status_code}"
+                    )
+                raise AdapterError(
+                    f"signed-redirect source returned HTTP {response.status_code}"
+                )
+            location = response.headers.get("Location")
+        if location is None:
+            raise AdapterError("signed redirect lacks Location")
+        self._validate_signed_redirect(
+            location,
+            allowed_hosts=allowed_hosts,
+            expected_host=initial.hostname,
+            expected_path=expected_redirect_path,
+        )
+        with self._client.stream("GET", location) as response:
+            if response.is_redirect:
+                raise AdapterError("signed source attempted more than one redirect")
+            if response.status_code != 200:
+                raise AdapterError(
+                    f"signed redirect target returned HTTP {response.status_code}"
+                )
+            detached, content = self._read_successful_response(
+                response,
+                canonical_request_url=url,
+            )
+        return detached, content, retrieved_at
+
+    def _read_successful_response(
+        self,
+        response: httpx.Response,
+        *,
+        canonical_request_url: str,
+    ) -> tuple[HttpResponseSnapshot, bytes]:
+        content_length = response.headers.get("Content-Length")
+        if content_length is not None and int(content_length) > self.max_response_bytes:
+            raise ResponseLimitError(
+                f"declared response size {content_length} exceeds {self.max_response_bytes}"
+            )
+        chunks: list[bytes] = []
+        received = 0
+        for chunk in response.iter_bytes():
+            received += len(chunk)
+            if received > self.max_response_bytes:
+                raise ResponseLimitError(
+                    f"response exceeded {self.max_response_bytes} bytes while streaming"
+                )
+            chunks.append(chunk)
+        content = b"".join(chunks)
+        # iter_bytes() has already decoded content encodings. A detached httpx.Response
+        # retaining Content-Encoding would decode twice, so preserve metadata in a neutral
+        # immutable snapshot instead.
+        detached = HttpResponseSnapshot(
+            status_code=response.status_code,
+            headers=httpx.Headers(response.headers),
+            request_url=canonical_request_url,
+            content=content,
+        )
+        return detached, content
+
+    @classmethod
+    def _validate_signed_redirect(
+        cls,
+        location: str,
+        *,
+        allowed_hosts: tuple[str, ...],
+        expected_host: str | None,
+        expected_path: str,
+    ) -> None:
+        cls._validate_url(location, allowed_hosts)
+        parsed = urlparse(location)
+        if (
+            parsed.hostname != expected_host
+            or parsed.path != expected_path
+            or parsed.params
+            or parsed.fragment
+        ):
+            raise AdapterError("signed redirect target does not match the approved endpoint")
+        query = parse_qs(parsed.query, keep_blank_values=True, strict_parsing=True)
+        required = {"Policy", "Signature", "Key-Pair-Id"}
+        if set(query) != required or any(
+            len(values) != 1 or not values[0] for values in query.values()
+        ):
+            raise AdapterError("signed redirect query does not match the approved schema")
 
     @staticmethod
     def _validate_url(url: str, allowed_hosts: tuple[str, ...]) -> None:
