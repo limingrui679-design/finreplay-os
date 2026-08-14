@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-08-14T15:11:41.433881Z",
+  "code_revision": "1dcaabd5e631",
+  "target_physical_row_count": 1000000000,
+  "target_met": false,
+  "physical_row_identity_definition": "unique_source_zip_sha256_plus_one_based_csv_data_row_ordinal",
+  "inventory_references": [
+    {
+      "year": 2012,
+      "list_page_url": "https://www.sec.gov/files/edgar2012.html",
+      "list_page_sha256": "26bbbe07fff78b2871555deefb7c36f7d47e30670042ac74af6a869cd7623438",
+      "inventory_lock_sha256": "24b47cb611399bbe23a5268be97bdecaccf352a941b471bb76e1e136db33d593",
+      "retrieved_at": "2026-08-14T15:04:37.725771Z",
+      "listed_partition_count": 366
+    },
+    {
+      "year": 2013,
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html",
+      "list_page_sha256": "cbd8e94e53abdc974204addbe6a4f0b9bbee2cbba0a9379e6d365a1aab891a05",
+      "inventory_lock_sha256": "1e72c12f2b41b10e4b019c0c9ec8ec5e082e42a69209aba7f6956b7dafb64ed4",
+      "retrieved_at": "2026-08-14T15:07:28.468535Z",
+      "listed_partition_count": 365
+    }
+  ],
+  "partitions": [
+    {
+      "partition_date": "2012-01-01",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2012/Qtr1/log20120101.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2012/Qtr1/log20120101.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2012.html",
+      "inventory_lock_sha256": "24b47cb611399bbe23a5268be97bdecaccf352a941b471bb76e1e136db33d593",
+      "download_receipt_sha256": "b4a467f52723e9fdcc84f22be53b51e784a7d2c7895188ca81f6a7c924e4e278",
+      "partition_receipt_sha256": "fe502a7c278c7c7c58abba2d7096b727da76d3fd846959db75c3bdd45216302b",
+      "source_coordinate_sha256": "8183ba2246ef3c0f2e37cbba514907902ea29590a9b602e0d190fe235bbac497",
+      "zip_sha256": "6afbae4fdb7ec458c682ce32393f418c745e2fc6178aea7a30016494b57a80fb",
+      "zip_bytes": 22754061,
+      "parquet_sha256": "095b7f86f522b75fbec440967e8272f5ed6a3ee6814d05a79ec48b2d9431f020",
+      "parquet_bytes": 19168534,
+      "physical_row_count": 1850071,
+      "invalid_row_count": 3463,
+      "archive_retrieved_at": "2026-08-14T15:04:58.039253Z"
+    }
+  ],
+  "partition_count": 1,
+  "total_distinct_physical_rows": 1850071,
+  "total_invalid_rows": 3463,
+  "total_source_zip_bytes": 22754061,
+  "total_parquet_bytes": 19168534,
+  "claim_boundary": "This manifest sums only measured physical CSV data rows from unique official SEC daily ZIP hashes whose exact one-based row-coordinate ranges were materialized and sealed by partition receipts. It rejects duplicate dates, URLs, ZIP hashes, coordinate hashes, and partition-receipt hashes; it applies no synthetic multiplication, extrapolation, semantic deduplication, or estimated row counts. A repeated request in one official source file remains a distinct physical log row, but the count is not a count of unique users, filings, trades, decisions, or customers. SEC warns that lost or damaged files and extraction limitations may make its logs incomplete. This local, internally reproducible scale proof does not establish external review, production deployment, public-demo availability, adoption, governance certification, or real-world impact. target_met is purely the comparison of the exact summed row count with the declared numeric target.",
+  "manifest_sha256": "b44294dcf92cc22da7c22f23f03173d0d177ed6e8797dd41b2cc4b000c1db454"
+}
