@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 20/30 internally replay-proven: three bank boundaries plus 17 source-diverse macro, policy, rate, energy, labor, Treasury, production, retail-sales, housing, consumer-credit, and construction-spending boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 21/30 internally replay-proven: three bank boundaries plus 18 source-diverse macro, policy, rate, energy, labor, Treasury, production, retail-sales, housing, consumer-credit, construction-spending, and house-price-index boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -196,6 +196,18 @@ later revisions never overwrite them. The values are nominal annual rates, not r
 volume, and Census 90-percent sampling intervals are not represented as FinReplay probabilities
 or stress endpoints. Full source pairs stay local and the connector remains outside the formal
 30-adapter inventory.
+
+The counted house-price-change boundary uses
+`fhfa.hpi.archived_purchase_only_monthly_change` as another supporting source. It retrieves the
+official preannounced 2020 FHFA HPI calendar and only the March 25, April 22, and May 26 report
+PDFs. The adapter validates exact release dates and 9:00 a.m. Eastern timing, PDF structure and
+metadata, national and regional tables, revision rows, and methodology text. A stable semantic
+digest binds the calendar facts because the current page wrapper can change; no current HTML-byte
+snapshot is backdated. The January report footer's `9AM EST` difference is retained against the
+calendar's ET rule. First-report national changes remain tied to their reports, and the May
+snapshot never overwrites them. The currently served May PDF's June 15 modification metadata is
+explicit. Full responses stay local and the connector remains outside the formal 30-adapter
+inventory.
 
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
@@ -379,6 +391,22 @@ its January and February revisions remain only in the event snapshot. The offici
 evaluation. Census
 90-percent sampling intervals are not FinReplay range inputs. See
 [`docs/scenarios/census-c30-2020.md`](docs/scenarios/census-c30-2020.md).
+
+The twenty-first counted flow uses archived Federal Housing Finance Agency House Price Index
+reports and the official preannounced 2020 release calendar. It locks the January and February
+2020 national purchase-only seasonally adjusted monthly changes of `30` and `70` basis points at
+the April 22 9:00 a.m. EDT decision boundary. The mechanical stress endpoints are February-change
+persistence or one repeat of that `40`-basis-point first-report increase: `[70, 110]`, with no
+probability. The separately locked May 26 report states March at `10` basis points, a required
+visible `60`-basis-point breach below the lower endpoint. Its snapshot retains January at `50`
+basis points and revises February from `70` to `80`; those later values never overwrite the
+first-report inputs. The schedule's stable semantic facts are bound without claiming that today's
+HTML wrapper bytes are an immutable 2019 snapshot, and the January report footer's `9AM EST`
+wording difference remains visible. The currently served May PDF has June 15 modification
+metadata, so its exact hash is not represented as proof that the bytes were unchanged since May
+26. FHFA's purchase-only repeat-transactions index is not every U.S. home, a property record,
+transaction count, appraisal, mortgage outcome, causal result, or trading measure. See
+[`docs/scenarios/fhfa-hpi-2020.md`](docs/scenarios/fhfa-hpi-2020.md).
 
 ## Research and investment disclaimer
 

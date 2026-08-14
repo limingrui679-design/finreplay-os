@@ -134,6 +134,18 @@
       "trace_id": "trace:b069c82d26438e14b70d8e00152927c4559140ef5cc25b0067f6a731d39947c7"
     },
     {
+      "decision_time": "2020-04-22T13:00:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "338c19be4990422caa75c2e7ddc2ff34bc167e8b61c71e502916731aaa111e35",
+      "proof": "fhfa-hpi-2020-house-price-change-boundary-v1.json",
+      "proof_sha256": "b73df9e338c5222149de27a8f47ea98f613fe2d8fa0d8e69be6434ff1c641218",
+      "replay_id": "fhfa-hpi-2020-house-price-change-boundary-v1",
+      "scenario_id": "fhfa-hpi-2020-house-price-change-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:0546ce017baf309b17b31cb58eeb2d38b19413b3df33a9a4fc83b2f650e46d4d"
+    },
+    {
       "decision_time": "2023-03-23T12:00:00+00:00",
       "distinct_input_records": 4,
       "mode": "bounded_reconstruction",
@@ -243,5 +255,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 20
+  "verified_scenario_count": 21
 }

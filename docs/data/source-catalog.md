@@ -228,6 +228,21 @@ facts. The reported values are nominal SAAR levels rather than price-adjusted vo
 source pairs remain in ignored local storage, and this supporting connector is excluded from the
 formal 30.
 
+`fhfa.hpi.archived_purchase_only_monthly_change` retrieves FHFA's official 2020 HPI release
+calendar and the fixed March 25, April 22, and May 26, 2020 House Price Index report PDFs. It
+validates the calendar's 9 a.m. ET rule and complete release table, resolves each date through
+`America/New_York`, and requires exact PDF identity, page geometry, rotations, metadata, cover,
+press-release facts, national and regional tables, revision rows, methodology, COVID-timing text,
+and report calendar. Because FHFA's current schedule page wrapper can change, raw HTML hashes stay
+in live receipts while a normalized semantic digest binds the validated calendar facts. The
+January report footer's `9AM EST` wording difference from the controlling schedule's ET wording is
+retained explicitly. Initial January and February national purchase-only seasonally adjusted
+monthly changes remain tied to their first reports; the May snapshot never overwrites them. The
+currently served May PDF has June 15 modification metadata, so its exact current hash is not
+represented as proof that the bytes were unchanged since May 26. The index is not every U.S. home,
+a property record, transaction count, appraisal, or mortgage outcome. Full responses remain in
+ignored local storage, and this supporting connector is excluded from the formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

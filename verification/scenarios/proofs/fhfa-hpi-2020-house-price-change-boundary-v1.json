@@ -1,0 +1,133 @@
+{
+  "build_script": {
+    "path": "scripts/build_house_price_change_boundary_replaypack.py",
+    "sha256": "a23f57fe97358037daf9328084b3f852c5c98457f33344084e3d09a4909b1ccf"
+  },
+  "claim_boundary": "This proof counts one internally reproduced April 2020 FHFA House Price Index boundary because two pre-decision first-report national monthly changes, two exact PDF hashes, one stable official-schedule semantic hash, exact 9:00 a.m. America/New_York timing, a separately locked May 26 March event, immutable locks, separated truth labels, an explicit February persistence baseline, a no-probability persistence-or-one-known-increase program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The schedule evidence does not claim that today's HTML bytes are an immutable 2019 snapshot, and the January report footer's '9AM EST' wording difference is retained rather than silently normalized. The March change is excluded from ReplayPack inputs and used only for a labelled post-event check that preserves its 60-basis-point lower-bound breach rather than widening the range. The May report's January and February snapshot values never overwrite the first-report inputs. The currently available May PDF has June 15 modification metadata, so its exact bytes are not represented as unchanged since May 26. FHFA's purchase-only repeat-transactions index is not every U.S. home, a property record, transaction count, appraisal, or mortgage outcome. This does not establish forecast skill, calibrated coverage, a contemporaneous COVID effect, housing, credit, pandemic, policy, regional, property, or firm causality, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "fhfa-hpi.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective one-initial-increase attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "fhfa-hpi.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger retains one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "51abe319b48f4a5c9595246d36ff4557c60c8d2204b2da5f9f9c0804defa8a27",
+      "path": "scenarios/fhfa-hpi-2020/event-lock.json",
+      "record_ids": [
+        "fhfa.hpi.archived_purchase_only_monthly_change:202003:us_purchase_only_hpi_monthly_change"
+      ],
+      "sha256": "b76e484cdcd17d649729fe1c1907516e839bad49f203d2cc34600c86ed6a3864"
+    }
+  ],
+  "expected_input_manifest_sha256": "a5609ef70a1047906d19e6f1abf074da5d9728ba5eacf92e9919ddfd6dd86564",
+  "expected_pack_sha256": "338c19be4990422caa75c2e7ddc2ff34bc167e8b61c71e502916731aaa111e35",
+  "expected_trace_id": "trace:0546ce017baf309b17b31cb58eeb2d38b19413b3df33a9a4fc83b2f650e46d4d",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains national monthly index changes reported in archived FHFA releases, not property, borrower, mortgage, appraisal, transaction, universal-home-price, causal, or future-event observations. The March change is present only in the disjoint event lock."
+    },
+    "bounded_artifact_ids": [
+      "fhfa-hpi.shockcompiler.hpi-change-range"
+    ],
+    "extracted_artifact_ids": [
+      "fhfa-hpi.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "fhfa-hpi.shockcompiler.hpi-change-range",
+      "fhfa-hpi.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "fhfa.hpi.archived_purchase_only_monthly_change:202001:us_purchase_only_hpi_monthly_change",
+      "fhfa.hpi.archived_purchase_only_monthly_change:202002:us_purchase_only_hpi_monthly_change"
+    ],
+    "simulated_artifact_ids": [
+      "fhfa-hpi.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "4c303409b3f6c74be01f035b5ea2ce11b63ed6da2c36fba998849137d2802e04",
+      "path": "scenarios/fhfa-hpi-2020/input-lock.json",
+      "record_ids": [
+        "fhfa.hpi.archived_purchase_only_monthly_change:202001:us_purchase_only_hpi_monthly_change",
+        "fhfa.hpi.archived_purchase_only_monthly_change:202002:us_purchase_only_hpi_monthly_change"
+      ],
+      "sha256": "e4e85d094972d080cc226ae66e3598ee5f11f9fe42849750b97ea356486859af"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "fhfa-hpi.shockcompiler.hpi-change-range",
+      "description": "The decision-time baseline persists the February first-report national purchase-only seasonally adjusted HPI change of 70 basis points.",
+      "expected_value": 70,
+      "payload_pointer": "/naive_baseline/next_us_purchase_only_hpi_monthly_change_basis_points"
+    },
+    {
+      "artifact_id": "fhfa-hpi.shockcompiler.hpi-change-range",
+      "description": "The persistence-or-one-known-increase endpoints carry no probability, confidence, or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    },
+    {
+      "artifact_id": "fhfa-hpi.shockcompiler.hpi-change-range",
+      "description": "No official confidence interval is represented as the FinReplay range.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/official_confidence_interval_used"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/fhfa-hpi/latest-summary.json",
+  "pack_directory": "verification/replaypacks/fhfa-hpi-2020",
+  "proof_sha256": "b73df9e338c5222149de27a8f47ea98f613fe2d8fa0d8e69be6434ff1c641218",
+  "rebuild_receipt": {
+    "path": "verification/scenarios/rebuilds/fhfa-hpi-2020.json",
+    "sha256": "478a79829e0ac1dcbc02c3e4934c0ae9041fcf1f9deef62455d341c323d5d219"
+  },
+  "replay_id": "fhfa-hpi-2020-house-price-change-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "declared_range_reuses_only_known_initial_increase",
+    "distinct_locked_inputs_equal_two",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "locked_initial_release_pair_is_exact",
+    "naive_baseline_is_february_initial_change_persistence",
+    "no_probability_is_assigned",
+    "official_confidence_interval_is_not_used",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_fhfa_hpi_fact",
+    "post_decision_event_timing_is_later",
+    "post_decision_revisions_remain_later_snapshot_only",
+    "post_event_lower_bound_breach_equals_60_basis_points",
+    "reported_post_event_change_is_below_declared_range",
+    "schedule_semantics_are_stable_without_raw_html_claim",
+    "simulation_remains_visible",
+    "three_evidence_hashes_are_bound",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "fhfa-hpi-2020-house-price-change-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "fhfa.hpi.archived_purchase_only_monthly_change:202001:us_purchase_only_hpi_monthly_change",
+    "fhfa.hpi.archived_purchase_only_monthly_change:202002:us_purchase_only_hpi_monthly_change"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_house_price_change_boundary_replaypack.py",
+    "sha256": "f292b9eec0eeeb9e2637b9e2311dec80d18b5590cc2c5411513de55b9ab3cd63"
+  }
+}
