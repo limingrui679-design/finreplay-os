@@ -15,6 +15,7 @@ from finreplay.adapters import (
     BLSCPIUAllItemsAdapter,
     BLSEmploymentSituationArchiveAdapter,
     CensusC30ArchiveAdapter,
+    CensusDurableGoodsArchiveAdapter,
     CensusHUDNRCArchiveAdapter,
     CensusMARTSArchiveAdapter,
     DOLWeeklyClaimsArchiveAdapter,
@@ -368,6 +369,27 @@ def test_fhfa_hpi_is_a_verified_supporting_source_not_a_thirty_first_adapter() -
     assert (
         supporting["adapters"][0]["adapter_id"]
         == FHFAHPIArchiveAdapter.metadata.adapter_id
+    )
+    assert supporting["adapters"][0]["record_count"] == 3
+    assert supporting["adapters"][0]["idempotent_records"] == 3
+    assert supporting["adapters"][0]["inserted_records"] == 0
+    assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()
+
+
+def test_census_durable_goods_is_supporting_not_a_thirty_first_adapter() -> None:
+    repository = Path(__file__).resolve().parents[2]
+    formal = json.loads((repository / "verification/live/latest-summary.json").read_text())
+    supporting_root = repository / "verification/supporting/census-m3-durable-goods"
+    supporting = json.loads((supporting_root / "latest-summary.json").read_text())
+
+    formal_ids = {item["adapter_id"] for item in formal["adapters"]}
+    assert CensusDurableGoodsArchiveAdapter.metadata.adapter_id not in formal_ids
+    assert supporting["verified_adapter_count"] == 1
+    assert supporting["historical_replay_eligible_count"] == 1
+    assert supporting["latest_only_count"] == 0
+    assert (
+        supporting["adapters"][0]["adapter_id"]
+        == CensusDurableGoodsArchiveAdapter.metadata.adapter_id
     )
     assert supporting["adapters"][0]["record_count"] == 3
     assert supporting["adapters"][0]["idempotent_records"] == 3

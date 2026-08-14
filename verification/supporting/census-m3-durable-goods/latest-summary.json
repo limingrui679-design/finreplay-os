@@ -1,0 +1,18 @@
+{
+  "adapters": [
+    {
+      "adapter_id": "census.m3.archived_advance_durable_goods",
+      "historical_replay_eligible": true,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "census.m3.archived_advance_durable_goods-f4063f2856ea6831.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-14T05:20:55.960828Z",
+      "temporal_coverage": "versioned_snapshot"
+    }
+  ],
+  "historical_replay_eligible_count": 1,
+  "latest_only_count": 0,
+  "schema_version": "1.0.0",
+  "verified_adapter_count": 1
+}
