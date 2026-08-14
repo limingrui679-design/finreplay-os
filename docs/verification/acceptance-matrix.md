@@ -54,14 +54,14 @@ Each of the 30 planned scenarios must independently provide:
 7. a limitations file and non-causal/non-deployment boundary;
 8. a fresh-clone replay receipt.
 
-Current status: **IN_PROGRESS; 19/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
+Current status: **IN_PROGRESS; 20/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
 2022 Q4 GDP revision, March 2023 BTFP early-growth, early-2023 BLS payroll and CPI release,
 spring-2023 FOMC target range, March 2023 Treasury-curve, and June 2023 Treasury TGA cash-boundary
 replays, plus the September 2019 New York Fed SOFR spike, April 2020 EIA commercial-crude-stock,
 March 2020 DOL initial-claims, March 2020 Treasury 91-day-bill auction-rate, March 2020 BEA
 personal-saving-rate, March 2020 Federal Reserve G.17 industrial-production, March 2020 Census
-MARTS retail-sales, March 2020 Census/HUD NRC housing-starts, and March 2020 Federal Reserve G.19
-revolving-credit boundaries, are counted.
+MARTS retail-sales, March 2020 Census/HUD NRC housing-starts, March 2020 Federal Reserve G.19
+revolving-credit, and March 2020 Census C30 construction-spending boundaries, are counted.
 `scripts/verify_scenario_catalog.py` opens
 each scenario's official timing records, immutable decision input lock, separately locked
 post-decision official event record, ReplayPack, source-label map, explicit naive baseline,
@@ -105,8 +105,14 @@ revision in the event snapshot; the reported March level remains a visible 383,0
 G.19 case validates three complete four-page rotated archived PDFs and exact 3:00 p.m.
 Eastern timing, retains the table's one-decimal simple annual rates rather than rounded headline
 fractions, preserves May's January and February revisions only in the event snapshot, and keeps
-the reported March change's 3,550-basis-point miss below the declared range visible. All sixteen
-non-bank cases use only four relevant engines and labelled post-event checks. Further scenarios
+the reported March change's 3,550-basis-point miss below the declared range visible. The Census
+C30 case validates three complete six-page PDF/XLSX pairs and exact 10:00 a.m. Eastern timing,
+preserves each initial monthly level instead of silently substituting later revisions, and keeps
+the two-initial-level stress step distinct from Census's official monthly change against a revised
+prior. Its reported March level remains a visible 3,659-million-dollar miss below the fixed range,
+while official 90-percent sampling intervals remain source facts rather than FinReplay range
+inputs. All seventeen non-bank cases use only four relevant engines and labelled post-event
+checks. Further scenarios
 must continue to diversify
 mechanisms and source families. The verifier recomputes the deterministic inventory under
 `verification/scenarios/`. A scenario title, plan row, unverified pack directory, or self-reported

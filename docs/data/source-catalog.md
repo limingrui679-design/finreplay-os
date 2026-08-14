@@ -214,6 +214,20 @@ credit-card loans plus other revolving plans; the connector does not infer card 
 household behavior, or causality. Full PDFs remain in ignored local storage, and this supporting
 connector is excluded from the formal 30.
 
+`census.c30.archived_construction_spending` retrieves the fixed March 2, April 1, and May 1, 2020
+U.S. Census Monthly Construction Spending PDF/XLSX pairs. Each PDF must be a complete six-page
+`612 x 792` release with a nonblank text layer, exact release identity, one stated 10:00 a.m.
+EST/EDT time, headline, detailed tables, methodology, sampling facts, status markers, and revision
+notices. Each XLSX must pass bounded ZIP and workbook-structure validation before fixed cells are
+read. Headline, Table 1 levels and components, Tables 2 and 3, available Table 4 facts, and
+revision bridges must reconcile across both forms. The page-stated time is validated under
+`America/New_York`; current HTTP headers are retrieval metadata only. Initial monthly levels stay
+tied to their release snapshots, so the May revisions do not overwrite the March and April input
+facts. The reported values are nominal SAAR levels rather than price-adjusted volume, and official
+90-percent sampling intervals remain source metadata rather than FinReplay range inputs. Full
+source pairs remain in ignored local storage, and this supporting connector is excluded from the
+formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

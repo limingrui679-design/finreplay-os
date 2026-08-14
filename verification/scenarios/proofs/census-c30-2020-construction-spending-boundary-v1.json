@@ -1,0 +1,140 @@
+{
+  "build_script": {
+    "path": "scripts/build_construction_spending_boundary_replaypack.py",
+    "sha256": "afabe4131f442b58c4014e1a495619ec4e8bb79fe2bab1898fb7f90d90d77d1a"
+  },
+  "claim_boundary": "This proof counts one internally reproduced March 2020 Census Construction Spending boundary because two pre-decision initial-release Table 1 levels, four paired PDF/XLSX input hashes, exact 10:00 a.m. America/New_York release timing, a separately locked May 1 March event, immutable locks, separated truth labels, an explicit February persistence baseline, a no-probability persistence-or-one-known-initial-decline program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The March level is excluded from ReplayPack inputs and used only for a labelled post-event check that preserves its 3,659-million-dollar lower-bound breach rather than widening the range. The May release's January and February revisions remain in the event snapshot and never overwrite the initial-release inputs. The 2,526-million-dollar step compares two initial current-month levels; it is not the official month-over-month change against a revised prior. The event's official +0.9 percent change uses its revised February denominator and is kept distinct from this evaluation. Census 90-percent sampling intervals remain source facts and are never represented as the FinReplay range. This does not establish forecast skill, calibrated coverage, real volume, project, firm, regional, construction, inflation, pandemic, or policy causality, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "census-c30.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective one-initial-decline attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "census-c30.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger retains one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "8f5233289fb66a1cc10dbc886b16af401c7f541dee6a5f0053c4291dea781658",
+      "path": "scenarios/census-c30-2020/event-lock.json",
+      "record_ids": [
+        "census.c30.archived_construction_spending:202003:total_construction_saar_level"
+      ],
+      "sha256": "ae79742d7aea6491859d2b072ed8512f8603d1a692e5038917b6956e370635e4"
+    }
+  ],
+  "expected_input_manifest_sha256": "3f8999f6ca955f6215b7199fc253b5120c34e3ddb666a9a9fecc995d35c34137",
+  "expected_pack_sha256": "cb1278b756b042287cf4bccbc2944687b0dc98a77ef6bead01e875f8e05377c7",
+  "expected_trace_id": "trace:fd29e6cfcf0a4de919953d297f2880443bd7fa1ff7865ba057eeaed63e7c3a0f",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate nominal construction-spending levels reported in archived Census C30 releases, not project, firm, regional, transaction, price-adjusted volume, causal, or future-event observations. The March value is present only in the disjoint event lock."
+    },
+    "bounded_artifact_ids": [
+      "census-c30.shockcompiler.construction-spending-level-range"
+    ],
+    "extracted_artifact_ids": [
+      "census-c30.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "census-c30.shockcompiler.construction-spending-level-range",
+      "census-c30.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "census.c30.archived_construction_spending:202001:total_construction_saar_level",
+      "census.c30.archived_construction_spending:202002:total_construction_saar_level"
+    ],
+    "simulated_artifact_ids": [
+      "census-c30.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "3ae6e6d15a646d104f64ef8a208af46481341ba9baf266666b07353aa56fc8ea",
+      "path": "scenarios/census-c30-2020/input-lock.json",
+      "record_ids": [
+        "census.c30.archived_construction_spending:202001:total_construction_saar_level",
+        "census.c30.archived_construction_spending:202002:total_construction_saar_level"
+      ],
+      "sha256": "d2081b0eaf88bd9c7f602657829b6c3c78d2dc6cd2ecb1d9544fbb5f10a78fdc"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "census-c30.shockcompiler.construction-spending-level-range",
+      "description": "The decision-time baseline persists the February preliminary total-construction Table 1 level of 1,366,697 million dollars SAAR from the April 1 archived release.",
+      "expected_value": 1366697,
+      "payload_pointer": "/naive_baseline/next_total_construction_saar_level_million_dollars"
+    },
+    {
+      "artifact_id": "census-c30.shockcompiler.construction-spending-level-range",
+      "description": "The persistence-or-one-known-initial-decline endpoints carry no probability, confidence, or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    },
+    {
+      "artifact_id": "census-c30.shockcompiler.construction-spending-level-range",
+      "description": "Census 90-percent sampling intervals remain source metadata and are excluded from the FinReplay range.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/official_sampling_confidence_interval_used"
+    },
+    {
+      "artifact_id": "census-c30.shockcompiler.construction-spending-level-range",
+      "description": "The 2,526-million-dollar step is explicitly the difference between two initial current-month levels, not Census's official monthly change against a revised prior-month denominator.",
+      "expected_value": true,
+      "payload_pointer": "/bound_construction/basis_is_initial_release_levels_not_official_monthly_change"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/census-c30/latest-summary.json",
+  "pack_directory": "verification/replaypacks/census-c30-2020",
+  "proof_sha256": "44a3e35397ec94841fe800079ed97d6a3027e26efa007073a759844c68d4a329",
+  "rebuild_receipt": {
+    "path": "verification/scenarios/rebuilds/census-c30-2020.json",
+    "sha256": "894455ab72f27b21a9713ba0e0f0eedf5aae040cd7ef7d598076e3a93862c1eb"
+  },
+  "replay_id": "census-c30-2020-construction-spending-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "declared_range_reuses_only_known_initial_decline",
+    "distinct_locked_inputs_equal_two",
+    "four_input_response_hashes_are_bound",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "initial_level_basis_is_not_official_monthly_change",
+    "locked_initial_release_pair_is_exact",
+    "naive_baseline_is_february_preliminary_persistence",
+    "no_probability_is_assigned",
+    "official_sampling_interval_is_not_used",
+    "only_relevant_engines_present",
+    "positive_official_monthly_change_uses_revised_denominator",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_paired_census_c30_fact",
+    "post_decision_event_timing_is_later",
+    "post_decision_revisions_remain_later_snapshot_only",
+    "post_event_lower_bound_breach_equals_3659_million_dollars",
+    "reported_post_event_level_is_below_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "census-c30-2020-construction-spending-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "census.c30.archived_construction_spending:202001:total_construction_saar_level",
+    "census.c30.archived_construction_spending:202002:total_construction_saar_level"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_construction_spending_boundary_replaypack.py",
+    "sha256": "e99ea53c5ac908b09b5a377e99e1125deae1913783c829a3aec44f4cca225d8d"
+  }
+}

@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 19/30 internally replay-proven: three bank boundaries plus 16 source-diverse macro, policy, rate, energy, labor, Treasury, production, retail-sales, housing, and consumer-credit boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 20/30 internally replay-proven: three bank boundaries plus 17 source-diverse macro, policy, rate, energy, labor, Treasury, production, retail-sales, housing, consumer-credit, and construction-spending boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -185,6 +185,17 @@ its release snapshot. The adapter stores the table's one-decimal values rather t
 rounded headline fractions. Revolving credit includes most credit-card loans and other revolving
 plans, so it is not represented as card spending or household behavior. Full PDFs stay local and
 the connector remains outside the formal 30-adapter inventory.
+
+The counted construction-spending boundary uses
+`census.c30.archived_construction_spending` as another supporting source. It retrieves only the
+March 2, April 1, and May 1, 2020 archived Census Monthly Construction Spending PDF/XLSX pairs.
+The adapter validates each six-page release, exact 10:00 a.m. EST/EDT time, bounded workbook
+structure, headline and detailed table facts, methodology, sampling metadata, revision notices,
+and cross-form agreement. Initial monthly levels remain tied to their own release snapshots;
+later revisions never overwrite them. The values are nominal annual rates, not real construction
+volume, and Census 90-percent sampling intervals are not represented as FinReplay probabilities
+or stress endpoints. Full source pairs stay local and the connector remains outside the formal
+30-adapter inventory.
 
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
@@ -354,6 +365,20 @@ That release revises January and February downward by `100` basis points each; t
 stay in the event snapshot and never overwrite the April inputs. G.19 revolving credit is not a
 card-spending, household, transaction, causal, or trading measure. See
 [`docs/scenarios/fed-g19-2020.md`](docs/scenarios/fed-g19-2020.md).
+
+The twentieth counted flow uses paired archived U.S. Census Monthly Construction Spending PDF
+and XLSX releases. It locks the initial January and February 2020 total-construction SAAR levels
+of `$1,369,223 million` and `$1,366,697 million` at the April 1 10:00 a.m. EDT decision boundary.
+The mechanical stress endpoints are February persistence or one repeat of that `$2,526 million`
+initial-level decline: `[$1,364,171 million, $1,366,697 million]`, with no probability. This
+initial-release arithmetic is explicitly not Census's official monthly change against a revised
+prior-month denominator. The separately locked May 1 release reports March at
+`$1,360,512 million`, a required visible `$3,659 million` breach below the lower endpoint, while
+its January and February revisions remain only in the event snapshot. The official March
+`+0.9%` change uses the revised February level and remains distinct from the initial-level
+evaluation. Census
+90-percent sampling intervals are not FinReplay range inputs. See
+[`docs/scenarios/census-c30-2020.md`](docs/scenarios/census-c30-2020.md).
 
 ## Research and investment disclaimer
 
