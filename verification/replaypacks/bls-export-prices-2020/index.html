@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self'; img-src 'self' data:;
+                 base-uri 'none'; form-action 'none'">
+  <title>BLS all-export price monthly-change boundary before March 2020 · FinReplay OS</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to report</a>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">FinReplay OS · evidence-labelled replay</p>
+      <h1>BLS all-export price monthly-change boundary before March 2020</h1>
+      <p class="lede">Four actual engines ran over two paired archived BLS all-export monthly-change releases. Reported changes remain reported; the -290-to--110-basis-point persistence-or-one-known-decline envelope remains inferred with no probability. The March event stays only in a disjoint event lock. This is not a BLS forecast, confidence interval, calibrated range, export-quantity or nominal-value measure, tariff, PPI, firm result, profit-and-loss, causal model, deployment, external validation, investment result, or user-impact claim.</p>
+    </div>
+    <div class="identity" aria-label="Replay identity">
+      <span>Replay <code>bls-export-prices-2020-all-exports-change-boundary-v1</code></span>
+      <span>Trace <code>trace:60baf01f7379154c3eeeb58e854c73dcc9933c7b9178581f57e33d1c7687547e</code></span>
+    </div>
+  </header>
+  <nav aria-label="Report sections">
+    <a href="#summary">Summary</a><a href="#claims">Claims</a>
+    <a href="#artifacts">Artifacts</a><a href="#limitations">Limitations</a>
+  </nav>
+  <main id="main">
+    <section id="summary" aria-labelledby="summary-title">
+      <h2 id="summary-title">Replay summary</h2>
+      <div class="boundary" role="note" aria-label="Truth boundary">
+        <strong>Truth boundary</strong>
+        <span>Contains simulated inputs. All represented source sets are historical-replay eligible.</span>
+        <span>Historical replay is not live trading;
+        modeled output is not realized performance.</span>
+      </div>
+      <dl class="facts">
+        <div><dt>Scenario</dt><dd>bls-export-prices-2020-all-exports-change-boundary
+        v1.0.0</dd></div>
+        <div><dt>Mode</dt><dd>bounded_reconstruction</dd></div>
+        <div><dt>Decision time</dt>
+        <dd>2020-03-13T12:30:00Z</dd></div>
+        <div><dt>Artifact status</dt><dd>reproduced</dd></div>
+        <div><dt>Engines represented</dt><dd>4 / 7</dd></div>
+        <div><dt>Pack hash</dt><dd><code>68677526e941a07bd9c0a7ddd5e364f3ca95174b90a899f53223b8083616f933</code></dd></div>
+      </dl>
+      <h3>Evidence inventory</h3>
+      <ul class="metrics" aria-label="Evidence counts"><li class="metric"><span class="metric-value">1</span><span>extracted</span></li><li class="metric"><span class="metric-value">4</span><span>inferred</span></li><li class="metric"><span class="metric-value">4</span><span>reported</span></li><li class="metric"><span class="metric-value">1</span><span>simulated</span></li></ul>
+      <p class="downloads"><a href="report.json">Machine-readable report</a>
+      <a href="checksums.sha256">Portable checksums</a>
+      <a href="README.md">Reproduction notes</a></p>
+    </section>
+    <section id="claims" aria-labelledby="claims-title">
+      <h2 id="claims-title">Claim traceability</h2>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Claim traceability table">
+        <table><caption>Each statement retains its evidence label,
+        supporting artifacts and boundary.</caption>
+          <thead><tr><th scope="col">Claim</th><th scope="col">Statement</th>
+          <th scope="col">Label</th><th scope="col">Support</th>
+          <th scope="col">Boundary</th></tr></thead>
+          <tbody><tr><th scope="row"><code>claim-extracted-bls-export-price-four-engine-pack</code></th><td>The pack contains outputs from the four engines relevant to this case.</td><td><span class="badge evidence-extracted">EXTRACTED</span></td><td><code>bls-export-price.replaystudio.render</code></td><td>Artifact presence proves integration structure, not economic correctness.</td></tr><tr><th scope="row"><code>claim-inferred-bls-export-price-change-range</code></th><td>The next-release stress endpoints are February persistence or one repeat of the known 180-basis-point decline, from -290 to -110 basis points.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>bls-export-price.shockcompiler.all-exports-change-range</code></td><td>The two endpoints carry no probability or coverage claim.</td></tr><tr><th scope="row"><code>claim-inferred-bls-export-price-trial-rejection</code></th><td>TrialCourt rejected the retrospective one-decline export-price attempt.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>bls-export-price.trialcourt.retrospective-gate</code></td><td>This is internal fail-closed evidence, not external method validation.</td></tr><tr><th scope="row"><code>claim-reported-bls-export-price-all-exports-changes</code></th><td>The February 14 and March 13 BLS releases first reported all-export monthly changes of 0.7 and -1.1 percent.</td><td><span class="badge evidence-reported">REPORTED</span></td><td><code>bls-export-price.timevault.release-pair-query</code></td><td>These are aggregate export-price release facts, not shipment records.</td></tr><tr><th scope="row"><code>claim-simulated-bls-export-price-schema-sentinels</code></th><td>Trial operational values are simulated schema sentinels only.</td><td><span class="badge evidence-simulated">SIMULATED</span></td><td><code>bls-export-price.trialcourt.retrospective-gate</code></td><td>The sentinels are not orders, capital, capacity, or returns.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section id="artifacts" aria-labelledby="artifacts-title">
+      <h2 id="artifacts-title">Engine artifacts</h2><article class="artifact">
+  <header><div><p class="eyebrow">replaystudio</p>
+  <h3><code>bls-export-price.replaystudio.render</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> extracted: 1</p>
+  <p><strong>Artifact hash:</strong> <code>4b009ed0673db3be3afca7efaf3ab03fd603a12cade530a33f55efa0a1363362</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>bls.export_prices.archived_all_exports:202001:all_exports_monthly_change</code></li><li><code>bls.export_prices.archived_all_exports:202002:all_exports_monthly_change</code></li></ul>
+    <h4>Limitations</h4><ul><li>Static rendering does not validate the one-change range heuristic.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;engine_selection&quot;: &quot;This aggregate export-price boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no individual exporter, product, shipment, tariff, security, order, portfolio, allocation, or return input is invented.&quot;,
+  &quot;input_lock_sha256&quot;: &quot;7acfced46ffb2fec48ac5efc69187af46dd0f3dcc87c6b2fa11d447ffb4eced0&quot;,
+  &quot;portable_file_count_excluding_manifest&quot;: 5,
+  &quot;renderer&quot;: &quot;ReplayStudio&quot;,
+  &quot;truth_labels_visible&quot;: true
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">shockcompiler</p>
+  <h3><code>bls-export-price.shockcompiler.all-exports-change-range</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 3</p>
+  <p><strong>Artifact hash:</strong> <code>317de67cda5cdf4343f02f43d46e39a7f2074de5ab49562c15696ccf440df2eb</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>bls.export_prices.archived_all_exports:202001:all_exports_monthly_change</code></li><li><code>bls.export_prices.archived_all_exports:202002:all_exports_monthly_change</code></li></ul>
+    <h4>Limitations</h4><ul><li>The endpoints mechanically reuse one reported adjacent-release change.</li><li>The March value and January revision are absent from endpoint construction.</li><li>The range is not an official interval, probability, causal model, or forecast.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;applied_endpoints&quot;: {
+    &quot;lower&quot;: -290.0,
+    &quot;upper&quot;: -110.0
+  },
+  &quot;bound_construction&quot;: {
+    &quot;endpoint_method&quot;: &quot;latest_change_persistence_or_repeat_one_known_decline&quot;,
+    &quot;future_event_used&quot;: false,
+    &quot;known_decline_basis_points&quot;: 180,
+    &quot;lower_change_basis_points&quot;: -290,
+    &quot;original_release_values_only&quot;: true,
+    &quot;prior_revision_used_as_endpoint&quot;: false,
+    &quot;probability_assigned&quot;: false,
+    &quot;range_width_basis_points&quot;: 180,
+    &quot;source_auxiliary_measures_used&quot;: false,
+    &quot;upper_change_basis_points&quot;: -110
+  },
+  &quot;compiled&quot;: {
+    &quot;compiled_sha256&quot;: &quot;91577d6a9a85c30b37c832b5b6f2f01b5c5a6797a8389ea0f33711b72d5b4d79&quot;,
+    &quot;decision_time&quot;: &quot;2020-03-13T12:30:00Z&quot;,
+    &quot;limitations&quot;: [
+      &quot;The endpoints have no likelihood, coverage, causal, or regime meaning.&quot;,
+      &quot;The March all-export change is evaluated only afterward.&quot;,
+      &quot;The index is not an export quantity, nominal export value, tariff, PPI, or P&amp;L.&quot;
+    ],
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;program_id&quot;: &quot;bls-export-price-next-all-exports-change-envelope&quot;,
+    &quot;scenario_id&quot;: &quot;bls-export-prices-2020-all-exports-change-boundary&quot;,
+    &quot;source_program_sha256&quot;: &quot;75ecfda5226e92269a0a0089a91e4d6f4d782939c3df35cbecebb6fb0055bcd2&quot;,
+    &quot;trials&quot;: [
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Use February-change persistence or one repetition of the only known decline between the January and February first-reported all-export monthly changes.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;One adjacent-release change defines a stress range, not a forecast or probability.&quot;,
+              &quot;Index levels, annual changes, categories, and revisions set neither endpoint.&quot;,
+              &quot;The March event is absent from range construction.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;bls-export-price-next-all-exports-change-range&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;186c6a60276ac896bdf37e1db97e7c6a313dd5e2cd2087e592b2ae8a76323327&quot;,
+              &quot;e0167a9ec66bc0b884d0f58c5e7de42ddc8fd849f150bf438f9590f4be7fbbf9&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;bls.export_prices.archived_all_exports:202001:all_exports_monthly_change&quot;,
+              &quot;bls.export_prices.archived_all_exports:202002:all_exports_monthly_change&quot;
+            ],
+            &quot;target_id&quot;: &quot;bls_export_price_index:all_exports_united_states&quot;,
+            &quot;unit&quot;: &quot;basis_points&quot;,
+            &quot;value&quot;: -290.0,
+            &quot;variable&quot;: &quot;next_all_exports_monthly_change_basis_points&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;bls-export-price-next-all-exports-change-envelope:00000000:7f44144480d3813c&quot;,
+        &quot;trial_index&quot;: 0,
+        &quot;vector_sha256&quot;: &quot;7f44144480d3813cd5a06937c8790de1585587b739e860e0480f1c7baabc117d&quot;
+      },
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Use February-change persistence or one repetition of the only known decline between the January and February first-reported all-export monthly changes.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;One adjacent-release change defines a stress range, not a forecast or probability.&quot;,
+              &quot;Index levels, annual changes, categories, and revisions set neither endpoint.&quot;,
+              &quot;The March event is absent from range construction.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;bls-export-price-next-all-exports-change-range&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;186c6a60276ac896bdf37e1db97e7c6a313dd5e2cd2087e592b2ae8a76323327&quot;,
+              &quot;e0167a9ec66bc0b884d0f58c5e7de42ddc8fd849f150bf438f9590f4be7fbbf9&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;bls.export_prices.archived_all_exports:202001:all_exports_monthly_change&quot;,
+              &quot;bls.export_prices.archived_all_exports:202002:all_exports_monthly_change&quot;
+            ],
+            &quot;target_id&quot;: &quot;bls_export_price_index:all_exports_united_states&quot;,
+            &quot;unit&quot;: &quot;basis_points&quot;,
+            &quot;value&quot;: -110.0,
+            &quot;variable&quot;: &quot;next_all_exports_monthly_change_basis_points&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;bls-export-price-next-all-exports-change-envelope:00000001:02e11135beb1ebc8&quot;,
+        &quot;trial_index&quot;: 1,
+        &quot;vector_sha256&quot;: &quot;02e11135beb1ebc8fa453f079e7ef7df1f1faf66fb23193fafc41151d2482ba3&quot;
+      }
+    ]
+  },
+  &quot;input_lock_sha256&quot;: &quot;7acfced46ffb2fec48ac5efc69187af46dd0f3dcc87c6b2fa11d447ffb4eced0&quot;,
+  &quot;known_release_changes&quot;: {
+    &quot;february_change_basis_points&quot;: -110,
+    &quot;january_change_basis_points&quot;: 70,
+    &quot;known_decline_basis_points&quot;: 180,
+    &quot;lower_change_basis_points&quot;: -290,
+    &quot;range_width_basis_points&quot;: 180,
+    &quot;upper_change_basis_points&quot;: -110
+  },
+  &quot;naive_baseline&quot;: {
+    &quot;definition&quot;: &quot;persistence of the February all-export monthly change&quot;,
+    &quot;next_all_exports_monthly_change_basis_points&quot;: -110
+  },
+  &quot;program&quot;: {
+    &quot;decision_time&quot;: &quot;2020-03-13T12:30:00Z&quot;,
+    &quot;global_limitations&quot;: [
+      &quot;The endpoints have no likelihood, coverage, causal, or regime meaning.&quot;,
+      &quot;The March all-export change is evaluated only afterward.&quot;,
+      &quot;The index is not an export quantity, nominal export value, tariff, PPI, or P&amp;L.&quot;
+    ],
+    &quot;hypothesis&quot;: &quot;Evaluate February-change persistence or one repetition of the known 180-basis-point decline using only releases available at the boundary.&quot;,
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;parameters&quot;: [
+      {
+        &quot;derivation&quot;: &quot;Use February-change persistence or one repetition of the only known decline between the January and February first-reported all-export monthly changes.&quot;,
+        &quot;evidence_class&quot;: &quot;inferred&quot;,
+        &quot;grid_points&quot;: 2,
+        &quot;limitations&quot;: [
+          &quot;One adjacent-release change defines a stress range, not a forecast or probability.&quot;,
+          &quot;Index levels, annual changes, categories, and revisions set neither endpoint.&quot;,
+          &quot;The March event is absent from range construction.&quot;
+        ],
+        &quot;lower&quot;: -290.0,
+        &quot;operation&quot;: &quot;set&quot;,
+        &quot;parameter_id&quot;: &quot;bls-export-price-next-all-exports-change-range&quot;,
+        &quot;source_record_ids&quot;: [
+          &quot;bls.export_prices.archived_all_exports:202001:all_exports_monthly_change&quot;,
+          &quot;bls.export_prices.archived_all_exports:202002:all_exports_monthly_change&quot;
+        ],
+        &quot;sources&quot;: [
+          {
+            &quot;license_class&quot;: &quot;redistributable&quot;,
+            &quot;publisher&quot;: &quot;U.S. Bureau of Labor Statistics&quot;,
+            &quot;redistribution_note&quot;: &quot;BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain archive URLs and release dates, and do not use the protected BLS emblem.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-14T12:06:49.053826Z&quot;,
+            &quot;sha256&quot;: &quot;186c6a60276ac896bdf37e1db97e7c6a313dd5e2cd2087e592b2ae8a76323327&quot;,
+            &quot;source_id&quot;: &quot;bls.export_prices.archived_all_exports&quot;,
+            &quot;source_version&quot;: &quot;BLS-MXP:2020-01:USDL-20-0247:html:dcac2c1daecc12c2bce0:pdf:186c6a60276ac896bdf3&quot;,
+            &quot;temporal_coverage&quot;: &quot;versioned_snapshot&quot;,
+            &quot;url&quot;: &quot;https://www.bls.gov/news.release/archives/ximpim_02142020.pdf&quot;,
+            &quot;vintage_as_of&quot;: &quot;2020-02-14T13:30:00Z&quot;
+          },
+          {
+            &quot;license_class&quot;: &quot;redistributable&quot;,
+            &quot;publisher&quot;: &quot;U.S. Bureau of Labor Statistics&quot;,
+            &quot;redistribution_note&quot;: &quot;BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain archive URLs and release dates, and do not use the protected BLS emblem.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-14T12:06:55.570230Z&quot;,
+            &quot;sha256&quot;: &quot;e0167a9ec66bc0b884d0f58c5e7de42ddc8fd849f150bf438f9590f4be7fbbf9&quot;,
+            &quot;source_id&quot;: &quot;bls.export_prices.archived_all_exports&quot;,
+            &quot;source_version&quot;: &quot;BLS-MXP:2020-02:USDL-20-0405:html:1b196f0ebed0fdd41d27:pdf:e0167a9ec66bc0b884d0&quot;,
+            &quot;temporal_coverage&quot;: &quot;versioned_snapshot&quot;,
+            &quot;url&quot;: &quot;https://www.bls.gov/news.release/archives/ximpim_03132020.pdf&quot;,
+            &quot;vintage_as_of&quot;: &quot;2020-03-13T12:30:00Z&quot;
+          }
+        ],
+        &quot;target_id&quot;: &quot;bls_export_price_index:all_exports_united_states&quot;,
+        &quot;unit&quot;: &quot;basis_points&quot;,
+        &quot;upper&quot;: -110.0,
+        &quot;variable&quot;: &quot;next_all_exports_monthly_change_basis_points&quot;
+      }
+    ],
+    &quot;program_id&quot;: &quot;bls-export-price-next-all-exports-change-envelope&quot;,
+    &quot;scenario_id&quot;: &quot;bls-export-prices-2020-all-exports-change-boundary&quot;
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">timevault</p>
+  <h3><code>bls-export-price.timevault.release-pair-query</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> reported: 2</p>
+  <p><strong>Artifact hash:</strong> <code>d14491fe8da333ef1972d372dd184374a355b90cb7d2d8921b443ca86909eef0</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>bls.export_prices.archived_all_exports:202001:all_exports_monthly_change</code></li><li><code>bls.export_prices.archived_all_exports:202002:all_exports_monthly_change</code></li></ul>
+    <h4>Limitations</h4><ul><li>The records are aggregate export-price changes, not export quantities or values.</li><li>Each snapshot was retrieved later but remains tied to an archived release pair.</li><li>The March all-export change is excluded from every ReplayPack input.</li><li>Index levels, annual changes, and detailed categories set no endpoint.</li><li>Monthly export-price data may be revised for three subsequent releases.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;adjacent_prior_value_crosscheck_verified&quot;: true,
+  &quot;append&quot;: {
+    &quot;artifact_ids&quot;: [
+      &quot;01152fcf81447510661d7dda9ec5f7bb01e33911836d71b6a3781b7b2fb70b51&quot;,
+      &quot;ee17aad3e33ee070df9faf30bd41fd66161b7967804230478b7cc6e24145ff14&quot;
+    ],
+    &quot;attempted_records&quot;: 2,
+    &quot;fact_hashes&quot;: [
+      &quot;671c5b61d974e0c44b09d2ac07f59753c1be0c026028153aa245ae272a8dbba2&quot;,
+      &quot;903041fcff24f17a26a4864da740a8917ad96a6dca99d8e2c9c517fda89b8bf8&quot;
+    ],
+    &quot;idempotent_records&quot;: 0,
+    &quot;inserted_records&quot;: 2
+  },
+  &quot;decision_observations_basis_points&quot;: {
+    &quot;february_all_exports_monthly_change&quot;: -110,
+    &quot;february_prior_january_change&quot;: 60,
+    &quot;january_all_exports_monthly_change&quot;: 70,
+    &quot;january_revision_delta_basis_points&quot;: -10
+  },
+  &quot;decision_time&quot;: &quot;2020-03-13T12:30:00+00:00&quot;,
+  &quot;html_pdf_crosscheck_verified&quot;: true,
+  &quot;input_lock_sha256&quot;: &quot;7acfced46ffb2fec48ac5efc69187af46dd0f3dcc87c6b2fa11d447ffb4eced0&quot;,
+  &quot;manifest&quot;: {
+    &quot;database_bytes&quot;: 0,
+    &quot;distinct_records&quot;: 2,
+    &quot;fact_set_sha256&quot;: &quot;1ddb1064e495f51c63c12eeb25c7cdce8c7ca602e39bdab99ac58eed11060e14&quot;,
+    &quot;fact_versions&quot;: 2,
+    &quot;generated_at&quot;: &quot;2026-08-14T12:20:00+00:00&quot;,
+    &quot;retrieval_receipts&quot;: 2,
+    &quot;source_artifacts&quot;: 2
+  },
+  &quot;max_available_at&quot;: &quot;2020-03-13T12:30:00+00:00&quot;,
+  &quot;revision_window_months&quot;: 3,
+  &quot;seasonally_adjusted&quot;: false,
+  &quot;selected_record_ids&quot;: [
+    &quot;bls.export_prices.archived_all_exports:202001:all_exports_monthly_change&quot;,
+    &quot;bls.export_prices.archived_all_exports:202002:all_exports_monthly_change&quot;
+  ],
+  &quot;source_auxiliary_measures_used_as_range_input&quot;: false,
+  &quot;source_response_file_count&quot;: 4,
+  &quot;supporting_receipt_sha256&quot;: &quot;744153523c39d1b8df64900dad2544aec0d30c00c669f01ddc358cd64f5c630c&quot;
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">trialcourt</p>
+  <h3><code>bls-export-price.trialcourt.retrospective-gate</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1, reported: 2, simulated: 1</p>
+  <p><strong>Artifact hash:</strong> <code>f2387047a3dc7b004acc7f084edd2c324bd42b802a3edfaaa51f67da1a9f2806</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>bls.export_prices.archived_all_exports:202001:all_exports_monthly_change</code></li><li><code>bls.export_prices.archived_all_exports:202002:all_exports_monthly_change</code></li></ul>
+    <h4>Limitations</h4><ul><li>The rejected attempt is a retrospective method boundary, not a validated forecast.</li><li>Operational sentinel fields contain no execution, capacity, or return evidence.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;attempt&quot;: {
+    &quot;attempt_id&quot;: &quot;bls-export-price-retrospective-attempt-1&quot;,
+    &quot;attempt_number&quot;: 1,
+    &quot;code_commit&quot;: &quot;49bc04ddd2d595d5f1e5e6b8064112619d1d64c6&quot;,
+    &quot;completed_at&quot;: &quot;2026-08-14T12:20:00Z&quot;,
+    &quot;config_sha256&quot;: &quot;c29fdfd6a1e75e3bd6b373e9f5ce4dd3ce8838f72f8ea1234783122585e8a69e&quot;,
+    &quot;decision_time&quot;: &quot;2020-03-13T12:30:00Z&quot;,
+    &quot;evaluation_end&quot;: &quot;2020-04-23&quot;,
+    &quot;evaluation_start&quot;: &quot;2020-03-14&quot;,
+    &quot;gross_return_bps&quot;: 0.0,
+    &quot;input_manifest_sha256&quot;: &quot;7acfced46ffb2fec48ac5efc69187af46dd0f3dcc87c6b2fa11d447ffb4eced0&quot;,
+    &quot;max_input_available_at&quot;: &quot;2020-03-13T12:30:00Z&quot;,
+    &quot;median_daily_volume_usd&quot;: 1.0,
+    &quot;metric_value&quot;: 180.0,
+    &quot;next_training_start&quot;: null,
+    &quot;notes&quot;: [
+      &quot;Retrospective method-boundary attempt; p=1 records no inferential test.&quot;,
+      &quot;One-dollar and zero-return fields are non-trading schema sentinels.&quot;,
+      &quot;No March export-price fact is in the attempt manifest.&quot;
+    ],
+    &quot;one_way_turnover&quot;: 0.0,
+    &quot;output_manifest_sha256&quot;: &quot;2692610f826206c0304e89d6dc2d7982ed3c94153be1ee153590866a51eade62&quot;,
+    &quot;p_value&quot;: 1.0,
+    &quot;regime_metric_values&quot;: {
+      &quot;continuation-range-width&quot;: 180.0,
+      &quot;known-adjacent-release-decline&quot;: 180.0
+    },
+    &quot;requested_capital_usd&quot;: 1.0,
+    &quot;sample_size&quot;: 2,
+    &quot;short_fraction&quot;: 0.0,
+    &quot;training_end&quot;: &quot;2020-03-11&quot;,
+    &quot;trial_id&quot;: &quot;bls-export-price-retrospective-range-screen&quot;
+  },
+  &quot;attempt_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;b69dd3fc39887c1a5317e47035c5b73061852dbaa3ddedba16b64b31a2e8ddda&quot;,
+    &quot;entry_hash&quot;: &quot;b69dd3fc39887c1a5317e47035c5b73061852dbaa3ddedba16b64b31a2e8ddda&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 2
+  },
+  &quot;decision&quot;: {
+    &quot;adjusted_p_values&quot;: {
+      &quot;bls-export-price-retrospective-attempt-1&quot;: 1.0
+    },
+    &quot;attempt_ids&quot;: [
+      &quot;bls-export-price-retrospective-attempt-1&quot;
+    ],
+    &quot;attempt_set_sha256&quot;: &quot;969867717967dee28cef78db56623185967be8577984fc96eafa4c98b39a23f8&quot;,
+    &quot;candidate_attempt_id&quot;: &quot;bls-export-price-retrospective-attempt-1&quot;,
+    &quot;decided_at&quot;: &quot;2026-08-14T12:20:00Z&quot;,
+    &quot;decision_id&quot;: &quot;decision:bls-export-price-retrospective-range-screen:6c924cea90de4ee1fa8469f2&quot;,
+    &quot;disposition&quot;: &quot;reject&quot;,
+    &quot;findings&quot;: [
+      {
+        &quot;kind&quot;: &quot;preregistration&quot;,
+        &quot;metrics&quot;: {
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;registered_before_holdout&quot;: false
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Registration was retrospective or the observed attempt family exceeded the preregistered declaration.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;leakage&quot;,
+        &quot;metrics&quot;: {
+          &quot;embargo_respected&quot;: true,
+          &quot;evaluation_inside_holdout&quot;: true,
+          &quot;input_available_by_decision&quot;: true,
+          &quot;training_respects_purge&quot;: true
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Point-in-time input, purge, holdout and embargo checks passed.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;multiplicity&quot;,
+        &quot;metrics&quot;: {
+          &quot;adjusted_p_value&quot;: 1.0,
+          &quot;alpha&quot;: 0.05,
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;raw_p_value&quot;: 1.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Candidate does not survive family-wise Holm adjustment.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;regime&quot;,
+        &quot;metrics&quot;: {
+          &quot;best_regime_metric&quot;: 180.0,
+          &quot;regime_count&quot;: 2,
+          &quot;worst_regime_metric&quot;: 180.0
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Metric direction is stable across named regimes.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;execution&quot;,
+        &quot;metrics&quot;: {
+          &quot;borrow_cost_bps&quot;: 0.0,
+          &quot;gross_return_bps&quot;: 0.0,
+          &quot;immediate_cost_bps&quot;: 0.0,
+          &quot;net_return_bps&quot;: 0.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Preregistered execution and borrow costs erase the gross return.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;capacity&quot;,
+        &quot;metrics&quot;: {
+          &quot;allowed_daily_notional_usd&quot;: 0.05,
+          &quot;daily_notional_usd&quot;: 0.0,
+          &quot;max_participation_rate&quot;: 0.05
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Requested capital fits the preregistered participation limit.&quot;
+      }
+    ],
+    &quot;trial_id&quot;: &quot;bls-export-price-retrospective-range-screen&quot;
+  },
+  &quot;input_lock_sha256&quot;: &quot;7acfced46ffb2fec48ac5efc69187af46dd0f3dcc87c6b2fa11d447ffb4eced0&quot;,
+  &quot;manifest&quot;: {
+    &quot;attempts&quot;: 1,
+    &quot;chain_tip_sha256&quot;: &quot;5a80f77a951f3ac9579a29357c4fb6bbb78d3c1d3f9ed04e876be598d4be7072&quot;,
+    &quot;decisions&quot;: 1,
+    &quot;entries&quot;: 3,
+    &quot;registrations&quot;: 1,
+    &quot;rejected_decisions&quot;: 1,
+    &quot;verified&quot;: true
+  },
+  &quot;registration_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;de171e5a9199b995e66280a9839a172e32edb66ca4bdcab16216dbe677f93981&quot;,
+    &quot;entry_hash&quot;: &quot;de171e5a9199b995e66280a9839a172e32edb66ca4bdcab16216dbe677f93981&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 1
+  },
+  &quot;spec&quot;: {
+    &quot;cost_model&quot;: {
+      &quot;borrow_bps_annual&quot;: 0.0,
+      &quot;commission_bps&quot;: 1.0,
+      &quot;half_spread_bps&quot;: 1.0,
+      &quot;market_impact_bps&quot;: 1.0,
+      &quot;max_participation_rate&quot;: 0.05
+    },
+    &quot;declared_attempts&quot;: 1,
+    &quot;disposition&quot;: &quot;revise&quot;,
+    &quot;economic_mechanism&quot;: &quot;The all-export index aggregates U.S. export transaction prices. Two releases and one later outcome cannot establish predictive validity, pass-through, pandemic effects, quantities, nominal export value, tariffs, firm outcomes, or causality.&quot;,
+    &quot;embargo_days&quot;: 0,
+    &quot;expected_direction&quot;: &quot;positive&quot;,
+    &quot;holdout_end&quot;: &quot;2020-04-23&quot;,
+    &quot;holdout_start&quot;: &quot;2020-03-14&quot;,
+    &quot;hypothesis&quot;: &quot;A retrospectively constructed one-decline export-price boundary qualifies for research eligibility after every adversarial gate.&quot;,
+    &quot;preregistered_at&quot;: &quot;2026-08-14T12:20:00Z&quot;,
+    &quot;primary_metric&quot;: &quot;one-decline all-export price range width in basis points&quot;,
+    &quot;purge_days&quot;: 2,
+    &quot;trial_id&quot;: &quot;bls-export-price-retrospective-range-screen&quot;
+  }
+}</pre>
+  </details>
+</article>
+    </section>
+    <section id="limitations" aria-labelledby="limitations-title">
+      <h2 id="limitations-title">Pack limitations</h2><ul><li>This lock preserves the January and February 2020 BLS all-export monthly changes knowable at the March 13 embargo end and binds each archived HTML/PDF pair plus the idempotent six-response supporting receipt. It retains the -10-basis-point January revision as lineage but does not use that revision, index levels, annual changes, or detailed categories to set an endpoint. It excludes the March event, later revisions, exporter or shipment records, export quantities, nominal export values, tariffs, PPI, firm results, P&amp;L, a probability distribution, forecast, calibrated interval, pandemic or price causality, recommendation, execution, investment performance, external review, deployment, and user impact.</li><li>Endpoints are February persistence or one repeat of the 180-basis-point decline.</li><li>The March event and every later-known value are excluded from every input.</li><li>Index levels, annual changes, and categories are metadata, not endpoint inputs.</li><li>The index measures U.S. export prices, not quantity or nominal export value.</li><li>The index is not seasonally adjusted and may be revised for three releases.</li><li>The COVID-19 text does not establish causality or unaffected measurement.</li><li>No individual exporter, shipment, tariff, firm, portfolio, or recommendation exists.</li><li>A fixed build epoch and zero elapsed time preserve deterministic pack identity.</li></ul>
+    </section>
+  </main>
+  <footer><p>Static read-only report. No brokerage connection,
+  tracking script, or external request.</p></footer>
+</body>
+</html>
