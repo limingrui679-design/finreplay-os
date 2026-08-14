@@ -1,0 +1,157 @@
+{
+  "build_script": {
+    "path": "scripts/build_import_price_boundary_replaypack.py",
+    "sha256": "6e35d6efa972125a80e6bd5b0d95869edae7fd23677399a3542954d239e74bc0"
+  },
+  "claim_boundary": "This proof counts one internally reproduced February 2020 BLS all-import price-change boundary because two pre-decision aggregate releases, four exact official HTML/PDF input hashes, an idempotent six-response supporting receipt, paired-format checks, exact 8:30 a.m. EST/EDT times, immutable locks, separated truth labels, a -50-basis-point February persistence baseline, a no-probability -100-to--50-basis-point persistence-or-one-known-decline program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-checkout double rebuild all verify. The later +10-basis-point January revision remains visible but sets no endpoint. The March first report of -230 basis points is excluded from ReplayPack inputs and used only for a labelled post-event check. It lies 130 basis points below the fixed lower endpoint; that miss remains visible, does not become forecast success, and does not alter the endpoints. Index levels, annual changes, detailed categories, and later revisions remain metadata. The modified-Laspeyres, U.S.-importer-price, non-seasonally-adjusted, three-release revision, and COVID-methodology boundaries are preserved. This proof does not establish a BLS forecast, calibrated coverage, import quantity or nominal trade value, tariff or CPI effect, importer or firm behavior, P&L, pandemic causality, investment performance, external validation, deployment, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "bls-import-price.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective one-decline attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "bls-import-price.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger retains one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "11a82993576e8fd02b0a2417ac2176daf5714eeeaafec7029bc99c0658ac408f",
+      "path": "scenarios/bls-import-prices-2020/event-lock.json",
+      "record_ids": [
+        "bls.import_prices.archived_all_imports:202003:all_imports_monthly_change"
+      ],
+      "sha256": "de98f86966046db8316390b86ae2ff3e5845c02aa71a20c4bb4019d5687073cb"
+    }
+  ],
+  "expected_input_manifest_sha256": "f2370cb236a89f450387c4a22ba0912e5c9ada73137ef08851507670b139df79",
+  "expected_pack_sha256": "e6f74743d81e53a82297665e74d90da4718948f19cfeac29c8fe710a82c4eb43",
+  "expected_trace_id": "trace:4c7ab74268838bf6a5cc5f70421e607b45ca64eacc1169766ad2dbfdc094cb4a",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate all-import price changes reported in archived BLS releases, not observations of importer firms, shipments, quantities, nominal trade values, tariffs, CPI, P&L, decisions, or user activity. The March change exists only in the disjoint event lock."
+    },
+    "bounded_artifact_ids": [
+      "bls-import-price.shockcompiler.all-imports-change-range"
+    ],
+    "extracted_artifact_ids": [
+      "bls-import-price.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "bls-import-price.shockcompiler.all-imports-change-range",
+      "bls-import-price.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "bls.import_prices.archived_all_imports:202001:all_imports_monthly_change",
+      "bls.import_prices.archived_all_imports:202002:all_imports_monthly_change"
+    ],
+    "simulated_artifact_ids": [
+      "bls-import-price.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "e2bbd8ce8344818b76f1beafff0c363d47a2100de9dc41529c3ea58812972024",
+      "path": "scenarios/bls-import-prices-2020/input-lock.json",
+      "record_ids": [
+        "bls.import_prices.archived_all_imports:202001:all_imports_monthly_change",
+        "bls.import_prices.archived_all_imports:202002:all_imports_monthly_change"
+      ],
+      "sha256": "d6b9954f124bde110fe573747a9686e3e50ce2baab4279de292eeb9aa5a05686"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "bls-import-price.shockcompiler.all-imports-change-range",
+      "description": "The decision-time baseline persists the February first-reported all-import monthly change of -50 basis points.",
+      "expected_value": -50,
+      "payload_pointer": "/naive_baseline/next_all_imports_monthly_change_basis_points"
+    },
+    {
+      "artifact_id": "bls-import-price.shockcompiler.all-imports-change-range",
+      "description": "The persistence-or-one-known-decline endpoints carry no probability, confidence, or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    },
+    {
+      "artifact_id": "bls-import-price.shockcompiler.all-imports-change-range",
+      "description": "Index levels, annual changes, and detailed categories set no endpoint.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/source_auxiliary_measures_used"
+    },
+    {
+      "artifact_id": "bls-import-price.shockcompiler.all-imports-change-range",
+      "description": "The later +10-basis-point January revision is retained as lineage but does not set either endpoint.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/prior_revision_used_as_endpoint"
+    },
+    {
+      "artifact_id": "bls-import-price.shockcompiler.all-imports-change-range",
+      "description": "The later March all-import change never enters range construction.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/future_event_used"
+    },
+    {
+      "artifact_id": "bls-import-price.shockcompiler.all-imports-change-range",
+      "description": "Only the January and February first-reported changes define endpoints.",
+      "expected_value": true,
+      "payload_pointer": "/bound_construction/original_release_values_only"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/bls-import-prices/latest-summary.json",
+  "pack_directory": "verification/replaypacks/bls-import-prices-2020",
+  "proof_sha256": "46920362e65d74958afe8bb2baa2eba02b89d8c26537cd1297f0fbc5216fa078",
+  "rebuild_receipt": {
+    "path": "verification/scenarios/rebuilds/bls-import-prices-2020.json",
+    "sha256": "8adbe779eea1b89c103c61aa392eafcc6373090abbec05720c7d5b60ad7e8f77"
+  },
+  "replay_id": "bls-import-prices-2020-all-imports-change-boundary-v1",
+  "required_rebuild_assertions": [
+    "adjacent_january_revision_is_retained",
+    "all_artifacts_reproduced",
+    "auxiliary_and_revision_fields_are_not_used",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "covid_methodology_text_is_not_promoted_to_causality",
+    "cross_engine_trace_is_stable",
+    "declared_range_reuses_only_one_known_decline",
+    "distinct_locked_inputs_equal_two",
+    "fixed_range_is_not_changed_after_event",
+    "four_official_html_pdf_hashes_are_bound",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "idempotent_supporting_receipt_is_bound",
+    "locked_release_pair_is_exact",
+    "measurement_and_revision_boundaries_are_explicit",
+    "naive_baseline_is_february_change_persistence",
+    "no_probability_is_assigned",
+    "official_input_release_times_are_exact",
+    "only_relevant_engines_present",
+    "paired_html_pdf_crosscheck_is_explicit",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_import_price_fact",
+    "post_decision_event_timing_is_later",
+    "post_event_lower_bound_breach_equals_130_basis_points",
+    "range_miss_remains_visible_without_success_claim",
+    "reported_post_event_change_is_below_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "bls-import-prices-2020-all-imports-change-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "bls.import_prices.archived_all_imports:202001:all_imports_monthly_change",
+    "bls.import_prices.archived_all_imports:202002:all_imports_monthly_change"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_import_price_boundary_replaypack.py",
+    "sha256": "b6c7f5c6d938211db254961956edb138ce58747170b858e57a7aa2982c4e757f"
+  }
+}
