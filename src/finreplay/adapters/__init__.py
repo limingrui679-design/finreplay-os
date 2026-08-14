@@ -30,6 +30,7 @@ from finreplay.adapters.cftc import (
     CFTCCOTSpec,
     CFTCReportKind,
 )
+from finreplay.adapters.cftc_tff_schedule import CFTCTFFScheduledReleaseAdapter
 from finreplay.adapters.dol_ui_claims import DOLWeeklyClaimsArchiveAdapter
 from finreplay.adapters.eia_wngsr import EIAWNGSRWorkingGasHistoryAdapter
 from finreplay.adapters.eia_wpsr import EIAWPSRCommercialCrudeStocksAdapter
@@ -88,6 +89,7 @@ __all__ = [
     "CFTCCOTAdapter",
     "CFTCCOTSpec",
     "CFTCReportKind",
+    "CFTCTFFScheduledReleaseAdapter",
     "CensusBEAFT900ArchiveAdapter",
     "CensusC30ArchiveAdapter",
     "CensusDurableGoodsArchiveAdapter",

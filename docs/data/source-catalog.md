@@ -65,6 +65,20 @@ not claim historical decision-time eligibility without separate release evidence
 
 ## Scenario-specific supporting source outside the capped 30
 
+`cftc.cot.tff_scheduled_ust2y` retrieves exactly three July 2026 Futures Only TFF rows for CFTC
+contract code `042601`, then cross-checks every selected position, weekly change, trader count,
+unit, mode, contract, and report date against the current-year annual compressed file. The official
+current 2026 schedule lists July 17, 24, and 31 and states 3:30 p.m. Eastern publication using the
+previous Tuesday's data; each date resolves to EDT under `America/New_York`. The page also calls the
+schedule tentative, and CFTC says it has no historical release-date list beyond the current
+13-month schedule. FinReplay therefore labels these timestamps official scheduled availability at
+`0.98` confidence, not row-level actual-publication confirmation. The COT policy page and complete
+four-page TFF notes independently bind historical immutability, classification, reclassification,
+spreading, trader-count, and trading-intent limitations. Dynamic page wrappers and the growing
+annual ZIP remain raw receipt evidence, while stable selected-row and document-semantic hashes keep
+retries idempotent. This scenario connector is verified under
+`verification/supporting/cftc-tff-schedule/` and excluded from the formal 30-adapter inventory.
+
 `fred.alfred.vintage_gdp` retrieves one explicitly selected ALFRED GDP vintage over a bounded
 observation interval. Four live snapshots used by the GDP revision scenario are verified under
 `verification/supporting/alfred/`; their six normalized facts are `vintage_native` and historically
