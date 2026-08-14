@@ -38,6 +38,18 @@
       "trace_id": "trace:93586d2362769bcfd48846586d4eefa3b7fbdf6a4b596e62297e775971802013"
     },
     {
+      "decision_time": "2020-03-13T12:30:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "e6f74743d81e53a82297665e74d90da4718948f19cfeac29c8fe710a82c4eb43",
+      "proof": "bls-import-prices-2020-all-imports-change-boundary-v1.json",
+      "proof_sha256": "46920362e65d74958afe8bb2baa2eba02b89d8c26537cd1297f0fbc5216fa078",
+      "replay_id": "bls-import-prices-2020-all-imports-change-boundary-v1",
+      "scenario_id": "bls-import-prices-2020-all-imports-change-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:4c7ab74268838bf6a5cc5f70421e607b45ca64eacc1169766ad2dbfdc094cb4a"
+    },
+    {
       "decision_time": "2020-04-09T12:30:00+00:00",
       "distinct_input_records": 2,
       "mode": "bounded_reconstruction",
@@ -339,5 +351,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 28
+  "verified_scenario_count": 29
 }

@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 28/30 internally replay-proven: three bank boundaries plus 25 source-diverse macro, policy, rate, energy, labor, producer-price, Treasury, production, retail-sales, housing, home-sales, consumer-credit, construction-spending, house-price-index, durable-goods, international-trade, natural-gas, CFTC open-interest, and Federal Reserve liquidity-swap boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 29/30 internally replay-proven: three bank boundaries plus 26 source-diverse macro, policy, rate, energy, labor, producer-price, import-price, Treasury, production, retail-sales, housing, home-sales, consumer-credit, construction-spending, house-price-index, durable-goods, international-trade, natural-gas, CFTC open-interest, and Federal Reserve liquidity-swap boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -52,7 +52,7 @@ flowchart LR
 ```
 
 The main workflow stays deliberately small. Source-specific eligibility rules, the seven-engine
-contract, and all 28 replay summaries remain available below as detailed evidence rather than
+contract, and all 29 replay summaries remain available below as detailed evidence rather than
 expanding this diagram.
 
 ## Truth boundaries
@@ -272,12 +272,12 @@ historical completeness, method correctness, deployment, or external validation.
 
 ## Scenario evidence
 
-The first SVB flow remains visible above because it is the intended release gate. The remaining 27
+The first SVB flow remains visible above because it is the intended release gate. The remaining 28
 internally replay-proven scenarios are retained in full below, but collapsed so the README can be
 scanned before opening source-level evidence.
 
 <details>
-<summary><strong>Open all remaining scenario evidence summaries (2–28)</strong></summary>
+<summary><strong>Open all remaining scenario evidence summaries (2–29)</strong></summary>
 
 The second counted flow locks seven PacWest Bancorp facts accepted on 2023-02-27, sets a
 2023-05-03 20:00 UTC decision boundary, and separately locks the post-decision 2023-05-04 SEC 8-K
@@ -547,6 +547,18 @@ remains visible but is not promoted to forecast success, calibration, policy eff
 causality, and the endpoints are not changed after the fact. Weekly averages and year-ago changes
 set no endpoint; the H.4.1 exchange-rate convention is not current-market exposure or P&L. See
 [`docs/scenarios/fed-h41-liquidity-swaps-2020.md`](docs/scenarios/fed-h41-liquidity-swaps-2020.md).
+
+The twenty-ninth counted flow uses three paired archived BLS *U.S. Import and Export Price
+Indexes* HTML/PDF releases. At the March 13, 2020 8:30 a.m. EDT boundary, it locks the January and
+February all-import monthly first reports of `0` and `-50` basis points. February persistence or
+one repeat of the known `50`-basis-point decline produces the transparent `[-100, -50]` range with
+no probability. The March release is locked separately at `-230` basis points, a visible
+`130`-basis-point breach below the fixed lower endpoint. The verifier retains the later January
+`+10`-basis-point and February `-20`-basis-point revisions as lineage but prohibits them from
+setting an endpoint, keeps the range unchanged after the miss, and records
+`forecast_success_claimed=false`. The modified-Laspeyres all-import index is not import quantity,
+nominal trade value, a tariff, CPI, firm P&L, pandemic causality, or a BLS forecast. See
+[`docs/scenarios/bls-import-prices-2020.md`](docs/scenarios/bls-import-prices-2020.md).
 
 </details>
 

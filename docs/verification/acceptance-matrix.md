@@ -54,7 +54,7 @@ Each of the 30 planned scenarios must independently provide:
 7. a limitations file and non-causal/non-deployment boundary;
 8. a fresh-clone replay receipt.
 
-Current status: **IN_PROGRESS; 28/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
+Current status: **IN_PROGRESS; 29/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
 2022 Q4 GDP revision, March 2023 BTFP early-growth, early-2023 BLS payroll and CPI release,
 March 2020 BLS PPI final-demand monthly-change,
 spring-2023 FOMC target range, March 2023 Treasury-curve, and June 2023 Treasury TGA cash-boundary
@@ -67,7 +67,8 @@ revolving-credit, March 2020 Census C30 construction-spending, March 2020 FHFA p
 House Price Index monthly-change, March 2020 Census M3 durable-goods new-orders, and March 2020
 joint Census/BEA FT-900 goods-and-services-deficit, March 2020 Census/HUD NRS new-home-sales
 level, July 2026 CFTC TFF UST 2-year open-interest, and March 2020 Federal Reserve H.4.1
-central-bank-liquidity-swap balance boundaries are counted.
+central-bank-liquidity-swap balance, plus February 2020 BLS all-import monthly-change boundaries
+are counted.
 `scripts/verify_scenario_catalog.py` opens
 each scenario's official timing records, immutable decision input lock, separately locked
 post-decision official event record, ReplayPack, source-label map, explicit naive baseline,
@@ -155,7 +156,7 @@ unadjusted indexes, 12-month changes, and COVID-19 methodology language outside 
 construction. The separately locked April change remains a visible 110-basis-point miss below
 the fixed range and does not retroactively widen it. PPI remains an aggregate seller-price
 measure subject to revision, not CPI, producer-level behavior, or causal evidence. All
-twenty-five non-bank cases use only four relevant engines and labelled post-event
+twenty-six non-bank cases use only four relevant engines and labelled post-event
 checks.
 The CFTC TFF case cross-checks three exact API rows against the annual Futures Only file and binds
 the release schedule, policy page, and TFF notes PDF. Its July 21 persistence-or-one-known-decline
@@ -173,6 +174,17 @@ requires that result to remain labelled as evaluation only and never as forecast
 April 2 release pair gives no exact time, so eligibility waits until the following New York
 midnight. The source's exchange-rate measurement convention is not represented as current-market
 exposure, transaction behavior, P&L, policy effectiveness, or causality.
+The BLS import-price case validates three complete archived HTML/PDF release pairs and exact 8:30
+a.m. EST/EDT embargo timing. Its range uses only the January and February all-import first reports,
+persists the February `-50`-basis-point change or repeats the one known `50`-basis-point decline,
+and assigns no probability. The later January `+10`-basis-point and February `-20`-basis-point
+revisions remain explicit lineage but set no endpoint. The separately locked March first report is
+`-230` basis points, a visible `130`-basis-point breach below the fixed lower endpoint; the verifier
+requires the miss to remain visible, forbids an after-the-fact range change, and records no forecast
+success. The non-seasonally-adjusted modified-Laspeyres importer-price index is not an import
+quantity, nominal trade value, tariff, CPI, firm result, P&L, or causal estimate. The release's
+COVID-19 statement remains methodology and response-rate context, not pandemic causality or proof
+of unaffected measurement.
 Further scenarios must continue to diversify
 mechanisms and source families. The verifier recomputes the deterministic inventory under
 `verification/scenarios/`. A scenario title, plan row, unverified pack directory, or self-reported
