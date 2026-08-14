@@ -149,6 +149,13 @@ from finreplay.scenarios.tga_cash_boundary import (
     build_tga_cash_boundary_replay_spec,
     load_tga_cash_boundary_input_lock,
 )
+from finreplay.scenarios.trade_deficit_level_boundary import (
+    CENSUS_BEA_FT900_SOURCE_ID,
+    TradeDeficitLevelBoundaryInputLock,
+    TradeDeficitLevelBoundaryRoles,
+    build_trade_deficit_level_boundary_replay_spec,
+    load_trade_deficit_level_boundary_input_lock,
+)
 from finreplay.scenarios.treasury_auction_boundary import (
     TREASURY_AUCTION_SOURCE_ID,
     TreasuryAuctionBoundaryInputLock,
@@ -170,6 +177,7 @@ __all__ = [
     "BEA_PIO_SOURCE_ID",
     "BLS_CPI_SOURCE_ID",
     "BLS_EMPLOYMENT_SOURCE_ID",
+    "CENSUS_BEA_FT900_SOURCE_ID",
     "CENSUS_C30_SOURCE_ID",
     "CENSUS_DURABLE_GOODS_SOURCE_ID",
     "CENSUS_MARTS_SOURCE_ID",
@@ -231,6 +239,8 @@ __all__ = [
     "ScenarioProof",
     "TGACashBoundaryInputLock",
     "TGACashBoundaryRoles",
+    "TradeDeficitLevelBoundaryInputLock",
+    "TradeDeficitLevelBoundaryRoles",
     "TreasuryAuctionBoundaryInputLock",
     "TreasuryAuctionBoundaryRoles",
     "TreasuryCurveBoundaryInputLock",
@@ -255,6 +265,7 @@ __all__ = [
     "build_sofr_boundary_replay_spec",
     "build_svb_replay_spec",
     "build_tga_cash_boundary_replay_spec",
+    "build_trade_deficit_level_boundary_replay_spec",
     "build_treasury_auction_boundary_replay_spec",
     "build_treasury_curve_boundary_replay_spec",
     "load_bank_boundary_input_lock",
@@ -277,6 +288,7 @@ __all__ = [
     "load_sofr_boundary_input_lock",
     "load_svb_input_lock",
     "load_tga_cash_boundary_input_lock",
+    "load_trade_deficit_level_boundary_input_lock",
     "load_treasury_auction_boundary_input_lock",
     "load_treasury_curve_boundary_input_lock",
     "scenario_catalog_summary",
