@@ -204,10 +204,10 @@ status still counts as 0.
 
 | ID | Requirement | Completion evidence | Current status |
 |---|---|---|---|
-| D1 | At least 1,000,000,000 distinct public-source records actually processed | Source-partition manifests with independent counts, hashes, no synthetic multiplication, and no double counting | NOT_STARTED |
-| D2 | Billion-row point-in-time query demonstrated | Re-runnable benchmark receipt with hardware, cold/warm state, SQL, elapsed time, peak RSS and scanned bytes | NOT_STARTED |
-| D3 | Scalable local/object-store layout | Partition-pruning and incremental-ingestion tests; interrupted-run recovery | NOT_STARTED |
-| D4 | Scale claim is reproducible without shipping restricted raw data | Downloaders, source locks, sampled fixtures and manifest verifier | NOT_STARTED |
+| D1 | At least 1,000,000,000 distinct public-source records actually processed | Source-partition manifests with independent counts, hashes, no synthetic multiplication, and no double counting | IN_PROGRESS — exact physical-row SEC partitions and a self-hashed uniqueness manifest exist, but only `target_met=true` in the deeply reverified manifest completes this gate |
+| D2 | Billion-row point-in-time query demonstrated | Re-runnable benchmark receipt with hardware, cold/warm state, SQL, elapsed time, peak RSS and scanned bytes | IN_PROGRESS — two fresh-process smoke receipts record logical SQL, input hashes/rows/bytes, elapsed time, peak RSS and explicitly uncontrolled OS cache; this is not yet a billion-row benchmark |
+| D3 | Scalable local/object-store layout | Partition-pruning and incremental-ingestion tests; interrupted-run recovery | IN_PROGRESS — daily raw/Parquet partitions, atomic writes, bounded four-worker ingestion, ETag/Last-Modified range resume and an actually resumed smoke download are proven; billion-scale completion remains open |
+| D4 | Scale claim is reproducible without shipping restricted raw data | Downloaders, source locks, sampled fixtures and manifest verifier | IN_PROGRESS — official annual inventory locks, accountable download receipts, hostile ZIP/CSV tests, partition verifiers and a cross-partition deep verifier are committed; final target-scale re-download/rebuild evidence remains open |
 
 ## E. Methods, security, reproducibility, and product — 15 points
 

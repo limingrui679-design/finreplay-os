@@ -21,13 +21,13 @@ investment performance, institutional adoption, external validation, or real-wor
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
 | 30 historical/boundary scenarios | 30/30 internally replay-proven: three bank boundaries plus 27 source-diverse macro, policy, rate, energy, labor, producer-price, import-price, export-price, Treasury, production, retail-sales, housing, home-sales, consumer-credit, construction-spending, house-price-index, durable-goods, international-trade, natural-gas, CFTC open-interest, and Federal Reserve liquidity-swap boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
-| Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
+| Billion-record scale | In progress: an exact SEC EDGAR physical-row lake, resumable downloader, partition receipts, non-duplication manifest, and two-process query benchmark are implemented; the current machine manifest remains the only row-count authority and must say `target_met=true` before any billion-row claim | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
 The machine-auditable requirements are maintained in
 [`docs/verification/acceptance-matrix.md`](docs/verification/acceptance-matrix.md).
 
-[Seven engines](#the-seven-engines) · [Compact workflow](#compact-workflow) · [Run locally](#local-development) · [Scenario evidence](#scenario-evidence) · [Truth boundaries](#truth-boundaries)
+[Seven engines](#the-seven-engines) · [Compact workflow](#compact-workflow) · [Run locally](#local-development) · [Scenario evidence](#scenario-evidence) · [Scale evidence](docs/scale/sec-edgar-log-lake.md) · [Truth boundaries](#truth-boundaries)
 
 ## The seven engines
 
@@ -90,6 +90,12 @@ portable content hashes and bounded evidence receipts are committed under `verif
 The latest one-per-adapter evidence inventory can be rebuilt with
 `python scripts/verify_live_receipts.py`; legacy schema-1.0 receipts remain historical Git evidence
 but are excluded from current adapter counts.
+
+The separate SEC EDGAR access-log scale workflow is documented in
+[`docs/scale/sec-edgar-log-lake.md`](docs/scale/sec-edgar-log-lake.md). Its physical-row count,
+target status, source hashes, Parquet hashes, and query inputs come from
+`verification/scale/sec-edgar/latest-scale-manifest.json`, not README prose. Access-log rows are not
+unique users or market events, and a locally reproducible scale run is not deployment or impact.
 
 <details>
 <summary><strong>Open source-by-source validation and timing notes</strong></summary>
