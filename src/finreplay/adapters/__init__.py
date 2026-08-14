@@ -21,6 +21,7 @@ from finreplay.adapters.census_durable_goods import CensusDurableGoodsArchiveAda
 from finreplay.adapters.census_ft900 import CensusBEAFT900ArchiveAdapter
 from finreplay.adapters.census_marts import CensusMARTSArchiveAdapter
 from finreplay.adapters.census_nrc import CensusHUDNRCArchiveAdapter
+from finreplay.adapters.census_nrs import CensusHUDNRSArchiveAdapter
 from finreplay.adapters.cftc import (
     CFTC_COT_BY_SLUG,
     CFTC_COT_SPECS,
@@ -88,6 +89,7 @@ __all__ = [
     "CensusC30ArchiveAdapter",
     "CensusDurableGoodsArchiveAdapter",
     "CensusHUDNRCArchiveAdapter",
+    "CensusHUDNRSArchiveAdapter",
     "CensusMARTSArchiveAdapter",
     "DOLWeeklyClaimsArchiveAdapter",
     "EIAWPSRCommercialCrudeStocksAdapter",
