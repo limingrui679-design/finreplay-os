@@ -37,3 +37,10 @@ Two consecutive live runs are retained: the first inserts all six fact versions 
 proves they are idempotent. This evidence does not establish a forecast, calibrated probability,
 consumer or pandemic causality, external validation, deployment, investment performance, or
 user impact.
+
+The nineteenth counted scenario consumes only the April 7 decision snapshot and seals the May 7
+March value in a disjoint event lock. Its proof at
+`verification/scenarios/proofs/fed-g19-2020-revolving-credit-boundary-v1.json` binds this supporting
+inventory, both locks, the deterministic ReplayPack, the clean-worktree double-rebuild receipt,
+the no-probability range, later-revision isolation, TrialCourt rejection, and the required visible
+3,550-basis-point post-event lower-bound breach.

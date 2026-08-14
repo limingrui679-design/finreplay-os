@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 18/30 internally replay-proven: three bank boundaries plus 15 source-diverse macro, policy, rate, energy, labor, Treasury, production, retail-sales, and housing-starts boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 19/30 internally replay-proven: three bank boundaries plus 16 source-diverse macro, policy, rate, energy, labor, Treasury, production, retail-sales, housing, and consumer-credit boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -175,6 +175,16 @@ change, adjusted sales, year-over-year change, prior-month revisions, and sampli
 both forms. Official 90-percent sampling-error margins remain Census release facts and are never
 represented as FinReplay's inferred stress range. Full source pairs stay local and the connector
 remains outside the formal 30-adapter inventory.
+
+The counted revolving-credit boundary uses
+`federalreserve.g19.archived_consumer_credit` as another supporting source. It retrieves only the
+March 6, April 7, and May 7, 2020 archived Federal Reserve G.19 PDFs, validates each complete
+four-page rotated release, the exact 3:00 p.m. EST/EDT label, table values, flows, outstanding
+levels, revision markers, and the simple-annual-rate footnote. Each monthly value remains tied to
+its release snapshot. The adapter stores the table's one-decimal values rather than substituting
+rounded headline fractions. Revolving credit includes most credit-card loans and other revolving
+plans, so it is not represented as card spending or household behavior. Full PDFs stay local and
+the connector remains outside the formal 30-adapter inventory.
 
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
@@ -333,6 +343,17 @@ below the lower endpoint. The April release's revision of February from `1,599,0
 stays in the event snapshot and never overwrites the decision input. Official 90-percent sampling
 intervals remain source metadata and are not used as the FinReplay range. See
 [`docs/scenarios/census-nrc-2020.md`](docs/scenarios/census-nrc-2020.md).
+
+The nineteenth counted flow uses archived Federal Reserve G.19 Consumer Credit PDF releases. It
+locks the April 7 snapshot's January revised and February preliminary revolving-credit simple
+annual rates of `-270` and `460` basis points at the exact 3:00 p.m. EDT decision boundary. The
+mechanical stress endpoints are latest-value persistence or one repeat of that `730`-basis-point
+increase: `[460, 1,190]`, with no probability. The separately locked May 7 release reports March
+at `-3,090` basis points, a required visible `3,550`-basis-point breach below the lower endpoint.
+That release revises January and February downward by `100` basis points each; those revisions
+stay in the event snapshot and never overwrite the April inputs. G.19 revolving credit is not a
+card-spending, household, transaction, causal, or trading measure. See
+[`docs/scenarios/fed-g19-2020.md`](docs/scenarios/fed-g19-2020.md).
 
 ## Research and investment disclaimer
 

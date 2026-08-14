@@ -202,6 +202,18 @@ sampling-confidence intervals remain reported source metadata rather than downst
 or stress-range inputs. Full PDFs remain in ignored local storage, and this supporting connector
 is excluded from the formal 30.
 
+`federalreserve.g19.archived_consumer_credit` retrieves the fixed March 6, April 7, and May 7,
+2020 Federal Reserve G.19 Consumer Credit PDFs. Each response must be a complete four-page
+`612 x 792` PDF with all pages rotated 90 degrees, a nonblank text layer, exact release identity,
+one stated 3:00 p.m. EST/EDT time, the simple-annual-rate table, levels and flows, the unrounded-data
+footnote, and `r`/`p` estimate markers. The connector normalizes the table's one-decimal revolving-
+credit rates to integer basis points and keeps every reference month as a versioned release
+snapshot. Thus May's January and February revisions do not overwrite their April decision values.
+The table and headline use different rounding, and aggregate revolving credit includes most
+credit-card loans plus other revolving plans; the connector does not infer card spending,
+household behavior, or causality. Full PDFs remain in ignored local storage, and this supporting
+connector is excluded from the formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

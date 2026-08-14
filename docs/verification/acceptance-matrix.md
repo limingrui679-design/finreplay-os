@@ -54,13 +54,14 @@ Each of the 30 planned scenarios must independently provide:
 7. a limitations file and non-causal/non-deployment boundary;
 8. a fresh-clone replay receipt.
 
-Current status: **IN_PROGRESS; 18/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
+Current status: **IN_PROGRESS; 19/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
 2022 Q4 GDP revision, March 2023 BTFP early-growth, early-2023 BLS payroll and CPI release,
 spring-2023 FOMC target range, March 2023 Treasury-curve, and June 2023 Treasury TGA cash-boundary
 replays, plus the September 2019 New York Fed SOFR spike, April 2020 EIA commercial-crude-stock,
 March 2020 DOL initial-claims, March 2020 Treasury 91-day-bill auction-rate, March 2020 BEA
 personal-saving-rate, March 2020 Federal Reserve G.17 industrial-production, March 2020 Census
-MARTS retail-sales, and March 2020 Census/HUD NRC housing-starts boundaries, are counted.
+MARTS retail-sales, March 2020 Census/HUD NRC housing-starts, and March 2020 Federal Reserve G.19
+revolving-credit boundaries, are counted.
 `scripts/verify_scenario_catalog.py` opens
 each scenario's official timing records, immutable decision input lock, separately locked
 post-decision official event record, ReplayPack, source-label map, explicit naive baseline,
@@ -100,9 +101,13 @@ stress range; the reported March change remains a visible 740-basis-point miss. 
 case validates three complete seven-page archived PDFs and exact 8:30 a.m. Eastern timing. Its
 range uses only the two release-time preliminary headline levels—not official monthly changes
 against revised priors or official sampling-confidence intervals—and preserves the later February
-revision in the event snapshot; the reported March level remains a visible 383,000-unit miss. All
-fifteen non-bank cases use only four
-relevant engines and labelled post-event checks. Further scenarios must continue to diversify
+revision in the event snapshot; the reported March level remains a visible 383,000-unit miss. The
+G.19 case validates three complete four-page rotated archived PDFs and exact 3:00 p.m.
+Eastern timing, retains the table's one-decimal simple annual rates rather than rounded headline
+fractions, preserves May's January and February revisions only in the event snapshot, and keeps
+the reported March change's 3,550-basis-point miss below the declared range visible. All sixteen
+non-bank cases use only four relevant engines and labelled post-event checks. Further scenarios
+must continue to diversify
 mechanisms and source families. The verifier recomputes the deterministic inventory under
 `verification/scenarios/`. A scenario title, plan row, unverified pack directory, or self-reported
 status still counts as 0.
