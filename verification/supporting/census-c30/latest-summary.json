@@ -5,9 +5,9 @@
       "historical_replay_eligible": true,
       "idempotent_records": 6,
       "inserted_records": 0,
-      "receipt": "census.c30.archived_construction_spending-5abfa072ce6ce10c.json",
+      "receipt": "census.c30.archived_construction_spending-af8162c5727284c1.json",
       "record_count": 6,
-      "retrieved_at": "2026-08-14T03:42:13.102608Z",
+      "retrieved_at": "2026-08-14T03:45:19.942424Z",
       "temporal_coverage": "versioned_snapshot"
     }
   ],
