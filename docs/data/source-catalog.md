@@ -272,6 +272,20 @@ May COVID-19 statement remains publication-standard language, not causal or unaf
 measurement evidence. Full PDFs and XLS ZIPs remain in ignored local storage, and this supporting
 connector is excluded from the formal 30.
 
+`census.hud.archived_new_residential_sales` retrieves the fixed February 26, March 24, and April
+23, 2020 Census/HUD New Residential Sales PDFs. Each response must be a complete five-page
+`612 x 792` document with a nonblank text layer, exact page-title sequence, release identity and
+number, one stated 10:00 a.m. EST/EDT time, headline facts, explanatory notes, and matching Table
+1a national value, revised prior, monthly change, sampling margin, and average RSE. The March 24
+decision snapshot's revised January `800,000` and initial February `765,000` values remain in the
+same vintage; the earlier `764,000` January headline is retained only as revision lineage. The
+April 23 snapshot's `627,000` March value and `741,000` February revision never overwrite the
+decision inputs. Official 90-percent sampling intervals remain source metadata rather than
+FinReplay range inputs. A source-defined sale may precede permit issuance and is not necessarily a
+closing. The April COVID-19 statement remains publication-standard language, not causal or
+unaffected-measurement evidence. Full PDFs remain in ignored local storage, and this supporting
+connector is excluded from the formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;
