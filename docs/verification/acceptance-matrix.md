@@ -54,7 +54,7 @@ Each of the 30 planned scenarios must independently provide:
 7. a limitations file and non-causal/non-deployment boundary;
 8. a fresh-clone replay receipt.
 
-Current status: **IN_PROGRESS; 26/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
+Current status: **IN_PROGRESS; 27/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
 2022 Q4 GDP revision, March 2023 BTFP early-growth, early-2023 BLS payroll and CPI release,
 March 2020 BLS PPI final-demand monthly-change,
 spring-2023 FOMC target range, March 2023 Treasury-curve, and June 2023 Treasury TGA cash-boundary
@@ -65,8 +65,8 @@ personal-saving-rate, March 2020 Federal Reserve G.17 industrial-production, Mar
 MARTS retail-sales, March 2020 Census/HUD NRC housing-starts, March 2020 Federal Reserve G.19
 revolving-credit, March 2020 Census C30 construction-spending, March 2020 FHFA purchase-only
 House Price Index monthly-change, March 2020 Census M3 durable-goods new-orders, and March 2020
-joint Census/BEA FT-900 goods-and-services-deficit, and March 2020 Census/HUD NRS new-home-sales
-level boundaries are counted.
+joint Census/BEA FT-900 goods-and-services-deficit, March 2020 Census/HUD NRS new-home-sales
+level, and July 2026 CFTC TFF UST 2-year open-interest boundaries are counted.
 `scripts/verify_scenario_catalog.py` opens
 each scenario's official timing records, immutable decision input lock, separately locked
 post-decision official event record, ReplayPack, source-label map, explicit naive baseline,
@@ -154,8 +154,15 @@ unadjusted indexes, 12-month changes, and COVID-19 methodology language outside 
 construction. The separately locked April change remains a visible 110-basis-point miss below
 the fixed range and does not retroactively widen it. PPI remains an aggregate seller-price
 measure subject to revision, not CPI, producer-level behavior, or causal evidence. All
-twenty-three non-bank cases use only four relevant engines and labelled post-event
+twenty-four non-bank cases use only four relevant engines and labelled post-event
 checks.
+The CFTC TFF case cross-checks three exact API rows against the annual Futures Only file and binds
+the release schedule, policy page, and TFF notes PDF. Its July 21 persistence-or-one-known-decline
+range assigns no probability and retains the later July 28 level as a visible 71,513-contract
+upper-bound breach without widening the range. Because the schedule is tentative and no row-level
+actual-publication log exists, timing remains explicitly scheduled at `0.98` confidence rather
+than being represented as an exact actual timestamp. Category positions, trader counts, and the
+face-value label set no endpoint and establish no direction, intent, notional, P&L, or causality.
 Further scenarios must continue to diversify
 mechanisms and source families. The verifier recomputes the deterministic inventory under
 `verification/scenarios/`. A scenario title, plan row, unverified pack directory, or self-reported

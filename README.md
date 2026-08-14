@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 26/30 internally replay-proven: three bank boundaries plus 23 source-diverse macro, policy, rate, energy, labor, producer-price, Treasury, production, retail-sales, housing, home-sales, consumer-credit, construction-spending, house-price-index, durable-goods, international-trade, and natural-gas boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 27/30 internally replay-proven: three bank boundaries plus 24 source-diverse macro, policy, rate, energy, labor, producer-price, Treasury, production, retail-sales, housing, home-sales, consumer-credit, construction-spending, house-price-index, durable-goods, international-trade, natural-gas, and CFTC open-interest boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -52,7 +52,7 @@ flowchart LR
 ```
 
 The main workflow stays deliberately small. Source-specific eligibility rules, the seven-engine
-contract, and all 26 replay summaries remain available below as detailed evidence rather than
+contract, and all 27 replay summaries remain available below as detailed evidence rather than
 expanding this diagram.
 
 ## Truth boundaries
@@ -109,6 +109,15 @@ revalidated with `python scripts/validate_bls.py` and
 response but are excluded from the monthly normalized stream. CFTC historical rows are immutable
 published observations, yet the generic API receipts remain ineligible for historical
 decision-time use until a row-specific release timestamp is independently bound.
+
+The counted CFTC TFF boundary uses `cftc.cot.tff_scheduled_ust2y` as a scenario-specific
+supporting source. It retrieves exactly three July 2026 UST 2Y NOTE Futures Only rows, cross-checks
+every selected field against the annual ZIP, and binds the current release schedule, policy page,
+and complete TFF notes PDF. The schedule calls itself tentative and CFTC provides no row-level
+actual-publication log, so the records retain `0.98` confidence and say official scheduled
+availability rather than exact actual publication. Category positions, trader counts, and the
+face-value label set no range endpoint or notional claim. This source remains outside the capped
+formal 30-adapter inventory.
 
 The GDP revision scenario uses `fred.alfred.vintage_gdp` as a separately verified supporting
 source. It retrieves four explicitly named ALFRED snapshots, retains raw CSV only in local ignored
@@ -263,12 +272,12 @@ historical completeness, method correctness, deployment, or external validation.
 
 ## Scenario evidence
 
-The first SVB flow remains visible above because it is the intended release gate. The remaining 25
+The first SVB flow remains visible above because it is the intended release gate. The remaining 26
 internally replay-proven scenarios are retained in full below, but collapsed so the README can be
 scanned before opening source-level evidence.
 
 <details>
-<summary><strong>Open all remaining scenario evidence summaries (2–26)</strong></summary>
+<summary><strong>Open all remaining scenario evidence summaries (2–27)</strong></summary>
 
 The second counted flow locks seven PacWest Bancorp facts accepted on 2023-02-27, sets a
 2023-05-03 20:00 UTC decision boundary, and separately locks the post-decision 2023-05-04 SEC 8-K
@@ -512,6 +521,19 @@ Table 1, the technical definition, revision rule, full page geometry and text, p
 agreement, and six official response hashes. PPI is an aggregate seller-price measure, not CPI,
 household cost, quantity, revenue, profit, return, causal effect, calibrated interval, or BLS
 forecast. See [`docs/scenarios/bls-ppi-2020.md`](docs/scenarios/bls-ppi-2020.md).
+
+The twenty-seventh counted flow uses three July 2026 CFTC Traders in Financial Futures UST 2Y
+NOTE Futures Only rows, the annual file, current release schedule, COT policy page, and TFF notes.
+At the July 24 official scheduled 3:30 p.m. EDT boundary, it locks July 14 and July 21 total open
+interest of `4,465,199` and `4,335,075` contracts. Persistence or one repeat of the known
+`130,124`-contract decline produces the transparent `[4,204,951, 4,335,075]` range with no
+probability. The separately locked July 28 report is `4,406,588`, a required visible
+`71,513`-contract breach above the fixed upper endpoint. Because the schedule is tentative and
+lacks a row-level actual-publication log, timing confidence remains `0.98`; the repository does
+not promote scheduled time into a confirmed actual timestamp. Category positions, trader counts,
+and the face-value label set no endpoint and establish no direction, intent, notional, P&L,
+causality, forecast skill, or user impact. See
+[`docs/scenarios/cftc-tff-2026.md`](docs/scenarios/cftc-tff-2026.md).
 
 </details>
 

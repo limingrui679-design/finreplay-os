@@ -134,6 +134,18 @@
       "trace_id": "trace:3954cc711c3352c64a9af890452323f9318a8a5dcfe936263b5811392aa77f6e"
     },
     {
+      "decision_time": "2026-07-24T19:30:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "2b125673f41771947662dfd0a0b5e1b5105b4f334d413f4404753abcfbb69412",
+      "proof": "cftc-tff-2026-two-year-note-open-interest-boundary-v1.json",
+      "proof_sha256": "5056597ad4c64d5973169c1c7a795cec9a057785066f2758cb46e27e21426eba",
+      "replay_id": "cftc-tff-2026-two-year-note-open-interest-boundary-v1",
+      "scenario_id": "cftc-tff-2026-two-year-note-open-interest-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:35be3384f422dbc64c3546ae80f18efcc6f3004765241b4d98bff2dc9b1a0f2a"
+    },
+    {
       "decision_time": "2020-03-20T12:00:00+00:00",
       "distinct_input_records": 2,
       "mode": "bounded_reconstruction",
@@ -315,5 +327,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 26
+  "verified_scenario_count": 27
 }

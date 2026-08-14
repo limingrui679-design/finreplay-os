@@ -51,6 +51,9 @@ EIA_WNGSR_PROOF_PATH = (
     PROOF_DIRECTORY / "eia-wngsr-2020-working-gas-stock-boundary-v1.json"
 )
 FHFA_HPI_PROOF_PATH = PROOF_DIRECTORY / "fhfa-hpi-2020-house-price-change-boundary-v1.json"
+CFTC_TFF_PROOF_PATH = (
+    PROOF_DIRECTORY / "cftc-tff-2026-two-year-note-open-interest-boundary-v1.json"
+)
 
 
 def proof_values() -> dict[str, Any]:
@@ -308,8 +311,16 @@ def test_committed_proofs_and_deterministic_catalog_are_fully_verified() -> None
     assert bls_ppi.mode == "bounded_reconstruction"
     assert bls_ppi.distinct_input_records == 2
 
+    cftc_tff = verify_scenario_proof(
+        CFTC_TFF_PROOF_PATH,
+        repository_root=REPOSITORY,
+    )
+    assert cftc_tff.scenario_id == "cftc-tff-2026-two-year-note-open-interest-boundary"
+    assert cftc_tff.mode == "bounded_reconstruction"
+    assert cftc_tff.distinct_input_records == 2
+
     catalog = verify_scenario_catalog(PROOF_DIRECTORY, repository_root=REPOSITORY)
-    assert len(catalog) == 26
+    assert len(catalog) == 27
     summary = scenario_catalog_summary(catalog, proof_directory=PROOF_DIRECTORY)
     committed = json.loads((REPOSITORY / "verification/scenarios/latest-summary.json").read_text())
     assert summary == committed
