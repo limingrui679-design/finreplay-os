@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over the exact January and February total durable-goods new-orders monthly changes from their first verified Census M3 advance reports, both knowable at the March 25 decision time. Reported values remain reported; the latest-change-persistence-or-repeat-known-increase envelope remains inferred with no probability. The April 24 March value and that report's January and February revision snapshot stay only in a disjoint event lock. The current official PDF bytes are not backdated to their release times. This is not a forecast, calibrated interval, probability statement, inflation-adjusted measure, COVID effect, causal model, trading signal, deployment, external validation, or user-impact claim.",
+  "files": [
+    {
+      "bytes": 1530,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "fae5d74b06b7894eed1d5c34a020c690c61385b57049e0d72d50dbb48c8ac388"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "4e2a9fb9ad9db2426a551202c0036dd7c7830d89600b15cff26d236cc4930079"
+    },
+    {
+      "bytes": 33185,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "50f439a2e4a9a8d00835cd1f69d244de907609cacce3359a764ed73fd3e1095b"
+    },
+    {
+      "bytes": 31999,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "61ca8ef6115523c091e49f26ea36058550b91b75cee9948e30c8554a2a2800fa"
+    }
+  ],
+  "pack_sha256": "fd3f33f12605700d6a71d72a7eda64a2b3ade39207cff28727e9f03661e49858",
+  "receipt_sha256": "c9f938b6e5088e65f79c229a41bacdd9d276be3399386e8ae6c4b5996bd82688",
+  "replay_id": "census-m3-2020-durable-goods-change-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "d2d89ebef0b1ae7033bda41f1bcd67453693e5e1",
+    "compressed_input_bytes": 2846,
+    "created_at": "2026-08-14T05:30:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "fe310e7416efff9155dc702fe3e52a7e84ffb804ad3b775c2b02eab1d8072b1c",
+    "output_manifest_sha256": "9a58261ca045cd1c0ce95ed64be2cbc36eb46e4427214c3846dc3c9b7682868f",
+    "replay_id": "census-m3-2020-durable-goods-change-boundary-v1",
+    "scenario_id": "census-m3-2020-durable-goods-change-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "61ca8ef6115523c091e49f26ea36058550b91b75cee9948e30c8554a2a2800fa",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:4873c1a521dddfc4d4ea794375a05339b0e465711b9bd9082d7fcc03be5f8d71"
+}

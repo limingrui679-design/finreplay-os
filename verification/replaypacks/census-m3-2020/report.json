@@ -1,0 +1,598 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 4,
+    "reported": 4,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "fe310e7416efff9155dc702fe3e52a7e84ffb804ad3b775c2b02eab1d8072b1c",
+  "pack_sha256": "fd3f33f12605700d6a71d72a7eda64a2b3ade39207cff28727e9f03661e49858",
+  "source_hashes": [
+    "84be58245193913f73c80400b6209328a5d0e3be6daac3c064b47500ac1fbf00",
+    "b58f95a053d07c367f550e4acb0a941cb338869b12ba01d2d9cbd032c4ad38b4"
+  ],
+  "source_record_ids": [
+    "census.m3.archived_advance_durable_goods:202001:total_durable_goods_new_orders_monthly_change",
+    "census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "census-m3.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "eab0255cab842b75093dd61f08ad1f84ba4ddae449b815875b1c7c30aed1115e",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not validate the two-release range heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This Census M3 release boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no firm, product, shipment, contract, position, portfolio, or allocation input is invented.",
+          "input_lock_sha256": "7fe32fee04c2c3db33380e54e16d621f21b6d9076d10f88529f8cd3c1db8756f",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "84be58245193913f73c80400b6209328a5d0e3be6daac3c064b47500ac1fbf00",
+          "b58f95a053d07c367f550e4acb0a941cb338869b12ba01d2d9cbd032c4ad38b4"
+        ],
+        "source_record_ids": [
+          "census.m3.archived_advance_durable_goods:202001:total_durable_goods_new_orders_monthly_change",
+          "census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-m3.shockcompiler.new-orders-change-range",
+          "census-m3.timevault.release-query",
+          "census-m3.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "census-m3.shockcompiler.new-orders-change-range",
+        "artifact_kind": "bounded-census-m3-durable-goods-change-program",
+        "artifact_sha256": "b810511c4d0cfc4b37a89dd5504e9a331cdd5096907b7329c26a46faafb0d71d",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 3
+        },
+        "limitations": [
+          "The endpoints mechanically reuse one initial-release change increase.",
+          "The April 24 March value and revised January/February values are absent.",
+          "The range is not an official confidence interval, probability, or causal model."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": 120.0,
+            "upper": 260.0
+          },
+          "bound_construction": {
+            "endpoint_method": "latest_initial_change_persistence_or_repeat_known_initial_increase",
+            "future_event_used": false,
+            "known_initial_increase_basis_points": 140,
+            "lower_change_basis_points": 120,
+            "official_confidence_interval_used": false,
+            "probability_assigned": false,
+            "range_width_basis_points": 140,
+            "upper_change_basis_points": 260
+          },
+          "compiled": {
+            "compiled_sha256": "3b14386b3907f71313f216ab32d6b3ec2855d87e6bc8db131c6c2509a74df606",
+            "decision_time": "2020-03-25T12:30:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, causal, inflation, or regime meaning.",
+              "The April 24 report and its revision snapshot are evaluated only afterward.",
+              "The aggregate series does not represent every firm, product, or transaction."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "census-m3-next-new-orders-change-envelope",
+            "scenario_id": "census-m3-2020-durable-goods-change-boundary",
+            "source_program_sha256": "768cd47fb86f16eaa4ccab9d5503aa689b83e5b7590dd424a14d8d9eeb7b44d1",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use February initial-change persistence or one repetition of the only known increase between January and February first-report total new-orders changes.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two first-report changes and one increase define a stress range, not a forecast, probability, confidence interval, or calibrated predictive interval.",
+                      "Later Census revisions and the March event are absent from range construction.",
+                      "No official M3 confidence interval exists for this nonprobability sample."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "census-m3-next-new-orders-change-range",
+                    "source_hashes": [
+                      "b58f95a053d07c367f550e4acb0a941cb338869b12ba01d2d9cbd032c4ad38b4",
+                      "84be58245193913f73c80400b6209328a5d0e3be6daac3c064b47500ac1fbf00"
+                    ],
+                    "source_record_ids": [
+                      "census.m3.archived_advance_durable_goods:202001:total_durable_goods_new_orders_monthly_change",
+                      "census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change"
+                    ],
+                    "target_id": "census_m3:total_durable_goods_new_orders",
+                    "unit": "basis_points_of_month_over_month_price_change",
+                    "value": 120.0,
+                    "variable": "next_total_durable_goods_new_orders_change_basis_points"
+                  }
+                ],
+                "trial_id": "census-m3-next-new-orders-change-envelope:00000000:04506437646599a1",
+                "trial_index": 0,
+                "vector_sha256": "04506437646599a175c6fa35960840935060d3e61f4338aa4f1999624f021a94"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use February initial-change persistence or one repetition of the only known increase between January and February first-report total new-orders changes.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two first-report changes and one increase define a stress range, not a forecast, probability, confidence interval, or calibrated predictive interval.",
+                      "Later Census revisions and the March event are absent from range construction.",
+                      "No official M3 confidence interval exists for this nonprobability sample."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "census-m3-next-new-orders-change-range",
+                    "source_hashes": [
+                      "b58f95a053d07c367f550e4acb0a941cb338869b12ba01d2d9cbd032c4ad38b4",
+                      "84be58245193913f73c80400b6209328a5d0e3be6daac3c064b47500ac1fbf00"
+                    ],
+                    "source_record_ids": [
+                      "census.m3.archived_advance_durable_goods:202001:total_durable_goods_new_orders_monthly_change",
+                      "census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change"
+                    ],
+                    "target_id": "census_m3:total_durable_goods_new_orders",
+                    "unit": "basis_points_of_month_over_month_price_change",
+                    "value": 260.0,
+                    "variable": "next_total_durable_goods_new_orders_change_basis_points"
+                  }
+                ],
+                "trial_id": "census-m3-next-new-orders-change-envelope:00000001:d4915745792cd72c",
+                "trial_index": 1,
+                "vector_sha256": "d4915745792cd72c2f67974b6f98da1475d9a07d27b70c0f111366a040cc4b74"
+              }
+            ]
+          },
+          "input_lock_sha256": "7fe32fee04c2c3db33380e54e16d621f21b6d9076d10f88529f8cd3c1db8756f",
+          "known_initial_release_changes": {
+            "february_initial_change_basis_points": 120,
+            "january_initial_change_basis_points": -20,
+            "known_initial_increase_basis_points": 140,
+            "lower_change_basis_points": 120,
+            "range_width_basis_points": 140,
+            "upper_change_basis_points": 260
+          },
+          "naive_baseline": {
+            "definition": "persistence of the February initial M3 new-orders change",
+            "next_total_durable_goods_new_orders_change_basis_points": 120
+          },
+          "program": {
+            "decision_time": "2020-03-25T12:30:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, causal, inflation, or regime meaning.",
+              "The April 24 report and its revision snapshot are evaluated only afterward.",
+              "The aggregate series does not represent every firm, product, or transaction."
+            ],
+            "hypothesis": "Evaluate February initial-change persistence or one repetition of the known initial-release change increase using only facts available at the boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use February initial-change persistence or one repetition of the only known increase between January and February first-report total new-orders changes.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "Two first-report changes and one increase define a stress range, not a forecast, probability, confidence interval, or calibrated predictive interval.",
+                  "Later Census revisions and the March event are absent from range construction.",
+                  "No official M3 confidence interval exists for this nonprobability sample."
+                ],
+                "lower": 120.0,
+                "operation": "set",
+                "parameter_id": "census-m3-next-new-orders-change-range",
+                "source_record_ids": [
+                  "census.m3.archived_advance_durable_goods:202001:total_durable_goods_new_orders_monthly_change",
+                  "census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Census Bureau",
+                    "redistribution_note": "Full Census M3 PDFs remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred.",
+                    "retrieved_at": "2026-08-14T05:20:36.920777Z",
+                    "sha256": "b58f95a053d07c367f550e4acb0a941cb338869b12ba01d2d9cbd032c4ad38b4",
+                    "source_id": "census.m3.archived_advance_durable_goods",
+                    "source_version": "CENSUS-M3-DURABLE:2020-01:CB20-31:pdf:b58f95a053d07c367f550e4a",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.census.gov/manufacturing/m3/historical_data/pressreleases/adv/2020/jan20adv.pdf",
+                    "vintage_as_of": "2020-02-27T13:30:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Census Bureau",
+                    "redistribution_note": "Full Census M3 PDFs remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred.",
+                    "retrieved_at": "2026-08-14T05:20:39.101459Z",
+                    "sha256": "84be58245193913f73c80400b6209328a5d0e3be6daac3c064b47500ac1fbf00",
+                    "source_id": "census.m3.archived_advance_durable_goods",
+                    "source_version": "CENSUS-M3-DURABLE:2020-02:CB20-47:pdf:84be58245193913f73c80400",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.census.gov/manufacturing/m3/historical_data/pressreleases/adv/2020/feb20adv.pdf",
+                    "vintage_as_of": "2020-03-25T12:30:00Z"
+                  }
+                ],
+                "target_id": "census_m3:total_durable_goods_new_orders",
+                "unit": "basis_points_of_month_over_month_price_change",
+                "upper": 260.0,
+                "variable": "next_total_durable_goods_new_orders_change_basis_points"
+              }
+            ],
+            "program_id": "census-m3-next-new-orders-change-envelope",
+            "scenario_id": "census-m3-2020-durable-goods-change-boundary"
+          }
+        },
+        "source_hashes": [
+          "84be58245193913f73c80400b6209328a5d0e3be6daac3c064b47500ac1fbf00",
+          "b58f95a053d07c367f550e4acb0a941cb338869b12ba01d2d9cbd032c4ad38b4"
+        ],
+        "source_record_ids": [
+          "census.m3.archived_advance_durable_goods:202001:total_durable_goods_new_orders_monthly_change",
+          "census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-m3.timevault.release-query"
+        ]
+      },
+      {
+        "artifact_id": "census-m3.timevault.release-query",
+        "artifact_kind": "versioned-census-m3-durable-goods-release-query",
+        "artifact_sha256": "75116508b669683e238cdb363515baa720293af070d24d44a6419db0f5168bce",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 2
+        },
+        "limitations": [
+          "The lock contains only January and February 2020 first-report changes.",
+          "Both initial values are later revised in official Census report snapshots.",
+          "M3 is not a probability sample; sampling uncertainty cannot be computed here.",
+          "Figures are seasonally adjusted but not adjusted for price changes.",
+          "Full report PDFs remain local download evidence."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "0fd40f78436e8aedb83b96afad926e8eec9852c851ad6b4ea5aec892e3021a50",
+              "510c78d9fe01d1c7965939b7d897976ff04efe5c7e948d3b6a723bf056cd5bb1"
+            ],
+            "attempted_records": 2,
+            "fact_hashes": [
+              "dda0b140e6b181ebf7862f395409b1fabbf4fb68f8d32c9a5fe6a6f859b5be8a",
+              "b5fc821961a04ddd818ef8d23d11e65760031a577a9e25024ecde44c78f9ef87"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 2
+          },
+          "current_pdf_byte_identity_at_release_claimed": false,
+          "decision_time": "2020-03-25T12:30:00Z",
+          "input_lock_sha256": "7fe32fee04c2c3db33380e54e16d621f21b6d9076d10f88529f8cd3c1db8756f",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 2,
+            "fact_set_sha256": "3b6df5ca56cbb4a4d4c944c109070c5f6bf204763fafa89bdbfbd242fb6077aa",
+            "fact_versions": 2,
+            "generated_at": "2026-08-14T05:30:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2020-03-25T12:30:00Z",
+          "release_time_rule": "08:30 America/New_York from each dated report",
+          "selected_record_ids": [
+            "census.m3.archived_advance_durable_goods:202001:total_durable_goods_new_orders_monthly_change",
+            "census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change"
+          ],
+          "value_semantics": "total durable-goods new-orders month-over-month changes from each reference month's first verified Census M3 advance report; later revisions are excluded"
+        },
+        "source_hashes": [
+          "84be58245193913f73c80400b6209328a5d0e3be6daac3c064b47500ac1fbf00",
+          "b58f95a053d07c367f550e4acb0a941cb338869b12ba01d2d9cbd032c4ad38b4"
+        ],
+        "source_record_ids": [
+          "census.m3.archived_advance_durable_goods:202001:total_durable_goods_new_orders_monthly_change",
+          "census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "census-m3.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "2ad8d3d529cc535073be6066e5df8e849226855b87646147d3482f6ef8be3a03",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 2,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "census-m3-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "d2d89ebef0b1ae7033bda41f1bcd67453693e5e1",
+            "completed_at": "2026-08-14T05:30:00Z",
+            "config_sha256": "36e2b5c5f2eee5f25dc1023e87cc84d249896b9100d54d8ab1ac85e1eb9e3557",
+            "decision_time": "2020-03-25T12:30:00Z",
+            "evaluation_end": "2020-05-10",
+            "evaluation_start": "2020-03-26",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "7fe32fee04c2c3db33380e54e16d621f21b6d9076d10f88529f8cd3c1db8756f",
+            "max_input_available_at": "2020-03-25T12:30:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 140.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No April 24 Census M3 fact or revision is in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "efc6ee70bb0ee56e8d16cd8bf2cb1fa04419304e357bd3032bd6b72c59aa230d",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "continuation-range-width": 140.0,
+              "known-initial-change-increase": 140.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 2,
+            "short_fraction": 0.0,
+            "training_end": "2020-03-23",
+            "trial_id": "census-m3-retrospective-range-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "91701f99a789dfa17f783fc0e3f1390eaf976a47804bb655be274b04031555b9",
+            "entry_hash": "91701f99a789dfa17f783fc0e3f1390eaf976a47804bb655be274b04031555b9",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "census-m3-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "census-m3-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "ca62f52504b2a0dadfe63691439c32a501faab44c32c52d2c6d94c3def61d22f",
+            "candidate_attempt_id": "census-m3-retrospective-attempt-1",
+            "decided_at": "2026-08-14T05:30:00Z",
+            "decision_id": "decision:census-m3-retrospective-range-screen:f4aa9e6f80ea26335fcdd9ff",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 140.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 140.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "census-m3-retrospective-range-screen"
+          },
+          "input_lock_sha256": "7fe32fee04c2c3db33380e54e16d621f21b6d9076d10f88529f8cd3c1db8756f",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "02d42db406555b696901dc04b3c32b1c92d90b176defb31ce8e7a2a6ddac3096",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "e7adef8413502ccfe3b8f6b00a4b5e814a36bd6256032731eb301a4309463241",
+            "entry_hash": "e7adef8413502ccfe3b8f6b00a4b5e814a36bd6256032731eb301a4309463241",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "Census M3 is an aggregate nonprobability-sample survey estimate. Two initial monthly changes and one later outcome cannot establish predictive validity or manufacturing, inflation, pandemic, policy, sector, firm, or macroeconomic causality.",
+            "embargo_days": 0,
+            "expected_direction": "positive",
+            "holdout_end": "2020-05-10",
+            "holdout_start": "2020-03-26",
+            "hypothesis": "A retrospectively constructed one-increase Census M3 durable-goods boundary qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-14T05:30:00Z",
+            "primary_metric": "one-initial-increase Census M3 durable-goods range width in basis points",
+            "purge_days": 2,
+            "trial_id": "census-m3-retrospective-range-screen"
+          }
+        },
+        "source_hashes": [
+          "84be58245193913f73c80400b6209328a5d0e3be6daac3c064b47500ac1fbf00",
+          "b58f95a053d07c367f550e4acb0a941cb338869b12ba01d2d9cbd032c4ad38b4"
+        ],
+        "source_record_ids": [
+          "census.m3.archived_advance_durable_goods:202001:total_durable_goods_new_orders_monthly_change",
+          "census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-m3.shockcompiler.new-orders-change-range",
+          "census-m3.timevault.release-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over the exact January and February total durable-goods new-orders monthly changes from their first verified Census M3 advance reports, both knowable at the March 25 decision time. Reported values remain reported; the latest-change-persistence-or-repeat-known-increase envelope remains inferred with no probability. The April 24 March value and that report's January and February revision snapshot stay only in a disjoint event lock. The current official PDF bytes are not backdated to their release times. This is not a forecast, calibrated interval, probability statement, inflation-adjusted measure, COVID effect, causal model, trading signal, deployment, external validation, or user-impact claim.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-census-m3-durable-goods-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "census-m3.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no probability, coverage, or causal guarantee.",
+        "claim_id": "claim-inferred-census-m3-durable-goods-change-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The April 24 event and all revisions were not used to set the range.",
+          "The range has no manufacturing, inflation, pandemic, or policy causality."
+        ],
+        "statement": "The next-release stress endpoints are February-change persistence or one repeat of the known 140-basis-point initial increase: [120, 260] basis points.",
+        "support_artifact_ids": [
+          "census-m3.shockcompiler.new-orders-change-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external review.",
+        "claim_id": "claim-inferred-census-m3-durable-goods-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective one-increase Census M3 durable-goods attempt.",
+        "support_artifact_ids": [
+          "census-m3.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are first-report aggregate seasonally adjusted changes, not later revised values, price-adjusted output, firm records, contracts, or transactions.",
+        "claim_id": "claim-reported-census-m3-durable-goods-initial-changes",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes only two initial-release reference months."
+        ],
+        "statement": "Archived Census M3 advance reports state initial total durable-goods new-orders monthly changes of -20 basis points for January and 120 basis points for February 2020.",
+        "support_artifact_ids": [
+          "census-m3.timevault.release-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not transactions, capital, capacity, or returns.",
+        "claim_id": "claim-simulated-census-m3-durable-goods-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "census-m3.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "d2d89ebef0b1ae7033bda41f1bcd67453693e5e1",
+    "compressed_input_bytes": 2846,
+    "created_at": "2026-08-14T05:30:00Z",
+    "decision_time": "2020-03-25T12:30:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves the exact -20-basis-point January and +120-basis-point February 2020 total durable-goods new-orders monthly changes from their first verified Census M3 advance reports, both knowable at the March 25 decision time. Their 140-basis-point difference compares two initial-release changes. The lock excludes the April 24 March event, that report's January and February revision snapshot, and all later revisions. The current archived PDFs have post-release modification metadata, so their hashes prove present official evidence rather than byte identity at release. M3 is not a probability sample and is not adjusted for price changes. The lock excludes a probability distribution, confidence interval, statistical significance, forecast, calibrated coverage, manufacturing, inflation, pandemic or policy causality, recommendation, execution, investment performance, external review, deployment, and user impact.",
+      "The endpoints are latest initial-change persistence or one repetition of the only known increase between the two initial-release total new-orders changes.",
+      "The April 24 report and all later-known values are excluded from every input.",
+      "M3 sampling error, confidence intervals, and statistical significance are not measurable because the panel is not a probability sample.",
+      "The series is seasonally adjusted but not adjusted for inflation or price changes.",
+      "No firm, product, contract, position, return, or recommendation exists.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "census-m3-2020-durable-goods-change-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "census-m3-2020-durable-goods-change-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "Census M3 boundary before the March 2020 durable-goods new-orders collapse"
+  },
+  "topological_artifact_ids": [
+    "census-m3.timevault.release-query",
+    "census-m3.shockcompiler.new-orders-change-range",
+    "census-m3.trialcourt.retrospective-gate",
+    "census-m3.replaystudio.render"
+  ],
+  "trace_id": "trace:4873c1a521dddfc4d4ea794375a05339b0e465711b9bd9082d7fcc03be5f8d71"
+}
