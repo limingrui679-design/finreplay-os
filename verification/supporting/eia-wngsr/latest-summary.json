@@ -1,0 +1,18 @@
+{
+  "adapters": [
+    {
+      "adapter_id": "eia.wngsr.revision_safe_working_gas",
+      "historical_replay_eligible": true,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "eia.wngsr.revision_safe_working_gas-5b5c1d123eb0e4f9.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-14T07:49:17.827916Z",
+      "temporal_coverage": "vintage_native"
+    }
+  ],
+  "historical_replay_eligible_count": 1,
+  "latest_only_count": 0,
+  "schema_version": "1.0.0",
+  "verified_adapter_count": 1
+}
