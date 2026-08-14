@@ -233,6 +233,23 @@ def test_g19_snapshot_is_versioned_exact_and_knowledge_safe() -> None:
     assert february.payload["revolving_flow_tenths_billion_dollars"] == 504
     assert february.payload["revolving_outstanding_tenths_billion_dollars"] == 10_961
     assert february.payload["estimate_status"] == "preliminary"
+    assert february.payload_schema_version == "1.1.0"
+    assert february.payload["release_snapshot_revolving_change_basis_points"] == {
+        "2020-01": -270,
+        "2020-02": 460,
+    }
+    assert february.payload["release_snapshot_estimate_statuses"] == {
+        "2020-01": "revised",
+        "2020-02": "preliminary",
+    }
+    assert february.payload["release_snapshot_previous_release_same_reference_basis_points"] == {
+        "2020-01": -330,
+        "2020-02": None,
+    }
+    assert february.payload["release_snapshot_revision_delta_basis_points"] == {
+        "2020-01": 60,
+        "2020-02": None,
+    }
     assert february.payload["simple_annual_rate_from_unrounded_data"] is True
     assert february.payload["release_pdf_pages"] == 4
     assert batch.receipts[0].record_count == 2
@@ -258,6 +275,17 @@ def test_three_releases_preserve_all_six_versions_and_asof_views() -> None:
             360,
             -3090,
         ]
+        march_event = may_view[-1]
+        assert march_event.payload["release_snapshot_revolving_change_basis_points"] == {
+            "2020-01": -370,
+            "2020-02": 360,
+            "2020-03": -3090,
+        }
+        assert march_event.payload["release_snapshot_revision_delta_basis_points"] == {
+            "2020-01": -100,
+            "2020-02": -100,
+            "2020-03": None,
+        }
         january_id = march_view[0].record_id
         assert [item.payload["value_basis_points"] for item in vault.history(january_id)] == [
             -330,

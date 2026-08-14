@@ -5,9 +5,9 @@
       "historical_replay_eligible": true,
       "idempotent_records": 6,
       "inserted_records": 0,
-      "receipt": "federalreserve.g19.archived_consumer_credit-091d6a539c178a2e.json",
+      "receipt": "federalreserve.g19.archived_consumer_credit-cc7b1c303bb09a12.json",
       "record_count": 6,
-      "retrieved_at": "2026-08-14T01:56:07.912802Z",
+      "retrieved_at": "2026-08-14T02:03:55.491417Z",
       "temporal_coverage": "versioned_snapshot"
     }
   ],

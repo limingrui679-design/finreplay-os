@@ -391,7 +391,7 @@ class FederalReserveG19ArchiveAdapter:
                 availability_confidence=1.0,
             ),
             evidence_class=EvidenceClass.REPORTED,
-            payload_schema_version="1.0.0",
+            payload_schema_version="1.1.0",
             payload={
                 "release_date": self.release_date.isoformat(),
                 "release_reference_month": self.spec.headline_month.strftime("%Y-%m"),
@@ -438,6 +438,33 @@ class FederalReserveG19ArchiveAdapter:
                     previous_basis_points
                 ),
                 "revision_delta_basis_points": revision_delta,
+                "release_snapshot_revolving_change_basis_points": {
+                    item.reference_month.strftime("%Y-%m"): _percent_basis_points(
+                        item.revolving_change_percent
+                    )
+                    for item in self.spec.facts
+                },
+                "release_snapshot_estimate_statuses": {
+                    item.reference_month.strftime("%Y-%m"): item.estimate_status
+                    for item in self.spec.facts
+                },
+                "release_snapshot_previous_release_same_reference_basis_points": {
+                    item.reference_month.strftime("%Y-%m"): (
+                        None
+                        if item.previous_revolving_change_percent is None
+                        else _percent_basis_points(item.previous_revolving_change_percent)
+                    )
+                    for item in self.spec.facts
+                },
+                "release_snapshot_revision_delta_basis_points": {
+                    item.reference_month.strftime("%Y-%m"): (
+                        None
+                        if item.previous_revolving_change_percent is None
+                        else _percent_basis_points(item.revolving_change_percent)
+                        - _percent_basis_points(item.previous_revolving_change_percent)
+                    )
+                    for item in self.spec.facts
+                },
                 "release_time_local": "15:00:00",
                 "release_timezone": "America/New_York",
                 "release_timezone_abbreviation": self.spec.timezone_abbreviation,
