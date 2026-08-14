@@ -62,6 +62,18 @@
       "trace_id": "trace:003837c4d189436a7549faef47d21b3a8a4b9a8635106ef249a1b0fc67ccd00f"
     },
     {
+      "decision_time": "2020-03-19T12:00:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "c2cae95fd76a7c16943ba7c6e6b27c72b9ed9cd1047b41dcf7abceb497cee6aa",
+      "proof": "census-nrc-2020-housing-starts-boundary-v1.json",
+      "proof_sha256": "a05f129d685a6bf4185bf073c599e242b9a647758bda8d1a3a1ae8a5557a25ba",
+      "replay_id": "census-nrc-2020-housing-starts-boundary-v1",
+      "scenario_id": "census-nrc-2020-housing-starts-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:f9e49daaed06fe042c5612ef39fcf02463e17a914cda3ec8f9633821c63aea39"
+    },
+    {
       "decision_time": "2020-03-20T12:00:00+00:00",
       "distinct_input_records": 2,
       "mode": "bounded_reconstruction",
@@ -207,5 +219,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 17
+  "verified_scenario_count": 18
 }

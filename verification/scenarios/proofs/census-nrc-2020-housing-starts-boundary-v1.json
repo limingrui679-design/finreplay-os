@@ -1,0 +1,132 @@
+{
+  "build_script": {
+    "path": "scripts/build_housing_starts_boundary_replaypack.py",
+    "sha256": "c49befcc22c76e8770860dc91c3f744c9a2a1db9f3454884d013f88c41364a93"
+  },
+  "claim_boundary": "This proof counts one internally reproduced March 2020 Census/HUD New Residential Construction housing-starts boundary because two pre-decision archived seven-page PDF release snapshots, exact 8:30 a.m. America/New_York publication timing, a separately locked post-decision March release, immutable locks, separated truth labels, an explicit latest-headline persistence baseline, a no-probability persistence-or-one-known-headline-increase program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The March level is excluded from ReplayPack inputs and used only for a labelled post-event check that preserves its 383,000-unit lower-bound breach rather than widening the range. The April release's revision of February from 1,599,000 to 1,564,000 stays in the event snapshot and never overwrites the decision input. The 32,000-unit input step compares two release-time preliminary headlines; it is not the official month-over-month change against a revised prior. Official 90-percent sampling intervals remain source facts and are never represented as the FinReplay range. This does not establish forecast skill, calibrated coverage, project, builder, regional, pandemic, policy, or housing causality, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "census-nrc.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective one-headline-increase attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "census-nrc.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger must retain one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "c9568ae6974ddca1cc6f0705004a93a159a1b0011c40ce966561d3ec9fe4cd4e",
+      "path": "scenarios/census-nrc-2020/event-lock.json",
+      "record_ids": [
+        "census.hud.archived_new_residential_construction:202003:total_housing_starts"
+      ],
+      "sha256": "8572a5f0b88b8ddb545fe16b2cdaf8d3791a1c081db42e0e373bbf790a0a1eae"
+    }
+  ],
+  "expected_input_manifest_sha256": "588f32eefa159f9431ef06db24d53db9a496dd234352d6593b0b1d3c02a00ead",
+  "expected_pack_sha256": "c2cae95fd76a7c16943ba7c6e6b27c72b9ed9cd1047b41dcf7abceb497cee6aa",
+  "expected_trace_id": "trace:f9e49daaed06fe042c5612ef39fcf02463e17a914cda3ec8f9633821c63aea39",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate housing-starts headline levels reported in archived Census/HUD NRC releases, not project, builder, property, regional, transaction, position, direct causal, or future-event observations. The March value is only in the event lock."
+    },
+    "bounded_artifact_ids": [
+      "census-nrc.shockcompiler.housing-starts-level-range"
+    ],
+    "extracted_artifact_ids": [
+      "census-nrc.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "census-nrc.shockcompiler.housing-starts-level-range",
+      "census-nrc.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "census.hud.archived_new_residential_construction:202001:total_housing_starts",
+      "census.hud.archived_new_residential_construction:202002:total_housing_starts"
+    ],
+    "simulated_artifact_ids": [
+      "census-nrc.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "6dcf1f27d8f3fdebecf6e5c9508d3249dece138c78c0641d937ccc5b29db31b2",
+      "path": "scenarios/census-nrc-2020/input-lock.json",
+      "record_ids": [
+        "census.hud.archived_new_residential_construction:202001:total_housing_starts",
+        "census.hud.archived_new_residential_construction:202002:total_housing_starts"
+      ],
+      "sha256": "d1e6f12cc65b434a93aba305e9f3e15779e3c708f1309e1a710ccf52702d5c66"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "census-nrc.shockcompiler.housing-starts-level-range",
+      "description": "The decision-time baseline persists the latest known February preliminary total housing-starts SAAR headline of 1,599,000 units from the March 18 archived release.",
+      "expected_value": 1599000,
+      "payload_pointer": "/naive_baseline/next_total_housing_starts_saar_units"
+    },
+    {
+      "artifact_id": "census-nrc.shockcompiler.housing-starts-level-range",
+      "description": "The persistence-or-one-known-headline-increase endpoints carry no probability, confidence, or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    },
+    {
+      "artifact_id": "census-nrc.shockcompiler.housing-starts-level-range",
+      "description": "Census/HUD 90-percent sampling-confidence intervals remain reported source metadata and are excluded from the FinReplay range.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/official_sampling_confidence_interval_used"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/census-nrc/latest-summary.json",
+  "pack_directory": "verification/replaypacks/census-nrc-2020",
+  "proof_sha256": "a05f129d685a6bf4185bf073c599e242b9a647758bda8d1a3a1ae8a5557a25ba",
+  "rebuild_receipt": {
+    "path": "verification/scenarios/rebuilds/census-nrc-2020.json",
+    "sha256": "3d2a3cc9b646f20d41322c1e983e70fc6249a86f3fc8050c5769ca7e8399b17a"
+  },
+  "replay_id": "census-nrc-2020-housing-starts-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "declared_range_reuses_only_known_headline_increase",
+    "distinct_locked_inputs_equal_two",
+    "future_event_excluded_from_bound_construction",
+    "headline_level_basis_is_not_official_monthly_change",
+    "historical_source_sets_eligible",
+    "locked_pre_decision_release_pair_is_exact",
+    "naive_baseline_is_latest_known_headline_persistence",
+    "no_probability_is_assigned",
+    "official_sampling_interval_is_not_used",
+    "only_relevant_engines_present",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_archived_census_nrc_fact",
+    "post_decision_event_timing_is_later",
+    "post_decision_february_revision_remains_later_snapshot_only",
+    "post_event_lower_bound_breach_equals_383000_units",
+    "reported_post_event_level_is_below_declared_range",
+    "simulation_remains_visible",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "census-nrc-2020-housing-starts-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "census.hud.archived_new_residential_construction:202001:total_housing_starts",
+    "census.hud.archived_new_residential_construction:202002:total_housing_starts"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_housing_starts_boundary_replaypack.py",
+    "sha256": "a9827ac6a0ef09842d9b15da3fdb5fdbcafd6a32bb76446d0917b4b403478eed"
+  }
+}
