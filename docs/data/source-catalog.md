@@ -319,6 +319,19 @@ closing. The April COVID-19 statement remains publication-standard language, not
 unaffected-measurement evidence. Full PDFs remain in ignored local storage, and this supporting
 connector is excluded from the formal 30.
 
+`bls.import_prices.archived_all_imports` retrieves the fixed February 14, March 13, and April 14,
+2020 BLS U.S. Import and Export Price Index HTML/PDF pairs. Each PDF must contain 18 complete
+`612 x 792` pages with nonblank text, exact release identity, one stated 8:30 a.m. EST/EDT embargo
+end, Table 1 all-import values, all ten table families, and both technical-note pages. HTML and PDF
+must independently agree on the headline monthly change, prior-month bridge, modified-Laspeyres
+formula, non-seasonal-adjustment status, U.S.-importer transaction-price scope, and three-month
+revision policy. January and February first reports remain separate from the later revisions
+published in March and April. The March COVID-19 statement records survey timing, response rates,
+and estimation procedures but is not causal or unaffected-measurement evidence. The aggregate
+price index is not import quantity, nominal trade value, a tariff, CPI, firm performance, or an
+investment result. Full source pairs remain in ignored local storage, and this supporting
+connector is excluded from the formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

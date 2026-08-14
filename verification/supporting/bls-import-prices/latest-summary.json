@@ -1,0 +1,18 @@
+{
+  "adapters": [
+    {
+      "adapter_id": "bls.import_prices.archived_all_imports",
+      "historical_replay_eligible": true,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "bls.import_prices.archived_all_imports-321264932de6a555.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-14T11:07:13.954388Z",
+      "temporal_coverage": "versioned_snapshot"
+    }
+  ],
+  "historical_replay_eligible_count": 1,
+  "latest_only_count": 0,
+  "schema_version": "1.0.0",
+  "verified_adapter_count": 1
+}
