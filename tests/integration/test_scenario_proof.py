@@ -28,6 +28,9 @@ GDP_REVISION_PROOF_PATH = PROOF_DIRECTORY / "gdp-2022q4-revision-boundary-v1.jso
 BTFP_GROWTH_PROOF_PATH = PROOF_DIRECTORY / "btfp-2023-early-growth-boundary-v1.json"
 BLS_PAYROLL_PROOF_PATH = PROOF_DIRECTORY / "bls-2023-payroll-release-boundary-v1.json"
 BLS_CPI_PROOF_PATH = PROOF_DIRECTORY / "bls-2023-cpi-release-boundary-v1.json"
+BLS_PPI_PROOF_PATH = (
+    PROOF_DIRECTORY / "bls-ppi-2020-final-demand-change-boundary-v1.json"
+)
 FOMC_TARGET_PROOF_PATH = PROOF_DIRECTORY / "fomc-2023-target-range-boundary-v1.json"
 TREASURY_CURVE_PROOF_PATH = PROOF_DIRECTORY / "treasury-curve-2023-inversion-boundary-v1.json"
 TREASURY_TGA_PROOF_PATH = PROOF_DIRECTORY / "treasury-tga-2023-cash-boundary-v1.json"
@@ -297,8 +300,16 @@ def test_committed_proofs_and_deterministic_catalog_are_fully_verified() -> None
     assert eia_wngsr.mode == "bounded_reconstruction"
     assert eia_wngsr.distinct_input_records == 2
 
+    bls_ppi = verify_scenario_proof(
+        BLS_PPI_PROOF_PATH,
+        repository_root=REPOSITORY,
+    )
+    assert bls_ppi.scenario_id == "bls-ppi-2020-final-demand-change-boundary"
+    assert bls_ppi.mode == "bounded_reconstruction"
+    assert bls_ppi.distinct_input_records == 2
+
     catalog = verify_scenario_catalog(PROOF_DIRECTORY, repository_root=REPOSITORY)
-    assert len(catalog) == 25
+    assert len(catalog) == 26
     summary = scenario_catalog_summary(catalog, proof_directory=PROOF_DIRECTORY)
     committed = json.loads((REPOSITORY / "verification/scenarios/latest-summary.json").read_text())
     assert summary == committed
