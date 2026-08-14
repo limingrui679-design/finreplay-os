@@ -62,6 +62,18 @@
       "trace_id": "trace:fd29e6cfcf0a4de919953d297f2880443bd7fa1ff7865ba057eeaed63e7c3a0f"
     },
     {
+      "decision_time": "2020-03-25T12:30:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "fd3f33f12605700d6a71d72a7eda64a2b3ade39207cff28727e9f03661e49858",
+      "proof": "census-m3-2020-durable-goods-change-boundary-v1.json",
+      "proof_sha256": "dd93d2fc22f5beb6609b06fddefea930998ab38d0ba9ec0f601e34751cfac923",
+      "replay_id": "census-m3-2020-durable-goods-change-boundary-v1",
+      "scenario_id": "census-m3-2020-durable-goods-change-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:4873c1a521dddfc4d4ea794375a05339b0e465711b9bd9082d7fcc03be5f8d71"
+    },
+    {
       "decision_time": "2020-03-18T12:00:00+00:00",
       "distinct_input_records": 2,
       "mode": "bounded_reconstruction",
@@ -255,5 +267,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 21
+  "verified_scenario_count": 22
 }

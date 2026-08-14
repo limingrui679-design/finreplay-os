@@ -243,6 +243,21 @@ represented as proof that the bytes were unchanged since May 26. The index is no
 a property record, transaction count, appraisal, or mortgage outcome. Full responses remain in
 ignored local storage, and this supporting connector is excluded from the formal 30.
 
+`census.m3.archived_advance_durable_goods` retrieves the fixed February 27, March 25, and April
+24, 2020 Census M3 Advance Durable Goods report PDFs. Each response must be a complete seven-page
+document with exact page geometry, rotations, nonblank text layers, identifying metadata, release
+header, headline facts, future-release schedule, explanatory notes, benchmark notice, and matching
+Table 1 and Table 2 values. The stated 8:30 a.m. EST/EDT time is validated through
+`America/New_York`. Every reference month remains tied to its report snapshot, so the April
+revision of February never overwrites the March-release value. M3 is not a probability sample;
+sampling error, confidence intervals, and headline statistical significance are not measurable.
+Figures are seasonally adjusted but not adjusted for inflation or price changes. All three current
+PDFs have modification metadata after their stated releases, so current hashes remain official
+present-retrieval evidence rather than release-time byte-identity proof. The April report's
+COVID-19 statement is retained as publication-standard language, not a causal or unaffected-
+measurement claim. Full PDFs remain in ignored local storage, and this supporting connector is
+excluded from the formal 30.
+
 ## Live totals observed in the current receipts
 
 - FDIC catalog totals: institutions 27,836; locations 78,081; structure history 583,888;

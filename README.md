@@ -20,7 +20,7 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 21/30 internally replay-proven: three bank boundaries plus 18 source-diverse macro, policy, rate, energy, labor, Treasury, production, retail-sales, housing, consumer-credit, construction-spending, and house-price-index boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 22/30 internally replay-proven: three bank boundaries plus 19 source-diverse macro, policy, rate, energy, labor, Treasury, production, retail-sales, housing, consumer-credit, construction-spending, house-price-index, and durable-goods boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
@@ -407,6 +407,20 @@ metadata, so its exact hash is not represented as proof that the bytes were unch
 26. FHFA's purchase-only repeat-transactions index is not every U.S. home, a property record,
 transaction count, appraisal, mortgage outcome, causal result, or trading measure. See
 [`docs/scenarios/fhfa-hpi-2020.md`](docs/scenarios/fhfa-hpi-2020.md).
+
+The twenty-second counted flow uses archived U.S. Census M3 Advance Durable Goods report PDFs.
+It locks the January and February 2020 total durable-goods new-orders monthly changes of `-20`
+and `120` basis points at the March 25 8:30 a.m. EDT decision boundary. The mechanical stress
+endpoints are February-change persistence or one repeat of that `140`-basis-point first-report
+increase: `[120, 260]`, with no probability. The separately locked April 24 report states March
+at `-1,440` basis points and `$213,184 million`, a required visible `1,560`-basis-point breach
+below the lower endpoint. Its snapshot retains January at `10` basis points and revises February
+from `120` to `110`; those later values never overwrite the first-report inputs. M3 is not a
+probability sample, and its seasonally adjusted figures are not adjusted for price changes. All
+three current archived PDFs have post-release modification metadata, so their hashes prove current
+official evidence rather than release-time byte identity. The March report's COVID-19 text concerns
+publication standards and is not treated as a causal result. See
+[`docs/scenarios/census-m3-2020.md`](docs/scenarios/census-m3-2020.md).
 
 ## Research and investment disclaimer
 

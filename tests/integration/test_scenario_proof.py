@@ -41,6 +41,7 @@ CENSUS_MARTS_PROOF_PATH = PROOF_DIRECTORY / "census-marts-2020-retail-sales-boun
 CENSUS_NRC_PROOF_PATH = PROOF_DIRECTORY / "census-nrc-2020-housing-starts-boundary-v1.json"
 FED_G19_PROOF_PATH = PROOF_DIRECTORY / "fed-g19-2020-revolving-credit-boundary-v1.json"
 CENSUS_C30_PROOF_PATH = PROOF_DIRECTORY / "census-c30-2020-construction-spending-boundary-v1.json"
+CENSUS_M3_PROOF_PATH = PROOF_DIRECTORY / "census-m3-2020-durable-goods-change-boundary-v1.json"
 FHFA_HPI_PROOF_PATH = PROOF_DIRECTORY / "fhfa-hpi-2020-house-price-change-boundary-v1.json"
 
 
@@ -259,8 +260,16 @@ def test_committed_proofs_and_deterministic_catalog_are_fully_verified() -> None
     assert fhfa_hpi.mode == "bounded_reconstruction"
     assert fhfa_hpi.distinct_input_records == 2
 
+    census_m3 = verify_scenario_proof(
+        CENSUS_M3_PROOF_PATH,
+        repository_root=REPOSITORY,
+    )
+    assert census_m3.scenario_id == "census-m3-2020-durable-goods-change-boundary"
+    assert census_m3.mode == "bounded_reconstruction"
+    assert census_m3.distinct_input_records == 2
+
     catalog = verify_scenario_catalog(PROOF_DIRECTORY, repository_root=REPOSITORY)
-    assert len(catalog) == 21
+    assert len(catalog) == 22
     summary = scenario_catalog_summary(catalog, proof_directory=PROOF_DIRECTORY)
     committed = json.loads((REPOSITORY / "verification/scenarios/latest-summary.json").read_text())
     assert summary == committed
