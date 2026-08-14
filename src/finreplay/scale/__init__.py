@@ -1,5 +1,22 @@
 """Large public-source data contracts and ingestion primitives."""
 
+from finreplay.scale.sec_edgar_download import (
+    SECLogDownloadReceipt,
+    download_sec_log_archive,
+    fetch_sec_log_inventory,
+    load_sec_log_download_receipt,
+    write_sec_log_download_receipt,
+)
+from finreplay.scale.sec_edgar_lake import (
+    EXPECTED_SEC_LOG_PARQUET_COLUMNS,
+    SECLogInvalidCounts,
+    SECLogParquetColumn,
+    SECLogPartitionReceipt,
+    load_sec_log_partition_receipt,
+    materialize_sec_log_csv,
+    verify_sec_log_partition_receipt,
+    write_sec_log_partition_receipt,
+)
 from finreplay.scale.sec_edgar_logs import (
     SEC_EDGAR_LOG_HEADER_2003_2017,
     SEC_EDGAR_LOG_LANDING_URL,
@@ -9,15 +26,30 @@ from finreplay.scale.sec_edgar_logs import (
     extract_sec_log_archive,
     load_sec_log_inventory_lock,
     parse_sec_log_inventory,
+    write_sec_log_inventory_lock,
 )
 
 __all__ = [
+    "EXPECTED_SEC_LOG_PARQUET_COLUMNS",
     "SEC_EDGAR_LOG_HEADER_2003_2017",
     "SEC_EDGAR_LOG_LANDING_URL",
+    "SECLogDownloadReceipt",
     "SECLogExtractedCSV",
+    "SECLogInvalidCounts",
     "SECLogInventoryLock",
+    "SECLogParquetColumn",
     "SECLogPartition",
+    "SECLogPartitionReceipt",
+    "download_sec_log_archive",
     "extract_sec_log_archive",
+    "fetch_sec_log_inventory",
+    "load_sec_log_download_receipt",
     "load_sec_log_inventory_lock",
+    "load_sec_log_partition_receipt",
+    "materialize_sec_log_csv",
     "parse_sec_log_inventory",
+    "verify_sec_log_partition_receipt",
+    "write_sec_log_download_receipt",
+    "write_sec_log_inventory_lock",
+    "write_sec_log_partition_receipt",
 ]

@@ -55,6 +55,7 @@ class SECLogPartition(_StrictModel):
     """One non-guessed daily archive link from an official SEC year page."""
 
     partition_date: date
+    listed_url: HttpUrl
     source_url: HttpUrl
     list_page_url: HttpUrl
 
@@ -63,6 +64,14 @@ class SECLogPartition(_StrictModel):
         list_match = _LIST_URL_PATTERN.fullmatch(str(self.list_page_url))
         if list_match is None:
             raise ValueError("SEC log list page must be an exact official annual URL")
+        listed = urlparse(str(self.listed_url))
+        if listed.scheme not in ("http", "https") or listed.hostname != "www.sec.gov":
+            raise ValueError("SEC log listed archive must use HTTP(S) on www.sec.gov")
+        if listed.query or listed.fragment or listed.params:
+            raise ValueError("SEC log listed archive URL cannot contain extra components")
+        listed_match = _ARCHIVE_PATH_PATTERN.fullmatch(listed.path)
+        if listed_match is None:
+            raise ValueError("SEC log listed archive path does not match the official layout")
         parsed = urlparse(str(self.source_url))
         if parsed.scheme != "https" or parsed.hostname != "www.sec.gov":
             raise ValueError("SEC log archive must use HTTPS on www.sec.gov")
@@ -71,6 +80,8 @@ class SECLogPartition(_StrictModel):
         archive_match = _ARCHIVE_PATH_PATTERN.fullmatch(parsed.path)
         if archive_match is None:
             raise ValueError("SEC log archive path does not match the official daily layout")
+        if listed.path != parsed.path:
+            raise ValueError("SEC log HTTPS retrieval path must equal its listed path")
         archive_day = _parse_compact_date(archive_match.group("day"))
         expected_quarter = (archive_day.month - 1) // 3 + 1
         if archive_day != self.partition_date:
@@ -218,7 +229,8 @@ def parse_sec_log_inventory(
             SECLogPartition.model_validate(
                 {
                     "partition_date": day,
-                    "source_url": urljoin(list_page_url, link.href),
+                    "listed_url": urljoin(list_page_url, link.href),
+                    "source_url": _upgrade_official_sec_url(urljoin(list_page_url, link.href)),
                     "list_page_url": list_page_url,
                 }
             )
@@ -237,7 +249,9 @@ def parse_sec_log_inventory(
             "claim_boundary": (
                 "This lock proves which daily SEC EDGAR access-log ZIP links appeared on one "
                 "retrieved official annual list page. It does not prove that every calendar day "
-                "exists, that linked bytes are unchanged, that logs capture all SEC.gov traffic, "
+                "exists. Legacy HTTP links are preserved as listed_url and deterministically "
+                "upgraded to the same www.sec.gov path over HTTPS for retrieval. The lock does not "
+                "prove that linked bytes are unchanged, that logs capture all SEC.gov traffic, "
                 "that each row is accurate, or that a request represents a unique human, filing, "
                 "investment decision, customer, deployment, or real-world impact. Archive bytes, "
                 "CSV rows, and derived Parquet partitions require separate measured receipts."
@@ -251,6 +265,29 @@ def load_sec_log_inventory_lock(path: Path) -> SECLogInventoryLock:
         return SECLogInventoryLock.model_validate_json(path.read_text(encoding="utf-8"))
     except (OSError, ValueError) as error:
         raise ValueError(f"invalid SEC log inventory lock: {path}") from error
+
+
+def write_sec_log_inventory_lock(lock: SECLogInventoryLock, path: Path) -> None:
+    """Atomically write a canonical self-hashed annual inventory lock."""
+
+    path = path.expanduser().resolve()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, temporary_name = tempfile.mkstemp(
+        prefix=f".{path.name}.", suffix=".tmp", dir=path.parent
+    )
+    temporary = Path(temporary_name)
+    os.close(descriptor)
+    try:
+        temporary.write_text(
+            json.dumps(lock.model_dump(mode="json"), indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+        with temporary.open("rb") as output:
+            os.fsync(output.fileno())
+        os.replace(temporary, path)
+    finally:
+        if temporary.exists():
+            temporary.unlink()
 
 
 def extract_sec_log_archive(
@@ -379,6 +416,13 @@ def _parse_compact_date(value: str) -> date:
         return date.fromisoformat(f"{value[:4]}-{value[4:6]}-{value[6:8]}")
     except ValueError as error:
         raise ValueError(f"invalid SEC log partition date: {value}") from error
+
+
+def _upgrade_official_sec_url(value: str) -> str:
+    parsed = urlparse(value)
+    if parsed.scheme == "http" and parsed.hostname == "www.sec.gov":
+        return "https://" + value.removeprefix("http://")
+    return value
 
 
 def _canonical_json(value: object) -> str:

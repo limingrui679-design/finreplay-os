@@ -14,7 +14,9 @@ from finreplay.scale import (
     SEC_EDGAR_LOG_HEADER_2003_2017,
     SECLogInventoryLock,
     extract_sec_log_archive,
+    load_sec_log_inventory_lock,
     parse_sec_log_inventory,
+    write_sec_log_inventory_lock,
 )
 
 LIST_URL = "https://www.sec.gov/files/edgar2012.html"
@@ -71,6 +73,20 @@ def test_inventory_rejects_tampered_self_hash() -> None:
     values["lock_sha256"] = "0" * 64
     with pytest.raises(ValidationError, match="lock_sha256"):
         SECLogInventoryLock.model_validate(values)
+
+
+def test_inventory_lock_round_trips_without_local_paths(tmp_path: Path) -> None:
+    content = (
+        b'<a href="/dera/data/Public-EDGAR-log-file-data/2012/Qtr1/'
+        b'log20120101.zip">log20120101.zip</a>'
+    )
+    lock = parse_sec_log_inventory(content, list_page_url=LIST_URL, retrieved_at=RETRIEVED_AT)
+    path = tmp_path / "inventory.json"
+
+    write_sec_log_inventory_lock(lock, path)
+
+    assert load_sec_log_inventory_lock(path) == lock
+    assert str(tmp_path) not in path.read_text(encoding="utf-8")
 
 
 def test_extract_archive_measures_csv_and_official_readme(tmp_path: Path) -> None:
