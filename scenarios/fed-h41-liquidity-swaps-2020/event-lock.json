@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "fed-h41-2020-liquidity-swap-balance-boundary",
+  "scenario_version": "1.0.0",
+  "decision_time": "2020-03-26T20:30:00Z",
+  "event_role": "post_decision_official_event",
+  "records": [
+    {
+      "record_id": "federal_reserve.h41.central_bank_liquidity_swaps:20200401:wednesday_outstanding",
+      "entity_id": "federal_reserve_facility:central_bank_liquidity_swaps",
+      "source": {
+        "source_id": "federal_reserve.h41.central_bank_liquidity_swaps",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/releases/h41/20200402/h41.htm",
+        "retrieved_at": "2026-08-14T10:25:48.556212Z",
+        "source_version": "H41-SWAPS:2020-04-02:semantic:9eb8775b0be1c637c1d58c73",
+        "sha256": "9eb8775b0be1c637c1d58c73f1545cf97716ba313e02412fdd1e0f722dce183b",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2020-04-03T04:00:00Z",
+        "redistribution_note": "Keep full downloaded HTML and ASCII releases only in local content-addressed storage. Attribute the Board of Governors and preserve source links; repository scenarios retain only minimal reported facts and hashes."
+      },
+      "interval": {
+        "valid_from": "2020-04-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2020-04-03T04:00:00Z",
+        "available_at": "2020-04-03T04:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-14T10:25:48.556212Z",
+        "availability_rule": "For March 19 and 26, the archived H.4.1 HTML explicitly states 'For Release at 4:30 P.M. EDT'; FinReplay validates that official stated time against America/New_York. The April 2 HTML identifies only its Thursday release date, so FinReplay waits until the following New York midnight. Every Table 1 fact is cross-checked against the complete official ASCII release. Neither method is represented as an independently measured server-publication log, and current retrieval metadata is never backdated.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "actual_server_publication_log_available": false,
+        "availability_method": "release_date_following_new_york_midnight_html_ascii",
+        "conservative_available_at": "2020-04-03T04:00:00+00:00",
+        "html_ascii_crosscheck_verified": true,
+        "measurement_boundary": "Dollar value of foreign currency held under swap agreements, valued at the exchange rate used when acquired and to be used when returned to the foreign central bank.",
+        "metric": "wednesday_outstanding",
+        "official_stated_release_at": null,
+        "program": "Central bank liquidity swaps",
+        "release_ascii_url": "https://www.federalreserve.gov/releases/h41/20200402/H41.TXT",
+        "release_date": "2020-04-02",
+        "release_html_url": "https://www.federalreserve.gov/releases/h41/20200402/h41.htm",
+        "release_semantic_sha256": "9eb8775b0be1c637c1d58c73f1545cf97716ba313e02412fdd1e0f722dce183b",
+        "release_series": "H.4.1 Factors Affecting Reserve Balances",
+        "release_time_local": null,
+        "release_timezone": "America/New_York",
+        "release_timezone_abbreviation": "EDT",
+        "table": "H.4.1 Table 1",
+        "unit": "Millions of Dollars",
+        "value_millions": 348544,
+        "week_ending": "2020-04-01",
+        "weekly_average_change_from_prior_week_millions": 158973,
+        "weekly_average_change_from_year_ago_millions": 326422,
+        "weekly_average_millions": 327787
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the April 1, 2020 H.4.1 Wednesday central-bank-liquidity-swap balance of $348,544 million solely as a post-decision event. The archived pair states only the April 2 release date, so eligibility is conservatively delayed to the following New York midnight. The balance lies $142,493 million above the fixed lower endpoint and $63,513 million below the fixed upper endpoint; that inside-range result is retained without being relabelled as forecast success. The event is excluded from all ReplayPack inputs and does not establish calibrated coverage, current-market exposure, transaction or institution behavior, policy effectiveness, systemic-stress causality, investment performance, external review, deployment, or user impact.",
+  "lock_sha256": "1197110990ac487c88cb803fbf38f1845f21d92c61739225643914f3ee7898e1"
+}

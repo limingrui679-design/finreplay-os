@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "fed-h41-2020-liquidity-swap-balance-boundary",
+  "scenario_version": "1.0.0",
+  "replay_id": "fed-h41-2020-liquidity-swap-balance-boundary-v1",
+  "artifact_prefix": "h41-swaps",
+  "title": "Federal Reserve H.4.1 liquidity-swap balance boundary before April 2020",
+  "decision_time": "2020-03-26T20:30:00Z",
+  "build_epoch": "2026-08-14T10:30:00Z",
+  "roles": {
+    "march18_release": "federal_reserve.h41.central_bank_liquidity_swaps:20200318:wednesday_outstanding",
+    "march25_decision_release": "federal_reserve.h41.central_bank_liquidity_swaps:20200325:wednesday_outstanding"
+  },
+  "source_response_sha256s": [
+    "77157f38df055c43d46fb850d0534a5fd4836449df8067ed87612890f69b8819",
+    "a25a62443e7ee3bbda990ec2ef095624e1873c237819a81d1d17c6c7a2aef77e",
+    "b5dc44df02874ba2f4d112a95a04449c924e5da68ee977dcd3fae1ca812bf571",
+    "d08360db4285e0db87257f5f72b6e6eff91e3f937e9da00de0bbffb62dc0a515"
+  ],
+  "supporting_receipt_sha256": "312ef4c75191536fc8241076af9f42d7e55c90db8f47fdb91a38b11cab1b9580",
+  "records": [
+    {
+      "record_id": "federal_reserve.h41.central_bank_liquidity_swaps:20200318:wednesday_outstanding",
+      "entity_id": "federal_reserve_facility:central_bank_liquidity_swaps",
+      "source": {
+        "source_id": "federal_reserve.h41.central_bank_liquidity_swaps",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/releases/h41/20200319/h41.htm",
+        "retrieved_at": "2026-08-14T10:25:45.610710Z",
+        "source_version": "H41-SWAPS:2020-03-19:semantic:8261da1e27e2ed08ab3671af",
+        "sha256": "8261da1e27e2ed08ab3671af4b94c394108e7809a256638d0a7332f8ed60519b",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2020-03-19T20:30:00Z",
+        "redistribution_note": "Keep full downloaded HTML and ASCII releases only in local content-addressed storage. Attribute the Board of Governors and preserve source links; repository scenarios retain only minimal reported facts and hashes."
+      },
+      "interval": {
+        "valid_from": "2020-03-18T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2020-03-19T20:30:00Z",
+        "available_at": "2020-03-19T20:30:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-14T10:25:45.610710Z",
+        "availability_rule": "For March 19 and 26, the archived H.4.1 HTML explicitly states 'For Release at 4:30 P.M. EDT'; FinReplay validates that official stated time against America/New_York. The April 2 HTML identifies only its Thursday release date, so FinReplay waits until the following New York midnight. Every Table 1 fact is cross-checked against the complete official ASCII release. Neither method is represented as an independently measured server-publication log, and current retrieval metadata is never backdated.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "actual_server_publication_log_available": false,
+        "availability_method": "exact_official_stated_time_crosschecked_html_ascii",
+        "conservative_available_at": "2020-03-19T20:30:00+00:00",
+        "html_ascii_crosscheck_verified": true,
+        "measurement_boundary": "Dollar value of foreign currency held under swap agreements, valued at the exchange rate used when acquired and to be used when returned to the foreign central bank.",
+        "metric": "wednesday_outstanding",
+        "official_stated_release_at": "2020-03-19T20:30:00+00:00",
+        "program": "Central bank liquidity swaps",
+        "release_ascii_url": "https://www.federalreserve.gov/releases/h41/20200319/H41.TXT",
+        "release_date": "2020-03-19",
+        "release_html_url": "https://www.federalreserve.gov/releases/h41/20200319/h41.htm",
+        "release_semantic_sha256": "8261da1e27e2ed08ab3671af4b94c394108e7809a256638d0a7332f8ed60519b",
+        "release_series": "H.4.1 Factors Affecting Reserve Balances",
+        "release_time_local": "16:30:00",
+        "release_timezone": "America/New_York",
+        "release_timezone_abbreviation": "EDT",
+        "table": "H.4.1 Table 1",
+        "unit": "Millions of Dollars",
+        "value_millions": 45,
+        "week_ending": "2020-03-18",
+        "weekly_average_change_from_prior_week_millions": -13,
+        "weekly_average_change_from_year_ago_millions": -23,
+        "weekly_average_millions": 45
+      }
+    },
+    {
+      "record_id": "federal_reserve.h41.central_bank_liquidity_swaps:20200325:wednesday_outstanding",
+      "entity_id": "federal_reserve_facility:central_bank_liquidity_swaps",
+      "source": {
+        "source_id": "federal_reserve.h41.central_bank_liquidity_swaps",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/releases/h41/20200326/h41.htm",
+        "retrieved_at": "2026-08-14T10:25:47.326099Z",
+        "source_version": "H41-SWAPS:2020-03-26:semantic:90221fc89c30bf797806200e",
+        "sha256": "90221fc89c30bf797806200eb6bc725f976ca314d5f9a098c587143d2fc6d540",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2020-03-26T20:30:00Z",
+        "redistribution_note": "Keep full downloaded HTML and ASCII releases only in local content-addressed storage. Attribute the Board of Governors and preserve source links; repository scenarios retain only minimal reported facts and hashes."
+      },
+      "interval": {
+        "valid_from": "2020-03-25T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2020-03-26T20:30:00Z",
+        "available_at": "2020-03-26T20:30:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-14T10:25:47.326099Z",
+        "availability_rule": "For March 19 and 26, the archived H.4.1 HTML explicitly states 'For Release at 4:30 P.M. EDT'; FinReplay validates that official stated time against America/New_York. The April 2 HTML identifies only its Thursday release date, so FinReplay waits until the following New York midnight. Every Table 1 fact is cross-checked against the complete official ASCII release. Neither method is represented as an independently measured server-publication log, and current retrieval metadata is never backdated.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "actual_server_publication_log_available": false,
+        "availability_method": "exact_official_stated_time_crosschecked_html_ascii",
+        "conservative_available_at": "2020-03-26T20:30:00+00:00",
+        "html_ascii_crosscheck_verified": true,
+        "measurement_boundary": "Dollar value of foreign currency held under swap agreements, valued at the exchange rate used when acquired and to be used when returned to the foreign central bank.",
+        "metric": "wednesday_outstanding",
+        "official_stated_release_at": "2020-03-26T20:30:00+00:00",
+        "program": "Central bank liquidity swaps",
+        "release_ascii_url": "https://www.federalreserve.gov/releases/h41/20200326/H41.TXT",
+        "release_date": "2020-03-26",
+        "release_html_url": "https://www.federalreserve.gov/releases/h41/20200326/h41.htm",
+        "release_semantic_sha256": "90221fc89c30bf797806200eb6bc725f976ca314d5f9a098c587143d2fc6d540",
+        "release_series": "H.4.1 Factors Affecting Reserve Balances",
+        "release_time_local": "16:30:00",
+        "release_timezone": "America/New_York",
+        "release_timezone_abbreviation": "EDT",
+        "table": "H.4.1 Table 1",
+        "unit": "Millions of Dollars",
+        "value_millions": 206051,
+        "week_ending": "2020-03-25",
+        "weekly_average_change_from_prior_week_millions": 168769,
+        "weekly_average_change_from_year_ago_millions": 168748,
+        "weekly_average_millions": 168814
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the March 18 and March 25, 2020 Wednesday central-bank-liquidity-swap balances known at the March 26 official stated release time and binds four exact HTML/ASCII input-response hashes plus the idempotent six-response supporting receipt. It excludes the April 1 event, weekly averages as range inputs, current-market revaluation, institutions, transactions, counterparty loss, P&L, a probability distribution, forecast, calibrated interval, systemic-stress or policy causality, recommendation, execution, investment performance, external review, deployment, and user impact.",
+  "lock_sha256": "d6bb82586bcd1b447dbb84e6c6f04a72053b5e8cdb3a83b889fdda152d43adeb"
+}
