@@ -16,6 +16,7 @@ from finreplay.adapters.bea_pio import BEAPersonalIncomeOutlaysArchiveAdapter
 from finreplay.adapters.bls import BLSCPIUAllItemsAdapter
 from finreplay.adapters.bls_cpi_release import BLSCPIArchiveAdapter
 from finreplay.adapters.bls_employment import BLSEmploymentSituationArchiveAdapter
+from finreplay.adapters.bls_ppi import BLSPPIArchiveAdapter
 from finreplay.adapters.census_c30 import CensusC30ArchiveAdapter
 from finreplay.adapters.census_durable_goods import CensusDurableGoodsArchiveAdapter
 from finreplay.adapters.census_ft900 import CensusBEAFT900ArchiveAdapter
@@ -83,6 +84,7 @@ __all__ = [
     "BLSCPIArchiveAdapter",
     "BLSCPIUAllItemsAdapter",
     "BLSEmploymentSituationArchiveAdapter",
+    "BLSPPIArchiveAdapter",
     "CFTCCOTAdapter",
     "CFTCCOTSpec",
     "CFTCReportKind",
