@@ -14,6 +14,7 @@ from finreplay.adapters import (
     BLSCPIArchiveAdapter,
     BLSCPIUAllItemsAdapter,
     BLSEmploymentSituationArchiveAdapter,
+    BLSPPIArchiveAdapter,
     CensusBEAFT900ArchiveAdapter,
     CensusC30ArchiveAdapter,
     CensusDurableGoodsArchiveAdapter,
@@ -142,6 +143,24 @@ def test_bls_cpi_release_is_supporting_source_not_a_thirty_first_counted_adapter
     assert supporting["historical_replay_eligible_count"] == 1
     assert supporting["latest_only_count"] == 0
     assert supporting["adapters"][0]["adapter_id"] == BLSCPIArchiveAdapter.metadata.adapter_id
+    assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()
+
+
+def test_bls_ppi_release_is_supporting_source_not_a_thirty_first_counted_adapter() -> None:
+    repository = Path(__file__).resolve().parents[2]
+    formal = json.loads((repository / "verification/live/latest-summary.json").read_text())
+    supporting_root = repository / "verification/supporting/bls-ppi"
+    supporting = json.loads((supporting_root / "latest-summary.json").read_text())
+
+    formal_ids = {item["adapter_id"] for item in formal["adapters"]}
+    assert BLSPPIArchiveAdapter.metadata.adapter_id not in formal_ids
+    assert supporting["verified_adapter_count"] == 1
+    assert supporting["historical_replay_eligible_count"] == 1
+    assert supporting["latest_only_count"] == 0
+    assert supporting["adapters"][0]["adapter_id"] == BLSPPIArchiveAdapter.metadata.adapter_id
+    assert supporting["adapters"][0]["record_count"] == 3
+    assert supporting["adapters"][0]["idempotent_records"] == 3
+    assert supporting["adapters"][0]["inserted_records"] == 0
     assert (supporting_root / "live" / supporting["adapters"][0]["receipt"]).is_file()
 
 

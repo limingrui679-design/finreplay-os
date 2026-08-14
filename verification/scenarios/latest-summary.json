@@ -38,6 +38,18 @@
       "trace_id": "trace:93586d2362769bcfd48846586d4eefa3b7fbdf6a4b596e62297e775971802013"
     },
     {
+      "decision_time": "2020-04-09T12:30:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
+      "pack_sha256": "4601bc2b1f9b751197d253bd2f27497a08743e34b6cdef28033fe87501fd96b3",
+      "proof": "bls-ppi-2020-final-demand-change-boundary-v1.json",
+      "proof_sha256": "27daf92f64dda57e3dc6e101db49daf9a3f56dcc811792245fb59459fde15ae6",
+      "replay_id": "bls-ppi-2020-final-demand-change-boundary-v1",
+      "scenario_id": "bls-ppi-2020-final-demand-change-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:8d27b18954bac6b955d03e59e10dc9e3011cf926aa0a1347e86d6473f6e8fea5"
+    },
+    {
       "decision_time": "2023-03-25T12:00:00+00:00",
       "distinct_input_records": 4,
       "mode": "bounded_reconstruction",
@@ -303,5 +315,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 25
+  "verified_scenario_count": 26
 }

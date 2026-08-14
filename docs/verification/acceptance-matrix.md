@@ -54,8 +54,9 @@ Each of the 30 planned scenarios must independently provide:
 7. a limitations file and non-causal/non-deployment boundary;
 8. a fresh-clone replay receipt.
 
-Current status: **IN_PROGRESS; 25/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
+Current status: **IN_PROGRESS; 26/30 replay-proven scenarios.** The SVB, PacWest, Western Alliance,
 2022 Q4 GDP revision, March 2023 BTFP early-growth, early-2023 BLS payroll and CPI release,
+March 2020 BLS PPI final-demand monthly-change,
 spring-2023 FOMC target range, March 2023 Treasury-curve, and June 2023 Treasury TGA cash-boundary
 replays, plus the September 2019 New York Fed SOFR spike, April 2020 EIA commercial-crude-stock,
 March 2020 EIA working-gas-stock, March 2020 DOL initial-claims, March 2020 Treasury 91-day-bill
@@ -146,7 +147,14 @@ exact 10:30 a.m. Eastern release timing. Its range repeats at most the single kn
 assigns no probability, and does not use EIA coefficients of variation or weekly-net-change
 standard errors as endpoints. The separately locked March 20 event remains a visible 20 Bcf miss
 below the fixed range, while rounded regional differences are retained rather than forcibly
-reconciled. All twenty-two non-bank cases use only four relevant engines and labelled post-event
+reconciled. The PPI case validates three complete archived HTML/PDF pairs and their exact 8:30
+a.m. EDT embargo boundaries. Its range persists the March final-demand monthly change or repeats
+the one known 40-basis-point February-to-March increase, assigns no probability, and keeps
+unadjusted indexes, 12-month changes, and COVID-19 methodology language outside endpoint
+construction. The separately locked April change remains a visible 110-basis-point miss below
+the fixed range and does not retroactively widen it. PPI remains an aggregate seller-price
+measure subject to revision, not CPI, producer-level behavior, or causal evidence. All
+twenty-three non-bank cases use only four relevant engines and labelled post-event
 checks.
 Further scenarios must continue to diversify
 mechanisms and source families. The verifier recomputes the deterministic inventory under
