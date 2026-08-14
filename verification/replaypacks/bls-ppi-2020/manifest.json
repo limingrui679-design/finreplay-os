@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over two paired archived BLS PPI final-demand monthly-change releases. Reported changes remain reported; the -20-to-20-basis-point persistence-or-one-known-increase envelope remains inferred with no probability. The April event stays only in a disjoint event lock. This is not a BLS forecast, confidence interval, calibrated range, consumer-price measure, quantity, revenue, profit, transaction, causal model, deployment, external validation, investment result, or user-impact claim.",
+  "files": [
+    {
+      "bytes": 1297,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "4592017dbaa2f90541fe534c3ab2616f57b6aabd7faa5373750ad55973c858b5"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "e240e78c458f2efaca353b4a989a52b25fa0a3eee62edb7b5cb8a51f4f6cc872"
+    },
+    {
+      "bytes": 31141,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "44e84c95385672aab5320e08c0e1e84c29b89dc2be096e8628dc61a95d99f96d"
+    },
+    {
+      "bytes": 30589,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "b6131bcc3ab3960f76e53f81545144bfb4bca2ce9cfa9cd2e03f306528b9d0e4"
+    }
+  ],
+  "pack_sha256": "4601bc2b1f9b751197d253bd2f27497a08743e34b6cdef28033fe87501fd96b3",
+  "receipt_sha256": "6503e5ab5bf906e5166b53230de181b8dc6c930e8c69f2a9d24f3a5deb38c38c",
+  "replay_id": "bls-ppi-2020-final-demand-change-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "4ee8d1281a67286caa7880c371ea24a65f8bf28f",
+    "compressed_input_bytes": 2328,
+    "created_at": "2026-08-14T08:40:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "15dd7cc41991022ab81ed10cb867689ca568a890b6e69a5c1ebd772bc632f009",
+    "output_manifest_sha256": "4b5303fcaeb03719be9f73484a3a25084031229a66f00e72de6631bf15a4543b",
+    "replay_id": "bls-ppi-2020-final-demand-change-boundary-v1",
+    "scenario_id": "bls-ppi-2020-final-demand-change-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "b6131bcc3ab3960f76e53f81545144bfb4bca2ce9cfa9cd2e03f306528b9d0e4",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:8d27b18954bac6b955d03e59e10dc9e3011cf926aa0a1347e86d6473f6e8fea5"
+}

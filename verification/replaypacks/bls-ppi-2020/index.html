@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self'; img-src 'self' data:;
+                 base-uri 'none'; form-action 'none'">
+  <title>BLS PPI final-demand monthly-change boundary before April 2020 · FinReplay OS</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to report</a>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">FinReplay OS · evidence-labelled replay</p>
+      <h1>BLS PPI final-demand monthly-change boundary before April 2020</h1>
+      <p class="lede">Four actual engines ran over two paired archived BLS PPI final-demand monthly-change releases. Reported changes remain reported; the -20-to-20-basis-point persistence-or-one-known-increase envelope remains inferred with no probability. The April event stays only in a disjoint event lock. This is not a BLS forecast, confidence interval, calibrated range, consumer-price measure, quantity, revenue, profit, transaction, causal model, deployment, external validation, investment result, or user-impact claim.</p>
+    </div>
+    <div class="identity" aria-label="Replay identity">
+      <span>Replay <code>bls-ppi-2020-final-demand-change-boundary-v1</code></span>
+      <span>Trace <code>trace:8d27b18954bac6b955d03e59e10dc9e3011cf926aa0a1347e86d6473f6e8fea5</code></span>
+    </div>
+  </header>
+  <nav aria-label="Report sections">
+    <a href="#summary">Summary</a><a href="#claims">Claims</a>
+    <a href="#artifacts">Artifacts</a><a href="#limitations">Limitations</a>
+  </nav>
+  <main id="main">
+    <section id="summary" aria-labelledby="summary-title">
+      <h2 id="summary-title">Replay summary</h2>
+      <div class="boundary" role="note" aria-label="Truth boundary">
+        <strong>Truth boundary</strong>
+        <span>Contains simulated inputs. All represented source sets are historical-replay eligible.</span>
+        <span>Historical replay is not live trading;
+        modeled output is not realized performance.</span>
+      </div>
+      <dl class="facts">
+        <div><dt>Scenario</dt><dd>bls-ppi-2020-final-demand-change-boundary
+        v1.0.0</dd></div>
+        <div><dt>Mode</dt><dd>bounded_reconstruction</dd></div>
+        <div><dt>Decision time</dt>
+        <dd>2020-04-09T12:30:00Z</dd></div>
+        <div><dt>Artifact status</dt><dd>reproduced</dd></div>
+        <div><dt>Engines represented</dt><dd>4 / 7</dd></div>
+        <div><dt>Pack hash</dt><dd><code>4601bc2b1f9b751197d253bd2f27497a08743e34b6cdef28033fe87501fd96b3</code></dd></div>
+      </dl>
+      <h3>Evidence inventory</h3>
+      <ul class="metrics" aria-label="Evidence counts"><li class="metric"><span class="metric-value">1</span><span>extracted</span></li><li class="metric"><span class="metric-value">4</span><span>inferred</span></li><li class="metric"><span class="metric-value">4</span><span>reported</span></li><li class="metric"><span class="metric-value">1</span><span>simulated</span></li></ul>
+      <p class="downloads"><a href="report.json">Machine-readable report</a>
+      <a href="checksums.sha256">Portable checksums</a>
+      <a href="README.md">Reproduction notes</a></p>
+    </section>
+    <section id="claims" aria-labelledby="claims-title">
+      <h2 id="claims-title">Claim traceability</h2>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Claim traceability table">
+        <table><caption>Each statement retains its evidence label,
+        supporting artifacts and boundary.</caption>
+          <thead><tr><th scope="col">Claim</th><th scope="col">Statement</th>
+          <th scope="col">Label</th><th scope="col">Support</th>
+          <th scope="col">Boundary</th></tr></thead>
+          <tbody><tr><th scope="row"><code>claim-extracted-bls-ppi-four-engine-pack</code></th><td>The pack contains outputs from the four engines relevant to this case.</td><td><span class="badge evidence-extracted">EXTRACTED</span></td><td><code>bls-ppi.replaystudio.render</code></td><td>Artifact presence proves integration structure, not economic correctness.</td></tr><tr><th scope="row"><code>claim-inferred-bls-ppi-change-range</code></th><td>The next-release stress endpoints are March persistence or one repeat of the known 40-basis-point increase, from -20 to 20 basis points.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>bls-ppi.shockcompiler.final-demand-change-range</code></td><td>The two endpoints carry no probability or coverage claim.</td></tr><tr><th scope="row"><code>claim-inferred-bls-ppi-trial-rejection</code></th><td>TrialCourt rejected the retrospective one-change PPI attempt.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>bls-ppi.trialcourt.retrospective-gate</code></td><td>This is internal fail-closed evidence, not external method validation.</td></tr><tr><th scope="row"><code>claim-reported-bls-ppi-final-demand-changes</code></th><td>The March 12 and April 9 BLS PPI releases reported final-demand monthly changes of -0.6 and -0.2 percent.</td><td><span class="badge evidence-reported">REPORTED</span></td><td><code>bls-ppi.timevault.release-pair-query</code></td><td>These are aggregate seller-price release facts, not transactions.</td></tr><tr><th scope="row"><code>claim-simulated-bls-ppi-schema-sentinels</code></th><td>Trial operational values are simulated schema sentinels only.</td><td><span class="badge evidence-simulated">SIMULATED</span></td><td><code>bls-ppi.trialcourt.retrospective-gate</code></td><td>The sentinels are not orders, capital, capacity, or returns.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section id="artifacts" aria-labelledby="artifacts-title">
+      <h2 id="artifacts-title">Engine artifacts</h2><article class="artifact">
+  <header><div><p class="eyebrow">replaystudio</p>
+  <h3><code>bls-ppi.replaystudio.render</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> extracted: 1</p>
+  <p><strong>Artifact hash:</strong> <code>ea48a9e382c6f46d99d737a579446cd132fd32f170e4b02e84017e55f05ddeb9</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>bls.ppi.archived_final_demand:202002:final_demand_monthly_change</code></li><li><code>bls.ppi.archived_final_demand:202003:final_demand_monthly_change</code></li></ul>
+    <h4>Limitations</h4><ul><li>Static rendering does not validate the one-change range heuristic.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;engine_selection&quot;: &quot;This aggregate PPI boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no producer, establishment, product, security, order, portfolio, allocation, or return input is invented.&quot;,
+  &quot;input_lock_sha256&quot;: &quot;3fe627147fe7d5db7136938e3bada636a42bd4934fede05482da3fb7d8962174&quot;,
+  &quot;portable_file_count_excluding_manifest&quot;: 5,
+  &quot;renderer&quot;: &quot;ReplayStudio&quot;,
+  &quot;truth_labels_visible&quot;: true
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">shockcompiler</p>
+  <h3><code>bls-ppi.shockcompiler.final-demand-change-range</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 3</p>
+  <p><strong>Artifact hash:</strong> <code>a393f22ed255edb24d2907107cc18f321040afd191846083d4e081d4b1a13ea2</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>bls.ppi.archived_final_demand:202002:final_demand_monthly_change</code></li><li><code>bls.ppi.archived_final_demand:202003:final_demand_monthly_change</code></li></ul>
+    <h4>Limitations</h4><ul><li>The endpoints mechanically reuse one reported adjacent-release change.</li><li>The April value is absent.</li><li>The range is not an official interval, probability, causal model, or forecast.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;applied_endpoints&quot;: {
+    &quot;lower&quot;: -20.0,
+    &quot;upper&quot;: 20.0
+  },
+  &quot;bound_construction&quot;: {
+    &quot;endpoint_method&quot;: &quot;latest_change_persistence_or_repeat_one_known_increase&quot;,
+    &quot;future_event_used&quot;: false,
+    &quot;known_increase_basis_points&quot;: 40,
+    &quot;lower_change_basis_points&quot;: -20,
+    &quot;original_release_values_only&quot;: true,
+    &quot;probability_assigned&quot;: false,
+    &quot;range_width_basis_points&quot;: 40,
+    &quot;source_auxiliary_measures_used&quot;: false,
+    &quot;upper_change_basis_points&quot;: 20
+  },
+  &quot;compiled&quot;: {
+    &quot;compiled_sha256&quot;: &quot;0e040f461b74a9e9e1aef628f518e67b12df8859a1ef72d9a5a00e7517e4effa&quot;,
+    &quot;decision_time&quot;: &quot;2020-04-09T12:30:00Z&quot;,
+    &quot;limitations&quot;: [
+      &quot;The endpoints have no likelihood, coverage, causal, or regime meaning.&quot;,
+      &quot;The April final-demand change is evaluated only afterward.&quot;,
+      &quot;The aggregate price index is not a transaction, quantity, revenue, or profit.&quot;
+    ],
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;program_id&quot;: &quot;bls-ppi-next-final-demand-change-envelope&quot;,
+    &quot;scenario_id&quot;: &quot;bls-ppi-2020-final-demand-change-boundary&quot;,
+    &quot;source_program_sha256&quot;: &quot;3fccc6c5036cca58353a72212c8dc64c8e20265db1f8b0dfc042b01e652fe200&quot;,
+    &quot;trials&quot;: [
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Use March-change persistence or one repetition of the only known change between the February and March first-reported final-demand monthly changes.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;One adjacent-release change defines a stress range, not a forecast or probability.&quot;,
+              &quot;Unadjusted indexes and 12-month changes do not set either endpoint.&quot;,
+              &quot;The April event is absent from range construction.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;bls-ppi-next-final-demand-change-range&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;392c9ee30d9deae5007a796917f8c332ecbc617e947a61b38562d67fc86c96b2&quot;,
+              &quot;18540697b82c4cbb42703f24a44d808661bf2baf8883b135a2c1a385c1c6d7fb&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;bls.ppi.archived_final_demand:202002:final_demand_monthly_change&quot;,
+              &quot;bls.ppi.archived_final_demand:202003:final_demand_monthly_change&quot;
+            ],
+            &quot;target_id&quot;: &quot;bls_ppi:final_demand_united_states&quot;,
+            &quot;unit&quot;: &quot;basis_points&quot;,
+            &quot;value&quot;: -20.0,
+            &quot;variable&quot;: &quot;next_final_demand_monthly_change_basis_points&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;bls-ppi-next-final-demand-change-envelope:00000000:ea3830545c08346a&quot;,
+        &quot;trial_index&quot;: 0,
+        &quot;vector_sha256&quot;: &quot;ea3830545c08346a7f99272dd12cc843da2053c35c9e41aed8c75239df697868&quot;
+      },
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Use March-change persistence or one repetition of the only known change between the February and March first-reported final-demand monthly changes.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;One adjacent-release change defines a stress range, not a forecast or probability.&quot;,
+              &quot;Unadjusted indexes and 12-month changes do not set either endpoint.&quot;,
+              &quot;The April event is absent from range construction.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;bls-ppi-next-final-demand-change-range&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;392c9ee30d9deae5007a796917f8c332ecbc617e947a61b38562d67fc86c96b2&quot;,
+              &quot;18540697b82c4cbb42703f24a44d808661bf2baf8883b135a2c1a385c1c6d7fb&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;bls.ppi.archived_final_demand:202002:final_demand_monthly_change&quot;,
+              &quot;bls.ppi.archived_final_demand:202003:final_demand_monthly_change&quot;
+            ],
+            &quot;target_id&quot;: &quot;bls_ppi:final_demand_united_states&quot;,
+            &quot;unit&quot;: &quot;basis_points&quot;,
+            &quot;value&quot;: 20.0,
+            &quot;variable&quot;: &quot;next_final_demand_monthly_change_basis_points&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;bls-ppi-next-final-demand-change-envelope:00000001:09bccdc9f5a0796b&quot;,
+        &quot;trial_index&quot;: 1,
+        &quot;vector_sha256&quot;: &quot;09bccdc9f5a0796b5d40757270c312d419f6cd78e2728180be685723db241b06&quot;
+      }
+    ]
+  },
+  &quot;input_lock_sha256&quot;: &quot;3fe627147fe7d5db7136938e3bada636a42bd4934fede05482da3fb7d8962174&quot;,
+  &quot;known_release_changes&quot;: {
+    &quot;february_change_basis_points&quot;: -60,
+    &quot;known_increase_basis_points&quot;: 40,
+    &quot;lower_change_basis_points&quot;: -20,
+    &quot;march_change_basis_points&quot;: -20,
+    &quot;range_width_basis_points&quot;: 40,
+    &quot;upper_change_basis_points&quot;: 20
+  },
+  &quot;naive_baseline&quot;: {
+    &quot;definition&quot;: &quot;persistence of the March final-demand monthly change&quot;,
+    &quot;next_final_demand_monthly_change_basis_points&quot;: -20
+  },
+  &quot;program&quot;: {
+    &quot;decision_time&quot;: &quot;2020-04-09T12:30:00Z&quot;,
+    &quot;global_limitations&quot;: [
+      &quot;The endpoints have no likelihood, coverage, causal, or regime meaning.&quot;,
+      &quot;The April final-demand change is evaluated only afterward.&quot;,
+      &quot;The aggregate price index is not a transaction, quantity, revenue, or profit.&quot;
+    ],
+    &quot;hypothesis&quot;: &quot;Evaluate March-change persistence or one repetition of the known 40-basis-point increase using only releases available at the boundary.&quot;,
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;parameters&quot;: [
+      {
+        &quot;derivation&quot;: &quot;Use March-change persistence or one repetition of the only known change between the February and March first-reported final-demand monthly changes.&quot;,
+        &quot;evidence_class&quot;: &quot;inferred&quot;,
+        &quot;grid_points&quot;: 2,
+        &quot;limitations&quot;: [
+          &quot;One adjacent-release change defines a stress range, not a forecast or probability.&quot;,
+          &quot;Unadjusted indexes and 12-month changes do not set either endpoint.&quot;,
+          &quot;The April event is absent from range construction.&quot;
+        ],
+        &quot;lower&quot;: -20.0,
+        &quot;operation&quot;: &quot;set&quot;,
+        &quot;parameter_id&quot;: &quot;bls-ppi-next-final-demand-change-range&quot;,
+        &quot;source_record_ids&quot;: [
+          &quot;bls.ppi.archived_final_demand:202002:final_demand_monthly_change&quot;,
+          &quot;bls.ppi.archived_final_demand:202003:final_demand_monthly_change&quot;
+        ],
+        &quot;sources&quot;: [
+          {
+            &quot;license_class&quot;: &quot;redistributable&quot;,
+            &quot;publisher&quot;: &quot;U.S. Bureau of Labor Statistics&quot;,
+            &quot;redistribution_note&quot;: &quot;BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain archive URLs and release dates, and do not use the protected BLS emblem.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-14T08:30:59.546790Z&quot;,
+            &quot;sha256&quot;: &quot;392c9ee30d9deae5007a796917f8c332ecbc617e947a61b38562d67fc86c96b2&quot;,
+            &quot;source_id&quot;: &quot;bls.ppi.archived_final_demand&quot;,
+            &quot;source_version&quot;: &quot;BLS-PPI:2020-02:USDL 20-0404:html:515855b318616035f7d4:pdf:392c9ee30d9deae5007a&quot;,
+            &quot;temporal_coverage&quot;: &quot;versioned_snapshot&quot;,
+            &quot;url&quot;: &quot;https://www.bls.gov/news.release/archives/ppi_03122020.pdf&quot;,
+            &quot;vintage_as_of&quot;: &quot;2020-03-12T12:30:00Z&quot;
+          },
+          {
+            &quot;license_class&quot;: &quot;redistributable&quot;,
+            &quot;publisher&quot;: &quot;U.S. Bureau of Labor Statistics&quot;,
+            &quot;redistribution_note&quot;: &quot;BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain archive URLs and release dates, and do not use the protected BLS emblem.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-14T08:31:03.265231Z&quot;,
+            &quot;sha256&quot;: &quot;18540697b82c4cbb42703f24a44d808661bf2baf8883b135a2c1a385c1c6d7fb&quot;,
+            &quot;source_id&quot;: &quot;bls.ppi.archived_final_demand&quot;,
+            &quot;source_version&quot;: &quot;BLS-PPI:2020-03:USDL 20-0567:html:318dafbdf942ea9ac315:pdf:18540697b82c4cbb4270&quot;,
+            &quot;temporal_coverage&quot;: &quot;versioned_snapshot&quot;,
+            &quot;url&quot;: &quot;https://www.bls.gov/news.release/archives/ppi_04092020.pdf&quot;,
+            &quot;vintage_as_of&quot;: &quot;2020-04-09T12:30:00Z&quot;
+          }
+        ],
+        &quot;target_id&quot;: &quot;bls_ppi:final_demand_united_states&quot;,
+        &quot;unit&quot;: &quot;basis_points&quot;,
+        &quot;upper&quot;: 20.0,
+        &quot;variable&quot;: &quot;next_final_demand_monthly_change_basis_points&quot;
+      }
+    ],
+    &quot;program_id&quot;: &quot;bls-ppi-next-final-demand-change-envelope&quot;,
+    &quot;scenario_id&quot;: &quot;bls-ppi-2020-final-demand-change-boundary&quot;
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">timevault</p>
+  <h3><code>bls-ppi.timevault.release-pair-query</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> reported: 2</p>
+  <p><strong>Artifact hash:</strong> <code>48bda7c7cbb5e7cdcf856c4210d6028a8000175b6469db6932a6060b27112547</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>bls.ppi.archived_final_demand:202002:final_demand_monthly_change</code></li><li><code>bls.ppi.archived_final_demand:202003:final_demand_monthly_change</code></li></ul>
+    <h4>Limitations</h4><ul><li>The records are aggregate producer-price changes, not item-level transactions.</li><li>Each snapshot was retrieved later but remains tied to an archived release pair.</li><li>The April final-demand change is excluded from every ReplayPack input.</li><li>Unadjusted indexes and 12-month changes do not set a FinReplay endpoint.</li><li>PPI indexes are subject to revision four months after original publication.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;adjacent_prior_value_crosscheck_verified&quot;: true,
+  &quot;append&quot;: {
+    &quot;artifact_ids&quot;: [
+      &quot;3f76217e20bcac03c8511258497915f3a493be1e9cda9f836cbf1d63c74b8e31&quot;,
+      &quot;ab3933f8a0e9a5654e4bc6cba7e498c55664afe2152e93a26c556e571bacdc78&quot;
+    ],
+    &quot;attempted_records&quot;: 2,
+    &quot;fact_hashes&quot;: [
+      &quot;144837750537a4188c7a65c938fb9d77ce9764316ecf14fa9055e00b98611be5&quot;,
+      &quot;d5fafe9ec776a36f6df16f3af28e0156868c09980dd2a30b1b248c493c6a359f&quot;
+    ],
+    &quot;idempotent_records&quot;: 0,
+    &quot;inserted_records&quot;: 2
+  },
+  &quot;decision_observations_basis_points&quot;: {
+    &quot;february_final_demand_monthly_change&quot;: -60,
+    &quot;march_final_demand_monthly_change&quot;: -20,
+    &quot;march_prior_february_change&quot;: -60
+  },
+  &quot;decision_time&quot;: &quot;2020-04-09T12:30:00+00:00&quot;,
+  &quot;html_pdf_crosscheck_verified&quot;: true,
+  &quot;input_lock_sha256&quot;: &quot;3fe627147fe7d5db7136938e3bada636a42bd4934fede05482da3fb7d8962174&quot;,
+  &quot;manifest&quot;: {
+    &quot;database_bytes&quot;: 0,
+    &quot;distinct_records&quot;: 2,
+    &quot;fact_set_sha256&quot;: &quot;105f399bc1dd74dcc74922fcb05bdc302f9a86087976c4607734b62a3406aa23&quot;,
+    &quot;fact_versions&quot;: 2,
+    &quot;generated_at&quot;: &quot;2026-08-14T08:40:00+00:00&quot;,
+    &quot;retrieval_receipts&quot;: 2,
+    &quot;source_artifacts&quot;: 2
+  },
+  &quot;max_available_at&quot;: &quot;2020-04-09T12:30:00+00:00&quot;,
+  &quot;revision_window_months&quot;: 4,
+  &quot;selected_record_ids&quot;: [
+    &quot;bls.ppi.archived_final_demand:202002:final_demand_monthly_change&quot;,
+    &quot;bls.ppi.archived_final_demand:202003:final_demand_monthly_change&quot;
+  ],
+  &quot;source_auxiliary_measures_used_as_range_input&quot;: false,
+  &quot;source_response_file_count&quot;: 4
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">trialcourt</p>
+  <h3><code>bls-ppi.trialcourt.retrospective-gate</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1, reported: 2, simulated: 1</p>
+  <p><strong>Artifact hash:</strong> <code>06f7525d9cc7a2ffb7fd2dc4e5d7becd70298eaaf488a35e954b51dafac79990</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>bls.ppi.archived_final_demand:202002:final_demand_monthly_change</code></li><li><code>bls.ppi.archived_final_demand:202003:final_demand_monthly_change</code></li></ul>
+    <h4>Limitations</h4><ul><li>The rejected attempt is a retrospective method boundary, not a validated forecast.</li><li>Operational sentinel fields contain no execution, capacity, or return evidence.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;attempt&quot;: {
+    &quot;attempt_id&quot;: &quot;bls-ppi-retrospective-attempt-1&quot;,
+    &quot;attempt_number&quot;: 1,
+    &quot;code_commit&quot;: &quot;4ee8d1281a67286caa7880c371ea24a65f8bf28f&quot;,
+    &quot;completed_at&quot;: &quot;2026-08-14T08:40:00Z&quot;,
+    &quot;config_sha256&quot;: &quot;d5402c480c2ec9f6e0d70f22887bf09155cc215d997e5e005afbfa3152864b31&quot;,
+    &quot;decision_time&quot;: &quot;2020-04-09T12:30:00Z&quot;,
+    &quot;evaluation_end&quot;: &quot;2020-05-20&quot;,
+    &quot;evaluation_start&quot;: &quot;2020-04-10&quot;,
+    &quot;gross_return_bps&quot;: 0.0,
+    &quot;input_manifest_sha256&quot;: &quot;3fe627147fe7d5db7136938e3bada636a42bd4934fede05482da3fb7d8962174&quot;,
+    &quot;max_input_available_at&quot;: &quot;2020-04-09T12:30:00Z&quot;,
+    &quot;median_daily_volume_usd&quot;: 1.0,
+    &quot;metric_value&quot;: 40.0,
+    &quot;next_training_start&quot;: null,
+    &quot;notes&quot;: [
+      &quot;Retrospective method-boundary attempt; p=1 records no inferential test.&quot;,
+      &quot;One-dollar and zero-return fields are non-trading schema sentinels.&quot;,
+      &quot;No April PPI fact is in the attempt manifest.&quot;
+    ],
+    &quot;one_way_turnover&quot;: 0.0,
+    &quot;output_manifest_sha256&quot;: &quot;5ede895a6afbf1ef5dbed3dd389462c8ec374dbaf938e51fd41b716be1c59108&quot;,
+    &quot;p_value&quot;: 1.0,
+    &quot;regime_metric_values&quot;: {
+      &quot;continuation-range-width&quot;: 40.0,
+      &quot;known-adjacent-release-increase&quot;: 40.0
+    },
+    &quot;requested_capital_usd&quot;: 1.0,
+    &quot;sample_size&quot;: 2,
+    &quot;short_fraction&quot;: 0.0,
+    &quot;training_end&quot;: &quot;2020-04-07&quot;,
+    &quot;trial_id&quot;: &quot;bls-ppi-retrospective-range-screen&quot;
+  },
+  &quot;attempt_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;7c711230368df233cf6951c68e64902a1fb67f60772b5e26f9d428cb5d838986&quot;,
+    &quot;entry_hash&quot;: &quot;7c711230368df233cf6951c68e64902a1fb67f60772b5e26f9d428cb5d838986&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 2
+  },
+  &quot;decision&quot;: {
+    &quot;adjusted_p_values&quot;: {
+      &quot;bls-ppi-retrospective-attempt-1&quot;: 1.0
+    },
+    &quot;attempt_ids&quot;: [
+      &quot;bls-ppi-retrospective-attempt-1&quot;
+    ],
+    &quot;attempt_set_sha256&quot;: &quot;e84925ddde61955530e28cffc87f2f195304a39dc8747ca0dd12b9e3b3d5451f&quot;,
+    &quot;candidate_attempt_id&quot;: &quot;bls-ppi-retrospective-attempt-1&quot;,
+    &quot;decided_at&quot;: &quot;2026-08-14T08:40:00Z&quot;,
+    &quot;decision_id&quot;: &quot;decision:bls-ppi-retrospective-range-screen:14b7d71f501c8a1f38c65345&quot;,
+    &quot;disposition&quot;: &quot;reject&quot;,
+    &quot;findings&quot;: [
+      {
+        &quot;kind&quot;: &quot;preregistration&quot;,
+        &quot;metrics&quot;: {
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;registered_before_holdout&quot;: false
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Registration was retrospective or the observed attempt family exceeded the preregistered declaration.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;leakage&quot;,
+        &quot;metrics&quot;: {
+          &quot;embargo_respected&quot;: true,
+          &quot;evaluation_inside_holdout&quot;: true,
+          &quot;input_available_by_decision&quot;: true,
+          &quot;training_respects_purge&quot;: true
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Point-in-time input, purge, holdout and embargo checks passed.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;multiplicity&quot;,
+        &quot;metrics&quot;: {
+          &quot;adjusted_p_value&quot;: 1.0,
+          &quot;alpha&quot;: 0.05,
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;raw_p_value&quot;: 1.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Candidate does not survive family-wise Holm adjustment.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;regime&quot;,
+        &quot;metrics&quot;: {
+          &quot;best_regime_metric&quot;: 40.0,
+          &quot;regime_count&quot;: 2,
+          &quot;worst_regime_metric&quot;: 40.0
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Metric direction is stable across named regimes.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;execution&quot;,
+        &quot;metrics&quot;: {
+          &quot;borrow_cost_bps&quot;: 0.0,
+          &quot;gross_return_bps&quot;: 0.0,
+          &quot;immediate_cost_bps&quot;: 0.0,
+          &quot;net_return_bps&quot;: 0.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Preregistered execution and borrow costs erase the gross return.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;capacity&quot;,
+        &quot;metrics&quot;: {
+          &quot;allowed_daily_notional_usd&quot;: 0.05,
+          &quot;daily_notional_usd&quot;: 0.0,
+          &quot;max_participation_rate&quot;: 0.05
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Requested capital fits the preregistered participation limit.&quot;
+      }
+    ],
+    &quot;trial_id&quot;: &quot;bls-ppi-retrospective-range-screen&quot;
+  },
+  &quot;input_lock_sha256&quot;: &quot;3fe627147fe7d5db7136938e3bada636a42bd4934fede05482da3fb7d8962174&quot;,
+  &quot;manifest&quot;: {
+    &quot;attempts&quot;: 1,
+    &quot;chain_tip_sha256&quot;: &quot;5075fa9ea4ced3c6a72473b30b1c1d90cf1a903d7ae94bdc10f5dd576e145b0f&quot;,
+    &quot;decisions&quot;: 1,
+    &quot;entries&quot;: 3,
+    &quot;registrations&quot;: 1,
+    &quot;rejected_decisions&quot;: 1,
+    &quot;verified&quot;: true
+  },
+  &quot;registration_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;88a187e71cf0370b97deebbc14823ce11259d1214fb453d0759d91cc655cad38&quot;,
+    &quot;entry_hash&quot;: &quot;88a187e71cf0370b97deebbc14823ce11259d1214fb453d0759d91cc655cad38&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 1
+  },
+  &quot;spec&quot;: {
+    &quot;cost_model&quot;: {
+      &quot;borrow_bps_annual&quot;: 0.0,
+      &quot;commission_bps&quot;: 1.0,
+      &quot;half_spread_bps&quot;: 1.0,
+      &quot;market_impact_bps&quot;: 1.0,
+      &quot;max_participation_rate&quot;: 0.05
+    },
+    &quot;declared_attempts&quot;: 1,
+    &quot;disposition&quot;: &quot;revise&quot;,
+    &quot;economic_mechanism&quot;: &quot;PPI is an aggregate seller-price index. Two releases and one later outcome cannot establish predictive validity, price-setting mechanisms, pass-through, pandemic effects, consumer costs, or causality.&quot;,
+    &quot;embargo_days&quot;: 0,
+    &quot;expected_direction&quot;: &quot;positive&quot;,
+    &quot;holdout_end&quot;: &quot;2020-05-20&quot;,
+    &quot;holdout_start&quot;: &quot;2020-04-10&quot;,
+    &quot;hypothesis&quot;: &quot;A retrospectively constructed one-change PPI boundary qualifies for research eligibility after every adversarial gate.&quot;,
+    &quot;preregistered_at&quot;: &quot;2026-08-14T08:40:00Z&quot;,
+    &quot;primary_metric&quot;: &quot;one-change final-demand PPI range width in basis points&quot;,
+    &quot;purge_days&quot;: 2,
+    &quot;trial_id&quot;: &quot;bls-ppi-retrospective-range-screen&quot;
+  }
+}</pre>
+  </details>
+</article>
+    </section>
+    <section id="limitations" aria-labelledby="limitations-title">
+      <h2 id="limitations-title">Pack limitations</h2><ul><li>This lock preserves the February and March 2020 BLS final-demand monthly changes knowable at the April 9 embargo end and binds each archived HTML/PDF pair. It excludes the April event, current revised values, product or establishment observations, transactions, quantities, revenues, profits, consumer prices, a probability distribution, forecast, calibrated interval, pandemic or price-setting causality, recommendation, execution, investment performance, external review, deployment, and user impact.</li><li>The endpoints are March persistence or one repetition of the 40-basis-point rise.</li><li>The April event and every later-known value are excluded from every input.</li><li>The unadjusted index and 12-month change are metadata, not endpoint inputs.</li><li>PPI measures seller prices received by domestic producers, not consumer costs.</li><li>The COVID-19 text does not establish causality or unaffected measurement.</li><li>No producer, product, transaction, market, portfolio, or recommendation exists.</li><li>A fixed build epoch and zero elapsed time preserve deterministic pack identity.</li></ul>
+    </section>
+  </main>
+  <footer><p>Static read-only report. No brokerage connection,
+  tracking script, or external request.</p></footer>
+</body>
+</html>
