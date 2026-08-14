@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over official archived Census/HUD NRS PDFs. Range construction uses only the 800,000-unit revised January and 765,000-unit initial February SAAR values co-published in the March 24 decision snapshot; the 764,000 January initial release is revision lineage only. Reported facts remain reported, while the 730,000-to-765,000 continuation envelope remains inferred with no probability. The April 23 March event and revisions stay only in a disjoint event lock. This is not an official forecast, sampling-confidence interval, calibrated interval, causal or housing-market model, COVID effect, transaction count, closing, trading signal, deployment, external validation, or user-impact claim.",
+  "files": [
+    {
+      "bytes": 1511,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "be46755354aa082dd39ec121cbc38a34fd1ba720c5d5191e85a62bb508667fcb"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "c8d9bf7cb834487ae7c13404f8741afb553c962abfe63446c8cd4d29518c81ca"
+    },
+    {
+      "bytes": 33915,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "4818eeaac5e17e77f8d2e3774260000b41eb041fda178e1d8c9d54f546b7b476"
+    },
+    {
+      "bytes": 32867,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "c08fd5000489ece2b62f09b46fc1e49b301961bc81c7c7f6aa7fefe9e89762b1"
+    }
+  ],
+  "pack_sha256": "87ea7da019f6ad6255f0375650e9906efd7695108d13618d9630ce0685483d4d",
+  "receipt_sha256": "ecd0b40c1c1ad488935074dc5c017009ab7b9e9f5ea24bd8e131abc051d2ba2d",
+  "replay_id": "census-nrs-2020-new-home-sales-level-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "b61b207b010a56fccb023951bbfd462b0ab84687",
+    "compressed_input_bytes": 2312,
+    "created_at": "2026-08-14T07:15:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "b0b977344c049a8a7a20f0fe2cbbb2826c0ece5122a251dfb2c18ffcacc8688e",
+    "output_manifest_sha256": "ee8fac53a1da6a2775af17da70d18cad027ef9f7d1b149b6f862d71a06b9926f",
+    "replay_id": "census-nrs-2020-new-home-sales-level-boundary-v1",
+    "scenario_id": "census-nrs-2020-new-home-sales-level-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "c08fd5000489ece2b62f09b46fc1e49b301961bc81c7c7f6aa7fefe9e89762b1",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:3954cc711c3352c64a9af890452323f9318a8a5dcfe936263b5811392aa77f6e"
+}

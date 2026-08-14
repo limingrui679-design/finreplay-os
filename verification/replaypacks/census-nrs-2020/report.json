@@ -1,0 +1,615 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 4,
+    "reported": 4,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "b0b977344c049a8a7a20f0fe2cbbb2826c0ece5122a251dfb2c18ffcacc8688e",
+  "pack_sha256": "87ea7da019f6ad6255f0375650e9906efd7695108d13618d9630ce0685483d4d",
+  "source_hashes": [
+    "9a47e1fd70c0830394a9681ec0bc1881e1d0522c105ff9aeff60dd01c98c3fb8",
+    "ba86558efb14745ddf6c56684c9023444397941a0c49bed406e1d6eda6dcca3b"
+  ],
+  "source_record_ids": [
+    "census.hud.archived_new_residential_sales:202001:new_single_family_houses_sold",
+    "census.hud.archived_new_residential_sales:202002:new_single_family_houses_sold"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "census-nrs.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "a04fd30e14051e4a0132d1e241f1f2170f0d9643ad32184ea1b306c9c17f0c54",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not validate the one-decline range heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This aggregate NRS boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no property, builder, buyer, mortgage, closing, portfolio, or allocation input is invented.",
+          "input_lock_sha256": "e37ef693733c355fbe7bb2b91dfdd2286cf8efadf072919dad05cf6632635ee1",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "9a47e1fd70c0830394a9681ec0bc1881e1d0522c105ff9aeff60dd01c98c3fb8",
+          "ba86558efb14745ddf6c56684c9023444397941a0c49bed406e1d6eda6dcca3b"
+        ],
+        "source_record_ids": [
+          "census.hud.archived_new_residential_sales:202001:new_single_family_houses_sold",
+          "census.hud.archived_new_residential_sales:202002:new_single_family_houses_sold"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-nrs.shockcompiler.new-home-sales-level-range",
+          "census-nrs.timevault.release-query",
+          "census-nrs.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "census-nrs.shockcompiler.new-home-sales-level-range",
+        "artifact_kind": "bounded-census-hud-nrs-new-home-sales-level-program",
+        "artifact_sha256": "4e5ea4ddbc2750a7a35fafbe053b3bc3aa516fc7167bc5ca1a131511aa03004a",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 3
+        },
+        "limitations": [
+          "The endpoints mechanically reuse one decline in one decision-time release snapshot.",
+          "The April 23 March value and revised February value are absent.",
+          "The range is not an official interval, probability, causal model, or forecast."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": 730000.0,
+            "upper": 765000.0
+          },
+          "bound_construction": {
+            "basis_is_single_february_release_snapshot": true,
+            "endpoint_method": "latest_initial_level_persistence_or_repeat_same_release_snapshot_decline",
+            "future_event_used": false,
+            "january_initial_release_used_as_numeric_endpoint_input": false,
+            "known_decision_snapshot_decline_units_saar": 35000,
+            "lower_level_units_saar": 730000,
+            "official_sampling_interval_used": false,
+            "probability_assigned": false,
+            "range_width_units_saar": 35000,
+            "upper_level_units_saar": 765000
+          },
+          "compiled": {
+            "compiled_sha256": "e4014764ee8964e50f0ab1e39cb150f8bbbf444edd42a82aec8697df142fdb7a",
+            "decision_time": "2020-03-24T14:00:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, causal, or regime meaning.",
+              "The April 23 release and all its revisions are evaluated only afterward.",
+              "The aggregate annualized rate is not a property or transaction dataset."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "census-nrs-next-new-home-sales-level-envelope",
+            "scenario_id": "census-nrs-2020-new-home-sales-level-boundary",
+            "source_program_sha256": "0a8d926299c46c7e38d72e74856bf6b3e8bbc86f5184b525245fd54c5324cf87",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use February initial-level persistence or one repetition of the only known decline between revised January and initial February values inside the same March 24 NRS release snapshot.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "The January initial-release value is revision lineage and does not set the decline.",
+                      "One decision-snapshot decline defines a stress range, not a forecast, probability, confidence interval, or calibrated predictive interval.",
+                      "Official 90-percent sampling margins do not define either endpoint.",
+                      "The April 23 March event and its revisions are absent from range construction."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "census-nrs-next-new-home-sales-level-range",
+                    "source_hashes": [
+                      "ba86558efb14745ddf6c56684c9023444397941a0c49bed406e1d6eda6dcca3b",
+                      "9a47e1fd70c0830394a9681ec0bc1881e1d0522c105ff9aeff60dd01c98c3fb8"
+                    ],
+                    "source_record_ids": [
+                      "census.hud.archived_new_residential_sales:202001:new_single_family_houses_sold",
+                      "census.hud.archived_new_residential_sales:202002:new_single_family_houses_sold"
+                    ],
+                    "target_id": "census_hud_nrs:new_single_family_houses_sold_us",
+                    "unit": "houses_at_seasonally_adjusted_annual_rate",
+                    "value": 730000.0,
+                    "variable": "next_new_single_family_houses_sold_level_units_saar"
+                  }
+                ],
+                "trial_id": "census-nrs-next-new-home-sales-level-envelope:00000000:6a12ccc673125278",
+                "trial_index": 0,
+                "vector_sha256": "6a12ccc6731252788c52ce89913ecdaa2a5a423b1219dc788425d2990267f52c"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use February initial-level persistence or one repetition of the only known decline between revised January and initial February values inside the same March 24 NRS release snapshot.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "The January initial-release value is revision lineage and does not set the decline.",
+                      "One decision-snapshot decline defines a stress range, not a forecast, probability, confidence interval, or calibrated predictive interval.",
+                      "Official 90-percent sampling margins do not define either endpoint.",
+                      "The April 23 March event and its revisions are absent from range construction."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "census-nrs-next-new-home-sales-level-range",
+                    "source_hashes": [
+                      "ba86558efb14745ddf6c56684c9023444397941a0c49bed406e1d6eda6dcca3b",
+                      "9a47e1fd70c0830394a9681ec0bc1881e1d0522c105ff9aeff60dd01c98c3fb8"
+                    ],
+                    "source_record_ids": [
+                      "census.hud.archived_new_residential_sales:202001:new_single_family_houses_sold",
+                      "census.hud.archived_new_residential_sales:202002:new_single_family_houses_sold"
+                    ],
+                    "target_id": "census_hud_nrs:new_single_family_houses_sold_us",
+                    "unit": "houses_at_seasonally_adjusted_annual_rate",
+                    "value": 765000.0,
+                    "variable": "next_new_single_family_houses_sold_level_units_saar"
+                  }
+                ],
+                "trial_id": "census-nrs-next-new-home-sales-level-envelope:00000001:bac78e53c383028f",
+                "trial_index": 1,
+                "vector_sha256": "bac78e53c383028faa5e8b2752419dd071f3bfbf6e56012c3433382626e8b23c"
+              }
+            ]
+          },
+          "input_lock_sha256": "e37ef693733c355fbe7bb2b91dfdd2286cf8efadf072919dad05cf6632635ee1",
+          "known_decision_snapshot_levels": {
+            "decision_snapshot_revised_january_sales_units_saar": 800000,
+            "february_initial_sales_units_saar": 765000,
+            "january_initial_release_sales_units_saar": 764000,
+            "january_revision_delta_known_at_decision_units_saar": 36000,
+            "known_decision_snapshot_decline_units_saar": 35000,
+            "lower_level_units_saar": 730000,
+            "range_width_units_saar": 35000,
+            "upper_level_units_saar": 765000
+          },
+          "naive_baseline": {
+            "definition": "persistence of the February initial NRS sales level",
+            "next_new_single_family_houses_sold_level_units_saar": 765000
+          },
+          "program": {
+            "decision_time": "2020-03-24T14:00:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, causal, or regime meaning.",
+              "The April 23 release and all its revisions are evaluated only afterward.",
+              "The aggregate annualized rate is not a property or transaction dataset."
+            ],
+            "hypothesis": "Evaluate February sales-level persistence or one repetition of the known decision-snapshot decline using only facts available at the boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use February initial-level persistence or one repetition of the only known decline between revised January and initial February values inside the same March 24 NRS release snapshot.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "The January initial-release value is revision lineage and does not set the decline.",
+                  "One decision-snapshot decline defines a stress range, not a forecast, probability, confidence interval, or calibrated predictive interval.",
+                  "Official 90-percent sampling margins do not define either endpoint.",
+                  "The April 23 March event and its revisions are absent from range construction."
+                ],
+                "lower": 730000.0,
+                "operation": "set",
+                "parameter_id": "census-nrs-next-new-home-sales-level-range",
+                "source_record_ids": [
+                  "census.hud.archived_new_residential_sales:202001:new_single_family_houses_sold",
+                  "census.hud.archived_new_residential_sales:202002:new_single_family_houses_sold"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Census Bureau and U.S. Department of Housing and Urban Development",
+                    "redistribution_note": "Full Census/HUD PDFs remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred.",
+                    "retrieved_at": "2026-08-14T07:06:40.349706Z",
+                    "sha256": "ba86558efb14745ddf6c56684c9023444397941a0c49bed406e1d6eda6dcca3b",
+                    "source_id": "census.hud.archived_new_residential_sales",
+                    "source_version": "CENSUS-HUD-NRS:2020-01:CB20-28:pdf:ba86558efb14745ddf6c5668",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.census.gov/construction/nrs/pdf/newressales_202001.pdf",
+                    "vintage_as_of": "2020-02-26T15:00:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Census Bureau and U.S. Department of Housing and Urban Development",
+                    "redistribution_note": "Full Census/HUD PDFs remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred.",
+                    "retrieved_at": "2026-08-14T07:06:42.522265Z",
+                    "sha256": "9a47e1fd70c0830394a9681ec0bc1881e1d0522c105ff9aeff60dd01c98c3fb8",
+                    "source_id": "census.hud.archived_new_residential_sales",
+                    "source_version": "CENSUS-HUD-NRS:2020-02:CB20-49:pdf:9a47e1fd70c0830394a9681e",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.census.gov/construction/nrs/pdf/newressales_202002.pdf",
+                    "vintage_as_of": "2020-03-24T14:00:00Z"
+                  }
+                ],
+                "target_id": "census_hud_nrs:new_single_family_houses_sold_us",
+                "unit": "houses_at_seasonally_adjusted_annual_rate",
+                "upper": 765000.0,
+                "variable": "next_new_single_family_houses_sold_level_units_saar"
+              }
+            ],
+            "program_id": "census-nrs-next-new-home-sales-level-envelope",
+            "scenario_id": "census-nrs-2020-new-home-sales-level-boundary"
+          }
+        },
+        "source_hashes": [
+          "9a47e1fd70c0830394a9681ec0bc1881e1d0522c105ff9aeff60dd01c98c3fb8",
+          "ba86558efb14745ddf6c56684c9023444397941a0c49bed406e1d6eda6dcca3b"
+        ],
+        "source_record_ids": [
+          "census.hud.archived_new_residential_sales:202001:new_single_family_houses_sold",
+          "census.hud.archived_new_residential_sales:202002:new_single_family_houses_sold"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-nrs.timevault.release-query"
+        ]
+      },
+      {
+        "artifact_id": "census-nrs.timevault.release-query",
+        "artifact_kind": "versioned-census-hud-nrs-release-query",
+        "artifact_sha256": "2925ccbc5f75475b12a04f86a2f6c56b3c8ad24389985805f0d8125fe9962f8b",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 2
+        },
+        "limitations": [
+          "The boundary uses only revised January and initial February values co-published in the March 24 decision snapshot.",
+          "The March value and April 23 revision snapshot are excluded from every input.",
+          "The January 764,000 initial value is retained only as revision lineage.",
+          "The figures are annualized rates, not actual monthly transaction counts.",
+          "The source-defined sale may precede a permit and is not necessarily a closing.",
+          "Full five-page official PDFs remain local download evidence."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "226c15f5519b3f8bc2a3b6c404c06f8be8f5c5f9e90d5d0589164057b89bc51b",
+              "35fff6b415055f1de75288bef7639b568ff5eb574ddc275e724c68e3754753d3"
+            ],
+            "attempted_records": 2,
+            "fact_hashes": [
+              "110f0d568ad17f2ab74354d6ef7e6a911736a1509223e4483c1e8ad29e2f102b",
+              "2573a92ff1174257ca0265c3a5272072601ea8c0837a1d56b2982f7783b46f86"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 2
+          },
+          "decision_snapshot": {
+            "initial_february_sales_units_saar": 765000,
+            "revised_january_sales_units_saar": 800000
+          },
+          "decision_time": "2020-03-24T14:00:00Z",
+          "input_lock_sha256": "e37ef693733c355fbe7bb2b91dfdd2286cf8efadf072919dad05cf6632635ee1",
+          "january_initial_release_retained_for_revision_lineage": true,
+          "january_initial_release_used_as_endpoint_input": false,
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 2,
+            "fact_set_sha256": "3a7be4f5a34afda9a300ac0b112e6dfcb44149493f973912e2beb9132c353d46",
+            "fact_versions": 2,
+            "generated_at": "2026-08-14T07:15:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2020-03-24T14:00:00Z",
+          "official_sampling_interval_used_as_range_input": false,
+          "release_time_rule": "10:00 America/New_York from each dated NRS PDF",
+          "selected_record_ids": [
+            "census.hud.archived_new_residential_sales:202001:new_single_family_houses_sold",
+            "census.hud.archived_new_residential_sales:202002:new_single_family_houses_sold"
+          ],
+          "source_evidence_file_count": 2,
+          "value_semantics": "new single-family houses sold at seasonally adjusted annual rates; the boundary uses revised January and initial February values from the single February-data release snapshot"
+        },
+        "source_hashes": [
+          "9a47e1fd70c0830394a9681ec0bc1881e1d0522c105ff9aeff60dd01c98c3fb8",
+          "ba86558efb14745ddf6c56684c9023444397941a0c49bed406e1d6eda6dcca3b"
+        ],
+        "source_record_ids": [
+          "census.hud.archived_new_residential_sales:202001:new_single_family_houses_sold",
+          "census.hud.archived_new_residential_sales:202002:new_single_family_houses_sold"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "census-nrs.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "1ad9bdd76ead13f4c68d5fb329de2ee3310eee6fb8d4fc7a6ffc493362df17c8",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 2,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "census-nrs-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "b61b207b010a56fccb023951bbfd462b0ab84687",
+            "completed_at": "2026-08-14T07:15:00Z",
+            "config_sha256": "4264130989a5c0bb65a36d5254404fa970eaca17d58dcf1eecfbe90ccf7eff3e",
+            "decision_time": "2020-03-24T14:00:00Z",
+            "evaluation_end": "2020-05-09",
+            "evaluation_start": "2020-03-25",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "e37ef693733c355fbe7bb2b91dfdd2286cf8efadf072919dad05cf6632635ee1",
+            "max_input_available_at": "2020-03-24T14:00:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 35000.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No April 23 NRS fact or revision is in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "ccd3857fae4ac37cd1d553ae0e03a9c4976c8bd56f5e0fd2bbc4b0f150b667d9",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "continuation-range-width": 35000.0,
+              "known-decision-snapshot-decline": 35000.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 2,
+            "short_fraction": 0.0,
+            "training_end": "2020-03-22",
+            "trial_id": "census-nrs-retrospective-range-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "57dafe683ef4468f40064096bdcd4a599488e1da33875a5e8cac75a16bc6fb61",
+            "entry_hash": "57dafe683ef4468f40064096bdcd4a599488e1da33875a5e8cac75a16bc6fb61",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "census-nrs-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "census-nrs-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "526d71cc979475192d6cb3ddeb31c302eae07d9208a4829e360b1a493aa827f4",
+            "candidate_attempt_id": "census-nrs-retrospective-attempt-1",
+            "decided_at": "2026-08-14T07:15:00Z",
+            "decision_id": "decision:census-nrs-retrospective-range-screen:08fd0bbeb41c8556c2e9f3a9",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 35000.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 35000.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "census-nrs-retrospective-range-screen"
+          },
+          "input_lock_sha256": "e37ef693733c355fbe7bb2b91dfdd2286cf8efadf072919dad05cf6632635ee1",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "eb2c04dff737eb360d3fff0693994938ef47e8c9dd30dc858672137b51455a1d",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "c7305d953bcfb10864984673ab388bd1089160667e0f575a4d3d7ff6c0bffeec",
+            "entry_hash": "c7305d953bcfb10864984673ab388bd1089160667e0f575a4d3d7ff6c0bffeec",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "NRS is a sampled aggregate annualized rate with revisions. One decision-time decline and one later outcome cannot establish predictive validity or housing, price, pandemic, policy, builder, buyer, mortgage, or closing causality.",
+            "embargo_days": 0,
+            "expected_direction": "positive",
+            "holdout_end": "2020-05-09",
+            "holdout_start": "2020-03-25",
+            "hypothesis": "A retrospectively constructed one-decline NRS boundary qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-14T07:15:00Z",
+            "primary_metric": "one-decision-snapshot NRS range width in units SAAR",
+            "purge_days": 2,
+            "trial_id": "census-nrs-retrospective-range-screen"
+          }
+        },
+        "source_hashes": [
+          "9a47e1fd70c0830394a9681ec0bc1881e1d0522c105ff9aeff60dd01c98c3fb8",
+          "ba86558efb14745ddf6c56684c9023444397941a0c49bed406e1d6eda6dcca3b"
+        ],
+        "source_record_ids": [
+          "census.hud.archived_new_residential_sales:202001:new_single_family_houses_sold",
+          "census.hud.archived_new_residential_sales:202002:new_single_family_houses_sold"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-nrs.shockcompiler.new-home-sales-level-range",
+          "census-nrs.timevault.release-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over official archived Census/HUD NRS PDFs. Range construction uses only the 800,000-unit revised January and 765,000-unit initial February SAAR values co-published in the March 24 decision snapshot; the 764,000 January initial release is revision lineage only. Reported facts remain reported, while the 730,000-to-765,000 continuation envelope remains inferred with no probability. The April 23 March event and revisions stay only in a disjoint event lock. This is not an official forecast, sampling-confidence interval, calibrated interval, causal or housing-market model, COVID effect, transaction count, closing, trading signal, deployment, external validation, or user-impact claim.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not housing correctness.",
+        "claim_id": "claim-extracted-census-hud-nrs-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "census-nrs.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no probability, coverage, official, or causal guarantee.",
+        "claim_id": "claim-inferred-census-hud-nrs-sales-level-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The April 23 event and every revision in that release were not used to set the range.",
+          "Official sampling margins do not set the endpoints.",
+          "The range has no housing, price, pandemic, policy, buyer, or builder causality."
+        ],
+        "statement": "The next-release stress endpoints are February-level persistence or one repeat of the known 35,000-unit SAAR decision-snapshot decline: [730,000, 765,000] units SAAR.",
+        "support_artifact_ids": [
+          "census-nrs.shockcompiler.new-home-sales-level-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external or domain review.",
+        "claim_id": "claim-inferred-census-hud-nrs-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective one-decline NRS attempt.",
+        "support_artifact_ids": [
+          "census-nrs.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "The January release's 764,000 initial value is retained for revision lineage, not substituted for the decision-time revised value.",
+        "claim_id": "claim-reported-census-hud-nrs-decision-levels",
+        "evidence_class": "reported",
+        "limitations": [
+          "These are sampled annualized aggregate rates, not actual monthly sales, property records, closings, mortgages, buyers, or builders."
+        ],
+        "statement": "The March 24 Census/HUD NRS release reports a revised January sales rate of 800,000 and an initial February rate of 765,000 units SAAR.",
+        "support_artifact_ids": [
+          "census-nrs.timevault.release-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not transactions, capital, capacity, or returns.",
+        "claim_id": "claim-simulated-census-hud-nrs-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "census-nrs.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "b61b207b010a56fccb023951bbfd462b0ab84687",
+    "compressed_input_bytes": 2312,
+    "created_at": "2026-08-14T07:15:00Z",
+    "decision_time": "2020-03-24T14:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves the January initial and complete March 24 February-data Census/HUD NRS snapshots knowable at the decision boundary. Range construction uses only the revised January 800,000 and initial February 765,000 SAAR values co-published in the decision snapshot; January's earlier 764,000 value is revision lineage only. The lock excludes the April 23 March event, February's later 741,000 revision, official 90-percent sampling intervals as range inputs, actual monthly transaction counts, properties, builders, buyers, mortgages, closings, a probability distribution, forecast, calibrated interval, housing-market, pandemic or policy causality, recommendation, execution, investment performance, external review, deployment, and user impact.",
+      "The endpoints are February-level persistence or one repetition of the single 35,000-unit SAAR decline visible inside the March 24 release snapshot.",
+      "The January initial-release level does not numerically set either endpoint.",
+      "The April 23 release and every later-known value are excluded from every input.",
+      "Official 90-percent sampling intervals are source metadata, not range inputs.",
+      "A sale is a deposit or signed agreement and may precede permit issuance.",
+      "No property, builder, buyer, mortgage, closing, return, or recommendation exists.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "census-nrs-2020-new-home-sales-level-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "census-nrs-2020-new-home-sales-level-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "Census/HUD NRS boundary before the March 2020 new-home-sales decline"
+  },
+  "topological_artifact_ids": [
+    "census-nrs.timevault.release-query",
+    "census-nrs.shockcompiler.new-home-sales-level-range",
+    "census-nrs.trialcourt.retrospective-gate",
+    "census-nrs.replaystudio.render"
+  ],
+  "trace_id": "trace:3954cc711c3352c64a9af890452323f9318a8a5dcfe936263b5811392aa77f6e"
+}
