@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over two paired archived Federal Reserve H.4.1 Table 1 Wednesday central-bank-liquidity-swap balances. Reported balances remain reported; the 206,051-to-412,057-million-dollar persistence-or-repeat-increase range remains inferred with no probability. The April 1 event stays only in a disjoint event lock. The March release times are official stated times, not server logs. This is not a Federal Reserve forecast, calibrated interval, current-market exposure, institution-level allocation, transaction record, policy-effectiveness result, causal model, deployment, external validation, investment result, or user impact.",
+  "files": [
+    {
+      "bytes": 1446,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "669b7ac987d430b3fa07cfde84751aeddd6b99744ae9521e1f861bc5f3a2ec10"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "32649438ec25868061a6bcf77140c2d1128270f4b01f464996e95ecd9e6d3520"
+    },
+    {
+      "bytes": 31956,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "96f02e9454c76442265f2b1a3102d5f5d61aa89d201d36e2d5112caee44e11ec"
+    },
+    {
+      "bytes": 31410,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "8d7ceb2ead7cb941ad10a9970a92ea8f89e5636ee11ac4b7fe2785b45143c6fa"
+    }
+  ],
+  "pack_sha256": "a2603de494cd5c2e2aad527f8e30e2c832259c97bca931a6c146926c858d5584",
+  "receipt_sha256": "3d7542192932fad79edb2b81f6a7b623c32c399e7678cda1217f97bb8a8c0a21",
+  "replay_id": "fed-h41-2020-liquidity-swap-balance-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "85b82f9cf69fa11fe670a06befbd7db3afca0bab",
+    "compressed_input_bytes": 2281,
+    "created_at": "2026-08-14T10:30:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "36434de1c52fe5ecfb7b357bbb46b7e4e96e7fff6c12dba5be506e802f5d60d8",
+    "output_manifest_sha256": "2a2fb29ef40d8f92ee37bd9a12fa58f22fe0451f724eccec6230b87ef60c52cb",
+    "replay_id": "fed-h41-2020-liquidity-swap-balance-boundary-v1",
+    "scenario_id": "fed-h41-2020-liquidity-swap-balance-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "8d7ceb2ead7cb941ad10a9970a92ea8f89e5636ee11ac4b7fe2785b45143c6fa",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:49f09dacda1e19d5e88d5d13be3614b8270ab7b7118cacc38e776a516c69ec41"
+}
