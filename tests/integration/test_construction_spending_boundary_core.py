@@ -8,7 +8,7 @@ import pytest
 from pydantic import ValidationError
 
 from finreplay.contracts import EvidenceClass, TrialDisposition
-from finreplay.engines import EngineName
+from finreplay.engines import EngineName, ReplayStudio
 from finreplay.scenarios import (
     ConstructionSpendingBoundaryInputLock,
     OfficialEventLock,
@@ -18,7 +18,8 @@ from finreplay.scenarios import (
 
 LOCK_PATH = Path("scenarios/census-c30-2020/input-lock.json")
 EVENT_PATH = Path("scenarios/census-c30-2020/event-lock.json")
-CODE_COMMIT = "36fbc8a000000000000000000000000000000000"
+PACK_PATH = Path("verification/replaypacks/census-c30-2020")
+CODE_COMMIT = "c6c78190231ead524db37c22fdbdfd5c7101acc2"
 
 
 @pytest.mark.integration
@@ -106,6 +107,10 @@ def test_construction_spending_boundary_runs_four_engines_with_exact_values() ->
         EvidenceClass.SIMULATED,
         EvidenceClass.EXTRACTED,
     }
+    compiled = ReplayStudio().compile(spec)
+    verified = ReplayStudio().verify(PACK_PATH)
+    assert compiled.pack_sha256 == verified.pack_sha256
+    assert verified.replay_manifest.code_commit == CODE_COMMIT
 
 
 @pytest.mark.integration

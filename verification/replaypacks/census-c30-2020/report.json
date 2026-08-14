@@ -1,0 +1,604 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 4,
+    "reported": 4,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "3f8999f6ca955f6215b7199fc253b5120c34e3ddb666a9a9fecc995d35c34137",
+  "pack_sha256": "cb1278b756b042287cf4bccbc2944687b0dc98a77ef6bead01e875f8e05377c7",
+  "source_hashes": [
+    "566f2267ff69d815ce4bf1ffac6206775d0e3696ea79102352444e051e405579",
+    "73d0e0ec0216d74255ebcafb316a2081a91b80ef76a34e07f6b31c79d57f9918",
+    "a224c4f710f41c610725fe58c88bbf7263a02bfcaaeeab425cc2697cd7461f4d",
+    "c212b816fce0823d3e15b01c35d306253bb86280581a3a7d61421ba614dc25bb"
+  ],
+  "source_record_ids": [
+    "census.c30.archived_construction_spending:202001:total_construction_saar_level",
+    "census.c30.archived_construction_spending:202002:total_construction_saar_level"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "census-c30.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "8c3664e784b0fd9c8f24b82b274b176e77f4da08caf024df643dcfd3794e3c8d",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not validate the preliminary-level range heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This aggregate C30 boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no project, price deflator, transaction, position, order, portfolio, or allocation input is invented.",
+          "input_lock_sha256": "3ae6e6d15a646d104f64ef8a208af46481341ba9baf266666b07353aa56fc8ea",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "566f2267ff69d815ce4bf1ffac6206775d0e3696ea79102352444e051e405579",
+          "73d0e0ec0216d74255ebcafb316a2081a91b80ef76a34e07f6b31c79d57f9918",
+          "a224c4f710f41c610725fe58c88bbf7263a02bfcaaeeab425cc2697cd7461f4d",
+          "c212b816fce0823d3e15b01c35d306253bb86280581a3a7d61421ba614dc25bb"
+        ],
+        "source_record_ids": [
+          "census.c30.archived_construction_spending:202001:total_construction_saar_level",
+          "census.c30.archived_construction_spending:202002:total_construction_saar_level"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-c30.shockcompiler.construction-spending-level-range",
+          "census-c30.timevault.release-query",
+          "census-c30.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "census-c30.shockcompiler.construction-spending-level-range",
+        "artifact_kind": "bounded-census-c30-construction-spending-program",
+        "artifact_sha256": "aa05d5fc93f72f7cec9f36f10c01b174e4dad36a9726bd34fcc784445bf2fbd5",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 3
+        },
+        "limitations": [
+          "The endpoints mechanically reuse one initial-release level decline.",
+          "The May 1 March value and revised January/February values are absent.",
+          "The range is not an official confidence interval, probability, or causal model."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": 1364171.0,
+            "upper": 1366697.0
+          },
+          "bound_construction": {
+            "basis_is_initial_release_levels_not_official_monthly_change": true,
+            "endpoint_method": "latest_preliminary_level_persistence_or_repeat_known_initial_decline",
+            "future_event_used": false,
+            "known_initial_decline_million_dollars": 2526,
+            "lower_level_million_dollars": 1364171,
+            "official_sampling_confidence_interval_used": false,
+            "probability_assigned": false,
+            "range_width_million_dollars": 2526,
+            "upper_level_million_dollars": 1366697
+          },
+          "compiled": {
+            "compiled_sha256": "72ec1f6d9add56b9b1bf41a149cf4fdb2bec1837aae0d72e4dc93a1ee30b37b9",
+            "decision_time": "2020-04-01T14:00:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, causal, inflation, or regime meaning.",
+              "Official 90-percent sampling intervals are source metadata, not range inputs.",
+              "The May 1 release and all revisions are excluded and evaluated only afterward."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "census-c30-next-construction-spending-level-envelope",
+            "scenario_id": "census-c30-2020-construction-spending-boundary",
+            "source_program_sha256": "bf752f767d7ba3a926545b357f0139e77e96ecf2f0461fc45c077ee3db803484",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use February preliminary-level persistence or one repetition of the only known decline between January and February initial-release Table 1 levels.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "The 2,526-million-dollar difference compares two initial-release current-month levels; it is not the official monthly change against revised January.",
+                      "Two release snapshots and one decline define a stress range, not a forecast, probability, or confidence interval."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "census-c30-next-construction-spending-level-range",
+                    "source_hashes": [
+                      "73d0e0ec0216d74255ebcafb316a2081a91b80ef76a34e07f6b31c79d57f9918",
+                      "c212b816fce0823d3e15b01c35d306253bb86280581a3a7d61421ba614dc25bb"
+                    ],
+                    "source_record_ids": [
+                      "census.c30.archived_construction_spending:202001:total_construction_saar_level",
+                      "census.c30.archived_construction_spending:202002:total_construction_saar_level"
+                    ],
+                    "target_id": "census_c30:total_construction_value_put_in_place",
+                    "unit": "million_dollars_saar",
+                    "value": 1364171.0,
+                    "variable": "next_total_construction_saar_level_million_dollars"
+                  }
+                ],
+                "trial_id": "census-c30-next-construction-spending-level-envelope:00000000:7b8f1a3619a07a64",
+                "trial_index": 0,
+                "vector_sha256": "7b8f1a3619a07a64f787ad5ef95daf65a16ac3830a62e503084a6995b07c624a"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use February preliminary-level persistence or one repetition of the only known decline between January and February initial-release Table 1 levels.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "The 2,526-million-dollar difference compares two initial-release current-month levels; it is not the official monthly change against revised January.",
+                      "Two release snapshots and one decline define a stress range, not a forecast, probability, or confidence interval."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "census-c30-next-construction-spending-level-range",
+                    "source_hashes": [
+                      "73d0e0ec0216d74255ebcafb316a2081a91b80ef76a34e07f6b31c79d57f9918",
+                      "c212b816fce0823d3e15b01c35d306253bb86280581a3a7d61421ba614dc25bb"
+                    ],
+                    "source_record_ids": [
+                      "census.c30.archived_construction_spending:202001:total_construction_saar_level",
+                      "census.c30.archived_construction_spending:202002:total_construction_saar_level"
+                    ],
+                    "target_id": "census_c30:total_construction_value_put_in_place",
+                    "unit": "million_dollars_saar",
+                    "value": 1366697.0,
+                    "variable": "next_total_construction_saar_level_million_dollars"
+                  }
+                ],
+                "trial_id": "census-c30-next-construction-spending-level-envelope:00000001:9fb60668c6d2d1c8",
+                "trial_index": 1,
+                "vector_sha256": "9fb60668c6d2d1c8857a325688b10e1949cdc421f19bf4abd3e9a58fed4eec66"
+              }
+            ]
+          },
+          "input_lock_sha256": "3ae6e6d15a646d104f64ef8a208af46481341ba9baf266666b07353aa56fc8ea",
+          "known_initial_release_levels": {
+            "february_initial_level_million_dollars": 1366697,
+            "january_initial_level_million_dollars": 1369223,
+            "known_initial_decline_million_dollars": 2526,
+            "lower_level_million_dollars": 1364171,
+            "range_width_million_dollars": 2526,
+            "upper_level_million_dollars": 1366697
+          },
+          "naive_baseline": {
+            "definition": "persistence of the February preliminary C30 Table 1 level",
+            "next_total_construction_saar_level_million_dollars": 1366697
+          },
+          "program": {
+            "decision_time": "2020-04-01T14:00:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, causal, inflation, or regime meaning.",
+              "Official 90-percent sampling intervals are source metadata, not range inputs.",
+              "The May 1 release and all revisions are excluded and evaluated only afterward."
+            ],
+            "hypothesis": "Evaluate February preliminary-level persistence or one repetition of the known initial-release level decline using only C30 facts available at the boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use February preliminary-level persistence or one repetition of the only known decline between January and February initial-release Table 1 levels.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "The 2,526-million-dollar difference compares two initial-release current-month levels; it is not the official monthly change against revised January.",
+                  "Two release snapshots and one decline define a stress range, not a forecast, probability, or confidence interval."
+                ],
+                "lower": 1364171.0,
+                "operation": "set",
+                "parameter_id": "census-c30-next-construction-spending-level-range",
+                "source_record_ids": [
+                  "census.c30.archived_construction_spending:202001:total_construction_saar_level",
+                  "census.c30.archived_construction_spending:202002:total_construction_saar_level"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Census Bureau",
+                    "redistribution_note": "Full Census PDF and XLSX releases remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred.",
+                    "retrieved_at": "2026-08-14T03:41:50.763121Z",
+                    "sha256": "73d0e0ec0216d74255ebcafb316a2081a91b80ef76a34e07f6b31c79d57f9918",
+                    "source_id": "census.c30.archived_construction_spending",
+                    "source_version": "CENSUS-C30:2020-01:CB20-35:pdf:73d0e0ec0216d74255eb:xlsx:a224c4f710f41c610725",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.census.gov/construction/c30/pdf/pr202001.pdf",
+                    "vintage_as_of": "2020-03-02T15:00:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "U.S. Census Bureau",
+                    "redistribution_note": "Full Census PDF and XLSX releases remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred.",
+                    "retrieved_at": "2026-08-14T03:41:53.320956Z",
+                    "sha256": "c212b816fce0823d3e15b01c35d306253bb86280581a3a7d61421ba614dc25bb",
+                    "source_id": "census.c30.archived_construction_spending",
+                    "source_version": "CENSUS-C30:2020-02:CB20-48:pdf:c212b816fce0823d3e15:xlsx:566f2267ff69d815ce4b",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.census.gov/construction/c30/pdf/pr202002.pdf",
+                    "vintage_as_of": "2020-04-01T14:00:00Z"
+                  }
+                ],
+                "target_id": "census_c30:total_construction_value_put_in_place",
+                "unit": "million_dollars_saar",
+                "upper": 1366697.0,
+                "variable": "next_total_construction_saar_level_million_dollars"
+              }
+            ],
+            "program_id": "census-c30-next-construction-spending-level-envelope",
+            "scenario_id": "census-c30-2020-construction-spending-boundary"
+          }
+        },
+        "source_hashes": [
+          "566f2267ff69d815ce4bf1ffac6206775d0e3696ea79102352444e051e405579",
+          "73d0e0ec0216d74255ebcafb316a2081a91b80ef76a34e07f6b31c79d57f9918",
+          "a224c4f710f41c610725fe58c88bbf7263a02bfcaaeeab425cc2697cd7461f4d",
+          "c212b816fce0823d3e15b01c35d306253bb86280581a3a7d61421ba614dc25bb"
+        ],
+        "source_record_ids": [
+          "census.c30.archived_construction_spending:202001:total_construction_saar_level",
+          "census.c30.archived_construction_spending:202002:total_construction_saar_level"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-c30.timevault.release-query"
+        ]
+      },
+      {
+        "artifact_id": "census-c30.timevault.release-query",
+        "artifact_kind": "versioned-census-c30-release-query",
+        "artifact_sha256": "04ea2bbfcb8d8d58675be1fe59810f9991726b67afabc388a7d70bae72b34e53",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 2
+        },
+        "limitations": [
+          "The lock contains only two monthly initial-release C30 snapshots.",
+          "Both values are preliminary and are revised in the May event release.",
+          "Aggregate nominal construction spending does not identify projects or real volume.",
+          "Full six-page PDF/XLSX pairs remain local download evidence."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "180e0aee1ef24dd329577e7c444a6ebf5e69e0f6845904edbc2212662359692b",
+              "e68e9e82f3e3b4cba22e5e90131ee069c28a09eaf8a35def753e2c698d0677ad"
+            ],
+            "attempted_records": 2,
+            "fact_hashes": [
+              "d143731f8039cf0e734a96010370eb5bfdea7be31dcd21a43432e4dfc41cd739",
+              "b8c2ece6bc0f5d7703ff51e55de010dca48b9eeeb1a68dbc6be1cf0a0951fc78"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 2
+          },
+          "decision_time": "2020-04-01T14:00:00Z",
+          "input_lock_sha256": "3ae6e6d15a646d104f64ef8a208af46481341ba9baf266666b07353aa56fc8ea",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 2,
+            "fact_set_sha256": "382f4c11d80781a979f9e8df0f1d27f44035c0050b9ebcf6c9be6170fbc3aa9e",
+            "fact_versions": 2,
+            "generated_at": "2026-08-14T03:30:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2020-04-01T14:00:00Z",
+          "selected_record_ids": [
+            "census.c30.archived_construction_spending:202001:total_construction_saar_level",
+            "census.c30.archived_construction_spending:202002:total_construction_saar_level"
+          ],
+          "value_semantics": "exact preliminary current-month Table 1 levels from their initial releases; later revised vintages are excluded"
+        },
+        "source_hashes": [
+          "566f2267ff69d815ce4bf1ffac6206775d0e3696ea79102352444e051e405579",
+          "73d0e0ec0216d74255ebcafb316a2081a91b80ef76a34e07f6b31c79d57f9918",
+          "a224c4f710f41c610725fe58c88bbf7263a02bfcaaeeab425cc2697cd7461f4d",
+          "c212b816fce0823d3e15b01c35d306253bb86280581a3a7d61421ba614dc25bb"
+        ],
+        "source_record_ids": [
+          "census.c30.archived_construction_spending:202001:total_construction_saar_level",
+          "census.c30.archived_construction_spending:202002:total_construction_saar_level"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "census-c30.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "98d1e26b3bb83cf79ee82089dfceb07238c265180945dd77ae88ea74e11f91fa",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 2,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "census-c30-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "c6c78190231ead524db37c22fdbdfd5c7101acc2",
+            "completed_at": "2026-08-14T03:30:00Z",
+            "config_sha256": "2019a3f910c28ad470ad0350cb89c8c351be194439595aa46d04be33f6b79d81",
+            "decision_time": "2020-04-01T14:00:00Z",
+            "evaluation_end": "2020-05-17",
+            "evaluation_start": "2020-04-02",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "3ae6e6d15a646d104f64ef8a208af46481341ba9baf266666b07353aa56fc8ea",
+            "max_input_available_at": "2020-04-01T14:00:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 2526.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No May 1 C30 fact or revision is in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "a2d9ac469a660f28a9ef5f2d687fe521d0fa5a30a07d2c2328da12b74e913849",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "continuation-range-width": 2526.0,
+              "known-initial-level-decline": 2526.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 2,
+            "short_fraction": 0.0,
+            "training_end": "2020-03-30",
+            "trial_id": "census-c30-retrospective-range-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "09df70e6b5610f4d176b0f2c2f1b67d5c41a9b32828796d3f7f90670eae8ab3e",
+            "entry_hash": "09df70e6b5610f4d176b0f2c2f1b67d5c41a9b32828796d3f7f90670eae8ab3e",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "census-c30-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "census-c30-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "98a5faf73c6b3f471ebc95b0dca02e1314f83fd4c4bec4b77ccec2ed5addb30a",
+            "candidate_attempt_id": "census-c30-retrospective-attempt-1",
+            "decided_at": "2026-08-14T03:30:00Z",
+            "decision_id": "decision:census-c30-retrospective-range-screen:9cd242382c599ad7f9e8daac",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 2526.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 2526.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "census-c30-retrospective-range-screen"
+          },
+          "input_lock_sha256": "3ae6e6d15a646d104f64ef8a208af46481341ba9baf266666b07353aa56fc8ea",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "83061e22f402665964cfab6eb168ca37a4afee0c274781e842400f29f189d244",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "d9f6582b75df63097b6a191ead35ae5f9481fe91d123068055bce1539e347ffb",
+            "entry_hash": "d9f6582b75df63097b6a191ead35ae5f9481fe91d123068055bce1539e347ffb",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "Construction spending is an aggregate nominal survey estimate, but two preliminary release snapshots and one later outcome cannot establish predictive validity or construction, inflation, pandemic, policy, regional, or macroeconomic causality.",
+            "embargo_days": 0,
+            "expected_direction": "positive",
+            "holdout_end": "2020-05-17",
+            "holdout_start": "2020-04-02",
+            "hypothesis": "A retrospectively constructed one-decline C30 construction-spending boundary qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-14T03:30:00Z",
+            "primary_metric": "one-initial-decline C30 range width in million dollars SAAR",
+            "purge_days": 2,
+            "trial_id": "census-c30-retrospective-range-screen"
+          }
+        },
+        "source_hashes": [
+          "566f2267ff69d815ce4bf1ffac6206775d0e3696ea79102352444e051e405579",
+          "73d0e0ec0216d74255ebcafb316a2081a91b80ef76a34e07f6b31c79d57f9918",
+          "a224c4f710f41c610725fe58c88bbf7263a02bfcaaeeab425cc2697cd7461f4d",
+          "c212b816fce0823d3e15b01c35d306253bb86280581a3a7d61421ba614dc25bb"
+        ],
+        "source_record_ids": [
+          "census.c30.archived_construction_spending:202001:total_construction_saar_level",
+          "census.c30.archived_construction_spending:202002:total_construction_saar_level"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "census-c30.shockcompiler.construction-spending-level-range",
+          "census-c30.timevault.release-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over exact January and February preliminary total-construction SAAR levels from their initial Census C30 releases, both knowable at the April 1 decision time. Reported values remain reported; the persistence-or-repeat-known-decline stress range remains inferred with no probability. The 2,526-million-dollar difference compares two initial-release current-month levels and is not Census's official February monthly change, whose denominator is a revised January level. Official 90-percent sampling intervals are excluded. TrialCourt rejects retrospective promotion. The May 1 March value and its January and February revisions stay only in a disjoint event lock. This is not a forecast, calibrated interval, real-volume or causal model, trading signal, deployment, external validation, or user-impact claim.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-census-c30-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "census-c30.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no probability or coverage guarantee and are distinct from Census's official monthly change and sampling-confidence intervals.",
+        "claim_id": "claim-inferred-census-c30-level-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The May 1 event and all revisions were not used to set the range.",
+          "The range has no construction, inflation, pandemic, or policy causality."
+        ],
+        "statement": "The next-release stress endpoints are February-level persistence or one repeat of the known 2,526-million-dollar initial-release decline: [1,364,171, 1,366,697] million dollars SAAR.",
+        "support_artifact_ids": [
+          "census-c30.shockcompiler.construction-spending-level-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external review.",
+        "claim_id": "claim-inferred-census-c30-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective one-initial-decline C30 attempt.",
+        "support_artifact_ids": [
+          "census-c30.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are exact Table 1 initial-release aggregate estimates, not later revised values, real volume, projects, or transactions.",
+        "claim_id": "claim-reported-census-c30-initial-levels",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes only two initial-release vintages."
+        ],
+        "statement": "Archived Census C30 releases report preliminary total-construction SAAR levels of 1,369,223 million dollars for January and 1,366,697 million dollars for February 2020.",
+        "support_artifact_ids": [
+          "census-c30.timevault.release-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not transactions, capital, capacity, or returns.",
+        "claim_id": "claim-simulated-census-c30-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "census-c30.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "c6c78190231ead524db37c22fdbdfd5c7101acc2",
+    "compressed_input_bytes": 2904,
+    "created_at": "2026-08-14T03:30:00Z",
+    "decision_time": "2020-04-01T14:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves the exact January 1,369,223-million-dollar and February 1,366,697-million-dollar total-construction SAAR Table 1 levels from their initial archived Census C30 releases, both knowable at the April 1 decision time. Their 2,526-million-dollar difference compares two initial-release current-month levels; it is not the official February monthly change, which uses a revised January denominator. The lock excludes the May 1 March event, all later revisions, official sampling intervals as range inputs, real volume, projects, transactions, a probability distribution, forecast, calibrated interval, construction, inflation, pandemic or policy causality, recommendation, execution, investment performance, external review, deployment, and user impact.",
+      "The endpoints are latest preliminary-level persistence or one repetition of the single known 2,526-million-dollar initial-release decline, with no probability.",
+      "The May 1 release and all of its revisions are excluded from every input.",
+      "The official monthly percentage change uses a revised prior-month denominator and is not the arithmetic basis for this release-headline stress range.",
+      "The figures are nominal seasonally adjusted annual rates, not price-adjusted volume.",
+      "Two snapshots do not identify construction, pandemic, policy, or regional causes.",
+      "No position, order, portfolio, allocation, transaction, or return is represented.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "census-c30-2020-construction-spending-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "census-c30-2020-construction-spending-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "Census C30 boundary before the March 2020 construction-spending level decline"
+  },
+  "topological_artifact_ids": [
+    "census-c30.timevault.release-query",
+    "census-c30.shockcompiler.construction-spending-level-range",
+    "census-c30.trialcourt.retrospective-gate",
+    "census-c30.replaystudio.render"
+  ],
+  "trace_id": "trace:fd29e6cfcf0a4de919953d297f2880443bd7fa1ff7865ba057eeaed63e7c3a0f"
+}
