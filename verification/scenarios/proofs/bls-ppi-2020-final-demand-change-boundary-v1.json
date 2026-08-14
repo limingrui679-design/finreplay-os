@@ -1,0 +1,148 @@
+{
+  "build_script": {
+    "path": "scripts/build_ppi_boundary_replaypack.py",
+    "sha256": "8b59d77a54496e9bf865e9fb6bd4e60c9f3d951af69f21cd971030375ce4d178"
+  },
+  "claim_boundary": "This proof counts one internally reproduced March 2020 BLS PPI boundary because two pre-decision final-demand release records, four exact official HTML/PDF hashes, exact 8:30 a.m. EDT embargo timing, paired-format and adjacent-release cross-checks, a separately locked May 13 April event, immutable locks, separated truth labels, an explicit March-change persistence baseline, a no-probability persistence-or-one-known-increase program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-checkout double rebuild all verify. The April change of -130 basis points is excluded from ReplayPack inputs and used only for a labelled post-event check that preserves its 110-basis-point lower-bound breach rather than widening the -20-to-20 basis-point range. The March release preserves February at -60 basis points, and the May release preserves March at -20 basis points; those zero revisions do not convert the range into a forecast. PPI measures average changes in prices received by domestic producers from the seller perspective and is subject to revision four months after original publication. Unadjusted indexes, 12-month changes, and COVID-19 methodology text remain metadata and set no endpoint or causal conclusion. This proof does not establish a BLS forecast, calibrated coverage, consumer prices, product or establishment behavior, quantity, revenue, profit, transactions, price-setting, pass-through, pandemic or market causality, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "bls-ppi.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective one-change attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "bls-ppi.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger retains one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "6fa64c790cef7194d5ae9f1606b552973c851683d95744b2f4b7be9a75e3dabd",
+      "path": "scenarios/bls-ppi-2020/event-lock.json",
+      "record_ids": [
+        "bls.ppi.archived_final_demand:202004:final_demand_monthly_change"
+      ],
+      "sha256": "1f9d6608924cffc7f1aa0919904391cd0c7422e2fd9e2687d489fc1d8803a081"
+    }
+  ],
+  "expected_input_manifest_sha256": "15dd7cc41991022ab81ed10cb867689ca568a890b6e69a5c1ebd772bc632f009",
+  "expected_pack_sha256": "4601bc2b1f9b751197d253bd2f27497a08743e34b6cdef28033fe87501fd96b3",
+  "expected_trace_id": "trace:8d27b18954bac6b955d03e59e10dc9e3011cf926aa0a1347e86d6473f6e8fea5",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains aggregate seller-price changes reported in archived BLS releases, not producer, establishment, product, transaction, quantity, revenue, profit, consumer-price, causal, or future-event observations. The April change exists only in the disjoint event lock."
+    },
+    "bounded_artifact_ids": [
+      "bls-ppi.shockcompiler.final-demand-change-range"
+    ],
+    "extracted_artifact_ids": [
+      "bls-ppi.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "bls-ppi.shockcompiler.final-demand-change-range",
+      "bls-ppi.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "bls.ppi.archived_final_demand:202002:final_demand_monthly_change",
+      "bls.ppi.archived_final_demand:202003:final_demand_monthly_change"
+    ],
+    "simulated_artifact_ids": [
+      "bls-ppi.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "3fe627147fe7d5db7136938e3bada636a42bd4934fede05482da3fb7d8962174",
+      "path": "scenarios/bls-ppi-2020/input-lock.json",
+      "record_ids": [
+        "bls.ppi.archived_final_demand:202002:final_demand_monthly_change",
+        "bls.ppi.archived_final_demand:202003:final_demand_monthly_change"
+      ],
+      "sha256": "381545c602f24e329b9ac80fc5e3e9d6469ef8500795af1ad49726cfb406d870"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "bls-ppi.shockcompiler.final-demand-change-range",
+      "description": "The decision-time baseline persists the March final-demand monthly change of -20 basis points.",
+      "expected_value": -20,
+      "payload_pointer": "/naive_baseline/next_final_demand_monthly_change_basis_points"
+    },
+    {
+      "artifact_id": "bls-ppi.shockcompiler.final-demand-change-range",
+      "description": "The persistence-or-one-known-increase endpoints carry no probability, confidence, or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    },
+    {
+      "artifact_id": "bls-ppi.shockcompiler.final-demand-change-range",
+      "description": "Unadjusted indexes, 12-month changes, and release methodology text remain source metadata and set neither endpoint.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/source_auxiliary_measures_used"
+    },
+    {
+      "artifact_id": "bls-ppi.shockcompiler.final-demand-change-range",
+      "description": "Both numeric inputs are headline values in archived BLS releases available by the April 9 decision boundary.",
+      "expected_value": true,
+      "payload_pointer": "/bound_construction/original_release_values_only"
+    },
+    {
+      "artifact_id": "bls-ppi.shockcompiler.final-demand-change-range",
+      "description": "The later -130-basis-point April change never enters range construction.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/future_event_used"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/bls-ppi/latest-summary.json",
+  "pack_directory": "verification/replaypacks/bls-ppi-2020",
+  "proof_sha256": "27daf92f64dda57e3dc6e101db49daf9a3f56dcc811792245fb59459fde15ae6",
+  "rebuild_receipt": {
+    "path": "verification/scenarios/rebuilds/bls-ppi-2020.json",
+    "sha256": "09e3b5d9f88b6ecd399996dbd605075464ca02bca1c4f5dbdde915f90f8975fe"
+  },
+  "replay_id": "bls-ppi-2020-final-demand-change-boundary-v1",
+  "required_rebuild_assertions": [
+    "adjacent_february_value_is_unchanged",
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "covid_methodology_text_is_retained_without_causal_claim",
+    "cross_engine_trace_is_stable",
+    "declared_range_reuses_only_one_known_increase",
+    "distinct_locked_inputs_equal_two",
+    "four_official_html_pdf_hashes_are_bound",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "locked_release_pair_is_exact",
+    "naive_baseline_is_march_change_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "paired_html_pdf_crosscheck_is_explicit",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_ppi_fact",
+    "post_decision_event_timing_is_later",
+    "post_decision_prior_march_value_remains_unchanged",
+    "post_event_lower_bound_breach_equals_110_basis_points",
+    "ppi_measurement_and_revision_boundaries_are_explicit",
+    "reported_post_event_change_is_below_declared_range",
+    "simulation_remains_visible",
+    "source_auxiliary_measures_are_not_used",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "bls-ppi-2020-final-demand-change-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "bls.ppi.archived_final_demand:202002:final_demand_monthly_change",
+    "bls.ppi.archived_final_demand:202003:final_demand_monthly_change"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_ppi_boundary_replaypack.py",
+    "sha256": "dfc7005ff4755260df20e0a78bf3d47965b9338cc764b49780f8e6619ef9baeb"
+  }
+}
