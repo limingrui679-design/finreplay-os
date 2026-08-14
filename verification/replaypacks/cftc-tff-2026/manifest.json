@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over two official CFTC Futures Only TFF open-interest observations cross-checked against the annual file and anchored to the current official schedule. Reported levels remain reported; the 4,204,951-to-4,335,075 contract persistence-or-repeat-decline envelope remains inferred with no probability. The July 28 event stays only in a disjoint event lock. The 3:30 p.m. ET time is scheduled availability at 0.98 confidence, not a row-level actual log. This is not a CFTC forecast, calibrated interval, trader-intent classification, directional exposure, notional, P&L, volume, execution, causal model, deployment, external validation, investment result, or user-impact claim.",
+  "files": [
+    {
+      "bytes": 1496,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "0709f5d626a80446f650e8a82d3e3f16abfcb812b1789f47f48b2f951b76ef4a"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "bf5f0b8665e669662a0327fcd46cb6bccea6346802647949a34860bb6d100451"
+    },
+    {
+      "bytes": 32425,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "295a9ab6fd4a5b3972586c3cd3570da013af6aacc595c8b0059c416773fa4a7c"
+    },
+    {
+      "bytes": 32322,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "575c594a2d4bd506c2cfa2fbdc828a298bed8c831d154abca91fc33453dce33a"
+    }
+  ],
+  "pack_sha256": "2b125673f41771947662dfd0a0b5e1b5105b4f334d413f4404753abcfbb69412",
+  "receipt_sha256": "aea0100d6a5a783314ab6a2fbce4777dce22deae575991315955ec878b5fadb0",
+  "replay_id": "cftc-tff-2026-two-year-note-open-interest-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "821b753e256a2b749ddc942ac3e043b8c1d49cb7",
+    "compressed_input_bytes": 3188,
+    "created_at": "2026-08-14T09:30:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "da16c8f69305fcb619f7160abf85b4998581e08301c03f6f07bb462c83ed777a",
+    "output_manifest_sha256": "3c5255dd82cba84f9d41ec0305aba2894205ab86ff81847f625caaf5bf5f40ed",
+    "replay_id": "cftc-tff-2026-two-year-note-open-interest-boundary-v1",
+    "scenario_id": "cftc-tff-2026-two-year-note-open-interest-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "575c594a2d4bd506c2cfa2fbdc828a298bed8c831d154abca91fc33453dce33a",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:35be3384f422dbc64c3546ae80f18efcc6f3004765241b4d98bff2dc9b1a0f2a"
+}

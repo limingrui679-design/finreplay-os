@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self'; img-src 'self' data:;
+                 base-uri 'none'; form-action 'none'">
+  <title>CFTC TFF UST 2-year open-interest boundary before July 28, 2026 · FinReplay OS</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to report</a>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">FinReplay OS · evidence-labelled replay</p>
+      <h1>CFTC TFF UST 2-year open-interest boundary before July 28, 2026</h1>
+      <p class="lede">Four actual engines ran over two official CFTC Futures Only TFF open-interest observations cross-checked against the annual file and anchored to the current official schedule. Reported levels remain reported; the 4,204,951-to-4,335,075 contract persistence-or-repeat-decline envelope remains inferred with no probability. The July 28 event stays only in a disjoint event lock. The 3:30 p.m. ET time is scheduled availability at 0.98 confidence, not a row-level actual log. This is not a CFTC forecast, calibrated interval, trader-intent classification, directional exposure, notional, P&amp;L, volume, execution, causal model, deployment, external validation, investment result, or user-impact claim.</p>
+    </div>
+    <div class="identity" aria-label="Replay identity">
+      <span>Replay <code>cftc-tff-2026-two-year-note-open-interest-boundary-v1</code></span>
+      <span>Trace <code>trace:35be3384f422dbc64c3546ae80f18efcc6f3004765241b4d98bff2dc9b1a0f2a</code></span>
+    </div>
+  </header>
+  <nav aria-label="Report sections">
+    <a href="#summary">Summary</a><a href="#claims">Claims</a>
+    <a href="#artifacts">Artifacts</a><a href="#limitations">Limitations</a>
+  </nav>
+  <main id="main">
+    <section id="summary" aria-labelledby="summary-title">
+      <h2 id="summary-title">Replay summary</h2>
+      <div class="boundary" role="note" aria-label="Truth boundary">
+        <strong>Truth boundary</strong>
+        <span>Contains simulated inputs. All represented source sets are historical-replay eligible.</span>
+        <span>Historical replay is not live trading;
+        modeled output is not realized performance.</span>
+      </div>
+      <dl class="facts">
+        <div><dt>Scenario</dt><dd>cftc-tff-2026-two-year-note-open-interest-boundary
+        v1.0.0</dd></div>
+        <div><dt>Mode</dt><dd>bounded_reconstruction</dd></div>
+        <div><dt>Decision time</dt>
+        <dd>2026-07-24T19:30:00Z</dd></div>
+        <div><dt>Artifact status</dt><dd>reproduced</dd></div>
+        <div><dt>Engines represented</dt><dd>4 / 7</dd></div>
+        <div><dt>Pack hash</dt><dd><code>2b125673f41771947662dfd0a0b5e1b5105b4f334d413f4404753abcfbb69412</code></dd></div>
+      </dl>
+      <h3>Evidence inventory</h3>
+      <ul class="metrics" aria-label="Evidence counts"><li class="metric"><span class="metric-value">1</span><span>extracted</span></li><li class="metric"><span class="metric-value">4</span><span>inferred</span></li><li class="metric"><span class="metric-value">4</span><span>reported</span></li><li class="metric"><span class="metric-value">1</span><span>simulated</span></li></ul>
+      <p class="downloads"><a href="report.json">Machine-readable report</a>
+      <a href="checksums.sha256">Portable checksums</a>
+      <a href="README.md">Reproduction notes</a></p>
+    </section>
+    <section id="claims" aria-labelledby="claims-title">
+      <h2 id="claims-title">Claim traceability</h2>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Claim traceability table">
+        <table><caption>Each statement retains its evidence label,
+        supporting artifacts and boundary.</caption>
+          <thead><tr><th scope="col">Claim</th><th scope="col">Statement</th>
+          <th scope="col">Label</th><th scope="col">Support</th>
+          <th scope="col">Boundary</th></tr></thead>
+          <tbody><tr><th scope="row"><code>claim-extracted-cftc-tff-four-engine-pack</code></th><td>The pack contains outputs from the four engines relevant to this boundary.</td><td><span class="badge evidence-extracted">EXTRACTED</span></td><td><code>cftc-tff.replaystudio.render</code></td><td>Artifact presence proves integration structure, not market correctness.</td></tr><tr><th scope="row"><code>claim-inferred-cftc-tff-open-interest-range</code></th><td>The next-report stress endpoints are July 21 persistence or one repeat of the known 130,124-contract decline: [4,204,951, 4,335,075] contracts.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>cftc-tff.shockcompiler.open-interest-range</code></td><td>The endpoints have no probability, coverage, official, or causal guarantee.</td></tr><tr><th scope="row"><code>claim-inferred-cftc-tff-trial-rejection</code></th><td>TrialCourt rejected the retrospective one-decline CFTC TFF attempt.</td><td><span class="badge evidence-inferred">INFERRED</span></td><td><code>cftc-tff.trialcourt.retrospective-gate</code></td><td>This is an internal method result, not external or domain review.</td></tr><tr><th scope="row"><code>claim-reported-cftc-tff-open-interest-levels</code></th><td>The selected CFTC Futures Only TFF rows report total UST 2-year open interest of 4,465,199 contracts on July 14 and 4,335,075 on July 21, 2026.</td><td><span class="badge evidence-reported">REPORTED</span></td><td><code>cftc-tff.timevault.scheduled-release-query</code></td><td>The timestamps are official scheduled availability at 0.98 confidence, not row-level actual-publication confirmations.</td></tr><tr><th scope="row"><code>claim-simulated-cftc-tff-schema-sentinels</code></th><td>Trial operational values are simulated schema sentinels only.</td><td><span class="badge evidence-simulated">SIMULATED</span></td><td><code>cftc-tff.trialcourt.retrospective-gate</code></td><td>The sentinels are not trades, capital, capacity, or returns.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section id="artifacts" aria-labelledby="artifacts-title">
+      <h2 id="artifacts-title">Engine artifacts</h2><article class="artifact">
+  <header><div><p class="eyebrow">replaystudio</p>
+  <h3><code>cftc-tff.replaystudio.render</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> extracted: 1</p>
+  <p><strong>Artifact hash:</strong> <code>85a0f418f11ab21cb515532d4beeba89aa0a8a07349ffa50fc01925c3c995adf</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>cftc.cot.tff_scheduled_ust2y:260714042601F</code></li><li><code>cftc.cot.tff_scheduled_ust2y:260721042601F</code></li></ul>
+    <h4>Limitations</h4><ul><li>Static rendering does not validate the one-decline range heuristic.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;engine_selection&quot;: &quot;This aggregate open-interest boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no trader intent, directional exposure, order, portfolio, execution, return, notional, or user input is invented.&quot;,
+  &quot;input_lock_sha256&quot;: &quot;8c8ef3ea33f0f0e773df164bbdcac2ce77df2b151f9c0f05a8e0f1464ba24465&quot;,
+  &quot;portable_file_count_excluding_manifest&quot;: 5,
+  &quot;renderer&quot;: &quot;ReplayStudio&quot;,
+  &quot;truth_labels_visible&quot;: true
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">shockcompiler</p>
+  <h3><code>cftc-tff.shockcompiler.open-interest-range</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 3</p>
+  <p><strong>Artifact hash:</strong> <code>a396d8376746084915466e91220c25e744561052b41d069833cc1dd98f535ade</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>cftc.cot.tff_scheduled_ust2y:260714042601F</code></li><li><code>cftc.cot.tff_scheduled_ust2y:260721042601F</code></li></ul>
+    <h4>Limitations</h4><ul><li>The endpoints mechanically reuse one reported weekly decline.</li><li>The July 28 value is absent.</li><li>The range is not an official interval, probability, causal model, or forecast.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;applied_endpoints&quot;: {
+    &quot;lower&quot;: 4204951.0,
+    &quot;upper&quot;: 4335075.0
+  },
+  &quot;bound_construction&quot;: {
+    &quot;category_positions_used&quot;: false,
+    &quot;contract_face_value_used&quot;: false,
+    &quot;endpoint_method&quot;: &quot;latest_level_persistence_or_repeat_one_known_decline&quot;,
+    &quot;future_event_used&quot;: false,
+    &quot;known_decline_contracts&quot;: 130124,
+    &quot;lower_level_contracts&quot;: 4204951,
+    &quot;probability_assigned&quot;: false,
+    &quot;range_width_contracts&quot;: 130124,
+    &quot;total_open_interest_only&quot;: true,
+    &quot;trader_counts_used&quot;: false,
+    &quot;upper_level_contracts&quot;: 4335075
+  },
+  &quot;compiled&quot;: {
+    &quot;compiled_sha256&quot;: &quot;05316bd6dd3e745e42dde47c0851ca73f31fee06e4ac5a18084afb64c7466448&quot;,
+    &quot;decision_time&quot;: &quot;2026-07-24T19:30:00Z&quot;,
+    &quot;limitations&quot;: [
+      &quot;The endpoints have no likelihood, coverage, causal, or regime meaning.&quot;,
+      &quot;The July 28 outcome is evaluated only afterward.&quot;,
+      &quot;Open interest is an aggregate contract count, not trading intent or activity.&quot;
+    ],
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;program_id&quot;: &quot;cftc-tff-next-open-interest-envelope&quot;,
+    &quot;scenario_id&quot;: &quot;cftc-tff-2026-two-year-note-open-interest-boundary&quot;,
+    &quot;source_program_sha256&quot;: &quot;6346a8071f7867fe9b5a31b6732e9579627e2272e03bccc7ee77098757d91a82&quot;,
+    &quot;trials&quot;: [
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Use July 21 open-interest persistence or one repetition of the only known decline from July 14 to July 21.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;One adjacent weekly decline defines a stress range, not a forecast or probability.&quot;,
+              &quot;Category positions, trader counts, and face value do not set either endpoint.&quot;,
+              &quot;The July 28 report is absent from range construction.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;cftc-tff-next-open-interest-range&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;6d9be78582d398274618bd19114b08479c4fb4c35367b05193818003460bf5da&quot;,
+              &quot;6d9be78582d398274618bd19114b08479c4fb4c35367b05193818003460bf5da&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;cftc.cot.tff_scheduled_ust2y:260714042601F&quot;,
+              &quot;cftc.cot.tff_scheduled_ust2y:260721042601F&quot;
+            ],
+            &quot;target_id&quot;: &quot;cftc_contract:042601&quot;,
+            &quot;unit&quot;: &quot;futures_contracts&quot;,
+            &quot;value&quot;: 4204951.0,
+            &quot;variable&quot;: &quot;next_ust_2y_tff_open_interest_contracts&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;cftc-tff-next-open-interest-envelope:00000000:844ca9a572ff9636&quot;,
+        &quot;trial_index&quot;: 0,
+        &quot;vector_sha256&quot;: &quot;844ca9a572ff963680b878b4dd23f5bf60117b1fa56482e75f76414cfd05db3e&quot;
+      },
+      {
+        &quot;shocks&quot;: [
+          {
+            &quot;derivation&quot;: &quot;Use July 21 open-interest persistence or one repetition of the only known decline from July 14 to July 21.&quot;,
+            &quot;evidence_class&quot;: &quot;inferred&quot;,
+            &quot;limitations&quot;: [
+              &quot;One adjacent weekly decline defines a stress range, not a forecast or probability.&quot;,
+              &quot;Category positions, trader counts, and face value do not set either endpoint.&quot;,
+              &quot;The July 28 report is absent from range construction.&quot;
+            ],
+            &quot;operation&quot;: &quot;set&quot;,
+            &quot;parameter_id&quot;: &quot;cftc-tff-next-open-interest-range&quot;,
+            &quot;source_hashes&quot;: [
+              &quot;6d9be78582d398274618bd19114b08479c4fb4c35367b05193818003460bf5da&quot;,
+              &quot;6d9be78582d398274618bd19114b08479c4fb4c35367b05193818003460bf5da&quot;
+            ],
+            &quot;source_record_ids&quot;: [
+              &quot;cftc.cot.tff_scheduled_ust2y:260714042601F&quot;,
+              &quot;cftc.cot.tff_scheduled_ust2y:260721042601F&quot;
+            ],
+            &quot;target_id&quot;: &quot;cftc_contract:042601&quot;,
+            &quot;unit&quot;: &quot;futures_contracts&quot;,
+            &quot;value&quot;: 4335075.0,
+            &quot;variable&quot;: &quot;next_ust_2y_tff_open_interest_contracts&quot;
+          }
+        ],
+        &quot;trial_id&quot;: &quot;cftc-tff-next-open-interest-envelope:00000001:bc09e41cd0d48ff7&quot;,
+        &quot;trial_index&quot;: 1,
+        &quot;vector_sha256&quot;: &quot;bc09e41cd0d48ff7f1b30aa1429cbd62c3692c759da5754ecbc52a710a18407a&quot;
+      }
+    ]
+  },
+  &quot;input_lock_sha256&quot;: &quot;8c8ef3ea33f0f0e773df164bbdcac2ce77df2b151f9c0f05a8e0f1464ba24465&quot;,
+  &quot;known_open_interest_levels&quot;: {
+    &quot;july14_open_interest_contracts&quot;: 4465199,
+    &quot;july21_open_interest_contracts&quot;: 4335075,
+    &quot;known_decline_contracts&quot;: 130124,
+    &quot;lower_level_contracts&quot;: 4204951,
+    &quot;range_width_contracts&quot;: 130124,
+    &quot;upper_level_contracts&quot;: 4335075
+  },
+  &quot;naive_baseline&quot;: {
+    &quot;definition&quot;: &quot;persistence of the July 21 total open-interest level&quot;,
+    &quot;next_ust_2y_tff_open_interest_contracts&quot;: 4335075
+  },
+  &quot;program&quot;: {
+    &quot;decision_time&quot;: &quot;2026-07-24T19:30:00Z&quot;,
+    &quot;global_limitations&quot;: [
+      &quot;The endpoints have no likelihood, coverage, causal, or regime meaning.&quot;,
+      &quot;The July 28 outcome is evaluated only afterward.&quot;,
+      &quot;Open interest is an aggregate contract count, not trading intent or activity.&quot;
+    ],
+    &quot;hypothesis&quot;: &quot;Evaluate open-interest persistence or one repetition of the known weekly decline using only scheduled-available observations at the boundary.&quot;,
+    &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
+    &quot;parameters&quot;: [
+      {
+        &quot;derivation&quot;: &quot;Use July 21 open-interest persistence or one repetition of the only known decline from July 14 to July 21.&quot;,
+        &quot;evidence_class&quot;: &quot;inferred&quot;,
+        &quot;grid_points&quot;: 2,
+        &quot;limitations&quot;: [
+          &quot;One adjacent weekly decline defines a stress range, not a forecast or probability.&quot;,
+          &quot;Category positions, trader counts, and face value do not set either endpoint.&quot;,
+          &quot;The July 28 report is absent from range construction.&quot;
+        ],
+        &quot;lower&quot;: 4204951.0,
+        &quot;operation&quot;: &quot;set&quot;,
+        &quot;parameter_id&quot;: &quot;cftc-tff-next-open-interest-range&quot;,
+        &quot;source_record_ids&quot;: [
+          &quot;cftc.cot.tff_scheduled_ust2y:260714042601F&quot;,
+          &quot;cftc.cot.tff_scheduled_ust2y:260721042601F&quot;
+        ],
+        &quot;sources&quot;: [
+          {
+            &quot;license_class&quot;: &quot;redistributable&quot;,
+            &quot;publisher&quot;: &quot;U.S. Commodity Futures Trading Commission&quot;,
+            &quot;redistribution_note&quot;: &quot;CFTC government information is public domain and may be copied or distributed with appropriate CFTC acknowledgement. Do not imply CFTC endorsement, and recheck current policy for any separately identified third-party material.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-14T09:21:52.920081Z&quot;,
+            &quot;sha256&quot;: &quot;6d9be78582d398274618bd19114b08479c4fb4c35367b05193818003460bf5da&quot;,
+            &quot;source_id&quot;: &quot;cftc.cot.tff_scheduled_ust2y&quot;,
+            &quot;source_version&quot;: &quot;CFTC-TFF:042601:2026-07-14..2026-07-28:api:6d9be78582d398274618:annual:4b068e3dcf5ccdcb:schedule:140f29d909566cc5:policy:fb0b5a3f4c936f2a:notes:312120a31b2a2d1e&quot;,
+            &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+            &quot;url&quot;: &quot;https://publicreporting.cftc.gov/resource/gpe5-46if.json?%24limit=3&amp;%24where=cftc_contract_market_code%3D%22042601%22+AND+report_date_as_yyyy_mm_dd+in%28%222026-07-14T00%3A00%3A00.000%22%2C%222026-07-21T00%3A00%3A00.000%22%2C%222026-07-28T00%3A00%3A00.000%22%29&amp;%24order=report_date_as_yyyy_mm_dd+ASC%2Ccftc_contract_market_code+ASC%2Cid+ASC&quot;,
+            &quot;vintage_as_of&quot;: &quot;2026-07-31T19:30:00Z&quot;
+          },
+          {
+            &quot;license_class&quot;: &quot;redistributable&quot;,
+            &quot;publisher&quot;: &quot;U.S. Commodity Futures Trading Commission&quot;,
+            &quot;redistribution_note&quot;: &quot;CFTC government information is public domain and may be copied or distributed with appropriate CFTC acknowledgement. Do not imply CFTC endorsement, and recheck current policy for any separately identified third-party material.&quot;,
+            &quot;retrieved_at&quot;: &quot;2026-08-14T09:21:52.920081Z&quot;,
+            &quot;sha256&quot;: &quot;6d9be78582d398274618bd19114b08479c4fb4c35367b05193818003460bf5da&quot;,
+            &quot;source_id&quot;: &quot;cftc.cot.tff_scheduled_ust2y&quot;,
+            &quot;source_version&quot;: &quot;CFTC-TFF:042601:2026-07-14..2026-07-28:api:6d9be78582d398274618:annual:4b068e3dcf5ccdcb:schedule:140f29d909566cc5:policy:fb0b5a3f4c936f2a:notes:312120a31b2a2d1e&quot;,
+            &quot;temporal_coverage&quot;: &quot;immutable_event&quot;,
+            &quot;url&quot;: &quot;https://publicreporting.cftc.gov/resource/gpe5-46if.json?%24limit=3&amp;%24where=cftc_contract_market_code%3D%22042601%22+AND+report_date_as_yyyy_mm_dd+in%28%222026-07-14T00%3A00%3A00.000%22%2C%222026-07-21T00%3A00%3A00.000%22%2C%222026-07-28T00%3A00%3A00.000%22%29&amp;%24order=report_date_as_yyyy_mm_dd+ASC%2Ccftc_contract_market_code+ASC%2Cid+ASC&quot;,
+            &quot;vintage_as_of&quot;: &quot;2026-07-31T19:30:00Z&quot;
+          }
+        ],
+        &quot;target_id&quot;: &quot;cftc_contract:042601&quot;,
+        &quot;unit&quot;: &quot;futures_contracts&quot;,
+        &quot;upper&quot;: 4335075.0,
+        &quot;variable&quot;: &quot;next_ust_2y_tff_open_interest_contracts&quot;
+      }
+    ],
+    &quot;program_id&quot;: &quot;cftc-tff-next-open-interest-envelope&quot;,
+    &quot;scenario_id&quot;: &quot;cftc-tff-2026-two-year-note-open-interest-boundary&quot;
+  }
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">timevault</p>
+  <h3><code>cftc-tff.timevault.scheduled-release-query</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> reported: 2</p>
+  <p><strong>Artifact hash:</strong> <code>5aaeb93348352c0602b7525d4ccdbc242808d5286083bcfbc82143769d627c49</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>cftc.cot.tff_scheduled_ust2y:260714042601F</code></li><li><code>cftc.cot.tff_scheduled_ust2y:260721042601F</code></li></ul>
+    <h4>Limitations</h4><ul><li>The exact timestamp is official scheduled availability, not a row-level actual log.</li><li>The CFTC page calls the schedule tentative; confidence remains 0.98.</li><li>Only total open interest sets the range; category positions and counts do not.</li><li>Open interest is not volume, executions, accounts, P&amp;L, or user activity.</li><li>The contract face-value label is not converted to notional exposure.</li><li>The July 28 report is excluded from every ReplayPack input.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;actual_row_publication_log_available&quot;: false,
+  &quot;api_annual_crosscheck_verified&quot;: true,
+  &quot;append&quot;: {
+    &quot;artifact_ids&quot;: [
+      &quot;f157120a213ed5d24fbfb9f00aef84db1f213cb930452e92b33e0b4220ca9b85&quot;
+    ],
+    &quot;attempted_records&quot;: 2,
+    &quot;fact_hashes&quot;: [
+      &quot;f4a6410b049397a384f1a9fca356709e552c8e608d24f5eadde9b12270cd43af&quot;,
+      &quot;20a4ce1c2d9a57b3eedd767da42c43b68c39b68f3c24acfa8a25a06628c8935f&quot;
+    ],
+    &quot;idempotent_records&quot;: 0,
+    &quot;inserted_records&quot;: 2
+  },
+  &quot;classification_and_intent_caveats_validated&quot;: true,
+  &quot;contract_face_value_notional_conversion_performed&quot;: false,
+  &quot;decision_observations_contracts&quot;: {
+    &quot;july14_open_interest&quot;: 4465199,
+    &quot;july21_open_interest&quot;: 4335075,
+    &quot;july21_reported_weekly_change&quot;: -130124
+  },
+  &quot;decision_time&quot;: &quot;2026-07-24T19:30:00Z&quot;,
+  &quot;input_lock_sha256&quot;: &quot;8c8ef3ea33f0f0e773df164bbdcac2ce77df2b151f9c0f05a8e0f1464ba24465&quot;,
+  &quot;manifest&quot;: {
+    &quot;database_bytes&quot;: 0,
+    &quot;distinct_records&quot;: 2,
+    &quot;fact_set_sha256&quot;: &quot;bc54fa48c5caa1c4a8bda7268778f057929c553b7b4322f32cc543f5d3dfd9f7&quot;,
+    &quot;fact_versions&quot;: 2,
+    &quot;generated_at&quot;: &quot;2026-08-14T09:30:00Z&quot;,
+    &quot;retrieval_receipts&quot;: 1,
+    &quot;source_artifacts&quot;: 1
+  },
+  &quot;max_scheduled_available_at&quot;: &quot;2026-07-24T19:30:00Z&quot;,
+  &quot;schedule_self_describes_as_tentative&quot;: true,
+  &quot;selected_record_ids&quot;: [
+    &quot;cftc.cot.tff_scheduled_ust2y:260714042601F&quot;,
+    &quot;cftc.cot.tff_scheduled_ust2y:260721042601F&quot;
+  ],
+  &quot;source_auxiliary_positions_used_as_range_input&quot;: false,
+  &quot;source_response_file_count&quot;: 5,
+  &quot;supporting_receipt_sha256&quot;: &quot;ea85ba99ecf5a7d77871e066673d55b0bfde2ebd1aff9e4e86472e366f87da9c&quot;
+}</pre>
+  </details>
+</article><article class="artifact">
+  <header><div><p class="eyebrow">trialcourt</p>
+  <h3><code>cftc-tff.trialcourt.retrospective-gate</code></h3></div>
+  <span class="badge">REPRODUCED</span></header>
+  <p><strong>Evidence:</strong> inferred: 1, reported: 2, simulated: 1</p>
+  <p><strong>Artifact hash:</strong> <code>848e2a8b252d1df71205a5a1617a732ab94b055eac1dc08c6df49c88e6ceb36d</code></p>
+  <details><summary>Sources, limitations, and machine payload</summary>
+    <h4>Source record IDs</h4><ul><li><code>cftc.cot.tff_scheduled_ust2y:260714042601F</code></li><li><code>cftc.cot.tff_scheduled_ust2y:260721042601F</code></li></ul>
+    <h4>Limitations</h4><ul><li>The rejected attempt is a retrospective method boundary, not a validated forecast.</li><li>Operational sentinel fields contain no execution, capacity, or return evidence.</li></ul>
+    <h4>Payload</h4><pre>{
+  &quot;attempt&quot;: {
+    &quot;attempt_id&quot;: &quot;cftc-tff-retrospective-attempt-1&quot;,
+    &quot;attempt_number&quot;: 1,
+    &quot;code_commit&quot;: &quot;821b753e256a2b749ddc942ac3e043b8c1d49cb7&quot;,
+    &quot;completed_at&quot;: &quot;2026-08-14T09:30:00Z&quot;,
+    &quot;config_sha256&quot;: &quot;a06971bdabf06d6c40a39d9541c8eee96f1d15fe51dceede0d374755b5919f0a&quot;,
+    &quot;decision_time&quot;: &quot;2026-07-24T19:30:00Z&quot;,
+    &quot;evaluation_end&quot;: &quot;2026-08-15&quot;,
+    &quot;evaluation_start&quot;: &quot;2026-07-25&quot;,
+    &quot;gross_return_bps&quot;: 0.0,
+    &quot;input_manifest_sha256&quot;: &quot;8c8ef3ea33f0f0e773df164bbdcac2ce77df2b151f9c0f05a8e0f1464ba24465&quot;,
+    &quot;max_input_available_at&quot;: &quot;2026-07-24T19:30:00Z&quot;,
+    &quot;median_daily_volume_usd&quot;: 1.0,
+    &quot;metric_value&quot;: 130124.0,
+    &quot;next_training_start&quot;: null,
+    &quot;notes&quot;: [
+      &quot;Retrospective method-boundary attempt; p=1 records no inferential test.&quot;,
+      &quot;One-dollar and zero-return fields are non-trading schema sentinels.&quot;,
+      &quot;No July 28 CFTC fact is in the attempt manifest.&quot;
+    ],
+    &quot;one_way_turnover&quot;: 0.0,
+    &quot;output_manifest_sha256&quot;: &quot;6b1df9c0d6d466b36ac827f5dce81e78432fe584c7c7ba10e6bf45a0cac179ee&quot;,
+    &quot;p_value&quot;: 1.0,
+    &quot;regime_metric_values&quot;: {
+      &quot;continuation-range-width&quot;: 130124.0,
+      &quot;known-weekly-decline&quot;: 130124.0
+    },
+    &quot;requested_capital_usd&quot;: 1.0,
+    &quot;sample_size&quot;: 2,
+    &quot;short_fraction&quot;: 0.0,
+    &quot;training_end&quot;: &quot;2026-07-22&quot;,
+    &quot;trial_id&quot;: &quot;cftc-tff-retrospective-range-screen&quot;
+  },
+  &quot;attempt_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;13dd6a9de39bebcc7a788fb57e8cef2b1771d62aeddd16bf85111f0030ae4eef&quot;,
+    &quot;entry_hash&quot;: &quot;13dd6a9de39bebcc7a788fb57e8cef2b1771d62aeddd16bf85111f0030ae4eef&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 2
+  },
+  &quot;decision&quot;: {
+    &quot;adjusted_p_values&quot;: {
+      &quot;cftc-tff-retrospective-attempt-1&quot;: 1.0
+    },
+    &quot;attempt_ids&quot;: [
+      &quot;cftc-tff-retrospective-attempt-1&quot;
+    ],
+    &quot;attempt_set_sha256&quot;: &quot;6e96e36707354a32c0039f7e10b0f7f774ff7d737e1f1e9ebbf438bbbe78c238&quot;,
+    &quot;candidate_attempt_id&quot;: &quot;cftc-tff-retrospective-attempt-1&quot;,
+    &quot;decided_at&quot;: &quot;2026-08-14T09:30:00Z&quot;,
+    &quot;decision_id&quot;: &quot;decision:cftc-tff-retrospective-range-screen:e48befaa036edc55fdd4bac9&quot;,
+    &quot;disposition&quot;: &quot;reject&quot;,
+    &quot;findings&quot;: [
+      {
+        &quot;kind&quot;: &quot;preregistration&quot;,
+        &quot;metrics&quot;: {
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;registered_before_holdout&quot;: false
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Registration was retrospective or the observed attempt family exceeded the preregistered declaration.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;leakage&quot;,
+        &quot;metrics&quot;: {
+          &quot;embargo_respected&quot;: true,
+          &quot;evaluation_inside_holdout&quot;: true,
+          &quot;input_available_by_decision&quot;: true,
+          &quot;training_respects_purge&quot;: true
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Point-in-time input, purge, holdout and embargo checks passed.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;multiplicity&quot;,
+        &quot;metrics&quot;: {
+          &quot;adjusted_p_value&quot;: 1.0,
+          &quot;alpha&quot;: 0.05,
+          &quot;declared_attempts&quot;: 1,
+          &quot;observed_attempts&quot;: 1,
+          &quot;raw_p_value&quot;: 1.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Candidate does not survive family-wise Holm adjustment.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;regime&quot;,
+        &quot;metrics&quot;: {
+          &quot;best_regime_metric&quot;: 130124.0,
+          &quot;regime_count&quot;: 2,
+          &quot;worst_regime_metric&quot;: 130124.0
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Metric direction is stable across named regimes.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;execution&quot;,
+        &quot;metrics&quot;: {
+          &quot;borrow_cost_bps&quot;: 0.0,
+          &quot;gross_return_bps&quot;: 0.0,
+          &quot;immediate_cost_bps&quot;: 0.0,
+          &quot;net_return_bps&quot;: 0.0
+        },
+        &quot;status&quot;: &quot;fail&quot;,
+        &quot;summary&quot;: &quot;Preregistered execution and borrow costs erase the gross return.&quot;
+      },
+      {
+        &quot;kind&quot;: &quot;capacity&quot;,
+        &quot;metrics&quot;: {
+          &quot;allowed_daily_notional_usd&quot;: 0.05,
+          &quot;daily_notional_usd&quot;: 0.0,
+          &quot;max_participation_rate&quot;: 0.05
+        },
+        &quot;status&quot;: &quot;pass&quot;,
+        &quot;summary&quot;: &quot;Requested capital fits the preregistered participation limit.&quot;
+      }
+    ],
+    &quot;trial_id&quot;: &quot;cftc-tff-retrospective-range-screen&quot;
+  },
+  &quot;input_lock_sha256&quot;: &quot;8c8ef3ea33f0f0e773df164bbdcac2ce77df2b151f9c0f05a8e0f1464ba24465&quot;,
+  &quot;manifest&quot;: {
+    &quot;attempts&quot;: 1,
+    &quot;chain_tip_sha256&quot;: &quot;84206234b3fbd1bb519d52e18ec0557ece85af0d33ef0f4e09045554ac56d586&quot;,
+    &quot;decisions&quot;: 1,
+    &quot;entries&quot;: 3,
+    &quot;registrations&quot;: 1,
+    &quot;rejected_decisions&quot;: 1,
+    &quot;verified&quot;: true
+  },
+  &quot;registration_receipt&quot;: {
+    &quot;chain_tip_sha256&quot;: &quot;506a17847565a5f046e3581a655ac22fca35def0317e64951e7066418612e051&quot;,
+    &quot;entry_hash&quot;: &quot;506a17847565a5f046e3581a655ac22fca35def0317e64951e7066418612e051&quot;,
+    &quot;inserted&quot;: true,
+    &quot;sequence&quot;: 1
+  },
+  &quot;spec&quot;: {
+    &quot;cost_model&quot;: {
+      &quot;borrow_bps_annual&quot;: 0.0,
+      &quot;commission_bps&quot;: 1.0,
+      &quot;half_spread_bps&quot;: 1.0,
+      &quot;market_impact_bps&quot;: 1.0,
+      &quot;max_participation_rate&quot;: 0.05
+    },
+    &quot;declared_attempts&quot;: 1,
+    &quot;disposition&quot;: &quot;revise&quot;,
+    &quot;economic_mechanism&quot;: &quot;TFF open interest is an aggregate weekly contract count with classification and schedule limitations. Two inputs and one later outcome cannot establish predictive validity, intent, direction, market impact, or causality.&quot;,
+    &quot;embargo_days&quot;: 0,
+    &quot;expected_direction&quot;: &quot;positive&quot;,
+    &quot;holdout_end&quot;: &quot;2026-08-15&quot;,
+    &quot;holdout_start&quot;: &quot;2026-07-25&quot;,
+    &quot;hypothesis&quot;: &quot;A retrospectively constructed one-decline CFTC open-interest boundary qualifies for research eligibility after every adversarial gate.&quot;,
+    &quot;preregistered_at&quot;: &quot;2026-08-14T09:30:00Z&quot;,
+    &quot;primary_metric&quot;: &quot;one-decline CFTC open-interest range width in contracts&quot;,
+    &quot;purge_days&quot;: 2,
+    &quot;trial_id&quot;: &quot;cftc-tff-retrospective-range-screen&quot;
+  }
+}</pre>
+  </details>
+</article>
+    </section>
+    <section id="limitations" aria-labelledby="limitations-title">
+      <h2 id="limitations-title">Pack limitations</h2><ul><li>This lock preserves the July 14 and July 21, 2026 CFTC Futures Only TFF UST 2-year total open-interest observations scheduled to be available by the July 24 boundary, and binds the five-response API, annual-file, release-schedule, COT-policy, and TFF-notes evidence chain. The exact 3:30 p.m. Eastern value is official scheduled availability at 0.98 confidence because the page calls the schedule tentative and CFTC exposes no row-level actual-publication log. The lock excludes the July 28 event, all category positions and trader counts as range inputs, face-value-to-notional conversion, directional exposure, trading intent, volume, executions, accounts, P&amp;L, probability, calibrated coverage, forecast, causality, recommendation, investment performance, external review, deployment, and user impact.</li><li>The endpoints are July 21 persistence or one repetition of one known decline.</li><li>The July 28 event and every later-known value are excluded from every input.</li><li>Category positions, trader counts, and face value do not set either endpoint.</li><li>CFTC classifications do not establish the intent of each trading activity.</li><li>No probability, coverage, causal, market-impact, or performance claim is made.</li><li>A fixed build epoch and zero elapsed time preserve deterministic pack identity.</li></ul>
+    </section>
+  </main>
+  <footer><p>Static read-only report. No brokerage connection,
+  tracking script, or external request.</p></footer>
+</body>
+</html>
