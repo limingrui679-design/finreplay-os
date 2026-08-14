@@ -5,6 +5,8 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import resource
+import sys
 import tempfile
 import time
 from datetime import date, datetime
@@ -24,6 +26,22 @@ _QUERY_LOGIC = (
     "tuple (event_date,event_time_seconds) is <= (event_cutoff_date,event_cutoff_second)"
 )
 _QUERY_LOGIC_SHA256 = hashlib.sha256(_QUERY_LOGIC.encode()).hexdigest()
+_LOGICAL_SQL = """SELECT
+  count(*) AS input_scan_rows,
+  count_if(event_date IS NULL OR event_time_seconds IS NULL) AS temporal_invalid_rows,
+  count_if(:event_cutoff_predicate) AS rows_at_or_before_cutoff,
+  count_if((:event_cutoff_predicate) AND invalid_mask <> 0)
+    AS invalid_rows_at_or_before_cutoff,
+  count_if((:event_cutoff_predicate) AND coalesce(is_crawler, false))
+    AS crawler_rows_at_or_before_cutoff,
+  count_if((:event_cutoff_predicate) AND status_code BETWEEN 200 AND 299)
+    AS http_success_rows_at_or_before_cutoff,
+  count(DISTINCT CASE WHEN :event_cutoff_predicate THEN cik END)
+    AS unique_ciks_at_or_before_cutoff,
+  coalesce(sum(CASE WHEN :event_cutoff_predicate THEN document_size ELSE 0 END), 0)
+    AS document_bytes_at_or_before_cutoff
+FROM read_parquet(:manifest_eligible_parquet_files, union_by_name=false)"""
+_LOGICAL_SQL_SHA256 = hashlib.sha256(_LOGICAL_SQL.encode()).hexdigest()
 
 
 class _StrictModel(BaseModel):
@@ -55,12 +73,17 @@ class SECLogAsOfQueryReceipt(_StrictModel):
     unique_ciks_at_or_before_cutoff: int = Field(ge=0)
     document_bytes_at_or_before_cutoff: int = Field(ge=0)
     query_elapsed_seconds: float = Field(ge=0)
+    process_id: int = Field(gt=0)
+    process_peak_rss_bytes: int = Field(gt=0)
+    peak_rss_scope: Literal["process_lifetime_high_water_mark"] = "process_lifetime_high_water_mark"
     duckdb_version: str = Field(min_length=1, max_length=100)
     cache_state: Literal[
         "fresh_process_os_cache_not_controlled",
         "same_process_os_cache_not_controlled",
     ]
     query_logic_sha256: str = Field(pattern=_SHA256_PATTERN)
+    logical_sql: str = Field(min_length=100, max_length=5_000)
+    logical_sql_sha256: str = Field(pattern=_SHA256_PATTERN)
     claim_boundary: str = Field(min_length=350, max_length=4_000)
     receipt_sha256: str = Field(pattern=_SHA256_PATTERN)
 
@@ -103,6 +126,10 @@ class SECLogAsOfQueryReceipt(_StrictModel):
             raise ValueError("empty SEC log query eligibility must produce zero counts")
         if self.query_logic_sha256 != _QUERY_LOGIC_SHA256:
             raise ValueError("SEC log query logic hash mismatch")
+        if self.logical_sql != _LOGICAL_SQL:
+            raise ValueError("SEC log logical SQL text mismatch")
+        if self.logical_sql_sha256 != _LOGICAL_SQL_SHA256:
+            raise ValueError("SEC log logical SQL hash mismatch")
         payload = self.model_dump(mode="json", exclude={"receipt_sha256"})
         skip_hash = isinstance(info.context, dict) and info.context.get("skip_hash") is True
         if not skip_hash and _hash(payload) != self.receipt_sha256:
@@ -215,9 +242,14 @@ def run_sec_log_asof_query(
             "input_hash_verification_seconds": input_hash_seconds,
             **values,
             "query_elapsed_seconds": query_seconds,
+            "process_id": os.getpid(),
+            "process_peak_rss_bytes": _process_peak_rss_bytes(),
+            "peak_rss_scope": "process_lifetime_high_water_mark",
             "duckdb_version": duckdb.__version__,
             "cache_state": cache_state,
             "query_logic_sha256": _QUERY_LOGIC_SHA256,
+            "logical_sql": _LOGICAL_SQL,
+            "logical_sql_sha256": _LOGICAL_SQL_SHA256,
             "claim_boundary": (
                 "This receipt measures one aggregate scan over content-addressed Parquet inputs "
                 "selected by two distinct cutoffs: logged event time and the time this project "
@@ -336,3 +368,8 @@ def _file_sha256(path: Path) -> str:
         while chunk := handle.read(8 * 1024 * 1024):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _process_peak_rss_bytes() -> int:
+    observed = int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    return observed if sys.platform == "darwin" else observed * 1_024
