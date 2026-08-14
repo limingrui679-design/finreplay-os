@@ -39,6 +39,7 @@ from finreplay.adapters.fed_fomc import FederalReserveFOMCStatementAdapter
 from finreplay.adapters.fed_g17 import FederalReserveG17ArchiveAdapter
 from finreplay.adapters.fed_g19 import FederalReserveG19ArchiveAdapter
 from finreplay.adapters.fed_h41 import FederalReserveH41BTFPAdapter
+from finreplay.adapters.fhfa_hpi import FHFAHPIArchiveAdapter
 from finreplay.adapters.fiscaldata import (
     FISCAL_DATA_BY_SLUG,
     FISCAL_DATA_SPECS,
@@ -89,6 +90,7 @@ __all__ = [
     "FDICDatasetAdapter",
     "FDICDatasetSpec",
     "FDICFinancialsAdapter",
+    "FHFAHPIArchiveAdapter",
     "FederalReserveFOMCStatementAdapter",
     "FederalReserveG17ArchiveAdapter",
     "FederalReserveG19ArchiveAdapter",
