@@ -336,6 +336,11 @@ def _build_partition(
     compact = partition.partition_date.strftime("%Y%m%d")
     archive = archive_directory / f"log{compact}.zip"
     download_path = download_receipt_directory / f"log{compact}.download-receipt.json"
+    if archive.is_file() and not download_path.is_file():
+        raise ValueError(
+            "SEC log archive exists without its download receipt; refusing to infer "
+            "official network provenance from an unreceipted local file"
+        )
     if download_path.is_file() and archive.is_file():
         download = _load_download_for_partition(partition, download_receipt_directory)
     else:
