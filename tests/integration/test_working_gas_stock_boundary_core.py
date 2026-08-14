@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import pytest
 from pydantic import ValidationError
@@ -236,4 +236,4 @@ def test_working_gas_lock_rejects_hash_roles_decision_and_self_hash_corruption()
 
 
 def _lock_values() -> dict[str, Any]:
-    return json.loads(LOCK_PATH.read_text(encoding="utf-8"))
+    return cast(dict[str, Any], json.loads(LOCK_PATH.read_text(encoding="utf-8")))

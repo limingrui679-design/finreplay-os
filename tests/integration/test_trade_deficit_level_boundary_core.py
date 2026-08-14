@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import pytest
 from pydantic import ValidationError
@@ -285,4 +285,4 @@ def test_trade_deficit_lock_create_is_deterministic_and_self_hashing() -> None:
 
 
 def _lock_values() -> dict[str, Any]:
-    return json.loads(LOCK_PATH.read_text(encoding="utf-8"))
+    return cast(dict[str, Any], json.loads(LOCK_PATH.read_text(encoding="utf-8")))

@@ -7,6 +7,7 @@ from typing import Any, cast
 
 import httpx
 import pytest
+import xlrd
 from pypdf import PdfWriter
 from pypdf.generic import DictionaryObject, NameObject, StreamObject
 
@@ -62,7 +63,7 @@ def fake_books(
     bad_source: bool = False,
     duplicate_revision_week: bool = False,
 ) -> tuple[FakeBook, FakeBook]:
-    revision_rows = [[""] * 11 for _ in range(253)]
+    revision_rows: list[list[Any]] = [[""] * 11 for _ in range(253)]
     revision_rows[0][0] = (
         "1. Beginning in November 2015, the file will be updated with the original estimate "
         "prior to the revision or reclassification and the accompanying note."
@@ -87,7 +88,7 @@ def fake_books(
     if duplicate_revision_week:
         revision_rows[5] = [*ROWS[0], ""]
 
-    history_rows = [[""] * 10 for _ in range(542)]
+    history_rows: list[list[Any]] = [[""] * 10 for _ in range(542)]
     history_rows[6] = [
         "Week ending",
         "Source",
@@ -103,7 +104,7 @@ def fake_books(
     for position, raw in enumerate(ROWS, start=7):
         history_rows[position] = list(raw)
     history_rows[8][9] += history_delta
-    net_rows = [[""] * 10 for _ in range(542)]
+    net_rows: list[list[Any]] = [[""] * 10 for _ in range(542)]
     return (
         FakeBook({"original_data": FakeSheet(revision_rows, 11)}),
         FakeBook(
@@ -138,7 +139,7 @@ def install_fake_xlrd(
             return history_book
         raise AssertionError("unexpected workbook")
 
-    monkeypatch.setattr(module.xlrd, "open_workbook", open_workbook)
+    monkeypatch.setattr(xlrd, "open_workbook", open_workbook)
 
 
 def _write_page_text(writer: PdfWriter, page_number: int, lines: list[str]) -> None:

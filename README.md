@@ -20,12 +20,14 @@ investment performance, institutional adoption, external validation, or real-wor
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
-| 30 historical/boundary scenarios | 23/30 internally replay-proven: three bank boundaries plus 20 source-diverse macro, policy, rate, energy, labor, Treasury, production, retail-sales, housing, consumer-credit, construction-spending, house-price-index, durable-goods, and international-trade boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
+| 30 historical/boundary scenarios | 26/30 internally replay-proven: three bank boundaries plus 23 source-diverse macro, policy, rate, energy, labor, producer-price, Treasury, production, retail-sales, housing, home-sales, consumer-credit, construction-spending, house-price-index, durable-goods, international-trade, and natural-gas boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Not achieved | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
 The machine-auditable requirements are maintained in
 [`docs/verification/acceptance-matrix.md`](docs/verification/acceptance-matrix.md).
+
+[Seven engines](#the-seven-engines) · [Compact workflow](#compact-workflow) · [Run locally](#local-development) · [Scenario evidence](#scenario-evidence) · [Truth boundaries](#truth-boundaries)
 
 ## The seven engines
 
@@ -36,6 +38,22 @@ The machine-auditable requirements are maintained in
 5. **ExecutionLab** — cost, latency, queue, liquidity, capacity, and failure envelopes.
 6. **CapitalAllocator** — robust allocation, constraints, reversal thresholds, and value of information.
 7. **ReplayStudio** — human-readable and machine-readable ReplayPack reports.
+
+## Compact workflow
+
+```mermaid
+flowchart LR
+    A[Official releases] --> B[TimeVault point-in-time lock]
+    B --> C[Adversarial research engines]
+    C --> D[ReplayStudio]
+    D --> E[Verified ReplayPack]
+    B -. ineligible .-> X[Fail closed]
+    C -. unsupported .-> X
+```
+
+The main workflow stays deliberately small. Source-specific eligibility rules, the seven-engine
+contract, and all 26 replay summaries remain available below as detailed evidence rather than
+expanding this diagram.
 
 ## Truth boundaries
 
@@ -72,6 +90,12 @@ portable content hashes and bounded evidence receipts are committed under `verif
 The latest one-per-adapter evidence inventory can be rebuilt with
 `python scripts/verify_live_receipts.py`; legacy schema-1.0 receipts remain historical Git evidence
 but are excluded from current adapter counts.
+
+<details>
+<summary><strong>Open source-by-source validation and timing notes</strong></summary>
+
+These notes preserve the exact validation command, knowledge-time rule, and claim boundary for
+each supporting source.
 
 The nine New York Fed products can be revalidated with
 `python scripts/validate_nyfed_catalog.py`. They are deliberately `latest_only`: event, as-of,
@@ -209,6 +233,8 @@ snapshot never overwrites them. The currently served May PDF's June 15 modificat
 explicit. Full responses stay local and the connector remains outside the formal 30-adapter
 inventory.
 
+</details>
+
 ReplayStudio accepts a typed JSON specification and emits a deterministic static report directory:
 
 ```bash
@@ -234,6 +260,15 @@ simulated. Its post-decision SEC event lock is verified separately and cannot ap
 decision-input manifest. The committed evidence proves internal deterministic integration, not
 historical completeness, method correctness, deployment, or external validation. See
 [`docs/scenarios/svb-2023.md`](docs/scenarios/svb-2023.md).
+
+## Scenario evidence
+
+The first SVB flow remains visible above because it is the intended release gate. The remaining 25
+internally replay-proven scenarios are retained in full below, but collapsed so the README can be
+scanned before opening source-level evidence.
+
+<details>
+<summary><strong>Open all remaining scenario evidence summaries (2–26)</strong></summary>
 
 The second counted flow locks seven PacWest Bancorp facts accepted on 2023-02-27, sets a
 2023-05-03 20:00 UTC decision boundary, and separately locks the post-decision 2023-05-04 SEC 8-K
@@ -439,6 +474,47 @@ eliminate nonsampling error or services-estimation limitations, and the release'
 not treated as a causal or unaffected-measurement result. See
 [`docs/scenarios/census-ft900-2020.md`](docs/scenarios/census-ft900-2020.md).
 
+The twenty-fourth counted flow uses archived joint Census/HUD *Monthly New Residential Sales*
+PDF releases. At the March 24 10:00 a.m. EDT boundary, the decision snapshot co-publishes a
+revised January sales rate of `800,000` and an initial February rate of `765,000` units SAAR. The
+mechanical stress endpoints are February persistence or one repeat of that same-snapshot
+`35,000`-unit decline: `[730,000, 765,000]`, with no probability. The earlier January initial
+value of `764,000` remains revision lineage rather than setting an endpoint. The separately
+locked April 23 release reports March at `627,000`, a required visible `103,000`-unit breach below
+the lower endpoint, while its February revision to `741,000` never overwrites the decision input.
+The adapter validates exact release timing, all five PDF pages, release identity, Table 1a facts,
+sampling metadata, and response hashes. SAAR is not an actual monthly transaction count, and a
+source-defined sale is not necessarily a closing, mortgage, completed home, buyer, builder, or
+property record. See
+[`docs/scenarios/census-nrs-2020.md`](docs/scenarios/census-nrs-2020.md).
+
+The twenty-fifth counted flow uses EIA's revision-safe WNGSR workbook, current historical
+workbook, and 2020–2022 performance evaluation. It locks original Lower 48 working-gas stocks of
+`2,043` and `2,034` Bcf at the March 19 10:30 a.m. EDT boundary, then constructs only persistence
+or one repeat of the known `9` Bcf decline: `[2,025, 2,034]`, with no probability. The separately
+locked March 20 event is `2,005` Bcf, a required visible `20` Bcf breach below the lower endpoint.
+The adapter cross-checks original and current-history values, exact release timing, selected
+statistical metadata, signed same-host download redirects, and three official response hashes.
+EIA coefficients of variation and weekly-net-change standard errors remain source metadata and do
+not set FinReplay endpoints; rounded regional differences are retained rather than forcibly
+reconciled. The aggregate stock estimates are not facility measurements, capacity, prices,
+causal results, or trading outcomes. See
+[`docs/scenarios/eia-wngsr-2020.md`](docs/scenarios/eia-wngsr-2020.md).
+
+The twenty-sixth counted flow uses paired archived BLS *Producer Price Indexes* HTML and PDF
+releases. At the April 9 8:30 a.m. EDT boundary, it locks the first-reported February and March
+final-demand monthly changes of `-60` and `-20` basis points. Persistence or one repeat of the
+known `40`-basis-point increase produces the transparent `[-20, 20]` basis-point range with no
+probability. The separately locked May 13 release reports April at `-130` basis points, a required
+visible `110`-basis-point breach below the lower endpoint, while retaining March at `-20` with no
+revision. The adapter validates exact embargo timing, release identity, headline and prior values,
+Table 1, the technical definition, revision rule, full page geometry and text, paired-format
+agreement, and six official response hashes. PPI is an aggregate seller-price measure, not CPI,
+household cost, quantity, revenue, profit, return, causal effect, calibrated interval, or BLS
+forecast. See [`docs/scenarios/bls-ppi-2020.md`](docs/scenarios/bls-ppi-2020.md).
+
+</details>
+
 ## Research and investment disclaimer
 
 FinReplay OS is research software. It does not provide investment, legal, accounting, or risk
@@ -446,6 +522,6 @@ management advice and does not connect to brokerage execution by default.
 
 ## License
 
-Code is intended for release under Apache-2.0. Dataset licenses and redistribution rules are
+Code is released under Apache-2.0. Dataset licenses and redistribution rules are
 source-specific and tracked separately; the presence of a connector never grants a right to
 redistribute upstream data.

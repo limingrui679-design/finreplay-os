@@ -4,7 +4,7 @@ import hashlib
 from dataclasses import replace
 from datetime import UTC, date, datetime
 from io import BytesIO
-from typing import Any, cast
+from typing import cast
 from zipfile import ZIP_DEFLATED, ZipFile
 
 import httpx
@@ -574,7 +574,7 @@ def test_ft900_internal_arithmetic_fails_closed(
 ) -> None:
     instance = adapter(monkeypatch)
     instance.spec = replace(instance.spec, **changes)  # type: ignore[arg-type]
-    facts = {
+    facts: dict[str, object] = {
         "current_row": instance.spec.current_row,
         "prior_row_current_release": instance.spec.prior_row_current_release,
         "prior_row_previous_release": instance.spec.prior_row_previous_release,
@@ -740,4 +740,4 @@ def test_replace_all_supports_multiple_replacements() -> None:
 def test_type_contract_for_payload_is_json_safe(monkeypatch: pytest.MonkeyPatch) -> None:
     payload = adapter(monkeypatch).fetch().records[0].payload
     assert isinstance(payload, dict)
-    assert all(isinstance(key, str) for key in cast(dict[str, Any], payload))
+    assert all(isinstance(key, str) for key in payload)

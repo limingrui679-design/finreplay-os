@@ -156,11 +156,11 @@ def pdf_bytes(
     blank_page: int | None = None,
 ) -> bytes:
     spec = RELEASES[release_date]
-    page_count = int(spec["pages"]) if pages is None else pages
+    page_count = cast(int, spec["pages"]) if pages is None else pages
     page_lines = [[f"official PPI content page {index + 1}"] for index in range(page_count)]
     page_lines[0] = release_lines(release_date)
-    technical_page = int(spec["technical_page"])
-    table_page = int(spec["table_page"])
+    technical_page = cast(int, spec["technical_page"])
+    table_page = cast(int, spec["table_page"])
     if technical_page < page_count:
         page_lines[technical_page] = [
             "Technical Note Brief Explanation of Producer Price Indexes",
