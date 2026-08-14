@@ -62,6 +62,13 @@ from finreplay.scenarios.fomc_target_boundary import (
     build_fomc_target_boundary_replay_spec,
     load_fomc_target_boundary_input_lock,
 )
+from finreplay.scenarios.house_price_change_boundary import (
+    FHFA_HPI_SOURCE_ID,
+    HousePriceChangeBoundaryInputLock,
+    HousePriceChangeBoundaryRoles,
+    build_house_price_change_boundary_replay_spec,
+    load_house_price_change_boundary_input_lock,
+)
 from finreplay.scenarios.housing_starts_boundary import (
     CENSUS_NRC_SOURCE_ID,
     HousingStartsBoundaryInputLock,
@@ -165,6 +172,7 @@ __all__ = [
     "FED_G17_SOURCE_ID",
     "FED_G19_SOURCE_ID",
     "FED_H41_BTFP_SOURCE_ID",
+    "FHFA_HPI_SOURCE_ID",
     "GDP_SERIES_ID",
     "NYFED_SOFR_SOURCE_ID",
     "SVB_BALANCE_DATE",
@@ -192,6 +200,8 @@ __all__ = [
     "FacilityGrowthInputLock",
     "FacilityGrowthRoles",
     "FileEvidence",
+    "HousePriceChangeBoundaryInputLock",
+    "HousePriceChangeBoundaryRoles",
     "HousingStartsBoundaryInputLock",
     "HousingStartsBoundaryRoles",
     "IndustrialProductionBoundaryInputLock",
@@ -225,6 +235,7 @@ __all__ = [
     "build_employment_boundary_replay_spec",
     "build_facility_growth_replay_spec",
     "build_fomc_target_boundary_replay_spec",
+    "build_house_price_change_boundary_replay_spec",
     "build_housing_starts_boundary_replay_spec",
     "build_industrial_production_boundary_replay_spec",
     "build_initial_claims_boundary_replay_spec",
@@ -244,6 +255,7 @@ __all__ = [
     "load_employment_boundary_input_lock",
     "load_facility_growth_input_lock",
     "load_fomc_target_boundary_input_lock",
+    "load_house_price_change_boundary_input_lock",
     "load_housing_starts_boundary_input_lock",
     "load_industrial_production_boundary_input_lock",
     "load_initial_claims_boundary_input_lock",
