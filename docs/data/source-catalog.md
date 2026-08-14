@@ -100,6 +100,14 @@ scenario locks retain only minimal balances and source metadata. Date-only relea
 knowable at 00:00 UTC two calendar days later. This supporting connector is also excluded from the
 formal 30-adapter inventory.
 
+`federal_reserve.h41.central_bank_liquidity_swaps` retrieves only the March 19, March 26, and
+April 2, 2020 archived H.4.1 HTML/ASCII pairs. It cross-checks Table 1 weekly averages, changes,
+Wednesday balances, release identity, and the swap-exchange-rate measurement footnote. March 19
+and 26 carry exact official stated 4:30 p.m. EDT times; because the April 2 pair states only its
+release date, that event uses the following New York midnight. Neither method is a server log.
+Dynamic HTML wrapper hashes remain in raw receipts, while records bind stable paired-format
+semantics. The connector is scenario-specific and excluded from the formal 30-adapter inventory.
+
 `bls.employment_situation.archived_release` retrieves one explicitly dated archived Employment
 Situation page and strictly parses its embargo statement, report-period heading, and first headline
 sentence. Three releases used by the payroll boundary scenario are verified under

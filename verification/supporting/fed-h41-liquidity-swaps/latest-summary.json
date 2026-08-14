@@ -1,0 +1,18 @@
+{
+  "adapters": [
+    {
+      "adapter_id": "federal_reserve.h41.central_bank_liquidity_swaps",
+      "historical_replay_eligible": true,
+      "idempotent_records": 3,
+      "inserted_records": 0,
+      "receipt": "federal_reserve.h41.central_bank_liquidity_swaps-312ef4c75191536f.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-14T10:25:55.254060Z",
+      "temporal_coverage": "versioned_snapshot"
+    }
+  ],
+  "historical_replay_eligible_count": 1,
+  "latest_only_count": 0,
+  "schema_version": "1.0.0",
+  "verified_adapter_count": 1
+}
