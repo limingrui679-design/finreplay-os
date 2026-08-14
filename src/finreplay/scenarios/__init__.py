@@ -48,6 +48,13 @@ from finreplay.scenarios.fomc_target_boundary import (
     build_fomc_target_boundary_replay_spec,
     load_fomc_target_boundary_input_lock,
 )
+from finreplay.scenarios.housing_starts_boundary import (
+    CENSUS_NRC_SOURCE_ID,
+    HousingStartsBoundaryInputLock,
+    HousingStartsBoundaryRoles,
+    build_housing_starts_boundary_replay_spec,
+    load_housing_starts_boundary_input_lock,
+)
 from finreplay.scenarios.industrial_production_boundary import (
     FED_G17_SOURCE_ID,
     IndustrialProductionBoundaryInputLock,
@@ -136,6 +143,7 @@ __all__ = [
     "BLS_CPI_SOURCE_ID",
     "BLS_EMPLOYMENT_SOURCE_ID",
     "CENSUS_MARTS_SOURCE_ID",
+    "CENSUS_NRC_SOURCE_ID",
     "DOL_UI_CLAIMS_SOURCE_ID",
     "EIA_WPSR_SOURCE_ID",
     "FED_FOMC_SOURCE_ID",
@@ -164,6 +172,8 @@ __all__ = [
     "FacilityGrowthInputLock",
     "FacilityGrowthRoles",
     "FileEvidence",
+    "HousingStartsBoundaryInputLock",
+    "HousingStartsBoundaryRoles",
     "IndustrialProductionBoundaryInputLock",
     "IndustrialProductionBoundaryRoles",
     "InitialClaimsBoundaryInputLock",
@@ -193,6 +203,7 @@ __all__ = [
     "build_employment_boundary_replay_spec",
     "build_facility_growth_replay_spec",
     "build_fomc_target_boundary_replay_spec",
+    "build_housing_starts_boundary_replay_spec",
     "build_industrial_production_boundary_replay_spec",
     "build_initial_claims_boundary_replay_spec",
     "build_macro_revision_replay_spec",
@@ -209,6 +220,7 @@ __all__ = [
     "load_employment_boundary_input_lock",
     "load_facility_growth_input_lock",
     "load_fomc_target_boundary_input_lock",
+    "load_housing_starts_boundary_input_lock",
     "load_industrial_production_boundary_input_lock",
     "load_initial_claims_boundary_input_lock",
     "load_macro_revision_input_lock",
