@@ -1,0 +1,60 @@
+{
+  "claim_boundary": "Four actual engines ran over the exact January and February national purchase-only seasonally adjusted monthly HPI changes from their first verified FHFA reports, both knowable at the April 22 decision time. Reported values remain reported; the latest-change-persistence-or-repeat-known-increase envelope remains inferred with no probability. The May 26 March value and the report's January and February revision snapshot stay only in a disjoint event lock. The January report footer's '9AM EST' wording is retained alongside the controlling official schedule's 9 a.m. ET rule; it is not silently harmonized. This is not a forecast, calibrated interval, universal home-price measure, contemporaneous COVID effect, causal model, trading signal, deployment, external validation, or user-impact claim.",
+  "files": [
+    {
+      "bytes": 1602,
+      "media_type": "text/markdown; charset=utf-8",
+      "relative_path": "README.md",
+      "role": "human-readme",
+      "sha256": "cc9c2bed14a1f8f03c1028da0c13c43943f8b82253b57314dbeac67829a95085"
+    },
+    {
+      "bytes": 3481,
+      "media_type": "text/css; charset=utf-8",
+      "relative_path": "assets/styles.css",
+      "role": "report-style",
+      "sha256": "38a37af04db6bcbb54eebf896b969353860394d105a6e757ebd1d4c8afa49677"
+    },
+    {
+      "bytes": 315,
+      "media_type": "text/plain; charset=utf-8",
+      "relative_path": "checksums.sha256",
+      "role": "portable-checksums",
+      "sha256": "9c2816608ebecc0e39f1c633fc00f8ee61337bd2f9cad0b411caed66f4f13921"
+    },
+    {
+      "bytes": 32936,
+      "media_type": "text/html; charset=utf-8",
+      "relative_path": "index.html",
+      "role": "human-report",
+      "sha256": "73b4d0a9225f51539e2d110f054d4a08cafde60908e199a6854df75beb0c4030"
+    },
+    {
+      "bytes": 31998,
+      "media_type": "application/json",
+      "relative_path": "report.json",
+      "role": "machine-report",
+      "sha256": "461801d55a864ec6d2edd44d8087ef8a9e54da0980ff71304f8d858e3c3e9d4f"
+    }
+  ],
+  "pack_sha256": "338c19be4990422caa75c2e7ddc2ff34bc167e8b61c71e502916731aaa111e35",
+  "receipt_sha256": "5a374660fa31c9aa71c282915cbff23e44185daa01e7738a7be10252dfb61a37",
+  "replay_id": "fhfa-hpi-2020-house-price-change-boundary-v1",
+  "replay_manifest": {
+    "code_commit": "c2891ea05c93f3de2a10dbfef3578ee44f583bc2",
+    "compressed_input_bytes": 2689,
+    "created_at": "2026-08-14T05:15:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "input_manifest_sha256": "a5609ef70a1047906d19e6f1abf074da5d9728ba5eacf92e9919ddfd6dd86564",
+    "output_manifest_sha256": "d19935f4e1b27af9c2005c6647fcdb1ac48655c4559ff165ccacccba098c4533",
+    "replay_id": "fhfa-hpi-2020-house-price-change-boundary-v1",
+    "scenario_id": "fhfa-hpi-2020-house-price-change-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced"
+  },
+  "report_sha256": "461801d55a864ec6d2edd44d8087ef8a9e54da0980ff71304f8d858e3c3e9d4f",
+  "schema_version": "1.0.0",
+  "trace_id": "trace:0546ce017baf309b17b31cb58eeb2d38b19413b3df33a9a4fc83b2f650e46d4d"
+}

@@ -1,0 +1,603 @@
+{
+  "contains_simulation": true,
+  "engine_artifact_counts": {
+    "replaystudio": 1,
+    "shockcompiler": 1,
+    "timevault": 1,
+    "trialcourt": 1
+  },
+  "evidence_totals": {
+    "extracted": 1,
+    "inferred": 4,
+    "reported": 4,
+    "simulated": 1
+  },
+  "input_manifest_sha256": "a5609ef70a1047906d19e6f1abf074da5d9728ba5eacf92e9919ddfd6dd86564",
+  "pack_sha256": "338c19be4990422caa75c2e7ddc2ff34bc167e8b61c71e502916731aaa111e35",
+  "source_hashes": [
+    "02f589a1d47ef046e87be9391a74f1d6e65fe92cdd552b87ad4144722f67cfba",
+    "3624bf523c7afa70616e155deb506fe419b756511a0c14a22d1fb3f16b0da993",
+    "bc885fac528f66a02a3f0760b81dcace6fe1ef0f0f980aecb5e34c600d239a46"
+  ],
+  "source_record_ids": [
+    "fhfa.hpi.archived_purchase_only_monthly_change:202001:us_purchase_only_hpi_monthly_change",
+    "fhfa.hpi.archived_purchase_only_monthly_change:202002:us_purchase_only_hpi_monthly_change"
+  ],
+  "source_set_historical_replay_eligible": true,
+  "spec": {
+    "artifacts": [
+      {
+        "artifact_id": "fhfa-hpi.replaystudio.render",
+        "artifact_kind": "static-report-contract",
+        "artifact_sha256": "5ac592180fbb3c51faa7f3bb56676a04bcbc343661ce6d37e1a4abee136c6b7b",
+        "engine": "replaystudio",
+        "evidence_counts": {
+          "extracted": 1
+        },
+        "limitations": [
+          "Static rendering does not validate the two-release range heuristic."
+        ],
+        "payload": {
+          "engine_selection": "This FHFA release boundary requires TimeVault, ShockCompiler, TrialCourt, and ReplayStudio; no property, borrower, mortgage, transaction, appraisal, position, order, portfolio, or allocation input is invented.",
+          "input_lock_sha256": "4c303409b3f6c74be01f035b5ea2ce11b63ed6da2c36fba998849137d2802e04",
+          "portable_file_count_excluding_manifest": 5,
+          "renderer": "ReplayStudio",
+          "truth_labels_visible": true
+        },
+        "source_hashes": [
+          "02f589a1d47ef046e87be9391a74f1d6e65fe92cdd552b87ad4144722f67cfba",
+          "3624bf523c7afa70616e155deb506fe419b756511a0c14a22d1fb3f16b0da993",
+          "bc885fac528f66a02a3f0760b81dcace6fe1ef0f0f980aecb5e34c600d239a46"
+        ],
+        "source_record_ids": [
+          "fhfa.hpi.archived_purchase_only_monthly_change:202001:us_purchase_only_hpi_monthly_change",
+          "fhfa.hpi.archived_purchase_only_monthly_change:202002:us_purchase_only_hpi_monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "fhfa-hpi.shockcompiler.hpi-change-range",
+          "fhfa-hpi.timevault.release-query",
+          "fhfa-hpi.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "artifact_id": "fhfa-hpi.shockcompiler.hpi-change-range",
+        "artifact_kind": "bounded-fhfa-hpi-monthly-change-program",
+        "artifact_sha256": "ad2077446b6da4d094b29a22a672b11a6dfff38b878854ee645d8ef4f593b098",
+        "engine": "shockcompiler",
+        "evidence_counts": {
+          "inferred": 3
+        },
+        "limitations": [
+          "The endpoints mechanically reuse one initial-release change increase.",
+          "The May 26 March value and revised January/February values are absent.",
+          "The range is not an official confidence interval, probability, or causal model."
+        ],
+        "payload": {
+          "applied_endpoints": {
+            "lower": 70.0,
+            "upper": 110.0
+          },
+          "bound_construction": {
+            "endpoint_method": "latest_initial_change_persistence_or_repeat_known_initial_increase",
+            "future_event_used": false,
+            "known_initial_increase_basis_points": 40,
+            "lower_change_basis_points": 70,
+            "official_confidence_interval_used": false,
+            "probability_assigned": false,
+            "range_width_basis_points": 40,
+            "upper_change_basis_points": 110
+          },
+          "compiled": {
+            "compiled_sha256": "884ff0fb35e1b3e7e78dd31e8bef350052e5203eb072db1968f864075f875b33",
+            "decision_time": "2020-04-22T13:00:00Z",
+            "limitations": [
+              "The endpoints have no likelihood, coverage, causal, or regime meaning.",
+              "The May 26 report and its revision snapshot are evaluated only afterward.",
+              "The index does not represent every property, mortgage, or transaction."
+            ],
+            "mode": "bounded_reconstruction",
+            "program_id": "fhfa-hpi-next-hpi-monthly-change-envelope",
+            "scenario_id": "fhfa-hpi-2020-house-price-change-boundary",
+            "source_program_sha256": "9cbc735cea1590668a4d7df385290978056376177a309c117d3a4456cbfc57e8",
+            "trials": [
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use February initial-change persistence or one repetition of the only known increase between January and February first-report national monthly changes.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two first-report changes and one increase define a stress range, not a forecast, probability, confidence interval, or calibrated predictive interval.",
+                      "Later FHFA revisions and the March event are absent from range construction."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "fhfa-hpi-next-hpi-monthly-change-range",
+                    "source_hashes": [
+                      "bc885fac528f66a02a3f0760b81dcace6fe1ef0f0f980aecb5e34c600d239a46",
+                      "3624bf523c7afa70616e155deb506fe419b756511a0c14a22d1fb3f16b0da993"
+                    ],
+                    "source_record_ids": [
+                      "fhfa.hpi.archived_purchase_only_monthly_change:202001:us_purchase_only_hpi_monthly_change",
+                      "fhfa.hpi.archived_purchase_only_monthly_change:202002:us_purchase_only_hpi_monthly_change"
+                    ],
+                    "target_id": "fhfa_hpi:us_purchase_only_seasonally_adjusted",
+                    "unit": "basis_points_of_month_over_month_price_change",
+                    "value": 70.0,
+                    "variable": "next_us_purchase_only_hpi_monthly_change_basis_points"
+                  }
+                ],
+                "trial_id": "fhfa-hpi-next-hpi-monthly-change-envelope:00000000:f1bbcfcdf3b9cf99",
+                "trial_index": 0,
+                "vector_sha256": "f1bbcfcdf3b9cf99b6a08346b2e0fcbbf887ed7227127c8cf1f85736b19e03f1"
+              },
+              {
+                "shocks": [
+                  {
+                    "derivation": "Use February initial-change persistence or one repetition of the only known increase between January and February first-report national monthly changes.",
+                    "evidence_class": "inferred",
+                    "limitations": [
+                      "Two first-report changes and one increase define a stress range, not a forecast, probability, confidence interval, or calibrated predictive interval.",
+                      "Later FHFA revisions and the March event are absent from range construction."
+                    ],
+                    "operation": "set",
+                    "parameter_id": "fhfa-hpi-next-hpi-monthly-change-range",
+                    "source_hashes": [
+                      "bc885fac528f66a02a3f0760b81dcace6fe1ef0f0f980aecb5e34c600d239a46",
+                      "3624bf523c7afa70616e155deb506fe419b756511a0c14a22d1fb3f16b0da993"
+                    ],
+                    "source_record_ids": [
+                      "fhfa.hpi.archived_purchase_only_monthly_change:202001:us_purchase_only_hpi_monthly_change",
+                      "fhfa.hpi.archived_purchase_only_monthly_change:202002:us_purchase_only_hpi_monthly_change"
+                    ],
+                    "target_id": "fhfa_hpi:us_purchase_only_seasonally_adjusted",
+                    "unit": "basis_points_of_month_over_month_price_change",
+                    "value": 110.0,
+                    "variable": "next_us_purchase_only_hpi_monthly_change_basis_points"
+                  }
+                ],
+                "trial_id": "fhfa-hpi-next-hpi-monthly-change-envelope:00000001:a14d3673b0f8ed2b",
+                "trial_index": 1,
+                "vector_sha256": "a14d3673b0f8ed2b5cd4c3d1f67b9bc39eeca61641b06674ec3a5f0ddae26f35"
+              }
+            ]
+          },
+          "input_lock_sha256": "4c303409b3f6c74be01f035b5ea2ce11b63ed6da2c36fba998849137d2802e04",
+          "known_initial_release_changes": {
+            "february_initial_change_basis_points": 70,
+            "january_initial_change_basis_points": 30,
+            "known_initial_increase_basis_points": 40,
+            "lower_change_basis_points": 70,
+            "range_width_basis_points": 40,
+            "upper_change_basis_points": 110
+          },
+          "naive_baseline": {
+            "definition": "persistence of the February initial FHFA national change",
+            "next_us_purchase_only_hpi_monthly_change_basis_points": 70
+          },
+          "program": {
+            "decision_time": "2020-04-22T13:00:00Z",
+            "global_limitations": [
+              "The endpoints have no likelihood, coverage, causal, or regime meaning.",
+              "The May 26 report and its revision snapshot are evaluated only afterward.",
+              "The index does not represent every property, mortgage, or transaction."
+            ],
+            "hypothesis": "Evaluate February initial-change persistence or one repetition of the known initial-release change increase using only facts available at the boundary.",
+            "mode": "bounded_reconstruction",
+            "parameters": [
+              {
+                "derivation": "Use February initial-change persistence or one repetition of the only known increase between January and February first-report national monthly changes.",
+                "evidence_class": "inferred",
+                "grid_points": 2,
+                "limitations": [
+                  "Two first-report changes and one increase define a stress range, not a forecast, probability, confidence interval, or calibrated predictive interval.",
+                  "Later FHFA revisions and the March event are absent from range construction."
+                ],
+                "lower": 70.0,
+                "operation": "set",
+                "parameter_id": "fhfa-hpi-next-hpi-monthly-change-range",
+                "source_record_ids": [
+                  "fhfa.hpi.archived_purchase_only_monthly_change:202001:us_purchase_only_hpi_monthly_change",
+                  "fhfa.hpi.archived_purchase_only_monthly_change:202002:us_purchase_only_hpi_monthly_change"
+                ],
+                "sources": [
+                  {
+                    "license_class": "download_only",
+                    "publisher": "Federal Housing Finance Agency",
+                    "redistribution_note": "Full FHFA HTML and PDF responses remain in local content-addressed storage. The repository retains only minimal reported facts, hashes, URLs, attribution, and release-snapshot semantics; no redistribution right is inferred.",
+                    "retrieved_at": "2026-08-14T04:34:02.964080Z",
+                    "sha256": "bc885fac528f66a02a3f0760b81dcace6fe1ef0f0f980aecb5e34c600d239a46",
+                    "source_id": "fhfa.hpi.archived_purchase_only_monthly_change",
+                    "source_version": "FHFA-HPI:2020-01:monthly:pdf:bc885fac528f66a02a3f:schedule:02f589a1d47ef046e87b",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.fhfa.gov/document/d/hpi/house-price-index-report-january-2020",
+                    "vintage_as_of": "2020-03-25T13:00:00Z"
+                  },
+                  {
+                    "license_class": "download_only",
+                    "publisher": "Federal Housing Finance Agency",
+                    "redistribution_note": "Full FHFA HTML and PDF responses remain in local content-addressed storage. The repository retains only minimal reported facts, hashes, URLs, attribution, and release-snapshot semantics; no redistribution right is inferred.",
+                    "retrieved_at": "2026-08-14T04:34:06.635898Z",
+                    "sha256": "3624bf523c7afa70616e155deb506fe419b756511a0c14a22d1fb3f16b0da993",
+                    "source_id": "fhfa.hpi.archived_purchase_only_monthly_change",
+                    "source_version": "FHFA-HPI:2020-02:monthly:pdf:3624bf523c7afa70616e:schedule:02f589a1d47ef046e87b",
+                    "temporal_coverage": "versioned_snapshot",
+                    "url": "https://www.fhfa.gov/document/d/hpi/house-price-index-report-february-2020",
+                    "vintage_as_of": "2020-04-22T13:00:00Z"
+                  }
+                ],
+                "target_id": "fhfa_hpi:us_purchase_only_seasonally_adjusted",
+                "unit": "basis_points_of_month_over_month_price_change",
+                "upper": 110.0,
+                "variable": "next_us_purchase_only_hpi_monthly_change_basis_points"
+              }
+            ],
+            "program_id": "fhfa-hpi-next-hpi-monthly-change-envelope",
+            "scenario_id": "fhfa-hpi-2020-house-price-change-boundary"
+          }
+        },
+        "source_hashes": [
+          "02f589a1d47ef046e87be9391a74f1d6e65fe92cdd552b87ad4144722f67cfba",
+          "3624bf523c7afa70616e155deb506fe419b756511a0c14a22d1fb3f16b0da993",
+          "bc885fac528f66a02a3f0760b81dcace6fe1ef0f0f980aecb5e34c600d239a46"
+        ],
+        "source_record_ids": [
+          "fhfa.hpi.archived_purchase_only_monthly_change:202001:us_purchase_only_hpi_monthly_change",
+          "fhfa.hpi.archived_purchase_only_monthly_change:202002:us_purchase_only_hpi_monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "fhfa-hpi.timevault.release-query"
+        ]
+      },
+      {
+        "artifact_id": "fhfa-hpi.timevault.release-query",
+        "artifact_kind": "versioned-fhfa-hpi-release-query",
+        "artifact_sha256": "4bb892a81c902b9149b7f49fe82df37eacf79a6aa58e0d84bc9f11b69f15f022",
+        "engine": "timevault",
+        "evidence_counts": {
+          "reported": 2
+        },
+        "limitations": [
+          "The lock contains only January and February 2020 national monthly changes.",
+          "Both initial values are later revised in official FHFA report snapshots.",
+          "The purchase-only Enterprise repeat-transactions index is not every U.S. home.",
+          "Full report PDFs and schedule HTML remain local download evidence."
+        ],
+        "payload": {
+          "append": {
+            "artifact_ids": [
+              "249721ab7594a75165a775f78006f8c21334802705c3b33152953e19e3e957bd",
+              "7175657e86eedc2e805c6a5d8ff43a87c4fec98117ce60cd6f6899495be2aa4b"
+            ],
+            "attempted_records": 2,
+            "fact_hashes": [
+              "e173d2ef04ee41ecc0a4d353176518eaf55800abada5291129ec2fcec02fe142",
+              "f22a76d4e9f25eb54a322e11034e440f9989985afefd84e46e475bfe908024cd"
+            ],
+            "idempotent_records": 0,
+            "inserted_records": 2
+          },
+          "decision_time": "2020-04-22T13:00:00Z",
+          "input_lock_sha256": "4c303409b3f6c74be01f035b5ea2ce11b63ed6da2c36fba998849137d2802e04",
+          "manifest": {
+            "database_bytes": 0,
+            "distinct_records": 2,
+            "fact_set_sha256": "3ac4633c3b273dfefa5386fb01203f5c525f38665b3548ee55d9dd46142804ef",
+            "fact_versions": 2,
+            "generated_at": "2026-08-14T05:15:00Z",
+            "retrieval_receipts": 2,
+            "source_artifacts": 2
+          },
+          "max_available_at": "2020-04-22T13:00:00Z",
+          "schedule_evidence": {
+            "raw_html_byte_identity_claimed": false,
+            "release_time_rule": "09:00 America/New_York",
+            "semantic_sha256": "02f589a1d47ef046e87be9391a74f1d6e65fe92cdd552b87ad4144722f67cfba",
+            "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-2020-release-dates-for-house-price-index"
+          },
+          "selected_record_ids": [
+            "fhfa.hpi.archived_purchase_only_monthly_change:202001:us_purchase_only_hpi_monthly_change",
+            "fhfa.hpi.archived_purchase_only_monthly_change:202002:us_purchase_only_hpi_monthly_change"
+          ],
+          "value_semantics": "national purchase-only seasonally adjusted monthly HPI changes from each reference month's first verified FHFA report; later revisions are excluded"
+        },
+        "source_hashes": [
+          "02f589a1d47ef046e87be9391a74f1d6e65fe92cdd552b87ad4144722f67cfba",
+          "3624bf523c7afa70616e155deb506fe419b756511a0c14a22d1fb3f16b0da993",
+          "bc885fac528f66a02a3f0760b81dcace6fe1ef0f0f980aecb5e34c600d239a46"
+        ],
+        "source_record_ids": [
+          "fhfa.hpi.archived_purchase_only_monthly_change:202001:us_purchase_only_hpi_monthly_change",
+          "fhfa.hpi.archived_purchase_only_monthly_change:202002:us_purchase_only_hpi_monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": []
+      },
+      {
+        "artifact_id": "fhfa-hpi.trialcourt.retrospective-gate",
+        "artifact_kind": "adversarial-decision",
+        "artifact_sha256": "7bad9fbc46b6e094d0e7d33e632e62f5ea5786afb2179d3bf78a14b2f671fdad",
+        "engine": "trialcourt",
+        "evidence_counts": {
+          "inferred": 1,
+          "reported": 2,
+          "simulated": 1
+        },
+        "limitations": [
+          "The rejected attempt is a retrospective method boundary, not a validated forecast.",
+          "Operational sentinel fields contain no execution, capacity, or return evidence."
+        ],
+        "payload": {
+          "attempt": {
+            "attempt_id": "fhfa-hpi-retrospective-attempt-1",
+            "attempt_number": 1,
+            "code_commit": "c2891ea05c93f3de2a10dbfef3578ee44f583bc2",
+            "completed_at": "2026-08-14T05:15:00Z",
+            "config_sha256": "cce6bd75dc7e7e6262f287e3daa52dee4e33d7cb08baeed1456f698aed871683",
+            "decision_time": "2020-04-22T13:00:00Z",
+            "evaluation_end": "2020-06-07",
+            "evaluation_start": "2020-04-23",
+            "gross_return_bps": 0.0,
+            "input_manifest_sha256": "4c303409b3f6c74be01f035b5ea2ce11b63ed6da2c36fba998849137d2802e04",
+            "max_input_available_at": "2020-04-22T13:00:00Z",
+            "median_daily_volume_usd": 1.0,
+            "metric_value": 40.0,
+            "next_training_start": null,
+            "notes": [
+              "Retrospective method-boundary attempt; p=1 records no inferential test.",
+              "One-dollar and zero-return fields are non-trading schema sentinels.",
+              "No May 26 FHFA HPI fact or revision is in the attempt manifest."
+            ],
+            "one_way_turnover": 0.0,
+            "output_manifest_sha256": "8b82459728b008c663c9da77f92486d3ade9d72fdc53f3f067b7bd86f721c547",
+            "p_value": 1.0,
+            "regime_metric_values": {
+              "continuation-range-width": 40.0,
+              "known-initial-change-increase": 40.0
+            },
+            "requested_capital_usd": 1.0,
+            "sample_size": 2,
+            "short_fraction": 0.0,
+            "training_end": "2020-04-20",
+            "trial_id": "fhfa-hpi-retrospective-range-screen"
+          },
+          "attempt_receipt": {
+            "chain_tip_sha256": "860b2ef025e0573ae6120f876d2a4d899c4720adeab9062b2bc023863f001950",
+            "entry_hash": "860b2ef025e0573ae6120f876d2a4d899c4720adeab9062b2bc023863f001950",
+            "inserted": true,
+            "sequence": 2
+          },
+          "decision": {
+            "adjusted_p_values": {
+              "fhfa-hpi-retrospective-attempt-1": 1.0
+            },
+            "attempt_ids": [
+              "fhfa-hpi-retrospective-attempt-1"
+            ],
+            "attempt_set_sha256": "02990d7ba7a98183bad35db72a9b8e70ccd37561b7a8d21d93e9e5487262f8e3",
+            "candidate_attempt_id": "fhfa-hpi-retrospective-attempt-1",
+            "decided_at": "2026-08-14T05:15:00Z",
+            "decision_id": "decision:fhfa-hpi-retrospective-range-screen:7bb268ef84dfad2f46feb2a2",
+            "disposition": "reject",
+            "findings": [
+              {
+                "kind": "preregistration",
+                "metrics": {
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "registered_before_holdout": false
+                },
+                "status": "fail",
+                "summary": "Registration was retrospective or the observed attempt family exceeded the preregistered declaration."
+              },
+              {
+                "kind": "leakage",
+                "metrics": {
+                  "embargo_respected": true,
+                  "evaluation_inside_holdout": true,
+                  "input_available_by_decision": true,
+                  "training_respects_purge": true
+                },
+                "status": "pass",
+                "summary": "Point-in-time input, purge, holdout and embargo checks passed."
+              },
+              {
+                "kind": "multiplicity",
+                "metrics": {
+                  "adjusted_p_value": 1.0,
+                  "alpha": 0.05,
+                  "declared_attempts": 1,
+                  "observed_attempts": 1,
+                  "raw_p_value": 1.0
+                },
+                "status": "fail",
+                "summary": "Candidate does not survive family-wise Holm adjustment."
+              },
+              {
+                "kind": "regime",
+                "metrics": {
+                  "best_regime_metric": 40.0,
+                  "regime_count": 2,
+                  "worst_regime_metric": 40.0
+                },
+                "status": "pass",
+                "summary": "Metric direction is stable across named regimes."
+              },
+              {
+                "kind": "execution",
+                "metrics": {
+                  "borrow_cost_bps": 0.0,
+                  "gross_return_bps": 0.0,
+                  "immediate_cost_bps": 0.0,
+                  "net_return_bps": 0.0
+                },
+                "status": "fail",
+                "summary": "Preregistered execution and borrow costs erase the gross return."
+              },
+              {
+                "kind": "capacity",
+                "metrics": {
+                  "allowed_daily_notional_usd": 0.05,
+                  "daily_notional_usd": 0.0,
+                  "max_participation_rate": 0.05
+                },
+                "status": "pass",
+                "summary": "Requested capital fits the preregistered participation limit."
+              }
+            ],
+            "trial_id": "fhfa-hpi-retrospective-range-screen"
+          },
+          "input_lock_sha256": "4c303409b3f6c74be01f035b5ea2ce11b63ed6da2c36fba998849137d2802e04",
+          "manifest": {
+            "attempts": 1,
+            "chain_tip_sha256": "0f1e0776910144d723ab54c14eaec8372780ad5fa3fb8f5647edbece4b103def",
+            "decisions": 1,
+            "entries": 3,
+            "registrations": 1,
+            "rejected_decisions": 1,
+            "verified": true
+          },
+          "registration_receipt": {
+            "chain_tip_sha256": "6da7cf161c41437a36f2a796372874c121c6aa8d4db8523d3aef1a70d11a2bec",
+            "entry_hash": "6da7cf161c41437a36f2a796372874c121c6aa8d4db8523d3aef1a70d11a2bec",
+            "inserted": true,
+            "sequence": 1
+          },
+          "spec": {
+            "cost_model": {
+              "borrow_bps_annual": 0.0,
+              "commission_bps": 1.0,
+              "half_spread_bps": 1.0,
+              "market_impact_bps": 1.0,
+              "max_participation_rate": 0.05
+            },
+            "declared_attempts": 1,
+            "disposition": "revise",
+            "economic_mechanism": "FHFA HPI is a repeat-transactions index, but two initial monthly changes and one later outcome cannot establish predictive validity or housing, credit, pandemic, policy, regional, property, mortgage, or macroeconomic causality.",
+            "embargo_days": 0,
+            "expected_direction": "positive",
+            "holdout_end": "2020-06-07",
+            "holdout_start": "2020-04-23",
+            "hypothesis": "A retrospectively constructed one-increase FHFA HPI boundary qualifies for research eligibility after every adversarial gate.",
+            "preregistered_at": "2026-08-14T05:15:00Z",
+            "primary_metric": "one-initial-increase FHFA HPI range width in basis points",
+            "purge_days": 2,
+            "trial_id": "fhfa-hpi-retrospective-range-screen"
+          }
+        },
+        "source_hashes": [
+          "02f589a1d47ef046e87be9391a74f1d6e65fe92cdd552b87ad4144722f67cfba",
+          "3624bf523c7afa70616e155deb506fe419b756511a0c14a22d1fb3f16b0da993",
+          "bc885fac528f66a02a3f0760b81dcace6fe1ef0f0f980aecb5e34c600d239a46"
+        ],
+        "source_record_ids": [
+          "fhfa.hpi.archived_purchase_only_monthly_change:202001:us_purchase_only_hpi_monthly_change",
+          "fhfa.hpi.archived_purchase_only_monthly_change:202002:us_purchase_only_hpi_monthly_change"
+        ],
+        "source_set_historical_replay_eligible": true,
+        "status": "reproduced",
+        "upstream_artifact_ids": [
+          "fhfa-hpi.shockcompiler.hpi-change-range",
+          "fhfa-hpi.timevault.release-query"
+        ]
+      }
+    ],
+    "claim_boundary": "Four actual engines ran over the exact January and February national purchase-only seasonally adjusted monthly HPI changes from their first verified FHFA reports, both knowable at the April 22 decision time. Reported values remain reported; the latest-change-persistence-or-repeat-known-increase envelope remains inferred with no probability. The May 26 March value and the report's January and February revision snapshot stay only in a disjoint event lock. The January report footer's '9AM EST' wording is retained alongside the controlling official schedule's 9 a.m. ET rule; it is not silently harmonized. This is not a forecast, calibrated interval, universal home-price measure, contemporaneous COVID effect, causal model, trading signal, deployment, external validation, or user-impact claim.",
+    "claims": [
+      {
+        "boundary": "Artifact presence proves integration structure, not economic correctness.",
+        "claim_id": "claim-extracted-fhfa-hpi-four-engine-pack",
+        "evidence_class": "extracted",
+        "limitations": [
+          "External reproduction and domain review remain separate gates."
+        ],
+        "statement": "The pack contains outputs from the four engines relevant to this boundary.",
+        "support_artifact_ids": [
+          "fhfa-hpi.replaystudio.render"
+        ]
+      },
+      {
+        "boundary": "The endpoints have no probability, coverage, or causal guarantee.",
+        "claim_id": "claim-inferred-fhfa-hpi-change-range",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The May 26 event and all revisions were not used to set the range.",
+          "The range has no housing, credit, pandemic, or policy causality."
+        ],
+        "statement": "The next-release stress endpoints are February-change persistence or one repeat of the known 40-basis-point initial increase: [70, 110] basis points.",
+        "support_artifact_ids": [
+          "fhfa-hpi.shockcompiler.hpi-change-range"
+        ]
+      },
+      {
+        "boundary": "This is an internal method result, not external review.",
+        "claim_id": "claim-inferred-fhfa-hpi-trial-rejection",
+        "evidence_class": "inferred",
+        "limitations": [
+          "The attempt makes no statistical or performance claim."
+        ],
+        "statement": "TrialCourt rejected the retrospective one-increase FHFA HPI attempt.",
+        "support_artifact_ids": [
+          "fhfa-hpi.trialcourt.retrospective-gate"
+        ]
+      },
+      {
+        "boundary": "These are first-report national index changes, not later revised values, universal home prices, transaction counts, appraisals, or property records.",
+        "claim_id": "claim-reported-fhfa-hpi-initial-changes",
+        "evidence_class": "reported",
+        "limitations": [
+          "The pack includes only two initial-release reference months."
+        ],
+        "statement": "Archived FHFA reports state initial national purchase-only seasonally adjusted monthly HPI changes of 30 basis points for January and 70 basis points for February 2020.",
+        "support_artifact_ids": [
+          "fhfa-hpi.timevault.release-query"
+        ]
+      },
+      {
+        "boundary": "The sentinels are not transactions, capital, capacity, or returns.",
+        "claim_id": "claim-simulated-fhfa-hpi-schema-sentinels",
+        "evidence_class": "simulated",
+        "limitations": [
+          "They exist solely to exercise mandatory adversarial checks."
+        ],
+        "statement": "Trial operational values are simulated schema sentinels only.",
+        "support_artifact_ids": [
+          "fhfa-hpi.trialcourt.retrospective-gate"
+        ]
+      }
+    ],
+    "code_commit": "c2891ea05c93f3de2a10dbfef3578ee44f583bc2",
+    "compressed_input_bytes": 2689,
+    "created_at": "2026-08-14T05:15:00Z",
+    "decision_time": "2020-04-22T13:00:00Z",
+    "derived_records": 6,
+    "distinct_input_records": 2,
+    "elapsed_seconds": 0.0,
+    "limitations": [
+      "This lock preserves the exact 30-basis-point January and 70-basis-point February 2020 national purchase-only seasonally adjusted monthly HPI changes from their first verified FHFA reports, both knowable at the April 22 decision time. The lock uses the official 2019 schedule's stable release facts and retains the January report footer's '9AM EST' wording difference without claiming that today's HTML bytes are an immutable 2019 snapshot. It excludes the May 26 March event, the May report's January and February revision snapshot, every property-level record, universal-home-price interpretation, transaction count, appraisal, mortgage, contemporaneous COVID effect, probability, forecast, calibrated interval, housing, credit, pandemic or policy causality, recommendation, execution, investment performance, external review, deployment, and user impact.",
+      "The endpoints are latest initial-change persistence or one repetition of the only known increase between the two initial-release national changes.",
+      "The May 26 report and all of its later-known values are excluded from every input.",
+      "FHFA HPI changes are repeat-transactions index estimates, not transaction counts.",
+      "January and February report language says the observations reflected little or no COVID-19 influence; the scenario makes no contemporaneous pandemic-effect claim.",
+      "No property, mortgage, appraisal, position, order, return, or recommendation exists.",
+      "A fixed build epoch and zero elapsed time preserve deterministic pack identity."
+    ],
+    "mode": "bounded_reconstruction",
+    "replay_id": "fhfa-hpi-2020-house-price-change-boundary-v1",
+    "require_all_engines": false,
+    "scenario_id": "fhfa-hpi-2020-house-price-change-boundary",
+    "scenario_version": "1.0.0",
+    "status": "reproduced",
+    "title": "FHFA HPI boundary before the March 2020 national monthly change deceleration"
+  },
+  "topological_artifact_ids": [
+    "fhfa-hpi.timevault.release-query",
+    "fhfa-hpi.shockcompiler.hpi-change-range",
+    "fhfa-hpi.trialcourt.retrospective-gate",
+    "fhfa-hpi.replaystudio.render"
+  ],
+  "trace_id": "trace:0546ce017baf309b17b31cb58eeb2d38b19413b3df33a9a4fc83b2f650e46d4d"
+}

@@ -18,6 +18,7 @@ from finreplay.scenarios import (
 
 LOCK_PATH = Path("scenarios/fhfa-hpi-2020/input-lock.json")
 EVENT_PATH = Path("scenarios/fhfa-hpi-2020/event-lock.json")
+PACK_PATH = Path("verification/replaypacks/fhfa-hpi-2020")
 CODE_COMMIT = "c2891ea05c93f3de2a10dbfef3578ee44f583bc2"
 
 
@@ -103,6 +104,9 @@ def test_house_price_change_boundary_runs_four_engines_with_exact_values() -> No
         EvidenceClass.EXTRACTED,
     }
     compiled = ReplayStudio().compile(spec)
+    verified = ReplayStudio().verify(PACK_PATH)
+    assert compiled.pack_sha256 == verified.pack_sha256
+    assert verified.replay_manifest.code_commit == CODE_COMMIT
     assert compiled.spec.code_commit == CODE_COMMIT
 
 
