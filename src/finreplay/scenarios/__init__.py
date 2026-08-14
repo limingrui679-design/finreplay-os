@@ -105,6 +105,13 @@ from finreplay.scenarios.macro_revision import (
     build_macro_revision_replay_spec,
     load_macro_revision_input_lock,
 )
+from finreplay.scenarios.new_home_sales_level_boundary import (
+    CENSUS_NRS_SOURCE_ID,
+    NewHomeSalesLevelBoundaryInputLock,
+    NewHomeSalesLevelBoundaryRoles,
+    build_new_home_sales_level_boundary_replay_spec,
+    load_new_home_sales_level_boundary_input_lock,
+)
 from finreplay.scenarios.proof import (
     ArtifactValueExpectation,
     EventLockEvidence,
@@ -182,6 +189,7 @@ __all__ = [
     "CENSUS_DURABLE_GOODS_SOURCE_ID",
     "CENSUS_MARTS_SOURCE_ID",
     "CENSUS_NRC_SOURCE_ID",
+    "CENSUS_NRS_SOURCE_ID",
     "DOL_UI_CLAIMS_SOURCE_ID",
     "EIA_WPSR_SOURCE_ID",
     "FED_FOMC_SOURCE_ID",
@@ -229,6 +237,8 @@ __all__ = [
     "InputLockEvidence",
     "MacroRevisionInputLock",
     "MacroRevisionRoles",
+    "NewHomeSalesLevelBoundaryInputLock",
+    "NewHomeSalesLevelBoundaryRoles",
     "OfficialEventLock",
     "RetailSalesBoundaryInputLock",
     "RetailSalesBoundaryRoles",
@@ -261,6 +271,7 @@ __all__ = [
     "build_industrial_production_boundary_replay_spec",
     "build_initial_claims_boundary_replay_spec",
     "build_macro_revision_replay_spec",
+    "build_new_home_sales_level_boundary_replay_spec",
     "build_retail_sales_boundary_replay_spec",
     "build_sofr_boundary_replay_spec",
     "build_svb_replay_spec",
@@ -283,6 +294,7 @@ __all__ = [
     "load_industrial_production_boundary_input_lock",
     "load_initial_claims_boundary_input_lock",
     "load_macro_revision_input_lock",
+    "load_new_home_sales_level_boundary_input_lock",
     "load_retail_sales_boundary_input_lock",
     "load_scenario_proof",
     "load_sofr_boundary_input_lock",
