@@ -19,7 +19,7 @@ from finreplay.scenarios import (
 LOCK_PATH = Path("scenarios/census-m3-2020/input-lock.json")
 EVENT_PATH = Path("scenarios/census-m3-2020/event-lock.json")
 PACK_PATH = Path("verification/replaypacks/census-m3-2020")
-CODE_COMMIT = "d2d89ebef0b1ae7033bda41f1bcd67453693e5e1"
+CODE_COMMIT = "f31f0a8a4d53072d70e5a8597542bd1a37975165"
 
 
 @pytest.mark.integration

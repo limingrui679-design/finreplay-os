@@ -19,7 +19,7 @@
     </div>
     <div class="identity" aria-label="Replay identity">
       <span>Replay <code>census-m3-2020-durable-goods-change-boundary-v1</code></span>
-      <span>Trace <code>trace:4873c1a521dddfc4d4ea794375a05339b0e465711b9bd9082d7fcc03be5f8d71</code></span>
+      <span>Trace <code>trace:7692bc8465f6f3b9844211d6e95b4f0d434a32473d1d85d62dd50e7ac4a343f8</code></span>
     </div>
   </header>
   <nav aria-label="Report sections">
@@ -43,7 +43,7 @@
         <dd>2020-03-25T12:30:00Z</dd></div>
         <div><dt>Artifact status</dt><dd>reproduced</dd></div>
         <div><dt>Engines represented</dt><dd>4 / 7</dd></div>
-        <div><dt>Pack hash</dt><dd><code>fd3f33f12605700d6a71d72a7eda64a2b3ade39207cff28727e9f03661e49858</code></dd></div>
+        <div><dt>Pack hash</dt><dd><code>a25e9e89732418e8693ef4af6568312fe4d1966455463a6a72e95220167e5227</code></dd></div>
       </dl>
       <h3>Evidence inventory</h3>
       <ul class="metrics" aria-label="Evidence counts"><li class="metric"><span class="metric-value">1</span><span>extracted</span></li><li class="metric"><span class="metric-value">4</span><span>inferred</span></li><li class="metric"><span class="metric-value">4</span><span>reported</span></li><li class="metric"><span class="metric-value">1</span><span>simulated</span></li></ul>
@@ -86,7 +86,7 @@
   <h3><code>census-m3.shockcompiler.new-orders-change-range</code></h3></div>
   <span class="badge">REPRODUCED</span></header>
   <p><strong>Evidence:</strong> inferred: 3</p>
-  <p><strong>Artifact hash:</strong> <code>b810511c4d0cfc4b37a89dd5504e9a331cdd5096907b7329c26a46faafb0d71d</code></p>
+  <p><strong>Artifact hash:</strong> <code>e3b88c2046e14bf58f2e4660ee5081f581e6502593caee7200a92f92fa3703bd</code></p>
   <details><summary>Sources, limitations, and machine payload</summary>
     <h4>Source record IDs</h4><ul><li><code>census.m3.archived_advance_durable_goods:202001:total_durable_goods_new_orders_monthly_change</code></li><li><code>census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change</code></li></ul>
     <h4>Limitations</h4><ul><li>The endpoints mechanically reuse one initial-release change increase.</li><li>The April 24 March value and revised January/February values are absent.</li><li>The range is not an official confidence interval, probability, or causal model.</li></ul>
@@ -106,7 +106,7 @@
     &quot;upper_change_basis_points&quot;: 260
   },
   &quot;compiled&quot;: {
-    &quot;compiled_sha256&quot;: &quot;3b14386b3907f71313f216ab32d6b3ec2855d87e6bc8db131c6c2509a74df606&quot;,
+    &quot;compiled_sha256&quot;: &quot;763ef71fc0102a1114caa13b35f293fbfa600b69e1524af28caedb641d7a229e&quot;,
     &quot;decision_time&quot;: &quot;2020-03-25T12:30:00Z&quot;,
     &quot;limitations&quot;: [
       &quot;The endpoints have no likelihood, coverage, causal, inflation, or regime meaning.&quot;,
@@ -116,7 +116,7 @@
     &quot;mode&quot;: &quot;bounded_reconstruction&quot;,
     &quot;program_id&quot;: &quot;census-m3-next-new-orders-change-envelope&quot;,
     &quot;scenario_id&quot;: &quot;census-m3-2020-durable-goods-change-boundary&quot;,
-    &quot;source_program_sha256&quot;: &quot;768cd47fb86f16eaa4ccab9d5503aa689b83e5b7590dd424a14d8d9eeb7b44d1&quot;,
+    &quot;source_program_sha256&quot;: &quot;c64303ee2056f97c451d796f397af347c711a5e16f6cf4c568dca12743e4eab6&quot;,
     &quot;trials&quot;: [
       {
         &quot;shocks&quot;: [
@@ -139,14 +139,14 @@
               &quot;census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change&quot;
             ],
             &quot;target_id&quot;: &quot;census_m3:total_durable_goods_new_orders&quot;,
-            &quot;unit&quot;: &quot;basis_points_of_month_over_month_price_change&quot;,
+            &quot;unit&quot;: &quot;basis_points_of_month_over_month_new_orders_change&quot;,
             &quot;value&quot;: 120.0,
             &quot;variable&quot;: &quot;next_total_durable_goods_new_orders_change_basis_points&quot;
           }
         ],
-        &quot;trial_id&quot;: &quot;census-m3-next-new-orders-change-envelope:00000000:04506437646599a1&quot;,
+        &quot;trial_id&quot;: &quot;census-m3-next-new-orders-change-envelope:00000000:a66c541299264110&quot;,
         &quot;trial_index&quot;: 0,
-        &quot;vector_sha256&quot;: &quot;04506437646599a175c6fa35960840935060d3e61f4338aa4f1999624f021a94&quot;
+        &quot;vector_sha256&quot;: &quot;a66c541299264110b5326b6adcd9000750364332227fbd8b2ebe63a0760e3211&quot;
       },
       {
         &quot;shocks&quot;: [
@@ -169,14 +169,14 @@
               &quot;census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change&quot;
             ],
             &quot;target_id&quot;: &quot;census_m3:total_durable_goods_new_orders&quot;,
-            &quot;unit&quot;: &quot;basis_points_of_month_over_month_price_change&quot;,
+            &quot;unit&quot;: &quot;basis_points_of_month_over_month_new_orders_change&quot;,
             &quot;value&quot;: 260.0,
             &quot;variable&quot;: &quot;next_total_durable_goods_new_orders_change_basis_points&quot;
           }
         ],
-        &quot;trial_id&quot;: &quot;census-m3-next-new-orders-change-envelope:00000001:d4915745792cd72c&quot;,
+        &quot;trial_id&quot;: &quot;census-m3-next-new-orders-change-envelope:00000001:996231f3384ed954&quot;,
         &quot;trial_index&quot;: 1,
-        &quot;vector_sha256&quot;: &quot;d4915745792cd72c2f67974b6f98da1475d9a07d27b70c0f111366a040cc4b74&quot;
+        &quot;vector_sha256&quot;: &quot;996231f3384ed954700531159bbe85418ac4fa380fe2caf337f99bc3dfbdd4fd&quot;
       }
     ]
   },
@@ -246,7 +246,7 @@
           }
         ],
         &quot;target_id&quot;: &quot;census_m3:total_durable_goods_new_orders&quot;,
-        &quot;unit&quot;: &quot;basis_points_of_month_over_month_price_change&quot;,
+        &quot;unit&quot;: &quot;basis_points_of_month_over_month_new_orders_change&quot;,
         &quot;upper&quot;: 260.0,
         &quot;variable&quot;: &quot;next_total_durable_goods_new_orders_change_basis_points&quot;
       }
@@ -305,7 +305,7 @@
   <h3><code>census-m3.trialcourt.retrospective-gate</code></h3></div>
   <span class="badge">REPRODUCED</span></header>
   <p><strong>Evidence:</strong> inferred: 1, reported: 2, simulated: 1</p>
-  <p><strong>Artifact hash:</strong> <code>2ad8d3d529cc535073be6066e5df8e849226855b87646147d3482f6ef8be3a03</code></p>
+  <p><strong>Artifact hash:</strong> <code>efc5dce06b92adf33d00058ba6155bdf91d21232a0dcf54150b41068376626c5</code></p>
   <details><summary>Sources, limitations, and machine payload</summary>
     <h4>Source record IDs</h4><ul><li><code>census.m3.archived_advance_durable_goods:202001:total_durable_goods_new_orders_monthly_change</code></li><li><code>census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change</code></li></ul>
     <h4>Limitations</h4><ul><li>The rejected attempt is a retrospective method boundary, not a validated forecast.</li><li>Operational sentinel fields contain no execution, capacity, or return evidence.</li></ul>
@@ -313,7 +313,7 @@
   &quot;attempt&quot;: {
     &quot;attempt_id&quot;: &quot;census-m3-retrospective-attempt-1&quot;,
     &quot;attempt_number&quot;: 1,
-    &quot;code_commit&quot;: &quot;d2d89ebef0b1ae7033bda41f1bcd67453693e5e1&quot;,
+    &quot;code_commit&quot;: &quot;f31f0a8a4d53072d70e5a8597542bd1a37975165&quot;,
     &quot;completed_at&quot;: &quot;2026-08-14T05:30:00Z&quot;,
     &quot;config_sha256&quot;: &quot;36e2b5c5f2eee5f25dc1023e87cc84d249896b9100d54d8ab1ac85e1eb9e3557&quot;,
     &quot;decision_time&quot;: &quot;2020-03-25T12:30:00Z&quot;,
@@ -344,8 +344,8 @@
     &quot;trial_id&quot;: &quot;census-m3-retrospective-range-screen&quot;
   },
   &quot;attempt_receipt&quot;: {
-    &quot;chain_tip_sha256&quot;: &quot;91701f99a789dfa17f783fc0e3f1390eaf976a47804bb655be274b04031555b9&quot;,
-    &quot;entry_hash&quot;: &quot;91701f99a789dfa17f783fc0e3f1390eaf976a47804bb655be274b04031555b9&quot;,
+    &quot;chain_tip_sha256&quot;: &quot;e752ab230f1aa9a9321a3e5fd2c6f3306c92439fb8bc09ed4f2469651aee0f96&quot;,
+    &quot;entry_hash&quot;: &quot;e752ab230f1aa9a9321a3e5fd2c6f3306c92439fb8bc09ed4f2469651aee0f96&quot;,
     &quot;inserted&quot;: true,
     &quot;sequence&quot;: 2
   },
@@ -356,10 +356,10 @@
     &quot;attempt_ids&quot;: [
       &quot;census-m3-retrospective-attempt-1&quot;
     ],
-    &quot;attempt_set_sha256&quot;: &quot;ca62f52504b2a0dadfe63691439c32a501faab44c32c52d2c6d94c3def61d22f&quot;,
+    &quot;attempt_set_sha256&quot;: &quot;33ee02f0ae6e81ed36c9e4a814fce6a7b08f26b92504009114b319b439af46d7&quot;,
     &quot;candidate_attempt_id&quot;: &quot;census-m3-retrospective-attempt-1&quot;,
     &quot;decided_at&quot;: &quot;2026-08-14T05:30:00Z&quot;,
-    &quot;decision_id&quot;: &quot;decision:census-m3-retrospective-range-screen:f4aa9e6f80ea26335fcdd9ff&quot;,
+    &quot;decision_id&quot;: &quot;decision:census-m3-retrospective-range-screen:4f55961fd0ec90f3d1b5b6b9&quot;,
     &quot;disposition&quot;: &quot;reject&quot;,
     &quot;findings&quot;: [
       {
@@ -432,7 +432,7 @@
   &quot;input_lock_sha256&quot;: &quot;7fe32fee04c2c3db33380e54e16d621f21b6d9076d10f88529f8cd3c1db8756f&quot;,
   &quot;manifest&quot;: {
     &quot;attempts&quot;: 1,
-    &quot;chain_tip_sha256&quot;: &quot;02d42db406555b696901dc04b3c32b1c92d90b176defb31ce8e7a2a6ddac3096&quot;,
+    &quot;chain_tip_sha256&quot;: &quot;c8ff26dc4233cd52df0f54de7aefe0bfe38fd378e78e059f7111bc337f31e855&quot;,
     &quot;decisions&quot;: 1,
     &quot;entries&quot;: 3,
     &quot;registrations&quot;: 1,

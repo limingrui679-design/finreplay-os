@@ -12,8 +12,8 @@
     "reported": 4,
     "simulated": 1
   },
-  "input_manifest_sha256": "fe310e7416efff9155dc702fe3e52a7e84ffb804ad3b775c2b02eab1d8072b1c",
-  "pack_sha256": "fd3f33f12605700d6a71d72a7eda64a2b3ade39207cff28727e9f03661e49858",
+  "input_manifest_sha256": "8476d067d1a3965d8a83556f93c9767fb7aef04c11d5e88b0a041a14f3f1f78f",
+  "pack_sha256": "a25e9e89732418e8693ef4af6568312fe4d1966455463a6a72e95220167e5227",
   "source_hashes": [
     "84be58245193913f73c80400b6209328a5d0e3be6daac3c064b47500ac1fbf00",
     "b58f95a053d07c367f550e4acb0a941cb338869b12ba01d2d9cbd032c4ad38b4"
@@ -62,7 +62,7 @@
       {
         "artifact_id": "census-m3.shockcompiler.new-orders-change-range",
         "artifact_kind": "bounded-census-m3-durable-goods-change-program",
-        "artifact_sha256": "b810511c4d0cfc4b37a89dd5504e9a331cdd5096907b7329c26a46faafb0d71d",
+        "artifact_sha256": "e3b88c2046e14bf58f2e4660ee5081f581e6502593caee7200a92f92fa3703bd",
         "engine": "shockcompiler",
         "evidence_counts": {
           "inferred": 3
@@ -88,7 +88,7 @@
             "upper_change_basis_points": 260
           },
           "compiled": {
-            "compiled_sha256": "3b14386b3907f71313f216ab32d6b3ec2855d87e6bc8db131c6c2509a74df606",
+            "compiled_sha256": "763ef71fc0102a1114caa13b35f293fbfa600b69e1524af28caedb641d7a229e",
             "decision_time": "2020-03-25T12:30:00Z",
             "limitations": [
               "The endpoints have no likelihood, coverage, causal, inflation, or regime meaning.",
@@ -98,7 +98,7 @@
             "mode": "bounded_reconstruction",
             "program_id": "census-m3-next-new-orders-change-envelope",
             "scenario_id": "census-m3-2020-durable-goods-change-boundary",
-            "source_program_sha256": "768cd47fb86f16eaa4ccab9d5503aa689b83e5b7590dd424a14d8d9eeb7b44d1",
+            "source_program_sha256": "c64303ee2056f97c451d796f397af347c711a5e16f6cf4c568dca12743e4eab6",
             "trials": [
               {
                 "shocks": [
@@ -121,14 +121,14 @@
                       "census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change"
                     ],
                     "target_id": "census_m3:total_durable_goods_new_orders",
-                    "unit": "basis_points_of_month_over_month_price_change",
+                    "unit": "basis_points_of_month_over_month_new_orders_change",
                     "value": 120.0,
                     "variable": "next_total_durable_goods_new_orders_change_basis_points"
                   }
                 ],
-                "trial_id": "census-m3-next-new-orders-change-envelope:00000000:04506437646599a1",
+                "trial_id": "census-m3-next-new-orders-change-envelope:00000000:a66c541299264110",
                 "trial_index": 0,
-                "vector_sha256": "04506437646599a175c6fa35960840935060d3e61f4338aa4f1999624f021a94"
+                "vector_sha256": "a66c541299264110b5326b6adcd9000750364332227fbd8b2ebe63a0760e3211"
               },
               {
                 "shocks": [
@@ -151,14 +151,14 @@
                       "census.m3.archived_advance_durable_goods:202002:total_durable_goods_new_orders_monthly_change"
                     ],
                     "target_id": "census_m3:total_durable_goods_new_orders",
-                    "unit": "basis_points_of_month_over_month_price_change",
+                    "unit": "basis_points_of_month_over_month_new_orders_change",
                     "value": 260.0,
                     "variable": "next_total_durable_goods_new_orders_change_basis_points"
                   }
                 ],
-                "trial_id": "census-m3-next-new-orders-change-envelope:00000001:d4915745792cd72c",
+                "trial_id": "census-m3-next-new-orders-change-envelope:00000001:996231f3384ed954",
                 "trial_index": 1,
-                "vector_sha256": "d4915745792cd72c2f67974b6f98da1475d9a07d27b70c0f111366a040cc4b74"
+                "vector_sha256": "996231f3384ed954700531159bbe85418ac4fa380fe2caf337f99bc3dfbdd4fd"
               }
             ]
           },
@@ -228,7 +228,7 @@
                   }
                 ],
                 "target_id": "census_m3:total_durable_goods_new_orders",
-                "unit": "basis_points_of_month_over_month_price_change",
+                "unit": "basis_points_of_month_over_month_new_orders_change",
                 "upper": 260.0,
                 "variable": "next_total_durable_goods_new_orders_change_basis_points"
               }
@@ -315,7 +315,7 @@
       {
         "artifact_id": "census-m3.trialcourt.retrospective-gate",
         "artifact_kind": "adversarial-decision",
-        "artifact_sha256": "2ad8d3d529cc535073be6066e5df8e849226855b87646147d3482f6ef8be3a03",
+        "artifact_sha256": "efc5dce06b92adf33d00058ba6155bdf91d21232a0dcf54150b41068376626c5",
         "engine": "trialcourt",
         "evidence_counts": {
           "inferred": 1,
@@ -330,7 +330,7 @@
           "attempt": {
             "attempt_id": "census-m3-retrospective-attempt-1",
             "attempt_number": 1,
-            "code_commit": "d2d89ebef0b1ae7033bda41f1bcd67453693e5e1",
+            "code_commit": "f31f0a8a4d53072d70e5a8597542bd1a37975165",
             "completed_at": "2026-08-14T05:30:00Z",
             "config_sha256": "36e2b5c5f2eee5f25dc1023e87cc84d249896b9100d54d8ab1ac85e1eb9e3557",
             "decision_time": "2020-03-25T12:30:00Z",
@@ -361,8 +361,8 @@
             "trial_id": "census-m3-retrospective-range-screen"
           },
           "attempt_receipt": {
-            "chain_tip_sha256": "91701f99a789dfa17f783fc0e3f1390eaf976a47804bb655be274b04031555b9",
-            "entry_hash": "91701f99a789dfa17f783fc0e3f1390eaf976a47804bb655be274b04031555b9",
+            "chain_tip_sha256": "e752ab230f1aa9a9321a3e5fd2c6f3306c92439fb8bc09ed4f2469651aee0f96",
+            "entry_hash": "e752ab230f1aa9a9321a3e5fd2c6f3306c92439fb8bc09ed4f2469651aee0f96",
             "inserted": true,
             "sequence": 2
           },
@@ -373,10 +373,10 @@
             "attempt_ids": [
               "census-m3-retrospective-attempt-1"
             ],
-            "attempt_set_sha256": "ca62f52504b2a0dadfe63691439c32a501faab44c32c52d2c6d94c3def61d22f",
+            "attempt_set_sha256": "33ee02f0ae6e81ed36c9e4a814fce6a7b08f26b92504009114b319b439af46d7",
             "candidate_attempt_id": "census-m3-retrospective-attempt-1",
             "decided_at": "2026-08-14T05:30:00Z",
-            "decision_id": "decision:census-m3-retrospective-range-screen:f4aa9e6f80ea26335fcdd9ff",
+            "decision_id": "decision:census-m3-retrospective-range-screen:4f55961fd0ec90f3d1b5b6b9",
             "disposition": "reject",
             "findings": [
               {
@@ -449,7 +449,7 @@
           "input_lock_sha256": "7fe32fee04c2c3db33380e54e16d621f21b6d9076d10f88529f8cd3c1db8756f",
           "manifest": {
             "attempts": 1,
-            "chain_tip_sha256": "02d42db406555b696901dc04b3c32b1c92d90b176defb31ce8e7a2a6ddac3096",
+            "chain_tip_sha256": "c8ff26dc4233cd52df0f54de7aefe0bfe38fd378e78e059f7111bc337f31e855",
             "decisions": 1,
             "entries": 3,
             "registrations": 1,
@@ -564,7 +564,7 @@
         ]
       }
     ],
-    "code_commit": "d2d89ebef0b1ae7033bda41f1bcd67453693e5e1",
+    "code_commit": "f31f0a8a4d53072d70e5a8597542bd1a37975165",
     "compressed_input_bytes": 2846,
     "created_at": "2026-08-14T05:30:00Z",
     "decision_time": "2020-03-25T12:30:00Z",
@@ -594,5 +594,5 @@
     "census-m3.trialcourt.retrospective-gate",
     "census-m3.replaystudio.render"
   ],
-  "trace_id": "trace:4873c1a521dddfc4d4ea794375a05339b0e465711b9bd9082d7fcc03be5f8d71"
+  "trace_id": "trace:7692bc8465f6f3b9844211d6e95b4f0d434a32473d1d85d62dd50e7ac4a343f8"
 }

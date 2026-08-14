@@ -86,7 +86,7 @@ question.
 python scripts/build_durable_goods_change_boundary_replaypack.py \
   --input-lock scenarios/census-m3-2020/input-lock.json \
   --output verification/replaypacks/census-m3-2020 \
-  --code-commit d2d89ebef0b1ae7033bda41f1bcd67453693e5e1
+  --code-commit f31f0a8a4d53072d70e5a8597542bd1a37975165
 
 python scripts/verify_durable_goods_change_boundary_replaypack.py \
   --input-lock scenarios/census-m3-2020/input-lock.json \

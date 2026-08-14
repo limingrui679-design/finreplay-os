@@ -1,8 +1,8 @@
 # Census M3 boundary before the March 2020 durable-goods new-orders collapse
 
 - Replay ID: `census-m3-2020-durable-goods-change-boundary-v1`
-- Trace ID: `trace:4873c1a521dddfc4d4ea794375a05339b0e465711b9bd9082d7fcc03be5f8d71`
-- Pack SHA-256: `fd3f33f12605700d6a71d72a7eda64a2b3ade39207cff28727e9f03661e49858`
+- Trace ID: `trace:7692bc8465f6f3b9844211d6e95b4f0d434a32473d1d85d62dd50e7ac4a343f8`
+- Pack SHA-256: `a25e9e89732418e8693ef4af6568312fe4d1966455463a6a72e95220167e5227`
 
 ## Truth boundary
 
