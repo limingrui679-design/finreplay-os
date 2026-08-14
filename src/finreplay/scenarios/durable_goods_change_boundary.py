@@ -243,7 +243,7 @@ def build_durable_goods_change_boundary_replay_spec(
     *,
     code_commit: str,
 ) -> ReplayPackSpec:
-    """Run four relevant engines for the April 2020 Census M3 durable-goods boundary."""
+    """Run four relevant engines for the March 2020 Census M3 durable-goods boundary."""
 
     records = lock.records
     by_role = _records_by_role(lock)
