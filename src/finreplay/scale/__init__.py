@@ -28,6 +28,15 @@ from finreplay.scale.sec_edgar_logs import (
     parse_sec_log_inventory,
     write_sec_log_inventory_lock,
 )
+from finreplay.scale.sec_edgar_manifest import (
+    SECLogInventoryReference,
+    SECLogScaleManifest,
+    SECLogScalePartitionSummary,
+    build_sec_log_scale_manifest,
+    load_sec_log_scale_manifest,
+    verify_sec_log_scale_manifest,
+    write_sec_log_scale_manifest,
+)
 
 __all__ = [
     "EXPECTED_SEC_LOG_PARQUET_COLUMNS",
@@ -37,19 +46,26 @@ __all__ = [
     "SECLogExtractedCSV",
     "SECLogInvalidCounts",
     "SECLogInventoryLock",
+    "SECLogInventoryReference",
     "SECLogParquetColumn",
     "SECLogPartition",
     "SECLogPartitionReceipt",
+    "SECLogScaleManifest",
+    "SECLogScalePartitionSummary",
+    "build_sec_log_scale_manifest",
     "download_sec_log_archive",
     "extract_sec_log_archive",
     "fetch_sec_log_inventory",
     "load_sec_log_download_receipt",
     "load_sec_log_inventory_lock",
     "load_sec_log_partition_receipt",
+    "load_sec_log_scale_manifest",
     "materialize_sec_log_csv",
     "parse_sec_log_inventory",
     "verify_sec_log_partition_receipt",
+    "verify_sec_log_scale_manifest",
     "write_sec_log_download_receipt",
     "write_sec_log_inventory_lock",
     "write_sec_log_partition_receipt",
+    "write_sec_log_scale_manifest",
 ]

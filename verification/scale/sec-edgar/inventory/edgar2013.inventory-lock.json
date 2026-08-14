@@ -1,0 +1,2201 @@
+{
+  "schema_version": "1.0.0",
+  "source_landing_url": "https://www.sec.gov/data-research/sec-markets-data/edgar-log-file-data-sets",
+  "list_page_url": "https://www.sec.gov/files/edgar2013.html",
+  "list_page_sha256": "cbd8e94e53abdc974204addbe6a4f0b9bbee2cbba0a9379e6d365a1aab891a05",
+  "retrieved_at": "2026-08-14T15:07:28.468535Z",
+  "partitions": [
+    {
+      "partition_date": "2013-01-01",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130101.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130101.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-02",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130102.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130102.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-03",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130103.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130103.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-04",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130104.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130104.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-05",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130105.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130105.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-06",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130106.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130106.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-07",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130107.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130107.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-08",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130108.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130108.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-09",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130109.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130109.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-10",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130110.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130110.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-11",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130111.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130111.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-12",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130112.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130112.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-13",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130113.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130113.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-14",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130114.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130114.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-15",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130115.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130115.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-16",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130116.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130116.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-17",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130117.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130117.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-18",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130118.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130118.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-19",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130119.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130119.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-20",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130120.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130120.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-21",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130121.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130121.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-22",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130122.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130122.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-23",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130123.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130123.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-24",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130124.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130124.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-25",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130125.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130125.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-26",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130126.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130126.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-27",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130127.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130127.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-28",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130128.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130128.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-29",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130129.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130129.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-30",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130130.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130130.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-01-31",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130131.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130131.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-01",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130201.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130201.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-02",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130202.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130202.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-03",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130203.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130203.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-04",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130204.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130204.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-05",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130205.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130205.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-06",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130206.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130206.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-07",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130207.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130207.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-08",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130208.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130208.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-09",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130209.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130209.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-10",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130210.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130210.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-11",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130211.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130211.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-12",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130212.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130212.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-13",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130213.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130213.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-14",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130214.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130214.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-15",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130215.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130215.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-16",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130216.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130216.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-17",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130217.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130217.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-18",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130218.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130218.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-19",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130219.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130219.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-20",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130220.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130220.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-21",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130221.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130221.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-22",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130222.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130222.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-23",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130223.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130223.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-24",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130224.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130224.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-25",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130225.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130225.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-26",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130226.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130226.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-27",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130227.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130227.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-02-28",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130228.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130228.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-01",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130301.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130301.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-02",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130302.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130302.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-03",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130303.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130303.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-04",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130304.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130304.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-05",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130305.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130305.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-06",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130306.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130306.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-07",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130307.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130307.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-08",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130308.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130308.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-09",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130309.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130309.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-10",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130310.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130310.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-11",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130311.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130311.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-12",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130312.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130312.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-13",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130313.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130313.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-14",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130314.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130314.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-15",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130315.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130315.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-16",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130316.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130316.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-17",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130317.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130317.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-18",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130318.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130318.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-19",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130319.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130319.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-20",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130320.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130320.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-21",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130321.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130321.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-22",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130322.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130322.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-23",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130323.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130323.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-24",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130324.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130324.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-25",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130325.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130325.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-26",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130326.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130326.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-27",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130327.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130327.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-28",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130328.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130328.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-29",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130329.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130329.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-30",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130330.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130330.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-03-31",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130331.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr1/log20130331.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-01",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130401.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130401.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-02",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130402.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130402.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-03",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130403.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130403.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-04",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130404.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130404.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-05",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130405.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130405.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-06",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130406.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130406.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-07",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130407.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130407.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-08",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130408.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130408.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-09",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130409.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130409.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-10",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130410.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130410.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-11",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130411.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130411.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-12",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130412.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130412.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-13",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130413.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130413.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-14",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130414.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130414.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-15",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130415.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130415.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-16",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130416.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130416.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-17",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130417.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130417.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-18",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130418.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130418.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-19",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130419.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130419.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-20",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130420.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130420.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-21",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130421.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130421.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-22",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130422.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130422.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-23",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130423.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130423.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-24",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130424.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130424.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-25",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130425.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130425.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-26",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130426.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130426.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-27",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130427.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130427.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-28",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130428.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130428.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-29",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130429.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130429.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-04-30",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130430.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130430.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-01",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130501.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130501.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-02",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130502.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130502.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-03",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130503.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130503.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-04",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130504.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130504.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-05",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130505.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130505.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-06",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130506.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130506.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-07",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130507.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130507.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-08",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130508.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130508.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-09",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130509.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130509.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-10",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130510.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130510.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-11",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130511.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130511.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-12",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130512.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130512.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-13",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130513.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130513.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-14",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130514.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130514.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-15",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130515.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130515.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-16",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130516.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130516.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-17",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130517.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130517.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-18",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130518.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130518.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-19",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130519.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130519.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-20",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130520.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130520.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-21",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130521.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130521.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-22",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130522.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130522.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-23",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130523.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130523.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-24",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130524.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130524.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-25",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130525.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130525.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-26",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130526.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130526.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-27",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130527.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130527.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-28",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130528.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130528.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-29",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130529.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130529.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-30",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130530.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130530.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-05-31",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130531.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130531.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-01",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130601.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130601.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-02",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130602.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130602.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-03",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130603.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130603.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-04",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130604.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130604.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-05",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130605.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130605.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-06",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130606.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130606.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-07",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130607.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130607.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-08",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130608.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130608.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-09",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130609.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130609.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-10",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130610.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130610.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-11",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130611.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130611.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-12",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130612.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130612.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-13",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130613.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130613.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-14",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130614.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130614.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-15",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130615.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130615.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-16",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130616.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130616.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-17",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130617.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130617.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-18",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130618.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130618.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-19",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130619.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130619.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-20",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130620.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130620.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-21",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130621.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130621.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-22",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130622.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130622.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-23",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130623.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130623.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-24",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130624.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130624.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-25",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130625.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130625.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-26",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130626.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130626.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-27",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130627.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130627.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-28",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130628.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130628.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-29",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130629.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130629.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-06-30",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130630.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr2/log20130630.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-01",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130701.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130701.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-02",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130702.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130702.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-03",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130703.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130703.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-04",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130704.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130704.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-05",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130705.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130705.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-06",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130706.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130706.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-07",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130707.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130707.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-08",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130708.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130708.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-09",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130709.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130709.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-10",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130710.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130710.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-11",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130711.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130711.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-12",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130712.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130712.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-13",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130713.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130713.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-14",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130714.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130714.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-15",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130715.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130715.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-16",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130716.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130716.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-17",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130717.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130717.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-18",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130718.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130718.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-19",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130719.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130719.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-20",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130720.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130720.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-21",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130721.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130721.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-22",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130722.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130722.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-23",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130723.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130723.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-24",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130724.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130724.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-25",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130725.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130725.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-26",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130726.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130726.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-27",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130727.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130727.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-28",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130728.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130728.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-29",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130729.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130729.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-30",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130730.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130730.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-07-31",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130731.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130731.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-01",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130801.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130801.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-02",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130802.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130802.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-03",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130803.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130803.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-04",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130804.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130804.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-05",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130805.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130805.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-06",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130806.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130806.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-07",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130807.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130807.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-08",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130808.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130808.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-09",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130809.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130809.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-10",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130810.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130810.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-11",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130811.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130811.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-12",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130812.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130812.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-13",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130813.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130813.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-14",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130814.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130814.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-15",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130815.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130815.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-16",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130816.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130816.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-17",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130817.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130817.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-18",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130818.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130818.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-19",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130819.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130819.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-20",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130820.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130820.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-21",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130821.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130821.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-22",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130822.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130822.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-23",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130823.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130823.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-24",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130824.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130824.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-25",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130825.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130825.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-26",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130826.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130826.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-27",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130827.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130827.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-28",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130828.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130828.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-29",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130829.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130829.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-30",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130830.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130830.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-08-31",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130831.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130831.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-01",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130901.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130901.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-02",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130902.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130902.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-03",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130903.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130903.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-04",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130904.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130904.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-05",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130905.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130905.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-06",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130906.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130906.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-07",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130907.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130907.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-08",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130908.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130908.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-09",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130909.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130909.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-10",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130910.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130910.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-11",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130911.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130911.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-12",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130912.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130912.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-13",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130913.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130913.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-14",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130914.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130914.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-15",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130915.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130915.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-16",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130916.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130916.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-17",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130917.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130917.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-18",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130918.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130918.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-19",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130919.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130919.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-20",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130920.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130920.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-21",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130921.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130921.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-22",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130922.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130922.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-23",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130923.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130923.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-24",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130924.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130924.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-25",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130925.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130925.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-26",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130926.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130926.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-27",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130927.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130927.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-28",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130928.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130928.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-29",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130929.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130929.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-09-30",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130930.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr3/log20130930.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-01",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131001.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131001.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-02",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131002.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131002.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-03",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131003.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131003.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-04",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131004.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131004.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-05",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131005.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131005.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-06",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131006.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131006.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-07",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131007.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131007.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-08",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131008.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131008.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-09",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131009.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131009.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-10",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131010.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131010.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-11",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131011.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131011.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-12",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131012.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131012.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-13",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131013.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131013.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-14",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131014.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131014.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-15",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131015.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131015.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-16",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131016.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131016.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-17",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131017.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131017.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-18",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131018.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131018.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-19",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131019.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131019.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-20",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131020.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131020.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-21",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131021.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131021.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-22",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131022.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131022.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-23",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131023.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131023.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-24",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131024.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131024.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-25",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131025.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131025.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-26",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131026.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131026.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-27",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131027.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131027.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-28",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131028.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131028.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-29",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131029.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131029.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-30",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131030.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131030.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-10-31",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131031.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131031.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-01",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131101.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131101.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-02",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131102.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131102.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-03",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131103.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131103.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-04",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131104.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131104.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-05",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131105.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131105.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-06",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131106.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131106.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-07",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131107.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131107.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-08",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131108.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131108.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-09",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131109.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131109.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-10",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131110.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131110.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-11",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131111.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131111.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-12",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131112.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131112.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-13",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131113.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131113.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-14",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131114.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131114.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-15",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131115.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131115.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-16",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131116.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131116.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-17",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131117.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131117.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-18",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131118.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131118.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-19",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131119.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131119.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-20",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131120.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131120.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-21",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131121.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131121.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-22",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131122.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131122.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-23",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131123.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131123.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-24",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131124.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131124.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-25",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131125.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131125.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-26",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131126.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131126.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-27",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131127.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131127.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-28",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131128.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131128.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-29",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131129.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131129.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-11-30",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131130.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131130.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-01",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131201.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131201.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-02",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131202.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131202.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-03",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131203.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131203.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-04",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131204.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131204.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-05",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131205.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131205.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-06",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131206.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131206.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-07",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131207.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131207.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-08",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131208.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131208.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-09",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131209.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131209.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-10",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131210.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131210.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-11",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131211.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131211.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-12",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131212.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131212.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-13",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131213.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131213.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-14",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131214.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131214.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-15",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131215.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131215.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-16",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131216.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131216.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-17",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131217.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131217.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-18",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131218.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131218.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-19",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131219.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131219.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-20",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131220.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131220.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-21",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131221.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131221.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-22",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131222.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131222.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-23",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131223.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131223.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-24",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131224.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131224.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-25",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131225.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131225.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-26",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131226.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131226.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-27",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131227.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131227.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-28",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131228.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131228.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-29",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131229.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131229.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-30",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131230.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131230.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    },
+    {
+      "partition_date": "2013-12-31",
+      "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131231.zip",
+      "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2013/Qtr4/log20131231.zip",
+      "list_page_url": "https://www.sec.gov/files/edgar2013.html"
+    }
+  ],
+  "claim_boundary": "This lock proves which daily SEC EDGAR access-log ZIP links appeared on one retrieved official annual list page. It does not prove that every calendar day exists. Legacy HTTP links are preserved as listed_url and deterministically upgraded to the same www.sec.gov path over HTTPS for retrieval. The lock does not prove that linked bytes are unchanged, that logs capture all SEC.gov traffic, that each row is accurate, or that a request represents a unique human, filing, investment decision, customer, deployment, or real-world impact. Archive bytes, CSV rows, and derived Parquet partitions require separate measured receipts.",
+  "lock_sha256": "1e72c12f2b41b10e4b019c0c9ec8ec5e082e42a69209aba7f6956b7dafb64ed4"
+}
