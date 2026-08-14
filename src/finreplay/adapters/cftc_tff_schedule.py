@@ -789,6 +789,7 @@ class CFTCTFFScheduledReleaseAdapter(CFTCCOTAdapter):
         report_date = self._report_date(row["report_date_as_yyyy_mm_dd"]).date()
         spec = _REPORT_BY_DATE[report_date]
         release_at = _scheduled_release_at(spec)
+        source_snapshot_through = max(_scheduled_release_at(item) for item in _REPORT_SPECS)
         source = SourceReference(
             source_id=self.metadata.adapter_id,
             publisher=self.metadata.publisher,
@@ -798,7 +799,7 @@ class CFTCTFFScheduledReleaseAdapter(CFTCCOTAdapter):
             sha256=api_digest,
             license_class=self.metadata.license_class,
             temporal_coverage=TemporalCoverage.IMMUTABLE_EVENT,
-            vintage_as_of=release_at,
+            vintage_as_of=source_snapshot_through,
             redistribution_note=self.metadata.redistribution_note,
         )
         numeric = {
@@ -828,6 +829,9 @@ class CFTCTFFScheduledReleaseAdapter(CFTCCOTAdapter):
                 "official_scheduled_release_timezone": "America/New_York",
                 "official_scheduled_release_timezone_abbreviation": "EDT",
                 "official_scheduled_release_at": release_at.isoformat(),
+                "source_snapshot_through_scheduled_release_at": (
+                    source_snapshot_through.isoformat()
+                ),
                 "actual_row_publication_log_available": False,
                 "schedule_self_describes_as_tentative": True,
                 "contract_market_name": _TEXT_EXPECTATIONS["contract_market_name"],

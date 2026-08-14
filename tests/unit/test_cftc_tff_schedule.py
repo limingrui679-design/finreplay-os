@@ -393,7 +393,7 @@ def test_exact_three_row_chain_is_crosschecked_and_knowledge_safe() -> None:
         assert record.interval.available_at == release_at
         assert record.interval.published_at == release_at
         assert record.interval.availability_confidence == 0.98
-        assert record.source.vintage_as_of == release_at
+        assert record.source.vintage_as_of == datetime(2026, 7, 31, 19, 30, tzinfo=UTC)
         assert record.source.temporal_coverage is TemporalCoverage.IMMUTABLE_EVENT
         assert record.source.license_class is LicenseClass.REDISTRIBUTABLE
         assert record.source.sha256 == hashlib.sha256(batch.artifacts[0].content).hexdigest()
@@ -403,6 +403,9 @@ def test_exact_three_row_chain_is_crosschecked_and_knowledge_safe() -> None:
         assert record.payload["api_annual_crosscheck_verified"] is True
         assert record.payload["actual_row_publication_log_available"] is False
         assert record.payload["schedule_self_describes_as_tentative"] is True
+        assert record.payload["source_snapshot_through_scheduled_release_at"] == (
+            "2026-07-31T19:30:00+00:00"
+        )
         assert record.payload["contract_face_value_notional_conversion_performed"] is False
         assert record.payload["unit"] == "Futures Contracts"
 
@@ -411,7 +414,11 @@ def test_exact_three_row_chain_is_crosschecked_and_knowledge_safe() -> None:
         assert vault.records_as_of(datetime(2026, 7, 17, 19, 29, 59, tzinfo=UTC)) == []
         assert len(vault.records_as_of(datetime(2026, 7, 24, 19, 29, 59, tzinfo=UTC))) == 1
         assert len(vault.records_as_of(datetime(2026, 7, 24, 19, 30, tzinfo=UTC))) == 2
-        assert len(vault.records_as_of(datetime(2026, 7, 31, 19, 30, tzinfo=UTC))) == 3
+        complete = vault.records_as_of(datetime(2026, 7, 31, 19, 30, tzinfo=UTC))
+        assert len(complete) == 3
+        assert [record.model_dump(mode="json") for record in complete] == [
+            record.model_dump(mode="json") for record in batch.records
+        ]
 
 
 def test_boundary_values_and_classification_fields_are_preserved_without_notional() -> None:

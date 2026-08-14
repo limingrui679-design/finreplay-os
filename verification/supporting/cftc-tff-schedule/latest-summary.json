@@ -5,9 +5,9 @@
       "historical_replay_eligible": true,
       "idempotent_records": 3,
       "inserted_records": 0,
-      "receipt": "cftc.cot.tff_scheduled_ust2y-9d2fdf217b70c7c6.json",
+      "receipt": "cftc.cot.tff_scheduled_ust2y-ea85ba99ecf5a7d7.json",
       "record_count": 3,
-      "retrieved_at": "2026-08-14T09:18:42.426146Z",
+      "retrieved_at": "2026-08-14T09:22:02.462383Z",
       "temporal_coverage": "immutable_event"
     }
   ],
