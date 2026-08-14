@@ -41,6 +41,18 @@
       "decision_time": "2020-03-13T12:30:00+00:00",
       "distinct_input_records": 2,
       "mode": "bounded_reconstruction",
+      "pack_sha256": "68677526e941a07bd9c0a7ddd5e364f3ca95174b90a899f53223b8083616f933",
+      "proof": "bls-export-prices-2020-all-exports-change-boundary-v1.json",
+      "proof_sha256": "a962565a750c729528239973b517105f4daf75b21c8c13da6c7247380752ff6d",
+      "replay_id": "bls-export-prices-2020-all-exports-change-boundary-v1",
+      "scenario_id": "bls-export-prices-2020-all-exports-change-boundary",
+      "scenario_version": "1.0.0",
+      "trace_id": "trace:60baf01f7379154c3eeeb58e854c73dcc9933c7b9178581f57e33d1c7687547e"
+    },
+    {
+      "decision_time": "2020-03-13T12:30:00+00:00",
+      "distinct_input_records": 2,
+      "mode": "bounded_reconstruction",
       "pack_sha256": "e6f74743d81e53a82297665e74d90da4718948f19cfeac29c8fe710a82c4eb43",
       "proof": "bls-import-prices-2020-all-imports-change-boundary-v1.json",
       "proof_sha256": "46920362e65d74958afe8bb2baa2eba02b89d8c26537cd1297f0fbc5216fa078",
@@ -351,5 +363,5 @@
     }
   ],
   "schema_version": "1.1.0",
-  "verified_scenario_count": 29
+  "verified_scenario_count": 30
 }
