@@ -1,0 +1,141 @@
+{
+  "build_script": {
+    "path": "scripts/build_working_gas_stock_boundary_replaypack.py",
+    "sha256": "6ce6dda5138701fe83422d5537a4f436be6104a0a1a13b51bded3176775ff19b"
+  },
+  "claim_boundary": "This proof counts one internally reproduced March 2020 EIA WNGSR boundary because two original pre-decision Lower 48 stock estimates, three exact official response hashes, exact 10:30 a.m. America/New_York release timing, a separately locked March 26 release for the March 20 event, immutable locks, separated truth labels, an explicit March 13 stock-persistence baseline, a no-probability persistence-or-one-known-decline program, deliberate TrialCourt failure, deterministic outputs, limitations, and a clean-worktree double rebuild all verify. The event stock of 2,005 Bcf is excluded from ReplayPack inputs and used only for a labelled post-event check that preserves its 20 Bcf lower-bound breach rather than widening the 2,025-to-2,034 Bcf range. EIA coefficients of variation and weekly-net-change standard errors remain source metadata, not range inputs. Regional rounding differences are retained rather than forcibly reconciled. The official archive recovers original estimates and the current history matches the selected values, but later retrieval is not contemporaneous observation. This proof does not establish an EIA forecast, calibrated coverage, direct facility measurements, storage capacity, injection or withdrawal volumes, operator, reservoir, pipeline, price, market, pandemic or policy causality, external validation, deployment, investment performance, or user impact.",
+  "deliberate_failure_modes": [
+    {
+      "artifact_id": "eia-wngsr.trialcourt.retrospective-gate",
+      "description": "TrialCourt must reject the retrospective one-decline attempt rather than promote it as a validated forecast.",
+      "expected_value": "reject",
+      "payload_pointer": "/decision/disposition"
+    },
+    {
+      "artifact_id": "eia-wngsr.trialcourt.retrospective-gate",
+      "description": "The immutable trial ledger retains one rejected decision.",
+      "expected_value": 1,
+      "payload_pointer": "/manifest/rejected_decisions"
+    }
+  ],
+  "event_locks": [
+    {
+      "lock_sha256": "de4084d51c567816f450b4d92279db0832fc3126db171097b18d0a9b2f1b4aa8",
+      "path": "scenarios/eia-wngsr-2020/event-lock.json",
+      "record_ids": [
+        "eia.wngsr.revision_safe_working_gas:20200326:lower48_working_gas:ee7c703c6d30176d"
+      ],
+      "sha256": "b6b1a3baa33b2b03e4be8bf8447bd4cea5037f8e97d4391746029c5b25e3b54f"
+    }
+  ],
+  "expected_input_manifest_sha256": "d48b6d60e3a0bc21be51890b4130ba8c2c14b8d7dbd5b17d86112f5bfe73ce1a",
+  "expected_pack_sha256": "00e71ea907ad3783423f66cf9e933ef949176e563ba4ab559ec76367bb2cf0e7",
+  "expected_trace_id": "trace:cf04545be3a46eba12a13716838e9284c9e91a457c38d950f60dfcffee8bd652",
+  "input_labels": {
+    "absence_reasons": {
+      "observed": "The lock contains sampled aggregate Lower 48 working-gas estimates reported by EIA, not facility, operator, reservoir, pipeline, injection, withdrawal, transaction, price, return, causal, or future observations. The March 20 stock exists only in the disjoint event lock."
+    },
+    "bounded_artifact_ids": [
+      "eia-wngsr.shockcompiler.working-gas-stock-range"
+    ],
+    "extracted_artifact_ids": [
+      "eia-wngsr.replaystudio.render"
+    ],
+    "inferred_artifact_ids": [
+      "eia-wngsr.shockcompiler.working-gas-stock-range",
+      "eia-wngsr.trialcourt.retrospective-gate"
+    ],
+    "observed_record_ids": [],
+    "reported_record_ids": [
+      "eia.wngsr.revision_safe_working_gas:20200312:lower48_working_gas:ee7c703c6d30176d",
+      "eia.wngsr.revision_safe_working_gas:20200319:lower48_working_gas:ee7c703c6d30176d"
+    ],
+    "simulated_artifact_ids": [
+      "eia-wngsr.trialcourt.retrospective-gate"
+    ]
+  },
+  "input_locks": [
+    {
+      "lock_sha256": "8defce1bad1048f378b852c1fcf165f921b8bebf9117372d303ef02e73fbd744",
+      "path": "scenarios/eia-wngsr-2020/input-lock.json",
+      "record_ids": [
+        "eia.wngsr.revision_safe_working_gas:20200312:lower48_working_gas:ee7c703c6d30176d",
+        "eia.wngsr.revision_safe_working_gas:20200319:lower48_working_gas:ee7c703c6d30176d"
+      ],
+      "sha256": "43933829c9a3ab84c50ea36862fe1188f3874ad741f39d6672eec90af2bd4c60"
+    }
+  ],
+  "naive_baselines": [
+    {
+      "artifact_id": "eia-wngsr.shockcompiler.working-gas-stock-range",
+      "description": "The decision-time baseline persists the March 13 Lower 48 working-gas stock of 2,034 Bcf.",
+      "expected_value": 2034,
+      "payload_pointer": "/naive_baseline/next_lower_48_working_gas_stock_bcf"
+    },
+    {
+      "artifact_id": "eia-wngsr.shockcompiler.working-gas-stock-range",
+      "description": "The persistence-or-one-known-decline endpoints carry no probability, confidence, or coverage claim.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/probability_assigned"
+    },
+    {
+      "artifact_id": "eia-wngsr.shockcompiler.working-gas-stock-range",
+      "description": "EIA coefficients of variation and weekly-net-change standard errors remain reported source metadata and set neither endpoint.",
+      "expected_value": false,
+      "payload_pointer": "/bound_construction/source_statistical_measures_used"
+    },
+    {
+      "artifact_id": "eia-wngsr.shockcompiler.working-gas-stock-range",
+      "description": "The two range inputs are the original estimates published on March 12 and March 19 and recovered from EIA's revision-safe workbook.",
+      "expected_value": true,
+      "payload_pointer": "/bound_construction/original_vintage_values_only"
+    }
+  ],
+  "official_adapter_inventory": "verification/supporting/eia-wngsr/latest-summary.json",
+  "pack_directory": "verification/replaypacks/eia-wngsr-2020",
+  "proof_sha256": "b5eb42ff77918ae0553cf82a9b51cf4e2ef79ff4461f915c702ba6570ce3caeb",
+  "rebuild_receipt": {
+    "path": "verification/scenarios/rebuilds/eia-wngsr-2020.json",
+    "sha256": "55aa887cd910e8fca95bb713ef8f4e3b9c07979cb232bb09b605dbd47b951393"
+  },
+  "replay_id": "eia-wngsr-2020-working-gas-stock-boundary-v1",
+  "required_rebuild_assertions": [
+    "all_artifacts_reproduced",
+    "byte_identical_directory_rebuilds",
+    "byte_identical_zip_rebuilds",
+    "compiled_pack_matches_rebuild",
+    "cross_engine_trace_is_stable",
+    "current_history_cross_check_is_explicit",
+    "declared_range_reuses_only_one_known_decline",
+    "distinct_locked_inputs_equal_two",
+    "future_event_excluded_from_bound_construction",
+    "historical_source_sets_eligible",
+    "locked_original_release_pair_is_exact",
+    "naive_baseline_is_march13_stock_persistence",
+    "no_probability_is_assigned",
+    "only_relevant_engines_present",
+    "original_value_recovery_is_explicit",
+    "post_decision_event_is_disjoint",
+    "post_decision_event_is_exact_wngsr_fact",
+    "post_decision_event_timing_is_later",
+    "post_event_lower_bound_breach_equals_20_bcf",
+    "release_time_and_source_count_are_explicit",
+    "reported_post_event_level_is_below_declared_range",
+    "reported_stock_and_sampling_boundaries_are_explicit",
+    "simulation_remains_visible",
+    "source_statistics_are_not_used",
+    "three_official_response_hashes_are_bound",
+    "trialcourt_rejects_retrospective_attempt"
+  ],
+  "scenario_id": "eia-wngsr-2020-working-gas-stock-boundary",
+  "scenario_version": "1.0.0",
+  "schema_version": "1.1.0",
+  "timing_record_ids": [
+    "eia.wngsr.revision_safe_working_gas:20200312:lower48_working_gas:ee7c703c6d30176d",
+    "eia.wngsr.revision_safe_working_gas:20200319:lower48_working_gas:ee7c703c6d30176d"
+  ],
+  "verify_script": {
+    "path": "scripts/verify_working_gas_stock_boundary_replaypack.py",
+    "sha256": "18f590583e8c41221bec72a83b14f5828c8b89893446c2b1b8001c0eb1ee13f2"
+  }
+}
