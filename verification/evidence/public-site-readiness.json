@@ -1,0 +1,198 @@
+{
+  "all_required_gates_passed": true,
+  "assertions": {
+    "clean_install_passed": true,
+    "dependency_audit_clean": true,
+    "external_review_stays_pending": true,
+    "lint_passed": true,
+    "nineteen_breaches_in_source": true,
+    "no_database_or_object_storage_binding": true,
+    "no_hosting_project_or_public_url_claim": true,
+    "production_build_and_render_tests_passed": true,
+    "social_card_is_png": true,
+    "thirty_scenarios_in_source": true
+  },
+  "claim_boundary": "This receipt proves that the committed read-only site installs from its lockfile, lints, builds, renders its asserted evidence surface, and has zero npm-audit findings at the recorded time. It does not prove hosting, public availability, external review, users, adoption, deployment, or real-world impact.",
+  "commands": {
+    "clean_install": {
+      "argv": [
+        "npm",
+        "ci"
+      ],
+      "elapsed_seconds": 9.94233,
+      "exit_code": 0,
+      "stderr_sha256": "926c084aa239829d6492dfd9319a266028e0643d94ce4e13248041ee1b0b3a0a",
+      "stdout": "\nadded 461 packages, and audited 462 packages in 10s\n\n155 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities\n"
+    },
+    "dependency_audit": {
+      "argv": [
+        "npm",
+        "audit",
+        "--json"
+      ],
+      "elapsed_seconds": 2.808014,
+      "exit_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "77f34f2bd7e9f7cd291d4630de046e50e5d9da0218b10a2db9fbb6bd8ce5b80c"
+    },
+    "lint": {
+      "argv": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "elapsed_seconds": 3.670954,
+      "exit_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "\n> finreplay-evidence-site@0.1.0 lint\n> eslint . --ignore-pattern dist --ignore-pattern .next\n\n"
+    },
+    "production_build_and_render_tests": {
+      "argv": [
+        "npm",
+        "test"
+      ],
+      "elapsed_seconds": 20.504596,
+      "exit_code": 0,
+      "stderr_sha256": "f412919c4de5dd7f7d6477823aaeac3c88338c1fb6c0ff23d9a7b7b1ab0d0598",
+      "stdout_sha256": "209f7f4d15fb1a9885aef3ec8bae35c98bf3514783f312a21473b63caa08e009"
+    }
+  },
+  "dependency_audit": {
+    "total_dependencies": 563,
+    "vulnerabilities": {
+      "critical": 0,
+      "high": 0,
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "total": 0
+    }
+  },
+  "evidence_kind": "public_site_local_release_readiness",
+  "generated_at": "2026-08-15T06:39:16.035774Z",
+  "receipt_sha256": "ba6cffd897b06377ed98351513507d2e4b533acca084205102b697306667a924",
+  "rendered_tests": {
+    "failed": 0,
+    "passed": 2
+  },
+  "schema_version": "1.0.0",
+  "site_content": {
+    "og_png_bytes": 1277673,
+    "og_png_height": 909,
+    "og_png_sha256": "9f78cdf5b97838a47aa9d4ddcdbddea0db52b68a162bac77a9376aeffd9814a2",
+    "og_png_width": 1731,
+    "scenario_count": 30,
+    "visible_breach_count": 19
+  },
+  "site_state": {
+    "hosted": false,
+    "independent_review_completed": false,
+    "public_url": null
+  },
+  "source_artifacts": {
+    "file_count": 18,
+    "files": [
+      {
+        "bytes": 464,
+        "path": "web/.gitignore",
+        "sha256": "d56b736ad356c9f7c844b947b4f8921c3977979123f851def9dd2a9d218316bb"
+      },
+      {
+        "bytes": 31,
+        "path": "web/.openai/hosting.json",
+        "sha256": "d532abb65cf9ae20634b464d954cb4a08a0de9f3cd3cdf7f9c3ec8948826d947"
+      },
+      {
+        "bytes": 1298,
+        "path": "web/README.md",
+        "sha256": "cb561ce4fd884f5543115258f216e852a315971e2e155646518cf6f33ff78fc6"
+      },
+      {
+        "bytes": 12837,
+        "path": "web/app/globals.css",
+        "sha256": "332cec488a2cb1ae8472c48042aed96821986f8ad395db3be06a2c666ad75027"
+      },
+      {
+        "bytes": 1607,
+        "path": "web/app/layout.tsx",
+        "sha256": "c9497d18fa4cd54762ec0280b73c6428b3eb0eaa3223305f07c9df07777af207"
+      },
+      {
+        "bytes": 16197,
+        "path": "web/app/page.tsx",
+        "sha256": "64a6780cf04f2344b4efe93b870b8fff93c8c4f191dd8431179a1869d25147d0"
+      },
+      {
+        "bytes": 1009,
+        "path": "web/eslint.config.mjs",
+        "sha256": "6090bd544865638d8c77a3443f037b3b289596a7ec1e1dccc3a13677e6d1ca83"
+      },
+      {
+        "bytes": 189,
+        "path": "web/next-env.d.ts",
+        "sha256": "a291a6b60536fec0a3b9d4ffd6d51179b463e9bc20281d7499d756813b4c07d5"
+      },
+      {
+        "bytes": 133,
+        "path": "web/next.config.ts",
+        "sha256": "614bce25b089c3f19b1e17a6346c74b858034040154c6621e7d35303004767cc"
+      },
+      {
+        "bytes": 297526,
+        "path": "web/package-lock.json",
+        "sha256": "c236f7c246b10757ffa1359373d8948a882addf4b099bb1331b0349c41507f22"
+      },
+      {
+        "bytes": 1344,
+        "path": "web/package.json",
+        "sha256": "b4162cb7c3c38ca2eb70d655b986b52b52164bb7e489ff2930d0d40251c698eb"
+      },
+      {
+        "bytes": 94,
+        "path": "web/postcss.config.mjs",
+        "sha256": "dfac7ac2d86d326a0e5adb024e7943c181393ed17a5fcb8f0315b24c7da6ddde"
+      },
+      {
+        "bytes": 1277673,
+        "path": "web/public/og.png",
+        "sha256": "9f78cdf5b97838a47aa9d4ddcdbddea0db52b68a162bac77a9376aeffd9814a2"
+      },
+      {
+        "bytes": 2198,
+        "path": "web/public/review/finreplay-review-manifest.json",
+        "sha256": "1f7b4c0733d5384b5ac9f75faf671b7af8dd2d997a9a657d1d2642fadbb684f7"
+      },
+      {
+        "bytes": 1694,
+        "path": "web/tests/rendered-html.test.mjs",
+        "sha256": "ec23aa3f7b6b2b99fc3b1d83cc9a1cece968dfeb8e01e2bdbdfa724feab21886"
+      },
+      {
+        "bytes": 603,
+        "path": "web/tsconfig.json",
+        "sha256": "379054f6cec60ebd0e18c47a3ce72b2cc1b3f7abd0037c668e87cb2070891147"
+      },
+      {
+        "bytes": 1725,
+        "path": "web/vite.config.ts",
+        "sha256": "6c4df0a690b007002a8b85e274d91ccd840f30aeaa2b75c105dd492ef403daea"
+      },
+      {
+        "bytes": 455,
+        "path": "web/worker/index.ts",
+        "sha256": "23cddda53034b9c6d6d554f6b0a09f1e3581c88fd7b8f4c8202930b4c2419adb"
+      }
+    ],
+    "set_sha256": "ff8319ef25f54aac6e248a51f04549a2849cb14653eab47ccc02f0180c8d55e5",
+    "total_bytes": 1617077
+  },
+  "subject": {
+    "code_revision": "c744dcefb131ce0b839ca9ab96ca17a1058b1535",
+    "committed_at": "2026-08-15T14:38:24+08:00",
+    "tree_sha256": "5307d83c5dc72aab8b3fea8487448e41d42d6cf2"
+  },
+  "toolchain": {
+    "node": "v22.20.0",
+    "npm": "10.9.3"
+  }
+}

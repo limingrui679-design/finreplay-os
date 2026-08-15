@@ -28,6 +28,11 @@ institutional adoption, external validation, or real-world impact.
 The machine-auditable requirements are maintained in
 [`docs/verification/acceptance-matrix.md`](docs/verification/acceptance-matrix.md).
 
+The committed read-only evidence-site source lives under [`web/`](web/). Its self-hashed
+`verification/evidence/public-site-readiness.json` receipt binds a fresh-archive lockfile install,
+lint, production build, rendered-page tests, and zero npm-audit findings to commit `c744dcefb131`.
+No hosted URL or independent review is claimed, so this does not satisfy the final gate.
+
 [Seven engines](#the-seven-engines) · [Compact workflow](#compact-workflow) · [Run locally](#local-development) · [Scenario evidence](#scenario-evidence) · [Scale evidence](docs/scale/sec-edgar-log-lake.md) · [Truth boundaries](#truth-boundaries)
 
 ## The seven engines

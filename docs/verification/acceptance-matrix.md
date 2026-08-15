@@ -255,7 +255,12 @@ domain-method review that identifies a real issue and follows it to resolution. 
 feedback, automated tests, stars, traffic, or a friend saying “looks good” do not count.
 
 Current status: **BLOCKED_EXTERNAL by definition until a real external reviewer participates.** This
-does not stop implementation work and must never be filled with fabricated evidence.
+does not stop implementation work and must never be filled with fabricated evidence. The internal
+deployment precursor is complete: `verification/evidence/public-site-readiness.json` is a
+self-hashed receipt bound to commit `c744dcefb131`; from a fresh Git archive it records a lockfile
+install, lint, production build, two rendered-page tests, and an npm audit of 563 dependencies with
+zero findings. The source remains unhosted (`public_url=null`) and independent review remains
+false, so the receipt does not award any G points.
 
 ## Scoring rule
 
