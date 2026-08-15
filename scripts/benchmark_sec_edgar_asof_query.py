@@ -39,6 +39,7 @@ def main() -> None:
     args = parser.parse_args()
     if args.threads <= 0:
         raise SystemExit("--threads must be positive")
+    benchmark_code_revision = _git_revision()
     args.output_directory.mkdir(parents=True, exist_ok=True)
     runner = Path(__file__).with_name("run_sec_edgar_asof_query.py")
     outputs = (
@@ -71,7 +72,7 @@ def main() -> None:
     benchmark = build_sec_log_query_benchmark_receipt(
         first=first,
         second=second,
-        code_revision=_git_revision(),
+        code_revision=benchmark_code_revision,
         generated_at=datetime.now(UTC),
     )
     write_sec_log_query_benchmark_receipt(benchmark, args.benchmark_receipt)
