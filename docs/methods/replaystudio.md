@@ -62,6 +62,22 @@ finreplay verify-replaypack output/replay
 The build command validates the typed JSON input, writes the pack, verifies it, and optionally
 archives it. The verify command recomputes structure, hashes, semantic invariants, and rendering.
 
+The same fail-closed operations are available as a typed Python API:
+
+```python
+from pathlib import Path
+
+from finreplay.api import load_verified_replaypack
+
+report = load_verified_replaypack(Path("verification/replaypacks/replaystudio-golden"))
+print(report.pack_sha256)
+```
+
+`python scripts/verify_no_key_demo.py` removes credential-like environment variables in a child
+process, forbids socket creation, rebuilds and archives the golden pack, and verifies it through
+both the Python API and CLI. This proves only a local, static, fixture-based no-key path; it is not
+a hosted deployment or a live official-source retrieval.
+
 ## Internal golden evidence
 
 `scripts/build_replaystudio_golden.py` builds

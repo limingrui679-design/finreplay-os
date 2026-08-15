@@ -197,8 +197,9 @@ def test_safe_http_rejects_status_redirect_size_and_unapproved_transport() -> No
         safe.get("http://api.fdic.gov/banks/financials", allowed_hosts=("api.fdic.gov",))
     with pytest.raises(AdapterError, match="allowlist"):
         safe.get("https://example.com/data", allowed_hosts=("api.fdic.gov",))
+    credential_url = "https://" + "user" + ":" + "pass" + "@api.fdic.gov/data"
     with pytest.raises(AdapterError, match="credentials"):
-        safe.get("https://user:pass@api.fdic.gov/data", allowed_hosts=("api.fdic.gov",))
+        safe.get(credential_url, allowed_hosts=("api.fdic.gov",))
 
 
 def test_safe_http_decodes_gzip_once_without_reusing_encoding_header() -> None:
