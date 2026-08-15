@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "verification_started_at": "2026-08-15T04:33:39.796677Z",
+  "verification_completed_at": "2026-08-15T04:57:04.071017Z",
+  "verifier_code_revision": "df0507ac677f",
+  "manifest_sha256": "c5ba416aa05ef15b59d32f5e1c38d19779679fa9aa1fca9746ebb900f5622697",
+  "manifest_generated_at": "2026-08-15T03:20:25.004237Z",
+  "inventory_lock_sha256s": [
+    "1e72c12f2b41b10e4b019c0c9ec8ec5e082e42a69209aba7f6956b7dafb64ed4",
+    "24b47cb611399bbe23a5268be97bdecaccf352a941b471bb76e1e136db33d593"
+  ],
+  "deep": true,
+  "workers": 4,
+  "partition_count": 244,
+  "exact_physical_row_count": 1014736394,
+  "target_physical_row_count": 1000000000,
+  "target_met": true,
+  "total_source_zip_bytes": 15503134276,
+  "total_parquet_bytes": 12277974518,
+  "duration_seconds": 1404.3586970000033,
+  "verification_scope": "fresh_manifest_rebuild_plus_every_source_zip_csv_and_parquet_partition",
+  "claim_boundary": "This self-hashed receipt is written only after a fresh semantic rebuild of the referenced manifest and a complete local re-read of every referenced official source ZIP, extracted CSV, and derived Parquet partition. Each partition check recomputes source/output hashes, physical CSV row count, anomaly counts, Parquet row count and schema, ordinal continuity, and partition-date consistency. Worker parallelism changes scheduling only; every partition is still checked exactly once in this run. The receipt proves internal reproducibility on the retained local bytes, not external review, source completeness, unique users, production deployment, adoption, governance certification, or real-world impact.",
+  "verification_receipt_sha256": "a1c5ce99c643985c411180c9af35d3a26ce62cc243ed0c5bd6bf4035fd8d0aae"
+}

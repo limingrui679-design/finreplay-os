@@ -12,16 +12,17 @@ strategy backtest well?”:
 
 ## Current status
 
-**Pre-alpha implementation in progress.** This repository must not yet be described as a
-finished platform, a production risk system, a billion-row deployment, or evidence of
-investment performance, institutional adoption, external validation, or real-world impact.
+**Pre-alpha implementation in progress.** This repository now contains an exact, locally
+reproduced billion-row scale proof, but it must not be described as a finished platform, a
+production risk system, a billion-row deployment, or evidence of investment performance,
+institutional adoption, external validation, or real-world impact.
 
 | Target | Current evidence | Completion rule |
 |---|---|---|
 | Seven connected engines | Seven run in one deterministic SVB boundary flow over seven locked SEC facts; the committed pack and clean-worktree two-rebuild receipt pass 12 cross-engine assertions | All seven execute in an end-to-end ReplayPack with tests |
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
 | 30 historical/boundary scenarios | 30/30 internally replay-proven: three bank boundaries plus 27 source-diverse macro, policy, rate, energy, labor, producer-price, import-price, export-price, Treasury, production, retail-sales, housing, home-sales, consumer-credit, construction-spending, house-price-index, durable-goods, international-trade, natural-gas, CFTC open-interest, and Federal Reserve liquidity-swap boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
-| Billion-record scale | In progress: an exact SEC EDGAR physical-row lake, resumable downloader, partition receipts, non-duplication manifest, and two-process query benchmark are implemented; the current machine manifest remains the only row-count authority and must say `target_met=true` before any billion-row claim | Machine manifest proves at least 1,000,000,000 distinct public records processed and queried |
+| Billion-record scale | Internally proven: 244 continuous official SEC EDGAR daily archives from 2012-01-01 through 2012-08-31 contain 1,014,736,394 exact physical CSV rows; a fresh four-worker deep pass re-read every ZIP/CSV/Parquet partition, and two fresh processes each hash-verified and queried all rows | Machine manifest, durable deep receipt, and two-process query benchmark all bind the same content hashes and prove at least 1,000,000,000 processed and queried records |
 | Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
 
 The machine-auditable requirements are maintained in
