@@ -54,6 +54,12 @@ while separately proving that requested Sites source commit `51a52337ce4e` remai
 history. This proves public code availability at the recorded time, not independent review,
 continuous availability, users, adoption, or impact.
 
+Qualified external reviewers can start with the
+[Independent review report](https://github.com/limingrui679-design/finreplay-os/issues/new?template=independent-review.yml)
+Issue form. The repository validates completed JSON records against the published schema and Git
+history, but the current record catalog contains zero completed reviews. The form, an Issue, CI,
+or schema validity alone does not satisfy the external-review gate.
+
 [Seven engines](#the-seven-engines) · [Compact workflow](#compact-workflow) · [Run locally](#local-development) · [Scenario evidence](#scenario-evidence) · [Scale evidence](docs/scale/sec-edgar-log-lake.md) · [Truth boundaries](#truth-boundaries)
 
 ## The seven engines

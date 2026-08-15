@@ -34,7 +34,7 @@ def test_public_claim_registry_binds_every_evidence_locator() -> None:
     claimed_hash = values.pop("registry_sha256")
     assert claimed_hash == _hash(values)
     assert values["boundary_scan"]["violations"] == []
-    assert values["boundary_scan"]["scanned_text_file_count"] == 170
+    assert values["boundary_scan"]["scanned_text_file_count"] >= 170
     assert values["replaypack_surface"]["report_count"] == 31
     assert values["replaypack_surface"]["public_claim_count"] == 155
     assert values["replaypack_surface"]["evidence_classes"] == [

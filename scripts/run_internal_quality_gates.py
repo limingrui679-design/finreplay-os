@@ -51,6 +51,7 @@ _EVIDENCE_PATHS = (
     "pyproject.toml",
     "scripts/run_internal_quality_gates.py",
     "scripts/scan_tracked_secrets.py",
+    "scripts/validate_independent_review_records.py",
     "scripts/verify_no_key_demo.py",
     "src/finreplay/api.py",
     "src/finreplay/security.py",
@@ -60,6 +61,7 @@ _EVIDENCE_PATHS = (
     "verification/evidence/replaystudio-browser-check.json",
     "verification/scale/sec-edgar/latest-query-benchmark-receipt.json",
     "verification/scenarios/latest-summary.json",
+    "verification/review/independent-review.schema.json",
 )
 
 
@@ -182,6 +184,12 @@ def main() -> None:
             "scenario_catalog",
             [sys.executable, "scripts/verify_scenario_catalog.py"],
         )
+        independent_reviews = _run(
+            "independent_review_record_catalog",
+            [sys.executable, "scripts/validate_independent_review_records.py"],
+        )
+        if "schema_validation_only=true" not in independent_reviews["stdout"]:
+            raise SystemExit("independent-review catalog omitted its schema-only boundary")
         rebuilt_claims = temporary_root / "public-claims.json"
         claims = _run(
             "public_claim_registry",
@@ -210,6 +218,7 @@ def main() -> None:
             executionlab,
             capitalallocator,
             scenarios,
+            independent_reviews,
             claims,
         )
     }
@@ -281,6 +290,7 @@ def main() -> None:
             "responsive_accessibility_browser_receipt_verified": True,
             "all_five_evidence_labels_verified": True,
             "scenario_catalog_verified": True,
+            "independent_review_record_catalog_schema_checked": True,
             "public_claim_registry_rebuilt_byte_identically": True,
             "fixed_benchmark_receipts_verified": True,
             "billion_row_benchmark_bound_by_full_test_suite": True,

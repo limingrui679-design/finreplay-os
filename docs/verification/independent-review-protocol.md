@@ -43,6 +43,24 @@ The full billion-row route currently requires approximately 15.5 GB of official 
 and 12.3 GB of generated Parquet data. The smaller evidence-chain test is intentionally not
 represented as a substitute for that rerun.
 
+## Public submission workflow
+
+1. Open the repository's
+   [Independent review report](https://github.com/limingrui679-design/finreplay-os/issues/new?template=independent-review.yml)
+   issue form before or immediately after the first bounded run.
+2. Preserve the reviewed revision, archive digest, fresh-environment details, exact commands,
+   exit codes, and stdout/stderr hashes in that issue. The initial Issue is chronology, not a
+   completed review.
+3. Follow the issue through maintainer disposition or a resolving commit. The same reviewer must
+   then rerun the relevant check and post the recheck evidence.
+4. Add the completed JSON record under `verification/review/records/`, validate it with
+   `.venv/bin/python scripts/validate_independent_review_records.py <record.json>`, and submit it
+   by pull request.
+
+The default catalog command exits successfully when there are no JSON records but prints
+`schema_valid_records=0 schema_validation_only=true`; it never converts an empty catalog, a valid
+schema, or a maintainer-authored Issue into independent evidence.
+
 ## Fresh-environment baseline
 
 From the root of the extracted review archive or clone:

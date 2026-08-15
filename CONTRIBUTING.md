@@ -31,3 +31,16 @@ pip-audit .
 Update tests, scenario receipts, documentation, and `CHANGELOG.md` together
 when their claims change. A pull request should explain what evidence changed,
 what did not change, and which failure modes were exercised.
+
+## Independent review
+
+External reviewers should use the **Independent review report** Issue form and the protocol in
+`docs/verification/independent-review-protocol.md`. An initial Issue or successful rerun alone
+does not count. A completed record requires a substantive issue, maintainer disposition or fix,
+and a same-reviewer recheck before it can be proposed under `verification/review/records/`.
+
+Validate proposed records with:
+
+```bash
+python scripts/validate_independent_review_records.py path/to/review-record.json
+```

@@ -37,6 +37,8 @@ jobs:
         run: pytest --cov=finreplay --cov-report=term-missing
       - name: Verify counted scenario catalog
         run: python scripts/verify_scenario_catalog.py
+      - name: Validate independent-review record catalog
+        run: python scripts/validate_independent_review_records.py
       - name: Audit declared dependencies
         if: matrix.python-version == '3.12'
         run: pip-audit .

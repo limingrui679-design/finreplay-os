@@ -1,0 +1,87 @@
+name: Independent review report
+description: Start a bounded independent reproduction or method-review issue.
+title: "[Independent review]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for independently reviewing FinReplay OS. This issue starts the public issue-and-resolution trail. It does not count as completed external evidence until the same reviewer rechecks the resolution and a schema-valid record is accepted.
+  - type: input
+    id: reviewer
+    attributes:
+      label: Public reviewer name
+      description: Use only a name you consent to publish.
+    validations:
+      required: true
+  - type: textarea
+    id: qualification
+    attributes:
+      label: Relevant qualification
+      description: Describe the experience that is relevant to this bounded target.
+    validations:
+      required: true
+  - type: textarea
+    id: relationship
+    attributes:
+      label: Relationship and conflict disclosure
+      description: Disclose any employment, financial, academic, personal, or authorship relationship.
+    validations:
+      required: true
+  - type: dropdown
+    id: target
+    attributes:
+      label: Bounded target
+      options:
+        - timevault-revision-boundary
+        - scenario-catalog-30
+        - site-release-readiness
+        - billion-row-small-chain
+        - billion-row-full-reproduction
+        - other-bounded-target
+    validations:
+      required: true
+  - type: input
+    id: revision
+    attributes:
+      label: Reviewed source revision
+      description: Enter the full 40-character Git commit.
+    validations:
+      required: true
+  - type: input
+    id: archive_hash
+    attributes:
+      label: Source archive SHA-256
+      description: Enter the 64-character digest of the archive you independently used.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Fresh environment and commands
+      description: Record OS, architecture, runtime versions, dependency-lock hash, exact commands, exit codes, and stdout/stderr hashes.
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: Substantive issue and evidence
+      description: Describe one reproducible issue and give public evidence locators or hashes. A courtesy endorsement does not qualify.
+    validations:
+      required: true
+  - type: checkboxes
+    id: independence
+    attributes:
+      label: Independence attestation
+      options:
+        - label: I did not author the reviewed FinReplay code or the maintainer's recorded outputs.
+          required: true
+        - label: I personally created the fresh environment and ran the commands recorded above.
+          required: true
+        - label: The results were not supplied by the FinReplay maintainer.
+          required: true
+        - label: I disclosed relevant conflicts and consent to publication of the identity details above.
+          required: true
+  - type: markdown
+    attributes:
+      value: |
+        After maintainer disposition and resolution, the same reviewer must post the recheck commands and hashes. Then prepare a JSON record under verification/review/records/ and run scripts/validate_independent_review_records.py before opening a pull request.

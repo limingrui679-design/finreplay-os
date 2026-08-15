@@ -282,6 +282,13 @@ raw README, and fixed-commit source ZIP to release commit `0db9d1baa9cd`; it als
 `51a52337ce4e` is an ancestor in the published history. Public source availability improves
 independent reproducibility but is not itself an independent reproduction or review.
 
+The public repository now also supplies an Independent review report Issue form, a completed-record
+directory, a Draft 2020-12 Schema validator with Git-history and timestamp checks, and CI catalog
+validation. The current catalog output is
+`schema_valid_records=0 schema_validation_only=true`. These controls make a future review
+submittable and auditable; they do not create an independent reviewer, authenticate a person, or
+award gate G.
+
 ## Scoring rule
 
 The verifier may award only points whose evidence locators exist and pass. The project reaches
