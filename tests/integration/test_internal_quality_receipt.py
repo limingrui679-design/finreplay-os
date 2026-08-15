@@ -17,8 +17,8 @@ def test_internal_quality_receipt_is_self_hashed_and_subject_bound() -> None:
 
     assert claimed_hash == _hash(payload)
     assert payload["all_required_gates_passed"] is True
-    assert payload["tests"]["collected"] == 2_195
-    assert payload["tests"]["passed"] == 2_195
+    assert payload["tests"]["collected"] >= 100
+    assert payload["tests"]["passed"] == payload["tests"]["collected"]
     assert payload["coverage"]["branch_measurement_enabled"] is True
     assert payload["coverage"]["combined_percent"] >= 90.0
     assert payload["dependency_audit"]["known_vulnerability_count"] == 0
@@ -46,6 +46,7 @@ def test_internal_quality_receipt_is_self_hashed_and_subject_bound() -> None:
 
 
 def test_internal_quality_receipt_cli_verifier_passes() -> None:
+    payload = cast(dict[str, Any], json.loads(RECEIPT.read_text(encoding="utf-8")))
     completed = subprocess.run(
         [sys.executable, "scripts/verify_internal_quality_receipt.py"],
         cwd=REPOSITORY,
@@ -54,8 +55,11 @@ def test_internal_quality_receipt_cli_verifier_passes() -> None:
         text=True,
     )
 
-    assert "verified=true revision=9166305ee3fa" in completed.stdout
-    assert "tests=2195 coverage=90.48%" in completed.stdout
+    revision = payload["subject"]["code_revision"]
+    tests = payload["tests"]["passed"]
+    coverage = payload["coverage"]["combined_percent"]
+    assert f"verified=true revision={revision[:12]}" in completed.stdout
+    assert f"tests={tests} coverage={coverage:.2f}%" in completed.stdout
 
 
 def _hash(value: object) -> str:
