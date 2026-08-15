@@ -407,7 +407,12 @@ class DOLWeeklyClaimsArchiveAdapter:
 
 
 def _normalize(value: str) -> str:
-    return " ".join(value.replace("\u00a0", " ").split())
+    return " ".join(
+        value.replace("\u00a0", " ")
+        .replace("\u2018", "'")
+        .replace("\u2019", "'")
+        .split()
+    )
 
 
 def _display_date(value: str, label: str) -> date:

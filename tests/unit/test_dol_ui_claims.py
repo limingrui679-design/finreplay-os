@@ -12,6 +12,7 @@ from pypdf.generic import DictionaryObject, NameObject, StreamObject
 
 from finreplay.adapters import DOLWeeklyClaimsArchiveAdapter, SourceSchemaError
 from finreplay.adapters.base import HttpResponseSnapshot, SafeHttpClient
+from finreplay.adapters.dol_ui_claims import _normalize
 from finreplay.contracts import EvidenceClass, LicenseClass, TemporalCoverage
 from finreplay.engines import TimeVault
 
@@ -30,6 +31,12 @@ TECHNICAL_MARKERS = (
     "reporting by states.",
     "U.S. Department of Labor Employment and Training Administration",
 )
+
+
+def test_pdf_text_normalization_canonicalizes_extractor_apostrophes() -> None:
+    assert _normalize("previous\u00a0week\u2019s and this week\u2018s") == (
+        "previous week's and this week's"
+    )
 
 
 def pdf_bytes(
