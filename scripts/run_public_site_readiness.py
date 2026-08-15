@@ -95,8 +95,12 @@ def main() -> None:
             "no_database_or_object_storage_binding": (
                 hosting.get("d1") is None and hosting.get("r2") is None
             ),
-            "no_hosting_project_or_public_url_claim": (
-                "project_id" not in hosting and "http" not in json.dumps(hosting)
+            "hosting_project_is_configured": (
+                hosting.get("project_id")
+                == "appgprj_6a8002cc2d308191a2cf9478863ce83e"
+            ),
+            "no_public_url_claim_in_hosting_config": (
+                "http" not in json.dumps(hosting)
             ),
             "social_card_is_png": (og_width, og_height) == (1731, 909),
         }
