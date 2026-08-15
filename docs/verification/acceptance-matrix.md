@@ -255,15 +255,23 @@ Completion requires a public read-only demo and at least one recorded independen
 domain-method review that identifies a real issue and follows it to resolution. Maintainer-written
 feedback, automated tests, stars, traffic, or a friend saying “looks good” do not count.
 
-Current status: **BLOCKED_EXTERNAL by definition until a real external reviewer participates.** This
-does not stop implementation work and must never be filled with fabricated evidence. The internal
-deployment precursor is complete: `verification/evidence/public-site-readiness.json` is a
+Current status: **PUBLIC DEMO PROVEN; BLOCKED_EXTERNAL until a real external reviewer participates.**
+This does not stop implementation work and must never be filled with fabricated evidence. The
+local deployment precursor is complete: `verification/evidence/public-site-readiness.json` is a
 self-hashed receipt bound to commit `646d9cdd2f56`; from a fresh Git archive it records a lockfile
 install, lint, production build, three rendered-page and packaged-archive tests, and an npm audit
 of 563 dependencies with zero findings. The built site carries a 6.66 MB deterministic source ZIP
 bound to commit `62bf793d017b`, plus a strict independent-review protocol and completed-record
-schema. The site remains unhosted (`public_url=null`) and independent review remains false, so the
-receipt and reviewer kit do not award any G points.
+schema.
+
+Sites version 1 is publicly deployed at
+`https://finreplay-evidence.limingrui2.chatgpt.site`. The separate self-hashed
+`verification/evidence/public-site-deployment.json` receipt binds Sites source commit
+`4dccb382e91385db279fd442f8ccf0f10b923d01` to the `web/` tree at repository commit
+`51a52337ce4ed485333fba1c21c8132692b9801e`, records the successful production deployment and public
+access-policy revision, and records an anonymous HTTP 200 response. That proves the public-demo
+half only at the recorded time. Independent review remains false, so gate G remains incomplete and
+awards no points under the all-or-nothing scoring rule.
 
 ## Scoring rule
 

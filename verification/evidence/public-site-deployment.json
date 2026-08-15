@@ -1,0 +1,46 @@
+{
+  "all_deployment_gates_passed": true,
+  "assertions": {
+    "anonymous_http_200": true,
+    "independent_review_remains_pending": true,
+    "production_deployment_succeeded": true,
+    "public_access_mode": true,
+    "sites_source_tree_matches_parent_web_tree": true
+  },
+  "claim_boundary": "This receipt proves that Sites version 1 was successfully deployed to production, changed to public access, and returned HTTP 200 to an anonymous request at the recorded time. It binds the Sites source tree to repository commit 51a52337ce4e. It does not prove continuous uptime, independent review, security or accessibility certification, users, adoption, investment performance, or real-world impact.",
+  "evidence_kind": "public_site_production_deployment",
+  "recorded_at": "2026-08-15T09:30:49Z",
+  "schema_version": "1.0.0",
+  "site": {
+    "access_mode": "public",
+    "access_policy_revision": 2,
+    "access_updated_at": "2026-08-15T09:29:27.271625Z",
+    "deployment_completed_at": "2026-08-15T09:29:03.920310Z",
+    "deployment_id": "appgdep_6a803105dd0c819190e4bcd45e720039",
+    "deployment_status": "succeeded",
+    "project_id": "appgprj_6a8002cc2d308191a2cf9478863ce83e",
+    "public_url": "https://finreplay-evidence.limingrui2.chatgpt.site",
+    "slug": "finreplay-evidence",
+    "title": "FinReplay OS Evidence",
+    "version_id": "appgprj_6a8002cc2d308191a2cf9478863ce83e~appgver_711f28cc4c248191b2fb658eaa9439af",
+    "version_number": 1
+  },
+  "source_binding": {
+    "parent_repository_commit": "51a52337ce4ed485333fba1c21c8132692b9801e",
+    "site_source_commit": "4dccb382e91385db279fd442f8ccf0f10b923d01",
+    "site_source_tree_git_oid": "ab3be513d35003d23adf83f2c858fdb2d0f3e4a2",
+    "saved_version_archive_storage": null
+  },
+  "verification": {
+    "anonymous_http_status": 200,
+    "anonymous_http_verified_at": "2026-08-15T09:30:49Z",
+    "required_markers": [
+      "FinReplay OS",
+      "Independent review",
+      "62bf793d017b"
+    ],
+    "response_body_bytes": 30181,
+    "response_body_sha256": "7e3abf985ce1addff6098e7119e0bc8d086c0058998135bf12c536160d3cc326"
+  },
+  "receipt_sha256": "a2ff9b38201b79d0e0e09ddee88ce08d67f6a4c37a6d424caea2f16b6f9d1583"
+}

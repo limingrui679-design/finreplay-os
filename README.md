@@ -23,7 +23,7 @@ institutional adoption, external validation, or real-world impact.
 | 20–30 official-data adapters | 30 live-validated: 8 FDIC, 3 SEC, 5 Treasury, 9 New York Fed, 1 BLS, and 4 distinct CFTC COT products; temporal eligibility is recorded per source | Each counted adapter retrieves and validates an official source or fails honestly |
 | 30 historical/boundary scenarios | 30/30 internally replay-proven: three bank boundaries plus 27 source-diverse macro, policy, rate, energy, labor, producer-price, import-price, export-price, Treasury, production, retail-sales, housing, home-sales, consumer-credit, construction-spending, house-price-index, durable-goods, international-trade, natural-gas, CFTC open-interest, and Federal Reserve liquidity-swap boundaries pass the eight-gate verifier | Each scenario passes evidence gates and produces a versioned ReplayPack |
 | Billion-record scale | Internally proven: 244 continuous official SEC EDGAR daily archives from 2012-01-01 through 2012-08-31 contain 1,014,736,394 exact physical CSV rows; a fresh four-worker deep pass re-read every ZIP/CSV/Parquet partition, and two fresh processes each hash-verified and queried all rows | Machine manifest, durable deep receipt, and two-process query benchmark all bind the same content hashes and prove at least 1,000,000,000 processed and queried records |
-| Public demo and external review | Not achieved | Public read-only deployment plus recorded independent reproduction/review |
+| Public demo and external review | Public demo achieved; independent review pending | Public read-only deployment plus recorded independent reproduction/review |
 
 The machine-auditable requirements are maintained in
 [`docs/verification/acceptance-matrix.md`](docs/verification/acceptance-matrix.md).
@@ -34,7 +34,14 @@ lint, production build, rendered-page tests, and zero npm-audit findings to comm
 The site also ships a SHA-256-bound 6.66 MB source archive and the
 [`independent-review protocol`](docs/verification/independent-review-protocol.md) so a reviewer can
 work without access to the maintainer's machine or private source repository.
-No hosted URL or independent review is claimed, so this does not satisfy the final gate.
+Sites version 1 is publicly available at
+[`https://finreplay-evidence.limingrui2.chatgpt.site`](https://finreplay-evidence.limingrui2.chatgpt.site).
+The self-hashed
+[`public-site-deployment.json`](verification/evidence/public-site-deployment.json) receipt binds the
+deployed Sites source commit to this repository's `web/` tree at commit `51a52337ce4e`, records the
+successful production deployment and public access revision, and records a separate anonymous HTTP
+200 check. This is time-bounded deployment evidence, not independent review, continuous-uptime
+evidence, user adoption, or real-world impact, so the final gate remains incomplete.
 
 [Seven engines](#the-seven-engines) · [Compact workflow](#compact-workflow) · [Run locally](#local-development) · [Scenario evidence](#scenario-evidence) · [Scale evidence](docs/scale/sec-edgar-log-lake.md) · [Truth boundaries](#truth-boundaries)
 

@@ -44,15 +44,27 @@ def test_public_claim_registry_binds_every_evidence_locator() -> None:
         "reported",
         "simulated",
     ]
-    headline = {
-        item["claim_id"]: item["observed_value"] for item in values["headline_claims"]
-    }
+    headline = {item["claim_id"]: item["observed_value"] for item in values["headline_claims"]}
     assert headline == {
         "seven-connected-engines": 7,
         "official-adapters": 30,
         "replay-proven-scenarios": 30,
         "sec-scale-partitions": 244,
         "sec-scale-physical-rows": 1_014_736_394,
+    }
+    deployment = values["public_site_deployment"]
+    assert deployment == {
+        "access_mode": "public",
+        "anonymous_http_status": 200,
+        "deployment_status": "succeeded",
+        "evidence_path": "verification/evidence/public-site-deployment.json",
+        "evidence_sha256": hashlib.sha256(
+            (REPOSITORY / "verification/evidence/public-site-deployment.json").read_bytes()
+        ).hexdigest(),
+        "independent_review_completed": False,
+        "public_url": "https://finreplay-evidence.limingrui2.chatgpt.site",
+        "receipt_sha256": "a2ff9b38201b79d0e0e09ddee88ce08d67f6a4c37a6d424caea2f16b6f9d1583",
+        "sites_version_number": 1,
     }
     for claim in values["headline_claims"]:
         evidence = REPOSITORY / claim["evidence_path"]

@@ -73,6 +73,21 @@ def main() -> None:
     scenario_count = len(scenario_summary["scenarios"])
     scale_path = repository / "verification/scale/sec-edgar/latest-scale-manifest.json"
     scale = load_sec_log_scale_manifest(scale_path)
+    deployment_path = repository / "verification/evidence/public-site-deployment.json"
+    deployment = _load_json(deployment_path)
+    deployment_without_hash = dict(deployment)
+    deployment_receipt_sha256 = deployment_without_hash.pop("receipt_sha256", None)
+    if deployment_receipt_sha256 != _hash(deployment_without_hash):
+        raise SystemExit("public site deployment receipt_sha256 mismatch")
+    deployment_site = deployment["site"]
+    deployment_verification = deployment["verification"]
+    if (
+        deployment_site["deployment_status"] != "succeeded"
+        or deployment_site["access_mode"] != "public"
+        or deployment_verification["anonymous_http_status"] != 200
+        or not deployment["assertions"]["independent_review_remains_pending"]
+    ):
+        raise SystemExit("public site deployment receipt does not preserve required boundaries")
     expected_values = {
         "engine_count": 7,
         "adapter_count": 30,
@@ -95,7 +110,7 @@ def main() -> None:
         "30/30 internally replay-proven",
         "244 continuous",
         "1,014,736,394",
-        "Public demo and external review | Not achieved",
+        "Public demo and external review | Public demo achieved; independent review pending",
     ):
         if text not in readme:
             raise SystemExit(f"README public claim is missing or changed: {text}")
@@ -185,6 +200,17 @@ def main() -> None:
         "builder_path": "scripts/build_public_claim_registry.py",
         "builder_sha256": _file_sha256(Path(__file__).resolve()),
         "headline_claims": headline_claims,
+        "public_site_deployment": {
+            "public_url": deployment_site["public_url"],
+            "sites_version_number": deployment_site["version_number"],
+            "deployment_status": deployment_site["deployment_status"],
+            "access_mode": deployment_site["access_mode"],
+            "anonymous_http_status": deployment_verification["anonymous_http_status"],
+            "evidence_path": deployment_path.relative_to(repository).as_posix(),
+            "evidence_sha256": _file_sha256(deployment_path),
+            "receipt_sha256": deployment_receipt_sha256,
+            "independent_review_completed": False,
+        },
         "replaypack_surface": {
             "report_count": len(pack_entries),
             "public_claim_count": public_claim_count,
@@ -203,16 +229,20 @@ def main() -> None:
                     "Tests and hashes prove internal behavior, not source authenticity "
                     "or real-world impact."
                 ),
-                "Public demo and external review | Not achieved",
+                (
+                    "Public demo and external review | Public demo achieved; "
+                    "independent review pending"
+                ),
             ],
         },
         "claim_boundary": (
             "This registry binds the README's headline quantitative claims to committed machine "
             "evidence and revalidates every structured ReplayPack claim against its support "
-            "artifact and evidence class. The text scan rejects a bounded set of affirmative "
-            "deployment, client, performance, validation, and adoption phrases; it is not a "
-            "general natural-language proof and cannot establish external review, deployment, "
-            "adoption, users, financial performance, or real-world impact."
+            "artifact and evidence class. It also binds the public-demo claim to a self-hashed, "
+            "time-bounded Sites deployment receipt. The text scan rejects a bounded set of "
+            "unsupported client, performance, validation, and adoption phrases; it is not a "
+            "general natural-language proof and cannot establish continuous uptime, external "
+            "review, adoption, users, financial performance, or real-world impact."
         ),
     }
     required_boundaries = payload["boundary_scan"]["required_readme_boundaries"]
@@ -269,12 +299,15 @@ def _public_text_paths(repository: Path) -> list[Path]:
             continue
         relative = raw.decode()
         path = repository / relative
-        if relative == "README.md" or (
-            relative.startswith("docs/") and path.suffix == ".md"
-        ) or (
-            relative.startswith("verification/replaypacks/")
-            and path.suffix in {".md", ".html", ".json"}
-        ) or relative in public_web_sources:
+        if (
+            relative == "README.md"
+            or (relative.startswith("docs/") and path.suffix == ".md")
+            or (
+                relative.startswith("verification/replaypacks/")
+                and path.suffix in {".md", ".html", ".json"}
+            )
+            or relative in public_web_sources
+        ):
             paths.append(path)
     return sorted(paths)
 

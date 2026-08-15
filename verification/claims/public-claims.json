@@ -4,7 +4,7 @@
       "Public-data cases are not clients; historical replays are not live trading.",
       "Simulated P&L is not investment performance.",
       "Tests and hashes prove internal behavior, not source authenticity or real-world impact.",
-      "Public demo and external review | Not achieved"
+      "Public demo and external review | Public demo achieved; independent review pending"
     ],
     "rule_ids": [
       "external_validation",
@@ -14,12 +14,12 @@
       "real_user_adoption"
     ],
     "scanned_text_file_count": 170,
-    "scanned_text_set_sha256": "396d6e77455dbfe6827b517bb46cc8ed6c66f5610f63650752c7df9ffdb4636f",
+    "scanned_text_set_sha256": "a0b87ce1829a6525ecda3e8e9edd712befb7c275c7df642c2ba4a0125cfdefa5",
     "violations": []
   },
   "builder_path": "scripts/build_public_claim_registry.py",
-  "builder_sha256": "d5e260c6820891e2e2343bc2a72ab1e39052b0bf80606dd1b3e1351258bb52d1",
-  "claim_boundary": "This registry binds the README's headline quantitative claims to committed machine evidence and revalidates every structured ReplayPack claim against its support artifact and evidence class. The text scan rejects a bounded set of affirmative deployment, client, performance, validation, and adoption phrases; it is not a general natural-language proof and cannot establish external review, deployment, adoption, users, financial performance, or real-world impact.",
+  "builder_sha256": "ab78cc6630bf41ce80f8f8d03d730862da3dc60b9377d05a83dc11ff5497f020",
+  "claim_boundary": "This registry binds the README's headline quantitative claims to committed machine evidence and revalidates every structured ReplayPack claim against its support artifact and evidence class. It also binds the public-demo claim to a self-hashed, time-bounded Sites deployment receipt. The text scan rejects a bounded set of unsupported client, performance, validation, and adoption phrases; it is not a general natural-language proof and cannot establish continuous uptime, external review, adoption, users, financial performance, or real-world impact.",
   "headline_claims": [
     {
       "claim_id": "seven-connected-engines",
@@ -62,8 +62,19 @@
       "public_artifact": "README.md"
     }
   ],
+  "public_site_deployment": {
+    "access_mode": "public",
+    "anonymous_http_status": 200,
+    "deployment_status": "succeeded",
+    "evidence_path": "verification/evidence/public-site-deployment.json",
+    "evidence_sha256": "f0282a40a678cce6348caa973ece14bb724cc1357af8324e08823f9bd7343e5d",
+    "independent_review_completed": false,
+    "public_url": "https://finreplay-evidence.limingrui2.chatgpt.site",
+    "receipt_sha256": "a2ff9b38201b79d0e0e09ddee88ce08d67f6a4c37a6d424caea2f16b6f9d1583",
+    "sites_version_number": 1
+  },
   "registry_kind": "public_claim_traceability_and_inflation_guard",
-  "registry_sha256": "f2802270e639cdab19e926678d00a1258b1b7e5d325e8591d9e78873b9055736",
+  "registry_sha256": "0bfa0de1b363d29af3bc56f6bcb55157fa13738d5945507a6d6f246fb5f011f6",
   "replaypack_surface": {
     "evidence_classes": [
       "extracted",
