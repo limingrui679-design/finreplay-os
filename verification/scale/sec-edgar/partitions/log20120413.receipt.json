@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0.0",
+  "partition_date": "2012-04-13",
+  "listed_url": "http://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2012/Qtr2/log20120413.zip",
+  "source_url": "https://www.sec.gov/dera/data/Public-EDGAR-log-file-data/2012/Qtr2/log20120413.zip",
+  "list_page_url": "https://www.sec.gov/files/edgar2012.html",
+  "archive_retrieved_at": "2026-08-14T18:46:32.727948Z",
+  "materialized_at": "2026-08-14T18:46:33.515850Z",
+  "download_receipt_sha256": "7c19e430a87209f040debe41cdf48e00d4433c3931505a74cca410e5195a1488",
+  "zip_filename": "log20120413.zip",
+  "zip_bytes": 46449283,
+  "zip_sha256": "4ec6cd0ee835901c78cbfcd7903544c981d01892cf63c46675b90fd3f94d3a99",
+  "archive_member_names": [
+    "README.txt",
+    "log20120413.csv"
+  ],
+  "csv_member_name": "log20120413.csv",
+  "csv_bytes": 309268921,
+  "csv_sha256": "60d883bf817e479af70bf532608aa6c69f2e1b2cf35fe89c4cde4e485e05d3c4",
+  "csv_crc32": "c89b9247",
+  "readme_bytes": 4217,
+  "readme_sha256": "efbf3afbf659f09ef2853e8b72b373e60b764a53cb9f055e82d61ccfeb9926c6",
+  "readme_crc32": "1b8fd0df",
+  "physical_line_count": 2685139,
+  "data_row_count": 2685138,
+  "parquet_filename": "log20120413.parquet",
+  "parquet_bytes": 34610674,
+  "parquet_sha256": "51826793da9d4b31a7b7b97c38392954a9d179d72c3ca22b5d4e2bc040f6d604",
+  "parquet_row_count": 2685138,
+  "parquet_row_group_count": 22,
+  "parquet_columns": [
+    {
+      "name": "row_ordinal",
+      "duckdb_type": "UBIGINT",
+      "nullable": true
+    },
+    {
+      "name": "source_partition_date",
+      "duckdb_type": "DATE",
+      "nullable": true
+    },
+    {
+      "name": "event_date",
+      "duckdb_type": "DATE",
+      "nullable": true
+    },
+    {
+      "name": "event_time_seconds",
+      "duckdb_type": "UINTEGER",
+      "nullable": true
+    },
+    {
+      "name": "apache_zone",
+      "duckdb_type": "SMALLINT",
+      "nullable": true
+    },
+    {
+      "name": "cik",
+      "duckdb_type": "UBIGINT",
+      "nullable": true
+    },
+    {
+      "name": "accession",
+      "duckdb_type": "VARCHAR",
+      "nullable": true
+    },
+    {
+      "name": "document",
+      "duckdb_type": "VARCHAR",
+      "nullable": true
+    },
+    {
+      "name": "status_code",
+      "duckdb_type": "USMALLINT",
+      "nullable": true
+    },
+    {
+      "name": "document_size",
+      "duckdb_type": "UBIGINT",
+      "nullable": true
+    },
+    {
+      "name": "is_index",
+      "duckdb_type": "BOOLEAN",
+      "nullable": true
+    },
+    {
+      "name": "no_referrer",
+      "duckdb_type": "BOOLEAN",
+      "nullable": true
+    },
+    {
+      "name": "no_user_agent",
+      "duckdb_type": "BOOLEAN",
+      "nullable": true
+    },
+    {
+      "name": "find_code",
+      "duckdb_type": "UTINYINT",
+      "nullable": true
+    },
+    {
+      "name": "is_crawler",
+      "duckdb_type": "BOOLEAN",
+      "nullable": true
+    },
+    {
+      "name": "browser_code",
+      "duckdb_type": "VARCHAR",
+      "nullable": true
+    },
+    {
+      "name": "invalid_mask",
+      "duckdb_type": "USMALLINT",
+      "nullable": true
+    }
+  ],
+  "first_row_ordinal": 1,
+  "last_row_ordinal": 2685138,
+  "ordinal_sequence_mismatch_count": 0,
+  "partition_date_mismatch_count": 0,
+  "invalid_counts": {
+    "rows_with_any_invalid": 152,
+    "blank_ip": 0,
+    "invalid_or_mismatched_date": 0,
+    "invalid_time": 0,
+    "invalid_zone": 0,
+    "invalid_cik": 152,
+    "invalid_accession": 0,
+    "blank_document": 0,
+    "invalid_status_code": 0,
+    "invalid_document_size": 0,
+    "invalid_index_flag": 0,
+    "invalid_no_referrer_flag": 0,
+    "invalid_no_user_agent_flag": 0,
+    "invalid_find_code": 0,
+    "invalid_crawler_flag": 0,
+    "invalid_browser_code": 0
+  },
+  "source_coordinate_sha256": "c9bac3700bbcc328bd4e5fba2a70cf22477ed6336b8ff935996c4db88341496f",
+  "duckdb_version": "1.5.5",
+  "claim_boundary": "This receipt proves that one fully hashed official SEC EDGAR daily ZIP was CRC-checked, structurally parsed, and materialized as exactly one compact Parquet row per physical CSV data row. Identity is the ZIP SHA-256 plus the one-based physical row ordinal; repeated requests are intentionally not deduplicated. The exact source observation is chained by its download-receipt SHA-256. Invalid source values are retained with a bit mask and counted, while the obfuscated IP field is deliberately omitted from the derived lake for data minimization. These are SEC.gov access-log requests, not unique people, filings, trades, customers, production usage, or demonstrated impact. Event date and time describe logged access; archive retrieval time is separate and does not establish the archive's exact historical public-release time. SEC warns that lost or damaged files and extraction limitations may leave the source logs incomplete.",
+  "receipt_sha256": "fd47efa501d3e6909401c813189ae1ba9cfa7ff2f35c8dbe2be7953ee7074e0c"
+}
