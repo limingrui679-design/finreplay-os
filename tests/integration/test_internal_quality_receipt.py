@@ -22,6 +22,9 @@ def test_internal_quality_receipt_is_self_hashed_and_subject_bound() -> None:
     assert payload["coverage"]["branch_measurement_enabled"] is True
     assert payload["coverage"]["combined_percent"] >= 90.0
     assert payload["dependency_audit"]["known_vulnerability_count"] == 0
+    if payload["schema_version"] == "1.1.0":
+        assert payload["dependency_audit"]["skipped_package_count"] == 1
+        assert payload["dependency_audit"]["skipped_packages"][0]["name"] == "finreplay-os"
     assert payload["secret_and_privacy_scan"]["clean"] is True
     assert all(payload["product_and_reproducibility"].values())
 

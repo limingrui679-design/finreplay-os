@@ -28,6 +28,9 @@ def main() -> None:
         raise SystemExit("internal quality receipt_sha256 mismatch")
     if payload.get("all_required_gates_passed") is not True:
         raise SystemExit("internal quality receipt does not pass every required gate")
+    schema_version = payload.get("schema_version")
+    if schema_version not in {"1.0.0", "1.1.0"}:
+        raise SystemExit("internal quality receipt schema version is unsupported")
     subject = payload["subject"]
     revision = subject["code_revision"]
     tree = _git("rev-parse", f"{revision}^{{tree}}")
@@ -60,8 +63,23 @@ def main() -> None:
         or coverage["combined_percent"] < coverage["required_combined_percent"]
     ):
         raise SystemExit("quality receipt branch-aware coverage gate failed")
-    if payload["dependency_audit"]["known_vulnerability_count"] != 0:
+    dependency_audit = payload["dependency_audit"]
+    if dependency_audit["known_vulnerability_count"] != 0:
         raise SystemExit("quality receipt dependency audit contains vulnerabilities")
+    if schema_version == "1.1.0" and (
+        dependency_audit.get("skipped_package_count") != 1
+        or dependency_audit.get(
+            "skipped_packages"
+        ) != [
+            {
+                "name": "finreplay-os",
+                "skip_reason": (
+                    "Dependency not found on PyPI and could not be audited: finreplay-os (0.1.0a0)"
+                ),
+            }
+        ]
+    ):
+        raise SystemExit("quality receipt dependency audit skip boundary differs")
     secret_scan = dict(payload["secret_and_privacy_scan"])
     scan_hash = secret_scan.pop("scan_sha256", None)
     if scan_hash != _hash(secret_scan) or secret_scan.get("clean") is not True:

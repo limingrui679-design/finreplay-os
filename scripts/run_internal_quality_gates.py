@@ -142,9 +142,30 @@ def main() -> None:
         dependencies = dependency_payload.get("dependencies")
         if not isinstance(dependencies, list):
             raise SystemExit("pip-audit JSON did not contain a dependency list")
+        audited_dependencies = [
+            item for item in dependencies if isinstance(item.get("version"), str)
+        ]
+        skipped_dependencies = [
+            {
+                "name": item.get("name"),
+                "skip_reason": item.get("skip_reason"),
+            }
+            for item in dependencies
+            if not isinstance(item.get("version"), str)
+        ]
+        if skipped_dependencies != [
+            {
+                "name": "finreplay-os",
+                "skip_reason": (
+                    "Dependency not found on PyPI and could not be audited: "
+                    "finreplay-os (0.1.0a0)"
+                ),
+            }
+        ]:
+            raise SystemExit(f"unexpected pip-audit skipped dependencies: {skipped_dependencies}")
         vulnerabilities = [
             {"name": item["name"], "version": item["version"], "vulns": item["vulns"]}
-            for item in dependencies
+            for item in audited_dependencies
             if item.get("vulns")
         ]
         if vulnerabilities:
@@ -223,7 +244,7 @@ def main() -> None:
         )
     }
     payload: dict[str, Any] = {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "evidence_kind": "clean_commit_internal_quality_gate_run",
         "generated_at": generated_at,
         "subject": {
@@ -263,16 +284,21 @@ def main() -> None:
         },
         "dependency_audit": {
             "tool": "pip-audit",
-            "package_count": len(dependencies),
+            "package_count": len(audited_dependencies),
             "known_vulnerability_count": 0,
+            "skipped_package_count": len(skipped_dependencies),
+            "skipped_packages": skipped_dependencies,
             "packages": [
                 {"name": item["name"], "version": item["version"]}
-                for item in dependencies
+                for item in audited_dependencies
             ],
             "claim_boundary": (
                 "This is the pip-audit result at generated_at for the complete resolved local "
                 "environment, including the installer and development dependencies. "
-                "Vulnerability databases can change after this receipt."
+                "The editable local FinReplay package has no PyPI advisory coordinate and is "
+                "listed separately as skipped; its code is covered by the recorded tests, typing, "
+                "lint, and scans rather than represented as advisory-audited. Vulnerability "
+                "databases can change after this receipt."
             ),
         },
         "secret_and_privacy_scan": secret_scan,
