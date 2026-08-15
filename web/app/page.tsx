@@ -232,7 +232,11 @@ export default function Home() {
           <span className="section-number">06 / Independent evidence</span>
           <h2 id="review-title">The final gate cannot be self-awarded.</h2>
           <p>A qualified reviewer must independently reproduce a result or review a domain method, identify a real issue, and follow that issue through resolution.</p>
-          <a className="primary-action download" href="/review/finreplay-review-manifest.json" download>Download review manifest</a>
+          <p className="archive-digest">The 6.66 MB source archive is bound to commit <code>62bf793d017b</code> and SHA-256 <code>781df836…66a418</code>.</p>
+          <div className="review-downloads">
+            <a className="primary-action download" href="/review/finreplay-os-62bf793d017b.zip" download>Download review source</a>
+            <a className="secondary-action download" href="/review/finreplay-review-manifest.json" download>Download manifest</a>
+          </div>
         </div>
         <ol className="review-steps">
           <li><span>01</span><div><strong>Choose a bounded target</strong><p>One engine method, one replay, or the small committed evidence chain.</p></div></li>

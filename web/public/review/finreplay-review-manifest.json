@@ -2,27 +2,47 @@
   "schema_version": "1.0.0",
   "project": "FinReplay OS",
   "evidence_status": "internally_proven_external_review_pending",
-  "repository_subject_commit": "b5fe787",
+  "repository_subject_commit": "62bf793d017b46b9bda30f290729f3742e96fec0",
+  "source_archive": {
+    "file": "finreplay-os-62bf793d017b.zip",
+    "bytes": 6662710,
+    "sha256": "781df836758a84a37ee65cd76fcb1bfd185e32ebef36bda566cea5c1c566a418",
+    "zip_entry_count": 1639,
+    "tracked_file_count": 1436,
+    "unsafe_path_count": 0
+  },
+  "review_protocol_path": "docs/verification/independent-review-protocol.md",
+  "review_record_schema_path": "verification/review/independent-review.schema.json",
   "review_targets": [
     {
+      "target_id": "timevault-revision-boundary",
       "target": "TimeVault future-revision exclusion",
       "route": ".venv/bin/pytest -q tests/integration/test_engine_method_evidence.py",
       "boundary": "Internal ALFRED-based method evidence; not an external correctness certification."
     },
     {
+      "target_id": "scenario-catalog-30",
       "target": "Thirty replay-proven scenario catalog",
       "route": ".venv/bin/python scripts/verify_scenario_catalog.py",
       "boundary": "Public-data boundary replays; not clients, live trading, forecast skill, or causal validation."
     },
     {
+      "target_id": "site-release-readiness",
+      "target": "Public site local release readiness",
+      "route": ".venv/bin/python scripts/verify_public_site_readiness.py",
+      "boundary": "Validates a committed local build receipt; not public availability or external review."
+    },
+    {
+      "target_id": "billion-row-small-chain",
       "target": "Small billion-row evidence chain",
       "route": ".venv/bin/pytest -q tests/integration/test_sec_edgar_final_scale_evidence.py",
       "boundary": "Validates committed manifests and receipts; a full byte-level reproduction must re-download official SEC archives."
     },
     {
-      "target": "Internal quality receipt",
-      "route": ".venv/bin/python scripts/verify_internal_quality_receipt.py",
-      "boundary": "Binds a clean internal run; configured CI services and external audits are not represented as locally executed."
+      "target_id": "billion-row-full-reproduction",
+      "target": "Full billion-row official-source reproduction",
+      "route": "Follow docs/scale/sec-edgar-log-lake.md from official SEC archives",
+      "boundary": "Requires independent download and processing of the official archives; the source ZIP does not contain ignored raw or generated lake data."
     }
   ],
   "evidence_hashes": {
@@ -34,6 +54,6 @@
   "evidence_paths": {
     "public_claim_registry": "verification/claims/public-claims.json"
   },
-  "independent_review_completion_rule": "A qualified reviewer independently reproduces a result or reviews a domain method, identifies a real issue, and follows that issue through a documented resolution and recheck.",
+  "independent_review_completion_rule": "A qualified reviewer independently reproduces a bounded result or reviews a domain method, identifies a real issue, and follows it through a documented resolution and reviewer-run recheck conforming to the supplied schema.",
   "claim_boundary": "This public manifest is a navigation aid. It does not prove source authenticity, deployment, adoption, users, investment performance, external review, or real-world impact."
 }

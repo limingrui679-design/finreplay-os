@@ -82,7 +82,7 @@ def main() -> None:
             "lint_passed": commands["lint"]["exit_code"] == 0,
             "production_build_and_render_tests_passed": (
                 commands["production_build_and_render_tests"]["exit_code"] == 0
-                and rendered_passed == 2
+                and rendered_passed == 3
                 and rendered_failed == 0
             ),
             "dependency_audit_clean": vulnerabilities["total"] == 0,

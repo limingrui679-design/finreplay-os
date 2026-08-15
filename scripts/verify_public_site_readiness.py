@@ -34,7 +34,7 @@ def main() -> None:
         raise SystemExit("public site receipt contains a failed command")
     if payload["dependency_audit"]["vulnerabilities"]["total"] != 0:
         raise SystemExit("public site receipt contains npm audit findings")
-    if payload["rendered_tests"] != {"failed": 0, "passed": 2}:
+    if payload["rendered_tests"] != {"failed": 0, "passed": 3}:
         raise SystemExit("public site rendered test counts differ")
     content = payload["site_content"]
     if content["scenario_count"] != 30 or content["visible_breach_count"] != 19:
@@ -77,7 +77,7 @@ def main() -> None:
         raise SystemExit("public site artifact byte total mismatch")
     print(
         f"verified=true revision={revision[:12]} files={len(files)} "
-        f"rendered_tests=2 vulnerabilities=0 receipt_sha256={claimed_hash}"
+        f"rendered_tests=3 vulnerabilities=0 receipt_sha256={claimed_hash}"
     )
 
 

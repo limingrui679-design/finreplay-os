@@ -295,7 +295,11 @@ h1 em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 .review-section { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 8vw; padding: 9rem 0 7rem; }
 .review-copy h2 { max-width: 670px; margin: 0.8rem 0 1.4rem; font-size: clamp(2.7rem, 5.3vw, 5.9rem); line-height: 0.92; letter-spacing: -0.065em; }
 .review-copy > p { max-width: 610px; color: var(--muted); line-height: 1.65; }
-.download { display: inline-block; margin-top: 1.4rem; border: 1px solid var(--ink); padding: 0.9rem 1rem; text-decoration: none; font-family: var(--font-geist-mono), monospace; font-size: 0.75rem; }
+.archive-digest { font-family: var(--font-geist-mono), monospace; font-size: 0.72rem; }
+.archive-digest code { color: var(--ink); font-size: inherit; overflow-wrap: anywhere; }
+.review-downloads { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.4rem; }
+.download { display: inline-block; border: 1px solid var(--ink); padding: 0.9rem 1rem; text-decoration: none; font-family: var(--font-geist-mono), monospace; font-size: 0.75rem; }
+.download:focus-visible, .download:hover { outline: 3px solid var(--acid); outline-offset: 3px; }
 .review-steps { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--ink); }
 .review-steps li { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
 .review-steps li > span { font-family: var(--font-geist-mono), monospace; color: var(--muted); font-size: 0.7rem; }

@@ -11,7 +11,9 @@ internal validation as external adoption, domain review, or production use.
 - the sealed 1,014,736,394-row SEC processing receipt;
 - the current internal quality-gate results and their limitations;
 - direct artifact hashes and an independent-review protocol; and
-- a downloadable machine-readable review manifest.
+- a downloadable machine-readable review manifest; and
+- a 6.66 MB review-source ZIP bound to commit `62bf793d017b` and SHA-256
+  `781df836758a84a37ee65cd76fcb1bfd185e32ebef36bda566cea5c1c566a418`.
 
 ## Local verification
 
