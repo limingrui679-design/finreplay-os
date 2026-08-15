@@ -14,12 +14,12 @@
       "real_user_adoption"
     ],
     "scanned_text_file_count": 170,
-    "scanned_text_set_sha256": "a0b87ce1829a6525ecda3e8e9edd712befb7c275c7df642c2ba4a0125cfdefa5",
+    "scanned_text_set_sha256": "8cdf0b4c91d61a9e430ef1320875c716c1626d2742b61852bf4f1a857be20e36",
     "violations": []
   },
   "builder_path": "scripts/build_public_claim_registry.py",
-  "builder_sha256": "ab78cc6630bf41ce80f8f8d03d730862da3dc60b9377d05a83dc11ff5497f020",
-  "claim_boundary": "This registry binds the README's headline quantitative claims to committed machine evidence and revalidates every structured ReplayPack claim against its support artifact and evidence class. It also binds the public-demo claim to a self-hashed, time-bounded Sites deployment receipt. The text scan rejects a bounded set of unsupported client, performance, validation, and adoption phrases; it is not a general natural-language proof and cannot establish continuous uptime, external review, adoption, users, financial performance, or real-world impact.",
+  "builder_sha256": "25c4510cbfe1ea4cf9a2c8900dba5b89a2c8157a1d16744929067bc05484c0a7",
+  "claim_boundary": "This registry binds the README's headline quantitative claims to committed machine evidence and revalidates every structured ReplayPack claim against its support artifact and evidence class. It also binds the public-demo and public-source claims to self-hashed, time-bounded Sites and GitHub release receipts. The text scan rejects a bounded set of unsupported client, performance, validation, and adoption phrases; it is not a general natural-language proof and cannot establish continuous uptime, external review, adoption, users, financial performance, or real-world impact.",
   "headline_claims": [
     {
       "claim_id": "seven-connected-engines",
@@ -62,6 +62,19 @@
       "public_artifact": "README.md"
     }
   ],
+  "public_github_release": {
+    "default_branch": "main",
+    "evidence_path": "verification/evidence/public-github-release.json",
+    "evidence_sha256": "80e1ce855f8086e85ca97448913025817398fa846ebac7111dce4a4786d89605",
+    "independent_review_completed": false,
+    "published_head_commit": "6a2b6fe535fab635b919d6f3e481905d3d82a6b4",
+    "raw_readme_http_status": 200,
+    "receipt_sha256": "c80cf98d37abe769fd4be3340524235ae9c207537ed1b39364e6e1021b4a49b7",
+    "repository_url": "https://github.com/limingrui679-design/finreplay-os",
+    "requested_source_commit": "51a52337ce4ed485333fba1c21c8132692b9801e",
+    "source_archive_http_status": 200,
+    "visibility": "public"
+  },
   "public_site_deployment": {
     "access_mode": "public",
     "anonymous_http_status": 200,
@@ -74,7 +87,7 @@
     "sites_version_number": 1
   },
   "registry_kind": "public_claim_traceability_and_inflation_guard",
-  "registry_sha256": "0bfa0de1b363d29af3bc56f6bcb55157fa13738d5945507a6d6f246fb5f011f6",
+  "registry_sha256": "9cbee2663a8da8e0d29474acfc65c1a56d45d45fd14d402867b25b73c9b7f73e",
   "replaypack_surface": {
     "evidence_classes": [
       "extracted",

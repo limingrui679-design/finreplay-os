@@ -88,6 +88,22 @@ def main() -> None:
         or not deployment["assertions"]["independent_review_remains_pending"]
     ):
         raise SystemExit("public site deployment receipt does not preserve required boundaries")
+    github_path = repository / "verification/evidence/public-github-release.json"
+    github_release = _load_json(github_path)
+    github_without_hash = dict(github_release)
+    github_receipt_sha256 = github_without_hash.pop("receipt_sha256", None)
+    if github_receipt_sha256 != _hash(github_without_hash):
+        raise SystemExit("public GitHub release receipt_sha256 mismatch")
+    github_repository = github_release["repository"]
+    github_verification = github_release["verification"]
+    if (
+        github_repository["visibility"] != "public"
+        or github_repository["default_branch"] != "main"
+        or github_verification["raw_readme"]["anonymous_http_status"] != 200
+        or github_verification["source_archive"]["anonymous_http_status"] != 200
+        or not github_verification["source_archive"]["zip_integrity_passed"]
+    ):
+        raise SystemExit("public GitHub release receipt does not prove required availability")
     expected_values = {
         "engine_count": 7,
         "adapter_count": 30,
@@ -211,6 +227,21 @@ def main() -> None:
             "receipt_sha256": deployment_receipt_sha256,
             "independent_review_completed": False,
         },
+        "public_github_release": {
+            "repository_url": github_repository["html_url"],
+            "visibility": github_repository["visibility"],
+            "default_branch": github_repository["default_branch"],
+            "published_head_commit": github_release["release_binding"]["published_head_commit"],
+            "requested_source_commit": github_release["release_binding"]["requested_source_commit"],
+            "raw_readme_http_status": github_verification["raw_readme"]["anonymous_http_status"],
+            "source_archive_http_status": github_verification["source_archive"][
+                "anonymous_http_status"
+            ],
+            "evidence_path": github_path.relative_to(repository).as_posix(),
+            "evidence_sha256": _file_sha256(github_path),
+            "receipt_sha256": github_receipt_sha256,
+            "independent_review_completed": False,
+        },
         "replaypack_surface": {
             "report_count": len(pack_entries),
             "public_claim_count": public_claim_count,
@@ -238,11 +269,11 @@ def main() -> None:
         "claim_boundary": (
             "This registry binds the README's headline quantitative claims to committed machine "
             "evidence and revalidates every structured ReplayPack claim against its support "
-            "artifact and evidence class. It also binds the public-demo claim to a self-hashed, "
-            "time-bounded Sites deployment receipt. The text scan rejects a bounded set of "
-            "unsupported client, performance, validation, and adoption phrases; it is not a "
-            "general natural-language proof and cannot establish continuous uptime, external "
-            "review, adoption, users, financial performance, or real-world impact."
+            "artifact and evidence class. It also binds the public-demo and public-source claims "
+            "to self-hashed, time-bounded Sites and GitHub release receipts. The text scan rejects "
+            "a bounded set of unsupported client, performance, validation, and adoption phrases; "
+            "it is not a general natural-language proof and cannot establish continuous uptime, "
+            "external review, adoption, users, financial performance, or real-world impact."
         ),
     }
     required_boundaries = payload["boundary_scan"]["required_readme_boundaries"]

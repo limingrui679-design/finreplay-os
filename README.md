@@ -43,6 +43,15 @@ successful production deployment and public access revision, and records a separ
 200 check. This is time-bounded deployment evidence, not independent review, continuous-uptime
 evidence, user adoption, or real-world impact, so the final gate remains incomplete.
 
+The complete Git history is publicly available at
+[`limingrui679-design/finreplay-os`](https://github.com/limingrui679-design/finreplay-os).
+The self-hashed
+[`public-github-release.json`](verification/evidence/public-github-release.json) receipt binds the
+public `main` ref and anonymous raw-file and source-archive checks to release commit `6a2b6fe535fa`,
+while separately proving that requested Sites source commit `51a52337ce4e` remains in the published
+history. This proves public code availability at the recorded time, not independent review,
+continuous availability, users, adoption, or impact.
+
 [Seven engines](#the-seven-engines) · [Compact workflow](#compact-workflow) · [Run locally](#local-development) · [Scenario evidence](#scenario-evidence) · [Scale evidence](docs/scale/sec-edgar-log-lake.md) · [Truth boundaries](#truth-boundaries)
 
 ## The seven engines

@@ -273,6 +273,13 @@ access-policy revision, and records an anonymous HTTP 200 response. That proves 
 half only at the recorded time. Independent review remains false, so gate G remains incomplete and
 awards no points under the all-or-nothing scoring rule.
 
+The complete repository history is also public at
+`https://github.com/limingrui679-design/finreplay-os`. The self-hashed
+`verification/evidence/public-github-release.json` receipt binds the public `main` ref, fixed-commit
+raw README, and fixed-commit source ZIP to release commit `6a2b6fe535fa`; it also confirms that
+`51a52337ce4e` is an ancestor in the published history. Public source availability improves
+independent reproducibility but is not itself an independent reproduction or review.
+
 ## Scoring rule
 
 The verifier may award only points whose evidence locators exist and pass. The project reaches
