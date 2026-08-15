@@ -7,7 +7,7 @@
         ".venv/bin/python",
         "scripts/verify_capitalallocator_benchmark.py"
       ],
-      "elapsed_seconds": 0.05119,
+      "elapsed_seconds": 0.064657,
       "exit_code": 0,
       "gate_id": "capitalallocator_benchmark",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -17,15 +17,15 @@
     "dependency_audit": {
       "command": [
         ".venv/bin/pip-audit",
-        ".",
+        "--local",
         "--format",
         "json"
       ],
-      "elapsed_seconds": 23.266297,
+      "elapsed_seconds": 2.603594,
       "exit_code": 0,
       "gate_id": "dependency_audit",
       "stderr_sha256": "15950a68a7ed99c59779717acefdceb3f69cfd31bde67d2c954f2a3cea4d7955",
-      "stdout_sha256": "4287d6f956b0aa83e12d35d7f1a9e6426c96dfb517800ce40ba3f6638e808bc1",
+      "stdout_sha256": "fedf05bdd0f7a6938d6988ae0b2263fd7f798f2470bb608b42ec3daf7b0a50c3",
       "summary": "No known vulnerabilities found"
     },
     "executionlab_benchmark": {
@@ -33,7 +33,7 @@
         ".venv/bin/python",
         "scripts/verify_executionlab_golden.py"
       ],
-      "elapsed_seconds": 0.054627,
+      "elapsed_seconds": 0.056493,
       "exit_code": 0,
       "gate_id": "executionlab_benchmark",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -45,7 +45,7 @@
         ".venv/bin/python",
         "scripts/validate_independent_review_records.py"
       ],
-      "elapsed_seconds": 0.134005,
+      "elapsed_seconds": 0.127411,
       "exit_code": 0,
       "gate_id": "independent_review_record_catalog",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -58,7 +58,7 @@
         "check",
         "."
       ],
-      "elapsed_seconds": 0.024567,
+      "elapsed_seconds": 0.023667,
       "exit_code": 0,
       "gate_id": "lint",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -70,7 +70,7 @@
         ".venv/bin/python",
         "scripts/verify_no_key_demo.py"
       ],
-      "elapsed_seconds": 1.890909,
+      "elapsed_seconds": 1.976661,
       "exit_code": 0,
       "gate_id": "no_key_demo",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -82,21 +82,21 @@
         ".venv/bin/python",
         "scripts/build_public_claim_registry.py",
         "--output",
-        "/var/folders/3v/r7kf44xn3gj9xg2tv31mq_mh0000gn/T/finreplay-quality-urxmm2h5/public-claims.json"
+        "/var/folders/3v/r7kf44xn3gj9xg2tv31mq_mh0000gn/T/finreplay-quality-ks1pl1ym/public-claims.json"
       ],
-      "elapsed_seconds": 1.107925,
+      "elapsed_seconds": 1.392436,
       "exit_code": 0,
       "gate_id": "public_claim_registry",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "f1c61e832a140080f84b9bd5927c98e00a6415e51cce91c932caf272997b1d94",
-      "summary": "headline_claims=5 reports=31 public_claims=155 violations=0 registry_sha256=8f2876ab8234d6a95966eb5913e96a68c7235e79ea2452fbf9e17f9162aecd52"
+      "stdout_sha256": "78be2ba3ef8ce945c2e151bf8d9fd774b27af8b65972dc027a4b6ab651e4c7a7",
+      "summary": "headline_claims=5 reports=31 public_claims=155 violations=0 registry_sha256=df2aeb00e8873893663d9e222ae91d7448e88d9ee8516a6fb42a7b92f21b6e8a"
     },
     "replaystudio_browser_receipt": {
       "command": [
         ".venv/bin/python",
         "scripts/verify_replaystudio_browser_receipt.py"
       ],
-      "elapsed_seconds": 0.786022,
+      "elapsed_seconds": 0.936767,
       "exit_code": 0,
       "gate_id": "replaystudio_browser_receipt",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -108,7 +108,7 @@
         ".venv/bin/python",
         "scripts/verify_replaystudio_golden.py"
       ],
-      "elapsed_seconds": 0.792259,
+      "elapsed_seconds": 0.841525,
       "exit_code": 0,
       "gate_id": "replaystudio_reconstruction",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -120,7 +120,7 @@
         ".venv/bin/python",
         "scripts/verify_scenario_catalog.py"
       ],
-      "elapsed_seconds": 1.072863,
+      "elapsed_seconds": 1.300447,
       "exit_code": 0,
       "gate_id": "scenario_catalog",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -135,12 +135,12 @@
         "--collect-only",
         "-q"
       ],
-      "elapsed_seconds": 2.457122,
+      "elapsed_seconds": 3.007744,
       "exit_code": 0,
       "gate_id": "test_collection",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "434f74429c2388b94dbc11be54e6f894dfff9ee35f6f328fddfb44691b636ca5",
-      "summary": "2202 tests collected in 1.72s"
+      "stdout_sha256": "c58bd6b3d51896635b9fc69e2d2d8e4b39e7a5837314528b7e300f334a19af9a",
+      "summary": "2202 tests collected in 2.18s"
     },
     "tests": {
       "command": [
@@ -148,15 +148,15 @@
         "-m",
         "pytest",
         "--cov=finreplay",
-        "--cov-report=json:/var/folders/3v/r7kf44xn3gj9xg2tv31mq_mh0000gn/T/finreplay-quality-urxmm2h5/coverage.json",
+        "--cov-report=json:/var/folders/3v/r7kf44xn3gj9xg2tv31mq_mh0000gn/T/finreplay-quality-ks1pl1ym/coverage.json",
         "--cov-report=term"
       ],
-      "elapsed_seconds": 62.346117,
+      "elapsed_seconds": 62.310577,
       "exit_code": 0,
       "gate_id": "tests",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "22837ff5c830a67fb710b982bd311ac32ef759c30c8cd638027b4fbd77f23780",
-      "summary": "======================= 2202 passed in 61.42s (0:01:01) ========================"
+      "stdout_sha256": "8469fbf99d2b60d732c5de6acf64181d0a76dfd52bd69b431d3b22491be653ac",
+      "summary": "======================= 2202 passed in 61.31s (0:01:01) ========================"
     },
     "typing": {
       "command": [
@@ -165,7 +165,7 @@
         "tests",
         "scripts"
       ],
-      "elapsed_seconds": 0.474731,
+      "elapsed_seconds": 0.400876,
       "exit_code": 0,
       "gate_id": "typing",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -186,17 +186,121 @@
     "statements": 17570
   },
   "dependency_audit": {
-    "claim_boundary": "This is the pip-audit result at generated_at for the resolved local project dependencies. Vulnerability databases can change after this receipt.",
+    "claim_boundary": "This is the pip-audit result at generated_at for the complete resolved local environment, including the installer and development dependencies. The editable local FinReplay package has no PyPI advisory coordinate and is listed separately as skipped; its code is covered by the recorded tests, typing, lint, and scans rather than represented as advisory-audited. Vulnerability databases can change after this receipt.",
     "known_vulnerability_count": 0,
-    "package_count": 26,
+    "package_count": 68,
     "packages": [
+      {
+        "name": "annotated-doc",
+        "version": "0.0.5"
+      },
+      {
+        "name": "annotated-types",
+        "version": "0.8.0"
+      },
+      {
+        "name": "anyio",
+        "version": "4.14.2"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "boolean-py",
+        "version": "5.0"
+      },
+      {
+        "name": "cachecontrol",
+        "version": "0.14.4"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.7.22"
+      },
+      {
+        "name": "charset-normalizer",
+        "version": "3.5.0"
+      },
+      {
+        "name": "coverage",
+        "version": "7.15.4"
+      },
+      {
+        "name": "cyclonedx-python-lib",
+        "version": "11.12.0"
+      },
+      {
+        "name": "defusedxml",
+        "version": "0.7.1"
+      },
       {
         "name": "duckdb",
         "version": "1.5.5"
       },
       {
+        "name": "filelock",
+        "version": "3.32.3"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9"
+      },
+      {
         "name": "httpx",
         "version": "0.28.1"
+      },
+      {
+        "name": "hypothesis",
+        "version": "6.165.3"
+      },
+      {
+        "name": "idna",
+        "version": "3.18"
+      },
+      {
+        "name": "iniconfig",
+        "version": "2.3.0"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "name": "librt",
+        "version": "0.15.0"
+      },
+      {
+        "name": "license-expression",
+        "version": "30.4.4"
+      },
+      {
+        "name": "markdown-it-py",
+        "version": "4.2.0"
+      },
+      {
+        "name": "mdurl",
+        "version": "0.1.2"
+      },
+      {
+        "name": "msgpack",
+        "version": "1.2.1"
+      },
+      {
+        "name": "mypy",
+        "version": "1.20.2"
+      },
+      {
+        "name": "mypy-extensions",
+        "version": "1.1.0"
       },
       {
         "name": "networkx",
@@ -205,6 +309,46 @@
       {
         "name": "numpy",
         "version": "2.2.6"
+      },
+      {
+        "name": "packageurl-python",
+        "version": "0.17.6"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3"
+      },
+      {
+        "name": "pathspec",
+        "version": "1.1.1"
+      },
+      {
+        "name": "pip",
+        "version": "26.2.1"
+      },
+      {
+        "name": "pip-api",
+        "version": "0.0.34"
+      },
+      {
+        "name": "pip-audit",
+        "version": "2.10.1"
+      },
+      {
+        "name": "pip-requirements-parser",
+        "version": "32.0.1"
+      },
+      {
+        "name": "platformdirs",
+        "version": "4.11.3"
+      },
+      {
+        "name": "pluggy",
+        "version": "1.6.0"
+      },
+      {
+        "name": "py-serializable",
+        "version": "2.1.0"
       },
       {
         "name": "pyarrow",
@@ -219,60 +363,88 @@
         "version": "2.46.4"
       },
       {
-        "name": "pypdf",
-        "version": "6.16.1"
-      },
-      {
-        "name": "rich",
-        "version": "14.3.4"
-      },
-      {
-        "name": "scipy",
-        "version": "1.18.0"
-      },
-      {
-        "name": "typer",
-        "version": "0.27.1"
-      },
-      {
-        "name": "xlrd",
-        "version": "2.0.2"
-      },
-      {
-        "name": "httpcore",
-        "version": "1.0.9"
-      },
-      {
         "name": "pygments",
         "version": "2.20.0"
+      },
+      {
+        "name": "pyparsing",
+        "version": "3.3.2"
+      },
+      {
+        "name": "pypdf",
+        "version": "6.15.0"
+      },
+      {
+        "name": "pytest",
+        "version": "9.1.1"
+      },
+      {
+        "name": "pytest-cov",
+        "version": "7.1.0"
       },
       {
         "name": "pytz",
         "version": "2026.3.post1"
       },
       {
-        "name": "annotated-doc",
-        "version": "0.0.5"
+        "name": "referencing",
+        "version": "0.37.0"
       },
       {
-        "name": "annotated-types",
-        "version": "0.8.0"
+        "name": "requests",
+        "version": "2.34.2"
       },
       {
-        "name": "h11",
-        "version": "0.16.0"
+        "name": "respx",
+        "version": "0.23.1"
       },
       {
-        "name": "markdown-it-py",
-        "version": "4.2.0"
+        "name": "rich",
+        "version": "14.3.4"
       },
       {
-        "name": "mdurl",
-        "version": "0.1.2"
+        "name": "rpds-py",
+        "version": "2026.6.3"
+      },
+      {
+        "name": "ruff",
+        "version": "0.16.2"
+      },
+      {
+        "name": "scipy",
+        "version": "1.18.0"
       },
       {
         "name": "shellingham",
         "version": "1.5.4"
+      },
+      {
+        "name": "sortedcontainers",
+        "version": "2.4.0"
+      },
+      {
+        "name": "tomli",
+        "version": "2.4.1"
+      },
+      {
+        "name": "tomli-w",
+        "version": "1.2.0"
+      },
+      {
+        "name": "typer",
+        "version": "0.27.1"
+      },
+      {
+        "name": "types-jsonschema",
+        "version": "4.26.0.20260518"
+      },
+      {
+        "name": "types-networkx",
+        "version": "3.6.1.20260728"
+      },
+      {
+        "name": "types-xlrd",
+        "version": "2.0.0.20260518"
       },
       {
         "name": "typing-extensions",
@@ -280,25 +452,28 @@
       },
       {
         "name": "typing-inspection",
-        "version": "0.4.4"
+        "version": "0.4.3"
       },
       {
-        "name": "anyio",
-        "version": "4.14.2"
+        "name": "urllib3",
+        "version": "2.7.0"
       },
       {
-        "name": "idna",
-        "version": "3.18"
-      },
+        "name": "xlrd",
+        "version": "2.0.2"
+      }
+    ],
+    "skipped_package_count": 1,
+    "skipped_packages": [
       {
-        "name": "certifi",
-        "version": "2026.7.22"
+        "name": "finreplay-os",
+        "skip_reason": "Dependency not found on PyPI and could not be audited: finreplay-os (0.1.0a0)"
       }
     ],
     "tool": "pip-audit"
   },
   "evidence_kind": "clean_commit_internal_quality_gate_run",
-  "generated_at": "2026-08-15T11:00:13.843406Z",
+  "generated_at": "2026-08-15T11:09:53.247782Z",
   "product_and_reproducibility": {
     "all_five_evidence_labels_verified": true,
     "billion_row_benchmark_bound_by_full_test_suite": true,
@@ -312,7 +487,7 @@
     "responsive_accessibility_browser_receipt_verified": true,
     "scenario_catalog_verified": true
   },
-  "receipt_sha256": "6a99ef8eb58a599e8ba295a1585f2cf69d3d3a02bad3a13160263ab493087c8b",
+  "receipt_sha256": "921bacde46dbd75b33cc45f990e14ea76ae66a99d89a24d775043147947d2d06",
   "runtime": {
     "logical_cpu_count": 10,
     "machine": "arm64",
@@ -321,7 +496,7 @@
     "python_implementation": "CPython",
     "python_version": "3.12.13"
   },
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "secret_and_privacy_scan": {
     "claim_boundary": "This deterministic local scan checks current Git-tracked UTF-8 text for a bounded set of high-confidence credential formats, credential-bearing URLs, private-key headers, and local macOS user paths. It never writes matched text to output. It is not a replacement for full-history gitleaks, provider-side revocation, binary-file inspection, or an independent security audit.",
     "clean": true,
@@ -337,15 +512,15 @@
       "credential_in_url",
       "local_user_absolute_path"
     ],
-    "scan_sha256": "4d92f1624614f1e2b436212419fc55e643042bd6666d2148386758a96779ff35",
-    "scanned_text_bytes": 14338654,
+    "scan_sha256": "82310ed39de6eb37c196751d9bdc65b56481142ab4deab2426e4c48c52509f67",
+    "scanned_text_bytes": 14342265,
     "scanned_text_file_count": 1441,
     "scanner_path": "src/finreplay/security.py",
     "scanner_sha256": "671adc4a5f0e1a8e9d79854d899e1d8871cf8f7354034b84bfc3a19efc6ffd03",
     "schema_version": "1.0.0",
     "skipped_binary_file_count": 5,
     "tracked_file_count": 1446,
-    "tracked_text_set_sha256": "ea8a35b9e35bf23eb17ba90acf4d39a439a690a2df9979e0faf7d02c6ea966d7"
+    "tracked_text_set_sha256": "9c1f2c2e63d6f07d934b49a1d0ad201c8e6f241b28a9dada6f5f077990d921a4"
   },
   "security_ci": {
     "codeql": "configured_as_pinned_GitHub_Action_not_executed_locally_in_this_receipt",
@@ -354,9 +529,9 @@
   },
   "subject": {
     "clean_worktree_before_run": true,
-    "code_revision": "80bca81a18161184b23abe79744ec66d8bf186cf",
-    "commit_time": "2026-08-15T19:00:04+08:00",
-    "tree_sha256": "de0d095834e77e7f4c2e94c504084e353016f9cb"
+    "code_revision": "b0c9619d9623387d1fc30c5e74481306bebd04d7",
+    "commit_time": "2026-08-15T19:09:34+08:00",
+    "tree_sha256": "ab7e581eb9ce541761cd4825f4a6bce1c9ab5a77"
   },
   "subject_artifacts": [
     {
@@ -365,9 +540,9 @@
       "sha256": "337fb6b036de75a49cf91c735092cc83785e85bf70b68c5665a32e8c575a49f0"
     },
     {
-      "bytes": 1775,
+      "bytes": 1857,
       "path": ".github/workflows/verify.yml",
-      "sha256": "5b6bacb404fe6f059102f748331e5f0302e71aa9c25d41d232dbb870def9d1ee"
+      "sha256": "b007317d8bae28da630789325c8ae247a9aa2e598f94b11b798e3029729ad386"
     },
     {
       "bytes": 2516,
@@ -375,9 +550,9 @@
       "sha256": "8d87a473ea754ac161187d4e565d03ec51ac7bde7340909e3130d9265bbb3216"
     },
     {
-      "bytes": 16459,
+      "bytes": 17732,
       "path": "scripts/run_internal_quality_gates.py",
-      "sha256": "0cb3a5c110c31f6c7ee01d49d59bdd8e09cbe8a8ac4646ed9daf0434a5f92aad"
+      "sha256": "1b2208ead311e971ce12cb78fb8c69e51ad538a759d8466a29852ee8869a3cdf"
     },
     {
       "bytes": 1266,
@@ -407,7 +582,7 @@
     {
       "bytes": 24076,
       "path": "verification/claims/public-claims.json",
-      "sha256": "cc96eef81d40586b5b4ebb06e60b29f0d88f9a7887d7cb60198fcdf82a85387c"
+      "sha256": "3f7c68ba19a738905d9542d82f8616c93e596f1d382567329a49b83eaed3b403"
     },
     {
       "bytes": 24830,
@@ -443,7 +618,7 @@
   "tests": {
     "collected": 2202,
     "failed": 0,
-    "node_ids_sha256": "581fe8c985f6f374190fdbb1afbb7d43cf4f5dc1a58ab46ca8e6248922db71b2",
+    "node_ids_sha256": "88d25e5563c82333953f7f070e2a55b317609b7fc3b870a9a1d50466e4196fe2",
     "passed": 2202,
     "representative_hostile_and_interface_test_counts": {
       "cli_build_verify": 1,

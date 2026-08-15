@@ -14,7 +14,7 @@
       "real_user_adoption"
     ],
     "scanned_text_file_count": 170,
-    "scanned_text_set_sha256": "0d73f84d69f2e506dbd9fc4741905d74327f588d0de8b147a1ee00be0f8410d8",
+    "scanned_text_set_sha256": "109782e9f63554813c88486bc393cf9b74caf253ebd979bb871b0d78060367c1",
     "violations": []
   },
   "builder_path": "scripts/build_public_claim_registry.py",
@@ -87,7 +87,7 @@
     "sites_version_number": 2
   },
   "registry_kind": "public_claim_traceability_and_inflation_guard",
-  "registry_sha256": "df2aeb00e8873893663d9e222ae91d7448e88d9ee8516a6fb42a7b92f21b6e8a",
+  "registry_sha256": "2644b60533538bebb3ea7ab2c6a95acb9b7cf12500d6d5b6649b1391930fbee7",
   "replaypack_surface": {
     "evidence_classes": [
       "extracted",
