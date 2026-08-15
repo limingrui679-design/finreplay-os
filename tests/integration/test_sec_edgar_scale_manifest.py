@@ -135,6 +135,17 @@ def test_deep_verification_receipt_is_durable_and_manifest_bound(tmp_path: Path)
     with pytest.raises(ValidationError, match="verification_receipt_sha256"):
         SECLogScaleVerificationReceipt.model_validate(values)
 
+    with pytest.raises(ValidationError, match="cannot predate"):
+        build_sec_log_scale_verification_receipt(
+            manifest=manifest,
+            inventory_locks=[inventory],
+            verification_started_at=datetime(2026, 8, 15, 0, 59, tzinfo=UTC),
+            verification_completed_at=datetime(2026, 8, 15, 1, 1, tzinfo=UTC),
+            verifier_code_revision="abcdef1",
+            workers=1,
+            duration_seconds=120.0,
+        )
+
 
 def test_parallel_deep_verifier_checks_every_partition(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch

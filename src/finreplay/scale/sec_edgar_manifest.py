@@ -186,6 +186,8 @@ class SECLogScaleVerificationReceipt(_StrictModel):
         _require_aware(self.verification_started_at, "verification_started_at")
         _require_aware(self.verification_completed_at, "verification_completed_at")
         _require_aware(self.manifest_generated_at, "manifest_generated_at")
+        if self.verification_started_at < self.manifest_generated_at:
+            raise ValueError("SEC log deep verification cannot predate its manifest")
         if self.verification_completed_at <= self.verification_started_at:
             raise ValueError("SEC log deep verification must complete after it starts")
         _require_unique(self.inventory_lock_sha256s, "verification inventory lock hashes")

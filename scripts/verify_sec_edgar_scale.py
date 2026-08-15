@@ -94,6 +94,7 @@ def main() -> None:
                 args.download_receipt_directory / f"log{compact}.download-receipt.json"
             )
         )
+    verifier_code_revision = _git_revision()
     verification_started_at = datetime.now(UTC)
     monotonic_started_at = time.perf_counter()
     verify_sec_log_scale_manifest(
@@ -115,7 +116,7 @@ def main() -> None:
             inventory_locks=inventories,
             verification_started_at=verification_started_at,
             verification_completed_at=verification_completed_at,
-            verifier_code_revision=_git_revision(),
+            verifier_code_revision=verifier_code_revision,
             workers=args.workers,
             duration_seconds=duration_seconds,
         )
