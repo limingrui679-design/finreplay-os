@@ -49,7 +49,7 @@ The complete Git history is publicly available at
 [`limingrui679-design/finreplay-os`](https://github.com/limingrui679-design/finreplay-os).
 The self-hashed
 [`public-github-release.json`](verification/evidence/public-github-release.json) receipt binds the
-public `main` ref and anonymous raw-file and source-archive checks to release commit `6a2b6fe535fa`,
+public `main` ref and anonymous raw-file and source-archive checks to release commit `0db9d1baa9cd`,
 while separately proving that requested Sites source commit `51a52337ce4e` remains in the published
 history. This proves public code availability at the recorded time, not independent review,
 continuous availability, users, adoption, or impact.

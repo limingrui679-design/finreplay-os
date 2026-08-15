@@ -8,12 +8,12 @@
     "requested_source_commit_is_published_ancestor": true,
     "source_archive_integrity_passed": true
   },
-  "claim_boundary": "This receipt proves that the public GitHub repository exposed release commit 6a2b6fe535fa on main, retained requested Sites source commit 51a52337ce4e in its history, and returned anonymous HTTP 200 responses for a fixed-commit README and source ZIP whose recorded hashes and ZIP integrity passed at the recorded time. It does not prove continuous availability, independent review, source authenticity beyond the committed evidence, security certification, users, adoption, investment performance, or real-world impact.",
+  "claim_boundary": "This receipt proves that the public GitHub repository exposed release commit 0db9d1baa9cd on main, retained requested Sites source commit 51a52337ce4e in its history, and returned anonymous HTTP 200 responses for a fixed-commit README and source ZIP whose recorded hashes and ZIP integrity passed at the recorded time. It does not prove continuous availability, independent review, source authenticity beyond the committed evidence, security certification, users, adoption, investment performance, or real-world impact.",
   "evidence_kind": "public_github_repository_release",
-  "recorded_at": "2026-08-15T09:47:31Z",
+  "recorded_at": "2026-08-15T10:40:57Z",
   "release_binding": {
-    "published_head_commit": "6a2b6fe535fab635b919d6f3e481905d3d82a6b4",
-    "remote_main_ref_at_verification": "6a2b6fe535fab635b919d6f3e481905d3d82a6b4",
+    "published_head_commit": "0db9d1baa9cd94aef2f888463f6338cef8b9722f",
+    "remote_main_ref_at_verification": "0db9d1baa9cd94aef2f888463f6338cef8b9722f",
     "requested_source_commit": "51a52337ce4ed485333fba1c21c8132692b9801e"
   },
   "repository": {
@@ -28,19 +28,19 @@
   "verification": {
     "raw_readme": {
       "anonymous_http_status": 200,
-      "bytes": 44433,
-      "sha256": "f1b0f8503e9f90a3e1f2619a394c97bddd5405ef5b534d31514db7f89898b27f",
-      "url": "https://raw.githubusercontent.com/limingrui679-design/finreplay-os/6a2b6fe535fab635b919d6f3e481905d3d82a6b4/README.md"
+      "bytes": 45173,
+      "sha256": "2f3eb19c54f78ef47a5468e4806b1d28c23d78fffb649de6cda594eb23421a2c",
+      "url": "https://raw.githubusercontent.com/limingrui679-design/finreplay-os/0db9d1baa9cd94aef2f888463f6338cef8b9722f/README.md"
     },
     "source_archive": {
       "anonymous_http_status": 200,
-      "archive_root": "finreplay-os-6a2b6fe535fab635b919d6f3e481905d3d82a6b4/",
-      "bytes": 12898393,
-      "sha256": "f35ed0b6a2200bd98018e42aca74558d0253ec9943ce9619f6520cd5a85644d1",
-      "url": "https://github.com/limingrui679-design/finreplay-os/archive/6a2b6fe535fab635b919d6f3e481905d3d82a6b4.zip",
+      "archive_root": "finreplay-os-0db9d1baa9cd94aef2f888463f6338cef8b9722f/",
+      "bytes": 12915215,
+      "sha256": "4a0baf086278056d6e64b68e0d15a39f3295357abdca7d8c0b694ba3907389be",
+      "url": "https://github.com/limingrui679-design/finreplay-os/archive/0db9d1baa9cd94aef2f888463f6338cef8b9722f.zip",
       "zip_integrity_passed": true
     },
-    "verified_at": "2026-08-15T09:47:31Z"
+    "verified_at": "2026-08-15T10:40:57Z"
   },
-  "receipt_sha256": "c80cf98d37abe769fd4be3340524235ae9c207537ed1b39364e6e1021b4a49b7"
+  "receipt_sha256": "e696109b0877a58a82bb051a05e735eb5d5b28728ed0204c4bec273cf94aa6ac"
 }
