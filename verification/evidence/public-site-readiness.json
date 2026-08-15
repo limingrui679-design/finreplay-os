@@ -20,10 +20,10 @@
         "npm",
         "ci"
       ],
-      "elapsed_seconds": 13.519557,
+      "elapsed_seconds": 12.393468,
       "exit_code": 0,
-      "stderr_sha256": "926c084aa239829d6492dfd9319a266028e0643d94ce4e13248041ee1b0b3a0a",
-      "stdout": "\nadded 461 packages, and audited 462 packages in 13s\n\n155 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities\n"
+      "stderr_sha256": "a83c2fa9062eb6aa603a3d7552468865ae153a32ddbdb10a5c29a3a1a089e4e3",
+      "stdout": "\nadded 461 packages in 12s\n\n155 packages are looking for funding\n  run `npm fund` for details\n"
     },
     "dependency_audit": {
       "argv": [
@@ -31,7 +31,7 @@
         "audit",
         "--json"
       ],
-      "elapsed_seconds": 7.455851,
+      "elapsed_seconds": 2.390688,
       "exit_code": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_sha256": "77f34f2bd7e9f7cd291d4630de046e50e5d9da0218b10a2db9fbb6bd8ce5b80c"
@@ -42,7 +42,7 @@
         "run",
         "lint"
       ],
-      "elapsed_seconds": 7.899873,
+      "elapsed_seconds": 5.232551,
       "exit_code": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout": "\n> finreplay-evidence-site@0.1.0 lint\n> eslint . --ignore-pattern dist --ignore-pattern .next\n\n"
@@ -52,10 +52,10 @@
         "npm",
         "test"
       ],
-      "elapsed_seconds": 21.310197,
+      "elapsed_seconds": 19.016092,
       "exit_code": 0,
-      "stderr_sha256": "b563273477290214e268fb6c701bcfd4f2ae0a26f22453deb045603043a6ba6d",
-      "stdout_sha256": "b0ba1a48817079041f50b7da60ad4f34a3e687c669b4d12e5cc85ef492d1a2d8"
+      "stderr_sha256": "23f79cb449ba046fe2e05887298be6c7c92b6d91e6a0a8e4efa5abd76462f626",
+      "stdout_sha256": "32c03d15ebb0a3e4617e9b8bd26ef451445a78783dc5b4336a116a31eef0cb20"
     }
   },
   "dependency_audit": {
@@ -70,11 +70,11 @@
     }
   },
   "evidence_kind": "public_site_local_release_readiness",
-  "generated_at": "2026-08-15T06:43:07.460914Z",
-  "receipt_sha256": "621334bfff1d889d6ece109c5126a9ee030bdcbd2f3e96eaa06eadf17067f991",
+  "generated_at": "2026-08-15T06:55:29.580431Z",
+  "receipt_sha256": "6a71f046b128013fcdaf3324f6bfde1748840b961f3db7c22c73231c5e2ab263",
   "rendered_tests": {
     "failed": 0,
-    "passed": 2
+    "passed": 3
   },
   "schema_version": "1.0.0",
   "site_content": {
@@ -91,7 +91,7 @@
     "public_url": null
   },
   "source_artifacts": {
-    "file_count": 18,
+    "file_count": 19,
     "files": [
       {
         "bytes": 464,
@@ -104,14 +104,14 @@
         "sha256": "68b4d5b40c8ca76c5e1385325433794df95fe951f2764774ba85e78b912d4337"
       },
       {
-        "bytes": 1298,
+        "bytes": 1445,
         "path": "web/README.md",
-        "sha256": "cb561ce4fd884f5543115258f216e852a315971e2e155646518cf6f33ff78fc6"
+        "sha256": "56ed0cdcc91f8e907a6c439af4d666cfc80ab878548a7980da6dd1814c55221f"
       },
       {
-        "bytes": 12837,
+        "bytes": 13179,
         "path": "web/app/globals.css",
-        "sha256": "332cec488a2cb1ae8472c48042aed96821986f8ad395db3be06a2c666ad75027"
+        "sha256": "7128a8b3538225f2ca1554f09f2fe7d0e74a71e419f03c251ee66055376981dd"
       },
       {
         "bytes": 1607,
@@ -119,9 +119,9 @@
         "sha256": "c9497d18fa4cd54762ec0280b73c6428b3eb0eaa3223305f07c9df07777af207"
       },
       {
-        "bytes": 16197,
+        "bytes": 16548,
         "path": "web/app/page.tsx",
-        "sha256": "64a6780cf04f2344b4efe93b870b8fff93c8c4f191dd8431179a1869d25147d0"
+        "sha256": "d375a9e0ef62535707bf85c6a4ceb831945aa82b783df299e61310bf2b7bfffb"
       },
       {
         "bytes": 1009,
@@ -159,14 +159,19 @@
         "sha256": "9f78cdf5b97838a47aa9d4ddcdbddea0db52b68a162bac77a9376aeffd9814a2"
       },
       {
-        "bytes": 2198,
-        "path": "web/public/review/finreplay-review-manifest.json",
-        "sha256": "1f7b4c0733d5384b5ac9f75faf671b7af8dd2d997a9a657d1d2642fadbb684f7"
+        "bytes": 6662710,
+        "path": "web/public/review/finreplay-os-62bf793d017b.zip",
+        "sha256": "781df836758a84a37ee65cd76fcb1bfd185e32ebef36bda566cea5c1c566a418"
       },
       {
-        "bytes": 1694,
+        "bytes": 3245,
+        "path": "web/public/review/finreplay-review-manifest.json",
+        "sha256": "0bd3120555ae5fb684eb56e676fe1efd362d73e984967450282e6afbd169bd92"
+      },
+      {
+        "bytes": 2631,
         "path": "web/tests/rendered-html.test.mjs",
-        "sha256": "ec23aa3f7b6b2b99fc3b1d83cc9a1cece968dfeb8e01e2bdbdfa724feab21886"
+        "sha256": "7cdf7978123372fd7c5c3c881f5c0e170786e19024ccafd1572a88c8ece4ed03"
       },
       {
         "bytes": 603,
@@ -184,13 +189,13 @@
         "sha256": "23cddda53034b9c6d6d554f6b0a09f1e3581c88fd7b8f4c8202930b4c2419adb"
       }
     ],
-    "set_sha256": "1cd9063f21c9d1226e4210cab5ce511ef7de19b42114e0b8b855df274ed7cfdb",
-    "total_bytes": 1617137
+    "set_sha256": "75b3eff551ded77c0eada631a67464cdea347ed44b38a64cd822eb1edad7552b",
+    "total_bytes": 8282671
   },
   "subject": {
-    "code_revision": "3121255ac0adec0d927e93dcc88de7d9583048ed",
-    "committed_at": "2026-08-15T14:42:05+08:00",
-    "tree_sha256": "c7a70b25e8cc3280b78f4b11bfabc0bd4b7ddbf6"
+    "code_revision": "646d9cdd2f56f7035686c77bb9655ae2eb0ea140",
+    "committed_at": "2026-08-15T14:54:34+08:00",
+    "tree_sha256": "be04ca6f7cb5f0eb05e24075b3089b8516802970"
   },
   "toolchain": {
     "node": "v22.20.0",

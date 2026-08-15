@@ -30,7 +30,10 @@ The machine-auditable requirements are maintained in
 
 The committed read-only evidence-site source lives under [`web/`](web/). Its self-hashed
 `verification/evidence/public-site-readiness.json` receipt binds a fresh-archive lockfile install,
-lint, production build, rendered-page tests, and zero npm-audit findings to commit `3121255ac0ad`.
+lint, production build, rendered-page tests, and zero npm-audit findings to commit `646d9cdd2f56`.
+The site also ships a SHA-256-bound 6.66 MB source archive and the
+[`independent-review protocol`](docs/verification/independent-review-protocol.md) so a reviewer can
+work without access to the maintainer's machine or private source repository.
 No hosted URL or independent review is claimed, so this does not satisfy the final gate.
 
 [Seven engines](#the-seven-engines) · [Compact workflow](#compact-workflow) · [Run locally](#local-development) · [Scenario evidence](#scenario-evidence) · [Scale evidence](docs/scale/sec-edgar-log-lake.md) · [Truth boundaries](#truth-boundaries)
