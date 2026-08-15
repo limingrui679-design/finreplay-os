@@ -1,0 +1,64 @@
+{
+  "citation": {
+    "author": "Sture Holm",
+    "canonical_url": "https://doi.org/10.2307/4615733",
+    "doi": "10.2307/4615733",
+    "issue": "2",
+    "journal": "Scandinavian Journal of Statistics",
+    "pages": "65-70",
+    "title": "A Simple Sequentially Rejective Multiple Test Procedure",
+    "volume": "6",
+    "year": 1979
+  },
+  "citation_sha256": "9717625488850ff6543c83c252b7d72d0d377252e09f46a938b7d47f3e4c6c1b",
+  "claim_boundary": "This fixture checks only TrialCourt's deterministic Holm adjusted-p-value routine against an independently expanded step-down calculation of the published 1979 procedure. It does not externally validate TrialCourt's other five attacks, prove statistical validity for a particular study, certify family selection, or establish trading, deployment, adoption, or real-world impact.",
+  "evidence_kind": "published_method_comparison",
+  "exact_match": true,
+  "expected_adjusted_p_values": {
+    "hypothesis-a": 0.03,
+    "hypothesis-b": 0.06,
+    "hypothesis-c": 0.06
+  },
+  "family_size": 3,
+  "implementation_path": "src/finreplay/engines/trialcourt.py",
+  "implementation_sha256": "d9e3c343761abe37fc66971285db2ab6446d91509a40bf9b51d4a3ac0a89a62c",
+  "independent_step_down_calculation": [
+    {
+      "hypothesis_id": "hypothesis-a",
+      "monotone_adjusted_p_value": 0.03,
+      "multiplier": 3,
+      "rank": 1,
+      "raw_p_value": 0.01,
+      "scaled_p_value": 0.03
+    },
+    {
+      "hypothesis_id": "hypothesis-c",
+      "monotone_adjusted_p_value": 0.06,
+      "multiplier": 2,
+      "rank": 2,
+      "raw_p_value": 0.03,
+      "scaled_p_value": 0.06
+    },
+    {
+      "hypothesis_id": "hypothesis-b",
+      "monotone_adjusted_p_value": 0.06,
+      "multiplier": 1,
+      "rank": 3,
+      "raw_p_value": 0.04,
+      "scaled_p_value": 0.04
+    }
+  ],
+  "method": "Holm sequentially rejective Bonferroni adjustment",
+  "raw_p_values": {
+    "hypothesis-a": 0.01,
+    "hypothesis-b": 0.04,
+    "hypothesis-c": 0.03
+  },
+  "receipt_sha256": "46eb79896f2f6ada1b02b048c539d51319b781f6e14502501891197bc2a710da",
+  "schema_version": "1.0.0",
+  "trialcourt_adjusted_p_values": {
+    "hypothesis-a": 0.03,
+    "hypothesis-b": 0.06,
+    "hypothesis-c": 0.06
+  }
+}

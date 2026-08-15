@@ -17,7 +17,12 @@ Any failed attack yields `reject`; a warning yields `revise`; only an all-pass r
 `eligible`. `eligible` means eligible for the next research gate. It does not mean approved for
 trading, production, client use, or real capital allocation.
 
-The implementation currently has fixture-backed method tests, including a known Holm step-down
-example and an explicit retained negative attempt. A repository-internal result is not an external
-method validation. A cited published-method fixture and an independent review remain required by
-the acceptance matrix.
+The implementation has fixture-backed method tests, including an explicit retained negative
+attempt. [`verification/evidence/trialcourt-holm-method.json`](../../verification/evidence/trialcourt-holm-method.json)
+binds the current implementation hash and independently expands a three-hypothesis step-down
+calculation from Sture Holm's 1979 procedure, *A Simple Sequentially Rejective Multiple Test
+Procedure*, *Scandinavian Journal of Statistics* 6(2), 65–70,
+[DOI 10.2307/4615733](https://doi.org/10.2307/4615733). The independent calculation and
+TrialCourt both map raw p-values `0.01`, `0.04`, and `0.03` to adjusted values `0.03`, `0.06`, and
+`0.06` by hypothesis ID. The self-hashed receipt proves this bounded implementation comparison;
+it is not an independent review or external method validation.
