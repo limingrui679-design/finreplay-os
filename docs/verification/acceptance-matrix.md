@@ -217,12 +217,12 @@ fresh-archive reconstruction; fixed-version benchmarks; usable CLI/API; responsi
 read-only ReplayStudio; exportable reports; and visible simulation/evidence labels.
 
 Current status: **PROVEN internally.** The self-hashed
-`verification/evidence/internal-quality-gates.json` receipt binds a clean `9166305ee3fa` subject
-commit and records 2,195/2,195 passing tests across 91 files. Coverage.py ran with branch
+`verification/evidence/internal-quality-gates.json` receipt binds a clean `dd88c4fccda8` subject
+commit and records 2,198/2,198 passing tests across 92 files. Coverage.py ran with branch
 measurement enabled and reported 90.480473% combined statement-plus-branch coverage; the distinct
 branch-only rate is disclosed as 82.826012% rather than being relabelled. Ruff and strict mypy
 passed. Pip-audit resolved 26 packages with zero known vulnerabilities at the recorded time. The
-non-disclosing local scanner checked 1,410 tracked files and 13,888,021 UTF-8 bytes with zero
+non-disclosing local scanner checked 1,436 tracked text files and 14,310,858 UTF-8 bytes with zero
 credential/privacy-path findings; pinned gitleaks, CodeQL, and dependency-review workflows are
 recorded as configured but not locally executed. The full run includes hostile ZIP expansion,
 CSV/container/schema, JSON/content-type and unsafe-path cases; a credentials-removed, socket-denied
