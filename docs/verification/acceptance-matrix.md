@@ -222,8 +222,16 @@ Current status: **IN_PROGRESS.** A test count alone cannot prove method correctn
 
 Every public number must resolve to a machine result. Public data is not a client engagement,
 historical replay is not live trading, shadow mode is not deployment, simulated P&L is not return,
-and stars are not users or impact. Current status: **IN_PROGRESS.** Core contracts encode the first
-boundaries; public-artifact scanning and claim traceability remain to be built.
+and stars are not users or impact. Current status: **PROVEN internally.** The deterministic,
+self-hashed `verification/claims/public-claims.json` registry binds the five README headline
+quantities to their exact machine artifacts and hashes, validates all 31 committed ReplayPack
+reports and all 155 structured claims against the typed evidence-label contract, and seals the
+complete 165-file tracked public text surface. Its bounded language guard reports zero affirmative
+deployment, client, performance, external-validation, or adoption violations and requires the
+README truth boundaries to remain present. The registry rebuilds byte-identically in integration
+tests. This is repository-internal claim traceability and a targeted inflation guard, not general
+natural-language verification, source authentication, external review, deployment, users, or
+real-world impact.
 
 ## G. Independent evidence — 5 points
 

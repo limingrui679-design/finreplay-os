@@ -1,0 +1,516 @@
+{
+  "boundary_scan": {
+    "required_readme_boundaries": [
+      "Public-data cases are not clients; historical replays are not live trading.",
+      "Simulated P&L is not investment performance.",
+      "Tests and hashes prove internal behavior, not source authenticity or real-world impact.",
+      "Public demo and external review | Not achieved"
+    ],
+    "rule_ids": [
+      "external_validation",
+      "investment_performance",
+      "production_deployment",
+      "real_client_use",
+      "real_user_adoption"
+    ],
+    "scanned_text_file_count": 165,
+    "scanned_text_set_sha256": "8197c36ad9e71d717b82494a2f45b46a6f37be187c5b90d979407415663374fa",
+    "violations": []
+  },
+  "builder_path": "scripts/build_public_claim_registry.py",
+  "builder_sha256": "b7bd4e3466031abd56aa5456bcd609324d79a7eee9cdd89e2fa799ab282d9dea",
+  "claim_boundary": "This registry binds the README's headline quantitative claims to committed machine evidence and revalidates every structured ReplayPack claim against its support artifact and evidence class. The text scan rejects a bounded set of affirmative deployment, client, performance, validation, and adoption phrases; it is not a general natural-language proof and cannot establish external review, deployment, adoption, users, financial performance, or real-world impact.",
+  "headline_claims": [
+    {
+      "claim_id": "seven-connected-engines",
+      "evidence_path": "verification/replaypacks/svb-2023-seven-engine/report.json",
+      "evidence_sha256": "73ab0e373abe1136b52c4eefb5c6f272d636fd6398ba9a0346b226a691503803",
+      "extraction_rule": "len(engine_artifact_counts), with every count equal to one",
+      "observed_value": 7,
+      "public_artifact": "README.md"
+    },
+    {
+      "claim_id": "official-adapters",
+      "evidence_path": "verification/live/latest-summary.json",
+      "evidence_sha256": "e5d3fef1bc98068604221e91cb0863010a36697db74493e2ce20e103f2212f11",
+      "extraction_rule": "len(adapters)",
+      "observed_value": 30,
+      "public_artifact": "README.md"
+    },
+    {
+      "claim_id": "replay-proven-scenarios",
+      "evidence_path": "verification/scenarios/latest-summary.json",
+      "evidence_sha256": "527da0c64e1432bae2a985d906bd5522ba1807918df66838e3c4f0ce598a2bdb",
+      "extraction_rule": "len(scenarios)",
+      "observed_value": 30,
+      "public_artifact": "README.md"
+    },
+    {
+      "claim_id": "sec-scale-partitions",
+      "evidence_path": "verification/scale/sec-edgar/latest-scale-manifest.json",
+      "evidence_sha256": "d9e3efa87d6d29106d05ba312e21622717e49efa69524a5942aa8c9b048b5595",
+      "extraction_rule": "partition_count",
+      "observed_value": 244,
+      "public_artifact": "README.md"
+    },
+    {
+      "claim_id": "sec-scale-physical-rows",
+      "evidence_path": "verification/scale/sec-edgar/latest-scale-manifest.json",
+      "evidence_sha256": "d9e3efa87d6d29106d05ba312e21622717e49efa69524a5942aa8c9b048b5595",
+      "extraction_rule": "total_distinct_physical_rows with target_met=true",
+      "observed_value": 1014736394,
+      "public_artifact": "README.md"
+    }
+  ],
+  "registry_kind": "public_claim_traceability_and_inflation_guard",
+  "registry_sha256": "f7e3aa752da748e147f293100d415fa9f54f273821d1986de3a321f7b3100611",
+  "replaypack_surface": {
+    "evidence_classes": [
+      "extracted",
+      "inferred",
+      "observed",
+      "reported",
+      "simulated"
+    ],
+    "public_claim_count": 155,
+    "report_count": 31,
+    "reports": [
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "fd968000464bb2c5451811bd38e3c49c85a1fa50572d13694c36ad67fdb4770b",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "2c0cc93f531e085899ab952f3eac9daaf795d876ec3cf35438618e9ba0346c0e",
+        "pack_sha256": "2522341e031ba822486db54c2b908eb68ce6788d52a6f1b0975d1b877f4069cb",
+        "path": "verification/replaypacks/bea-pio-2020/report.json",
+        "trace_id": "trace:1c524d19917ec6fc124e8ce9fa43efd1d01f9090240163f99019e2e311eca6da"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "91269c037a00b6fe94c5a51e3717a463f46437a6d2e6b22aa91101ec8fe578cd",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "37c4ae5eb4fc227566e2324cf262bfc1be7acfed55bd92b55038f186225e22eb",
+        "pack_sha256": "fac8e503c37804217d3db00634330cdb62ac02466f7a58a1b04e703d6ffc6d06",
+        "path": "verification/replaypacks/bls-cpi-2023/report.json",
+        "trace_id": "trace:8634250349fc349378cf09f74ae129613d54fdd87257232ccd5547b62f1b1bb6"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "40cff97a38c950c9cea81f33d87765be824eece94f737b52ff9e020220560080",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "f11393121e62cb4e72632010de930f292fa812fb6d4a9681a534362307f94c94",
+        "pack_sha256": "68677526e941a07bd9c0a7ddd5e364f3ca95174b90a899f53223b8083616f933",
+        "path": "verification/replaypacks/bls-export-prices-2020/report.json",
+        "trace_id": "trace:60baf01f7379154c3eeeb58e854c73dcc9933c7b9178581f57e33d1c7687547e"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "3f60e62a42ba60ed0746ec93545a05a0e1f856f3f8e975bdcf98cf477ca1c4e1",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "c6a8a21666c0c8e18704c6e92e469f03d4d206ed6854ab5adf6b0b5cd05ef1e1",
+        "pack_sha256": "e6f74743d81e53a82297665e74d90da4718948f19cfeac29c8fe710a82c4eb43",
+        "path": "verification/replaypacks/bls-import-prices-2020/report.json",
+        "trace_id": "trace:4c7ab74268838bf6a5cc5f70421e607b45ca64eacc1169766ad2dbfdc094cb4a"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "5c27557f2ce7f82a08a07eee6827280ec5aeda7a04ae98899ea1d7107a162e29",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "0f1121787c73a3d505910d965f083b636e3c49028dd0a2af8e26fe2212d55c38",
+        "pack_sha256": "bfc14686983f676195b1175e5efecc6b8f4e8619d1ce937f3b1d871a972ee343",
+        "path": "verification/replaypacks/bls-payroll-2023/report.json",
+        "trace_id": "trace:93586d2362769bcfd48846586d4eefa3b7fbdf6a4b596e62297e775971802013"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "50f89b0030ae42007e0e538f991d7a0d0275a4f5fe499504338888aa645077fb",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "b6131bcc3ab3960f76e53f81545144bfb4bca2ce9cfa9cd2e03f306528b9d0e4",
+        "pack_sha256": "4601bc2b1f9b751197d253bd2f27497a08743e34b6cdef28033fe87501fd96b3",
+        "path": "verification/replaypacks/bls-ppi-2020/report.json",
+        "trace_id": "trace:8d27b18954bac6b955d03e59e10dc9e3011cf926aa0a1347e86d6473f6e8fea5"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "430a0a4bc9537d7c6c492c1e31af6c232106b007c3664b52d8ea6ec4973efabb",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "479aa3ac1459f9b975449638770cea207c266a69846256370cda0e8c0c2d33d0",
+        "pack_sha256": "f595429d8a547a669f36b84ee6058933eb9c12ec5ee5a19632d8f510fe8b0141",
+        "path": "verification/replaypacks/btfp-growth-2023/report.json",
+        "trace_id": "trace:48018b32d8fec0765cb14afed5aef57beec65b77ae5629b10e05e3ab08ec68c2"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "279248646d77196095979c4d5fd4afcb2cc4a7a621edde70d7e02e0ac1c1cdf4",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "65d37a2cc2f607e6b35add9806d75c478b68a365ab2101cf6643f81a6ff83485",
+        "pack_sha256": "cb1278b756b042287cf4bccbc2944687b0dc98a77ef6bead01e875f8e05377c7",
+        "path": "verification/replaypacks/census-c30-2020/report.json",
+        "trace_id": "trace:fd29e6cfcf0a4de919953d297f2880443bd7fa1ff7865ba057eeaed63e7c3a0f"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "7e7f6345082cd7e5d23d7f9a244e60a4d69f1fb4493719450cb3e8bee29d7d06",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "5388311bc93c02ae38f6249e1f039f037f77fb6b3f4c7134bbbe21b99b10b0ea",
+        "pack_sha256": "4f81f85288e938a00a35c8beb95742967511cd4293058ad0ed6d89d7c55cf0a0",
+        "path": "verification/replaypacks/census-ft900-2020/report.json",
+        "trace_id": "trace:9c5762c3c388716d5d04e3a6dd1b7a578f2dee26f12493e5173644f9e41e1ce4"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "081bac71025e883432c7448d1539dce98235bde08f51923b3d340bc495b99943",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "ae1e813ecdbfe6d1fff072490ec3147495aef425db47aabc8439a6d68295df52",
+        "pack_sha256": "a25e9e89732418e8693ef4af6568312fe4d1966455463a6a72e95220167e5227",
+        "path": "verification/replaypacks/census-m3-2020/report.json",
+        "trace_id": "trace:7692bc8465f6f3b9844211d6e95b4f0d434a32473d1d85d62dd50e7ac4a343f8"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "b1bd58ff27a12b1584449ea10df31208c8f70b997c611597dc0fa5ca7d3c683e",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "6b4a76ddd80c3809752bc011b0e2180ca900269ce159dad8f07e1839648cbc96",
+        "pack_sha256": "356f456c96a448e7a7c9f9e27f2436b317e1b94b6674ce331f150d8adea9f9bd",
+        "path": "verification/replaypacks/census-marts-2020/report.json",
+        "trace_id": "trace:003837c4d189436a7549faef47d21b3a8a4b9a8635106ef249a1b0fc67ccd00f"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "ec3ea8d39fecfe39f4e516e8dc2680e7067201786eae78ff672d8b1ddc38c4fe",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "2a14fbca9b18505699c048ea5ddc3a67f77429a9d7f0140c5a0940cbd367f9e9",
+        "pack_sha256": "c2cae95fd76a7c16943ba7c6e6b27c72b9ed9cd1047b41dcf7abceb497cee6aa",
+        "path": "verification/replaypacks/census-nrc-2020/report.json",
+        "trace_id": "trace:f9e49daaed06fe042c5612ef39fcf02463e17a914cda3ec8f9633821c63aea39"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "feff66c16216c5ff9f9c60952282431d2f7d5a1f77f76359521d0b592eaab07a",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "c08fd5000489ece2b62f09b46fc1e49b301961bc81c7c7f6aa7fefe9e89762b1",
+        "pack_sha256": "87ea7da019f6ad6255f0375650e9906efd7695108d13618d9630ce0685483d4d",
+        "path": "verification/replaypacks/census-nrs-2020/report.json",
+        "trace_id": "trace:3954cc711c3352c64a9af890452323f9318a8a5dcfe936263b5811392aa77f6e"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "c5dfbddcab432f2e21e32aa6ace069a0262dd6269cc7ac574b2edf373902fcbd",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "575c594a2d4bd506c2cfa2fbdc828a298bed8c831d154abca91fc33453dce33a",
+        "pack_sha256": "2b125673f41771947662dfd0a0b5e1b5105b4f334d413f4404753abcfbb69412",
+        "path": "verification/replaypacks/cftc-tff-2026/report.json",
+        "trace_id": "trace:35be3384f422dbc64c3546ae80f18efcc6f3004765241b4d98bff2dc9b1a0f2a"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "486f3021ea0803ea20725d0c5e2a77cf103e1a817fdeb0537a21f023638356e3",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "264c38041a6ab430bc56d8e5c3d93f56648b2902f8b6e38a7ed4ab6c454c6290",
+        "pack_sha256": "d0f96d2cc2097bb731370f33a294efb1e621b9cf91c458136e5b818896e814b5",
+        "path": "verification/replaypacks/dol-ui-2020/report.json",
+        "trace_id": "trace:c2e0c997c19f77b1dd753f8dc93ac7575f07137c1dd38f6df1777792b9cbca24"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "daa367add5785a45dff552825f178c656180698cc99489cd058c141df6cd4992",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "a2d932983ca76a4aa85cbed25cfa22cde47686cffdaac9de51506b5d5b7fc70c",
+        "pack_sha256": "00e71ea907ad3783423f66cf9e933ef949176e563ba4ab559ec76367bb2cf0e7",
+        "path": "verification/replaypacks/eia-wngsr-2020/report.json",
+        "trace_id": "trace:cf04545be3a46eba12a13716838e9284c9e91a457c38d950f60dfcffee8bd652"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "73c2b8c398f690e93c69d0500ba7d110e8de953e4040a7fd3a21931a9792bcd7",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "9863be574b19a7531d95f7c6b573d183a9ed098b775fd30928563a0520999c75",
+        "pack_sha256": "baf7d20f12097dbc58745d1e2eeb19fb0229ff062c987425addddc2d96c1f7c4",
+        "path": "verification/replaypacks/eia-wpsr-2020/report.json",
+        "trace_id": "trace:02607eb05647ea0f55341031c4c55035a27f86fadfd8e20ffada0a15dd1a8780"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "13f87bd055f9d9f769c4f3190dcf28fc9c6e2215824dcafab71721b118ed6953",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "cf9c03bd3cd5ca2e73785b30d1f400c3d76e083b68b3fa68d24b886dcf7a7a23",
+        "pack_sha256": "6d918334fff44d2cb860072858f7235e6f1fe0710583aff349b6fa2767986f3d",
+        "path": "verification/replaypacks/fed-g17-2020/report.json",
+        "trace_id": "trace:bb70dc79258184ab9c187f71b7aad8b28f08ac4cb2a79bfabce991ae2ace38ea"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "61e930b2c59ca45bcb29c7e9d4df7257d74cbfe19975eb56412d3e58ee2587c4",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "11a0dce98b11b603c15863c19ea6ee998572685012ce98a6ac9656683365b022",
+        "pack_sha256": "74872e2383d0a3020417c43326118ba8f1ffa8a2c4511f58e5a11ce79342a30c",
+        "path": "verification/replaypacks/fed-g19-2020/report.json",
+        "trace_id": "trace:b069c82d26438e14b70d8e00152927c4559140ef5cc25b0067f6a731d39947c7"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "62ff7c11f432cc03b515558e8fbea8bb36db6d95907ec9c48f5b46ce3fb62d2d",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "8d7ceb2ead7cb941ad10a9970a92ea8f89e5636ee11ac4b7fe2785b45143c6fa",
+        "pack_sha256": "a2603de494cd5c2e2aad527f8e30e2c832259c97bca931a6c146926c858d5584",
+        "path": "verification/replaypacks/fed-h41-liquidity-swaps-2020/report.json",
+        "trace_id": "trace:49f09dacda1e19d5e88d5d13be3614b8270ab7b7118cacc38e776a516c69ec41"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "b9676452bf9f118f7d72fb402c7a74b93419f2ce41da622862c5efeda33409c8",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "461801d55a864ec6d2edd44d8087ef8a9e54da0980ff71304f8d858e3c3e9d4f",
+        "pack_sha256": "338c19be4990422caa75c2e7ddc2ff34bc167e8b61c71e502916731aaa111e35",
+        "path": "verification/replaypacks/fhfa-hpi-2020/report.json",
+        "trace_id": "trace:0546ce017baf309b17b31cb58eeb2d38b19413b3df33a9a4fc83b2f650e46d4d"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "3d06a432ca9ef34a5c1ddedb0752ec34da64cd985289d41d6d9bf457fbf75007",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "6cc11ea744233ee346ea2b66b50c8449c5cd1f21328f49bc861f97aba165597d",
+        "pack_sha256": "4421dbfebff7e2e3e66124090d27cd6b9031bcb89c9b8726cf28d8fdf358f7e5",
+        "path": "verification/replaypacks/fomc-target-2023/report.json",
+        "trace_id": "trace:4d1e9d9df61c5baffffb8bced078829ec4ba1064f07e7c65f68ba9a1368f7df7"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "aa2d78ff80f0bd776c957ee9060051528819505bbaca1f82da20bc6ea3997a85",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "cd91d9a55f855b5d3e0513c8da263901c847ba9fdbb8c393ceeac5c9184ad1ee",
+        "pack_sha256": "5f9f64b719003d2677c1fb5bef7e33be745c2644356a364d53faa8fbfed9a8a9",
+        "path": "verification/replaypacks/gdp-revision-2022q4/report.json",
+        "trace_id": "trace:0318d33e4e29fce0de5555c94e4cef24a4605bddaca362a57637319322ed194d"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "6bb2d2fd6264c1a06e1afed9e1773d60e06ba95c0db289ae0f31b5c6ed8fa435",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "a50fe87b2531682a934f35ee0534a09d0d7c05e06f081f35eb00565a5cc2d869",
+        "pack_sha256": "00475798a6bdfc0b713a272d340b0586d8b647f95c8a11435d809777037b106e",
+        "path": "verification/replaypacks/nyfed-sofr-2019/report.json",
+        "trace_id": "trace:7402c1952f5bbaf31f5f5d89a85a8864f64ee146bd142e25da1872f4292ee636"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "e87f04aed4e58b8a4806cac37a9a00dbc45c7a8dc3a38be4b80d1202b617f908",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "b4e4dd25e8c0dc5de8b9d5b62910914f19de4f8c00bb5f9a92ae9fbf8daa251b",
+        "pack_sha256": "2d0fcab57a64d709317fd4fe22f296d2a756e4638053a275d057a7af5f7a9599",
+        "path": "verification/replaypacks/pacwest-2023-seven-engine/report.json",
+        "trace_id": "trace:ea712e982b91244c741174069afa890549ef4182a5c8182965eefb5fec21aab3"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "d3a30c1ab6527e62ebb5c6d0ef65e4a994bb0129f47704c616e1d7628d326b99",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "observed",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "08bf52bdcf4828aed3e93a7a69fb6dcc3fe5cf2c00883c7920949b1a62645298",
+        "pack_sha256": "e363424d7c92d7c14792430c28597b4beb7f399edfbb0078b4d8ab4bfde2a828",
+        "path": "verification/replaypacks/replaystudio-golden/report.json",
+        "trace_id": "trace:1d61844b4593ebe6baf913bb780b94cdc51825d4de764864c7cdf80531c80f0d"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "e87f04aed4e58b8a4806cac37a9a00dbc45c7a8dc3a38be4b80d1202b617f908",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "73ab0e373abe1136b52c4eefb5c6f272d636fd6398ba9a0346b226a691503803",
+        "pack_sha256": "c62c22dcbd15e29592a10811117a565d2bf9bee34877a4fbcbf24994383efd35",
+        "path": "verification/replaypacks/svb-2023-seven-engine/report.json",
+        "trace_id": "trace:7c6888e9ecebd390acb2f7fecbcde816d7e50906632483215244acf0f17462bf"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "94ddaca47a0dd30655ba506edbfbb99889153f891f510a7e6d23ea826a4e750b",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "93183dc7f8e9daf557969a0f431d0cef1bbb5b37b37c761caaf16d656fe2571b",
+        "pack_sha256": "84adfcfbada5dc7676e46a2aca7545b73f609f4c80eb8a99d97aed470ef35c60",
+        "path": "verification/replaypacks/treasury-auction-2020/report.json",
+        "trace_id": "trace:402e025e428e17a945b90b2e2279bf242c2534eec4dee6ab96103fe3bdba0b09"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "ba8081a55d127eee33b1bd776ed5629e764da7cebb3b18eb9ce36e78627f0b40",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "e13ef4ccae838ea8d4c11c9a6330f272e3283026f47e9cc265b3323bead536f2",
+        "pack_sha256": "f05a5b1f0a143f3bd99dbd1777efcb814f791a1da8d1f8190ece4a73d7ad3ccb",
+        "path": "verification/replaypacks/treasury-curve-2023/report.json",
+        "trace_id": "trace:582d084d96526fffb25f544af2fb1ceca86cd71b53578c51823c04b5dbfed41c"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "daca6802f8354d614c42f9dd443e38e7634c4cd3c94a8082d46802ac39eaccc5",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "bb6e12b7a50e475b48f841c4a53853883dc659f57e90201f47c251c75cf586bb",
+        "pack_sha256": "a74daab723834be217a925b19bc5306094bc9d7eb3791085a6a067fc504ed18e",
+        "path": "verification/replaypacks/treasury-tga-2023/report.json",
+        "trace_id": "trace:077515977a23370bda2bc75cd4f7b9905f7f46e7b202b5807a67b03b1e7322bb"
+      },
+      {
+        "claim_count": 5,
+        "claim_ids_sha256": "e87f04aed4e58b8a4806cac37a9a00dbc45c7a8dc3a38be4b80d1202b617f908",
+        "evidence_classes": [
+          "extracted",
+          "inferred",
+          "reported",
+          "simulated"
+        ],
+        "file_sha256": "845025806177bd316b94c9bef72aac385454b274c326932d87a8386f6c1d5230",
+        "pack_sha256": "1ed3dc968add623c1c9a95f37bb514a7d1f27dc6f6ae16bbe586f1d39bff9b11",
+        "path": "verification/replaypacks/western-alliance-2023-seven-engine/report.json",
+        "trace_id": "trace:abb13b47a3d70fdd943ba67f810e635e79d46f771d566289152eebc4d5c03d05"
+      }
+    ]
+  },
+  "schema_version": "1.0.0"
+}
