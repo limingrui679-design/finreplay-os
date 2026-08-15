@@ -1,15 +1,18 @@
 {
   "schema_version": "1.0.0",
   "project": "FinReplay OS",
+  "repository_url": "https://github.com/limingrui679-design/finreplay-os",
+  "fixed_source_url": "https://github.com/limingrui679-design/finreplay-os/tree/e150136dc0a2d49d068499ea9fdb01fc4a943a8c",
   "evidence_status": "internally_proven_external_review_pending",
-  "repository_subject_commit": "62bf793d017b46b9bda30f290729f3742e96fec0",
+  "repository_subject_commit": "e150136dc0a2d49d068499ea9fdb01fc4a943a8c",
   "source_archive": {
-    "file": "finreplay-os-62bf793d017b.zip",
-    "bytes": 6662710,
-    "sha256": "781df836758a84a37ee65cd76fcb1bfd185e32ebef36bda566cea5c1c566a418",
-    "zip_entry_count": 1639,
-    "tracked_file_count": 1436,
-    "unsafe_path_count": 0
+    "file": "finreplay-os-e150136.zip",
+    "bytes": 6673935,
+    "sha256": "f7c287c613b366f38705c1eaf5a21971ff3a5380f11c5fc4a0e1b44900a065ab",
+    "zip_entry_count": 1644,
+    "tracked_file_count": 1441,
+    "unsafe_path_count": 0,
+    "embedded_prior_review_archive_count": 0
   },
   "review_protocol_path": "docs/verification/independent-review-protocol.md",
   "review_record_schema_path": "verification/review/independent-review.schema.json",
@@ -49,7 +52,7 @@
     "scale_manifest": "c5ba416aa05ef15b59d32f5e1c38d19779679fa9aa1fca9746ebb900f5622697",
     "deep_verification_receipt": "a1c5ce99c643985c411180c9af35d3a26ce62cc243ed0c5bd6bf4035fd8d0aae",
     "query_benchmark_receipt": "1e9e85a979427ba6ff24d7d206a8f5e3d39e6067017597c4b64141073af067f1",
-    "internal_quality_receipt": "11f370d7f6737c8cf963b7e88be823b37d339a46602e1ab49502c3afeb8e0003"
+    "internal_quality_receipt": "c14880d7b7f7569518c800ad24bf0f8288e46f147ebc859c72b48b61dc47acb8"
   },
   "evidence_paths": {
     "public_claim_registry": "verification/claims/public-claims.json"

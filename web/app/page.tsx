@@ -70,7 +70,7 @@ const artifacts = [
   ["Scale manifest", "c5ba416aa05e…2697", "244 official daily SEC partitions"],
   ["Deep verification", "a1c5ce99c643…0aae", "Every ZIP, CSV, and Parquet partition re-read"],
   ["Query benchmark", "1e9e85a97942…67f1", "Two fresh processes; OS cache uncontrolled"],
-  ["Quality receipt", "11f370d7f673…0003", "2,195 subject-commit tests; 2,197 final checkout tests"],
+  ["Quality receipt", "c14880d7b7f7…acb8", "2,199 clean-subject tests; 2,199 current Python tests"],
   ["Public claim registry", "self-hashed JSON", "5 headline claims · 155 structured claims"],
 ];
 
@@ -138,7 +138,7 @@ export default function Home() {
           <h2 id="evidence-title">Internally proven.<br /><em>Externally unfinished.</em></h2>
         </div>
         <dl>
-          <div><dt>Final clean-checkout tests</dt><dd>2,197 / 2,197</dd></div>
+          <div><dt>Final clean-checkout tests</dt><dd>2,199 / 2,199</dd></div>
           <div><dt>Branch-aware combined coverage</dt><dd>90.48%</dd></div>
           <div><dt>Known dependency findings</dt><dd>0</dd></div>
           <div><dt>Tracked-text scan findings</dt><dd>0</dd></div>
@@ -232,10 +232,11 @@ export default function Home() {
           <span className="section-number">06 / Independent evidence</span>
           <h2 id="review-title">The final gate cannot be self-awarded.</h2>
           <p>A qualified reviewer must independently reproduce a result or review a domain method, identify a real issue, and follow that issue through resolution.</p>
-          <p className="archive-digest">The 6.66 MB source archive is bound to commit <code>62bf793d017b</code> and SHA-256 <code>781df836…66a418</code>.</p>
+          <p className="archive-digest">The 6.67 MB source archive is bound to commit <code>e150136dc0a2</code> and SHA-256 <code>f7c287c6…065ab</code>. Prior packaged review ZIPs are excluded.</p>
           <div className="review-downloads">
-            <a className="primary-action download" href="/review/finreplay-os-62bf793d017b.zip" download>Download review source</a>
+            <a className="primary-action download" href="/review/finreplay-os-e150136.zip" download>Download review source</a>
             <a className="secondary-action download" href="/review/finreplay-review-manifest.json" download>Download manifest</a>
+            <a className="secondary-action" href="https://github.com/limingrui679-design/finreplay-os/tree/e150136dc0a2d49d068499ea9fdb01fc4a943a8c">Browse fixed source</a>
           </div>
         </div>
         <ol className="review-steps">

@@ -33,11 +33,12 @@ test("server-renders the FinReplay evidence surface", async () => {
   assert.match(html, /<title>FinReplay OS · Evidence before confidence<\/title>/i);
   assert.match(html, /Put the market back in time/);
   assert.match(html, /1\.014B/);
-  assert.match(html, /2,197 \/ 2,197/);
+  assert.match(html, /2,199 \/ 2,199/);
   assert.match(html, /Thirty boundaries/);
   assert.match(html, /The final gate cannot be self-awarded/);
-  assert.match(html, /finreplay-os-62bf793d017b\.zip/);
-  assert.match(html, /781df836…66a418/);
+  assert.match(html, /finreplay-os-e150136\.zip/);
+  assert.match(html, /f7c287c6…065ab/);
+  assert.match(html, /github\.com\/limingrui679-design\/finreplay-os\/tree\/e150136dc0a2/);
   assert.match(html, /Independent review/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });
@@ -54,7 +55,7 @@ test("renders all thirty labelled scenario cards", async () => {
 
 test("ships the exact independent-review source archive", async () => {
   const archive = await readFile(
-    new URL("../dist/client/review/finreplay-os-62bf793d017b.zip", import.meta.url),
+    new URL("../dist/client/review/finreplay-os-e150136.zip", import.meta.url),
   );
   const manifest = JSON.parse(
     await readFile(
@@ -63,14 +64,15 @@ test("ships the exact independent-review source archive", async () => {
     ),
   );
 
-  assert.equal(archive.length, 6_662_710);
+  assert.equal(archive.length, 6_673_935);
   assert.equal(
     createHash("sha256").update(archive).digest("hex"),
-    "781df836758a84a37ee65cd76fcb1bfd185e32ebef36bda566cea5c1c566a418",
+    "f7c287c613b366f38705c1eaf5a21971ff3a5380f11c5fc4a0e1b44900a065ab",
   );
   assert.equal(manifest.source_archive.bytes, archive.length);
   assert.equal(
     manifest.source_archive.sha256,
-    "781df836758a84a37ee65cd76fcb1bfd185e32ebef36bda566cea5c1c566a418",
+    "f7c287c613b366f38705c1eaf5a21971ff3a5380f11c5fc4a0e1b44900a065ab",
   );
+  assert.equal(manifest.source_archive.embedded_prior_review_archive_count, 0);
 });
