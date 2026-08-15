@@ -257,7 +257,7 @@ feedback, automated tests, stars, traffic, or a friend saying “looks good” d
 Current status: **BLOCKED_EXTERNAL by definition until a real external reviewer participates.** This
 does not stop implementation work and must never be filled with fabricated evidence. The internal
 deployment precursor is complete: `verification/evidence/public-site-readiness.json` is a
-self-hashed receipt bound to commit `c744dcefb131`; from a fresh Git archive it records a lockfile
+self-hashed receipt bound to commit `3121255ac0ad`; from a fresh Git archive it records a lockfile
 install, lint, production build, two rendered-page tests, and an npm audit of 563 dependencies with
 zero findings. The source remains unhosted (`public_url=null`) and independent review remains
 false, so the receipt does not award any G points.

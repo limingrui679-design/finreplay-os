@@ -4,10 +4,11 @@
     "clean_install_passed": true,
     "dependency_audit_clean": true,
     "external_review_stays_pending": true,
+    "hosting_project_is_configured": true,
     "lint_passed": true,
     "nineteen_breaches_in_source": true,
     "no_database_or_object_storage_binding": true,
-    "no_hosting_project_or_public_url_claim": true,
+    "no_public_url_claim_in_hosting_config": true,
     "production_build_and_render_tests_passed": true,
     "social_card_is_png": true,
     "thirty_scenarios_in_source": true
@@ -19,10 +20,10 @@
         "npm",
         "ci"
       ],
-      "elapsed_seconds": 9.94233,
+      "elapsed_seconds": 13.519557,
       "exit_code": 0,
       "stderr_sha256": "926c084aa239829d6492dfd9319a266028e0643d94ce4e13248041ee1b0b3a0a",
-      "stdout": "\nadded 461 packages, and audited 462 packages in 10s\n\n155 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities\n"
+      "stdout": "\nadded 461 packages, and audited 462 packages in 13s\n\n155 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities\n"
     },
     "dependency_audit": {
       "argv": [
@@ -30,7 +31,7 @@
         "audit",
         "--json"
       ],
-      "elapsed_seconds": 2.808014,
+      "elapsed_seconds": 7.455851,
       "exit_code": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_sha256": "77f34f2bd7e9f7cd291d4630de046e50e5d9da0218b10a2db9fbb6bd8ce5b80c"
@@ -41,7 +42,7 @@
         "run",
         "lint"
       ],
-      "elapsed_seconds": 3.670954,
+      "elapsed_seconds": 7.899873,
       "exit_code": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout": "\n> finreplay-evidence-site@0.1.0 lint\n> eslint . --ignore-pattern dist --ignore-pattern .next\n\n"
@@ -51,10 +52,10 @@
         "npm",
         "test"
       ],
-      "elapsed_seconds": 20.504596,
+      "elapsed_seconds": 21.310197,
       "exit_code": 0,
-      "stderr_sha256": "f412919c4de5dd7f7d6477823aaeac3c88338c1fb6c0ff23d9a7b7b1ab0d0598",
-      "stdout_sha256": "209f7f4d15fb1a9885aef3ec8bae35c98bf3514783f312a21473b63caa08e009"
+      "stderr_sha256": "b563273477290214e268fb6c701bcfd4f2ae0a26f22453deb045603043a6ba6d",
+      "stdout_sha256": "b0ba1a48817079041f50b7da60ad4f34a3e687c669b4d12e5cc85ef492d1a2d8"
     }
   },
   "dependency_audit": {
@@ -69,8 +70,8 @@
     }
   },
   "evidence_kind": "public_site_local_release_readiness",
-  "generated_at": "2026-08-15T06:39:16.035774Z",
-  "receipt_sha256": "ba6cffd897b06377ed98351513507d2e4b533acca084205102b697306667a924",
+  "generated_at": "2026-08-15T06:43:07.460914Z",
+  "receipt_sha256": "621334bfff1d889d6ece109c5126a9ee030bdcbd2f3e96eaa06eadf17067f991",
   "rendered_tests": {
     "failed": 0,
     "passed": 2
@@ -98,9 +99,9 @@
         "sha256": "d56b736ad356c9f7c844b947b4f8921c3977979123f851def9dd2a9d218316bb"
       },
       {
-        "bytes": 31,
+        "bytes": 91,
         "path": "web/.openai/hosting.json",
-        "sha256": "d532abb65cf9ae20634b464d954cb4a08a0de9f3cd3cdf7f9c3ec8948826d947"
+        "sha256": "68b4d5b40c8ca76c5e1385325433794df95fe951f2764774ba85e78b912d4337"
       },
       {
         "bytes": 1298,
@@ -183,13 +184,13 @@
         "sha256": "23cddda53034b9c6d6d554f6b0a09f1e3581c88fd7b8f4c8202930b4c2419adb"
       }
     ],
-    "set_sha256": "ff8319ef25f54aac6e248a51f04549a2849cb14653eab47ccc02f0180c8d55e5",
-    "total_bytes": 1617077
+    "set_sha256": "1cd9063f21c9d1226e4210cab5ce511ef7de19b42114e0b8b855df274ed7cfdb",
+    "total_bytes": 1617137
   },
   "subject": {
-    "code_revision": "c744dcefb131ce0b839ca9ab96ca17a1058b1535",
-    "committed_at": "2026-08-15T14:38:24+08:00",
-    "tree_sha256": "5307d83c5dc72aab8b3fea8487448e41d42d6cf2"
+    "code_revision": "3121255ac0adec0d927e93dcc88de7d9583048ed",
+    "committed_at": "2026-08-15T14:42:05+08:00",
+    "tree_sha256": "c7a70b25e8cc3280b78f4b11bfabc0bd4b7ddbf6"
   },
   "toolchain": {
     "node": "v22.20.0",
