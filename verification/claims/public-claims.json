@@ -14,7 +14,7 @@
       "real_user_adoption"
     ],
     "scanned_text_file_count": 170,
-    "scanned_text_set_sha256": "7d9cf3e3164412114ad415fc58311723cc92d22a69a2552abd3b527976815592",
+    "scanned_text_set_sha256": "00590894bd586bd8d3bda449617d01257fef9d04a6e29b8c9873b68ccc660d36",
     "violations": []
   },
   "builder_path": "scripts/build_public_claim_registry.py",
@@ -80,14 +80,14 @@
     "anonymous_http_status": 200,
     "deployment_status": "succeeded",
     "evidence_path": "verification/evidence/public-site-deployment.json",
-    "evidence_sha256": "f0282a40a678cce6348caa973ece14bb724cc1357af8324e08823f9bd7343e5d",
+    "evidence_sha256": "89cf209e505b34f21f40d95a2773412fc14b986a6f8f68c4abea8d94b08d2ab1",
     "independent_review_completed": false,
     "public_url": "https://finreplay-evidence.limingrui2.chatgpt.site",
-    "receipt_sha256": "a2ff9b38201b79d0e0e09ddee88ce08d67f6a4c37a6d424caea2f16b6f9d1583",
-    "sites_version_number": 1
+    "receipt_sha256": "a9f35c0e6e844ba80855350def674831714bdd258b97550f4e304a0d2671a016",
+    "sites_version_number": 2
   },
   "registry_kind": "public_claim_traceability_and_inflation_guard",
-  "registry_sha256": "b1773c67b53b7a12d2a871d5c4c749ac3bc37b46e4e0896efaae22414ab7cd2a",
+  "registry_sha256": "737734134215fa70d293dc4f8ebba1c77952bae768c2d7a0275c1136dd2a6c2f",
   "replaypack_surface": {
     "evidence_classes": [
       "extracted",

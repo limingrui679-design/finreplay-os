@@ -265,12 +265,13 @@ bound to commit `e150136dc0a2`, excludes prior packaged review ZIPs, and include
 GitHub source link, plus a strict independent-review protocol and completed-record
 schema.
 
-Sites version 1 is publicly deployed at
+Sites version 2 is publicly deployed at
 `https://finreplay-evidence.limingrui2.chatgpt.site`. The separate self-hashed
 `verification/evidence/public-site-deployment.json` receipt binds Sites source commit
-`4dccb382e91385db279fd442f8ccf0f10b923d01` to the `web/` tree at repository commit
-`51a52337ce4ed485333fba1c21c8132692b9801e`, records the successful production deployment and public
-access-policy revision, and records an anonymous HTTP 200 response. That proves the public-demo
+`b3b011259f96dd54ecf2384380ceb1457360db8b` to the `web/` tree at repository commit
+`bb45fe5da2c2e5aa994fb8696efc4d7230198a05`, records the successful production deployment and
+unchanged public access, and verifies anonymous HTTP 200 for the page, review manifest, and
+SHA-256-bound review ZIP. That proves the public-demo
 half only at the recorded time. Independent review remains false, so gate G remains incomplete and
 awards no points under the all-or-nothing scoring rule.
 

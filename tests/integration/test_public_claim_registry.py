@@ -53,34 +53,60 @@ def test_public_claim_registry_binds_every_evidence_locator() -> None:
         "sec-scale-physical-rows": 1_014_736_394,
     }
     deployment = values["public_site_deployment"]
+    deployment_receipt = cast(
+        dict[str, Any],
+        json.loads(
+            (REPOSITORY / "verification/evidence/public-site-deployment.json").read_text(
+                encoding="utf-8"
+            )
+        ),
+    )
     assert deployment == {
-        "access_mode": "public",
-        "anonymous_http_status": 200,
-        "deployment_status": "succeeded",
+        "access_mode": deployment_receipt["site"]["access_mode"],
+        "anonymous_http_status": deployment_receipt["verification"][
+            "anonymous_http_status"
+        ],
+        "deployment_status": deployment_receipt["site"]["deployment_status"],
         "evidence_path": "verification/evidence/public-site-deployment.json",
         "evidence_sha256": hashlib.sha256(
             (REPOSITORY / "verification/evidence/public-site-deployment.json").read_bytes()
         ).hexdigest(),
         "independent_review_completed": False,
-        "public_url": "https://finreplay-evidence.limingrui2.chatgpt.site",
-        "receipt_sha256": "a2ff9b38201b79d0e0e09ddee88ce08d67f6a4c37a6d424caea2f16b6f9d1583",
-        "sites_version_number": 1,
+        "public_url": deployment_receipt["site"]["public_url"],
+        "receipt_sha256": deployment_receipt["receipt_sha256"],
+        "sites_version_number": deployment_receipt["site"]["version_number"],
     }
     github_release = values["public_github_release"]
+    github_receipt = cast(
+        dict[str, Any],
+        json.loads(
+            (REPOSITORY / "verification/evidence/public-github-release.json").read_text(
+                encoding="utf-8"
+            )
+        ),
+    )
     assert github_release == {
-        "default_branch": "main",
+        "default_branch": github_receipt["repository"]["default_branch"],
         "evidence_path": "verification/evidence/public-github-release.json",
         "evidence_sha256": hashlib.sha256(
             (REPOSITORY / "verification/evidence/public-github-release.json").read_bytes()
         ).hexdigest(),
         "independent_review_completed": False,
-        "published_head_commit": "6a2b6fe535fab635b919d6f3e481905d3d82a6b4",
-        "raw_readme_http_status": 200,
-        "receipt_sha256": "c80cf98d37abe769fd4be3340524235ae9c207537ed1b39364e6e1021b4a49b7",
-        "repository_url": "https://github.com/limingrui679-design/finreplay-os",
-        "requested_source_commit": "51a52337ce4ed485333fba1c21c8132692b9801e",
-        "source_archive_http_status": 200,
-        "visibility": "public",
+        "published_head_commit": github_receipt["release_binding"][
+            "published_head_commit"
+        ],
+        "raw_readme_http_status": github_receipt["verification"]["raw_readme"][
+            "anonymous_http_status"
+        ],
+        "receipt_sha256": github_receipt["receipt_sha256"],
+        "repository_url": github_receipt["repository"]["html_url"],
+        "requested_source_commit": github_receipt["release_binding"][
+            "requested_source_commit"
+        ],
+        "source_archive_http_status": github_receipt["verification"]["source_archive"][
+            "anonymous_http_status"
+        ],
+        "visibility": github_receipt["repository"]["visibility"],
     }
     for claim in values["headline_claims"]:
         evidence = REPOSITORY / claim["evidence_path"]

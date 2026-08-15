@@ -35,13 +35,14 @@ The site also ships a SHA-256-bound 6.67 MB source archive fixed to commit
 `e150136dc0a2` (with prior packaged review ZIPs excluded to prevent recursive growth) and the
 [`independent-review protocol`](docs/verification/independent-review-protocol.md) so a reviewer can
 work without access to the maintainer's machine or private source repository.
-Sites version 1 is publicly available at
+Sites version 2 is publicly available at
 [`https://finreplay-evidence.limingrui2.chatgpt.site`](https://finreplay-evidence.limingrui2.chatgpt.site).
 The self-hashed
-[`public-site-deployment.json`](verification/evidence/public-site-deployment.json) receipt binds the
-deployed Sites source commit to this repository's `web/` tree at commit `51a52337ce4e`, records the
-successful production deployment and public access revision, and records a separate anonymous HTTP
-200 check. This is time-bounded deployment evidence, not independent review, continuous-uptime
+[`public-site-deployment.json`](verification/evidence/public-site-deployment.json) receipt binds
+Sites source commit `b3b011259f96` to this repository's `web/` tree at commit
+`bb45fe5da2c2`, records the successful production deployment and unchanged public access, and
+records anonymous HTTP 200 plus exact public manifest and review-ZIP hashes. This is time-bounded
+deployment evidence, not independent review, continuous-uptime
 evidence, user adoption, or real-world impact, so the final gate remains incomplete.
 
 The complete Git history is publicly available at

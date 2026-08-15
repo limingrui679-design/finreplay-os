@@ -5,9 +5,11 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import io
 import json
 import subprocess
 import urllib.request
+import zipfile
 from pathlib import Path
 from typing import Any
 
@@ -47,8 +49,8 @@ def main() -> None:
         raise SystemExit("public site URL differs")
     if site["deployment_status"] != "succeeded" or site["access_mode"] != "public":
         raise SystemExit("public site is not recorded as successfully public")
-    if site["version_number"] != 1:
-        raise SystemExit("unexpected recorded Sites version")
+    if not isinstance(site["version_number"], int) or site["version_number"] < 1:
+        raise SystemExit("recorded Sites version is invalid")
 
     source = payload["source_binding"]
     parent_revision = source["parent_repository_commit"]
@@ -67,28 +69,64 @@ def main() -> None:
     verification = payload["verification"]
     if verification["anonymous_http_status"] != 200:
         raise SystemExit("recorded anonymous HTTP status is not 200")
+    if (
+        verification["response_body_bytes"] <= 0
+        or len(verification["response_body_sha256"]) != 64
+    ):
+        raise SystemExit("recorded public site response metadata is invalid")
     markers = verification["required_markers"]
-    if markers != ["FinReplay OS", "Independent review", "62bf793d017b"]:
+    if (
+        not isinstance(markers, list)
+        or len(markers) != len(set(markers))
+        or not all(isinstance(marker, str) and marker for marker in markers)
+        or not {"FinReplay OS", "Independent review"}.issubset(markers)
+    ):
         raise SystemExit("public site marker contract differs")
+    manifest = verification["review_manifest"]
+    archive = verification["review_archive"]
+    for name, artifact in (("manifest", manifest), ("archive", archive)):
+        if artifact["anonymous_http_status"] != 200:
+            raise SystemExit(f"recorded public review {name} status is not 200")
+        if artifact["bytes"] <= 0 or len(artifact["sha256"]) != 64:
+            raise SystemExit(f"recorded public review {name} metadata is invalid")
 
     live_detail = ""
     if args.live:
-        request = urllib.request.Request(
-            EXPECTED_URL,
-            headers={"User-Agent": "FinReplay-deployment-verifier/1.0"},
-        )
-        with urllib.request.urlopen(request, timeout=30) as response:
-            body = response.read()
-            status = response.status
+        body, status = _fetch(EXPECTED_URL)
         if status != 200:
             raise SystemExit(f"live anonymous HTTP status differs: {status}")
         decoded = body.decode("utf-8")
         missing = [marker for marker in markers if marker not in decoded]
         if missing:
             raise SystemExit(f"live public site markers missing: {missing}")
+
+        manifest_body, manifest_status = _fetch(manifest["url"])
+        if (
+            manifest_status != 200
+            or len(manifest_body) != manifest["bytes"]
+            or hashlib.sha256(manifest_body).hexdigest() != manifest["sha256"]
+        ):
+            raise SystemExit("live public review manifest differs from deployment receipt")
+        manifest_payload = json.loads(manifest_body)
+
+        archive_body, archive_status = _fetch(archive["url"])
+        if (
+            archive_status != 200
+            or len(archive_body) != archive["bytes"]
+            or hashlib.sha256(archive_body).hexdigest() != archive["sha256"]
+        ):
+            raise SystemExit("live public review archive differs from deployment receipt")
+        if (
+            manifest_payload["source_archive"]["bytes"] != archive["bytes"]
+            or manifest_payload["source_archive"]["sha256"] != archive["sha256"]
+        ):
+            raise SystemExit("public review manifest does not bind the downloaded archive")
+        with zipfile.ZipFile(io.BytesIO(archive_body)) as handle:
+            if handle.testzip() is not None:
+                raise SystemExit("live public review archive failed ZIP integrity")
         live_detail = (
             f" live_http_status={status} live_bytes={len(body)} "
-            f"live_sha256={hashlib.sha256(body).hexdigest()}"
+            f"review_archive_bytes={len(archive_body)}"
         )
 
     print(
@@ -96,6 +134,15 @@ def main() -> None:
         f"deployment={site['deployment_id']} access=public "
         f"receipt_sha256={claimed_hash}{live_detail}"
     )
+
+
+def _fetch(url: str) -> tuple[bytes, int]:
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": "FinReplay-deployment-verifier/1.1"},
+    )
+    with urllib.request.urlopen(request, timeout=60) as response:
+        return response.read(), response.status
 
 
 def _load_json(path: Path) -> dict[str, Any]:
