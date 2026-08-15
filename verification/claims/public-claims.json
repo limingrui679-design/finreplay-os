@@ -13,8 +13,8 @@
       "real_client_use",
       "real_user_adoption"
     ],
-    "scanned_text_file_count": 169,
-    "scanned_text_set_sha256": "45ac89896cbdff42ef3c7bb4cf066426af17a77e1da677cb6883dd8c59ceb300",
+    "scanned_text_file_count": 170,
+    "scanned_text_set_sha256": "0ec9b44a5215edb99a52f71efe2221a81e798ce898cf0a5154e56e7b178f2e18",
     "violations": []
   },
   "builder_path": "scripts/build_public_claim_registry.py",
@@ -63,7 +63,7 @@
     }
   ],
   "registry_kind": "public_claim_traceability_and_inflation_guard",
-  "registry_sha256": "d7dedc091dec65a535d8e15eef5b697a0ba2798126d233d1e30927d4fe95fbb7",
+  "registry_sha256": "1373e4b89c877e693fa52cef53d9c31a790762901ac1112d01c47f590d8b10d6",
   "replaypack_surface": {
     "evidence_classes": [
       "extracted",

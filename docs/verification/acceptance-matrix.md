@@ -240,7 +240,8 @@ and stars are not users or impact. Current status: **PROVEN internally.** The de
 self-hashed `verification/claims/public-claims.json` registry binds the five README headline
 quantities to their exact machine artifacts and hashes, validates all 31 committed ReplayPack
 reports and all 155 structured claims against the typed evidence-label contract, and seals the
-complete 169-file tracked public text surface, including the public site copy and downloadable
+complete 170-file tracked public text surface, including the public site copy, independent-review
+protocol, and downloadable
 review manifest. Its bounded language guard reports zero affirmative
 deployment, client, performance, external-validation, or adoption violations and requires the
 README truth boundaries to remain present. The registry rebuilds byte-identically in integration

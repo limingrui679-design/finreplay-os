@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:finreplay:schema:independent-review:1.0.0",
+  "title": "FinReplay OS completed independent review record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_status",
+    "review_id",
+    "reviewer",
+    "independence_attestation",
+    "subject",
+    "environment",
+    "reproduction",
+    "issue",
+    "resolution",
+    "recheck",
+    "attestation",
+    "claim_boundary"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "record_status": { "const": "complete" },
+    "review_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{7,79}$" },
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "public_name",
+        "qualification_basis",
+        "relationship_disclosure",
+        "is_finreplay_maintainer",
+        "authored_subject_code"
+      ],
+      "properties": {
+        "public_name": { "type": "string", "minLength": 2 },
+        "qualification_basis": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 8 }
+        },
+        "public_profile_url": { "type": ["string", "null"], "format": "uri" },
+        "affiliation": { "type": ["string", "null"] },
+        "relationship_disclosure": { "type": "string", "minLength": 8 },
+        "is_finreplay_maintainer": { "const": false },
+        "authored_subject_code": { "const": false }
+      }
+    },
+    "independence_attestation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "personally_created_fresh_environment",
+        "personally_executed_recorded_commands",
+        "results_not_supplied_by_maintainer",
+        "conflicts_disclosed"
+      ],
+      "properties": {
+        "personally_created_fresh_environment": { "const": true },
+        "personally_executed_recorded_commands": { "const": true },
+        "results_not_supplied_by_maintainer": { "const": true },
+        "conflicts_disclosed": { "const": true }
+      }
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "revision",
+        "source_archive_name",
+        "source_archive_sha256",
+        "target_id"
+      ],
+      "properties": {
+        "revision": { "$ref": "#/$defs/sha1" },
+        "source_archive_name": { "type": "string", "minLength": 8 },
+        "source_archive_sha256": { "$ref": "#/$defs/sha256" },
+        "target_id": {
+          "enum": [
+            "timevault-revision-boundary",
+            "scenario-catalog-30",
+            "site-release-readiness",
+            "billion-row-small-chain",
+            "billion-row-full-reproduction",
+            "other-bounded-target"
+          ]
+        },
+        "other_target_description": { "type": ["string", "null"], "minLength": 8 }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "started_at",
+        "completed_at",
+        "operating_system",
+        "architecture",
+        "python_version",
+        "dependency_lock_sha256"
+      ],
+      "properties": {
+        "started_at": { "type": "string", "format": "date-time" },
+        "completed_at": { "type": "string", "format": "date-time" },
+        "operating_system": { "type": "string", "minLength": 2 },
+        "architecture": { "type": "string", "minLength": 2 },
+        "python_version": { "type": "string", "minLength": 3 },
+        "node_version": { "type": ["string", "null"] },
+        "dependency_lock_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "reproduction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["result", "commands", "summary"],
+      "properties": {
+        "result": { "enum": ["reproduced", "not_reproduced"] },
+        "commands": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/command" }
+        },
+        "summary": { "type": "string", "minLength": 20 }
+      }
+    },
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "severity",
+        "description",
+        "evidence",
+        "disposition",
+        "maintainer_response"
+      ],
+      "properties": {
+        "title": { "type": "string", "minLength": 8 },
+        "severity": { "enum": ["P0", "P1", "P2", "P3"] },
+        "description": { "type": "string", "minLength": 30 },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/evidence" }
+        },
+        "disposition": { "enum": ["confirmed", "evidence-backed-not-a-defect"] },
+        "maintainer_response": { "type": "string", "minLength": 20 }
+      }
+    },
+    "resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "description", "evidence"],
+      "properties": {
+        "revision": { "$ref": "#/$defs/sha1" },
+        "description": { "type": "string", "minLength": 20 },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/evidence" }
+        }
+      }
+    },
+    "recheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["performed_by_same_reviewer", "result", "issue_closed", "commands", "summary"],
+      "properties": {
+        "performed_by_same_reviewer": { "const": true },
+        "result": { "const": "passed" },
+        "issue_closed": { "const": true },
+        "commands": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/command" }
+        },
+        "summary": { "type": "string", "minLength": 20 }
+      }
+    },
+    "attestation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["statement", "signed_by", "signed_at"],
+      "properties": {
+        "statement": {
+          "const": "I attest that I personally performed the recorded review and recheck, and that this record accurately preserves my findings and disclosed conflicts."
+        },
+        "signed_by": { "type": "string", "minLength": 2 },
+        "signed_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "claim_boundary": {
+      "const": "This record documents one bounded independent review. It is not general certification, source authentication, investment validation, adoption, deployment, or real-world impact evidence."
+    }
+  },
+  "$defs": {
+    "sha1": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "command": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["argv", "exit_code", "stdout_sha256", "stderr_sha256", "observation"],
+      "properties": {
+        "argv": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "exit_code": { "type": "integer" },
+        "stdout_sha256": { "$ref": "#/$defs/sha256" },
+        "stderr_sha256": { "$ref": "#/$defs/sha256" },
+        "observation": { "type": "string", "minLength": 8 }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["locator", "sha256", "description"],
+      "properties": {
+        "locator": { "type": "string", "minLength": 3 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "description": { "type": "string", "minLength": 8 }
+      }
+    }
+  }
+}
