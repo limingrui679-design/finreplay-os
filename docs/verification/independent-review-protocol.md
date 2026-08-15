@@ -67,6 +67,7 @@ From the root of the extracted review archive or clone:
 
 ```bash
 python3 -m venv .venv
+.venv/bin/python -m pip install --upgrade 'pip>=26.1.2'
 .venv/bin/pip install -e '.[dev]'
 .venv/bin/python scripts/verify_internal_quality_receipt.py
 ```

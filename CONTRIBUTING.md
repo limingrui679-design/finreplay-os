@@ -20,12 +20,13 @@ change, open an issue describing the affected contract, source, or scenario.
 Use Python 3.11 or newer, then run:
 
 ```bash
+python -m pip install --upgrade 'pip>=26.1.2'
 python -m pip install -e '.[dev]'
 ruff check .
 mypy src tests
 pytest --cov=finreplay --cov-report=term-missing
 python scripts/verify_scenario_catalog.py
-pip-audit .
+pip-audit --local
 ```
 
 Update tests, scenario receipts, documentation, and `CHANGELOG.md` together

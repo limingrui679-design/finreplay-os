@@ -135,7 +135,7 @@ def main() -> None:
 
         dependency = _run(
             "dependency_audit",
-            [str(_tool("pip-audit")), ".", "--format", "json"],
+            [str(_tool("pip-audit")), "--local", "--format", "json"],
             summary_from="stderr",
         )
         dependency_payload = json.loads(dependency["stdout"])
@@ -270,8 +270,9 @@ def main() -> None:
                 for item in dependencies
             ],
             "claim_boundary": (
-                "This is the pip-audit result at generated_at for the resolved local project "
-                "dependencies. Vulnerability databases can change after this receipt."
+                "This is the pip-audit result at generated_at for the complete resolved local "
+                "environment, including the installer and development dependencies. "
+                "Vulnerability databases can change after this receipt."
             ),
         },
         "secret_and_privacy_scan": secret_scan,

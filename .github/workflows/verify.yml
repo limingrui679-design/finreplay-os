@@ -28,7 +28,9 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
       - name: Install project and verification dependencies
-        run: python -m pip install -e '.[dev]'
+        run: |
+          python -m pip install --upgrade 'pip>=26.1.2'
+          python -m pip install -e '.[dev]'
       - name: Lint
         run: ruff check .
       - name: Type-check source and tests
@@ -39,9 +41,9 @@ jobs:
         run: python scripts/verify_scenario_catalog.py
       - name: Validate independent-review record catalog
         run: python scripts/validate_independent_review_records.py
-      - name: Audit declared dependencies
+      - name: Audit complete resolved environment
         if: matrix.python-version == '3.12'
-        run: pip-audit .
+        run: pip-audit --local
 
   dependency-review:
     if: github.event_name == 'pull_request'

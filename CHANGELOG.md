@@ -30,3 +30,5 @@ investment performance.
 
 - CI audits declared Python dependencies and scans repository history for
   committed secrets.
+- CI upgrades pip to a patched release before installation and audits the complete resolved
+  development environment, including the installer and review-schema tooling.
