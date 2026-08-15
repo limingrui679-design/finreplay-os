@@ -216,7 +216,21 @@ typing and lint; dependency and secret scanning; hostile archive/CSV/JSON limits
 fresh-archive reconstruction; fixed-version benchmarks; usable CLI/API; responsive, accessible,
 read-only ReplayStudio; exportable reports; and visible simulation/evidence labels.
 
-Current status: **IN_PROGRESS.** A test count alone cannot prove method correctness or product quality.
+Current status: **PROVEN internally.** The self-hashed
+`verification/evidence/internal-quality-gates.json` receipt binds a clean `9166305ee3fa` subject
+commit and records 2,195/2,195 passing tests across 91 files. Coverage.py ran with branch
+measurement enabled and reported 90.480473% combined statement-plus-branch coverage; the distinct
+branch-only rate is disclosed as 82.826012% rather than being relabelled. Ruff and strict mypy
+passed. Pip-audit resolved 26 packages with zero known vulnerabilities at the recorded time. The
+non-disclosing local scanner checked 1,410 tracked files and 13,888,021 UTF-8 bytes with zero
+credential/privacy-path findings; pinned gitleaks, CodeQL, and dependency-review workflows are
+recorded as configured but not locally executed. The full run includes hostile ZIP expansion,
+CSV/container/schema, JSON/content-type and unsafe-path cases; a credentials-removed, socket-denied
+no-key rebuild through both CLI and typed Python API; byte-identical directory/ZIP reconstruction;
+the responsive browser receipt; 30-scenario and public-claim verification; and fixed ExecutionLab,
+CapitalAllocator and billion-row benchmark bindings. These are internal engineering gates, not an
+external security/accessibility certification, source authentication, hosted deployment, users,
+or real-world impact.
 
 ## F. Source and claim integrity — 5 points
 

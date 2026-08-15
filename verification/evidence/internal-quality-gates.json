@@ -1,0 +1,437 @@
+{
+  "all_required_gates_passed": true,
+  "claim_boundary": "This receipt proves the listed internal checks passed on one clean Git commit in the recorded local environment. Coverage is the standard combined statement-plus-branch percentage with branch measurement enabled; the branch-only percentage is reported separately for context. The targeted tracked-text scan is not full-history gitleaks, and configured CI services were not locally executed. Browser evidence is maintainer recorded. This receipt does not prove source authenticity, external security or accessibility certification, hosted deployment, independent review, adoption, users, investment performance, or real-world impact.",
+  "commands": {
+    "capitalallocator_benchmark": {
+      "command": [
+        ".venv/bin/python",
+        "scripts/verify_capitalallocator_benchmark.py"
+      ],
+      "elapsed_seconds": 0.048755,
+      "exit_code": 0,
+      "gate_id": "capitalallocator_benchmark",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "71fcbaa98fd40fa98544dae580b94d8ef0ff092f61986e33c6109cbc6754868f",
+      "summary": "verified_assertions=7 semantic_sha256=68faad79686f8f179329de144100d3b83903944f510172d93b9f429ef4bf634c receipt_sha256=66868804c58489e6be4f79b39f6309ee4ae79fff450ddfcb4a052f32e33dc07c"
+    },
+    "dependency_audit": {
+      "command": [
+        ".venv/bin/pip-audit",
+        ".",
+        "--format",
+        "json"
+      ],
+      "elapsed_seconds": 39.189359,
+      "exit_code": 0,
+      "gate_id": "dependency_audit",
+      "stderr_sha256": "15950a68a7ed99c59779717acefdceb3f69cfd31bde67d2c954f2a3cea4d7955",
+      "stdout_sha256": "4287d6f956b0aa83e12d35d7f1a9e6426c96dfb517800ce40ba3f6638e808bc1",
+      "summary": "No known vulnerabilities found"
+    },
+    "executionlab_benchmark": {
+      "command": [
+        ".venv/bin/python",
+        "scripts/verify_executionlab_golden.py"
+      ],
+      "elapsed_seconds": 0.051323,
+      "exit_code": 0,
+      "gate_id": "executionlab_benchmark",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "76055fdd39777522813c2f2da71409182e081ddef5e368145618829a4be77ed5",
+      "summary": "verified_cases=4 receipt_sha256=b96995ccb3c5b78ac6533f15e3f8ed6485462390d943bf89bbb1a7c21befdc36"
+    },
+    "lint": {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "."
+      ],
+      "elapsed_seconds": 0.025306,
+      "exit_code": 0,
+      "gate_id": "lint",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "summary": "All checks passed!"
+    },
+    "no_key_demo": {
+      "command": [
+        ".venv/bin/python",
+        "scripts/verify_no_key_demo.py"
+      ],
+      "elapsed_seconds": 2.114688,
+      "exit_code": 0,
+      "gate_id": "no_key_demo",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "235e064f043531ce0d82821287da59ad71f4b3cf1730d58beb1419bfffbdf7ff",
+      "summary": "verified=true credentials_present=0 network_attempts=0 cli=true api=true engines=7 claims=5 pack_sha256=e363424d7c92d7c14792430c28597b4beb7f399edfbb0078b4d8ab4bfde2a828"
+    },
+    "public_claim_registry": {
+      "command": [
+        ".venv/bin/python",
+        "scripts/build_public_claim_registry.py",
+        "--output",
+        "/var/folders/3v/r7kf44xn3gj9xg2tv31mq_mh0000gn/T/finreplay-quality-6fpdyslo/public-claims.json"
+      ],
+      "elapsed_seconds": 1.057043,
+      "exit_code": 0,
+      "gate_id": "public_claim_registry",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "23f283f064a515040f7f0fe0818bd973f83de7a1678156655a327742f33e7445",
+      "summary": "headline_claims=5 reports=31 public_claims=155 violations=0 registry_sha256=ac05c75a390d83457c985ec0c6330367e61906f94bff97fd79c281214fa05dcc"
+    },
+    "replaystudio_browser_receipt": {
+      "command": [
+        ".venv/bin/python",
+        "scripts/verify_replaystudio_browser_receipt.py"
+      ],
+      "elapsed_seconds": 0.801608,
+      "exit_code": 0,
+      "gate_id": "replaystudio_browser_receipt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "14d2a178e9dd19a7b38d3f53b59b070672e77a1453b3c4db3cb821b5e17a5afd",
+      "summary": "verified=true assertions=14 pack_sha256=e363424d7c92d7c14792430c28597b4beb7f399edfbb0078b4d8ab4bfde2a828 receipt_sha256=a2f130aa967d97bfae21cab9ad2919194736782a28b70389a91e28190ad25c64"
+    },
+    "replaystudio_reconstruction": {
+      "command": [
+        ".venv/bin/python",
+        "scripts/verify_replaystudio_golden.py"
+      ],
+      "elapsed_seconds": 0.882881,
+      "exit_code": 0,
+      "gate_id": "replaystudio_reconstruction",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "b16c0a3619cf6c5516ef25da092ad0e1541883dfd519841abad461df656a307b",
+      "summary": "verified=true engines=7 claims=5 trace_id=trace:1d61844b4593ebe6baf913bb780b94cdc51825d4de764864c7cdf80531c80f0d pack_sha256=e363424d7c92d7c14792430c28597b4beb7f399edfbb0078b4d8ab4bfde2a828 receipt_sha256=05d64a575a55e30be55dec35e3e7e1d990deb5a48a9c16af8d1db72d7b740467"
+    },
+    "scenario_catalog": {
+      "command": [
+        ".venv/bin/python",
+        "scripts/verify_scenario_catalog.py"
+      ],
+      "elapsed_seconds": 1.275734,
+      "exit_code": 0,
+      "gate_id": "scenario_catalog",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "527da0c64e1432bae2a985d906bd5522ba1807918df66838e3c4f0ce598a2bdb",
+      "summary": "}"
+    },
+    "test_collection": {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "--collect-only",
+        "-q"
+      ],
+      "elapsed_seconds": 2.786103,
+      "exit_code": 0,
+      "gate_id": "test_collection",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3f31ae66f42cc154384209f28f968a3522bb2a02eb08e57e50e440228b7d3521",
+      "summary": "2195 tests collected in 2.05s"
+    },
+    "tests": {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "--cov=finreplay",
+        "--cov-report=json:/var/folders/3v/r7kf44xn3gj9xg2tv31mq_mh0000gn/T/finreplay-quality-6fpdyslo/coverage.json",
+        "--cov-report=term"
+      ],
+      "elapsed_seconds": 73.665714,
+      "exit_code": 0,
+      "gate_id": "tests",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e0e6f4b0b54422851677c9145f776a31a4b6640862d33812a697541f34b2f7ab",
+      "summary": "======================= 2195 passed in 72.45s (0:01:12) ========================"
+    },
+    "typing": {
+      "command": [
+        ".venv/bin/mypy",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "elapsed_seconds": 0.430476,
+      "exit_code": 0,
+      "gate_id": "typing",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3c766f45cee99e3e22f248925cf808629a931c8dc5c8c8f690427297f00b4704",
+      "summary": "Success: no issues found in 381 source files"
+    }
+  },
+  "coverage": {
+    "branch_measurement_enabled": true,
+    "branch_only_percent_reported_for_context": 82.826012,
+    "branches": 5782,
+    "combined_percent": 90.480473,
+    "covered_branches": 4789,
+    "covered_lines": 16340,
+    "missing_branches": 993,
+    "missing_lines": 1230,
+    "required_combined_percent": 90.0,
+    "statements": 17570
+  },
+  "dependency_audit": {
+    "claim_boundary": "This is the pip-audit result at generated_at for the resolved local project dependencies. Vulnerability databases can change after this receipt.",
+    "known_vulnerability_count": 0,
+    "package_count": 26,
+    "packages": [
+      {
+        "name": "duckdb",
+        "version": "1.5.5"
+      },
+      {
+        "name": "httpx",
+        "version": "0.28.1"
+      },
+      {
+        "name": "networkx",
+        "version": "3.6.1"
+      },
+      {
+        "name": "numpy",
+        "version": "2.2.6"
+      },
+      {
+        "name": "pyarrow",
+        "version": "23.0.1"
+      },
+      {
+        "name": "pydantic",
+        "version": "2.13.4"
+      },
+      {
+        "name": "pydantic-core",
+        "version": "2.46.4"
+      },
+      {
+        "name": "pypdf",
+        "version": "6.16.1"
+      },
+      {
+        "name": "rich",
+        "version": "14.3.4"
+      },
+      {
+        "name": "scipy",
+        "version": "1.18.0"
+      },
+      {
+        "name": "typer",
+        "version": "0.27.1"
+      },
+      {
+        "name": "xlrd",
+        "version": "2.0.2"
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9"
+      },
+      {
+        "name": "pygments",
+        "version": "2.20.0"
+      },
+      {
+        "name": "pytz",
+        "version": "2026.3.post1"
+      },
+      {
+        "name": "annotated-doc",
+        "version": "0.0.5"
+      },
+      {
+        "name": "annotated-types",
+        "version": "0.8.0"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      {
+        "name": "markdown-it-py",
+        "version": "4.2.0"
+      },
+      {
+        "name": "mdurl",
+        "version": "0.1.2"
+      },
+      {
+        "name": "shellingham",
+        "version": "1.5.4"
+      },
+      {
+        "name": "typing-extensions",
+        "version": "4.16.0"
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.4"
+      },
+      {
+        "name": "anyio",
+        "version": "4.14.2"
+      },
+      {
+        "name": "idna",
+        "version": "3.18"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.7.22"
+      }
+    ],
+    "tool": "pip-audit"
+  },
+  "evidence_kind": "clean_commit_internal_quality_gate_run",
+  "generated_at": "2026-08-15T05:39:04.535767Z",
+  "product_and_reproducibility": {
+    "all_five_evidence_labels_verified": true,
+    "billion_row_benchmark_bound_by_full_test_suite": true,
+    "cli_passed": true,
+    "fixed_benchmark_receipts_verified": true,
+    "fresh_static_pack_and_zip_reconstruction_passed": true,
+    "no_key_no_network_demo_passed": true,
+    "public_claim_registry_rebuilt_byte_identically": true,
+    "python_api_passed": true,
+    "responsive_accessibility_browser_receipt_verified": true,
+    "scenario_catalog_verified": true
+  },
+  "receipt_sha256": "11f370d7f6737c8cf963b7e88be823b37d339a46602e1ab49502c3afeb8e0003",
+  "runtime": {
+    "logical_cpu_count": 10,
+    "machine": "arm64",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python_command": ".venv/bin/python",
+    "python_implementation": "CPython",
+    "python_version": "3.12.13"
+  },
+  "schema_version": "1.0.0",
+  "secret_and_privacy_scan": {
+    "claim_boundary": "This deterministic local scan checks current Git-tracked UTF-8 text for a bounded set of high-confidence credential formats, credential-bearing URLs, private-key headers, and local macOS user paths. It never writes matched text to output. It is not a replacement for full-history gitleaks, provider-side revocation, binary-file inspection, or an independent security audit.",
+    "clean": true,
+    "findings": [],
+    "rule_ids": [
+      "private_key_pem",
+      "aws_access_key",
+      "github_token",
+      "openai_api_key",
+      "slack_token",
+      "google_api_key",
+      "stripe_live_key",
+      "credential_in_url",
+      "local_user_absolute_path"
+    ],
+    "scan_sha256": "8dd8d6a4865e81c4a65e443b515eb1aef215234f54bbb25e231c29a0222a72d4",
+    "scanned_text_bytes": 13888021,
+    "scanned_text_file_count": 1407,
+    "scanner_path": "src/finreplay/security.py",
+    "scanner_sha256": "671adc4a5f0e1a8e9d79854d899e1d8871cf8f7354034b84bfc3a19efc6ffd03",
+    "schema_version": "1.0.0",
+    "skipped_binary_file_count": 3,
+    "tracked_file_count": 1410,
+    "tracked_text_set_sha256": "d0d9ed49cee76de42c2165b8acdf9d20e5d8ffe3df6112d2410ea8cafd91c5a5"
+  },
+  "security_ci": {
+    "codeql": "configured_as_pinned_GitHub_Action_not_executed_locally_in_this_receipt",
+    "dependency_review": "configured_as_pinned_GitHub_Action_for_pull_requests_not_executed_locally",
+    "gitleaks": "configured_as_pinned_GitHub_Action_not_executed_locally_in_this_receipt"
+  },
+  "subject": {
+    "clean_worktree_before_run": true,
+    "code_revision": "9166305ee3fae6fc1c6ccd01ae4a80d5abfb6f24",
+    "commit_time": "2026-08-15T13:38:56+08:00",
+    "tree_sha256": "ff9e5fba71fa500471a37e1e59a48101607d2de9"
+  },
+  "subject_artifacts": [
+    {
+      "bytes": 1158,
+      "path": ".github/workflows/security.yml",
+      "sha256": "337fb6b036de75a49cf91c735092cc83785e85bf70b68c5665a32e8c575a49f0"
+    },
+    {
+      "bytes": 1651,
+      "path": ".github/workflows/verify.yml",
+      "sha256": "2f7551b5976f05a587b16810026462f6c6e06dba450216ce8494faa8c2340ef3"
+    },
+    {
+      "bytes": 2460,
+      "path": "pyproject.toml",
+      "sha256": "40d2f158f4fd6c831f11ad89c6d9d26409597e3b4e51f3f463323f1b09e459fd"
+    },
+    {
+      "bytes": 15898,
+      "path": "scripts/run_internal_quality_gates.py",
+      "sha256": "bf8a53cbbe0ea702c42d8f109f1bf8355070512323021dffabae5e9bdc63bd28"
+    },
+    {
+      "bytes": 1266,
+      "path": "scripts/scan_tracked_secrets.py",
+      "sha256": "6b73f6520151c1ee9409b50d2d31ba65324fe7a9aea46fc6df7f7e547a2a3fb0"
+    },
+    {
+      "bytes": 3512,
+      "path": "scripts/verify_no_key_demo.py",
+      "sha256": "db99198e01c2e07e7851a9bf9aae7fd5f8ad5f5f6de2ecc7f39a3fd9ddeac1c7"
+    },
+    {
+      "bytes": 1461,
+      "path": "src/finreplay/api.py",
+      "sha256": "c34b7a7259f524ba23e3f1bd504e2a3f06c6af212980ff41cdf10c2868f92214"
+    },
+    {
+      "bytes": 4691,
+      "path": "src/finreplay/security.py",
+      "sha256": "671adc4a5f0e1a8e9d79854d899e1d8871cf8f7354034b84bfc3a19efc6ffd03"
+    },
+    {
+      "bytes": 22703,
+      "path": "verification/claims/public-claims.json",
+      "sha256": "73b5d232c0a84e5e7ae1e7399bca8345c8600635efa9f418fff0ea4ceff1eb29"
+    },
+    {
+      "bytes": 24830,
+      "path": "verification/evidence/capitalallocator-benchmark.json",
+      "sha256": "ec6f5003ab1b61e4b46bd840c8a37d9a767f0e4646d9d00d311f182216a59b02"
+    },
+    {
+      "bytes": 15842,
+      "path": "verification/evidence/executionlab-golden.json",
+      "sha256": "1b74f757816b812f7a2063307876a66c13f422f09893463941c82708d5f45a32"
+    },
+    {
+      "bytes": 2841,
+      "path": "verification/evidence/replaystudio-browser-check.json",
+      "sha256": "d9d7d05d3fdc82ff38ca98a263aa03ef3b58f5951b331d6ec454fac41b560dc0"
+    },
+    {
+      "bytes": 44877,
+      "path": "verification/scale/sec-edgar/latest-query-benchmark-receipt.json",
+      "sha256": "b1c18ac1228a9f45259e846383e4ed8dc965f3fb932e119b6492b97b500c2d8b"
+    },
+    {
+      "bytes": 19459,
+      "path": "verification/scenarios/latest-summary.json",
+      "sha256": "527da0c64e1432bae2a985d906bd5522ba1807918df66838e3c4f0ce598a2bdb"
+    }
+  ],
+  "tests": {
+    "collected": 2195,
+    "failed": 0,
+    "node_ids_sha256": "aaa7de1c8334dc154e67b8234429f5e12def13c165d767ff4d2e128067dd20dc",
+    "passed": 2195,
+    "representative_hostile_and_interface_test_counts": {
+      "cli_build_verify": 1,
+      "hostile_archive_and_expansion_limits": 18,
+      "hostile_csv_container_and_schema": 4,
+      "hostile_json_and_content_type": 1,
+      "no_key_no_network_demo": 1,
+      "python_api_build_verify": 1,
+      "unsafe_archive_paths": 5
+    },
+    "required_test_threshold": 100,
+    "test_files": 91
+  }
+}
