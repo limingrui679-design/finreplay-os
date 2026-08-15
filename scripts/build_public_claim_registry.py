@@ -251,6 +251,12 @@ def _claim(
 
 
 def _public_text_paths(repository: Path) -> list[Path]:
+    public_web_sources = {
+        "web/README.md",
+        "web/app/layout.tsx",
+        "web/app/page.tsx",
+        "web/public/review/finreplay-review-manifest.json",
+    }
     tracked = subprocess.run(
         ["git", "ls-files", "-z"],
         cwd=repository,
@@ -268,7 +274,7 @@ def _public_text_paths(repository: Path) -> list[Path]:
         ) or (
             relative.startswith("verification/replaypacks/")
             and path.suffix in {".md", ".html", ".json"}
-        ):
+        ) or relative in public_web_sources:
             paths.append(path)
     return sorted(paths)
 

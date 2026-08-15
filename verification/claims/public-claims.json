@@ -13,12 +13,12 @@
       "real_client_use",
       "real_user_adoption"
     ],
-    "scanned_text_file_count": 165,
-    "scanned_text_set_sha256": "5bf6ebdd7442947a379d93e432e215ce004de222cd26c763f3d550da9ee4767a",
+    "scanned_text_file_count": 169,
+    "scanned_text_set_sha256": "1a99a928d01333d5c0ba209b8cde6eeb080c009bbb7e7bf6163bde4f7005cbf5",
     "violations": []
   },
   "builder_path": "scripts/build_public_claim_registry.py",
-  "builder_sha256": "b7bd4e3466031abd56aa5456bcd609324d79a7eee9cdd89e2fa799ab282d9dea",
+  "builder_sha256": "d5e260c6820891e2e2343bc2a72ab1e39052b0bf80606dd1b3e1351258bb52d1",
   "claim_boundary": "This registry binds the README's headline quantitative claims to committed machine evidence and revalidates every structured ReplayPack claim against its support artifact and evidence class. The text scan rejects a bounded set of affirmative deployment, client, performance, validation, and adoption phrases; it is not a general natural-language proof and cannot establish external review, deployment, adoption, users, financial performance, or real-world impact.",
   "headline_claims": [
     {
@@ -63,7 +63,7 @@
     }
   ],
   "registry_kind": "public_claim_traceability_and_inflation_guard",
-  "registry_sha256": "4bc8cd49f5d45de1a6b019b4c5fe4d34b043d81f52508774f652fc2011ae20a6",
+  "registry_sha256": "ff19326929cb2bc85a3bd716e65cd4f30bfed12efe23d961ecdfbc80e6e97892",
   "replaypack_surface": {
     "evidence_classes": [
       "extracted",
