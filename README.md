@@ -48,6 +48,7 @@ The command must reproduce pack hash
 | Official-source validation | 30 live-validated formal adapters, each with a temporal-coverage label and receipt |
 | Scenario runners | 30/30 internally replay-proven bounded scenarios with installable input locks |
 | Scale path | 244 continuous SEC EDGAR daily partitions with 1,014,736,394 exact physical CSV rows in the committed scale manifest |
+| Clean quality gate | 2,212/2,212 tests passed with 90.184801% branch-aware combined coverage on commit `e8118983b260` |
 | Public demo and external review | Public demo achieved; independent review pending |
 
 The [acceptance matrix](docs/verification/acceptance-matrix.md) defines each completion rule. The

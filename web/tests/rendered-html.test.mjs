@@ -40,7 +40,7 @@ test("server-renders the FinReplay evidence surface", async () => {
   assert.match(html, /<title>FinReplay OS · Evidence before confidence<\/title>/i);
   assert.match(html, /Put the market back in time/);
   assert.match(html, /1\.014B/);
-  assert.match(html, /2,199 \/ 2,199/);
+  assert.match(html, /2,212 \/ 2,212/);
   assert.match(html, /Thirty boundaries/);
   assert.match(html, /The final gate cannot be self-awarded/);
   assert.match(html, /finreplay-os-e150136\.zip/);

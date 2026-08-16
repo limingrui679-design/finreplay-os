@@ -217,15 +217,15 @@ fresh-archive reconstruction; fixed-version benchmarks; usable CLI/API; responsi
 read-only ReplayStudio; exportable reports; and visible simulation/evidence labels.
 
 Current status: **PROVEN internally.** The self-hashed
-`verification/evidence/internal-quality-gates.json` receipt binds a clean `b0c9619d9623` subject
-commit and records 2,202/2,202 passing tests across 94 files. Coverage.py ran with branch
-measurement enabled and reported 90.480473% combined statement-plus-branch coverage; the distinct
-branch-only rate is disclosed as 82.826012% rather than being relabelled. Ruff and strict mypy
-passed. Pip-audit checked 68 installed third-party packages across the complete resolved environment,
+`verification/evidence/internal-quality-gates.json` receipt binds a clean `e8118983b260` subject
+commit and records 2,212/2,212 passing tests across 97 files. Coverage.py ran with branch
+measurement enabled and reported 90.184801% combined statement-plus-branch coverage; the distinct
+branch-only rate is disclosed as 82.503434% rather than being relabelled. Ruff and strict mypy
+passed. Pip-audit checked 82 installed third-party packages across the complete resolved environment,
 including pip and development tooling, with zero known vulnerabilities at the recorded time. The
 editable local `finreplay-os` package is separately recorded as one skipped item because it has no
 PyPI advisory coordinate; its code is instead covered by the recorded tests, typing, lint, and scans.
-The non-disclosing local scanner checked 1,441 tracked text files and 14,342,265 UTF-8 bytes with zero
+The non-disclosing local scanner checked 1,502 tracked text files and 14,956,120 UTF-8 bytes with zero
 credential/privacy-path findings; pinned gitleaks, CodeQL, and dependency-review workflows are
 recorded as configured but not locally executed. The full run includes hostile ZIP expansion,
 CSV/container/schema, JSON/content-type and unsafe-path cases; a credentials-removed, socket-denied

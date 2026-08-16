@@ -26,7 +26,7 @@ const artifacts = [
   ["Scale manifest", "c5ba416aa05e…2697", "244 official daily SEC partitions"],
   ["Deep verification", "a1c5ce99c643…0aae", "Every ZIP, CSV, and Parquet partition re-read"],
   ["Query benchmark", "1e9e85a97942…67f1", "Two fresh processes; OS cache uncontrolled"],
-  ["Quality receipt", "c14880d7b7f7…acb8", "2,199 clean-subject tests in the recorded receipt"],
+  ["Quality receipt", "888e6c2a9f27…0f1e", "2,212 clean-subject tests in the recorded receipt"],
   ["Public pack manifest", "a549ebb5d997…7494", "30 downloadable deterministic ReplayPacks"],
 ];
 
@@ -95,8 +95,8 @@ export default function Home() {
           <h2 id="evidence-title">Internally proven.<br /><em>Externally unfinished.</em></h2>
         </div>
         <dl>
-          <div><dt>Recorded clean-checkout tests</dt><dd>2,199 / 2,199</dd></div>
-          <div><dt>Branch-aware combined coverage</dt><dd>90.48%</dd></div>
+          <div><dt>Recorded clean-checkout tests</dt><dd>2,212 / 2,212</dd></div>
+          <div><dt>Branch-aware combined coverage</dt><dd>90.18%</dd></div>
           <div><dt>Known dependency findings</dt><dd>0</dd></div>
           <div><dt>Downloadable scenario packs</dt><dd>30 / 30</dd></div>
           <div><dt>Independent review</dt><dd className="pending">Pending</dd></div>
