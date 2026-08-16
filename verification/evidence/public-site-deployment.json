@@ -9,49 +9,52 @@
     "review_archive_http_200": true,
     "review_archive_sha256_matches_manifest": true,
     "review_manifest_http_200": true,
+    "scenario_detail_routes_http_200": true,
+    "scenario_downloads_http_200": true,
+    "scenario_downloads_match_manifest": true,
     "sites_source_tree_matches_parent_web_tree": true
   },
-  "claim_boundary": "This receipt proves that Sites version 2 was successfully deployed to the existing public production URL, returned HTTP 200 to an anonymous request, exposed the fixed GitHub source link, and served the recorded review manifest and SHA-256-bound review ZIP at the recorded time. It binds the Sites source tree to repository commit bb45fe5da2c2. It does not prove continuous uptime, independent review, security or accessibility certification, users, adoption, investment performance, or real-world impact.",
+  "claim_boundary": "This receipt proves that Sites version 3 was successfully deployed to the existing public production URL, returned HTTP 200 to an anonymous request, exposed the fixed GitHub source link, and served the recorded review artifacts plus 30 manifest-bound scenario pages and downloads at the recorded time. It binds the Sites source tree to repository commit 6bdb48825581. It does not prove continuous uptime, independent review, security or accessibility certification, users, adoption, investment performance, or real-world impact.",
   "evidence_kind": "public_site_production_deployment",
-  "recorded_at": "2026-08-15T10:34:42Z",
-  "schema_version": "1.1.0",
+  "recorded_at": "2026-08-16T12:34:20.059801Z",
+  "schema_version": "1.2.0",
   "site": {
     "access_mode": "public",
     "access_policy_revision": 2,
     "access_updated_at": "2026-08-15T09:29:27.271625Z",
-    "deployment_completed_at": "2026-08-15T10:31:27.017673Z",
-    "deployment_id": "appgdep_6a803ff42d308191bf4d3fab7299a37a",
+    "deployment_completed_at": "2026-08-16T12:29:35.875499Z",
+    "deployment_id": "appgdep_6a81ad17d230819186fe4bcf09f8c551",
     "deployment_status": "succeeded",
     "project_id": "appgprj_6a8002cc2d308191a2cf9478863ce83e",
     "public_url": "https://finreplay-evidence.limingrui2.chatgpt.site",
     "slug": "finreplay-evidence",
     "title": "FinReplay OS Evidence",
-    "version_id": "appgprj_6a8002cc2d308191a2cf9478863ce83e~appgver_1f1a1d7c91dc819196e8ad4ee7d2aae5",
-    "version_number": 2
+    "version_id": "appgprj_6a8002cc2d308191a2cf9478863ce83e~appgver_164cdf0e1b18819182230a5e9680e40a",
+    "version_number": 3
   },
   "source_binding": {
-    "parent_repository_commit": "bb45fe5da2c2e5aa994fb8696efc4d7230198a05",
-    "site_source_commit": "b3b011259f96dd54ecf2384380ceb1457360db8b",
-    "site_source_tree_git_oid": "ce30f2070d309e71f82a414cd6eb880ed9a9bad9",
+    "parent_repository_commit": "6bdb488255819024058f836b489b0b21525069e6",
+    "site_source_commit": "8d235dd2d8804d7734bfd05a24ac22b874853458",
+    "site_source_tree_git_oid": "4a9664c6c2403e5e1a48256195a1779beaa77384",
     "saved_version_archive_storage": {
       "archive_format": "tar",
-      "content_hash": "sha256:6c7a72401bfa892ce9113de217ae5b1f07f2d663a2b5a4496cda790dd247d5f7",
-      "file_count": 35,
-      "size_bytes": 9441280
+      "content_hash": "sha256:4300f42bbdaa46701191ccb569a3d1fbe37173cdb504d6664d88ab01622ae998",
+      "file_count": 69,
+      "size_bytes": 10526720
     }
   },
   "verification": {
     "anonymous_http_status": 200,
-    "anonymous_http_verified_at": "2026-08-15T10:34:42Z",
+    "anonymous_http_verified_at": "2026-08-16T12:34:20.059801Z",
     "required_markers": [
       "FinReplay OS",
       "Independent review",
-      "2,199 / 2,199",
+      "2,212 / 2,212",
       "e150136dc0a2",
       "github.com/limingrui679-design/finreplay-os/tree/e150136dc0a2"
     ],
-    "response_body_bytes": 30371,
-    "response_body_sha256": "38b640d041012954fa8d72e3663ca30eec6db68a59c8239fd38be041ad953ab2",
+    "response_body_bytes": 32962,
+    "response_body_sha256": "e134b20688d90950e0064d5d0170a0993f01605875081e8f98f43a542069e8c1",
     "review_archive": {
       "anonymous_http_status": 200,
       "bytes": 6673935,
@@ -65,5 +68,20 @@
       "url": "https://finreplay-evidence.limingrui2.chatgpt.site/review/finreplay-review-manifest.json"
     }
   },
-  "receipt_sha256": "a9f35c0e6e844ba80855350def674831714bdd258b97550f4e304a0d2671a016"
+  "scenario_surface": {
+    "detail_routes_http_200": 30,
+    "details_bind_pack_hash": true,
+    "downloads_http_200": 30,
+    "downloads_match_manifest": true,
+    "manifest": {
+      "anonymous_http_status": 200,
+      "bytes": 12434,
+      "manifest_sha256": "a549ebb5d99708cc03b4b076fcc7638cf8267fc4e167cabe6e90a13e5b7e7494",
+      "sha256": "b0352d3d3932699f0054ba2a0c73ad4ca6943bfe44ce1edcd1450a74b716425b",
+      "url": "https://finreplay-evidence.limingrui2.chatgpt.site/replaypacks/manifest.json"
+    },
+    "observed_archive_set_sha256": "32d3f37717714c20ea6abc0d505414cce72f0909b85393d7509303a421972635",
+    "scenario_count": 30
+  },
+  "receipt_sha256": "fb00fa38962d2273b017b738d793ecc2c486dd42b82d99370074fd0346419b35"
 }

@@ -268,22 +268,24 @@ bound to commit `e150136dc0a2`, excludes prior packaged review ZIPs, and include
 GitHub source link, plus a strict independent-review protocol and completed-record
 schema.
 
-Sites version 2 is publicly deployed at
+Sites version 3 is publicly deployed at
 `https://finreplay-evidence.limingrui2.chatgpt.site`. The separate self-hashed
 `verification/evidence/public-site-deployment.json` receipt binds Sites source commit
-`b3b011259f96dd54ecf2384380ceb1457360db8b` to the `web/` tree at repository commit
-`bb45fe5da2c2e5aa994fb8696efc4d7230198a05`, records the successful production deployment and
-unchanged public access, and verifies anonymous HTTP 200 for the page, review manifest, and
-SHA-256-bound review ZIP. That proves the public-demo
+`8d235dd2d8804d7734bfd05a24ac22b874853458` to the `web/` tree at repository commit
+`6bdb488255819024058f836b489b0b21525069e6`, records the successful production deployment and
+unchanged public access, and verifies anonymous HTTP 200 for the page, review manifest,
+SHA-256-bound review ZIP, 30 scenario detail routes, and 30 manifest-bound downloads. That proves the public-demo
 half only at the recorded time. Independent review remains false, so gate G remains incomplete and
 awards no points under the all-or-nothing scoring rule.
 
 The complete repository history is also public at
 `https://github.com/limingrui679-design/finreplay-os`. The self-hashed
-`verification/evidence/public-github-release.json` receipt binds the public `main` ref, fixed-commit
-raw README, and fixed-commit source ZIP to release commit `0db9d1baa9cd`; it also confirms that
-`51a52337ce4e` is an ancestor in the published history. Public source availability improves
-independent reproducibility but is not itself an independent reproduction or review.
+`verification/evidence/public-github-release.json` receipt binds the public `main` ref and
+fixed-commit source checks to commit `6bdb48825581`; it also binds prerelease `v0.1.0a1` at
+`3a25fe1b017b` to an anonymously downloadable wheel, source distribution, and checksum file, while
+confirming that `51a52337ce4e` remains an ancestor in the published history. Public source and package
+availability improve independent reproducibility but are not themselves an independent reproduction
+or review.
 
 The public repository now also supplies an Independent review report Issue form, a completed-record
 directory, a Draft 2020-12 Schema validator with Git-history and timestamp checks, and CI catalog

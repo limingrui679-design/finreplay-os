@@ -14,7 +14,7 @@
       "real_user_adoption"
     ],
     "scanned_text_file_count": 180,
-    "scanned_text_set_sha256": "3439e41e70148a5d2a1e11f60e9d1fb044bb849bcad5fd1d53210bb581a1cd77",
+    "scanned_text_set_sha256": "c946c46253508d20844275b34d0face1b95e57761d968e44b307870ca9d2493b",
     "violations": []
   },
   "builder_path": "scripts/build_public_claim_registry.py",
@@ -65,11 +65,11 @@
   "public_github_release": {
     "default_branch": "main",
     "evidence_path": "verification/evidence/public-github-release.json",
-    "evidence_sha256": "1b25b9ea2d552a2e6dd59a883a118fb44e7ebeb9c2dd626fe8b6e4e1727b87e1",
+    "evidence_sha256": "080a9913bc25e67edc6c901457b4c962dc7662a1b06230396dab68ad037eef83",
     "independent_review_completed": false,
-    "published_head_commit": "0db9d1baa9cd94aef2f888463f6338cef8b9722f",
+    "published_head_commit": "6bdb488255819024058f836b489b0b21525069e6",
     "raw_readme_http_status": 200,
-    "receipt_sha256": "e696109b0877a58a82bb051a05e735eb5d5b28728ed0204c4bec273cf94aa6ac",
+    "receipt_sha256": "a81b17d95d51dc508008429296501f899eb8e5f6468b7bc89158214c8c0d625e",
     "repository_url": "https://github.com/limingrui679-design/finreplay-os",
     "requested_source_commit": "51a52337ce4ed485333fba1c21c8132692b9801e",
     "source_archive_http_status": 200,
@@ -80,14 +80,14 @@
     "anonymous_http_status": 200,
     "deployment_status": "succeeded",
     "evidence_path": "verification/evidence/public-site-deployment.json",
-    "evidence_sha256": "89cf209e505b34f21f40d95a2773412fc14b986a6f8f68c4abea8d94b08d2ab1",
+    "evidence_sha256": "63499f3cee7721443efc17bbe162d256b297899df2b300d3e557a42b0cae9b16",
     "independent_review_completed": false,
     "public_url": "https://finreplay-evidence.limingrui2.chatgpt.site",
-    "receipt_sha256": "a9f35c0e6e844ba80855350def674831714bdd258b97550f4e304a0d2671a016",
-    "sites_version_number": 2
+    "receipt_sha256": "fb00fa38962d2273b017b738d793ecc2c486dd42b82d99370074fd0346419b35",
+    "sites_version_number": 3
   },
   "registry_kind": "public_claim_traceability_and_inflation_guard",
-  "registry_sha256": "083466e67ef2454b74cd7fcd81c7526fec662fdde3c07890279f005d3bd5714d",
+  "registry_sha256": "b052f2ff74816f6c2bb0904b4f3c644dd34e3f17ee45d45365f443afae31be24",
   "replaypack_surface": {
     "evidence_classes": [
       "extracted",

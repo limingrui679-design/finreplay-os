@@ -4,43 +4,98 @@
     "anonymous_raw_readme_http_200": true,
     "anonymous_source_archive_http_200": true,
     "default_branch_is_main": true,
+    "github_release_assets_http_200": true,
+    "github_release_checksums_match": true,
+    "github_release_is_prerelease": true,
+    "github_release_workflow_succeeded": true,
     "public_visibility": true,
+    "repository_discovery_metadata_present": true,
     "requested_source_commit_is_published_ancestor": true,
-    "source_archive_integrity_passed": true
+    "source_archive_integrity_passed": true,
+    "version_tag_resolves_to_package_release": true
   },
-  "claim_boundary": "This receipt proves that the public GitHub repository exposed release commit 0db9d1baa9cd on main, retained requested Sites source commit 51a52337ce4e in its history, and returned anonymous HTTP 200 responses for a fixed-commit README and source ZIP whose recorded hashes and ZIP integrity passed at the recorded time. It does not prove continuous availability, independent review, source authenticity beyond the committed evidence, security certification, users, adoption, investment performance, or real-world impact.",
+  "claim_boundary": "This receipt proves that the public GitHub repository exposed commit 6bdb48825581 on main, retained requested Sites source commit 51a52337ce4e in its history, published prerelease v0.1.0a1 from commit 3a25fe1b017b, and returned anonymous HTTP 200 responses for fixed-commit source artifacts plus the wheel, source distribution, and checksum file whose recorded hashes passed at the recorded time. It does not prove continuous availability, independent review, source authenticity beyond the committed evidence, security certification, PyPI publication, users, adoption, investment performance, or real-world impact.",
   "evidence_kind": "public_github_repository_release",
-  "recorded_at": "2026-08-15T10:40:57Z",
+  "recorded_at": "2026-08-16T12:36:47Z",
+  "release": {
+    "assets": [
+      {
+        "anonymous_http_status": 200,
+        "bytes": 198,
+        "name": "SHA256SUMS",
+        "sha256": "73359245ab07f33c8f093b5ea29b7df8c26457d8f859edf3e57fe5b057b3a0d5",
+        "url": "https://github.com/limingrui679-design/finreplay-os/releases/download/v0.1.0a1/SHA256SUMS"
+      },
+      {
+        "anonymous_http_status": 200,
+        "bytes": 689323,
+        "name": "finreplay_os-0.1.0a1-py3-none-any.whl",
+        "sha256": "14489fb6ff8e65d637df167979ef99dfa41defc43b38284fe72208360adbab56",
+        "url": "https://github.com/limingrui679-design/finreplay-os/releases/download/v0.1.0a1/finreplay_os-0.1.0a1-py3-none-any.whl"
+      },
+      {
+        "anonymous_http_status": 200,
+        "bytes": 529777,
+        "name": "finreplay_os-0.1.0a1.tar.gz",
+        "sha256": "403d11f8795ed98f50e9fbcd281956817d8f49e1977fc9297c46c98ed5dcb85a",
+        "url": "https://github.com/limingrui679-design/finreplay-os/releases/download/v0.1.0a1/finreplay_os-0.1.0a1.tar.gz"
+      }
+    ],
+    "checksums_match": true,
+    "draft": false,
+    "html_url": "https://github.com/limingrui679-design/finreplay-os/releases/tag/v0.1.0a1",
+    "name": "FinReplay OS v0.1.0a1",
+    "prerelease": true,
+    "published_at": "2026-08-16T11:55:04Z",
+    "release_id": 371312315,
+    "tag_name": "v0.1.0a1",
+    "workflow_conclusion": "success",
+    "workflow_run_id": 31945582500,
+    "workflow_url": "https://github.com/limingrui679-design/finreplay-os/actions/runs/31945582500"
+  },
   "release_binding": {
-    "published_head_commit": "0db9d1baa9cd94aef2f888463f6338cef8b9722f",
-    "remote_main_ref_at_verification": "0db9d1baa9cd94aef2f888463f6338cef8b9722f",
-    "requested_source_commit": "51a52337ce4ed485333fba1c21c8132692b9801e"
+    "package_release_commit": "3a25fe1b017bd1fef0adf55151035591a1c66356",
+    "published_head_commit": "6bdb488255819024058f836b489b0b21525069e6",
+    "remote_main_ref_at_verification": "6bdb488255819024058f836b489b0b21525069e6",
+    "requested_source_commit": "51a52337ce4ed485333fba1c21c8132692b9801e",
+    "version_tag": "v0.1.0a1"
   },
   "repository": {
     "clone_url": "https://github.com/limingrui679-design/finreplay-os.git",
     "default_branch": "main",
     "full_name": "limingrui679-design/finreplay-os",
+    "homepage": "https://finreplay-evidence.limingrui2.chatgpt.site/",
     "html_url": "https://github.com/limingrui679-design/finreplay-os",
     "repository_id": 1334966586,
+    "topics": [
+      "backtesting",
+      "evidence",
+      "financial-data",
+      "point-in-time-data",
+      "python",
+      "quantitative-finance",
+      "reproducible-research",
+      "systemic-risk"
+    ],
     "visibility": "public"
   },
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "verification": {
     "raw_readme": {
       "anonymous_http_status": 200,
-      "bytes": 45173,
-      "sha256": "2f3eb19c54f78ef47a5468e4806b1d28c23d78fffb649de6cda594eb23421a2c",
-      "url": "https://raw.githubusercontent.com/limingrui679-design/finreplay-os/0db9d1baa9cd94aef2f888463f6338cef8b9722f/README.md"
+      "bytes": 8573,
+      "sha256": "4998bd71bfc784aeb0a7f1a07b62a93e6d5e1b623d622954780c0fc4408e5c90",
+      "url": "https://raw.githubusercontent.com/limingrui679-design/finreplay-os/6bdb488255819024058f836b489b0b21525069e6/README.md"
     },
     "source_archive": {
       "anonymous_http_status": 200,
-      "archive_root": "finreplay-os-0db9d1baa9cd94aef2f888463f6338cef8b9722f/",
-      "bytes": 12915215,
-      "sha256": "4a0baf086278056d6e64b68e0d15a39f3295357abdca7d8c0b694ba3907389be",
-      "url": "https://github.com/limingrui679-design/finreplay-os/archive/0db9d1baa9cd94aef2f888463f6338cef8b9722f.zip",
+      "archive_root": "finreplay-os-6bdb488255819024058f836b489b0b21525069e6/",
+      "bytes": 13675298,
+      "sha256": "30874cf87be6ac870b843eb2072b8b6d6d800f8a22d40010a4d65a0ddd41a825",
+      "url": "https://github.com/limingrui679-design/finreplay-os/archive/6bdb488255819024058f836b489b0b21525069e6.zip",
       "zip_integrity_passed": true
     },
-    "verified_at": "2026-08-15T10:40:57Z"
+    "verified_at": "2026-08-16T12:34:20.059801Z"
   },
-  "receipt_sha256": "e696109b0877a58a82bb051a05e735eb5d5b28728ed0204c4bec273cf94aa6ac"
+  "receipt_sha256": "a81b17d95d51dc508008429296501f899eb8e5f6468b7bc89158214c8c0d625e"
 }

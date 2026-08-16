@@ -41,6 +41,9 @@ def main() -> None:
         raise SystemExit("public site deployment gates did not all pass")
     if not all(payload["assertions"].values()):
         raise SystemExit("public site deployment receipt contains a failed assertion")
+    schema_version = payload.get("schema_version")
+    if schema_version not in {"1.1.0", "1.2.0"}:
+        raise SystemExit("public site deployment receipt schema version is unsupported")
 
     site = payload["site"]
     if site["project_id"] != EXPECTED_PROJECT_ID:
@@ -89,6 +92,30 @@ def main() -> None:
             raise SystemExit(f"recorded public review {name} status is not 200")
         if artifact["bytes"] <= 0 or len(artifact["sha256"]) != 64:
             raise SystemExit(f"recorded public review {name} metadata is invalid")
+    scenario_surface_value = payload.get("scenario_surface")
+    scenario_surface: dict[str, Any] = (
+        scenario_surface_value if isinstance(scenario_surface_value, dict) else {}
+    )
+    if schema_version == "1.2.0":
+        if not scenario_surface:
+            raise SystemExit("public scenario surface metadata is missing")
+        if (
+            scenario_surface.get("scenario_count") != 30
+            or scenario_surface.get("detail_routes_http_200") != 30
+            or scenario_surface.get("downloads_http_200") != 30
+            or scenario_surface.get("downloads_match_manifest") is not True
+            or scenario_surface.get("details_bind_pack_hash") is not True
+        ):
+            raise SystemExit("public scenario surface counts or bindings differ")
+        scenario_manifest = scenario_surface.get("manifest")
+        if (
+            not isinstance(scenario_manifest, dict)
+            or scenario_manifest.get("anonymous_http_status") != 200
+            or scenario_manifest.get("bytes", 0) <= 0
+            or len(scenario_manifest.get("sha256", "")) != 64
+            or len(scenario_manifest.get("manifest_sha256", "")) != 64
+        ):
+            raise SystemExit("public scenario manifest metadata is invalid")
 
     live_detail = ""
     if args.live:
@@ -124,6 +151,24 @@ def main() -> None:
         with zipfile.ZipFile(io.BytesIO(archive_body)) as handle:
             if handle.testzip() is not None:
                 raise SystemExit("live public review archive failed ZIP integrity")
+        if schema_version == "1.2.0":
+            scenario_manifest_body, scenario_manifest_status = _fetch(
+                scenario_surface["manifest"]["url"]
+            )
+            if (
+                scenario_manifest_status != 200
+                or len(scenario_manifest_body) != scenario_surface["manifest"]["bytes"]
+                or hashlib.sha256(scenario_manifest_body).hexdigest()
+                != scenario_surface["manifest"]["sha256"]
+            ):
+                raise SystemExit("live public scenario manifest differs from receipt")
+            scenario_payload = json.loads(scenario_manifest_body)
+            if (
+                scenario_payload.get("scenario_count") != 30
+                or scenario_payload.get("manifest_sha256")
+                != scenario_surface["manifest"]["manifest_sha256"]
+            ):
+                raise SystemExit("live public scenario manifest count or self-hash differs")
         live_detail = (
             f" live_http_status={status} live_bytes={len(body)} "
             f"review_archive_bytes={len(archive_body)}"

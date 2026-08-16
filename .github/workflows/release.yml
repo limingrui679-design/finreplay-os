@@ -68,10 +68,15 @@ jobs:
         run: |
           cd dist
           sha256sum finreplay_os-* > SHA256SUMS
+          release_args=()
+          case "${GITHUB_REF_NAME}" in
+            *a[0-9]*|*b[0-9]*|*rc[0-9]*) release_args+=(--prerelease) ;;
+          esac
           gh release create "${GITHUB_REF_NAME}" ./* \
             --repo "${GITHUB_REPOSITORY}" \
             --title "FinReplay OS ${GITHUB_REF_NAME}" \
             --generate-notes \
+            "${release_args[@]}" \
             --verify-tag
 
   publish-pypi:
