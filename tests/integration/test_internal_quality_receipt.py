@@ -4,6 +4,7 @@ import hashlib
 import json
 import subprocess
 import sys
+import tomllib
 from pathlib import Path
 from typing import Any, cast
 
@@ -23,8 +24,27 @@ def test_internal_quality_receipt_is_self_hashed_and_subject_bound() -> None:
     assert payload["coverage"]["combined_percent"] >= 90.0
     assert payload["dependency_audit"]["known_vulnerability_count"] == 0
     if payload["schema_version"] == "1.1.0":
-        assert payload["dependency_audit"]["skipped_package_count"] == 1
-        assert payload["dependency_audit"]["skipped_packages"][0]["name"] == "finreplay-os"
+        skipped = payload["dependency_audit"]["skipped_packages"]
+        assert payload["dependency_audit"]["skipped_package_count"] == len(skipped)
+        assert len(skipped) <= 1
+        if skipped:
+            subject_pyproject = subprocess.run(
+                ["git", "show", f"{payload['subject']['code_revision']}:pyproject.toml"],
+                cwd=REPOSITORY,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout
+            subject_version = tomllib.loads(subject_pyproject)["project"]["version"]
+            assert skipped == [
+                {
+                    "name": "finreplay-os",
+                    "skip_reason": (
+                        "Dependency not found on PyPI and could not be audited: "
+                        f"finreplay-os ({subject_version})"
+                    ),
+                }
+            ]
     assert payload["secret_and_privacy_scan"]["clean"] is True
     assert all(payload["product_and_reproducibility"].values())
 

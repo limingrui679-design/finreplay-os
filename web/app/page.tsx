@@ -1,23 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
-type Tone = "boundary" | "inside" | "breach";
-
-type Scenario = {
-  id: number;
-  title: string;
-  publisher: string;
-  family: "Banking" | "Macro" | "Rates" | "Regulatory";
-  boundary: string;
-  result: string;
-  tone: Tone;
-};
+import { filters, scenarios, toneLabel } from "@/lib/scenarios";
 
 const metrics = [
   { value: "7", label: "connected engines", note: "one deterministic flow" },
   { value: "30", label: "official adapters", note: "live-validated" },
-  { value: "30", label: "boundary replays", note: "internally reproduced" },
+  { value: "30", label: "boundary replays", note: "offline runners + downloads" },
   { value: "1.014B", label: "physical SEC rows", note: "actually processed" },
 ];
 
@@ -31,47 +22,12 @@ const engines = [
   ["07", "ReplayStudio", "Exports deterministic, evidence-labelled human and machine reports."],
 ];
 
-const scenarios: Scenario[] = [
-  { id: 1, title: "SVB funding boundary", publisher: "SEC", family: "Banking", boundary: "2023-03-08", result: "7-engine flow · later 8-K isolated", tone: "boundary" },
-  { id: 2, title: "PacWest funding boundary", publisher: "SEC", family: "Banking", boundary: "2023-05-03", result: "Later filing isolated", tone: "boundary" },
-  { id: 3, title: "Western Alliance deposit boundary", publisher: "SEC", family: "Banking", boundary: "2023-05-02", result: "17:08 filing stayed later", tone: "boundary" },
-  { id: 4, title: "2022 Q4 GDP revision", publisher: "BEA · ALFRED", family: "Macro", boundary: "2023-02-01", result: "Inside range · evaluation only", tone: "inside" },
-  { id: 5, title: "BTFP early growth", publisher: "Federal Reserve", family: "Banking", boundary: "2023-03-25", result: "Inside range · evaluation only", tone: "inside" },
-  { id: 6, title: "Payroll release", publisher: "BLS", family: "Macro", boundary: "2023-02-04", result: "Inside range · evaluation only", tone: "inside" },
-  { id: 7, title: "FOMC target range", publisher: "Federal Reserve", family: "Rates", boundary: "2023-03-23", result: "Inside range · evaluation only", tone: "inside" },
-  { id: 8, title: "CPI release snapshot", publisher: "BLS", family: "Macro", boundary: "2023-02-15", result: "Inside range · evaluation only", tone: "inside" },
-  { id: 9, title: "2Y–10Y Treasury curve", publisher: "ALFRED", family: "Rates", boundary: "2023-03-16", result: "+6 bp upper breach", tone: "breach" },
-  { id: 10, title: "Treasury cash balance", publisher: "U.S. Treasury", family: "Rates", boundary: "2023-06-01", result: "Inside range · baseline miss visible", tone: "inside" },
-  { id: 11, title: "SOFR spike", publisher: "New York Fed", family: "Rates", boundary: "2019-09-17", result: "+282 bp upper breach", tone: "breach" },
-  { id: 12, title: "Commercial crude stocks", publisher: "EIA", family: "Macro", boundary: "2020-04-16", result: "+15,022 thousand-barrel breach", tone: "breach" },
-  { id: 13, title: "Initial unemployment claims", publisher: "U.S. DOL", family: "Macro", boundary: "2020-03-20", result: "+2,932,000-person breach", tone: "breach" },
-  { id: 14, title: "91-day Treasury auction", publisher: "TreasuryDirect", family: "Rates", boundary: "2020-03-18", result: "−19 bp lower breach", tone: "breach" },
-  { id: 15, title: "Personal saving rate", publisher: "BEA", family: "Macro", boundary: "2020-04-01", result: "+460 bp upper breach", tone: "breach" },
-  { id: 16, title: "Industrial production", publisher: "Federal Reserve", family: "Macro", boundary: "2020-03-18", result: "−600 bp lower breach", tone: "breach" },
-  { id: 17, title: "Retail sales", publisher: "U.S. Census", family: "Macro", boundary: "2020-03-18", result: "−740 bp lower breach", tone: "breach" },
-  { id: 18, title: "Housing starts", publisher: "Census · HUD", family: "Macro", boundary: "2020-03-19", result: "−383,000-unit breach", tone: "breach" },
-  { id: 19, title: "Revolving consumer credit", publisher: "Federal Reserve", family: "Macro", boundary: "2020-04-07", result: "−3,550 bp lower breach", tone: "breach" },
-  { id: 20, title: "Construction spending", publisher: "U.S. Census", family: "Macro", boundary: "2020-04-01", result: "−$3,659M lower breach", tone: "breach" },
-  { id: 21, title: "Purchase-only house prices", publisher: "FHFA", family: "Macro", boundary: "2020-04-22", result: "−60 bp lower breach", tone: "breach" },
-  { id: 22, title: "Durable-goods orders", publisher: "U.S. Census", family: "Macro", boundary: "2020-03-25", result: "−1,560 bp lower breach", tone: "breach" },
-  { id: 23, title: "Trade deficit", publisher: "Census · BEA", family: "Macro", boundary: "2020-04-02", result: "+$4,483M upper breach", tone: "breach" },
-  { id: 24, title: "New-home sales", publisher: "Census · HUD", family: "Macro", boundary: "2020-03-24", result: "−103,000-unit breach", tone: "breach" },
-  { id: 25, title: "Working-gas stocks", publisher: "EIA", family: "Macro", boundary: "2020-03-19", result: "−20 Bcf lower breach", tone: "breach" },
-  { id: 26, title: "Producer prices", publisher: "BLS", family: "Macro", boundary: "2020-04-09", result: "−110 bp lower breach", tone: "breach" },
-  { id: 27, title: "UST 2Y open interest", publisher: "CFTC", family: "Regulatory", boundary: "2026-07-24", result: "+71,513-contract breach", tone: "breach" },
-  { id: 28, title: "Central-bank liquidity swaps", publisher: "Federal Reserve", family: "Banking", boundary: "2020-03-26", result: "Inside range · no success claim", tone: "inside" },
-  { id: 29, title: "All-import prices", publisher: "BLS", family: "Macro", boundary: "2020-03-13", result: "−130 bp lower breach", tone: "breach" },
-  { id: 30, title: "All-export prices", publisher: "BLS", family: "Macro", boundary: "2020-03-13", result: "Inside range · no success claim", tone: "inside" },
-];
-
-const filters = ["All", "Banking", "Macro", "Rates", "Regulatory"] as const;
-
 const artifacts = [
   ["Scale manifest", "c5ba416aa05e…2697", "244 official daily SEC partitions"],
   ["Deep verification", "a1c5ce99c643…0aae", "Every ZIP, CSV, and Parquet partition re-read"],
   ["Query benchmark", "1e9e85a97942…67f1", "Two fresh processes; OS cache uncontrolled"],
-  ["Quality receipt", "c14880d7b7f7…acb8", "2,199 clean-subject tests; 2,199 current Python tests"],
-  ["Public claim registry", "self-hashed JSON", "5 headline claims · 155 structured claims"],
+  ["Quality receipt", "c14880d7b7f7…acb8", "2,199 clean-subject tests in the recorded receipt"],
+  ["Public pack manifest", "a549ebb5d997…7494", "30 downloadable deterministic ReplayPacks"],
 ];
 
 export default function Home() {
@@ -81,8 +37,8 @@ export default function Home() {
     const normalized = query.trim().toLowerCase();
     return scenarios.filter((scenario) => {
       const familyMatches = family === "All" || scenario.family === family;
-      const textMatches = !normalized || `${scenario.title} ${scenario.publisher} ${scenario.result}`.toLowerCase().includes(normalized);
-      return familyMatches && textMatches;
+      const haystack = `${scenario.title} ${scenario.publisher} ${scenario.result}`.toLowerCase();
+      return familyMatches && (!normalized || haystack.includes(normalized));
     });
   }, [family, query]);
 
@@ -98,6 +54,7 @@ export default function Home() {
           <a href="#engines">Engines</a>
           <a href="#replays">Replays</a>
           <a href="#scale">Scale</a>
+          <Link href="/docs">Docs</Link>
           <a href="#review">Review</a>
         </nav>
         <span className="read-only">Public read-only evidence</span>
@@ -116,8 +73,8 @@ export default function Home() {
             before capital allocation is even considered.
           </p>
           <div className="hero-actions">
-            <a className="primary-action" href="#evidence">Inspect the evidence</a>
-            <a className="secondary-action" href="#boundaries">Read the boundaries</a>
+            <a className="primary-action" href="#replays">Explore 30 replays</a>
+            <Link className="secondary-action" href="/docs">Run the offline demo</Link>
           </div>
         </div>
       </section>
@@ -138,10 +95,10 @@ export default function Home() {
           <h2 id="evidence-title">Internally proven.<br /><em>Externally unfinished.</em></h2>
         </div>
         <dl>
-          <div><dt>Final clean-checkout tests</dt><dd>2,199 / 2,199</dd></div>
+          <div><dt>Recorded clean-checkout tests</dt><dd>2,199 / 2,199</dd></div>
           <div><dt>Branch-aware combined coverage</dt><dd>90.48%</dd></div>
           <div><dt>Known dependency findings</dt><dd>0</dd></div>
-          <div><dt>Tracked-text scan findings</dt><dd>0</dd></div>
+          <div><dt>Downloadable scenario packs</dt><dd>30 / 30</dd></div>
           <div><dt>Independent review</dt><dd className="pending">Pending</dd></div>
         </dl>
       </section>
@@ -166,8 +123,8 @@ export default function Home() {
       <section className="replay-section" id="replays" aria-labelledby="replays-title">
         <div className="section-heading replay-heading">
           <span className="section-number">03 / Replay ledger</span>
-          <h2 id="replays-title">Thirty boundaries.<br />Misses stay visible.</h2>
-          <p>Inside-range observations are evaluation only. Breaches are never used to widen a range after the fact.</p>
+          <h2 id="replays-title">Thirty boundaries.<br />Every pack opens.</h2>
+          <p>Each card now has a stable evidence page, explicit hashes, structured claims, and a deterministic ReplayPack download.</p>
         </div>
         <div className="replay-tools">
           <div className="filters" aria-label="Filter scenarios by family">
@@ -183,12 +140,18 @@ export default function Home() {
         <p className="result-count" aria-live="polite">Showing {visibleScenarios.length} of 30 replay-proven boundaries</p>
         <div className="scenario-grid">
           {visibleScenarios.map((scenario) => (
-            <article className="scenario" key={scenario.id}>
-              <div className="scenario-top"><span>#{String(scenario.id).padStart(2, "0")}</span><span className={`tone ${scenario.tone}`}>{scenario.tone === "breach" ? "Visible breach" : scenario.tone === "inside" ? "Evaluation only" : "Boundary proof"}</span></div>
+            <Link className="scenario" href={`/replays/${scenario.slug}`} key={scenario.id}>
+              <div className="scenario-top">
+                <span>#{String(scenario.id).padStart(2, "0")}</span>
+                <span className={`tone ${scenario.tone}`}>{toneLabel(scenario.tone)}</span>
+              </div>
               <h3>{scenario.title}</h3>
-              <dl><div><dt>Official source</dt><dd>{scenario.publisher}</dd></div><div><dt>Decision boundary</dt><dd>{scenario.boundary}</dd></div></dl>
-              <p>{scenario.result}</p>
-            </article>
+              <dl>
+                <div><dt>Official source</dt><dd>{scenario.publisher}</dd></div>
+                <div><dt>Decision boundary</dt><dd>{scenario.decisionDate}</dd></div>
+              </dl>
+              <p>{scenario.result}<span className="scenario-arrow" aria-hidden="true"> ↗</span></p>
+            </Link>
           ))}
         </div>
         {visibleScenarios.length === 0 && <p className="empty-state">No replay matches this filter. Clear the search or choose another family.</p>}
@@ -223,7 +186,7 @@ export default function Home() {
         <span className="boundary-icon" aria-hidden="true">!</span>
         <div>
           <h2 id="boundary-title">What this evidence does not prove</h2>
-          <p>Public-data cases are not clients. Historical replays are not live trading. Simulated P&amp;L is not investment performance. Tests and hashes establish internal behavior—not source authenticity, deployment, adoption, or impact.</p>
+          <p>Public-data cases are not clients. Historical replays are not live trading. Simulated P&amp;L is not investment performance. Tests and hashes establish internal behavior—not source authenticity, external method review, adoption, or impact.</p>
         </div>
       </aside>
 
@@ -232,11 +195,12 @@ export default function Home() {
           <span className="section-number">06 / Independent evidence</span>
           <h2 id="review-title">The final gate cannot be self-awarded.</h2>
           <p>A qualified reviewer must independently reproduce a result or review a domain method, identify a real issue, and follow that issue through resolution.</p>
-          <p className="archive-digest">The 6.67 MB source archive is bound to commit <code>e150136dc0a2</code> and SHA-256 <code>f7c287c6…065ab</code>. Prior packaged review ZIPs are excluded.</p>
+          <p className="archive-digest">The fixed review snapshot is bound to commit <code>e150136dc0a2</code> and SHA-256 <code>f7c287c6…065ab</code>. The 30 current per-scenario downloads are separately self-hashed.</p>
           <div className="review-downloads">
             <a className="primary-action download" href="/review/finreplay-os-e150136.zip" download>Download review source</a>
-            <a className="secondary-action download" href="/review/finreplay-review-manifest.json" download>Download manifest</a>
+            <a className="secondary-action download" href="/replaypacks/manifest.json" download>Download pack manifest</a>
             <a className="secondary-action" href="https://github.com/limingrui679-design/finreplay-os/tree/e150136dc0a2d49d068499ea9fdb01fc4a943a8c">Browse fixed source</a>
+            <a className="secondary-action" href="https://github.com/limingrui679-design/finreplay-os/issues/new?template=independent-review.yml">Start independent review</a>
           </div>
         </div>
         <ol className="review-steps">
@@ -247,7 +211,7 @@ export default function Home() {
         </ol>
       </section>
 
-      <footer><span>FinReplay OS · pre-alpha research software</span><span>No investment, legal, accounting, or risk-management advice.</span></footer>
+      <footer><span>FinReplay OS · 0.1 alpha research software</span><span>No investment, legal, accounting, or risk-management advice.</span></footer>
     </main>
   );
 }

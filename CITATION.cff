@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use FinReplay OS, cite this software release and the exact Git commit you ran."
+title: "FinReplay OS: Point-in-Time Financial-System Replay"
+type: software
+authors:
+  - family-names: Li
+    given-names: Mingrui
+version: 0.1.0a1
+date-released: 2026-08-16
+license: Apache-2.0
+repository-code: "https://github.com/limingrui679-design/finreplay-os"
+url: "https://finreplay-evidence.limingrui2.chatgpt.site/"
+keywords:
+  - point-in-time data
+  - reproducible research
+  - quantitative finance
+  - systemic risk

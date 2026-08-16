@@ -1,0 +1,182 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "gdp-2022q4-revision-boundary",
+  "scenario_version": "1.0.0",
+  "replay_id": "gdp-2022q4-revision-boundary-v1",
+  "artifact_prefix": "gdp-revision",
+  "title": "U.S. GDP 2022 Q4 advance-to-second-estimate revision boundary",
+  "decision_time": "2023-02-01T12:00:00Z",
+  "build_epoch": "2026-08-13T04:00:00Z",
+  "series_id": "GDP",
+  "roles": {
+    "q3_advance": "fred.alfred.vintage_gdp:GDP:20221027:2022-07-01",
+    "q3_second": "fred.alfred.vintage_gdp:GDP:20221130:2022-07-01",
+    "q3_predecision": "fred.alfred.vintage_gdp:GDP:20230126:2022-07-01",
+    "q4_advance": "fred.alfred.vintage_gdp:GDP:20230126:2022-10-01"
+  },
+  "source_response_sha256s": [
+    "7f22b801255e869ed067f9155a936b0eaf7e4e63f957e984cebf520d3f1ce00b",
+    "dcca354ec2251c2c16a917836725e57f1241708a0887aec08307731b47729c44",
+    "faefda3659af8d6f68111e0a4a982daaf84743605295dec44f3ee6964cb437ed"
+  ],
+  "records": [
+    {
+      "record_id": "fred.alfred.vintage_gdp:GDP:20221027:2022-07-01",
+      "entity_id": "fred_series:GDP",
+      "source": {
+        "source_id": "fred.alfred.vintage_gdp",
+        "publisher": "Federal Reserve Bank of St. Louis",
+        "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDP&cosd=2022-07-01&coed=2022-10-01&vintage_date=2022-10-27",
+        "retrieved_at": "2026-08-13T03:56:15.645743Z",
+        "source_version": "GDP:vintage:2022-10-27:sha256:dcca354ec2251c2c16a91783",
+        "sha256": "dcca354ec2251c2c16a917836725e57f1241708a0887aec08307731b47729c44",
+        "license_class": "download_only",
+        "temporal_coverage": "vintage_native",
+        "vintage_as_of": "2022-10-27T00:00:00Z",
+        "redistribution_note": "Retain the downloaded response only in the local content-addressed store. Attribute ALFRED/FRED and the underlying U.S. Bureau of Economic Analysis series; do not redistribute the raw response or imply that repository code owns the source data."
+      },
+      "interval": {
+        "valid_from": "2022-07-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2022-10-29T00:00:00Z",
+        "available_at": "2022-10-29T00:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T03:56:15.645743Z",
+        "availability_rule": "ALFRED identifies only a calendar vintage date, not an intraday availability time. FinReplay therefore permits use only from 00:00 UTC two calendar days later. This is a deterministic conservative knowledge bound, not a claimed release timestamp.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "vintage_date_plus_two_calendar_days_utc",
+        "frequency": "Quarterly",
+        "observation_date": "2022-07-01",
+        "seasonal_adjustment": "Seasonally Adjusted Annual Rate",
+        "series_id": "GDP",
+        "series_title": "Gross Domestic Product",
+        "unit": "Billions of Dollars",
+        "value": "25663.289",
+        "vintage_date": "2022-10-27"
+      }
+    },
+    {
+      "record_id": "fred.alfred.vintage_gdp:GDP:20221130:2022-07-01",
+      "entity_id": "fred_series:GDP",
+      "source": {
+        "source_id": "fred.alfred.vintage_gdp",
+        "publisher": "Federal Reserve Bank of St. Louis",
+        "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDP&cosd=2022-07-01&coed=2022-10-01&vintage_date=2022-11-30",
+        "retrieved_at": "2026-08-13T03:56:17.682877Z",
+        "source_version": "GDP:vintage:2022-11-30:sha256:7f22b801255e869ed067f915",
+        "sha256": "7f22b801255e869ed067f9155a936b0eaf7e4e63f957e984cebf520d3f1ce00b",
+        "license_class": "download_only",
+        "temporal_coverage": "vintage_native",
+        "vintage_as_of": "2022-11-30T00:00:00Z",
+        "redistribution_note": "Retain the downloaded response only in the local content-addressed store. Attribute ALFRED/FRED and the underlying U.S. Bureau of Economic Analysis series; do not redistribute the raw response or imply that repository code owns the source data."
+      },
+      "interval": {
+        "valid_from": "2022-07-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2022-12-02T00:00:00Z",
+        "available_at": "2022-12-02T00:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T03:56:17.682877Z",
+        "availability_rule": "ALFRED identifies only a calendar vintage date, not an intraday availability time. FinReplay therefore permits use only from 00:00 UTC two calendar days later. This is a deterministic conservative knowledge bound, not a claimed release timestamp.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "vintage_date_plus_two_calendar_days_utc",
+        "frequency": "Quarterly",
+        "observation_date": "2022-07-01",
+        "seasonal_adjustment": "Seasonally Adjusted Annual Rate",
+        "series_id": "GDP",
+        "series_title": "Gross Domestic Product",
+        "unit": "Billions of Dollars",
+        "value": "25698.960",
+        "vintage_date": "2022-11-30"
+      }
+    },
+    {
+      "record_id": "fred.alfred.vintage_gdp:GDP:20230126:2022-07-01",
+      "entity_id": "fred_series:GDP",
+      "source": {
+        "source_id": "fred.alfred.vintage_gdp",
+        "publisher": "Federal Reserve Bank of St. Louis",
+        "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDP&cosd=2022-07-01&coed=2022-10-01&vintage_date=2023-01-26",
+        "retrieved_at": "2026-08-13T03:56:19.135885Z",
+        "source_version": "GDP:vintage:2023-01-26:sha256:faefda3659af8d6f68111e0a",
+        "sha256": "faefda3659af8d6f68111e0a4a982daaf84743605295dec44f3ee6964cb437ed",
+        "license_class": "download_only",
+        "temporal_coverage": "vintage_native",
+        "vintage_as_of": "2023-01-26T00:00:00Z",
+        "redistribution_note": "Retain the downloaded response only in the local content-addressed store. Attribute ALFRED/FRED and the underlying U.S. Bureau of Economic Analysis series; do not redistribute the raw response or imply that repository code owns the source data."
+      },
+      "interval": {
+        "valid_from": "2022-07-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-01-28T00:00:00Z",
+        "available_at": "2023-01-28T00:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T03:56:19.135885Z",
+        "availability_rule": "ALFRED identifies only a calendar vintage date, not an intraday availability time. FinReplay therefore permits use only from 00:00 UTC two calendar days later. This is a deterministic conservative knowledge bound, not a claimed release timestamp.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "vintage_date_plus_two_calendar_days_utc",
+        "frequency": "Quarterly",
+        "observation_date": "2022-07-01",
+        "seasonal_adjustment": "Seasonally Adjusted Annual Rate",
+        "series_id": "GDP",
+        "series_title": "Gross Domestic Product",
+        "unit": "Billions of Dollars",
+        "value": "25723.941",
+        "vintage_date": "2023-01-26"
+      }
+    },
+    {
+      "record_id": "fred.alfred.vintage_gdp:GDP:20230126:2022-10-01",
+      "entity_id": "fred_series:GDP",
+      "source": {
+        "source_id": "fred.alfred.vintage_gdp",
+        "publisher": "Federal Reserve Bank of St. Louis",
+        "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDP&cosd=2022-07-01&coed=2022-10-01&vintage_date=2023-01-26",
+        "retrieved_at": "2026-08-13T03:56:19.135885Z",
+        "source_version": "GDP:vintage:2023-01-26:sha256:faefda3659af8d6f68111e0a",
+        "sha256": "faefda3659af8d6f68111e0a4a982daaf84743605295dec44f3ee6964cb437ed",
+        "license_class": "download_only",
+        "temporal_coverage": "vintage_native",
+        "vintage_as_of": "2023-01-26T00:00:00Z",
+        "redistribution_note": "Retain the downloaded response only in the local content-addressed store. Attribute ALFRED/FRED and the underlying U.S. Bureau of Economic Analysis series; do not redistribute the raw response or imply that repository code owns the source data."
+      },
+      "interval": {
+        "valid_from": "2022-10-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-01-28T00:00:00Z",
+        "available_at": "2023-01-28T00:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T03:56:19.135885Z",
+        "availability_rule": "ALFRED identifies only a calendar vintage date, not an intraday availability time. FinReplay therefore permits use only from 00:00 UTC two calendar days later. This is a deterministic conservative knowledge bound, not a claimed release timestamp.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "vintage_date_plus_two_calendar_days_utc",
+        "frequency": "Quarterly",
+        "observation_date": "2022-10-01",
+        "seasonal_adjustment": "Seasonally Adjusted Annual Rate",
+        "series_id": "GDP",
+        "series_title": "Gross Domestic Product",
+        "unit": "Billions of Dollars",
+        "value": "26132.458",
+        "vintage_date": "2023-01-26"
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves four minimal ALFRED GDP facts from three explicitly named vintages that were conservatively knowable before the replay decision time. It does not include the later Q4 second estimate, a complete GDP series, an exact intraday release timestamp, a probability distribution, a forecast, or evidence of investment or policy performance.",
+  "lock_sha256": "c762b5790a1f6f517668892d145747fc4e2548376a347912cbfdc4448da1efa7"
+}

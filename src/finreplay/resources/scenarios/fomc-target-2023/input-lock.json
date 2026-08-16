@@ -1,0 +1,184 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "fomc-2023-target-range-boundary",
+  "scenario_version": "1.0.0",
+  "replay_id": "fomc-2023-target-range-boundary-v1",
+  "artifact_prefix": "fomc-target",
+  "title": "FOMC federal-funds target-range boundary, spring 2023",
+  "decision_time": "2023-03-23T12:00:00Z",
+  "build_epoch": "2026-08-13T05:30:00Z",
+  "roles": {
+    "february_lower": "federal_reserve.fomc.archived_statement:20230201:target_range_lower",
+    "february_upper": "federal_reserve.fomc.archived_statement:20230201:target_range_upper",
+    "march_lower": "federal_reserve.fomc.archived_statement:20230322:target_range_lower",
+    "march_upper": "federal_reserve.fomc.archived_statement:20230322:target_range_upper"
+  },
+  "source_response_sha256s": [
+    "36e956cb6d1d4c261b7ca87ad2d81fd15599231edb8ad20f318f4b03ef4f978c",
+    "833f994c90a7d6a14a817080337bbe225133973c64015aa9052060dda2ae0a4d"
+  ],
+  "records": [
+    {
+      "record_id": "federal_reserve.fomc.archived_statement:20230201:target_range_lower",
+      "entity_id": "fomc_policy:federal_funds_target_range",
+      "source": {
+        "source_id": "federal_reserve.fomc.archived_statement",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230201a.htm",
+        "retrieved_at": "2026-08-13T04:54:28.440073Z",
+        "source_version": "FOMCStatement:2023-02-01:sha256:36e956cb6d1d4c261b7ca87a",
+        "sha256": "36e956cb6d1d4c261b7ca87ad2d81fd15599231edb8ad20f318f4b03ef4f978c",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-02-01T19:00:00Z",
+        "redistribution_note": "Keep downloaded HTML in local content-addressed storage. Repository scenarios retain only minimal target-range facts, source links, hashes, and attribution to the Board of Governors; do not imply endorsement or redistribute third-party page material."
+      },
+      "interval": {
+        "valid_from": "2023-02-01T19:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-02-01T19:00:00Z",
+        "available_at": "2023-02-01T19:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:54:28.440073Z",
+        "availability_rule": "The archived FOMC statement explicitly says 'For release at 2:00 p.m.' with an EST or EDT abbreviation. FinReplay validates that abbreviation against America/New_York on the named release date and converts the timestamp to UTC.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "explicit_fomc_release_time_america_new_york",
+        "metric": "target_range_lower",
+        "policy": "Federal funds target range",
+        "range_width_basis_points": 25,
+        "release_date": "2023-02-01",
+        "release_time_eastern": "14:00:00",
+        "release_timezone_abbreviation": "EST",
+        "source_display_value_percent": "4-1/2",
+        "unit": "Basis Points",
+        "value_basis_points": 450
+      }
+    },
+    {
+      "record_id": "federal_reserve.fomc.archived_statement:20230201:target_range_upper",
+      "entity_id": "fomc_policy:federal_funds_target_range",
+      "source": {
+        "source_id": "federal_reserve.fomc.archived_statement",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230201a.htm",
+        "retrieved_at": "2026-08-13T04:54:28.440073Z",
+        "source_version": "FOMCStatement:2023-02-01:sha256:36e956cb6d1d4c261b7ca87a",
+        "sha256": "36e956cb6d1d4c261b7ca87ad2d81fd15599231edb8ad20f318f4b03ef4f978c",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-02-01T19:00:00Z",
+        "redistribution_note": "Keep downloaded HTML in local content-addressed storage. Repository scenarios retain only minimal target-range facts, source links, hashes, and attribution to the Board of Governors; do not imply endorsement or redistribute third-party page material."
+      },
+      "interval": {
+        "valid_from": "2023-02-01T19:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-02-01T19:00:00Z",
+        "available_at": "2023-02-01T19:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:54:28.440073Z",
+        "availability_rule": "The archived FOMC statement explicitly says 'For release at 2:00 p.m.' with an EST or EDT abbreviation. FinReplay validates that abbreviation against America/New_York on the named release date and converts the timestamp to UTC.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "explicit_fomc_release_time_america_new_york",
+        "metric": "target_range_upper",
+        "policy": "Federal funds target range",
+        "range_width_basis_points": 25,
+        "release_date": "2023-02-01",
+        "release_time_eastern": "14:00:00",
+        "release_timezone_abbreviation": "EST",
+        "source_display_value_percent": "4-3/4",
+        "unit": "Basis Points",
+        "value_basis_points": 475
+      }
+    },
+    {
+      "record_id": "federal_reserve.fomc.archived_statement:20230322:target_range_lower",
+      "entity_id": "fomc_policy:federal_funds_target_range",
+      "source": {
+        "source_id": "federal_reserve.fomc.archived_statement",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230322a.htm",
+        "retrieved_at": "2026-08-13T04:54:29.311357Z",
+        "source_version": "FOMCStatement:2023-03-22:sha256:833f994c90a7d6a14a817080",
+        "sha256": "833f994c90a7d6a14a817080337bbe225133973c64015aa9052060dda2ae0a4d",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-03-22T18:00:00Z",
+        "redistribution_note": "Keep downloaded HTML in local content-addressed storage. Repository scenarios retain only minimal target-range facts, source links, hashes, and attribution to the Board of Governors; do not imply endorsement or redistribute third-party page material."
+      },
+      "interval": {
+        "valid_from": "2023-03-22T18:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-03-22T18:00:00Z",
+        "available_at": "2023-03-22T18:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:54:29.311357Z",
+        "availability_rule": "The archived FOMC statement explicitly says 'For release at 2:00 p.m.' with an EST or EDT abbreviation. FinReplay validates that abbreviation against America/New_York on the named release date and converts the timestamp to UTC.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "explicit_fomc_release_time_america_new_york",
+        "metric": "target_range_lower",
+        "policy": "Federal funds target range",
+        "range_width_basis_points": 25,
+        "release_date": "2023-03-22",
+        "release_time_eastern": "14:00:00",
+        "release_timezone_abbreviation": "EDT",
+        "source_display_value_percent": "4-3/4",
+        "unit": "Basis Points",
+        "value_basis_points": 475
+      }
+    },
+    {
+      "record_id": "federal_reserve.fomc.archived_statement:20230322:target_range_upper",
+      "entity_id": "fomc_policy:federal_funds_target_range",
+      "source": {
+        "source_id": "federal_reserve.fomc.archived_statement",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230322a.htm",
+        "retrieved_at": "2026-08-13T04:54:29.311357Z",
+        "source_version": "FOMCStatement:2023-03-22:sha256:833f994c90a7d6a14a817080",
+        "sha256": "833f994c90a7d6a14a817080337bbe225133973c64015aa9052060dda2ae0a4d",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-03-22T18:00:00Z",
+        "redistribution_note": "Keep downloaded HTML in local content-addressed storage. Repository scenarios retain only minimal target-range facts, source links, hashes, and attribution to the Board of Governors; do not imply endorsement or redistribute third-party page material."
+      },
+      "interval": {
+        "valid_from": "2023-03-22T18:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-03-22T18:00:00Z",
+        "available_at": "2023-03-22T18:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:54:29.311357Z",
+        "availability_rule": "The archived FOMC statement explicitly says 'For release at 2:00 p.m.' with an EST or EDT abbreviation. FinReplay validates that abbreviation against America/New_York on the named release date and converts the timestamp to UTC.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "explicit_fomc_release_time_america_new_york",
+        "metric": "target_range_upper",
+        "policy": "Federal funds target range",
+        "range_width_basis_points": 25,
+        "release_date": "2023-03-22",
+        "release_time_eastern": "14:00:00",
+        "release_timezone_abbreviation": "EDT",
+        "source_display_value_percent": "5",
+        "unit": "Basis Points",
+        "value_basis_points": 500
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves four minimal federal-funds target endpoints from the February 1 and March 22, 2023 archived FOMC statements that were explicitly available before the decision time. It excludes the May 3 statement, implementation-note details, statement language beyond the target facts, market expectations, vote or macro models, a probability distribution, forecast, calibrated interval, causal policy-effect claim, recommendation, or investment-performance evidence.",
+  "lock_sha256": "555fd627dcdee673d11db6acca889900cba51cfb15e7aa16fe645ac7f137f61f"
+}

@@ -10,10 +10,11 @@ internal validation as external adoption, domain review, or production use.
 - the 30 official-source adapters and 30 real-data scenarios;
 - the sealed 1,014,736,394-row SEC processing receipt;
 - the current internal quality-gate results and their limitations;
-- direct artifact hashes and an independent-review protocol; and
-- a downloadable machine-readable review manifest; and
-- a 6.66 MB review-source ZIP bound to commit `62bf793d017b` and SHA-256
-  `781df836758a84a37ee65cd76fcb1bfd185e32ebef36bda566cea5c1c566a418`.
+- direct artifact hashes and an independent-review protocol;
+- 30 stable scenario detail routes with structured claims and boundaries;
+- 30 deterministic ReplayPack downloads plus a self-hashed manifest; and
+- a 6.67 MB review-source snapshot bound to commit `e150136dc0a2` and SHA-256
+  `f7c287c613b366f38705c1eaf5a21971ff3a5380f11c5fc4a0e1b44900a065ab`.
 
 ## Local verification
 
@@ -31,10 +32,10 @@ For local development:
 npm run dev
 ```
 
-The rendered-page tests assert that all 30 scenarios are present and that the
-19 observed policy breaches are distinguished from the 11 in-range evaluation
-cases. The site is intentionally read-only and uses no credentials, database,
-or object storage.
+The rendered-page tests assert all 30 cards and detail routes, documentation,
+claim and hash identity, all 30 ZIP digests, and the fixed independent-review
+snapshot. The site is intentionally read-only and uses no credentials,
+database, or object storage.
 
 ## Hosting boundary
 

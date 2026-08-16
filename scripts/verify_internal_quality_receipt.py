@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import subprocess
+import tomllib
 from pathlib import Path
 from typing import Any
 
@@ -66,20 +67,25 @@ def main() -> None:
     dependency_audit = payload["dependency_audit"]
     if dependency_audit["known_vulnerability_count"] != 0:
         raise SystemExit("quality receipt dependency audit contains vulnerabilities")
-    if schema_version == "1.1.0" and (
-        dependency_audit.get("skipped_package_count") != 1
-        or dependency_audit.get(
-            "skipped_packages"
-        ) != [
-            {
+    if schema_version == "1.1.0":
+        skipped_packages = dependency_audit.get("skipped_packages")
+        skipped_count = dependency_audit.get("skipped_package_count")
+        if skipped_count not in {0, 1} or not isinstance(skipped_packages, list):
+            raise SystemExit("quality receipt dependency audit skip boundary differs")
+        if skipped_count != len(skipped_packages):
+            raise SystemExit("quality receipt dependency audit skip count differs")
+        if skipped_packages:
+            subject_pyproject = tomllib.loads(_git("show", f"{revision}:pyproject.toml"))
+            subject_version = subject_pyproject["project"]["version"]
+            expected_skip = {
                 "name": "finreplay-os",
                 "skip_reason": (
-                    "Dependency not found on PyPI and could not be audited: finreplay-os (0.1.0a0)"
+                    "Dependency not found on PyPI and could not be audited: "
+                    f"finreplay-os ({subject_version})"
                 ),
             }
-        ]
-    ):
-        raise SystemExit("quality receipt dependency audit skip boundary differs")
+            if skipped_packages != [expected_skip]:
+                raise SystemExit("quality receipt dependency audit skip boundary differs")
     secret_scan = dict(payload["secret_and_privacy_scan"])
     scan_hash = secret_scan.pop("scan_sha256", None)
     if scan_hash != _hash(secret_scan) or secret_scan.get("clean") is not True:

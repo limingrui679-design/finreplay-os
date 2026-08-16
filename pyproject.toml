@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=75", "wheel"]
+requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "finreplay-os"
-version = "0.1.0a0"
+version = "0.1.0a1"
 description = "Point-in-time financial-system replay and adversarial quant research platform."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -23,9 +23,11 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
+  "Typing :: Typed",
   "Topic :: Office/Business :: Financial :: Investment",
   "Topic :: Scientific/Engineering :: Information Analysis",
 ]
+urls = { Homepage = "https://finreplay-evidence.limingrui2.chatgpt.site/", Documentation = "https://finreplay-evidence.limingrui2.chatgpt.site/docs", Repository = "https://github.com/limingrui679-design/finreplay-os", Issues = "https://github.com/limingrui679-design/finreplay-os/issues" }
 dependencies = [
   "duckdb>=1.4.0,<2",
   "httpx>=0.28.0,<1",
@@ -47,6 +49,7 @@ api = [
   "uvicorn[standard]>=0.34,<1",
 ]
 dev = [
+  "build>=1.2,<2",
   "hypothesis>=6.120,<7",
   "jsonschema>=4.23,<5",
   "mypy>=1.14,<2",
@@ -58,6 +61,7 @@ dev = [
   "types-networkx>=3.4,<4",
   "types-jsonschema>=4.23,<5",
   "types-xlrd>=2.0,<3",
+  "twine>=6,<7",
 ]
 
 [project.scripts]
@@ -65,6 +69,9 @@ finreplay = "finreplay.cli:app"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+finreplay = ["py.typed", "resources/*.json", "resources/scenarios/*/*.json"]
 
 [tool.pytest.ini_options]
 addopts = "-ra --strict-config --strict-markers"

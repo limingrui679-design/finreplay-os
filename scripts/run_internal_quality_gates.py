@@ -13,6 +13,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import tomllib
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -153,15 +154,17 @@ def main() -> None:
             for item in dependencies
             if not isinstance(item.get("version"), str)
         ]
-        if skipped_dependencies != [
-            {
-                "name": "finreplay-os",
-                "skip_reason": (
-                    "Dependency not found on PyPI and could not be audited: "
-                    "finreplay-os (0.1.0a0)"
-                ),
-            }
-        ]:
+        project_version = tomllib.loads(
+            (REPOSITORY / "pyproject.toml").read_text(encoding="utf-8")
+        )["project"]["version"]
+        expected_local_skip = {
+            "name": "finreplay-os",
+            "skip_reason": (
+                "Dependency not found on PyPI and could not be audited: "
+                f"finreplay-os ({project_version})"
+            ),
+        }
+        if skipped_dependencies not in ([], [expected_local_skip]):
             raise SystemExit(f"unexpected pip-audit skipped dependencies: {skipped_dependencies}")
         vulnerabilities = [
             {"name": item["name"], "version": item["version"], "vulns": item["vulns"]}
@@ -295,10 +298,10 @@ def main() -> None:
             "claim_boundary": (
                 "This is the pip-audit result at generated_at for the complete resolved local "
                 "environment, including the installer and development dependencies. "
-                "The editable local FinReplay package has no PyPI advisory coordinate and is "
-                "listed separately as skipped; its code is covered by the recorded tests, typing, "
-                "lint, and scans rather than represented as advisory-audited. Vulnerability "
-                "databases can change after this receipt."
+                "The local FinReplay package is advisory-audited when its exact release coordinate "
+                "is available to pip-audit; otherwise it is explicitly listed as skipped, while "
+                "its code remains covered by the recorded tests, typing, lint, and scans. "
+                "Vulnerability databases can change after this receipt."
             ),
         },
         "secret_and_privacy_scan": secret_scan,

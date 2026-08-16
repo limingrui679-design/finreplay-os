@@ -1,0 +1,316 @@
+{
+  "adapter_count": 30,
+  "adapters": [
+    {
+      "adapter_id": "bls.public_data.cpi_u_all_items",
+      "historical_replay_eligible": false,
+      "publisher": "U.S. Bureau of Labor Statistics",
+      "receipt": "bls/bls.public_data.cpi_u_all_items-81a29246724d79b6.json",
+      "record_count": 31,
+      "retrieved_at": "2026-08-13T02:47:50.578400Z",
+      "temporal_coverage": "latest_only",
+      "title": "BLS · Public DATA · CPI U ALL Items"
+    },
+    {
+      "adapter_id": "cftc.cot.disaggregated_futures_only",
+      "historical_replay_eligible": false,
+      "publisher": "U.S. Commodity Futures Trading Commission",
+      "receipt": "cftc/cftc.cot.disaggregated_futures_only-f0b96cf2e61e4c68.json",
+      "record_count": 100,
+      "retrieved_at": "2026-08-13T02:47:56.058918Z",
+      "temporal_coverage": "immutable_event",
+      "title": "CFTC · COT · Disaggregated Futures ONLY"
+    },
+    {
+      "adapter_id": "cftc.cot.legacy_futures_only",
+      "historical_replay_eligible": false,
+      "publisher": "U.S. Commodity Futures Trading Commission",
+      "receipt": "cftc/cftc.cot.legacy_futures_only-038d45c18f456705.json",
+      "record_count": 100,
+      "retrieved_at": "2026-08-13T02:47:53.350481Z",
+      "temporal_coverage": "immutable_event",
+      "title": "CFTC · COT · Legacy Futures ONLY"
+    },
+    {
+      "adapter_id": "cftc.cot.supplemental_cit",
+      "historical_replay_eligible": false,
+      "publisher": "U.S. Commodity Futures Trading Commission",
+      "receipt": "cftc/cftc.cot.supplemental_cit-f777874a4846463d.json",
+      "record_count": 100,
+      "retrieved_at": "2026-08-13T02:47:58.217850Z",
+      "temporal_coverage": "immutable_event",
+      "title": "CFTC · COT · Supplemental CIT"
+    },
+    {
+      "adapter_id": "cftc.cot.tff_futures_only",
+      "historical_replay_eligible": false,
+      "publisher": "U.S. Commodity Futures Trading Commission",
+      "receipt": "cftc/cftc.cot.tff_futures_only-7269760b61d0209d.json",
+      "record_count": 100,
+      "retrieved_at": "2026-08-13T02:47:57.218907Z",
+      "temporal_coverage": "immutable_event",
+      "title": "CFTC · COT · TFF Futures ONLY"
+    },
+    {
+      "adapter_id": "fdic.bankfind.demographics",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Deposit Insurance Corporation",
+      "receipt": "fdic/fdic.bankfind.demographics-fac56bcc85bbd139.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:15.943833Z",
+      "temporal_coverage": "latest_only",
+      "title": "FDIC · Bankfind · Demographics"
+    },
+    {
+      "adapter_id": "fdic.bankfind.failures",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Deposit Insurance Corporation",
+      "receipt": "fdic/fdic.bankfind.failures-f41e0f6e157542f6.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:15.043277Z",
+      "temporal_coverage": "latest_only",
+      "title": "FDIC · Bankfind · Failures"
+    },
+    {
+      "adapter_id": "fdic.bankfind.financials",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Deposit Insurance Corporation",
+      "receipt": "fdic/fdic.bankfind.financials-f8f35cd9fbf8bb23.json",
+      "record_count": 156,
+      "retrieved_at": "2026-08-12T14:34:16.605621Z",
+      "temporal_coverage": "latest_only",
+      "title": "FDIC · Bankfind · Financials"
+    },
+    {
+      "adapter_id": "fdic.bankfind.history",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Deposit Insurance Corporation",
+      "receipt": "fdic/fdic.bankfind.history-bd366accf59a39ca.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:14.273380Z",
+      "temporal_coverage": "latest_only",
+      "title": "FDIC · Bankfind · History"
+    },
+    {
+      "adapter_id": "fdic.bankfind.institutions",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Deposit Insurance Corporation",
+      "receipt": "fdic/fdic.bankfind.institutions-bc11c98779b38411.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:10.934652Z",
+      "temporal_coverage": "latest_only",
+      "title": "FDIC · Bankfind · Institutions"
+    },
+    {
+      "adapter_id": "fdic.bankfind.locations",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Deposit Insurance Corporation",
+      "receipt": "fdic/fdic.bankfind.locations-e8ad09a8d8d36cff.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:13.917838Z",
+      "temporal_coverage": "latest_only",
+      "title": "FDIC · Bankfind · Locations"
+    },
+    {
+      "adapter_id": "fdic.bankfind.sod",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Deposit Insurance Corporation",
+      "receipt": "fdic/fdic.bankfind.sod-9a0dc29428913e09.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:15.563778Z",
+      "temporal_coverage": "latest_only",
+      "title": "FDIC · Bankfind · SOD"
+    },
+    {
+      "adapter_id": "fdic.bankfind.summary",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Deposit Insurance Corporation",
+      "receipt": "fdic/fdic.bankfind.summary-c2aaaa81a4693362.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:14.684103Z",
+      "temporal_coverage": "latest_only",
+      "title": "FDIC · Bankfind · Summary"
+    },
+    {
+      "adapter_id": "nyfed.markets.ambs_operations",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Reserve Bank of New York",
+      "receipt": "nyfed/nyfed.markets.ambs_operations-f263e63ef1705414.json",
+      "record_count": 1,
+      "retrieved_at": "2026-08-13T02:21:52.322049Z",
+      "temporal_coverage": "latest_only",
+      "title": "Nyfed · Markets · AMBS Operations"
+    },
+    {
+      "adapter_id": "nyfed.markets.central_bank_liquidity_swaps",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Reserve Bank of New York",
+      "receipt": "nyfed/nyfed.markets.central_bank_liquidity_swaps-0e2e4fbe6aefbde2.json",
+      "record_count": 1,
+      "retrieved_at": "2026-08-13T02:21:55.747460Z",
+      "temporal_coverage": "latest_only",
+      "title": "Nyfed · Markets · Central BANK Liquidity Swaps"
+    },
+    {
+      "adapter_id": "nyfed.markets.primary_dealer_asof_dates",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Reserve Bank of New York",
+      "receipt": "nyfed/nyfed.markets.primary_dealer_asof_dates-c999ecdafbcca840.json",
+      "record_count": 1950,
+      "retrieved_at": "2026-08-13T02:21:58.559135Z",
+      "temporal_coverage": "latest_only",
+      "title": "Nyfed · Markets · Primary Dealer ASOF Dates"
+    },
+    {
+      "adapter_id": "nyfed.markets.primary_dealer_guidesheet",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Reserve Bank of New York",
+      "receipt": "nyfed/nyfed.markets.primary_dealer_guidesheet-f9a4a00206390eef.json",
+      "record_count": 1,
+      "retrieved_at": "2026-08-13T02:21:56.761177Z",
+      "temporal_coverage": "latest_only",
+      "title": "Nyfed · Markets · Primary Dealer Guidesheet"
+    },
+    {
+      "adapter_id": "nyfed.markets.reference_rates",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Reserve Bank of New York",
+      "receipt": "nyfed/nyfed.markets.reference_rates-1d36ebd888683471.json",
+      "record_count": 6,
+      "retrieved_at": "2026-08-13T02:22:01.131888Z",
+      "temporal_coverage": "latest_only",
+      "title": "Nyfed · Markets · Reference Rates"
+    },
+    {
+      "adapter_id": "nyfed.markets.repo_operations",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Reserve Bank of New York",
+      "receipt": "nyfed/nyfed.markets.repo_operations-2b916e0f91b068f1.json",
+      "record_count": 1,
+      "retrieved_at": "2026-08-13T02:22:02.314217Z",
+      "temporal_coverage": "latest_only",
+      "title": "Nyfed · Markets · REPO Operations"
+    },
+    {
+      "adapter_id": "nyfed.markets.securities_lending",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Reserve Bank of New York",
+      "receipt": "nyfed/nyfed.markets.securities_lending-af8e24a91e5142e0.json",
+      "record_count": 1,
+      "retrieved_at": "2026-08-13T02:22:03.639565Z",
+      "temporal_coverage": "latest_only",
+      "title": "Nyfed · Markets · Securities Lending"
+    },
+    {
+      "adapter_id": "nyfed.markets.soma_summary",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Reserve Bank of New York",
+      "receipt": "nyfed/nyfed.markets.soma_summary-3bba2f6ac733b82b.json",
+      "record_count": 1205,
+      "retrieved_at": "2026-08-13T02:22:05.143509Z",
+      "temporal_coverage": "latest_only",
+      "title": "Nyfed · Markets · SOMA Summary"
+    },
+    {
+      "adapter_id": "nyfed.markets.treasury_operations",
+      "historical_replay_eligible": false,
+      "publisher": "Federal Reserve Bank of New York",
+      "receipt": "nyfed/nyfed.markets.treasury_operations-dcbd5235c4c42320.json",
+      "record_count": 1,
+      "retrieved_at": "2026-08-13T02:22:07.373489Z",
+      "temporal_coverage": "latest_only",
+      "title": "Nyfed · Markets · Treasury Operations"
+    },
+    {
+      "adapter_id": "sec.edgar.submissions",
+      "historical_replay_eligible": true,
+      "publisher": "U.S. Securities and Exchange Commission",
+      "receipt": "sec/sec.edgar.submissions-24bfad7ae117e6d9.json",
+      "record_count": 1000,
+      "retrieved_at": "2026-08-12T13:48:35.013738Z",
+      "temporal_coverage": "immutable_event",
+      "title": "SEC · Edgar · Submissions"
+    },
+    {
+      "adapter_id": "sec.edgar.submissions_historical",
+      "historical_replay_eligible": true,
+      "publisher": "U.S. Securities and Exchange Commission",
+      "receipt": "sec/sec.edgar.submissions_historical-a1f4de1557f2029a.json",
+      "record_count": 1659,
+      "retrieved_at": "2026-08-12T13:48:37.881505Z",
+      "temporal_coverage": "immutable_event",
+      "title": "SEC · Edgar · Submissions Historical"
+    },
+    {
+      "adapter_id": "sec.xbrl.companyfacts",
+      "historical_replay_eligible": true,
+      "publisher": "U.S. Securities and Exchange Commission",
+      "receipt": "sec/sec.xbrl.companyfacts-75711cf7ee895046.json",
+      "record_count": 28585,
+      "retrieved_at": "2026-08-12T13:48:43.642987Z",
+      "temporal_coverage": "immutable_event",
+      "title": "SEC · XBRL · Companyfacts"
+    },
+    {
+      "adapter_id": "treasury.fiscaldata.average_interest_rates",
+      "historical_replay_eligible": false,
+      "publisher": "U.S. Department of the Treasury",
+      "receipt": "treasury/treasury.fiscaldata.average_interest_rates-fe739014d4444577.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:07.600873Z",
+      "temporal_coverage": "latest_only",
+      "title": "Treasury · Fiscaldata · Average Interest Rates"
+    },
+    {
+      "adapter_id": "treasury.fiscaldata.debt_to_penny",
+      "historical_replay_eligible": false,
+      "publisher": "U.S. Department of the Treasury",
+      "receipt": "treasury/treasury.fiscaldata.debt_to_penny-b0f11f114c7afb73.json",
+      "record_count": 1,
+      "retrieved_at": "2026-08-12T14:34:21.260902Z",
+      "temporal_coverage": "latest_only",
+      "title": "Treasury · Fiscaldata · DEBT TO Penny"
+    },
+    {
+      "adapter_id": "treasury.fiscaldata.mspd_summary",
+      "historical_replay_eligible": false,
+      "publisher": "U.S. Department of the Treasury",
+      "receipt": "treasury/treasury.fiscaldata.mspd_summary-4890d3acf8f8661a.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:09.995218Z",
+      "temporal_coverage": "latest_only",
+      "title": "Treasury · Fiscaldata · MSPD Summary"
+    },
+    {
+      "adapter_id": "treasury.fiscaldata.operating_cash_balance",
+      "historical_replay_eligible": false,
+      "publisher": "U.S. Department of the Treasury",
+      "receipt": "treasury/treasury.fiscaldata.operating_cash_balance-72afa5d33ba4f704.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:08.239038Z",
+      "temporal_coverage": "latest_only",
+      "title": "Treasury · Fiscaldata · Operating CASH Balance"
+    },
+    {
+      "adapter_id": "treasury.fiscaldata.treasury_auctions",
+      "historical_replay_eligible": false,
+      "publisher": "U.S. Department of the Treasury",
+      "receipt": "treasury/treasury.fiscaldata.treasury_auctions-882d71b28c2a3d44.json",
+      "record_count": 3,
+      "retrieved_at": "2026-08-12T14:08:09.274371Z",
+      "temporal_coverage": "latest_only",
+      "title": "Treasury · Fiscaldata · Treasury Auctions"
+    }
+  ],
+  "catalog_kind": "formal_live_adapter_user_catalog",
+  "catalog_sha256": "f963ff237eb0dedf94f031951c5cdf00af4f280014138daec46a1c8b1d746cf9",
+  "claim_boundary": "This installable catalog describes the 30 formal live-validation adapters at the recorded retrieval times. A validated live response is not automatically eligible for historical replay. Scenario-bounded archive connectors are a separate surface.",
+  "historical_replay_eligible_count": 3,
+  "schema_version": "1.0.0",
+  "source_path": "verification/live/latest-summary.json",
+  "source_sha256": "e5d3fef1bc98068604221e91cb0863010a36697db74493e2ce20e103f2212f11",
+  "temporal_coverage_counts": {
+    "immutable_event": 7,
+    "latest_only": 23
+  }
+}

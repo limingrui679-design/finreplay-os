@@ -1,0 +1,251 @@
+{
+  "bundles": [
+    {
+      "bytes": 18267,
+      "download_path": "/replaypacks/bea-pio-2020.zip",
+      "pack_sha256": "2522341e031ba822486db54c2b908eb68ce6788d52a6f1b0975d1b877f4069cb",
+      "sha256": "1f09baa99ed2eb4438b0e40b18d068e2d603cbac33fcb3bbf264e03c4d86548d",
+      "slug": "bea-pio-2020",
+      "trace_id": "trace:1c524d19917ec6fc124e8ce9fa43efd1d01f9090240163f99019e2e311eca6da"
+    },
+    {
+      "bytes": 18660,
+      "download_path": "/replaypacks/bls-cpi-2023.zip",
+      "pack_sha256": "fac8e503c37804217d3db00634330cdb62ac02466f7a58a1b04e703d6ffc6d06",
+      "sha256": "abb40d83f0acd205cbaf72bb95f6d4f0631dcf8cfad3a8e0b374949a8affd098",
+      "slug": "bls-cpi-2023",
+      "trace_id": "trace:8634250349fc349378cf09f74ae129613d54fdd87257232ccd5547b62f1b1bb6"
+    },
+    {
+      "bytes": 19293,
+      "download_path": "/replaypacks/bls-export-prices-2020.zip",
+      "pack_sha256": "68677526e941a07bd9c0a7ddd5e364f3ca95174b90a899f53223b8083616f933",
+      "sha256": "fd2d22c8b20c759c6f96d8f6adafd5b948fc76a4dacdfbd7c628a232613eb1dd",
+      "slug": "bls-export-prices-2020",
+      "trace_id": "trace:60baf01f7379154c3eeeb58e854c73dcc9933c7b9178581f57e33d1c7687547e"
+    },
+    {
+      "bytes": 19269,
+      "download_path": "/replaypacks/bls-import-prices-2020.zip",
+      "pack_sha256": "e6f74743d81e53a82297665e74d90da4718948f19cfeac29c8fe710a82c4eb43",
+      "sha256": "4ea0900b38cbfee25673227c9fa11508ac21ba6f20af6a7214b38cd804e49b57",
+      "slug": "bls-import-prices-2020",
+      "trace_id": "trace:4c7ab74268838bf6a5cc5f70421e607b45ca64eacc1169766ad2dbfdc094cb4a"
+    },
+    {
+      "bytes": 18517,
+      "download_path": "/replaypacks/bls-payroll-2023.zip",
+      "pack_sha256": "bfc14686983f676195b1175e5efecc6b8f4e8619d1ce937f3b1d871a972ee343",
+      "sha256": "9eb9478c8961402cf27a5613cab56417ca47c1fab9993c7c3ec9d2c75b97dd70",
+      "slug": "bls-payroll-2023",
+      "trace_id": "trace:93586d2362769bcfd48846586d4eefa3b7fbdf6a4b596e62297e775971802013"
+    },
+    {
+      "bytes": 18791,
+      "download_path": "/replaypacks/bls-ppi-2020.zip",
+      "pack_sha256": "4601bc2b1f9b751197d253bd2f27497a08743e34b6cdef28033fe87501fd96b3",
+      "sha256": "2c4cea62215f29a9da5dc795c8d64312da69b775b278cd89a8899f8f917d2525",
+      "slug": "bls-ppi-2020",
+      "trace_id": "trace:8d27b18954bac6b955d03e59e10dc9e3011cf926aa0a1347e86d6473f6e8fea5"
+    },
+    {
+      "bytes": 18126,
+      "download_path": "/replaypacks/btfp-growth-2023.zip",
+      "pack_sha256": "f595429d8a547a669f36b84ee6058933eb9c12ec5ee5a19632d8f510fe8b0141",
+      "sha256": "d6c48fc2f285516d67a599c6a8dce50ed3723e4a879e18c23caffe0c5dfd0bb6",
+      "slug": "btfp-growth-2023",
+      "trace_id": "trace:48018b32d8fec0765cb14afed5aef57beec65b77ae5629b10e05e3ab08ec68c2"
+    },
+    {
+      "bytes": 19402,
+      "download_path": "/replaypacks/census-c30-2020.zip",
+      "pack_sha256": "cb1278b756b042287cf4bccbc2944687b0dc98a77ef6bead01e875f8e05377c7",
+      "sha256": "40559d01dcbdef734c65dc6167997e2d772cbfb2b066ac7018f3d5a874ee17e6",
+      "slug": "census-c30-2020",
+      "trace_id": "trace:fd29e6cfcf0a4de919953d297f2880443bd7fa1ff7865ba057eeaed63e7c3a0f"
+    },
+    {
+      "bytes": 20304,
+      "download_path": "/replaypacks/census-ft900-2020.zip",
+      "pack_sha256": "4f81f85288e938a00a35c8beb95742967511cd4293058ad0ed6d89d7c55cf0a0",
+      "sha256": "c9fc40f8b768fc6b3a03e34af7d47440b0a759d276a9f5871b6637637cd280ea",
+      "slug": "census-ft900-2020",
+      "trace_id": "trace:9c5762c3c388716d5d04e3a6dd1b7a578f2dee26f12493e5173644f9e41e1ce4"
+    },
+    {
+      "bytes": 19335,
+      "download_path": "/replaypacks/census-m3-2020.zip",
+      "pack_sha256": "a25e9e89732418e8693ef4af6568312fe4d1966455463a6a72e95220167e5227",
+      "sha256": "42a0b5143f124040fe675d6408a0495b65a42ffcc84d3c372e80a3abc014f623",
+      "slug": "census-m3-2020",
+      "trace_id": "trace:7692bc8465f6f3b9844211d6e95b4f0d434a32473d1d85d62dd50e7ac4a343f8"
+    },
+    {
+      "bytes": 18276,
+      "download_path": "/replaypacks/census-marts-2020.zip",
+      "pack_sha256": "356f456c96a448e7a7c9f9e27f2436b317e1b94b6674ce331f150d8adea9f9bd",
+      "sha256": "6c5f437dac3c968fb2a2cbaaa362db618ef018d6a712cba6170017a287d01327",
+      "slug": "census-marts-2020",
+      "trace_id": "trace:003837c4d189436a7549faef47d21b3a8a4b9a8635106ef249a1b0fc67ccd00f"
+    },
+    {
+      "bytes": 19130,
+      "download_path": "/replaypacks/census-nrc-2020.zip",
+      "pack_sha256": "c2cae95fd76a7c16943ba7c6e6b27c72b9ed9cd1047b41dcf7abceb497cee6aa",
+      "sha256": "38d06b905312740577ebdfa2aa00223fd26695971c6e493c99b80c72a3ad3f0e",
+      "slug": "census-nrc-2020",
+      "trace_id": "trace:f9e49daaed06fe042c5612ef39fcf02463e17a914cda3ec8f9633821c63aea39"
+    },
+    {
+      "bytes": 19738,
+      "download_path": "/replaypacks/census-nrs-2020.zip",
+      "pack_sha256": "87ea7da019f6ad6255f0375650e9906efd7695108d13618d9630ce0685483d4d",
+      "sha256": "b9299815cddfaea3b42ba6b392c91ec509808b4139c0736d7ca3fd754538d9d1",
+      "slug": "census-nrs-2020",
+      "trace_id": "trace:3954cc711c3352c64a9af890452323f9318a8a5dcfe936263b5811392aa77f6e"
+    },
+    {
+      "bytes": 19712,
+      "download_path": "/replaypacks/cftc-tff-2026.zip",
+      "pack_sha256": "2b125673f41771947662dfd0a0b5e1b5105b4f334d413f4404753abcfbb69412",
+      "sha256": "4ba0312c515e66c19e5342aae6f475570f88e73320234128d093cb90e56fd53c",
+      "slug": "cftc-tff-2026",
+      "trace_id": "trace:35be3384f422dbc64c3546ae80f18efcc6f3004765241b4d98bff2dc9b1a0f2a"
+    },
+    {
+      "bytes": 18381,
+      "download_path": "/replaypacks/dol-ui-2020.zip",
+      "pack_sha256": "d0f96d2cc2097bb731370f33a294efb1e621b9cf91c458136e5b818896e814b5",
+      "sha256": "53ac8c6ccc741917d0a81a0c8f0a9cf40a8d5d28e905c6b058c6217967d8895b",
+      "slug": "dol-ui-2020",
+      "trace_id": "trace:c2e0c997c19f77b1dd753f8dc93ac7575f07137c1dd38f6df1777792b9cbca24"
+    },
+    {
+      "bytes": 19101,
+      "download_path": "/replaypacks/eia-wngsr-2020.zip",
+      "pack_sha256": "00e71ea907ad3783423f66cf9e933ef949176e563ba4ab559ec76367bb2cf0e7",
+      "sha256": "71df09dc8405feff1fe1c6da52b374763ab4bbc0cc274897206d43f328dc58e0",
+      "slug": "eia-wngsr-2020",
+      "trace_id": "trace:cf04545be3a46eba12a13716838e9284c9e91a457c38d950f60dfcffee8bd652"
+    },
+    {
+      "bytes": 18345,
+      "download_path": "/replaypacks/eia-wpsr-2020.zip",
+      "pack_sha256": "baf7d20f12097dbc58745d1e2eeb19fb0229ff062c987425addddc2d96c1f7c4",
+      "sha256": "9bd822c01f67dc1802a5f01174d7292b48e8b79dbc0ceef48a3304037680d547",
+      "slug": "eia-wpsr-2020",
+      "trace_id": "trace:02607eb05647ea0f55341031c4c55035a27f86fadfd8e20ffada0a15dd1a8780"
+    },
+    {
+      "bytes": 18225,
+      "download_path": "/replaypacks/fed-g17-2020.zip",
+      "pack_sha256": "6d918334fff44d2cb860072858f7235e6f1fe0710583aff349b6fa2767986f3d",
+      "sha256": "61e654f01aceccc127242259c58dd398296c37aaf423ad4440dee7bdc31cabcb",
+      "slug": "fed-g17-2020",
+      "trace_id": "trace:bb70dc79258184ab9c187f71b7aad8b28f08ac4cb2a79bfabce991ae2ace38ea"
+    },
+    {
+      "bytes": 18387,
+      "download_path": "/replaypacks/fed-g19-2020.zip",
+      "pack_sha256": "74872e2383d0a3020417c43326118ba8f1ffa8a2c4511f58e5a11ce79342a30c",
+      "sha256": "6f7038c090aa9baaa88247bc18142f08c9855a5b7fa440221bbb19a5617a6636",
+      "slug": "fed-g19-2020",
+      "trace_id": "trace:b069c82d26438e14b70d8e00152927c4559140ef5cc25b0067f6a731d39947c7"
+    },
+    {
+      "bytes": 19155,
+      "download_path": "/replaypacks/fed-h41-liquidity-swaps-2020.zip",
+      "pack_sha256": "a2603de494cd5c2e2aad527f8e30e2c832259c97bca931a6c146926c858d5584",
+      "sha256": "c795d08fc1f13c3f11d271859266b53473a3ebcaf20de4af99b77ee584b89bba",
+      "slug": "fed-h41-liquidity-swaps-2020",
+      "trace_id": "trace:49f09dacda1e19d5e88d5d13be3614b8270ab7b7118cacc38e776a516c69ec41"
+    },
+    {
+      "bytes": 19642,
+      "download_path": "/replaypacks/fhfa-hpi-2020.zip",
+      "pack_sha256": "338c19be4990422caa75c2e7ddc2ff34bc167e8b61c71e502916731aaa111e35",
+      "sha256": "cede5790bd336b4d1783e4eb6c738a3785b1aea38288260162e892a4dbb1d2ce",
+      "slug": "fhfa-hpi-2020",
+      "trace_id": "trace:0546ce017baf309b17b31cb58eeb2d38b19413b3df33a9a4fc83b2f650e46d4d"
+    },
+    {
+      "bytes": 18461,
+      "download_path": "/replaypacks/fomc-target-2023.zip",
+      "pack_sha256": "4421dbfebff7e2e3e66124090d27cd6b9031bcb89c9b8726cf28d8fdf358f7e5",
+      "sha256": "8d90fb03db83a4cf9649b3ed1561fd71976759bb0471a8afdc9645fad4a26210",
+      "slug": "fomc-target-2023",
+      "trace_id": "trace:4d1e9d9df61c5baffffb8bced078829ec4ba1064f07e7c65f68ba9a1368f7df7"
+    },
+    {
+      "bytes": 18683,
+      "download_path": "/replaypacks/gdp-revision-2022q4.zip",
+      "pack_sha256": "5f9f64b719003d2677c1fb5bef7e33be745c2644356a364d53faa8fbfed9a8a9",
+      "sha256": "f59c068f3fd3f88130b016e9414bc4b1906f92e738a86bf21b2bebf2da002b43",
+      "slug": "gdp-revision-2022q4",
+      "trace_id": "trace:0318d33e4e29fce0de5555c94e4cef24a4605bddaca362a57637319322ed194d"
+    },
+    {
+      "bytes": 17846,
+      "download_path": "/replaypacks/nyfed-sofr-2019.zip",
+      "pack_sha256": "00475798a6bdfc0b713a272d340b0586d8b647f95c8a11435d809777037b106e",
+      "sha256": "1824be65cba0b9a7f2a9d87a805aa71142c41f0663b7a102019ec2462ac25cda",
+      "slug": "nyfed-sofr-2019",
+      "trace_id": "trace:7402c1952f5bbaf31f5f5d89a85a8864f64ee146bd142e25da1872f4292ee636"
+    },
+    {
+      "bytes": 25746,
+      "download_path": "/replaypacks/pacwest-2023.zip",
+      "pack_sha256": "2d0fcab57a64d709317fd4fe22f296d2a756e4638053a275d057a7af5f7a9599",
+      "sha256": "5d711cd706e9bed8334aca4e6b864afe286556b48d109d00cfb983e531b4f5a4",
+      "slug": "pacwest-2023",
+      "trace_id": "trace:ea712e982b91244c741174069afa890549ef4182a5c8182965eefb5fec21aab3"
+    },
+    {
+      "bytes": 25975,
+      "download_path": "/replaypacks/svb-2023.zip",
+      "pack_sha256": "c62c22dcbd15e29592a10811117a565d2bf9bee34877a4fbcbf24994383efd35",
+      "sha256": "24b584350e3b821336de745d892ccde26fd420f5762432e8c9895f0dd1369083",
+      "slug": "svb-2023",
+      "trace_id": "trace:7c6888e9ecebd390acb2f7fecbcde816d7e50906632483215244acf0f17462bf"
+    },
+    {
+      "bytes": 18224,
+      "download_path": "/replaypacks/treasury-auction-2020.zip",
+      "pack_sha256": "84adfcfbada5dc7676e46a2aca7545b73f609f4c80eb8a99d97aed470ef35c60",
+      "sha256": "eb1cac1f243addfa77aee3d45b98e8c981bd66fd9609df25946f41dc8adf5c56",
+      "slug": "treasury-auction-2020",
+      "trace_id": "trace:402e025e428e17a945b90b2e2279bf242c2534eec4dee6ab96103fe3bdba0b09"
+    },
+    {
+      "bytes": 19494,
+      "download_path": "/replaypacks/treasury-curve-2023.zip",
+      "pack_sha256": "f05a5b1f0a143f3bd99dbd1777efcb814f791a1da8d1f8190ece4a73d7ad3ccb",
+      "sha256": "250c9b4ff92149d77160087e4a77bd3465b3089bab4dafecd399ee44087a6a48",
+      "slug": "treasury-curve-2023",
+      "trace_id": "trace:582d084d96526fffb25f544af2fb1ceca86cd71b53578c51823c04b5dbfed41c"
+    },
+    {
+      "bytes": 18083,
+      "download_path": "/replaypacks/treasury-tga-2023.zip",
+      "pack_sha256": "a74daab723834be217a925b19bc5306094bc9d7eb3791085a6a067fc504ed18e",
+      "sha256": "02e85631e09a9f1cc761b1ea9d842b43dbe5b5afd1bbdf08791d8c144800d345",
+      "slug": "treasury-tga-2023",
+      "trace_id": "trace:077515977a23370bda2bc75cd4f7b9905f7f46e7b202b5807a67b03b1e7322bb"
+    },
+    {
+      "bytes": 25801,
+      "download_path": "/replaypacks/western-alliance-2023.zip",
+      "pack_sha256": "1ed3dc968add623c1c9a95f37bb514a7d1f27dc6f6ae16bbe586f1d39bff9b11",
+      "sha256": "a6950e7d70b90de118aa1b25c41556e0486215061561e0c2b027989415437806",
+      "slug": "western-alliance-2023",
+      "trace_id": "trace:abb13b47a3d70fdd943ba67f810e635e79d46f771d566289152eebc4d5c03d05"
+    }
+  ],
+  "claim_boundary": "Each ZIP is a deterministic archive of an internally verified public-data ReplayPack. Availability and hash identity do not establish external method review, source authenticity, client work, investment performance, adoption, or impact.",
+  "manifest_kind": "public_deterministic_scenario_replaypack_downloads",
+  "manifest_sha256": "a549ebb5d99708cc03b4b076fcc7638cf8267fc4e167cabe6e90a13e5b7e7494",
+  "scenario_count": 30,
+  "schema_version": "1.0.0",
+  "source_catalog_path": "src/finreplay/resources/scenario-catalog.json",
+  "source_catalog_sha256": "a732a4e459387240ea5ff10e48fc59a17e80150930e88cf939f1b5c42a3a088b"
+}

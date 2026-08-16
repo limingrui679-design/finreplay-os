@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "fed-g19-2020-revolving-credit-boundary",
+  "scenario_version": "1.0.0",
+  "replay_id": "fed-g19-2020-revolving-credit-boundary-v1",
+  "artifact_prefix": "fed-g19",
+  "title": "Federal Reserve G.19 boundary before the March 2020 revolving-credit contraction",
+  "decision_time": "2020-04-07T19:00:00Z",
+  "build_epoch": "2026-08-14T02:00:00Z",
+  "roles": {
+    "january_revised_change": "federalreserve.g19.archived_consumer_credit:202001:revolving_percent_change_annual_rate",
+    "february_preliminary_change": "federalreserve.g19.archived_consumer_credit:202002:revolving_percent_change_annual_rate"
+  },
+  "source_response_sha256s": [
+    "b70e0ed0718ab527f698ae2c6d16821491f2309657d25e20961c3e7ae28424a2"
+  ],
+  "records": [
+    {
+      "record_id": "federalreserve.g19.archived_consumer_credit:202001:revolving_percent_change_annual_rate",
+      "entity_id": "federal_reserve_g19:revolving_consumer_credit",
+      "source": {
+        "source_id": "federalreserve.g19.archived_consumer_credit",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/releases/g19/20200407/g19.pdf",
+        "retrieved_at": "2026-08-14T02:03:47.896049Z",
+        "source_version": "FED-G19:2020-02:pdf:b70e0ed0718ab527f698ae2c",
+        "sha256": "b70e0ed0718ab527f698ae2c6d16821491f2309657d25e20961c3e7ae28424a2",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2020-04-07T19:00:00Z",
+        "redistribution_note": "Full Federal Reserve PDFs remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred."
+      },
+      "interval": {
+        "valid_from": "2020-01-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2020-04-07T19:00:00Z",
+        "available_at": "2020-04-07T19:00:00Z",
+        "revised_at": "2020-04-07T19:00:00Z",
+        "ingested_at": "2026-08-14T02:03:47.896049Z",
+        "availability_rule": "Each selected Federal Reserve G.19 PDF states an exact 3 p.m. Eastern Time release date and time. FinReplay resolves Eastern Time through America/New_York for that calendar date and makes the complete PDF snapshot eligible at that instant. Current HTTP headers are retrieval metadata only and are not backdated.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.1.0",
+      "payload": {
+        "availability_method": "exact_local_time_and_date_stated_in_pdf",
+        "estimate_status": "revised",
+        "metric": "revolving_consumer_credit_percent_change_annual_rate",
+        "nonrevolving_flow_tenths_billion_dollars": 1742,
+        "nonrevolving_outstanding_tenths_billion_dollars": 31113,
+        "official_release_at": "2020-04-07T19:00:00+00:00",
+        "pdf_table_snapshot_verified": true,
+        "previous_release_same_reference_revolving_change_basis_points": -330,
+        "reference_month": "2020-01",
+        "release_date": "2020-04-07",
+        "release_pdf_page_rotation_degrees": 90,
+        "release_pdf_pages": 4,
+        "release_pdf_sha256": "b70e0ed0718ab527f698ae2c6d16821491f2309657d25e20961c3e7ae28424a2",
+        "release_pdf_url": "https://www.federalreserve.gov/releases/g19/20200407/g19.pdf",
+        "release_reference_month": "2020-02",
+        "release_series": "G.19 Consumer Credit",
+        "release_snapshot_estimate_statuses": {
+          "2020-01": "revised",
+          "2020-02": "preliminary"
+        },
+        "release_snapshot_previous_release_same_reference_basis_points": {
+          "2020-01": -330,
+          "2020-02": null
+        },
+        "release_snapshot_revision_delta_basis_points": {
+          "2020-01": 60,
+          "2020-02": null
+        },
+        "release_snapshot_revolving_change_basis_points": {
+          "2020-01": -270,
+          "2020-02": 460
+        },
+        "release_time_local": "15:00:00",
+        "release_timezone": "America/New_York",
+        "release_timezone_abbreviation": "EDT",
+        "reported_nonrevolving_change_percent": "5.6",
+        "reported_nonrevolving_flow_annual_rate_billion_dollars": "174.2",
+        "reported_nonrevolving_outstanding_billion_dollars": "3111.3",
+        "reported_revolving_change_percent": "-2.7",
+        "reported_revolving_flow_annual_rate_billion_dollars": "-29.4",
+        "reported_revolving_outstanding_billion_dollars": "1091.9",
+        "reported_total_change_percent": "3.5",
+        "reported_total_flow_annual_rate_billion_dollars": "144.7",
+        "reported_total_outstanding_billion_dollars": "4203.2",
+        "revision_delta_basis_points": 60,
+        "revolving_flow_tenths_billion_dollars": -294,
+        "revolving_outstanding_tenths_billion_dollars": 10919,
+        "simple_annual_rate_from_unrounded_data": true,
+        "snapshot_semantics": "monthly G.19 table value reported in this archived release",
+        "status_marker": "r",
+        "total_flow_tenths_billion_dollars": 1447,
+        "total_outstanding_tenths_billion_dollars": 42032,
+        "unit": "Basis Points",
+        "value_basis_points": -270
+      }
+    },
+    {
+      "record_id": "federalreserve.g19.archived_consumer_credit:202002:revolving_percent_change_annual_rate",
+      "entity_id": "federal_reserve_g19:revolving_consumer_credit",
+      "source": {
+        "source_id": "federalreserve.g19.archived_consumer_credit",
+        "publisher": "Board of Governors of the Federal Reserve System",
+        "url": "https://www.federalreserve.gov/releases/g19/20200407/g19.pdf",
+        "retrieved_at": "2026-08-14T02:03:47.896049Z",
+        "source_version": "FED-G19:2020-02:pdf:b70e0ed0718ab527f698ae2c",
+        "sha256": "b70e0ed0718ab527f698ae2c6d16821491f2309657d25e20961c3e7ae28424a2",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2020-04-07T19:00:00Z",
+        "redistribution_note": "Full Federal Reserve PDFs remain in local content-addressed storage. The repository retains only minimal reported facts, URLs, hashes, attribution, and release-snapshot semantics; no redistribution right is inferred."
+      },
+      "interval": {
+        "valid_from": "2020-02-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2020-04-07T19:00:00Z",
+        "available_at": "2020-04-07T19:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-14T02:03:47.896049Z",
+        "availability_rule": "Each selected Federal Reserve G.19 PDF states an exact 3 p.m. Eastern Time release date and time. FinReplay resolves Eastern Time through America/New_York for that calendar date and makes the complete PDF snapshot eligible at that instant. Current HTTP headers are retrieval metadata only and are not backdated.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.1.0",
+      "payload": {
+        "availability_method": "exact_local_time_and_date_stated_in_pdf",
+        "estimate_status": "preliminary",
+        "metric": "revolving_consumer_credit_percent_change_annual_rate",
+        "nonrevolving_flow_tenths_billion_dollars": 2176,
+        "nonrevolving_outstanding_tenths_billion_dollars": 31294,
+        "official_release_at": "2020-04-07T19:00:00+00:00",
+        "pdf_table_snapshot_verified": true,
+        "previous_release_same_reference_revolving_change_basis_points": null,
+        "reference_month": "2020-02",
+        "release_date": "2020-04-07",
+        "release_pdf_page_rotation_degrees": 90,
+        "release_pdf_pages": 4,
+        "release_pdf_sha256": "b70e0ed0718ab527f698ae2c6d16821491f2309657d25e20961c3e7ae28424a2",
+        "release_pdf_url": "https://www.federalreserve.gov/releases/g19/20200407/g19.pdf",
+        "release_reference_month": "2020-02",
+        "release_series": "G.19 Consumer Credit",
+        "release_snapshot_estimate_statuses": {
+          "2020-01": "revised",
+          "2020-02": "preliminary"
+        },
+        "release_snapshot_previous_release_same_reference_basis_points": {
+          "2020-01": -330,
+          "2020-02": null
+        },
+        "release_snapshot_revision_delta_basis_points": {
+          "2020-01": 60,
+          "2020-02": null
+        },
+        "release_snapshot_revolving_change_basis_points": {
+          "2020-01": -270,
+          "2020-02": 460
+        },
+        "release_time_local": "15:00:00",
+        "release_timezone": "America/New_York",
+        "release_timezone_abbreviation": "EDT",
+        "reported_nonrevolving_change_percent": "7.0",
+        "reported_nonrevolving_flow_annual_rate_billion_dollars": "217.6",
+        "reported_nonrevolving_outstanding_billion_dollars": "3129.4",
+        "reported_revolving_change_percent": "4.6",
+        "reported_revolving_flow_annual_rate_billion_dollars": "50.4",
+        "reported_revolving_outstanding_billion_dollars": "1096.1",
+        "reported_total_change_percent": "6.4",
+        "reported_total_flow_annual_rate_billion_dollars": "268.0",
+        "reported_total_outstanding_billion_dollars": "4225.5",
+        "revision_delta_basis_points": null,
+        "revolving_flow_tenths_billion_dollars": 504,
+        "revolving_outstanding_tenths_billion_dollars": 10961,
+        "simple_annual_rate_from_unrounded_data": true,
+        "snapshot_semantics": "monthly G.19 table value reported in this archived release",
+        "status_marker": "p",
+        "total_flow_tenths_billion_dollars": 2680,
+        "total_outstanding_tenths_billion_dollars": 42255,
+        "unit": "Basis Points",
+        "value_basis_points": 460
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the January revised -2.7 percent and February preliminary 4.6 percent revolving-credit simple annual rates in the official April 7, 2020 Federal Reserve G.19 table, both knowable at the exact 3 p.m. Eastern decision time. It excludes the May 7 March event, later January and February revisions, rounded headline fractions as substitutes for table values, households, card accounts, transactions, a probability distribution, forecast, calibrated interval, consumer, pandemic or policy causality, recommendation, execution, investment performance, external review, deployment, and user impact.",
+  "lock_sha256": "889d9f7b5e3eff2db3064646428446c506832da1070cba2083adb6d5a56d11b1"
+}

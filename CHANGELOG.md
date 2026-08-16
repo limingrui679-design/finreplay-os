@@ -6,8 +6,22 @@ investment performance.
 
 ## [Unreleased]
 
+No unreleased changes.
+
+## [0.1.0a1] - 2026-08-16
+
 ### Added
 
+- An installable catalog for 30 formal live adapters and 30 byte-locked offline
+  scenario runners.
+- Unified `adapter`, `scenario`, `replaypack`, `evidence`, and three-minute
+  offline `demo` CLI surfaces while retaining the original command aliases.
+- Runnable Python examples, a point-in-time notebook, authoring guides, a
+  generated eligibility matrix, community issue forms, a roadmap, and citation
+  metadata.
+- A wheel/sdist release workflow with fresh-environment artifact verification,
+  deterministic checksums, GitHub Release support, and an explicitly gated
+  trusted-publishing path for PyPI.
 - Counted Census/HUD new-home-sales, EIA WNGSR working-gas, BLS PPI
   final-demand, CFTC TFF UST 2-year open-interest, and Federal Reserve H.4.1
   central-bank-liquidity-swap boundaries, plus the BLS all-import price-change
@@ -21,6 +35,12 @@ investment performance.
 
 ### Changed
 
+- The README now leads with a runnable offline demo, the evidence explorer
+  image, verified surfaces, and direct documentation routes.
+- Package metadata now declares version `0.1.0a1`, project URLs, typed-package
+  support, and wheel resources for all bundled input locks.
+- Dependabot updates are grouped monthly to avoid five simultaneous automated
+  pull requests obscuring human review.
 - README scenario totals and all 30 evidence summaries now match the verified
   scenario catalog.
 - PyArrow now requires the patched 23.0.1 release line.

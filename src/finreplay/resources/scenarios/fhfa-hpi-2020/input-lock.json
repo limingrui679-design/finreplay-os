@@ -1,0 +1,252 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "fhfa-hpi-2020-house-price-change-boundary",
+  "scenario_version": "1.0.0",
+  "replay_id": "fhfa-hpi-2020-house-price-change-boundary-v1",
+  "artifact_prefix": "fhfa-hpi",
+  "title": "FHFA HPI boundary before the March 2020 national monthly change deceleration",
+  "decision_time": "2020-04-22T13:00:00Z",
+  "build_epoch": "2026-08-14T05:15:00Z",
+  "roles": {
+    "january_initial_change": "fhfa.hpi.archived_purchase_only_monthly_change:202001:us_purchase_only_hpi_monthly_change",
+    "february_initial_change": "fhfa.hpi.archived_purchase_only_monthly_change:202002:us_purchase_only_hpi_monthly_change"
+  },
+  "source_evidence_sha256s": [
+    "02f589a1d47ef046e87be9391a74f1d6e65fe92cdd552b87ad4144722f67cfba",
+    "3624bf523c7afa70616e155deb506fe419b756511a0c14a22d1fb3f16b0da993",
+    "bc885fac528f66a02a3f0760b81dcace6fe1ef0f0f980aecb5e34c600d239a46"
+  ],
+  "records": [
+    {
+      "record_id": "fhfa.hpi.archived_purchase_only_monthly_change:202001:us_purchase_only_hpi_monthly_change",
+      "entity_id": "fhfa_hpi:us_purchase_only_seasonally_adjusted",
+      "source": {
+        "source_id": "fhfa.hpi.archived_purchase_only_monthly_change",
+        "publisher": "Federal Housing Finance Agency",
+        "url": "https://www.fhfa.gov/document/d/hpi/house-price-index-report-january-2020",
+        "retrieved_at": "2026-08-14T04:34:02.964080Z",
+        "source_version": "FHFA-HPI:2020-01:monthly:pdf:bc885fac528f66a02a3f:schedule:02f589a1d47ef046e87b",
+        "sha256": "bc885fac528f66a02a3f0760b81dcace6fe1ef0f0f980aecb5e34c600d239a46",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2020-03-25T13:00:00Z",
+        "redistribution_note": "Full FHFA HTML and PDF responses remain in local content-addressed storage. The repository retains only minimal reported facts, hashes, URLs, attribution, and release-snapshot semantics; no redistribution right is inferred."
+      },
+      "interval": {
+        "valid_from": "2020-01-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2020-03-25T13:00:00Z",
+        "available_at": "2020-03-25T13:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-14T04:34:02.964080Z",
+        "availability_rule": "FHFA's August 20, 2019 official schedule states that 2020 HPI releases occur at 9 a.m. ET and lists the selected report dates. FinReplay validates that schedule, resolves 9 a.m. through America/New_York for each date, and requires the matching dated report PDF. Current HTTP headers and retrieval times are not backdated.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "preannounced_2019_schedule_9am_et_and_matching_dated_report",
+        "covid_timing_statement_present": true,
+        "index_base": "January 1991 = 100",
+        "metric": "us_purchase_only_hpi_monthly_change_basis_points",
+        "official_release_at": "2020-03-25T13:00:00+00:00",
+        "official_schedule_conservative_knowledge_at": "2019-08-22T00:00:00+00:00",
+        "official_schedule_published_date": "2019-08-20",
+        "official_schedule_semantic_sha256": "02f589a1d47ef046e87be9391a74f1d6e65fe92cdd552b87ad4144722f67cfba",
+        "official_schedule_url": "https://www.fhfa.gov/news/news-release/fhfa-announces-2020-release-dates-for-house-price-index",
+        "purchase_only_index": true,
+        "reference_month": "2020-01",
+        "release_date": "2020-03-25",
+        "release_series": "FHFA House Price Index",
+        "release_snapshot_monthly_change_basis_points": {
+          "2020-01": 30
+        },
+        "release_snapshot_previous_estimate_basis_points": {
+          "2020-01": null
+        },
+        "release_snapshot_revision_delta_basis_points": {
+          "2020-01": null
+        },
+        "release_time_local": "09:00:00",
+        "release_timezone": "America/New_York",
+        "release_timezone_abbreviation": "EDT",
+        "report_footer_release_time_label": "9AM EST",
+        "report_footer_time_label_differs_from_schedule_wording": true,
+        "report_kind": "monthly",
+        "report_pdf_metadata_creation_date": "D:20200318115301-04'00'",
+        "report_pdf_metadata_modification_date": "D:20200320124635-04'00'",
+        "report_pdf_metadata_modified_after_release": false,
+        "report_pdf_page_height_points": 792,
+        "report_pdf_page_rotations": [
+          0,
+          0,
+          0,
+          0,
+          90,
+          90,
+          90,
+          0,
+          90,
+          0,
+          0,
+          90
+        ],
+        "report_pdf_page_width_points": 612,
+        "report_pdf_pages": 12,
+        "report_pdf_sha256": "bc885fac528f66a02a3f0760b81dcace6fe1ef0f0f980aecb5e34c600d239a46",
+        "report_pdf_url": "https://www.fhfa.gov/document/d/hpi/house-price-index-report-january-2020",
+        "report_revision_rows_verified": true,
+        "report_table_snapshot_verified": true,
+        "reported_current_index_by_geography": {
+          "East North Central": "235.0",
+          "East South Central": "260.3",
+          "Middle Atlantic": "252.6",
+          "Mountain": "389.8",
+          "New England": "266.4",
+          "Pacific": "329.5",
+          "South Atlantic": "292.0",
+          "U.S.": "284.4",
+          "West North Central": "279.9",
+          "West South Central": "295.9"
+        },
+        "reported_monthly_change_by_geography_basis_points": {
+          "East North Central": 30,
+          "East South Central": 20,
+          "Middle Atlantic": 60,
+          "Mountain": -20,
+          "New England": 40,
+          "Pacific": 50,
+          "South Atlantic": 70,
+          "U.S.": 30,
+          "West North Central": -10,
+          "West South Central": 0
+        },
+        "reported_year_over_year_change_basis_points": 520,
+        "reported_year_over_year_change_percent": "5.2",
+        "seasonally_adjusted": true,
+        "snapshot_semantics": "reported purchase-only seasonally adjusted HPI value in this release",
+        "unit": "Basis Points of Month-over-Month Price Change",
+        "value_basis_points": 30,
+        "value_percent": "0.3"
+      }
+    },
+    {
+      "record_id": "fhfa.hpi.archived_purchase_only_monthly_change:202002:us_purchase_only_hpi_monthly_change",
+      "entity_id": "fhfa_hpi:us_purchase_only_seasonally_adjusted",
+      "source": {
+        "source_id": "fhfa.hpi.archived_purchase_only_monthly_change",
+        "publisher": "Federal Housing Finance Agency",
+        "url": "https://www.fhfa.gov/document/d/hpi/house-price-index-report-february-2020",
+        "retrieved_at": "2026-08-14T04:34:06.635898Z",
+        "source_version": "FHFA-HPI:2020-02:monthly:pdf:3624bf523c7afa70616e:schedule:02f589a1d47ef046e87b",
+        "sha256": "3624bf523c7afa70616e155deb506fe419b756511a0c14a22d1fb3f16b0da993",
+        "license_class": "download_only",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2020-04-22T13:00:00Z",
+        "redistribution_note": "Full FHFA HTML and PDF responses remain in local content-addressed storage. The repository retains only minimal reported facts, hashes, URLs, attribution, and release-snapshot semantics; no redistribution right is inferred."
+      },
+      "interval": {
+        "valid_from": "2020-02-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2020-04-22T13:00:00Z",
+        "available_at": "2020-04-22T13:00:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-14T04:34:06.635898Z",
+        "availability_rule": "FHFA's August 20, 2019 official schedule states that 2020 HPI releases occur at 9 a.m. ET and lists the selected report dates. FinReplay validates that schedule, resolves 9 a.m. through America/New_York for each date, and requires the matching dated report PDF. Current HTTP headers and retrieval times are not backdated.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "preannounced_2019_schedule_9am_et_and_matching_dated_report",
+        "covid_timing_statement_present": true,
+        "index_base": "January 1991 = 100",
+        "metric": "us_purchase_only_hpi_monthly_change_basis_points",
+        "official_release_at": "2020-04-22T13:00:00+00:00",
+        "official_schedule_conservative_knowledge_at": "2019-08-22T00:00:00+00:00",
+        "official_schedule_published_date": "2019-08-20",
+        "official_schedule_semantic_sha256": "02f589a1d47ef046e87be9391a74f1d6e65fe92cdd552b87ad4144722f67cfba",
+        "official_schedule_url": "https://www.fhfa.gov/news/news-release/fhfa-announces-2020-release-dates-for-house-price-index",
+        "purchase_only_index": true,
+        "reference_month": "2020-02",
+        "release_date": "2020-04-22",
+        "release_series": "FHFA House Price Index",
+        "release_snapshot_monthly_change_basis_points": {
+          "2020-01": 50,
+          "2020-02": 70
+        },
+        "release_snapshot_previous_estimate_basis_points": {
+          "2020-01": 30,
+          "2020-02": null
+        },
+        "release_snapshot_revision_delta_basis_points": {
+          "2020-01": 20,
+          "2020-02": null
+        },
+        "release_time_local": "09:00:00",
+        "release_timezone": "America/New_York",
+        "release_timezone_abbreviation": "EDT",
+        "report_footer_release_time_label": "9AM ET",
+        "report_footer_time_label_differs_from_schedule_wording": false,
+        "report_kind": "monthly",
+        "report_pdf_metadata_creation_date": "D:20200415162251-04'00'",
+        "report_pdf_metadata_modification_date": "D:20200420145006-04'00'",
+        "report_pdf_metadata_modified_after_release": false,
+        "report_pdf_page_height_points": 792,
+        "report_pdf_page_rotations": [
+          0,
+          0,
+          0,
+          0,
+          90,
+          90,
+          90,
+          0,
+          90,
+          0,
+          0,
+          90
+        ],
+        "report_pdf_page_width_points": 612,
+        "report_pdf_pages": 12,
+        "report_pdf_sha256": "3624bf523c7afa70616e155deb506fe419b756511a0c14a22d1fb3f16b0da993",
+        "report_pdf_url": "https://www.fhfa.gov/document/d/hpi/house-price-index-report-february-2020",
+        "report_revision_rows_verified": true,
+        "report_table_snapshot_verified": true,
+        "reported_current_index_by_geography": {
+          "East North Central": "237.6",
+          "East South Central": "263.9",
+          "Middle Atlantic": "256.0",
+          "Mountain": "395.9",
+          "New England": "268.0",
+          "Pacific": "333.0",
+          "South Atlantic": "293.4",
+          "U.S.": "287.0",
+          "West North Central": "283.7",
+          "West South Central": "296.0"
+        },
+        "reported_monthly_change_by_geography_basis_points": {
+          "East North Central": 100,
+          "East South Central": 70,
+          "Middle Atlantic": 120,
+          "Mountain": 100,
+          "New England": 40,
+          "Pacific": 80,
+          "South Atlantic": 40,
+          "U.S.": 70,
+          "West North Central": 90,
+          "West South Central": 30
+        },
+        "reported_year_over_year_change_basis_points": 570,
+        "reported_year_over_year_change_percent": "5.7",
+        "seasonally_adjusted": true,
+        "snapshot_semantics": "reported purchase-only seasonally adjusted HPI value in this release",
+        "unit": "Basis Points of Month-over-Month Price Change",
+        "value_basis_points": 70,
+        "value_percent": "0.7"
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves the exact 30-basis-point January and 70-basis-point February 2020 national purchase-only seasonally adjusted monthly HPI changes from their first verified FHFA reports, both knowable at the April 22 decision time. The lock uses the official 2019 schedule's stable release facts and retains the January report footer's '9AM EST' wording difference without claiming that today's HTML bytes are an immutable 2019 snapshot. It excludes the May 26 March event, the May report's January and February revision snapshot, every property-level record, universal-home-price interpretation, transaction count, appraisal, mortgage, contemporaneous COVID effect, probability, forecast, calibrated interval, housing, credit, pandemic or policy causality, recommendation, execution, investment performance, external review, deployment, and user impact.",
+  "lock_sha256": "4c303409b3f6c74be01f035b5ea2ce11b63ed6da2c36fba998849137d2802e04"
+}

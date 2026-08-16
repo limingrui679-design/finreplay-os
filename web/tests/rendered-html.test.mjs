@@ -1,15 +1,22 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
-async function render() {
+let workerPromise;
+
+async function worker() {
+  if (workerPromise) return workerPromise;
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
+  workerPromise = import(workerUrl.href).then((module) => module.default);
+  return workerPromise;
+}
 
-  return worker.fetch(
-    new Request("http://localhost/", {
+async function render(path = "/") {
+  const handler = await worker();
+  return handler.fetch(
+    new Request(`http://localhost${path}`, {
       headers: { accept: "text/html" },
     }),
     {
@@ -48,9 +55,57 @@ test("renders all thirty labelled scenario cards", async () => {
   const html = await response.text();
 
   assert.equal((html.match(/class="scenario"/g) ?? []).length, 30);
+  assert.equal((html.match(/href="\/replays\//g) ?? []).length, 30);
   assert.equal((html.match(/Visible breach/g) ?? []).length, 19);
   assert.match(html, /Public-data cases are not clients/);
   assert.match(html, /No multiplier/);
+});
+
+test("renders a deep-linked replay with claims, hashes, and download", async () => {
+  const response = await render("/replays/svb-2023");
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /<title>SVB funding boundary · FinReplay OS<\/title>/i);
+  assert.match(html, /Seven actual engine implementations ran/);
+  assert.match(html, /claim-extracted-seven-engine-pack/);
+  assert.match(html, /c62c22dcbd15e29592a10811117a565d2bf9bee34877a4fbcbf24994383efd35/);
+  assert.match(html, /\/replaypacks\/svb-2023\.zip/);
+  assert.match(html, /Internal reproduction is not external method review/);
+});
+
+test("renders every scenario deep link and the documentation route", async () => {
+  const scenarios = JSON.parse(
+    await readFile(new URL("../data/scenarios.json", import.meta.url), "utf8"),
+  );
+  assert.equal(scenarios.length, 30);
+
+  for (const scenario of scenarios) {
+    const response = await render(`/replays/${scenario.slug}`);
+    assert.equal(response.status, 200, scenario.slug);
+    const html = await response.text();
+    assert.match(html, new RegExp(scenario.downloadSha256), scenario.slug);
+    assert.match(html, new RegExp(`/replaypacks/${scenario.slug}\\.zip`), scenario.slug);
+  }
+
+  const docs = await render("/docs");
+  assert.equal(docs.status, 200);
+  assert.match(await docs.text(), /finreplay demo svb-2023 --offline --open/);
+});
+
+test("ships thirty manifest-bound deterministic scenario downloads", async () => {
+  const directory = new URL("../dist/client/replaypacks/", import.meta.url);
+  const manifest = JSON.parse(await readFile(new URL("manifest.json", directory), "utf8"));
+  const files = (await readdir(directory)).filter((name) => name.endsWith(".zip"));
+
+  assert.equal(manifest.scenario_count, 30);
+  assert.equal(manifest.bundles.length, 30);
+  assert.equal(files.length, 30);
+  for (const bundle of manifest.bundles) {
+    const archive = await readFile(new URL(`${bundle.slug}.zip`, directory));
+    assert.equal(archive.length, bundle.bytes, bundle.slug);
+    assert.equal(createHash("sha256").update(archive).digest("hex"), bundle.sha256, bundle.slug);
+  }
 });
 
 test("ships the exact independent-review source archive", async () => {

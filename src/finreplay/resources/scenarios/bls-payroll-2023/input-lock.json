@@ -1,0 +1,188 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "bls-2023-payroll-release-boundary",
+  "scenario_version": "1.0.0",
+  "replay_id": "bls-2023-payroll-release-boundary-v1",
+  "artifact_prefix": "bls-payroll",
+  "title": "BLS Employment Situation payroll headline boundary, early 2023",
+  "decision_time": "2023-02-04T12:00:00Z",
+  "build_epoch": "2026-08-13T05:00:00Z",
+  "roles": {
+    "december_payroll": "bls.employment_situation.archived_release:20230106:nonfarm_payroll_change",
+    "december_unemployment": "bls.employment_situation.archived_release:20230106:unemployment_rate",
+    "january_payroll": "bls.employment_situation.archived_release:20230203:nonfarm_payroll_change",
+    "january_unemployment": "bls.employment_situation.archived_release:20230203:unemployment_rate"
+  },
+  "source_response_sha256s": [
+    "8e50e59c53d5d72be1c08c0e86501e7a933469d32a51970c3cf2da95601fa1e5",
+    "b45ea39fc0df33a5501a79d1dfbbbea57376bda28c223db72ce98e26708266a5"
+  ],
+  "records": [
+    {
+      "record_id": "bls.employment_situation.archived_release:20230106:nonfarm_payroll_change",
+      "entity_id": "bls_employment_situation:united_states",
+      "source": {
+        "source_id": "bls.employment_situation.archived_release",
+        "publisher": "U.S. Bureau of Labor Statistics",
+        "url": "https://www.bls.gov/news.release/archives/empsit_01062023.htm",
+        "retrieved_at": "2026-08-13T04:35:41.415496Z",
+        "source_version": "EmploymentSituation:2023-01-06:USDL-23-0002:sha256:8e50e59c53d5d72be1c08c0e",
+        "sha256": "8e50e59c53d5d72be1c08c0e86501e7a933469d32a51970c3cf2da95601fa1e5",
+        "license_class": "redistributable",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-01-06T13:30:00Z",
+        "redistribution_note": "BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem."
+      },
+      "interval": {
+        "valid_from": "2022-12-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-01-06T13:30:00Z",
+        "available_at": "2023-01-06T13:30:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:35:41.415496Z",
+        "availability_rule": "The archived Employment Situation page explicitly states that transmission is embargoed until 8:30 a.m. Eastern Time on its named release date. FinReplay parses that timestamp in America/New_York and converts it to UTC without backdating.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "explicit_bls_embargo_end_america_new_york",
+        "metric": "nonfarm_payroll_change",
+        "release_date": "2023-01-06",
+        "release_number": "USDL-23-0002",
+        "release_time_eastern": "08:30:00",
+        "report_period": "2022-12",
+        "snapshot_semantics": "headline value reported in this archived release",
+        "source_text_encoding": "windows-1252",
+        "unit": "Thousands of Persons",
+        "value_thousands": 223,
+        "wording": "increased"
+      }
+    },
+    {
+      "record_id": "bls.employment_situation.archived_release:20230106:unemployment_rate",
+      "entity_id": "bls_employment_situation:united_states",
+      "source": {
+        "source_id": "bls.employment_situation.archived_release",
+        "publisher": "U.S. Bureau of Labor Statistics",
+        "url": "https://www.bls.gov/news.release/archives/empsit_01062023.htm",
+        "retrieved_at": "2026-08-13T04:35:41.415496Z",
+        "source_version": "EmploymentSituation:2023-01-06:USDL-23-0002:sha256:8e50e59c53d5d72be1c08c0e",
+        "sha256": "8e50e59c53d5d72be1c08c0e86501e7a933469d32a51970c3cf2da95601fa1e5",
+        "license_class": "redistributable",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-01-06T13:30:00Z",
+        "redistribution_note": "BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem."
+      },
+      "interval": {
+        "valid_from": "2022-12-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-01-06T13:30:00Z",
+        "available_at": "2023-01-06T13:30:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:35:41.415496Z",
+        "availability_rule": "The archived Employment Situation page explicitly states that transmission is embargoed until 8:30 a.m. Eastern Time on its named release date. FinReplay parses that timestamp in America/New_York and converts it to UTC without backdating.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "explicit_bls_embargo_end_america_new_york",
+        "metric": "unemployment_rate",
+        "release_date": "2023-01-06",
+        "release_number": "USDL-23-0002",
+        "release_time_eastern": "08:30:00",
+        "report_period": "2022-12",
+        "snapshot_semantics": "headline value reported in this archived release",
+        "source_text_encoding": "windows-1252",
+        "unit": "Percent",
+        "value_percent": 3.5,
+        "wording": "edged down to"
+      }
+    },
+    {
+      "record_id": "bls.employment_situation.archived_release:20230203:nonfarm_payroll_change",
+      "entity_id": "bls_employment_situation:united_states",
+      "source": {
+        "source_id": "bls.employment_situation.archived_release",
+        "publisher": "U.S. Bureau of Labor Statistics",
+        "url": "https://www.bls.gov/news.release/archives/empsit_02032023.htm",
+        "retrieved_at": "2026-08-13T04:35:43.123023Z",
+        "source_version": "EmploymentSituation:2023-02-03:USDL-23-0151:sha256:b45ea39fc0df33a5501a79d1",
+        "sha256": "b45ea39fc0df33a5501a79d1dfbbbea57376bda28c223db72ce98e26708266a5",
+        "license_class": "redistributable",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-02-03T13:30:00Z",
+        "redistribution_note": "BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem."
+      },
+      "interval": {
+        "valid_from": "2023-01-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-02-03T13:30:00Z",
+        "available_at": "2023-02-03T13:30:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:35:43.123023Z",
+        "availability_rule": "The archived Employment Situation page explicitly states that transmission is embargoed until 8:30 a.m. Eastern Time on its named release date. FinReplay parses that timestamp in America/New_York and converts it to UTC without backdating.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "explicit_bls_embargo_end_america_new_york",
+        "metric": "nonfarm_payroll_change",
+        "release_date": "2023-02-03",
+        "release_number": "USDL-23-0151",
+        "release_time_eastern": "08:30:00",
+        "report_period": "2023-01",
+        "snapshot_semantics": "headline value reported in this archived release",
+        "source_text_encoding": "utf-8",
+        "unit": "Thousands of Persons",
+        "value_thousands": 517,
+        "wording": "rose"
+      }
+    },
+    {
+      "record_id": "bls.employment_situation.archived_release:20230203:unemployment_rate",
+      "entity_id": "bls_employment_situation:united_states",
+      "source": {
+        "source_id": "bls.employment_situation.archived_release",
+        "publisher": "U.S. Bureau of Labor Statistics",
+        "url": "https://www.bls.gov/news.release/archives/empsit_02032023.htm",
+        "retrieved_at": "2026-08-13T04:35:43.123023Z",
+        "source_version": "EmploymentSituation:2023-02-03:USDL-23-0151:sha256:b45ea39fc0df33a5501a79d1",
+        "sha256": "b45ea39fc0df33a5501a79d1dfbbbea57376bda28c223db72ce98e26708266a5",
+        "license_class": "redistributable",
+        "temporal_coverage": "versioned_snapshot",
+        "vintage_as_of": "2023-02-03T13:30:00Z",
+        "redistribution_note": "BLS-published material is public domain except identified third-party material. Attribute the U.S. Bureau of Labor Statistics, retain the archive URL and release date, and do not use the protected BLS emblem."
+      },
+      "interval": {
+        "valid_from": "2023-01-01T00:00:00Z",
+        "valid_to": null,
+        "published_at": "2023-02-03T13:30:00Z",
+        "available_at": "2023-02-03T13:30:00Z",
+        "revised_at": null,
+        "ingested_at": "2026-08-13T04:35:43.123023Z",
+        "availability_rule": "The archived Employment Situation page explicitly states that transmission is embargoed until 8:30 a.m. Eastern Time on its named release date. FinReplay parses that timestamp in America/New_York and converts it to UTC without backdating.",
+        "availability_confidence": 1.0
+      },
+      "evidence_class": "reported",
+      "payload_schema_version": "1.0.0",
+      "payload": {
+        "availability_method": "explicit_bls_embargo_end_america_new_york",
+        "metric": "unemployment_rate",
+        "release_date": "2023-02-03",
+        "release_number": "USDL-23-0151",
+        "release_time_eastern": "08:30:00",
+        "report_period": "2023-01",
+        "snapshot_semantics": "headline value reported in this archived release",
+        "source_text_encoding": "utf-8",
+        "unit": "Percent",
+        "value_percent": 3.4,
+        "wording": "changed little at"
+      }
+    }
+  ],
+  "claim_boundary": "This lock preserves four minimal headline facts from the January 6 and February 3, 2023 archived BLS Employment Situation releases that were explicitly available before the replay decision time. It excludes the March 10 release, later revised series values, all detailed tables, worker- or employer-level records, a probability distribution, forecast, calibrated interval, causal attribution, or investment and policy performance. The January release documents annual benchmarking and seasonal-factor updates, limiting cross-release comparability.",
+  "lock_sha256": "2b9beda0051462c07c479b88c99f4c52afae9fbd7e221b10df98ba2bdee6ae94"
+}

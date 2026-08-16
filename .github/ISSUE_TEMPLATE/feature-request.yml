@@ -1,0 +1,51 @@
+name: Feature request
+description: Propose a bounded engine, adapter, scenario, CLI, documentation, or evidence improvement.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      options:
+        - Adapter
+        - Scenario
+        - Engine
+        - ReplayPack or CLI
+        - Documentation or packaging
+        - Evidence site
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and user
+      description: What bounded problem exists, and who encounters it?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe inputs, outputs, failure behavior, and the smallest useful scope.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and source constraints
+      description: Identify public sources, timing rules, licenses, fixtures, or claims affected.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Claim boundary
+      options:
+        - label: This request does not present a public-data case as a client or a simulation as investment performance.
+          required: true

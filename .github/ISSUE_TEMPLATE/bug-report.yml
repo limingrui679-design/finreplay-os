@@ -1,0 +1,51 @@
+name: Bug report
+description: Report a reproducible defect in code, packaging, documentation, or evidence checks.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include credentials, personal data, licensed raw responses, or vulnerability details. Use the private security process for sensitive reports.
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: Paste `finreplay version` and, for a source checkout, `git rev-parse HEAD`.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, architecture, Python version, and installation method.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Exact commands or a small code sample using public or synthetic inputs.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and output
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Evidence and privacy check
+      options:
+        - label: I removed secrets, private data, and non-redistributable source content.
+          required: true
+        - label: I can reproduce this on the version or commit identified above.
+          required: true

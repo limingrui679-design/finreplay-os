@@ -314,12 +314,12 @@ def _claim(
 def _public_text_paths(repository: Path) -> list[Path]:
     public_web_sources = {
         "web/README.md",
-        "web/app/layout.tsx",
-        "web/app/page.tsx",
+        "web/data/scenarios.json",
+        "web/public/replaypacks/manifest.json",
         "web/public/review/finreplay-review-manifest.json",
     }
     tracked = subprocess.run(
-        ["git", "ls-files", "-z"],
+        ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
         cwd=repository,
         check=True,
         capture_output=True,
@@ -338,6 +338,14 @@ def _public_text_paths(repository: Path) -> list[Path]:
                 and path.suffix in {".md", ".html", ".json"}
             )
             or relative in public_web_sources
+            or (
+                relative.startswith("web/app/")
+                and path.suffix in {".ts", ".tsx"}
+            )
+            or (
+                relative.startswith("web/lib/")
+                and path.suffix in {".ts", ".tsx"}
+            )
         ):
             paths.append(path)
     return sorted(paths)
