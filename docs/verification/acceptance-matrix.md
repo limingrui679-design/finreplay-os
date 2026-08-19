@@ -286,8 +286,8 @@ incomplete and awards no points under the all-or-nothing scoring rule.
 The complete repository history is also public at
 `https://github.com/limingrui679-design/finreplay-os`. The self-hashed
 `verification/evidence/public-github-release.json` receipt binds the public `main` ref and
-fixed-commit source checks to commit `6bdb48825581`; it also binds prerelease `v0.1.0a1` at
-`3a25fe1b017b` to an anonymously downloadable wheel, source distribution, and checksum file, while
+fixed-commit source checks to commit `e1180338a0f0`; it also binds prerelease `v0.2.0a1` at that
+commit to an anonymously downloadable wheel, source distribution, and checksum file, while
 confirming that `51a52337ce4e` remains an ancestor in the published history. Public source and package
 availability improve independent reproducibility but are not themselves an independent reproduction
 or review.

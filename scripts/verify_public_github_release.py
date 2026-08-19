@@ -5,9 +5,12 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import http.client
 import io
 import json
 import subprocess
+import time
+import urllib.error
 import urllib.request
 import zipfile
 from pathlib import Path
@@ -181,12 +184,25 @@ def main() -> None:
 
 
 def _fetch(url: str) -> tuple[bytes, int]:
-    request = urllib.request.Request(
-        url,
-        headers={"User-Agent": "FinReplay-GitHub-release-verifier/1.0"},
-    )
-    with urllib.request.urlopen(request, timeout=60) as response:
-        return response.read(), response.status
+    last_error: Exception | None = None
+    for attempt in range(5):
+        request = urllib.request.Request(
+            url,
+            headers={"User-Agent": "FinReplay-GitHub-release-verifier/1.1"},
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=60) as response:
+                return response.read(), response.status
+        except (
+            OSError,
+            TimeoutError,
+            http.client.IncompleteRead,
+            urllib.error.URLError,
+        ) as error:
+            last_error = error
+            if attempt < 4:
+                time.sleep(2 * (attempt + 1))
+    raise SystemExit(f"anonymous fetch failed after retries: {url}: {last_error}")
 
 
 def _is_ancestor(ancestor: str, descendant: str) -> bool:

@@ -14,51 +14,52 @@
     "source_archive_integrity_passed": true,
     "version_tag_resolves_to_package_release": true
   },
-  "claim_boundary": "This receipt proves that the public GitHub repository exposed commit 6bdb48825581 on main, retained requested Sites source commit 51a52337ce4e in its history, published prerelease v0.1.0a1 from commit 3a25fe1b017b, and returned anonymous HTTP 200 responses for fixed-commit source artifacts plus the wheel, source distribution, and checksum file whose recorded hashes passed at the recorded time. It does not prove continuous availability, independent review, source authenticity beyond the committed evidence, security certification, PyPI publication, users, adoption, investment performance, or real-world impact.",
+  "claim_boundary": "This receipt proves that the public GitHub repository exposed commit e1180338a0f0 on main, retained requested Sites source commit 51a52337ce4e in its history, published prerelease v0.2.0a1 from commit e1180338a0f0, and returned anonymous HTTP 200 responses for fixed-commit source artifacts plus the wheel, source distribution, and checksum file whose recorded hashes passed at the recorded time. It does not prove continuous availability, independent review, source authenticity beyond the committed evidence, security certification, PyPI publication, users, adoption, investment performance, or real-world impact.",
   "evidence_kind": "public_github_repository_release",
-  "recorded_at": "2026-08-16T12:36:47Z",
+  "receipt_sha256": "89a3ce4f55b0e1fe232276380a89f4d4f9fae746e3bf3a3f4de37acf33029fbb",
+  "recorded_at": "2026-08-19T19:51:28.209919Z",
   "release": {
     "assets": [
       {
         "anonymous_http_status": 200,
         "bytes": 198,
         "name": "SHA256SUMS",
-        "sha256": "73359245ab07f33c8f093b5ea29b7df8c26457d8f859edf3e57fe5b057b3a0d5",
-        "url": "https://github.com/limingrui679-design/finreplay-os/releases/download/v0.1.0a1/SHA256SUMS"
+        "sha256": "d1f669fc2eeeabe8c303c44e456975baa30a70623b5a895e9407f8106a040a5c",
+        "url": "https://github.com/limingrui679-design/finreplay-os/releases/download/v0.2.0a1/SHA256SUMS"
       },
       {
         "anonymous_http_status": 200,
-        "bytes": 689323,
-        "name": "finreplay_os-0.1.0a1-py3-none-any.whl",
-        "sha256": "14489fb6ff8e65d637df167979ef99dfa41defc43b38284fe72208360adbab56",
-        "url": "https://github.com/limingrui679-design/finreplay-os/releases/download/v0.1.0a1/finreplay_os-0.1.0a1-py3-none-any.whl"
+        "bytes": 702316,
+        "name": "finreplay_os-0.2.0a1-py3-none-any.whl",
+        "sha256": "ce013f1907a2ed4dc29d28a3675241e0cb28ab11a85080e2d317345243f29619",
+        "url": "https://github.com/limingrui679-design/finreplay-os/releases/download/v0.2.0a1/finreplay_os-0.2.0a1-py3-none-any.whl"
       },
       {
         "anonymous_http_status": 200,
-        "bytes": 529777,
-        "name": "finreplay_os-0.1.0a1.tar.gz",
-        "sha256": "403d11f8795ed98f50e9fbcd281956817d8f49e1977fc9297c46c98ed5dcb85a",
-        "url": "https://github.com/limingrui679-design/finreplay-os/releases/download/v0.1.0a1/finreplay_os-0.1.0a1.tar.gz"
+        "bytes": 542643,
+        "name": "finreplay_os-0.2.0a1.tar.gz",
+        "sha256": "714a159821cd808b1d0aa8aa2db824e02270cae79832e8b9c7032133f96595dc",
+        "url": "https://github.com/limingrui679-design/finreplay-os/releases/download/v0.2.0a1/finreplay_os-0.2.0a1.tar.gz"
       }
     ],
     "checksums_match": true,
     "draft": false,
-    "html_url": "https://github.com/limingrui679-design/finreplay-os/releases/tag/v0.1.0a1",
-    "name": "FinReplay OS v0.1.0a1",
+    "html_url": "https://github.com/limingrui679-design/finreplay-os/releases/tag/v0.2.0a1",
+    "name": "FinReplay OS v0.2.0a1",
     "prerelease": true,
-    "published_at": "2026-08-16T11:55:04Z",
-    "release_id": 371312315,
-    "tag_name": "v0.1.0a1",
+    "published_at": "2026-08-19T19:46:49Z",
+    "release_id": 373310386,
+    "tag_name": "v0.2.0a1",
     "workflow_conclusion": "success",
-    "workflow_run_id": 31945582500,
-    "workflow_url": "https://github.com/limingrui679-design/finreplay-os/actions/runs/31945582500"
+    "workflow_run_id": 32294827450,
+    "workflow_url": "https://github.com/limingrui679-design/finreplay-os/actions/runs/32294827450"
   },
   "release_binding": {
-    "package_release_commit": "3a25fe1b017bd1fef0adf55151035591a1c66356",
-    "published_head_commit": "6bdb488255819024058f836b489b0b21525069e6",
-    "remote_main_ref_at_verification": "6bdb488255819024058f836b489b0b21525069e6",
+    "package_release_commit": "e1180338a0f088bbf6cd57d56b021d604e1631a3",
+    "published_head_commit": "e1180338a0f088bbf6cd57d56b021d604e1631a3",
+    "remote_main_ref_at_verification": "e1180338a0f088bbf6cd57d56b021d604e1631a3",
     "requested_source_commit": "51a52337ce4ed485333fba1c21c8132692b9801e",
-    "version_tag": "v0.1.0a1"
+    "version_tag": "v0.2.0a1"
   },
   "repository": {
     "clone_url": "https://github.com/limingrui679-design/finreplay-os.git",
@@ -83,19 +84,18 @@
   "verification": {
     "raw_readme": {
       "anonymous_http_status": 200,
-      "bytes": 8573,
-      "sha256": "4998bd71bfc784aeb0a7f1a07b62a93e6d5e1b623d622954780c0fc4408e5c90",
-      "url": "https://raw.githubusercontent.com/limingrui679-design/finreplay-os/6bdb488255819024058f836b489b0b21525069e6/README.md"
+      "bytes": 11407,
+      "sha256": "ffb3029bb30e9447f13fcd94b7c0881a789e4c4acb3b64881b7be4ffbf178e4f",
+      "url": "https://raw.githubusercontent.com/limingrui679-design/finreplay-os/e1180338a0f088bbf6cd57d56b021d604e1631a3/README.md"
     },
     "source_archive": {
       "anonymous_http_status": 200,
-      "archive_root": "finreplay-os-6bdb488255819024058f836b489b0b21525069e6/",
-      "bytes": 13675298,
-      "sha256": "30874cf87be6ac870b843eb2072b8b6d6d800f8a22d40010a4d65a0ddd41a825",
-      "url": "https://github.com/limingrui679-design/finreplay-os/archive/6bdb488255819024058f836b489b0b21525069e6.zip",
+      "archive_root": "finreplay-os-e1180338a0f088bbf6cd57d56b021d604e1631a3/",
+      "bytes": 14533972,
+      "sha256": "39f563b91b280bc91fcb1474826e5c9572441942300934595a06aca8f6155494",
+      "url": "https://github.com/limingrui679-design/finreplay-os/archive/e1180338a0f088bbf6cd57d56b021d604e1631a3.zip",
       "zip_integrity_passed": true
     },
-    "verified_at": "2026-08-16T12:34:20.059801Z"
-  },
-  "receipt_sha256": "a81b17d95d51dc508008429296501f899eb8e5f6468b7bc89158214c8c0d625e"
+    "verified_at": "2026-08-19T19:51:28.209919Z"
+  }
 }
