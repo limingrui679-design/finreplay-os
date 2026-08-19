@@ -266,7 +266,7 @@ self-hashed receipt bound to clean subject commit `deac615efe39`. From a fresh G
 tracked site and validation-input files, it records a lockfile install, lint, production build, ten
 passing rendered-surface tests, and an npm audit of 563 dependencies with zero findings. It also
 binds the generated 30-scenario, 10-dimension, five-pathway and 10-capability catalogs. The candidate
-site carries a 7.49 MB deterministic source ZIP bound to commit `044661bf0d4d`, with 1,550 tracked
+site carries a 7.49 MB deterministic source ZIP bound to commit `18087f8fe4f6`, with 1,551 tracked
 files, zero unsafe paths, and zero embedded prior review archives. The receipt still records
 `hosted=false`, `public_url=null`, and independent review pending. This is release-readiness evidence
 for the current capability explorer, not evidence that the new route has been deployed.

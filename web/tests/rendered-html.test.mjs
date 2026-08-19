@@ -54,9 +54,9 @@ test("server-renders the FinReplay evidence surface", async () => {
   assert.match(html, /Evidence-bounded capabilities/);
   assert.match(html, /Choose a capability path/);
   assert.match(html, /The final gate cannot be self-awarded/);
-  assert.match(html, /finreplay-os-044661b\.zip/);
-  assert.match(html, /380a33d5…57e6f0/);
-  assert.match(html, /github\.com\/limingrui679-design\/finreplay-os\/tree\/044661bf0d4d/);
+  assert.match(html, /finreplay-os-18087f8\.zip/);
+  assert.match(html, /f18290ad…38eab5/);
+  assert.match(html, /github\.com\/limingrui679-design\/finreplay-os\/tree\/18087f8fe4f6/);
   assert.match(html, /Independent review/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });
@@ -235,7 +235,7 @@ test("ships thirty manifest-bound deterministic scenario downloads", async () =>
 
 test("ships the exact independent-review source archive", async () => {
   const archive = await readFile(
-    new URL("../dist/client/review/finreplay-os-044661b.zip", import.meta.url),
+    new URL("../dist/client/review/finreplay-os-18087f8.zip", import.meta.url),
   );
   const manifest = JSON.parse(
     await readFile(
@@ -244,19 +244,19 @@ test("ships the exact independent-review source archive", async () => {
     ),
   );
 
-  assert.equal(archive.length, 7_488_050);
+  assert.equal(archive.length, 7_489_809);
   assert.equal(
     createHash("sha256").update(archive).digest("hex"),
-    "380a33d52890a09a6f686e3fa5d522d0e2b2e5c9022c7421091e61e26657e6f0",
+    "f18290adc4f225c68a60d9556878d5c0ddba14c26b658b5b629f0f45238eab5c",
   );
   assert.equal(manifest.source_archive.bytes, archive.length);
   assert.equal(
     manifest.source_archive.sha256,
-    "380a33d52890a09a6f686e3fa5d522d0e2b2e5c9022c7421091e61e26657e6f0",
+    "f18290adc4f225c68a60d9556878d5c0ddba14c26b658b5b629f0f45238eab5c",
   );
-  assert.equal(manifest.repository_subject_commit, "044661bf0d4d5c0a48582a8dde2f8982053dd0e4");
-  assert.equal(manifest.source_archive.zip_entry_count, 1_796);
-  assert.equal(manifest.source_archive.tracked_file_count, 1_550);
+  assert.equal(manifest.repository_subject_commit, "18087f8fe4f6b08885e75ed481d21f115f8e1ab4");
+  assert.equal(manifest.source_archive.zip_entry_count, 1_797);
+  assert.equal(manifest.source_archive.tracked_file_count, 1_551);
   assert.equal(manifest.source_archive.unsafe_path_count, 0);
   assert.equal(manifest.source_archive.embedded_prior_review_archive_count, 0);
 });
