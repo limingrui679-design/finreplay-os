@@ -37,7 +37,8 @@ No unreleased changes.
 - GitHub verification now runs a separate locked Node 22 build, rendered-route tests, and npm
   audit; wheel smoke tests also exercise the packaged capability and scenario-explorer resources.
 - The clean-commit site-readiness receipt now derives scenario, outcome, dimension, pathway, and
-  capability counts from generated catalogs instead of obsolete page-source patterns.
+  capability counts from generated catalogs instead of obsolete page-source patterns, and its
+  fresh archive includes the exact packaged catalog inputs used by cross-directory hash tests.
 
 ## [0.1.0a1] - 2026-08-16
 

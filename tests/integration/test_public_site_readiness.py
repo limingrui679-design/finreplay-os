@@ -2,13 +2,16 @@ from __future__ import annotations
 
 import hashlib
 import json
+import runpy
 import subprocess
 import sys
+from collections.abc import Callable
 from pathlib import Path
 from typing import Any, cast
 
 REPOSITORY = Path(__file__).resolve().parents[2]
 RECEIPT = REPOSITORY / "verification/evidence/public-site-readiness.json"
+READINESS_SCRIPT = REPOSITORY / "scripts/run_public_site_readiness.py"
 
 
 def test_public_site_readiness_receipt_is_self_hashed_and_subject_bound() -> None:
@@ -67,6 +70,30 @@ def test_public_site_readiness_cli_verifier_passes() -> None:
 
     assert "verified=true" in completed.stdout
     assert "vulnerabilities=0" in completed.stdout
+
+
+def test_fresh_site_archive_contains_cross_directory_catalog_inputs(
+    tmp_path: Path,
+) -> None:
+    script = runpy.run_path(
+        str(READINESS_SCRIPT), run_name="finreplay_site_readiness_test"
+    )
+    validation_paths = cast(tuple[str, ...], script["SITE_VALIDATION_PATHS"])
+    extract_site_archive = cast(
+        Callable[[str, Path], None], script["_extract_site_archive"]
+    )
+    revision = subprocess.run(
+        ["git", "rev-parse", "HEAD^{commit}"],
+        cwd=REPOSITORY,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+
+    extract_site_archive(revision, tmp_path)
+
+    for relative in validation_paths:
+        assert (tmp_path / "source" / relative).is_file()
 
 
 def _hash(value: object) -> str:

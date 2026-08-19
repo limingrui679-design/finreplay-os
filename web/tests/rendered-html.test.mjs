@@ -181,16 +181,24 @@ test("ships a self-hashed capability catalog bound to the scenario catalog", asy
   const catalog = JSON.parse(
     await readFile(new URL("../data/capabilities.json", import.meta.url), "utf8"),
   );
+  const packagedCatalog = JSON.parse(
+    await readFile(
+      new URL("../../src/finreplay/resources/capability-catalog.json", import.meta.url),
+      "utf8",
+    ),
+  );
   const scenarioCatalog = JSON.parse(
     await readFile(
       new URL("../../src/finreplay/resources/scenario-catalog.json", import.meta.url),
       "utf8",
     ),
   );
-  const claimedHash = catalog.catalog_sha256;
-  delete catalog.catalog_sha256;
-  const canonical = canonicalJson(catalog);
+  const hashPayload = structuredClone(catalog);
+  const claimedHash = hashPayload.catalog_sha256;
+  delete hashPayload.catalog_sha256;
+  const canonical = canonicalJson(hashPayload);
 
+  assert.deepEqual(catalog, packagedCatalog);
   assert.equal(catalog.capability_count, 10);
   assert.equal(catalog.scenario_catalog_sha256, scenarioCatalog.catalog_sha256);
   assert.equal(createHash("sha256").update(canonical).digest("hex"), claimedHash);

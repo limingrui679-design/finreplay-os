@@ -19,6 +19,13 @@ from pathlib import Path
 from typing import Any
 
 REPOSITORY = Path(__file__).resolve().parents[1]
+SITE_SOURCE_PATHS = ("web",)
+SITE_VALIDATION_PATHS = (
+    "src/finreplay/resources/capability-catalog.json",
+    "src/finreplay/resources/scenario-catalog.json",
+    "src/finreplay/resources/scenario-explorer.json",
+)
+SITE_ARCHIVE_PATHS = (*SITE_SOURCE_PATHS, *SITE_VALIDATION_PATHS)
 
 
 def main() -> None:
@@ -90,6 +97,10 @@ def main() -> None:
         review_manifest = _load_json(
             site / "public/review/finreplay-review-manifest.json"
         )
+        validation_inputs_present = all(
+            (root / "source" / relative).is_file()
+            for relative in SITE_VALIDATION_PATHS
+        )
         og = (site / "public/og.png").read_bytes()
         og_width, og_height = _png_dimensions(og)
         vulnerabilities = audit["metadata"]["vulnerabilities"]
@@ -113,6 +124,7 @@ def main() -> None:
                 capability_catalog.get("capability_count") == 10
                 and len(capabilities) == 10
             ),
+            "cross_directory_catalog_inputs_archived": validation_inputs_present,
             "external_review_stays_pending": (
                 review_manifest.get("evidence_status")
                 == "internally_proven_external_review_pending"
@@ -149,6 +161,7 @@ def main() -> None:
             "file_count": len(artifacts),
             "total_bytes": sum(item["bytes"] for item in artifacts),
             "set_sha256": _hash(artifacts),
+            "validation_input_paths": list(SITE_VALIDATION_PATHS),
             "files": artifacts,
         },
         "commands": commands,
@@ -204,7 +217,15 @@ def main() -> None:
 
 def _extract_site_archive(revision: str, destination: Path) -> None:
     archive_bytes = subprocess.run(
-        ["git", "archive", "--format=tar", "--prefix=source/", revision, "web"],
+        [
+            "git",
+            "archive",
+            "--format=tar",
+            "--prefix=source/",
+            revision,
+            "--",
+            *SITE_ARCHIVE_PATHS,
+        ],
         cwd=REPOSITORY,
         check=True,
         capture_output=True,
@@ -228,7 +249,9 @@ def _extract_site_archive(revision: str, destination: Path) -> None:
 
 
 def _site_artifacts(revision: str) -> list[dict[str, object]]:
-    paths = _git("ls-tree", "-r", "--name-only", revision, "web").splitlines()
+    paths = _git(
+        "ls-tree", "-r", "--name-only", revision, "--", *SITE_ARCHIVE_PATHS
+    ).splitlines()
     artifacts = []
     for relative in paths:
         content = subprocess.run(
