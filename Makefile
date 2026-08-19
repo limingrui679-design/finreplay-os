@@ -40,6 +40,9 @@ test:
 evidence:
 	$(PYTHON) scripts/verify_scenario_catalog.py
 	$(PYTHON) scripts/validate_independent_review_records.py
+	$(PYTHON) scripts/verify_public_site_readiness.py
+	$(PYTHON) scripts/verify_public_site_deployment.py
+	$(PYTHON) scripts/verify_public_github_release.py
 	$(PYTHON) scripts/scan_tracked_secrets.py
 
 audit:

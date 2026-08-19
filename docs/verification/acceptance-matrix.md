@@ -262,26 +262,26 @@ feedback, automated tests, stars, traffic, or a friend saying “looks good” d
 Current status: **PUBLIC DEMO PROVEN; BLOCKED_EXTERNAL until a real external reviewer participates.**
 This does not stop implementation work and must never be filled with fabricated evidence. The
 local deployment precursor is complete: `verification/evidence/public-site-readiness.json` is a
-self-hashed receipt bound to clean subject commit `fdbb1f0eeb2e`. From a fresh Git archive of 61
+self-hashed receipt bound to clean subject commit `f613b04d54d5`. From a fresh Git archive of 61
 tracked site and validation-input files, it records a lockfile install, lint, production build, 11
 passing rendered-surface tests, and an npm audit of 563 dependencies with zero findings. It also
 binds the generated 30-scenario, 10-dimension, five-pathway and 10-capability catalogs. The candidate
 site carries a 7.49 MB deterministic source ZIP bound to commit `18087f8fe4f6`, with 1,551 tracked
 files, zero unsafe paths, and zero embedded prior review archives. The receipt still records
 `hosted=false`, `public_url=null`, and independent review pending. This is release-readiness evidence
-for the current capability explorer, not evidence that the new route has been deployed.
+for the exact source snapshot; the separate production receipt below proves its later deployment.
 
-Sites version 3 is publicly deployed at
+Sites version 4 is publicly deployed at
 `https://finreplay-evidence.limingrui2.chatgpt.site`. The separate self-hashed
 `verification/evidence/public-site-deployment.json` receipt binds Sites source commit
-`8d235dd2d8804d7734bfd05a24ac22b874853458` to the `web/` tree at repository commit
-`6bdb488255819024058f836b489b0b21525069e6`, records the successful production deployment and
-unchanged public access, and verifies anonymous HTTP 200 for the page, review manifest,
-SHA-256-bound review ZIP, 30 scenario detail routes, and 30 manifest-bound downloads. That proves the public-demo
-half only at the recorded time. The v3 snapshot carries the 6.67 MB deterministic source ZIP bound
-to commit `e150136dc0a2`, but predates the locally verified `/capabilities` route; the two snapshots
-must not be conflated. Independent review remains false, so gate G remains incomplete and awards no
-points under the all-or-nothing scoring rule.
+`500edc97e2c53c4ed0f4a9f5306a69798b8d40ed` to the `web/` tree at repository commit
+`f613b04d54d53cc015d7d5afbf0a6f4adc77d95f`, records the successful production deployment and
+public access, and verifies anonymous HTTP 200 for the homepage, the 10-path `/capabilities`
+explorer, the review manifest, the SHA-256-bound 7.49 MB review ZIP, all 30 scenario detail routes,
+and all 30 manifest-bound downloads. The live verifier independently repeats every route and
+download check and recomputes the stable slug-to-Pack and download-hash sets. That proves the
+public-demo half only at the recorded time. Independent review remains false, so gate G remains
+incomplete and awards no points under the all-or-nothing scoring rule.
 
 The complete repository history is also public at
 `https://github.com/limingrui679-design/finreplay-os`. The self-hashed

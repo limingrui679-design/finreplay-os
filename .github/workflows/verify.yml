@@ -47,6 +47,11 @@ jobs:
         run: python scripts/verify_scenario_catalog.py
       - name: Validate independent-review record catalog
         run: python scripts/validate_independent_review_records.py
+      - name: Verify committed public release receipts
+        run: |
+          python scripts/verify_public_site_readiness.py
+          python scripts/verify_public_site_deployment.py
+          python scripts/verify_public_github_release.py
       - name: Scan tracked text for credential and privacy findings
         run: python scripts/scan_tracked_secrets.py
       - name: Audit complete resolved environment

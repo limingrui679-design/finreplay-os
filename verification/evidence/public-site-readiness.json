@@ -23,10 +23,10 @@
         "npm",
         "ci"
       ],
-      "elapsed_seconds": 11.071148,
+      "elapsed_seconds": 9.942673,
       "exit_code": 0,
       "stderr_sha256": "926c084aa239829d6492dfd9319a266028e0643d94ce4e13248041ee1b0b3a0a",
-      "stdout": "\nadded 461 packages, and audited 462 packages in 11s\n\n155 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities\n"
+      "stdout": "\nadded 461 packages, and audited 462 packages in 10s\n\n155 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities\n"
     },
     "dependency_audit": {
       "argv": [
@@ -34,7 +34,7 @@
         "audit",
         "--json"
       ],
-      "elapsed_seconds": 1.905505,
+      "elapsed_seconds": 2.013155,
       "exit_code": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_sha256": "77f34f2bd7e9f7cd291d4630de046e50e5d9da0218b10a2db9fbb6bd8ce5b80c"
@@ -45,7 +45,7 @@
         "run",
         "lint"
       ],
-      "elapsed_seconds": 6.612571,
+      "elapsed_seconds": 5.743139,
       "exit_code": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout": "\n> finreplay-evidence-site@0.2.0-alpha.1 lint\n> eslint . --ignore-pattern dist --ignore-pattern .next\n\n"
@@ -55,10 +55,10 @@
         "npm",
         "test"
       ],
-      "elapsed_seconds": 10.33197,
+      "elapsed_seconds": 7.662995,
       "exit_code": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "dd228d755b211c1daa317fa90bcc764204c5b1ff68d3c19a2b0759e07003ea53"
+      "stdout_sha256": "c382a232107d263d2d9c5b3243ee856565f4a4f4937bab8d6cfeb8ac31992cfd"
     }
   },
   "dependency_audit": {
@@ -73,8 +73,8 @@
     }
   },
   "evidence_kind": "public_site_local_release_readiness",
-  "generated_at": "2026-08-19T18:55:02.335373Z",
-  "receipt_sha256": "216516aed6ad65b9c549baccd853a0e91707e5f26a92cbdcb08c4514ca29b0a7",
+  "generated_at": "2026-08-19T19:38:01.133046Z",
+  "receipt_sha256": "d268a7ac2aef14d2dd7278e888b83f5d60d331e1d4575ab3a118c1a13e59afcb",
   "rendered_tests": {
     "failed": 0,
     "passed": 11
@@ -132,9 +132,9 @@
         "sha256": "b876467c793809f1f1b34dcaa37981d108a0052c09a335270daa663cd3788b40"
       },
       {
-        "bytes": 1227,
+        "bytes": 1512,
         "path": "web/app/capabilities/hash-target-scroller.tsx",
-        "sha256": "e97a1a5eadbc3aa347a6dc761587169076179d53d36370aeeeae7b53f782462d"
+        "sha256": "7c89f631d0fab574412a8683b42a2ecca1fee949e5593af8f76a80f5da90f560"
       },
       {
         "bytes": 10157,
@@ -387,9 +387,9 @@
         "sha256": "432ba3517ad3a5189dee89ddaf566afa4be4c701957c59dd9e505ef459913af5"
       },
       {
-        "bytes": 10633,
+        "bytes": 10745,
         "path": "web/tests/rendered-html.test.mjs",
-        "sha256": "b723d4b4770287febe907c00d805b9615acc3431261e3c977520a230a35278d0"
+        "sha256": "f3283db6063adafe6404a43e31c665ac06c0d474172b5b4d59f49f577474dab7"
       },
       {
         "bytes": 603,
@@ -407,8 +407,8 @@
         "sha256": "23cddda53034b9c6d6d554f6b0a09f1e3581c88fd7b8f4c8202930b4c2419adb"
       }
     ],
-    "set_sha256": "0045b3745dbd1873dc480fad61a7456d884248584f888909ecbda480b5c79a29",
-    "total_bytes": 10017492,
+    "set_sha256": "9fa28e41d70f0a6713b5d85922c6f6b31a41a5ca051d4848216210c05ac578b7",
+    "total_bytes": 10017889,
     "validation_input_paths": [
       "src/finreplay/resources/capability-catalog.json",
       "src/finreplay/resources/scenario-catalog.json",
@@ -416,9 +416,9 @@
     ]
   },
   "subject": {
-    "code_revision": "fdbb1f0eeb2e51cb89eabc90cdade1346434bb0d",
-    "committed_at": "2026-08-20T02:54:04+08:00",
-    "tree_sha256": "687957e3f3a47ff9c52936b4f8e3f3ef4658b692"
+    "code_revision": "f613b04d54d53cc015d7d5afbf0a6f4adc77d95f",
+    "committed_at": "2026-08-20T03:05:14+08:00",
+    "tree_sha256": "59ff3c8b869026772dcd1b74c62898b0e9ac717a"
   },
   "toolchain": {
     "node": "v22.20.0",

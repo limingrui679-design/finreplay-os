@@ -75,12 +75,12 @@ finreplay scenario pathways
 ```
 
 Use the generated [capability map](docs/capability-map.md), the packaged
-`capability-catalog.json`, or a local production build of the evidence site to inspect all ten capability paths.
-The locally verified site includes `/capabilities`; the currently hosted v3
-snapshot predates that route, so the new explorer is not presented as publicly deployed until a
-new deployment receipt exists. The map is deliberately school-neutral: relevance to health,
-behavior, policy, or place does not become a claim of clinical, intervention, public-client, or
-spatial work.
+`capability-catalog.json`, or the public
+[capability explorer](https://finreplay-evidence.limingrui2.chatgpt.site/capabilities) to inspect
+all ten capability paths. The explorer is deployed in Sites version 4 and is bound to the exact
+validated `web/` source tree by the self-hashed deployment receipt. The map is deliberately
+school-neutral: relevance to health, behavior, policy, or place does not become a claim of
+clinical, intervention, public-client, or spatial work.
 The separate [scenario explorer](docs/scenario-explorer.md) records a primary method, decision
 question, ten overlapping analytical dimensions, five cross-case pathways, and the complete
 3-boundary / 8-evaluation-only / 19-breach outcome composition. Those tags organize existing

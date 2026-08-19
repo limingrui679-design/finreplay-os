@@ -5,13 +5,17 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import http.client
 import io
 import json
 import subprocess
+import time
+import urllib.error
 import urllib.request
 import zipfile
 from pathlib import Path
 from typing import Any
+from urllib.parse import urljoin
 
 REPOSITORY = Path(__file__).resolve().parents[1]
 EXPECTED_URL = "https://finreplay-evidence.limingrui2.chatgpt.site"
@@ -42,7 +46,7 @@ def main() -> None:
     if not all(payload["assertions"].values()):
         raise SystemExit("public site deployment receipt contains a failed assertion")
     schema_version = payload.get("schema_version")
-    if schema_version not in {"1.1.0", "1.2.0"}:
+    if schema_version not in {"1.1.0", "1.2.0", "1.3.0"}:
         raise SystemExit("public site deployment receipt schema version is unsupported")
 
     site = payload["site"]
@@ -96,7 +100,7 @@ def main() -> None:
     scenario_surface: dict[str, Any] = (
         scenario_surface_value if isinstance(scenario_surface_value, dict) else {}
     )
-    if schema_version == "1.2.0":
+    if schema_version in {"1.2.0", "1.3.0"}:
         if not scenario_surface:
             raise SystemExit("public scenario surface metadata is missing")
         if (
@@ -116,6 +120,30 @@ def main() -> None:
             or len(scenario_manifest.get("manifest_sha256", "")) != 64
         ):
             raise SystemExit("public scenario manifest metadata is invalid")
+    capability_value = payload.get("capability_surface")
+    capability_surface: dict[str, Any] = (
+        capability_value if isinstance(capability_value, dict) else {}
+    )
+    if schema_version == "1.3.0":
+        capability_markers = capability_surface.get("required_markers")
+        if (
+            capability_surface.get("url") != f"{EXPECTED_URL}/capabilities"
+            or capability_surface.get("anonymous_http_status") != 200
+            or capability_surface.get("capability_count") != 10
+            or capability_surface.get("bytes", 0) <= 0
+            or len(capability_surface.get("sha256", "")) != 64
+            or not isinstance(capability_markers, list)
+            or len(capability_markers) != len(set(capability_markers))
+            or not all(
+                isinstance(marker, str) and marker for marker in capability_markers
+            )
+        ):
+            raise SystemExit("public capability surface metadata is invalid")
+        if (
+            len(scenario_surface.get("detail_binding_set_sha256", "")) != 64
+            or len(scenario_surface.get("observed_archive_set_sha256", "")) != 64
+        ):
+            raise SystemExit("public scenario observation-set metadata is invalid")
 
     live_detail = ""
     if args.live:
@@ -151,7 +179,7 @@ def main() -> None:
         with zipfile.ZipFile(io.BytesIO(archive_body)) as handle:
             if handle.testzip() is not None:
                 raise SystemExit("live public review archive failed ZIP integrity")
-        if schema_version == "1.2.0":
+        if schema_version in {"1.2.0", "1.3.0"}:
             scenario_manifest_body, scenario_manifest_status = _fetch(
                 scenario_surface["manifest"]["url"]
             )
@@ -169,6 +197,62 @@ def main() -> None:
                 != scenario_surface["manifest"]["manifest_sha256"]
             ):
                 raise SystemExit("live public scenario manifest count or self-hash differs")
+            bundles = scenario_payload.get("bundles")
+            if not isinstance(bundles, list) or len(bundles) != 30:
+                raise SystemExit("live public scenario bundle list differs")
+            detail_bindings: list[dict[str, str]] = []
+            download_observations: list[dict[str, object]] = []
+            for item in bundles:
+                if not isinstance(item, dict):
+                    raise SystemExit("live public scenario bundle entry is invalid")
+                slug = item.get("slug")
+                pack_sha256 = item.get("pack_sha256")
+                download_path = item.get("download_path")
+                values = (slug, pack_sha256, download_path)
+                if not all(isinstance(value, str) and value for value in values):
+                    raise SystemExit("live public scenario bundle fields are invalid")
+                assert isinstance(slug, str)
+                assert isinstance(pack_sha256, str)
+                assert isinstance(download_path, str)
+                detail_body, detail_status = _fetch(f"{EXPECTED_URL}/replays/{slug}")
+                if detail_status != 200 or pack_sha256 not in detail_body.decode("utf-8"):
+                    raise SystemExit(f"live scenario detail differs: {slug}")
+                detail_bindings.append({"slug": slug, "pack_sha256": pack_sha256})
+                download_body, download_status = _fetch(
+                    urljoin(f"{EXPECTED_URL}/", download_path.lstrip("/"))
+                )
+                if (
+                    download_status != 200
+                    or item.get("bytes") != len(download_body)
+                    or item.get("sha256") != hashlib.sha256(download_body).hexdigest()
+                ):
+                    raise SystemExit(f"live scenario download differs: {slug}")
+                download_observations.append(
+                    {
+                        "slug": slug,
+                        "bytes": len(download_body),
+                        "sha256": hashlib.sha256(download_body).hexdigest(),
+                    }
+                )
+            if schema_version == "1.3.0" and (
+                _hash(detail_bindings)
+                != scenario_surface["detail_binding_set_sha256"]
+                or _hash(download_observations)
+                != scenario_surface["observed_archive_set_sha256"]
+            ):
+                raise SystemExit("live public scenario observation set differs")
+        if schema_version == "1.3.0":
+            capability_body, capability_status = _fetch(capability_surface["url"])
+            capability_text = capability_body.decode("utf-8")
+            missing_capabilities = [
+                marker
+                for marker in capability_surface["required_markers"]
+                if marker not in capability_text
+            ]
+            if capability_status != 200 or missing_capabilities:
+                raise SystemExit(
+                    f"live public capability surface differs: {missing_capabilities}"
+                )
         live_detail = (
             f" live_http_status={status} live_bytes={len(body)} "
             f"review_archive_bytes={len(archive_body)}"
@@ -182,12 +266,25 @@ def main() -> None:
 
 
 def _fetch(url: str) -> tuple[bytes, int]:
-    request = urllib.request.Request(
-        url,
-        headers={"User-Agent": "FinReplay-deployment-verifier/1.1"},
-    )
-    with urllib.request.urlopen(request, timeout=60) as response:
-        return response.read(), response.status
+    last_error: Exception | None = None
+    for attempt in range(5):
+        request = urllib.request.Request(
+            url,
+            headers={"User-Agent": "FinReplay-deployment-verifier/1.3"},
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=60) as response:
+                return response.read(), response.status
+        except (
+            OSError,
+            TimeoutError,
+            http.client.IncompleteRead,
+            urllib.error.URLError,
+        ) as error:
+            last_error = error
+            if attempt < 4:
+                time.sleep(2 * (attempt + 1))
+    raise SystemExit(f"anonymous fetch failed after retries: {url}: {last_error}")
 
 
 def _load_json(path: Path) -> dict[str, Any]:

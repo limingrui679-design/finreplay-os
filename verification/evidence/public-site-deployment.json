@@ -2,6 +2,8 @@
   "all_deployment_gates_passed": true,
   "assertions": {
     "anonymous_http_200": true,
+    "capability_markers_present": true,
+    "capability_route_http_200": true,
     "fixed_github_source_link_present": true,
     "independent_review_remains_pending": true,
     "production_deployment_succeeded": true,
@@ -14,61 +16,26 @@
     "scenario_downloads_match_manifest": true,
     "sites_source_tree_matches_parent_web_tree": true
   },
-  "claim_boundary": "This receipt proves that Sites version 3 was successfully deployed to the existing public production URL, returned HTTP 200 to an anonymous request, exposed the fixed GitHub source link, and served the recorded review artifacts plus 30 manifest-bound scenario pages and downloads at the recorded time. It binds the Sites source tree to repository commit 6bdb48825581. It does not prove continuous uptime, independent review, security or accessibility certification, users, adoption, investment performance, or real-world impact.",
-  "evidence_kind": "public_site_production_deployment",
-  "recorded_at": "2026-08-16T12:34:20.059801Z",
-  "schema_version": "1.2.0",
-  "site": {
-    "access_mode": "public",
-    "access_policy_revision": 2,
-    "access_updated_at": "2026-08-15T09:29:27.271625Z",
-    "deployment_completed_at": "2026-08-16T12:29:35.875499Z",
-    "deployment_id": "appgdep_6a81ad17d230819186fe4bcf09f8c551",
-    "deployment_status": "succeeded",
-    "project_id": "appgprj_6a8002cc2d308191a2cf9478863ce83e",
-    "public_url": "https://finreplay-evidence.limingrui2.chatgpt.site",
-    "slug": "finreplay-evidence",
-    "title": "FinReplay OS Evidence",
-    "version_id": "appgprj_6a8002cc2d308191a2cf9478863ce83e~appgver_164cdf0e1b18819182230a5e9680e40a",
-    "version_number": 3
-  },
-  "source_binding": {
-    "parent_repository_commit": "6bdb488255819024058f836b489b0b21525069e6",
-    "site_source_commit": "8d235dd2d8804d7734bfd05a24ac22b874853458",
-    "site_source_tree_git_oid": "4a9664c6c2403e5e1a48256195a1779beaa77384",
-    "saved_version_archive_storage": {
-      "archive_format": "tar",
-      "content_hash": "sha256:4300f42bbdaa46701191ccb569a3d1fbe37173cdb504d6664d88ab01622ae998",
-      "file_count": 69,
-      "size_bytes": 10526720
-    }
-  },
-  "verification": {
+  "capability_surface": {
     "anonymous_http_status": 200,
-    "anonymous_http_verified_at": "2026-08-16T12:34:20.059801Z",
+    "bytes": 97938,
+    "capability_count": 10,
     "required_markers": [
-      "FinReplay OS",
-      "Independent review",
-      "2,212 / 2,212",
-      "e150136dc0a2",
-      "github.com/limingrui679-design/finreplay-os/tree/e150136dc0a2"
+      "Choose the question.",
+      "Direct evidence",
+      "Transferable method",
+      "Boundary only",
+      "Methods transfer; unearned domain claims do not."
     ],
-    "response_body_bytes": 32962,
-    "response_body_sha256": "e134b20688d90950e0064d5d0170a0993f01605875081e8f98f43a542069e8c1",
-    "review_archive": {
-      "anonymous_http_status": 200,
-      "bytes": 6673935,
-      "sha256": "f7c287c613b366f38705c1eaf5a21971ff3a5380f11c5fc4a0e1b44900a065ab",
-      "url": "https://finreplay-evidence.limingrui2.chatgpt.site/review/finreplay-os-e150136.zip"
-    },
-    "review_manifest": {
-      "anonymous_http_status": 200,
-      "bytes": 3484,
-      "sha256": "520152d5a2c253a018638104fd7a024556672fa5cfd87bc7d9845fd115e68403",
-      "url": "https://finreplay-evidence.limingrui2.chatgpt.site/review/finreplay-review-manifest.json"
-    }
+    "sha256": "30d2bfd618f420ee1925d86836a44453690f8b94467020e90311bf80567295d2",
+    "url": "https://finreplay-evidence.limingrui2.chatgpt.site/capabilities"
   },
+  "claim_boundary": "This receipt proves that Sites version 4 was successfully deployed to the existing public production URL, returned anonymous HTTP 200, served the evidence-bounded capability route, and served the recorded review artifacts plus 30 manifest-bound scenario pages and downloads at the recorded time. It binds the Sites source tree to repository commit f613b04d54d5. It does not prove continuous uptime, independent review, security or accessibility certification, users, adoption, investment performance, or real-world impact.",
+  "evidence_kind": "public_site_production_deployment",
+  "receipt_sha256": "c3afe1cf2901429f6c0e3a9f58cdbf5206d328517272e1cee4fcc8ffcfea26a3",
+  "recorded_at": "2026-08-19T19:33:03.615825Z",
   "scenario_surface": {
+    "detail_binding_set_sha256": "e5142cdff56f3b8eaa11d35a576b2578723c7316c15b6806042bd84362ca1316",
     "detail_routes_http_200": 30,
     "details_bind_pack_hash": true,
     "downloads_http_200": 30,
@@ -80,8 +47,58 @@
       "sha256": "b0352d3d3932699f0054ba2a0c73ad4ca6943bfe44ce1edcd1450a74b716425b",
       "url": "https://finreplay-evidence.limingrui2.chatgpt.site/replaypacks/manifest.json"
     },
-    "observed_archive_set_sha256": "32d3f37717714c20ea6abc0d505414cce72f0909b85393d7509303a421972635",
+    "observed_archive_set_sha256": "ed5810c71a74d2d7da7b8fc34e715d1fb93086eea011cdf09c727edfcbe435bf",
     "scenario_count": 30
   },
-  "receipt_sha256": "fb00fa38962d2273b017b738d793ecc2c486dd42b82d99370074fd0346419b35"
+  "schema_version": "1.3.0",
+  "site": {
+    "access_mode": "public",
+    "access_policy_revision": 2,
+    "access_updated_at": "2026-08-15T09:29:27.271625Z",
+    "deployment_completed_at": "2026-08-19T19:12:20.496636Z",
+    "deployment_id": "appgdep_6a86000745908191a39446e622c24884",
+    "deployment_status": "succeeded",
+    "project_id": "appgprj_6a8002cc2d308191a2cf9478863ce83e",
+    "public_url": "https://finreplay-evidence.limingrui2.chatgpt.site",
+    "slug": "finreplay-evidence",
+    "title": "FinReplay OS Evidence",
+    "version_id": "appgprj_6a8002cc2d308191a2cf9478863ce83e~appgver_7ff2288aafc881919bb759ab0f2cc66d",
+    "version_number": 4
+  },
+  "source_binding": {
+    "parent_repository_commit": "f613b04d54d53cc015d7d5afbf0a6f4adc77d95f",
+    "saved_version_archive_storage": {
+      "archive_format": "tar",
+      "content_hash": "sha256:fb71bbc058d02ad8d06fc7bea70c8419d3047fe13cc542f1914da75e555ed401",
+      "file_count": 69,
+      "size_bytes": 11489280
+    },
+    "site_source_commit": "500edc97e2c53c4ed0f4a9f5306a69798b8d40ed",
+    "site_source_tree_git_oid": "adb522430b163f1522b51f1c475daf16f561314e"
+  },
+  "verification": {
+    "anonymous_http_status": 200,
+    "anonymous_http_verified_at": "2026-08-19T19:33:03.615825Z",
+    "required_markers": [
+      "FinReplay OS",
+      "Independent review",
+      "2,232 / 2,232",
+      "18087f8fe4f6",
+      "github.com/limingrui679-design/finreplay-os/tree/18087f8fe4f6"
+    ],
+    "response_body_bytes": 38106,
+    "response_body_sha256": "1c602b4a08b19c4cfd7407de22fda8ffe686fd612c932aff1156541c983f6144",
+    "review_archive": {
+      "anonymous_http_status": 200,
+      "bytes": 7489809,
+      "sha256": "f18290adc4f225c68a60d9556878d5c0ddba14c26b658b5b629f0f45238eab5c",
+      "url": "https://finreplay-evidence.limingrui2.chatgpt.site/review/finreplay-os-18087f8.zip"
+    },
+    "review_manifest": {
+      "anonymous_http_status": 200,
+      "bytes": 4688,
+      "sha256": "432ba3517ad3a5189dee89ddaf566afa4be4c701957c59dd9e505ef459913af5",
+      "url": "https://finreplay-evidence.limingrui2.chatgpt.site/review/finreplay-review-manifest.json"
+    }
+  }
 }
