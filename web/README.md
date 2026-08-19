@@ -14,8 +14,8 @@ internal validation as external adoption, domain review, or production use.
 - 30 stable scenario detail routes with structured claims and boundaries;
 - a generated 10-path capability directory with direct, transferable, and boundary-only labels;
 - 30 deterministic ReplayPack downloads plus a self-hashed manifest; and
-- a 6.67 MB review-source snapshot bound to commit `e150136dc0a2` and SHA-256
-  `f7c287c613b366f38705c1eaf5a21971ff3a5380f11c5fc4a0e1b44900a065ab`.
+- a 7.49 MB review-source snapshot bound to commit `044661bf0d4d` and SHA-256
+  `380a33d52890a09a6f686e3fa5d522d0e2b2e5c9022c7421091e61e26657e6f0`.
 
 ## Local verification
 

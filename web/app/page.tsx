@@ -270,11 +270,11 @@ export default function Home() {
           <span className="section-number">07 / Independent evidence</span>
           <h2 id="review-title">The final gate cannot be self-awarded.</h2>
           <p>A qualified reviewer must independently reproduce a result or review a domain method, identify a real issue, and follow that issue through resolution.</p>
-          <p className="archive-digest">The fixed review snapshot is bound to commit <code>e150136dc0a2</code> and SHA-256 <code>f7c287c6…065ab</code>. The 30 current per-scenario downloads are separately self-hashed.</p>
+          <p className="archive-digest">The fixed review snapshot is bound to commit <code>044661bf0d4d</code> and SHA-256 <code>380a33d5…57e6f0</code>. The 30 current per-scenario downloads are separately self-hashed.</p>
           <div className="review-downloads">
-            <a className="primary-action download" href="/review/finreplay-os-e150136.zip" download>Download review source</a>
+            <a className="primary-action download" href="/review/finreplay-os-044661b.zip" download>Download review source</a>
             <a className="secondary-action download" href="/replaypacks/manifest.json" download>Download pack manifest</a>
-            <a className="secondary-action" href="https://github.com/limingrui679-design/finreplay-os/tree/e150136dc0a2d49d068499ea9fdb01fc4a943a8c">Browse fixed source</a>
+            <a className="secondary-action" href="https://github.com/limingrui679-design/finreplay-os/tree/044661bf0d4d5c0a48582a8dde2f8982053dd0e4">Browse fixed source</a>
             <a className="secondary-action" href="https://github.com/limingrui679-design/finreplay-os/issues/new?template=independent-review.yml">Start independent review</a>
           </div>
         </div>

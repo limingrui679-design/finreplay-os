@@ -262,12 +262,14 @@ feedback, automated tests, stars, traffic, or a friend saying “looks good” d
 Current status: **PUBLIC DEMO PROVEN; BLOCKED_EXTERNAL until a real external reviewer participates.**
 This does not stop implementation work and must never be filled with fabricated evidence. The
 local deployment precursor is complete: `verification/evidence/public-site-readiness.json` is a
-self-hashed receipt bound to commit `9d512af73285`; from a fresh Git archive it records a lockfile
-install, lint, production build, three rendered-page and packaged-archive tests, and an npm audit
-of 563 dependencies with zero findings. The built site carries a 6.67 MB deterministic source ZIP
-bound to commit `e150136dc0a2`, excludes prior packaged review ZIPs, and includes a fixed public
-GitHub source link, plus a strict independent-review protocol and completed-record
-schema.
+self-hashed receipt bound to clean subject commit `deac615efe39`. From a fresh Git archive of 60
+tracked site and validation-input files, it records a lockfile install, lint, production build, ten
+passing rendered-surface tests, and an npm audit of 563 dependencies with zero findings. It also
+binds the generated 30-scenario, 10-dimension, five-pathway and 10-capability catalogs. The candidate
+site carries a 7.49 MB deterministic source ZIP bound to commit `044661bf0d4d`, with 1,550 tracked
+files, zero unsafe paths, and zero embedded prior review archives. The receipt still records
+`hosted=false`, `public_url=null`, and independent review pending. This is release-readiness evidence
+for the current capability explorer, not evidence that the new route has been deployed.
 
 Sites version 3 is publicly deployed at
 `https://finreplay-evidence.limingrui2.chatgpt.site`. The separate self-hashed
@@ -276,8 +278,10 @@ Sites version 3 is publicly deployed at
 `6bdb488255819024058f836b489b0b21525069e6`, records the successful production deployment and
 unchanged public access, and verifies anonymous HTTP 200 for the page, review manifest,
 SHA-256-bound review ZIP, 30 scenario detail routes, and 30 manifest-bound downloads. That proves the public-demo
-half only at the recorded time. Independent review remains false, so gate G remains incomplete and
-awards no points under the all-or-nothing scoring rule.
+half only at the recorded time. The v3 snapshot carries the 6.67 MB deterministic source ZIP bound
+to commit `e150136dc0a2`, but predates the locally verified `/capabilities` route; the two snapshots
+must not be conflated. Independent review remains false, so gate G remains incomplete and awards no
+points under the all-or-nothing scoring rule.
 
 The complete repository history is also public at
 `https://github.com/limingrui679-design/finreplay-os`. The self-hashed
