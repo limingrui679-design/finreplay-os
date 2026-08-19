@@ -40,6 +40,8 @@ No unreleased changes.
   capability counts from generated catalogs instead of obsolete page-source patterns, and its
   fresh archive includes the exact packaged catalog inputs used by cross-directory hash tests.
   Catalog digests are captured before the isolated build tree is discarded.
+- Capability deep links now restore their intended card after client-side navigation or a direct
+  hash URL instead of leaving the reader at the directory header.
 
 ## [0.1.0a1] - 2026-08-16
 

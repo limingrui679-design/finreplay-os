@@ -159,6 +159,7 @@ test("renders the evidence-bounded capability directory", async () => {
   assert.match(html, /Analytical dimension coverage/);
   assert.equal((html.match(/class="pathway-card"/g) ?? []).length, 5);
   assert.equal((html.match(/class="capability-card"/g) ?? []).length, 10);
+  assert.match(html, /id="public-policy-evidence"/);
   assert.equal((html.match(/class="pathway-grid"/g) ?? []).length, 1);
   assert.match(html, /Five ways through thirty cases/);
   assert.match(html, /Direct evidence/);
@@ -166,6 +167,18 @@ test("renders the evidence-bounded capability directory", async () => {
   assert.match(html, /Boundary only/);
   assert.match(html, /not evidence of domain deployment/i);
   assert.match(html, /catalog_sha256=/);
+});
+
+test("ships capability hash navigation recovery for client-side routes", async () => {
+  const source = await readFile(
+    new URL("../app/capabilities/hash-target-scroller.tsx", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(source, /window\.location\.hash/);
+  assert.match(source, /scrollIntoView/);
+  assert.match(source, /hashchange/);
+  assert.match(source, /ResizeObserver/);
 });
 
 test("keeps uncurated cases useful without inventing a direct capability route", async () => {

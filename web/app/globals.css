@@ -499,7 +499,7 @@ footer { display: flex; justify-content: space-between; gap: 2rem; padding-top: 
 .metadata-boundary { max-width: 980px; margin: 1.5rem 0 0; padding-left: 1rem; border-left: 3px solid var(--red); color: var(--muted); font-size: 0.78rem; line-height: 1.55; }
 .capability-directory { padding: 7rem 0; }
 .capability-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 3rem; }
-.capability-card { display: flex; flex-direction: column; padding: 1.5rem; border: 1px solid var(--ink); background: rgba(255, 255, 255, 0.24); }
+.capability-card { display: flex; flex-direction: column; padding: 1.5rem; border: 1px solid var(--ink); scroll-margin-top: 1.5rem; background: rgba(255, 255, 255, 0.24); }
 .capability-card > header { display: flex; justify-content: space-between; gap: 1rem; }
 .capability-index { color: var(--muted); font-family: var(--font-geist-mono), monospace; font-size: 0.7rem; }
 .capability-card h3 { margin: 2rem 0 0.9rem; font-size: clamp(1.65rem, 2.6vw, 2.7rem); line-height: 1; letter-spacing: -0.04em; }

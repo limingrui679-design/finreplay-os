@@ -15,6 +15,7 @@ import {
   pathways,
   scenarios,
 } from "@/lib/scenarios";
+import HashTargetScroller from "./hash-target-scroller";
 
 export const metadata: Metadata = {
   title: "Capability map · FinReplay OS",
@@ -53,6 +54,7 @@ const dimensionSummary = lenses.map((lens) => ({
 export default function CapabilitiesPage() {
   return (
     <main className="subpage capability-page">
+      <HashTargetScroller />
       <header className="site-header">
         <Link className="wordmark" href="/" aria-label="FinReplay OS home">
           <span className="wordmark-mark" aria-hidden="true">FR</span>
