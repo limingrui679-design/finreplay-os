@@ -7,7 +7,13 @@ export default function HashTargetScroller() {
     const scrollToHash = () => {
       const encodedId = window.location.hash.slice(1);
       if (!encodedId) return;
-      const target = document.getElementById(decodeURIComponent(encodedId));
+      let targetId = encodedId;
+      try {
+        targetId = decodeURIComponent(encodedId);
+      } catch {
+        // A malformed external hash should be ignored, not break the explorer.
+      }
+      const target = document.getElementById(targetId);
       target?.scrollIntoView({ block: "start" });
     };
 
@@ -16,10 +22,15 @@ export default function HashTargetScroller() {
     const settleHashTarget = () => {
       scrollToHash();
       settleObserver?.disconnect();
-      settleObserver = new ResizeObserver(scrollToHash);
-      settleObserver.observe(document.body);
+      if (typeof ResizeObserver !== "undefined") {
+        settleObserver = new ResizeObserver(scrollToHash);
+        settleObserver.observe(document.body);
+      }
       if (settleTimer !== undefined) window.clearTimeout(settleTimer);
-      settleTimer = window.setTimeout(() => settleObserver?.disconnect(), 750);
+      settleTimer = window.setTimeout(() => {
+        scrollToHash();
+        settleObserver?.disconnect();
+      }, 1_500);
     };
 
     const firstFrame = window.requestAnimationFrame(settleHashTarget);

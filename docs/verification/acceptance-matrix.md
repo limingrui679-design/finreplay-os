@@ -262,8 +262,8 @@ feedback, automated tests, stars, traffic, or a friend saying “looks good” d
 Current status: **PUBLIC DEMO PROVEN; BLOCKED_EXTERNAL until a real external reviewer participates.**
 This does not stop implementation work and must never be filled with fabricated evidence. The
 local deployment precursor is complete: `verification/evidence/public-site-readiness.json` is a
-self-hashed receipt bound to clean subject commit `deac615efe39`. From a fresh Git archive of 60
-tracked site and validation-input files, it records a lockfile install, lint, production build, ten
+self-hashed receipt bound to clean subject commit `fdbb1f0eeb2e`. From a fresh Git archive of 61
+tracked site and validation-input files, it records a lockfile install, lint, production build, 11
 passing rendered-surface tests, and an npm audit of 563 dependencies with zero findings. It also
 binds the generated 30-scenario, 10-dimension, five-pathway and 10-capability catalogs. The candidate
 site carries a 7.49 MB deterministic source ZIP bound to commit `18087f8fe4f6`, with 1,551 tracked

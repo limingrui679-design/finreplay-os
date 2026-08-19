@@ -176,9 +176,12 @@ test("ships capability hash navigation recovery for client-side routes", async (
   );
 
   assert.match(source, /window\.location\.hash/);
+  assert.match(source, /decodeURIComponent/);
+  assert.match(source, /catch/);
   assert.match(source, /scrollIntoView/);
   assert.match(source, /hashchange/);
   assert.match(source, /ResizeObserver/);
+  assert.match(source, /1_500/);
 });
 
 test("keeps uncurated cases useful without inventing a direct capability route", async () => {
