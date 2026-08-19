@@ -39,6 +39,7 @@ No unreleased changes.
 - The clean-commit site-readiness receipt now derives scenario, outcome, dimension, pathway, and
   capability counts from generated catalogs instead of obsolete page-source patterns, and its
   fresh archive includes the exact packaged catalog inputs used by cross-directory hash tests.
+  Catalog digests are captured before the isolated build tree is discarded.
 
 ## [0.1.0a1] - 2026-08-16
 

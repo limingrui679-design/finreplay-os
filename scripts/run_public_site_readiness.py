@@ -103,6 +103,23 @@ def main() -> None:
         )
         og = (site / "public/og.png").read_bytes()
         og_width, og_height = _png_dimensions(og)
+        site_content = {
+            "scenario_count": len(scenarios),
+            "visible_breach_count": visible_breach_count,
+            "analytical_dimension_count": len(lenses),
+            "pathway_count": len(pathways),
+            "capability_count": len(capabilities),
+            "scenario_catalog_sha256": hashlib.sha256(
+                (site / "data/scenarios.json").read_bytes()
+            ).hexdigest(),
+            "capability_catalog_sha256": hashlib.sha256(
+                (site / "data/capabilities.json").read_bytes()
+            ).hexdigest(),
+            "og_png_bytes": len(og),
+            "og_png_sha256": hashlib.sha256(og).hexdigest(),
+            "og_png_width": og_width,
+            "og_png_height": og_height,
+        }
         vulnerabilities = audit["metadata"]["vulnerabilities"]
         assertions = {
             "clean_install_passed": commands["clean_install"]["exit_code"] == 0,
@@ -170,23 +187,7 @@ def main() -> None:
             "total_dependencies": audit["metadata"]["dependencies"]["total"],
             "vulnerabilities": vulnerabilities,
         },
-        "site_content": {
-            "scenario_count": len(scenarios),
-            "visible_breach_count": visible_breach_count,
-            "analytical_dimension_count": len(lenses),
-            "pathway_count": len(pathways),
-            "capability_count": len(capabilities),
-            "scenario_catalog_sha256": hashlib.sha256(
-                (site / "data/scenarios.json").read_bytes()
-            ).hexdigest(),
-            "capability_catalog_sha256": hashlib.sha256(
-                (site / "data/capabilities.json").read_bytes()
-            ).hexdigest(),
-            "og_png_bytes": len(og),
-            "og_png_sha256": hashlib.sha256(og).hexdigest(),
-            "og_png_width": og_width,
-            "og_png_height": og_height,
-        },
+        "site_content": site_content,
         "assertions": assertions,
         "site_state": {
             "hosted": False,

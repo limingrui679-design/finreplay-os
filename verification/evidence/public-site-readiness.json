@@ -2,16 +2,19 @@
   "all_required_gates_passed": true,
   "assertions": {
     "clean_install_passed": true,
+    "cross_directory_catalog_inputs_archived": true,
     "dependency_audit_clean": true,
     "external_review_stays_pending": true,
     "hosting_project_is_configured": true,
     "lint_passed": true,
-    "nineteen_breaches_in_source": true,
+    "nineteen_breaches_in_generated_catalog": true,
     "no_database_or_object_storage_binding": true,
     "no_public_url_claim_in_hosting_config": true,
     "production_build_and_render_tests_passed": true,
     "social_card_is_png": true,
-    "thirty_scenarios_in_source": true
+    "ten_capabilities_in_generated_catalog": true,
+    "ten_dimensions_and_five_pathways_in_generated_catalog": true,
+    "thirty_scenarios_in_generated_catalog": true
   },
   "claim_boundary": "This receipt proves that the committed read-only site installs from its lockfile, lints, builds, renders its asserted evidence surface, and has zero npm-audit findings at the recorded time. It does not prove hosting, public availability, external review, users, adoption, deployment, or real-world impact.",
   "commands": {
@@ -20,7 +23,7 @@
         "npm",
         "ci"
       ],
-      "elapsed_seconds": 10.261276,
+      "elapsed_seconds": 9.980199,
       "exit_code": 0,
       "stderr_sha256": "926c084aa239829d6492dfd9319a266028e0643d94ce4e13248041ee1b0b3a0a",
       "stdout": "\nadded 461 packages, and audited 462 packages in 10s\n\n155 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities\n"
@@ -31,7 +34,7 @@
         "audit",
         "--json"
       ],
-      "elapsed_seconds": 2.371771,
+      "elapsed_seconds": 1.785268,
       "exit_code": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_sha256": "77f34f2bd7e9f7cd291d4630de046e50e5d9da0218b10a2db9fbb6bd8ce5b80c"
@@ -42,20 +45,20 @@
         "run",
         "lint"
       ],
-      "elapsed_seconds": 3.841318,
+      "elapsed_seconds": 3.669067,
       "exit_code": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout": "\n> finreplay-evidence-site@0.1.0 lint\n> eslint . --ignore-pattern dist --ignore-pattern .next\n\n"
+      "stdout": "\n> finreplay-evidence-site@0.2.0-alpha.1 lint\n> eslint . --ignore-pattern dist --ignore-pattern .next\n\n"
     },
     "production_build_and_render_tests": {
       "argv": [
         "npm",
         "test"
       ],
-      "elapsed_seconds": 18.466339,
+      "elapsed_seconds": 6.29512,
       "exit_code": 0,
-      "stderr_sha256": "94ff08cbfd10125f9df9d0d55de0d47e6ced2ac37694fb1db66c8f978317be1e",
-      "stdout_sha256": "992972ddbe66c2178b2e62e00d6d3c4111a426fdc6619c8f7514672b81856192"
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "0c047b00549cfc76eadf9a8ece2b864ce2f370e81b775ce25ab7602229d09828"
     }
   },
   "dependency_audit": {
@@ -70,18 +73,23 @@
     }
   },
   "evidence_kind": "public_site_local_release_readiness",
-  "generated_at": "2026-08-15T10:23:49.430262Z",
-  "receipt_sha256": "d5a60c112f53d975e6e9166b9abc43becdaf0f1e43dbdcdbc2ac919689890a48",
+  "generated_at": "2026-08-19T18:22:31.918027Z",
+  "receipt_sha256": "232025af9283e5e51dbea23803743d3bdd9f04a5c0fa99e7d8af4242efd3a5f3",
   "rendered_tests": {
     "failed": 0,
-    "passed": 3
+    "passed": 10
   },
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "site_content": {
+    "analytical_dimension_count": 10,
+    "capability_catalog_sha256": "44b58a85e1cf63b927a5c2d0aed02d178d341da62f82799a15ed41b8e9171dde",
+    "capability_count": 10,
     "og_png_bytes": 1277673,
     "og_png_height": 909,
     "og_png_sha256": "9f78cdf5b97838a47aa9d4ddcdbddea0db52b68a162bac77a9376aeffd9814a2",
     "og_png_width": 1731,
+    "pathway_count": 5,
+    "scenario_catalog_sha256": "ad214f9e067f4ae7f3b23338b24ad4c6445e5eac18709372aa873db69676ec7a",
     "scenario_count": 30,
     "visible_breach_count": 19
   },
@@ -91,8 +99,23 @@
     "public_url": null
   },
   "source_artifacts": {
-    "file_count": 19,
+    "file_count": 60,
     "files": [
+      {
+        "bytes": 13065,
+        "path": "src/finreplay/resources/capability-catalog.json",
+        "sha256": "44b58a85e1cf63b927a5c2d0aed02d178d341da62f82799a15ed41b8e9171dde"
+      },
+      {
+        "bytes": 38841,
+        "path": "src/finreplay/resources/scenario-catalog.json",
+        "sha256": "a732a4e459387240ea5ff10e48fc59a17e80150930e88cf939f1b5c42a3a088b"
+      },
+      {
+        "bytes": 26933,
+        "path": "src/finreplay/resources/scenario-explorer.json",
+        "sha256": "2e8d8ce4c07d173bf6a15cc980bbb990ed5c4f2dc751f6c7634c4187f84c0c22"
+      },
       {
         "bytes": 464,
         "path": "web/.gitignore",
@@ -104,29 +127,64 @@
         "sha256": "68b4d5b40c8ca76c5e1385325433794df95fe951f2764774ba85e78b912d4337"
       },
       {
-        "bytes": 1445,
+        "bytes": 1744,
         "path": "web/README.md",
-        "sha256": "56ed0cdcc91f8e907a6c439af4d666cfc80ab878548a7980da6dd1814c55221f"
+        "sha256": "a56b8185c01b997fa44c424ddb309ad5491e4911f76d38e1ec0d08b38c24a172"
       },
       {
-        "bytes": 13179,
+        "bytes": 10071,
+        "path": "web/app/capabilities/page.tsx",
+        "sha256": "99981c81567de93564558bd3532dd21eb069271f6d85bf6f7cb95355edcbe4ff"
+      },
+      {
+        "bytes": 5686,
+        "path": "web/app/docs/page.tsx",
+        "sha256": "6867b65120346caba15d090ebfada0142c3d425c2ae17e189cc294a70240a65a"
+      },
+      {
+        "bytes": 30500,
         "path": "web/app/globals.css",
-        "sha256": "7128a8b3538225f2ca1554f09f2fe7d0e74a71e419f03c251ee66055376981dd"
+        "sha256": "1f5361fd94a34c3ef6bc3eff78b51c7382d1f6e071fbea12829b35b85ab914ad"
       },
       {
-        "bytes": 1607,
+        "bytes": 876,
         "path": "web/app/layout.tsx",
-        "sha256": "c9497d18fa4cd54762ec0280b73c6428b3eb0eaa3223305f07c9df07777af207"
+        "sha256": "03b64e42655b6c4fe3bb586a36f80f2d5a11993d22895132b9c6ef8d2c9f338e"
       },
       {
-        "bytes": 16755,
+        "bytes": 15887,
         "path": "web/app/page.tsx",
-        "sha256": "cfca1c79d272ff9734f9ca99a8b4a961c4426a90617445ecef1281af21088808"
+        "sha256": "2c81577bb150446b96b653defb3636439fb2b91ead80738187f49591cf4aa069"
+      },
+      {
+        "bytes": 9287,
+        "path": "web/app/replays/[slug]/page.tsx",
+        "sha256": "7ead9e8e4d4c3870b4cda10ee8a393fb5a20b3768c44bacbb70d8590f5bbe079"
+      },
+      {
+        "bytes": 13065,
+        "path": "web/data/capabilities.json",
+        "sha256": "44b58a85e1cf63b927a5c2d0aed02d178d341da62f82799a15ed41b8e9171dde"
+      },
+      {
+        "bytes": 160644,
+        "path": "web/data/scenarios.json",
+        "sha256": "ad214f9e067f4ae7f3b23338b24ad4c6445e5eac18709372aa873db69676ec7a"
       },
       {
         "bytes": 1009,
         "path": "web/eslint.config.mjs",
         "sha256": "6090bd544865638d8c77a3443f037b3b289596a7ec1e1dccc3a13677e6d1ca83"
+      },
+      {
+        "bytes": 1359,
+        "path": "web/lib/capabilities.ts",
+        "sha256": "7d2e5c5d519b8333b8e361629d06f22679607bb51309a2f249be573ea118dfc4"
+      },
+      {
+        "bytes": 2929,
+        "path": "web/lib/scenarios.ts",
+        "sha256": "44adea74ce95f7ed0cfb30f8c575567dd0b70881c525ea4bdf77cb4e2b625b1a"
       },
       {
         "bytes": 189,
@@ -139,14 +197,14 @@
         "sha256": "614bce25b089c3f19b1e17a6346c74b858034040154c6621e7d35303004767cc"
       },
       {
-        "bytes": 297526,
+        "bytes": 297542,
         "path": "web/package-lock.json",
-        "sha256": "c236f7c246b10757ffa1359373d8948a882addf4b099bb1331b0349c41507f22"
+        "sha256": "2941734770b2e409463677482ed36ee1701158be69c18c22f9a72935c460b65f"
       },
       {
-        "bytes": 1344,
+        "bytes": 1352,
         "path": "web/package.json",
-        "sha256": "b4162cb7c3c38ca2eb70d655b986b52b52164bb7e489ff2930d0d40251c698eb"
+        "sha256": "ccab63504c9d2f63993c295822db23347a4dfac04822403e4d534920f4f0848b"
       },
       {
         "bytes": 94,
@@ -159,6 +217,161 @@
         "sha256": "9f78cdf5b97838a47aa9d4ddcdbddea0db52b68a162bac77a9376aeffd9814a2"
       },
       {
+        "bytes": 18267,
+        "path": "web/public/replaypacks/bea-pio-2020.zip",
+        "sha256": "1f09baa99ed2eb4438b0e40b18d068e2d603cbac33fcb3bbf264e03c4d86548d"
+      },
+      {
+        "bytes": 18660,
+        "path": "web/public/replaypacks/bls-cpi-2023.zip",
+        "sha256": "abb40d83f0acd205cbaf72bb95f6d4f0631dcf8cfad3a8e0b374949a8affd098"
+      },
+      {
+        "bytes": 19293,
+        "path": "web/public/replaypacks/bls-export-prices-2020.zip",
+        "sha256": "fd2d22c8b20c759c6f96d8f6adafd5b948fc76a4dacdfbd7c628a232613eb1dd"
+      },
+      {
+        "bytes": 19269,
+        "path": "web/public/replaypacks/bls-import-prices-2020.zip",
+        "sha256": "4ea0900b38cbfee25673227c9fa11508ac21ba6f20af6a7214b38cd804e49b57"
+      },
+      {
+        "bytes": 18517,
+        "path": "web/public/replaypacks/bls-payroll-2023.zip",
+        "sha256": "9eb9478c8961402cf27a5613cab56417ca47c1fab9993c7c3ec9d2c75b97dd70"
+      },
+      {
+        "bytes": 18791,
+        "path": "web/public/replaypacks/bls-ppi-2020.zip",
+        "sha256": "2c4cea62215f29a9da5dc795c8d64312da69b775b278cd89a8899f8f917d2525"
+      },
+      {
+        "bytes": 18126,
+        "path": "web/public/replaypacks/btfp-growth-2023.zip",
+        "sha256": "d6c48fc2f285516d67a599c6a8dce50ed3723e4a879e18c23caffe0c5dfd0bb6"
+      },
+      {
+        "bytes": 19402,
+        "path": "web/public/replaypacks/census-c30-2020.zip",
+        "sha256": "40559d01dcbdef734c65dc6167997e2d772cbfb2b066ac7018f3d5a874ee17e6"
+      },
+      {
+        "bytes": 20304,
+        "path": "web/public/replaypacks/census-ft900-2020.zip",
+        "sha256": "c9fc40f8b768fc6b3a03e34af7d47440b0a759d276a9f5871b6637637cd280ea"
+      },
+      {
+        "bytes": 19335,
+        "path": "web/public/replaypacks/census-m3-2020.zip",
+        "sha256": "42a0b5143f124040fe675d6408a0495b65a42ffcc84d3c372e80a3abc014f623"
+      },
+      {
+        "bytes": 18276,
+        "path": "web/public/replaypacks/census-marts-2020.zip",
+        "sha256": "6c5f437dac3c968fb2a2cbaaa362db618ef018d6a712cba6170017a287d01327"
+      },
+      {
+        "bytes": 19130,
+        "path": "web/public/replaypacks/census-nrc-2020.zip",
+        "sha256": "38d06b905312740577ebdfa2aa00223fd26695971c6e493c99b80c72a3ad3f0e"
+      },
+      {
+        "bytes": 19738,
+        "path": "web/public/replaypacks/census-nrs-2020.zip",
+        "sha256": "b9299815cddfaea3b42ba6b392c91ec509808b4139c0736d7ca3fd754538d9d1"
+      },
+      {
+        "bytes": 19712,
+        "path": "web/public/replaypacks/cftc-tff-2026.zip",
+        "sha256": "4ba0312c515e66c19e5342aae6f475570f88e73320234128d093cb90e56fd53c"
+      },
+      {
+        "bytes": 18381,
+        "path": "web/public/replaypacks/dol-ui-2020.zip",
+        "sha256": "53ac8c6ccc741917d0a81a0c8f0a9cf40a8d5d28e905c6b058c6217967d8895b"
+      },
+      {
+        "bytes": 19101,
+        "path": "web/public/replaypacks/eia-wngsr-2020.zip",
+        "sha256": "71df09dc8405feff1fe1c6da52b374763ab4bbc0cc274897206d43f328dc58e0"
+      },
+      {
+        "bytes": 18345,
+        "path": "web/public/replaypacks/eia-wpsr-2020.zip",
+        "sha256": "9bd822c01f67dc1802a5f01174d7292b48e8b79dbc0ceef48a3304037680d547"
+      },
+      {
+        "bytes": 18225,
+        "path": "web/public/replaypacks/fed-g17-2020.zip",
+        "sha256": "61e654f01aceccc127242259c58dd398296c37aaf423ad4440dee7bdc31cabcb"
+      },
+      {
+        "bytes": 18387,
+        "path": "web/public/replaypacks/fed-g19-2020.zip",
+        "sha256": "6f7038c090aa9baaa88247bc18142f08c9855a5b7fa440221bbb19a5617a6636"
+      },
+      {
+        "bytes": 19155,
+        "path": "web/public/replaypacks/fed-h41-liquidity-swaps-2020.zip",
+        "sha256": "c795d08fc1f13c3f11d271859266b53473a3ebcaf20de4af99b77ee584b89bba"
+      },
+      {
+        "bytes": 19642,
+        "path": "web/public/replaypacks/fhfa-hpi-2020.zip",
+        "sha256": "cede5790bd336b4d1783e4eb6c738a3785b1aea38288260162e892a4dbb1d2ce"
+      },
+      {
+        "bytes": 18461,
+        "path": "web/public/replaypacks/fomc-target-2023.zip",
+        "sha256": "8d90fb03db83a4cf9649b3ed1561fd71976759bb0471a8afdc9645fad4a26210"
+      },
+      {
+        "bytes": 18683,
+        "path": "web/public/replaypacks/gdp-revision-2022q4.zip",
+        "sha256": "f59c068f3fd3f88130b016e9414bc4b1906f92e738a86bf21b2bebf2da002b43"
+      },
+      {
+        "bytes": 12434,
+        "path": "web/public/replaypacks/manifest.json",
+        "sha256": "b0352d3d3932699f0054ba2a0c73ad4ca6943bfe44ce1edcd1450a74b716425b"
+      },
+      {
+        "bytes": 17846,
+        "path": "web/public/replaypacks/nyfed-sofr-2019.zip",
+        "sha256": "1824be65cba0b9a7f2a9d87a805aa71142c41f0663b7a102019ec2462ac25cda"
+      },
+      {
+        "bytes": 25746,
+        "path": "web/public/replaypacks/pacwest-2023.zip",
+        "sha256": "5d711cd706e9bed8334aca4e6b864afe286556b48d109d00cfb983e531b4f5a4"
+      },
+      {
+        "bytes": 25975,
+        "path": "web/public/replaypacks/svb-2023.zip",
+        "sha256": "24b584350e3b821336de745d892ccde26fd420f5762432e8c9895f0dd1369083"
+      },
+      {
+        "bytes": 18224,
+        "path": "web/public/replaypacks/treasury-auction-2020.zip",
+        "sha256": "eb1cac1f243addfa77aee3d45b98e8c981bd66fd9609df25946f41dc8adf5c56"
+      },
+      {
+        "bytes": 19494,
+        "path": "web/public/replaypacks/treasury-curve-2023.zip",
+        "sha256": "250c9b4ff92149d77160087e4a77bd3465b3089bab4dafecd399ee44087a6a48"
+      },
+      {
+        "bytes": 18083,
+        "path": "web/public/replaypacks/treasury-tga-2023.zip",
+        "sha256": "02e85631e09a9f1cc761b1ea9d842b43dbe5b5afd1bbdf08791d8c144800d345"
+      },
+      {
+        "bytes": 25801,
+        "path": "web/public/replaypacks/western-alliance-2023.zip",
+        "sha256": "a6950e7d70b90de118aa1b25c41556e0486215061561e0c2b027989415437806"
+      },
+      {
         "bytes": 6673935,
         "path": "web/public/review/finreplay-os-e150136.zip",
         "sha256": "f7c287c613b366f38705c1eaf5a21971ff3a5380f11c5fc4a0e1b44900a065ab"
@@ -169,9 +382,9 @@
         "sha256": "520152d5a2c253a018638104fd7a024556672fa5cfd87bc7d9845fd115e68403"
       },
       {
-        "bytes": 2792,
+        "bytes": 9851,
         "path": "web/tests/rendered-html.test.mjs",
-        "sha256": "4f6ac3956aeda4aa70ccbb3defbcffc0fe55dc62257ac7338411ec1d7e385880"
+        "sha256": "8dafefad95a3c518ed741b83b75565c6fcd410f51cbd4d8962eacb2d3f83fee2"
       },
       {
         "bytes": 603,
@@ -189,13 +402,18 @@
         "sha256": "23cddda53034b9c6d6d554f6b0a09f1e3581c88fd7b8f4c8202930b4c2419adb"
       }
     ],
-    "set_sha256": "4090e959d05ed739f23df0bf576d8484157a1eebff768b18d746cc101a42e5b3",
-    "total_bytes": 8294503
+    "set_sha256": "f1563fa368f858ad83260ed03d8b048b17b91a45c75dab7cdba2bcaf7837767b",
+    "total_bytes": 9198290,
+    "validation_input_paths": [
+      "src/finreplay/resources/capability-catalog.json",
+      "src/finreplay/resources/scenario-catalog.json",
+      "src/finreplay/resources/scenario-explorer.json"
+    ]
   },
   "subject": {
-    "code_revision": "9d512af732858bd90fc0608609e7ae659b8066e7",
-    "committed_at": "2026-08-15T18:23:00+08:00",
-    "tree_sha256": "4bd8c55c4d8e26864d03a742e893a1e3226129ce"
+    "code_revision": "3eec509c775161cd37019e7b2499cdecc5bebee9",
+    "committed_at": "2026-08-20T02:17:53+08:00",
+    "tree_sha256": "c3a947be9e7b40bd591392baaf1bd7521590dd16"
   },
   "toolchain": {
     "node": "v22.20.0",
