@@ -99,6 +99,15 @@ def main() -> None:
     release_value = payload.get("release")
     release: dict[str, Any] = release_value if isinstance(release_value, dict) else {}
     if schema_version == "1.1.0":
+        version_tag = binding["version_tag"]
+        package_version = version_tag.removeprefix("v")
+        if not package_version or version_tag != f"v{package_version}":
+            raise SystemExit("GitHub Release version tag is malformed")
+        expected_assets = {
+            "SHA256SUMS",
+            f"finreplay_os-{package_version}-py3-none-any.whl",
+            f"finreplay_os-{package_version}.tar.gz",
+        }
         if not release:
             raise SystemExit("GitHub Release metadata is missing")
         if (
@@ -110,11 +119,9 @@ def main() -> None:
         ):
             raise SystemExit("GitHub Release status or checksum boundary differs")
         assets = release.get("assets")
-        if not isinstance(assets, list) or {item.get("name") for item in assets} != {
-            "SHA256SUMS",
-            "finreplay_os-0.1.0a1-py3-none-any.whl",
-            "finreplay_os-0.1.0a1.tar.gz",
-        }:
+        if not isinstance(assets, list) or {
+            item.get("name") for item in assets
+        } != expected_assets:
             raise SystemExit("GitHub Release asset set differs")
         if any(
             item.get("anonymous_http_status") != 200

@@ -18,6 +18,7 @@ Confirm the CLI and catalogs:
 .venv/bin/finreplay version
 .venv/bin/finreplay adapter validate
 .venv/bin/finreplay scenario list
+.venv/bin/finreplay capability list
 ```
 
 ## Run the flagship demo
@@ -43,12 +44,33 @@ different pack cannot overwrite an existing destination.
 # Resolve aliases and view the recorded hash, code revision, and input-lock identity.
 .venv/bin/finreplay scenario show svb-2023
 
+# Add the primary method, decision question, dimensions, pathways, and capability routes.
+.venv/bin/finreplay scenario explain svb-2023
+
+# Compare the five curated cross-case reading paths.
+.venv/bin/finreplay scenario pathways
+
 # Rebuild in a temporary directory and compare the result with the recorded pack SHA-256.
 .venv/bin/finreplay scenario verify svb-2023
 
 # Rerun every packaged scenario. This is slower but still offline.
 .venv/bin/finreplay evidence verify --all-scenarios
 ```
+
+## Choose a capability path
+
+The packaged capability map curates scenarios by analytical question while preserving three scope
+labels: `direct`, `transferable`, and `boundary_only`.
+
+```bash
+.venv/bin/finreplay capability list --scope direct
+.venv/bin/finreplay capability show statistical-falsification
+```
+
+A transferable method or boundary-only case is not evidence of work in the adjacent domain. See
+the generated [capability map](capability-map.md) for exact evidence locators and negative claims.
+The generated [scenario explorer](scenario-explorer.md) adds case methods, decision questions,
+overlapping analytical dimensions, and five reading paths without changing any ReplayPack claim.
 
 ## Build from your own specification
 

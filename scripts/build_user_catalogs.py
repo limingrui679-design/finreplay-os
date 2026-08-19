@@ -14,6 +14,8 @@ from finreplay.engines import CompiledReplayPack
 
 REPOSITORY = Path(__file__).resolve().parents[1]
 RESOURCE_ROOT = REPOSITORY / "src/finreplay/resources"
+CAPABILITY_SOURCE = REPOSITORY / "capabilities/catalog.json"
+WEB_CAPABILITY_DATA = REPOSITORY / "web/data/capabilities.json"
 
 _PUBLISHERS = {
     "bls": "U.S. Bureau of Labor Statistics",
@@ -37,10 +39,14 @@ def main() -> None:
     args = parse_args()
     adapter_payload = _adapter_catalog()
     scenario_payload, input_locks = _scenario_catalog()
+    capability_payload = _capability_catalog(scenario_payload)
     outputs = {
         RESOURCE_ROOT / "adapter-catalog.json": _serialize(adapter_payload),
         RESOURCE_ROOT / "scenario-catalog.json": _serialize(scenario_payload),
+        RESOURCE_ROOT / "capability-catalog.json": _serialize(capability_payload),
+        WEB_CAPABILITY_DATA: _serialize(capability_payload),
         REPOSITORY / "docs/catalog-matrix.md": _catalog_matrix(adapter_payload, scenario_payload),
+        REPOSITORY / "docs/capability-map.md": _capability_matrix(capability_payload),
     }
     for source, relative in input_locks:
         outputs[RESOURCE_ROOT / relative] = source.read_bytes()
@@ -55,7 +61,9 @@ def main() -> None:
         _remove_stale_input_locks(expected_locks)
         print(
             f"catalogs_written=true adapters={adapter_payload['adapter_count']} "
-            f"scenarios={scenario_payload['scenario_count']} input_locks={len(input_locks)}"
+            f"scenarios={scenario_payload['scenario_count']} "
+            f"capabilities={capability_payload['capability_count']} "
+            f"input_locks={len(input_locks)}"
         )
         return
 
@@ -68,7 +76,9 @@ def main() -> None:
         raise SystemExit(f"installable catalogs are stale: {', '.join(mismatches)}")
     print(
         f"catalogs_current=true adapters={adapter_payload['adapter_count']} "
-        f"scenarios={scenario_payload['scenario_count']} input_locks={len(input_locks)}"
+        f"scenarios={scenario_payload['scenario_count']} "
+        f"capabilities={capability_payload['capability_count']} "
+        f"input_locks={len(input_locks)}"
     )
 
 
@@ -177,6 +187,63 @@ def _scenario_catalog() -> tuple[dict[str, Any], list[tuple[Path, Path]]]:
     return payload, input_locks
 
 
+def _capability_catalog(scenario_payload: dict[str, Any]) -> dict[str, Any]:
+    source = _load_json(CAPABILITY_SOURCE)
+    if source.get("catalog_kind") != "evidence_bounded_capability_map":
+        raise ValueError("capability source has an unexpected catalog_kind")
+    capabilities = source.get("capabilities")
+    if not isinstance(capabilities, list) or not capabilities:
+        raise ValueError("capability source must contain a non-empty capabilities list")
+    scenario_slugs = {str(entry["slug"]) for entry in scenario_payload["scenarios"]}
+    capability_ids: set[str] = set()
+    supported_scopes = {"direct", "transferable", "boundary_only"}
+    normalized: list[dict[str, Any]] = []
+    for capability in capabilities:
+        if not isinstance(capability, dict):
+            raise ValueError("each capability must be a JSON object")
+        capability_id = str(capability.get("capability_id", ""))
+        if not capability_id or capability_id in capability_ids:
+            raise ValueError(f"duplicate or empty capability_id: {capability_id!r}")
+        capability_ids.add(capability_id)
+        scope = str(capability.get("scope", ""))
+        if scope not in supported_scopes:
+            raise ValueError(f"unsupported capability scope for {capability_id}: {scope}")
+        selected_slugs = capability.get("scenario_slugs")
+        if not isinstance(selected_slugs, list) or not selected_slugs:
+            raise ValueError(f"capability has no scenarios: {capability_id}")
+        unknown_slugs = sorted(set(map(str, selected_slugs)) - scenario_slugs)
+        if unknown_slugs:
+            raise ValueError(
+                f"capability {capability_id} references unknown scenarios: {unknown_slugs}"
+            )
+        locators = capability.get("evidence_locators")
+        if not isinstance(locators, list) or not locators:
+            raise ValueError(f"capability has no evidence locators: {capability_id}")
+        missing_locators = [
+            str(locator)
+            for locator in locators
+            if not (REPOSITORY / str(locator)).is_file()
+        ]
+        if missing_locators:
+            raise ValueError(
+                f"capability {capability_id} has missing evidence locators: {missing_locators}"
+            )
+        normalized.append(dict(capability))
+
+    payload: dict[str, Any] = {
+        "schema_version": source["schema_version"],
+        "catalog_kind": source["catalog_kind"],
+        "capability_count": len(normalized),
+        "source_path": CAPABILITY_SOURCE.relative_to(REPOSITORY).as_posix(),
+        "source_sha256": _file_sha256(CAPABILITY_SOURCE),
+        "scenario_catalog_sha256": scenario_payload["catalog_sha256"],
+        "claim_boundary": source["claim_boundary"],
+        "capabilities": normalized,
+    }
+    payload["catalog_sha256"] = _hash(payload)
+    return payload
+
+
 def _runner_names(path: Path) -> tuple[str, str]:
     tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
     imported: list[str] = []
@@ -271,6 +338,73 @@ def _catalog_matrix(adapter_payload: dict[str, Any], scenario_payload: dict[str,
             adapter_payload["claim_boundary"],
             "",
             scenario_payload["claim_boundary"],
+            "",
+        ]
+    )
+    return "\n".join(lines).encode()
+
+
+def _capability_matrix(capability_payload: dict[str, Any]) -> bytes:
+    lines = [
+        "# Evidence-bounded capability map",
+        "",
+        "This school-neutral map is generated by `python scripts/build_user_catalogs.py --write`.",
+        "It helps readers choose a reproducible path through the repository without converting a",
+        "transferable method into a claim of domain experience.",
+        "",
+        "## Scope labels",
+        "",
+        (
+            "- `direct`: implemented code and committed machine evidence support the stated "
+            "capability."
+        ),
+        "- `transferable`: the method is demonstrated here, but the named adjacent domain is not.",
+        (
+            "- `boundary_only`: the cases expose an inference limit rather than proving domain "
+            "practice."
+        ),
+        "",
+        "## Capability paths",
+        "",
+    ]
+    for entry in capability_payload["capabilities"]:
+        lines.extend(
+            [
+                f"### {entry['title']}",
+                "",
+                f"Scope: `{entry['scope']}`",
+                "",
+                entry["summary"],
+                "",
+                "Questions:",
+                "",
+                *[f"- {question}" for question in entry["questions"]],
+                "",
+                "Curated scenarios:",
+                "",
+                *[
+                    f"- [`{slug}`](scenarios/{slug}.md)"
+                    for slug in entry["scenario_slugs"]
+                ],
+                "",
+                "Machine and method evidence:",
+                "",
+                *[
+                    f"- [`{locator}`](../{locator})"
+                    for locator in entry["evidence_locators"]
+                ],
+                "",
+                "Does not prove:",
+                "",
+                *[f"- {boundary}" for boundary in entry["does_not_prove"]],
+                "",
+            ]
+        )
+    lines.extend(
+        [
+            "## Claim boundary",
+            "",
+            capability_payload["claim_boundary"],
             "",
         ]
     )

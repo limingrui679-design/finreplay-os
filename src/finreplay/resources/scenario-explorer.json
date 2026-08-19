@@ -1,0 +1,722 @@
+{
+  "catalog_kind": "scenario_capability_explorer",
+  "catalog_sha256": "c38af65369fcfeade56305478f3377c49fe8a9231e8548ec8e9c8b920066e0ef",
+  "claim_boundary": "This catalog is a navigation layer over the canonical scenario catalog. Capability lenses and decision questions describe what a bounded public-data replay can demonstrate; they do not add evidence, change ReplayPack claims, establish causal effects, represent client work, or prove real-world decisions, deployment, adoption, or impact.",
+  "lenses": [
+    {
+      "description": "Availability time, economic time, revisions, and later disclosures remain separate instead of being collapsed into hindsight.",
+      "label": "Point-in-time integrity",
+      "lens_id": "temporal-integrity",
+      "question": "What was actually knowable at the decision boundary?",
+      "short_label": "Temporal"
+    },
+    {
+      "description": "Initial releases, revisions, arithmetic envelopes, and sampling limits stay visible; a heuristic range is never relabelled as a forecast or confidence interval.",
+      "label": "Revision and range discipline",
+      "lens_id": "revision-and-range",
+      "question": "Does the conclusion survive vintage changes and an explicitly uncalibrated range?",
+      "short_label": "Revision"
+    },
+    {
+      "description": "Outcomes preserve breaches, inside-range results, reversals, and failed promotion instead of presenting only favorable cases.",
+      "label": "Stress and uncertainty",
+      "lens_id": "stress-and-uncertainty",
+      "question": "Where does the predeclared boundary hold, breach, or remain unevaluable?",
+      "short_label": "Stress"
+    },
+    {
+      "description": "Cases cover bank funding, policy rates, cash balances, repo conditions, auctions, yield curves, credit, and market positioning with explicit claim limits.",
+      "label": "Financial systems and markets",
+      "lens_id": "financial-systems",
+      "question": "How do funding, rates, liquidity, market structure, and balance-sheet constraints interact?",
+      "short_label": "Finance"
+    },
+    {
+      "description": "Only the seven-engine bank replays carry simulated execution and allocation artifacts; those values remain research boundaries, not performance.",
+      "label": "Allocation and execution",
+      "lens_id": "allocation-and-execution",
+      "question": "What survives non-zero cost, capacity, and constrained allocation?",
+      "short_label": "Allocation"
+    },
+    {
+      "description": "Typed artifacts, input locks, deterministic archives, hashes, evidence classes, and negative claim boundaries make the workflow auditable.",
+      "label": "Data systems and governance",
+      "lens_id": "systems-and-governance",
+      "question": "Can another person trace the inputs, transformations, claims, and exclusions?",
+      "short_label": "Governance"
+    },
+    {
+      "description": "Labor, inflation, fiscal, monetary, trade, and facility data are treated as population-level or system-level signals, not individual outcomes or policy-effectiveness proof.",
+      "label": "Policy and population signals",
+      "lens_id": "policy-and-population",
+      "question": "What can an aggregate official indicator support without becoming a causal policy claim?",
+      "short_label": "Policy"
+    },
+    {
+      "description": "Household-facing indicators support bounded behavioral hypotheses while preserving the gap between aggregate movement and individual intent.",
+      "label": "Households and behavior",
+      "lens_id": "households-and-behavior",
+      "question": "What do aggregate spending, saving, credit, and housing signals reveal—and what motives remain unobserved?",
+      "short_label": "Households"
+    },
+    {
+      "description": "Housing starts, construction spending, house prices, and new-home sales expose spatially relevant evidence while stopping short of local regeneration or equity claims.",
+      "label": "Housing, construction, and place",
+      "lens_id": "housing-and-place",
+      "question": "How do national housing and construction indicators change a place-based question without answering it?",
+      "short_label": "Housing"
+    },
+    {
+      "description": "Energy stocks, production, orders, trade, and producer or cross-border prices provide bounded operational signals without firm-level causal attribution.",
+      "label": "Real-economy operations",
+      "lens_id": "real-economy-operations",
+      "question": "How do production, inventory, trade, and price shocks move through an operating environment?",
+      "short_label": "Operations"
+    }
+  ],
+  "pathways": [
+    {
+      "description": "Follow four cases where later vintages, revised denominators, or paired source formats could otherwise leak hindsight into a historical conclusion.",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "systems-and-governance"
+      ],
+      "pathway_id": "revision-safe-research",
+      "scenario_slugs": [
+        "gdp-revision-2022q4",
+        "bls-cpi-2023",
+        "census-ft900-2020",
+        "fhfa-hpi-2020"
+      ],
+      "title": "Revision-safe research"
+    },
+    {
+      "description": "Move from disclosure boundaries through rate and liquidity stress to the narrower set of cases that actually run execution and allocation engines.",
+      "lens_ids": [
+        "financial-systems",
+        "allocation-and-execution",
+        "stress-and-uncertainty"
+      ],
+      "pathway_id": "funding-liquidity-and-allocation",
+      "scenario_slugs": [
+        "svb-2023",
+        "pacwest-2023",
+        "western-alliance-2023",
+        "nyfed-sofr-2019",
+        "fed-h41-liquidity-swaps-2020"
+      ],
+      "title": "Funding, liquidity, and allocation"
+    },
+    {
+      "description": "Compare monetary, fiscal, labor, and facility evidence while keeping policy context distinct from policy-effectiveness claims.",
+      "lens_ids": [
+        "policy-and-population",
+        "temporal-integrity",
+        "revision-and-range"
+      ],
+      "pathway_id": "policy-without-causal-overreach",
+      "scenario_slugs": [
+        "btfp-growth-2023",
+        "fomc-target-2023",
+        "treasury-tga-2023",
+        "dol-ui-2020",
+        "fed-h41-liquidity-swaps-2020"
+      ],
+      "title": "Policy signals without causal overreach"
+    },
+    {
+      "description": "Read saving, spending, credit, construction, prices, starts, and sales together without converting national aggregates into individual motives or local outcomes.",
+      "lens_ids": [
+        "households-and-behavior",
+        "housing-and-place",
+        "policy-and-population"
+      ],
+      "pathway_id": "households-housing-and-place",
+      "scenario_slugs": [
+        "bea-pio-2020",
+        "census-marts-2020",
+        "fed-g19-2020",
+        "census-nrc-2020",
+        "census-c30-2020",
+        "fhfa-hpi-2020",
+        "census-nrs-2020"
+      ],
+      "title": "Households, housing, and place"
+    },
+    {
+      "description": "Trace inventories, production, orders, trade, and prices as separate official signals rather than compressing them into one retrospective story.",
+      "lens_ids": [
+        "real-economy-operations",
+        "stress-and-uncertainty",
+        "revision-and-range"
+      ],
+      "pathway_id": "real-economy-shock-chain",
+      "scenario_slugs": [
+        "eia-wpsr-2020",
+        "eia-wngsr-2020",
+        "fed-g17-2020",
+        "census-m3-2020",
+        "census-ft900-2020",
+        "bls-ppi-2020",
+        "bls-import-prices-2020",
+        "bls-export-prices-2020"
+      ],
+      "title": "Real-economy shock chain"
+    }
+  ],
+  "scenario_count": 30,
+  "scenarios": [
+    {
+      "decision_question": "Can a funding judgment survive removal of post-cutoff disclosures before execution and allocation are considered?",
+      "family": "Banking",
+      "lens_ids": [
+        "temporal-integrity",
+        "stress-and-uncertainty",
+        "financial-systems",
+        "allocation-and-execution",
+        "systems-and-governance"
+      ],
+      "order": 1,
+      "primary_method": "Seven-engine point-in-time boundary replay",
+      "public_title": "SVB funding boundary",
+      "publisher": "SEC",
+      "result": "7-engine flow · later 8-K isolated",
+      "slug": "svb-2023",
+      "tone": "boundary"
+    },
+    {
+      "decision_question": "Does the funding case remain coherent when the post-decision filing is isolated from the ReplayPack?",
+      "family": "Banking",
+      "lens_ids": [
+        "temporal-integrity",
+        "stress-and-uncertainty",
+        "financial-systems",
+        "allocation-and-execution",
+        "systems-and-governance"
+      ],
+      "order": 2,
+      "primary_method": "Seven-engine point-in-time boundary replay",
+      "public_title": "PacWest funding boundary",
+      "publisher": "SEC",
+      "result": "Later filing isolated",
+      "slug": "pacwest-2023",
+      "tone": "boundary"
+    },
+    {
+      "decision_question": "What remains supportable before a same-day but post-cutoff filing becomes available?",
+      "family": "Banking",
+      "lens_ids": [
+        "temporal-integrity",
+        "stress-and-uncertainty",
+        "financial-systems",
+        "allocation-and-execution",
+        "systems-and-governance"
+      ],
+      "order": 3,
+      "primary_method": "Seven-engine point-in-time boundary replay",
+      "public_title": "Western Alliance deposit boundary",
+      "publisher": "SEC",
+      "result": "17:08 filing stayed later",
+      "slug": "western-alliance-2023",
+      "tone": "boundary"
+    },
+    {
+      "decision_question": "Can an advance estimate be evaluated without silently importing the later second estimate?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "policy-and-population",
+        "systems-and-governance"
+      ],
+      "order": 4,
+      "primary_method": "Native-vintage revision replay",
+      "public_title": "2022 Q4 GDP revision",
+      "publisher": "BEA · ALFRED",
+      "result": "Inside range · evaluation only",
+      "slug": "gdp-revision-2022q4",
+      "tone": "inside"
+    },
+    {
+      "decision_question": "How far can early facility growth be evaluated without claiming systemic-stress attribution or policy effectiveness?",
+      "family": "Banking",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "financial-systems",
+        "policy-and-population",
+        "systems-and-governance"
+      ],
+      "order": 5,
+      "primary_method": "Archived-release growth envelope",
+      "public_title": "BTFP early growth",
+      "publisher": "Federal Reserve",
+      "result": "Inside range · evaluation only",
+      "slug": "btfp-growth-2023",
+      "tone": "inside"
+    },
+    {
+      "decision_question": "What can two release snapshots support before a labor-market range is mistaken for a calibrated forecast?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "policy-and-population",
+        "systems-and-governance"
+      ],
+      "order": 6,
+      "primary_method": "Archived-release two-point range",
+      "public_title": "Payroll release",
+      "publisher": "BLS",
+      "result": "Inside range · evaluation only",
+      "slug": "bls-payroll-2023",
+      "tone": "inside"
+    },
+    {
+      "decision_question": "Can a bounded rate-path check stay separate from a monetary-policy forecast or causal model?",
+      "family": "Rates",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "financial-systems",
+        "policy-and-population",
+        "systems-and-governance"
+      ],
+      "order": 7,
+      "primary_method": "Target-range continuation envelope",
+      "public_title": "FOMC target range",
+      "publisher": "Federal Reserve",
+      "result": "Inside range · evaluation only",
+      "slug": "fomc-target-2023",
+      "tone": "inside"
+    },
+    {
+      "decision_question": "How should an inflation release be tested when the arithmetic range carries no assigned probability?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "policy-and-population",
+        "households-and-behavior",
+        "systems-and-governance"
+      ],
+      "order": 8,
+      "primary_method": "Archived monthly-change range",
+      "public_title": "CPI release snapshot",
+      "publisher": "BLS",
+      "result": "Inside range · evaluation only",
+      "slug": "bls-cpi-2023",
+      "tone": "inside"
+    },
+    {
+      "decision_question": "Does the observed curve remain inside a predeclared spread boundary when only then-available vintages are used?",
+      "family": "Rates",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "financial-systems",
+        "systems-and-governance"
+      ],
+      "order": 9,
+      "primary_method": "Native-vintage spread envelope",
+      "public_title": "2Y-10Y Treasury curve",
+      "publisher": "ALFRED",
+      "result": "+6 bp upper breach",
+      "slug": "treasury-curve-2023",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "Can the next balance be evaluated while preserving a visible baseline miss and avoiding fiscal-solvency claims?",
+      "family": "Rates",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "financial-systems",
+        "policy-and-population",
+        "systems-and-governance"
+      ],
+      "order": 10,
+      "primary_method": "Release-time cash-balance envelope",
+      "public_title": "Treasury cash balance",
+      "publisher": "U.S. Treasury",
+      "result": "Inside range · baseline miss visible",
+      "slug": "treasury-tga-2023",
+      "tone": "inside"
+    },
+    {
+      "decision_question": "Where does an overnight funding rate break a bounded continuation assumption without becoming a trading signal?",
+      "family": "Rates",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "financial-systems",
+        "systems-and-governance"
+      ],
+      "order": 11,
+      "primary_method": "Final-rate persistence envelope",
+      "public_title": "SOFR spike",
+      "publisher": "New York Fed",
+      "result": "+282 bp upper breach",
+      "slug": "nyfed-sofr-2019",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "How large is the inventory boundary breach before any oil-market causal narrative is introduced?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "real-economy-operations",
+        "systems-and-governance"
+      ],
+      "order": 12,
+      "primary_method": "Release-time inventory envelope",
+      "public_title": "Commercial crude stocks",
+      "publisher": "EIA",
+      "result": "+15,022 thousand-barrel breach",
+      "slug": "eia-wpsr-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "Can the labor shock be measured against a declared range without turning it into a pandemic or policy causal model?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "policy-and-population",
+        "households-and-behavior",
+        "systems-and-governance"
+      ],
+      "order": 13,
+      "primary_method": "Release-time persistence-or-increase envelope",
+      "public_title": "Initial unemployment claims",
+      "publisher": "U.S. DOL",
+      "result": "+2,932,000-person breach",
+      "slug": "dol-ui-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "Does the auction result break the bounded rate assumption without implying demand, policy, or trading causality?",
+      "family": "Rates",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "financial-systems",
+        "policy-and-population",
+        "systems-and-governance"
+      ],
+      "order": 14,
+      "primary_method": "Auction-rate persistence-or-decline envelope",
+      "public_title": "91-day Treasury auction",
+      "publisher": "TreasuryDirect",
+      "result": "-19 bp lower breach",
+      "slug": "treasury-auction-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "How should a saving-rate shock be evaluated when the later release also revises the prior month?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "policy-and-population",
+        "households-and-behavior",
+        "systems-and-governance"
+      ],
+      "order": 15,
+      "primary_method": "Release-snapshot revision envelope",
+      "public_title": "Personal saving rate",
+      "publisher": "BEA",
+      "result": "+460 bp upper breach",
+      "slug": "bea-pio-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "Can an operating shock be bounded while keeping revisions and plant-level causal claims outside the result?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "real-economy-operations",
+        "systems-and-governance"
+      ],
+      "order": 16,
+      "primary_method": "Release-snapshot production envelope",
+      "public_title": "Industrial production",
+      "publisher": "Federal Reserve",
+      "result": "-600 bp lower breach",
+      "slug": "fed-g17-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "What does the aggregate sales breach support without assigning individual consumer motives?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "households-and-behavior",
+        "real-economy-operations",
+        "systems-and-governance"
+      ],
+      "order": 17,
+      "primary_method": "Release-snapshot sales envelope",
+      "public_title": "Retail sales",
+      "publisher": "U.S. Census",
+      "result": "-740 bp lower breach",
+      "slug": "census-marts-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "How does a national starts boundary change a housing question while leaving local outcomes and official sampling intervals distinct?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "policy-and-population",
+        "housing-and-place",
+        "systems-and-governance"
+      ],
+      "order": 18,
+      "primary_method": "Preliminary-level envelope with sampling limits",
+      "public_title": "Housing starts",
+      "publisher": "Census · HUD",
+      "result": "-383,000-unit breach",
+      "slug": "census-nrc-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "Can the aggregate credit contraction be tested without equating it to card spending, household intent, or financial performance?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "financial-systems",
+        "households-and-behavior",
+        "systems-and-governance"
+      ],
+      "order": 19,
+      "primary_method": "Revised/preliminary credit-change envelope",
+      "public_title": "Revolving consumer credit",
+      "publisher": "Federal Reserve",
+      "result": "-3,550 bp lower breach",
+      "slug": "fed-g19-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "What survives when two initial-release levels are compared without calling their difference the official monthly change?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "housing-and-place",
+        "real-economy-operations",
+        "systems-and-governance"
+      ],
+      "order": 20,
+      "primary_method": "Initial-release construction-level envelope",
+      "public_title": "Construction spending",
+      "publisher": "U.S. Census",
+      "result": "-$3,659M lower breach",
+      "slug": "census-c30-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "Can national purchase-only prices be evaluated while preserving later revisions and avoiding a universal housing claim?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "financial-systems",
+        "housing-and-place",
+        "systems-and-governance"
+      ],
+      "order": 21,
+      "primary_method": "First-report monthly-change envelope",
+      "public_title": "Purchase-only house prices",
+      "publisher": "FHFA",
+      "result": "-60 bp lower breach",
+      "slug": "fhfa-hpi-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "How far can an orders shock be interpreted before revisions, inflation, and firm-level causality become missing evidence?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "real-economy-operations",
+        "systems-and-governance"
+      ],
+      "order": 22,
+      "primary_method": "Advance-report order-change envelope",
+      "public_title": "Durable-goods orders",
+      "publisher": "U.S. Census",
+      "result": "-1,560 bp lower breach",
+      "slug": "census-m3-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "Can a trade boundary use the co-published revised value while retaining the earlier initial release as lineage only?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "policy-and-population",
+        "real-economy-operations",
+        "systems-and-governance"
+      ],
+      "order": 23,
+      "primary_method": "Paired PDF/XLS revision-lineage envelope",
+      "public_title": "Trade deficit",
+      "publisher": "Census · BEA",
+      "result": "+$4,483M upper breach",
+      "slug": "census-ft900-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "What can preliminary national sales levels support before transactions, closings, and local housing outcomes are inferred?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "housing-and-place",
+        "households-and-behavior",
+        "systems-and-governance"
+      ],
+      "order": 24,
+      "primary_method": "Archived preliminary-level envelope",
+      "public_title": "New-home sales",
+      "publisher": "Census · HUD",
+      "result": "-103,000-unit breach",
+      "slug": "census-nrs-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "Does the stock estimate breach the range after archive recovery without becoming a capacity or market signal?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "real-economy-operations",
+        "systems-and-governance"
+      ],
+      "order": 25,
+      "primary_method": "Revision-safe archive inventory envelope",
+      "public_title": "Working-gas stocks",
+      "publisher": "EIA",
+      "result": "-20 Bcf lower breach",
+      "slug": "eia-wngsr-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "How should a producer-price breach be reported without converting a price index into quantity, revenue, or profit?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "policy-and-population",
+        "real-economy-operations",
+        "systems-and-governance"
+      ],
+      "order": 26,
+      "primary_method": "Paired-release producer-price envelope",
+      "public_title": "Producer prices",
+      "publisher": "BLS",
+      "result": "-110 bp lower breach",
+      "slug": "bls-ppi-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "Can open interest be boundary-tested while scheduled availability remains distinct from row-level logs and trader intent?",
+      "family": "Regulatory",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "financial-systems",
+        "systems-and-governance"
+      ],
+      "order": 27,
+      "primary_method": "Schedule-anchored open-interest envelope",
+      "public_title": "UST 2Y open interest",
+      "publisher": "CFTC",
+      "result": "+71,513-contract breach",
+      "slug": "cftc-tff-2026",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "Can facility balances be evaluated without claiming institution-level allocation or policy success?",
+      "family": "Banking",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "financial-systems",
+        "policy-and-population",
+        "systems-and-governance"
+      ],
+      "order": 28,
+      "primary_method": "Archived policy-facility balance envelope",
+      "public_title": "Central-bank liquidity swaps",
+      "publisher": "Federal Reserve",
+      "result": "Inside range · no success claim",
+      "slug": "fed-h41-liquidity-swaps-2020",
+      "tone": "inside"
+    },
+    {
+      "decision_question": "What does the import-price breach establish before quantity, tariffs, firm outcomes, or causal effects enter the analysis?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "stress-and-uncertainty",
+        "policy-and-population",
+        "real-economy-operations",
+        "systems-and-governance"
+      ],
+      "order": 29,
+      "primary_method": "Paired-release import-price envelope",
+      "public_title": "All-import prices",
+      "publisher": "BLS",
+      "result": "-130 bp lower breach",
+      "slug": "bls-import-prices-2020",
+      "tone": "breach"
+    },
+    {
+      "decision_question": "Can an inside-range export-price result remain an evaluation outcome rather than a success or firm-performance claim?",
+      "family": "Macro",
+      "lens_ids": [
+        "temporal-integrity",
+        "revision-and-range",
+        "policy-and-population",
+        "real-economy-operations",
+        "systems-and-governance"
+      ],
+      "order": 30,
+      "primary_method": "Paired-release export-price envelope",
+      "public_title": "All-export prices",
+      "publisher": "BLS",
+      "result": "Inside range · no success claim",
+      "slug": "bls-export-prices-2020",
+      "tone": "inside"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

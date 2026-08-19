@@ -41,10 +41,14 @@ jobs:
         run: python scripts/build_user_catalogs.py --check
       - name: Verify public scenario downloads
         run: python scripts/build_public_replaypack_downloads.py --check
+      - name: Verify public claim registry
+        run: python scripts/build_public_claim_registry.py --check
       - name: Verify counted scenario catalog
         run: python scripts/verify_scenario_catalog.py
       - name: Validate independent-review record catalog
         run: python scripts/validate_independent_review_records.py
+      - name: Scan tracked text for credential and privacy findings
+        run: python scripts/scan_tracked_secrets.py
       - name: Audit complete resolved environment
         if: matrix.python-version == '3.12'
         run: pip-audit --local
@@ -71,7 +75,30 @@ jobs:
           python -m venv /tmp/finreplay-wheel
           /tmp/finreplay-wheel/bin/pip install dist/*.whl
           /tmp/finreplay-wheel/bin/finreplay adapter validate
+          /tmp/finreplay-wheel/bin/finreplay capability list
+          /tmp/finreplay-wheel/bin/finreplay scenario explain svb-2023
           /tmp/finreplay-wheel/bin/finreplay scenario verify svb-2023
+
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Use Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "22.13.0"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install locked web dependencies
+        run: npm ci --prefix web
+      - name: Lint public evidence site
+        run: npm run lint --prefix web
+      - name: Build and test rendered evidence routes
+        run: npm test --prefix web
+      - name: Audit complete resolved web environment
+        run: npm audit --prefix web
 
   dependency-review:
     if: github.event_name == 'pull_request'

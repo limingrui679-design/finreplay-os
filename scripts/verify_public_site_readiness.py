@@ -34,11 +34,25 @@ def main() -> None:
         raise SystemExit("public site receipt contains a failed command")
     if payload["dependency_audit"]["vulnerabilities"]["total"] != 0:
         raise SystemExit("public site receipt contains npm audit findings")
-    if payload["rendered_tests"] != {"failed": 0, "passed": 3}:
+    schema_version = payload.get("schema_version")
+    if schema_version not in {"1.0.0", "1.1.0"}:
+        raise SystemExit("public site receipt schema version is unsupported")
+    rendered_tests = payload["rendered_tests"]
+    minimum_rendered_tests = 10 if schema_version == "1.1.0" else 3
+    if (
+        rendered_tests.get("failed") != 0
+        or rendered_tests.get("passed", 0) < minimum_rendered_tests
+    ):
         raise SystemExit("public site rendered test counts differ")
     content = payload["site_content"]
     if content["scenario_count"] != 30 or content["visible_breach_count"] != 19:
         raise SystemExit("public site scenario counts differ")
+    if schema_version == "1.1.0" and (
+        content.get("analytical_dimension_count") != 10
+        or content.get("pathway_count") != 5
+        or content.get("capability_count") != 10
+    ):
+        raise SystemExit("public site discovery catalog counts differ")
     state = payload["site_state"]
     if state != {
         "hosted": False,
@@ -77,7 +91,8 @@ def main() -> None:
         raise SystemExit("public site artifact byte total mismatch")
     print(
         f"verified=true revision={revision[:12]} files={len(files)} "
-        f"rendered_tests=3 vulnerabilities=0 receipt_sha256={claimed_hash}"
+        f"rendered_tests={rendered_tests['passed']} vulnerabilities=0 "
+        f"receipt_sha256={claimed_hash}"
     )
 
 

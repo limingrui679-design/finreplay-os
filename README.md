@@ -55,6 +55,35 @@ The [acceptance matrix](docs/verification/acceptance-matrix.md) defines each com
 [public claim registry](verification/claims/public-claims.json) binds headline counts to committed
 machine evidence and scans public text for a bounded set of inflated claims.
 
+## Explore by capability
+
+FinReplay ships a machine-readable capability map so readers can start with a decision question
+instead of treating 30 scenarios as an undifferentiated gallery. Every path is labelled:
+
+| Scope | Meaning | Example paths |
+|---|---|---|
+| `direct` | Implemented code and committed evidence support the capability | Point-in-time data, statistical falsification, decision and risk, systems delivery |
+| `transferable` | The method is demonstrated here; adjacent-domain practice is not | Public-policy evidence boundaries |
+| `boundary_only` | The cases show what cannot be inferred | Behavioral mechanisms; population and place claims |
+
+```bash
+finreplay capability list
+finreplay capability list --scope direct
+finreplay capability show decision-risk
+finreplay scenario explain svb-2023
+finreplay scenario pathways
+```
+
+Use the [public capability explorer](https://finreplay-evidence.limingrui2.chatgpt.site/capabilities)
+to inspect all ten capability paths,
+the generated [capability map](docs/capability-map.md), or the packaged
+`capability-catalog.json`. The map is deliberately school-neutral: relevance to health, behavior,
+policy, or place does not become a claim of clinical, intervention, public-client, or spatial work.
+The separate [scenario explorer](docs/scenario-explorer.md) records a primary method, decision
+question, ten overlapping analytical dimensions, five cross-case pathways, and the complete
+3-boundary / 8-evaluation-only / 19-breach outcome composition. Those tags organize existing
+ReplayPacks; they do not add results or strengthen a capability scope.
+
 ## Seven connected engines
 
 1. **TimeVault** stores bitemporal facts and answers “what was knowable then?”
@@ -80,7 +109,8 @@ flowchart LR
 
 ```text
 finreplay adapter list|show|fetch|validate
-finreplay scenario list|show|run|verify
+finreplay scenario list|show|explain|pathways|run|verify
+finreplay capability list|show
 finreplay replaypack build|verify|open
 finreplay evidence verify [--all-scenarios]
 finreplay demo [SCENARIO] --offline [--open]
@@ -95,6 +125,8 @@ finreplay adapter list --historical-only
 
 # Inspect or run any packaged scenario without network access.
 finreplay scenario show bls-cpi-2023
+finreplay scenario explain bls-cpi-2023
+finreplay scenario pathways
 finreplay scenario run bls-cpi-2023 ./out/bls-cpi --archive ./out/bls-cpi.zip
 
 # Validate catalogs quickly, or reproduce all 30 scenario hashes.
@@ -125,7 +157,12 @@ and [scenario authoring guide](docs/scenario-authoring.md).
 ```python
 from pathlib import Path
 
-from finreplay.catalog import find_scenario, load_adapter_catalog, run_scenario
+from finreplay.catalog import (
+    find_capability,
+    find_scenario,
+    load_adapter_catalog,
+    run_scenario,
+)
 
 entry = find_scenario("svb-2023")
 result = run_scenario(
@@ -140,27 +177,51 @@ historical = [
     for adapter in load_adapter_catalog().adapters
     if adapter.historical_replay_eligible
 ]
+
+decision_risk = find_capability("decision-risk")
+assert "svb-2023" in decision_risk.scenario_slugs
 ```
 
 More runnable material is in [`examples/`](examples/) and the
 [quickstart](docs/quickstart.md). Evidence labels are defined in
-[`docs/evidence-labels.md`](docs/evidence-labels.md).
+[`docs/evidence-labels.md`](docs/evidence-labels.md). The
+[system overview](docs/architecture/system-overview.md) shows how sources, engines, ReplayPacks,
+catalogs, the CLI, and the public explorer remain connected without sharing claim authority.
 
 ## Development
 
 Python 3.11 and 3.12 are tested.
 
+The complete contributor gate is one command after setup:
+
+```bash
+make bootstrap
+make verify
+```
+
+The expanded commands remain available for CI diagnosis:
+
 ```bash
 python3.12 -m venv .venv
 .venv/bin/pip install -e '.[dev]'
 .venv/bin/python scripts/build_user_catalogs.py --check
+.venv/bin/python scripts/build_public_replaypack_downloads.py --check
+.venv/bin/python scripts/build_public_claim_registry.py --check
 .venv/bin/ruff check .
 .venv/bin/mypy src tests scripts
 .venv/bin/pytest --cov=finreplay --cov-report=term-missing
+.venv/bin/python scripts/verify_scenario_catalog.py
+.venv/bin/python scripts/validate_independent_review_records.py
+.venv/bin/python scripts/scan_tracked_secrets.py
+.venv/bin/python -m pip_audit --local
+npm run lint --prefix web
+npm test --prefix web
+npm audit --prefix web
 ```
 
-The repository also checks the scenario catalog, independent-review record schema, dependency
-changes, dependency vulnerabilities, CodeQL findings, and committed secrets. See
+The same gates run in GitHub Actions on Python 3.11 and 3.12, with a separate locked Node 22 site
+build. The repository also checks distribution installation, dependency changes, dependency
+vulnerabilities, CodeQL findings, and committed secrets. See
 [`CONTRIBUTING.md`](CONTRIBUTING.md) for the pull-request path and [`ROADMAP.md`](ROADMAP.md) for
 bounded next steps.
 

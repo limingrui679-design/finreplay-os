@@ -13,12 +13,12 @@
       "real_client_use",
       "real_user_adoption"
     ],
-    "scanned_text_file_count": 180,
-    "scanned_text_set_sha256": "c946c46253508d20844275b34d0face1b95e57761d968e44b307870ca9d2493b",
+    "scanned_text_file_count": 186,
+    "scanned_text_set_sha256": "b1f99712d65350e6b4dde32c823a117b2a6071f2b690f22499fd446435e9a7ce",
     "violations": []
   },
   "builder_path": "scripts/build_public_claim_registry.py",
-  "builder_sha256": "fe8fc98bb9d01a0448d2975d94cde0f867ac8b26a9435dd849befd0911f2ce0d",
+  "builder_sha256": "ccb0d2461a1437cf4bc6f9bc04ae0cf761b74461a73b9f93e22f57121f6a4969",
   "claim_boundary": "This registry binds the README's headline quantitative claims to committed machine evidence and revalidates every structured ReplayPack claim against its support artifact and evidence class. It also binds the public-demo and public-source claims to self-hashed, time-bounded Sites and GitHub release receipts. The text scan rejects a bounded set of unsupported client, performance, validation, and adoption phrases; it is not a general natural-language proof and cannot establish continuous uptime, external review, adoption, users, financial performance, or real-world impact.",
   "headline_claims": [
     {
@@ -43,6 +43,14 @@
       "evidence_sha256": "527da0c64e1432bae2a985d906bd5522ba1807918df66838e3c4f0ce598a2bdb",
       "extraction_rule": "len(scenarios)",
       "observed_value": 30,
+      "public_artifact": "README.md"
+    },
+    {
+      "claim_id": "evidence-bounded-capabilities",
+      "evidence_path": "src/finreplay/resources/capability-catalog.json",
+      "evidence_sha256": "44b58a85e1cf63b927a5c2d0aed02d178d341da62f82799a15ed41b8e9171dde",
+      "extraction_rule": "capability_count",
+      "observed_value": 10,
       "public_artifact": "README.md"
     },
     {
@@ -87,7 +95,7 @@
     "sites_version_number": 3
   },
   "registry_kind": "public_claim_traceability_and_inflation_guard",
-  "registry_sha256": "b052f2ff74816f6c2bb0904b4f3c644dd34e3f17ee45d45365f443afae31be24",
+  "registry_sha256": "64e230817f363e13cab6ab739c2b206aa4430f9ad93740e36533fb06e0dcd25f",
   "replaypack_surface": {
     "evidence_classes": [
       "extracted",

@@ -18,27 +18,43 @@ scenario, or user surface. Small corrections can go directly to a pull request.
 
 ## Verification
 
+After `make bootstrap`, the supported one-command contributor gate is:
+
+```bash
+make verify
+```
+
+The equivalent expanded commands are useful when diagnosing one gate:
+
 Use Python 3.11 or newer, then run:
 
 ```bash
 python -m pip install --upgrade 'pip>=26.1.2'
 python -m pip install -e '.[dev]'
 python scripts/build_user_catalogs.py --check
+python scripts/build_public_replaypack_downloads.py --check
+python scripts/build_public_claim_registry.py --check
 ruff check .
 mypy src tests scripts
 pytest --cov=finreplay --cov-report=term-missing
 python scripts/verify_scenario_catalog.py
 python scripts/validate_independent_review_records.py
-pip-audit --local
+python scripts/scan_tracked_secrets.py
+python -m pip_audit --local
+npm run lint --prefix web
+npm test --prefix web
+npm audit --prefix web
 ```
 
 Update tests, scenario receipts, documentation, and `CHANGELOG.md` together
 when their claims change. A pull request should explain what evidence changed,
 what did not change, and which failure modes were exercised.
 
-Generated files such as `docs/catalog-matrix.md` and the installable catalogs
-under `src/finreplay/resources/` must be regenerated with
-`python scripts/build_user_catalogs.py --write`; do not edit their counted rows
+Generated files such as `docs/catalog-matrix.md`, `docs/capability-map.md`, installable catalogs,
+and web capability data must be regenerated with
+`python scripts/build_user_catalogs.py --write`. The scenario download manifest, site scenario
+data, self-hashed package explorer, and `docs/scenario-explorer.md` come from
+`python scripts/build_public_replaypack_downloads.py --write`. Do not edit counted rows or hashes
 by hand.
 
 ## Independent review

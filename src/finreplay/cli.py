@@ -15,9 +15,12 @@ from finreplay.adapters import FDICFinancialsAdapter
 from finreplay.adapters.base import SafeHttpClient
 from finreplay.catalog import (
     AdapterCatalogEntry,
+    find_capability,
     find_scenario,
     load_adapter_catalog,
+    load_capability_catalog,
     load_scenario_catalog,
+    load_scenario_explorer_catalog,
     run_scenario,
 )
 from finreplay.engines import (
@@ -36,10 +39,15 @@ app = typer.Typer(
 )
 adapter_app = typer.Typer(no_args_is_help=True, help="Inspect and operate source adapters.")
 scenario_app = typer.Typer(no_args_is_help=True, help="Run bundled evidence scenarios offline.")
+capability_app = typer.Typer(
+    no_args_is_help=True,
+    help="Explore evidence-bounded analytical capabilities and curated scenarios.",
+)
 replaypack_app = typer.Typer(no_args_is_help=True, help="Build, verify, and open ReplayPacks.")
 evidence_app = typer.Typer(no_args_is_help=True, help="Verify packaged evidence surfaces.")
 app.add_typer(adapter_app, name="adapter")
 app.add_typer(scenario_app, name="scenario")
+app.add_typer(capability_app, name="capability")
 app.add_typer(replaypack_app, name="replaypack")
 app.add_typer(evidence_app, name="evidence")
 
@@ -215,6 +223,55 @@ def scenario_show(
     typer.echo(json.dumps(entry.model_dump(mode="json"), ensure_ascii=False, indent=2))
 
 
+@scenario_app.command("explain")
+def scenario_explain(
+    value: Annotated[str, typer.Argument(help="Scenario slug, scenario ID, or replay ID.")],
+) -> None:
+    """Show the case method, decision question, dimensions, paths, and claim boundary."""
+
+    try:
+        canonical = find_scenario(value)
+    except KeyError as error:
+        raise typer.BadParameter(str(error), param_hint="value") from error
+    explorer = load_scenario_explorer_catalog()
+    entry = next(item for item in explorer.scenarios if item.slug == canonical.slug)
+    pathways = [
+        pathway.pathway_id
+        for pathway in explorer.pathways
+        if canonical.slug in pathway.scenario_slugs
+    ]
+    capabilities = [
+        capability.capability_id
+        for capability in load_capability_catalog().capabilities
+        if canonical.slug in capability.scenario_slugs
+    ]
+    payload = {
+        **entry.model_dump(mode="json"),
+        "pathway_ids": pathways,
+        "capability_ids": capabilities,
+        "claim_boundary": explorer.claim_boundary,
+    }
+    typer.echo(json.dumps(payload, ensure_ascii=False, indent=2))
+
+
+@scenario_app.command("pathways")
+def scenario_pathways() -> None:
+    """List five cross-scenario reading paths with their analytical dimensions."""
+
+    explorer = load_scenario_explorer_catalog()
+    typer.echo("PATHWAY\tSCENARIOS\tDIMENSIONS")
+    for pathway in explorer.pathways:
+        typer.echo(
+            f"{pathway.pathway_id}\t{len(pathway.scenario_slugs)}\t"
+            f"{', '.join(pathway.lens_ids)}"
+        )
+    typer.echo(
+        f"count={len(explorer.pathways)} dimensions={len(explorer.lenses)} "
+        f"scenarios={explorer.scenario_count}"
+    )
+    typer.echo(f"boundary={explorer.claim_boundary}")
+
+
 @scenario_app.command("run")
 def scenario_run(
     value: Annotated[str, typer.Argument(help="Scenario slug, scenario ID, or replay ID.")],
@@ -252,6 +309,64 @@ def scenario_verify(
     typer.echo(
         f"verified=true offline=true scenario={entry.slug} pack_sha256={result.receipt.pack_sha256}"
     )
+
+
+@capability_app.command("list")
+def capability_list(
+    scope: Annotated[
+        str | None,
+        typer.Option(help="Optional scope: direct, transferable, or boundary_only."),
+    ] = None,
+    output_json: Annotated[
+        bool,
+        typer.Option("--json", help="Emit machine-readable JSON."),
+    ] = False,
+) -> None:
+    """List capability paths without turning adjacent-domain limits into experience claims."""
+
+    catalog = load_capability_catalog()
+    normalized_scope = scope.strip().lower() if scope else None
+    allowed_scopes = {"direct", "transferable", "boundary_only"}
+    if normalized_scope is not None and normalized_scope not in allowed_scopes:
+        raise typer.BadParameter(
+            "must be direct, transferable, or boundary_only",
+            param_hint="--scope",
+        )
+    entries = tuple(
+        entry
+        for entry in catalog.capabilities
+        if normalized_scope is None or entry.scope == normalized_scope
+    )
+    if output_json:
+        typer.echo(
+            json.dumps(
+                [entry.model_dump(mode="json") for entry in entries],
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        return
+    typer.echo("CAPABILITY\tSCOPE\tSCENARIOS\tDISCIPLINES")
+    for entry in entries:
+        typer.echo(
+            f"{entry.capability_id}\t{entry.scope}\t{len(entry.scenario_slugs)}\t"
+            f"{', '.join(entry.disciplines)}"
+        )
+    typer.echo(f"count={len(entries)} capability_total={catalog.capability_count}")
+    typer.echo(f"boundary={catalog.claim_boundary}")
+
+
+@capability_app.command("show")
+def capability_show(
+    value: Annotated[str, typer.Argument(help="Capability ID or exact short title.")],
+) -> None:
+    """Show one capability, its curated scenarios, evidence locators, and claim limits."""
+
+    try:
+        entry = find_capability(value)
+    except KeyError as error:
+        raise typer.BadParameter(str(error), param_hint="value") from error
+    typer.echo(json.dumps(entry.model_dump(mode="json"), ensure_ascii=False, indent=2))
 
 
 @replaypack_app.command("build")
@@ -315,6 +430,8 @@ def evidence_verify(
 
     adapters = load_adapter_catalog()
     scenarios = load_scenario_catalog()
+    capabilities = load_capability_catalog()
+    explorer = load_scenario_explorer_catalog()
     verified = 0
     if all_scenarios:
         with tempfile.TemporaryDirectory(prefix="finreplay-evidence-") as directory:
@@ -330,7 +447,8 @@ def evidence_verify(
                 verified += 1
     typer.echo(
         f"verified=true adapters={adapters.adapter_count} scenarios={scenarios.scenario_count} "
-        f"scenarios_rerun={verified}"
+        f"capabilities={capabilities.capability_count} dimensions={len(explorer.lenses)} "
+        f"pathways={len(explorer.pathways)} scenarios_rerun={verified}"
     )
     typer.echo(f"boundary={scenarios.claim_boundary}")
 

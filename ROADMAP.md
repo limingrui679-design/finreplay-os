@@ -2,12 +2,14 @@
 
 The roadmap records bounded engineering goals, not promised outcomes or delivery dates.
 
-## Current release line: 0.1 alpha
+## Current release line: 0.2 alpha
 
 - Maintain one-command offline reproduction for all 30 counted scenarios.
 - Keep the formal 30-adapter live-validation catalog distinct from scenario archive connectors.
 - Publish installable package artifacts and deterministic release checksums.
 - Give every evidence-site scenario a stable detail route and downloadable ReplayPack.
+- Keep capability paths, analytical dimensions, and cross-case pathways machine-validated and
+  explicitly labeled as direct, transferable, or boundary-only evidence.
 - Reduce contributor setup time with authoring guides, examples, and issue templates.
 
 ## Next evidence gates

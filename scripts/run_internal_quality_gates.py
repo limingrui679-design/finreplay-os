@@ -49,12 +49,19 @@ _HOSTILE_TEST_PREFIXES = {
 _EVIDENCE_PATHS = (
     ".github/workflows/security.yml",
     ".github/workflows/verify.yml",
+    "Makefile",
+    "capabilities/catalog.json",
+    "docs/architecture/system-overview.md",
+    "docs/capability-map.md",
+    "docs/scenario-explorer.md",
     "pyproject.toml",
     "scripts/run_internal_quality_gates.py",
     "scripts/scan_tracked_secrets.py",
     "scripts/validate_independent_review_records.py",
     "scripts/verify_no_key_demo.py",
     "src/finreplay/api.py",
+    "src/finreplay/resources/capability-catalog.json",
+    "src/finreplay/resources/scenario-explorer.json",
     "src/finreplay/security.py",
     "verification/claims/public-claims.json",
     "verification/evidence/capitalallocator-benchmark.json",
@@ -214,6 +221,19 @@ def main() -> None:
         )
         if "schema_validation_only=true" not in independent_reviews["stdout"]:
             raise SystemExit("independent-review catalog omitted its schema-only boundary")
+        catalogs = _run(
+            "installable_catalogs",
+            [sys.executable, "scripts/build_user_catalogs.py", "--check"],
+        )
+        if "capabilities=10" not in catalogs["stdout"]:
+            raise SystemExit("installable catalog check omitted the capability count")
+        public_replaypacks = _run(
+            "public_replaypacks",
+            [sys.executable, "scripts/build_public_replaypack_downloads.py", "--check"],
+        )
+        for marker in ("scenarios=30", "lenses=10", "pathways=5"):
+            if marker not in public_replaypacks["stdout"]:
+                raise SystemExit(f"public ReplayPack check omitted required marker: {marker}")
         rebuilt_claims = temporary_root / "public-claims.json"
         claims = _run(
             "public_claim_registry",
@@ -243,6 +263,8 @@ def main() -> None:
             capitalallocator,
             scenarios,
             independent_reviews,
+            catalogs,
+            public_replaypacks,
             claims,
         )
     }
@@ -320,6 +342,8 @@ def main() -> None:
             "responsive_accessibility_browser_receipt_verified": True,
             "all_five_evidence_labels_verified": True,
             "scenario_catalog_verified": True,
+            "installable_capability_catalog_verified": True,
+            "public_replaypack_and_explorer_catalogs_verified": True,
             "independent_review_record_catalog_schema_checked": True,
             "public_claim_registry_rebuilt_byte_identically": True,
             "fixed_benchmark_receipts_verified": True,

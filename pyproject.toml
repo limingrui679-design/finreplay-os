@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "finreplay-os"
-version = "0.1.0a1"
+version = "0.2.0a1"
 description = "Point-in-time financial-system replay and adversarial quant research platform."
 readme = "README.md"
 requires-python = ">=3.11"

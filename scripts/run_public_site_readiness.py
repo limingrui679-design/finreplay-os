@@ -58,7 +58,6 @@ def main() -> None:
             json.dumps(audit, sort_keys=True, separators=(",", ":"))
         )
 
-        page = (site / "app/page.tsx").read_text(encoding="utf-8")
         rendered_test_output = commands["production_build_and_render_tests"].pop("stdout")
         test_pass_match = re.search(r"^# pass (?P<count>\d+)$", rendered_test_output, re.MULTILINE)
         test_fail_match = re.search(r"^# fail (?P<count>\d+)$", rendered_test_output, re.MULTILINE)
@@ -71,6 +70,23 @@ def main() -> None:
         )
 
         hosting = _load_json(site / ".openai/hosting.json")
+        scenario_catalog = _load_json(site / "data/scenarios.json")
+        capability_catalog = _load_json(site / "data/capabilities.json")
+        scenarios = scenario_catalog.get("scenarios")
+        lenses = scenario_catalog.get("lenses")
+        pathways = scenario_catalog.get("pathways")
+        capabilities = capability_catalog.get("capabilities")
+        catalog_lists = (scenarios, lenses, pathways, capabilities)
+        if not all(isinstance(value, list) for value in catalog_lists):
+            raise SystemExit("public site catalogs do not contain the expected list fields")
+        assert isinstance(scenarios, list)
+        assert isinstance(lenses, list)
+        assert isinstance(pathways, list)
+        assert isinstance(capabilities, list)
+        visible_breach_count = sum(
+            isinstance(scenario, dict) and scenario.get("tone") == "breach"
+            for scenario in scenarios
+        )
         review_manifest = _load_json(
             site / "public/review/finreplay-review-manifest.json"
         )
@@ -82,12 +98,21 @@ def main() -> None:
             "lint_passed": commands["lint"]["exit_code"] == 0,
             "production_build_and_render_tests_passed": (
                 commands["production_build_and_render_tests"]["exit_code"] == 0
-                and rendered_passed == 3
+                and rendered_passed >= 10
                 and rendered_failed == 0
             ),
             "dependency_audit_clean": vulnerabilities["total"] == 0,
-            "thirty_scenarios_in_source": len(re.findall(r"\{ id: \d+", page)) == 30,
-            "nineteen_breaches_in_source": page.count('tone: "breach"') == 19,
+            "thirty_scenarios_in_generated_catalog": (
+                scenario_catalog.get("scenarioCount") == 30 and len(scenarios) == 30
+            ),
+            "nineteen_breaches_in_generated_catalog": visible_breach_count == 19,
+            "ten_dimensions_and_five_pathways_in_generated_catalog": (
+                len(lenses) == 10 and len(pathways) == 5
+            ),
+            "ten_capabilities_in_generated_catalog": (
+                capability_catalog.get("capability_count") == 10
+                and len(capabilities) == 10
+            ),
             "external_review_stays_pending": (
                 review_manifest.get("evidence_status")
                 == "internally_proven_external_review_pending"
@@ -108,7 +133,7 @@ def main() -> None:
             raise SystemExit(f"public site readiness assertion failed: {assertions}")
 
     payload: dict[str, Any] = {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "evidence_kind": "public_site_local_release_readiness",
         "generated_at": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
         "subject": {
@@ -133,8 +158,17 @@ def main() -> None:
             "vulnerabilities": vulnerabilities,
         },
         "site_content": {
-            "scenario_count": 30,
-            "visible_breach_count": 19,
+            "scenario_count": len(scenarios),
+            "visible_breach_count": visible_breach_count,
+            "analytical_dimension_count": len(lenses),
+            "pathway_count": len(pathways),
+            "capability_count": len(capabilities),
+            "scenario_catalog_sha256": hashlib.sha256(
+                (site / "data/scenarios.json").read_bytes()
+            ).hexdigest(),
+            "capability_catalog_sha256": hashlib.sha256(
+                (site / "data/capabilities.json").read_bytes()
+            ).hexdigest(),
             "og_png_bytes": len(og),
             "og_png_sha256": hashlib.sha256(og).hexdigest(),
             "og_png_width": og_width,

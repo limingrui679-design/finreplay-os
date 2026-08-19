@@ -4,13 +4,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Run FinReplay OS · Documentation",
   description: "Install FinReplay OS and reproduce a byte-locked scenario offline in three minutes.",
-  openGraph: { images: [] },
-  twitter: { images: [] },
 };
 
 const groups = [
   ["Adapters", "finreplay adapter list|show|fetch|validate", "Current live validation and explicit temporal eligibility."],
-  ["Scenarios", "finreplay scenario list|show|run|verify", "Thirty bundled runners with recorded pack identities."],
+  ["Scenarios", "finreplay scenario list|show|explain|pathways|run|verify", "Thirty bundled runners plus methods and cross-case reading paths."],
+  ["Capabilities", "finreplay capability list|show", "Evidence-bounded routes through methods and curated cases."],
   ["ReplayPacks", "finreplay replaypack build|verify|open", "Deterministic portable reports and mutation checks."],
   ["Evidence", "finreplay evidence verify --all-scenarios", "Catalog validation and optional full offline reproduction."],
 ];
@@ -25,6 +24,7 @@ export default function DocsPage() {
         </Link>
         <nav aria-label="Documentation navigation">
           <Link href="/#replays">Replays</Link>
+          <Link href="/capabilities">Capabilities</Link>
           <a href="https://github.com/limingrui679-design/finreplay-os">GitHub</a>
         </nav>
         <span className="read-only">Local-first</span>
@@ -71,6 +71,19 @@ finreplay evidence verify --all-scenarios`}</code></pre>
         </div>
       </section>
 
+      <section className="docs-section" aria-labelledby="capability-cli-title">
+        <div className="detail-section-heading">
+          <span className="section-number">04 / Ask by capability</span>
+          <h2 id="capability-cli-title">Find the cases that fit the question.</h2>
+          <p>Scope labels stay in the output so a transferable method or inference boundary cannot be mistaken for direct domain evidence.</p>
+        </div>
+        <pre><code>{`finreplay capability list
+finreplay capability list --scope direct
+finreplay capability show decision-risk
+finreplay scenario explain svb-2023
+finreplay scenario pathways`}</code></pre>
+      </section>
+
       <aside className="boundary detail-boundary">
         <span className="boundary-icon" aria-hidden="true">!</span>
         <div><h2>Temporal boundary</h2><p>A currently validated response may still be `latest_only`. A historical observation date is not proof that the exact retrieved value was knowable then.</p></div>
@@ -79,12 +92,14 @@ finreplay evidence verify --all-scenarios`}</code></pre>
       <section className="source-links docs-links" aria-labelledby="guides-title">
         <h2 id="guides-title">Continue in the repository</h2>
         <a href="https://github.com/limingrui679-design/finreplay-os/blob/main/docs/quickstart.md">Complete quickstart ↗</a>
+        <a href="https://github.com/limingrui679-design/finreplay-os/blob/main/docs/capability-map.md">Capability map ↗</a>
+        <a href="https://github.com/limingrui679-design/finreplay-os/blob/main/docs/scenario-explorer.md">Scenario explorer ↗</a>
         <a href="https://github.com/limingrui679-design/finreplay-os/blob/main/docs/catalog-matrix.md">Adapter and scenario matrix ↗</a>
         <a href="https://github.com/limingrui679-design/finreplay-os/blob/main/docs/adapter-authoring.md">Adapter authoring guide ↗</a>
         <a href="https://github.com/limingrui679-design/finreplay-os/blob/main/docs/scenario-authoring.md">Scenario authoring guide ↗</a>
       </section>
 
-      <footer><span>FinReplay OS · 0.1 alpha</span><span>Research software; no investment advice.</span></footer>
+      <footer><span>FinReplay OS · 0.2 alpha</span><span>Research software; no investment advice.</span></footer>
     </main>
   );
 }

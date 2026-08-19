@@ -1,45 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { headers } from "next/headers";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const title = "FinReplay OS · Evidence before confidence";
+const description = "A public read-only view of point-in-time replay evidence, thirty boundary cases, billion-row scale, and explicit claim limits.";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
-  const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const origin = `${protocol}://${host}`;
-  const title = "FinReplay OS · Evidence before confidence";
-  const description = "A public read-only view of point-in-time replay evidence, thirty boundary cases, billion-row scale, and explicit claim limits.";
-  const image = `${origin}/og.png`;
-
-  return {
-    metadataBase: new URL(origin),
+export const metadata: Metadata = {
+  metadataBase: new URL("https://finreplay-evidence.limingrui2.chatgpt.site"),
+  title,
+  description,
+  openGraph: {
+    type: "website",
     title,
     description,
-    openGraph: {
-      type: "website",
-      title,
-      description,
-      images: [{ url: image, width: 1731, height: 909, alt: "FinReplay OS public read-only evidence" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [image],
-    },
-  };
-}
+    images: [{ url: "/og.png", width: 1731, height: 909, alt: "FinReplay OS public read-only evidence" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/og.png"],
+  },
+};
 
 export default function RootLayout({
   children,
@@ -48,11 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

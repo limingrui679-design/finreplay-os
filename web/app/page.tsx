@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
-import { filters, scenarios, toneLabel } from "@/lib/scenarios";
+import { capabilities, getCapability, scopeLabel } from "@/lib/capabilities";
+import { filters, lensById, scenarios, toneLabel } from "@/lib/scenarios";
 
 const metrics = [
   { value: "7", label: "connected engines", note: "one deterministic flow" },
@@ -30,17 +31,42 @@ const artifacts = [
   ["Public pack manifest", "a549ebb5d997…7494", "30 downloadable deterministic ReplayPacks"],
 ];
 
+const featuredCapabilityIds = [
+  "point-in-time-data",
+  "statistical-falsification",
+  "decision-risk",
+  "model-governance",
+  "public-policy-evidence",
+  "population-place-boundaries",
+];
+
+const featuredCapabilities = featuredCapabilityIds.flatMap((capabilityId) => {
+  const capability = getCapability(capabilityId);
+  return capability ? [capability] : [];
+});
+
 export default function Home() {
   const [family, setFamily] = useState<(typeof filters)[number]>("All");
+  const [capabilityId, setCapabilityId] = useState("all");
   const [query, setQuery] = useState("");
+  const selectedCapability = capabilityId === "all" ? undefined : getCapability(capabilityId);
   const visibleScenarios = useMemo(() => {
     const normalized = query.trim().toLowerCase();
     return scenarios.filter((scenario) => {
       const familyMatches = family === "All" || scenario.family === family;
-      const haystack = `${scenario.title} ${scenario.publisher} ${scenario.result}`.toLowerCase();
-      return familyMatches && (!normalized || haystack.includes(normalized));
+      const capabilityMatches =
+        !selectedCapability || selectedCapability.scenario_slugs.includes(scenario.slug);
+      const scenarioCapabilities = capabilities
+        .filter((capability) => capability.scenario_slugs.includes(scenario.slug))
+        .map((capability) => `${capability.title} ${capability.disciplines.join(" ")}`)
+        .join(" ");
+      const scenarioDimensions = scenario.lensIds
+        .map((lensId) => lensById.get(lensId)?.label ?? "")
+        .join(" ");
+      const haystack = `${scenario.title} ${scenario.publisher} ${scenario.result} ${scenario.primaryMethod} ${scenario.decisionQuestion} ${scenarioDimensions} ${scenarioCapabilities}`.toLowerCase();
+      return familyMatches && capabilityMatches && (!normalized || haystack.includes(normalized));
     });
-  }, [family, query]);
+  }, [family, query, selectedCapability]);
 
   return (
     <main id="main">
@@ -52,6 +78,7 @@ export default function Home() {
         </a>
         <nav aria-label="Primary navigation">
           <a href="#engines">Engines</a>
+          <Link href="/capabilities">Capabilities</Link>
           <a href="#replays">Replays</a>
           <a href="#scale">Scale</a>
           <Link href="/docs">Docs</Link>
@@ -74,6 +101,7 @@ export default function Home() {
           </p>
           <div className="hero-actions">
             <a className="primary-action" href="#replays">Explore 30 replays</a>
+            <Link className="secondary-action" href="/capabilities">Choose a capability path</Link>
             <Link className="secondary-action" href="/docs">Run the offline demo</Link>
           </div>
         </div>
@@ -120,9 +148,32 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="capability-preview" aria-labelledby="capability-preview-title">
+        <div className="section-heading">
+          <span className="section-number">03 / Evidence-bounded capabilities</span>
+          <h2 id="capability-preview-title">One system.<br />Different questions.</h2>
+          <p>
+            Explore direct engineering evidence, transferable analytical methods, and cases that
+            prove only an inference boundary. The labels prevent adjacent-domain relevance from
+            becoming an unsupported experience claim.
+          </p>
+          <Link className="text-action" href="/capabilities">Open all ten capability paths →</Link>
+        </div>
+        <div className="capability-preview-grid">
+          {featuredCapabilities.map((capability) => (
+            <Link href={`/capabilities#${capability.capability_id}`} key={capability.capability_id}>
+              <span className={`scope-chip ${capability.scope}`}>{scopeLabel(capability.scope)}</span>
+              <h3>{capability.title}</h3>
+              <p>{capability.summary}</p>
+              <small>{capability.scenario_slugs.length} curated cases</small>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className="replay-section" id="replays" aria-labelledby="replays-title">
         <div className="section-heading replay-heading">
-          <span className="section-number">03 / Replay ledger</span>
+          <span className="section-number">04 / Replay ledger</span>
           <h2 id="replays-title">Thirty boundaries.<br />Every pack opens.</h2>
           <p>Each card now has a stable evidence page, explicit hashes, structured claims, and a deterministic ReplayPack download.</p>
         </div>
@@ -136,7 +187,23 @@ export default function Home() {
             <span>Search replay ledger</span>
             <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Publisher, event, outcome…" />
           </label>
+          <label className="capability-select">
+            <span>Capability path</span>
+            <select value={capabilityId} onChange={(event) => setCapabilityId(event.target.value)}>
+              <option value="all">All capability paths</option>
+              {capabilities.map((capability) => (
+                <option value={capability.capability_id} key={capability.capability_id}>
+                  {capability.short_title} · {scopeLabel(capability.scope)}
+                </option>
+              ))}
+            </select>
+          </label>
         </div>
+        {selectedCapability && (
+          <p className="selected-capability-note">
+            <strong>{scopeLabel(selectedCapability.scope)}:</strong> {selectedCapability.summary}
+          </p>
+        )}
         <p className="result-count" aria-live="polite">Showing {visibleScenarios.length} of 30 replay-proven boundaries</p>
         <div className="scenario-grid">
           {visibleScenarios.map((scenario) => (
@@ -146,6 +213,14 @@ export default function Home() {
                 <span className={`tone ${scenario.tone}`}>{toneLabel(scenario.tone)}</span>
               </div>
               <h3>{scenario.title}</h3>
+              <small className="scenario-method">{scenario.primaryMethod}</small>
+              <div className="scenario-dimensions" aria-label="Analytical dimensions">
+                {scenario.lensIds.slice(0, 3).map((lensId) => {
+                  const lens = lensById.get(lensId);
+                  return lens ? <span key={lensId}>{lens.shortLabel}</span> : null;
+                })}
+                {scenario.lensIds.length > 3 && <span>+{scenario.lensIds.length - 3}</span>}
+              </div>
               <dl>
                 <div><dt>Official source</dt><dd>{scenario.publisher}</dd></div>
                 <div><dt>Decision boundary</dt><dd>{scenario.decisionDate}</dd></div>
@@ -159,7 +234,7 @@ export default function Home() {
 
       <section className="scale-section" id="scale" aria-labelledby="scale-title">
         <div className="section-heading light">
-          <span className="section-number">04 / Measured scale</span>
+          <span className="section-number">05 / Measured scale</span>
           <h2 id="scale-title">No multiplier.<br />No estimate.</h2>
           <p>Exactly 1,014,736,394 physical CSV rows from 244 continuous official SEC daily archives were processed into 12,277,974,518 Parquet bytes.</p>
         </div>
@@ -172,7 +247,7 @@ export default function Home() {
 
       <section className="artifact-section" aria-labelledby="artifact-title">
         <div className="section-heading compact">
-          <span className="section-number">05 / Machine locators</span>
+          <span className="section-number">06 / Machine locators</span>
           <h2 id="artifact-title">Follow the hashes.</h2>
         </div>
         <div className="artifact-list">
@@ -192,7 +267,7 @@ export default function Home() {
 
       <section className="review-section" id="review" aria-labelledby="review-title">
         <div className="review-copy">
-          <span className="section-number">06 / Independent evidence</span>
+          <span className="section-number">07 / Independent evidence</span>
           <h2 id="review-title">The final gate cannot be self-awarded.</h2>
           <p>A qualified reviewer must independently reproduce a result or review a domain method, identify a real issue, and follow that issue through resolution.</p>
           <p className="archive-digest">The fixed review snapshot is bound to commit <code>e150136dc0a2</code> and SHA-256 <code>f7c287c6…065ab</code>. The 30 current per-scenario downloads are separately self-hashed.</p>
@@ -211,7 +286,7 @@ export default function Home() {
         </ol>
       </section>
 
-      <footer><span>FinReplay OS · 0.1 alpha research software</span><span>No investment, legal, accounting, or risk-management advice.</span></footer>
+      <footer><span>FinReplay OS · 0.2 alpha research software</span><span>No investment, legal, accounting, or risk-management advice.</span></footer>
     </main>
   );
 }

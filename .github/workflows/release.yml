@@ -38,6 +38,8 @@ jobs:
           /tmp/finreplay-wheel/bin/pip install dist/*.whl
           /tmp/finreplay-wheel/bin/finreplay version
           /tmp/finreplay-wheel/bin/finreplay adapter validate
+          /tmp/finreplay-wheel/bin/finreplay capability list
+          /tmp/finreplay-wheel/bin/finreplay scenario explain svb-2023
           /tmp/finreplay-wheel/bin/finreplay scenario verify svb-2023
           /tmp/finreplay-wheel/bin/finreplay demo svb-2023 --offline --no-open \
             --no-archive --destination /tmp/finreplay-demo

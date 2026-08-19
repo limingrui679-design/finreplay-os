@@ -11,6 +11,7 @@ import subprocess
 from pathlib import Path
 from typing import Any
 
+from finreplay.catalog import load_capability_catalog
 from finreplay.engines import CompiledReplayPack
 from finreplay.scale import load_sec_log_scale_manifest
 
@@ -50,6 +51,11 @@ def main() -> None:
         type=Path,
         default=Path("verification/claims/public-claims.json"),
     )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Fail unless the selected output already matches a fresh rebuild.",
+    )
     args = parser.parse_args()
     repository = Path(__file__).resolve().parents[1]
     readme_path = repository / "README.md"
@@ -71,6 +77,8 @@ def main() -> None:
     scenario_summary_path = repository / "verification/scenarios/latest-summary.json"
     scenario_summary = _load_json(scenario_summary_path)
     scenario_count = len(scenario_summary["scenarios"])
+    capability_path = repository / "src/finreplay/resources/capability-catalog.json"
+    capability_count = load_capability_catalog().capability_count
     scale_path = repository / "verification/scale/sec-edgar/latest-scale-manifest.json"
     scale = load_sec_log_scale_manifest(scale_path)
     deployment_path = repository / "verification/evidence/public-site-deployment.json"
@@ -108,6 +116,7 @@ def main() -> None:
         "engine_count": 7,
         "adapter_count": 30,
         "scenario_count": 30,
+        "capability_count": 10,
         "scale_partition_count": 244,
         "scale_physical_row_count": 1_014_736_394,
     }
@@ -115,6 +124,7 @@ def main() -> None:
         "engine_count": engine_count,
         "adapter_count": adapter_count,
         "scenario_count": scenario_count,
+        "capability_count": capability_count,
         "scale_partition_count": scale.partition_count,
         "scale_physical_row_count": scale.total_distinct_physical_rows,
     }
@@ -127,6 +137,7 @@ def main() -> None:
         "244 continuous",
         "1,014,736,394",
         "Public demo and external review | Public demo achieved; independent review pending",
+        "all ten capability paths",
     ):
         if text not in readme:
             raise SystemExit(f"README public claim is missing or changed: {text}")
@@ -192,6 +203,14 @@ def main() -> None:
             scenario_summary_path,
             repository,
             "len(scenarios)",
+        ),
+        _claim(
+            "evidence-bounded-capabilities",
+            "README.md",
+            capability_count,
+            capability_path,
+            repository,
+            "capability_count",
         ),
         _claim(
             "sec-scale-partitions",
@@ -281,13 +300,20 @@ def main() -> None:
         raise SystemExit("README truth boundary is missing")
     payload["registry_sha256"] = _hash(payload)
     output = args.output.expanduser().resolve()
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(
-        json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
-        encoding="utf-8",
-    )
+    serialized = (
+        json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
+    ).encode()
+    if args.check:
+        if not output.exists() or output.read_bytes() != serialized:
+            raise SystemExit(f"public claim registry is stale: {output}")
+        state = "current"
+    else:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_bytes(serialized)
+        state = "written"
     print(
-        f"headline_claims={len(headline_claims)} reports={len(pack_entries)} "
+        f"public_claim_registry_{state}=true headline_claims={len(headline_claims)} "
+        f"reports={len(pack_entries)} "
         f"public_claims={public_claim_count} violations=0 "
         f"registry_sha256={payload['registry_sha256']}"
     )
@@ -315,6 +341,7 @@ def _public_text_paths(repository: Path) -> list[Path]:
     public_web_sources = {
         "web/README.md",
         "web/data/scenarios.json",
+        "web/data/capabilities.json",
         "web/public/replaypacks/manifest.json",
         "web/public/review/finreplay-review-manifest.json",
     }

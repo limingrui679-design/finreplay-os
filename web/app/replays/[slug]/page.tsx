@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { capabilitiesForScenario, scopeLabel } from "@/lib/capabilities";
 import {
   formatBytes,
   getScenario,
   githubFile,
+  lensById,
   scenarios,
   toneLabel,
 } from "@/lib/scenarios";
@@ -29,8 +31,8 @@ export async function generateMetadata({ params }: ReplayPageProps): Promise<Met
   return {
     title,
     description,
-    openGraph: { title, description, images: [] },
-    twitter: { title, description, images: [] },
+    openGraph: { title, description },
+    twitter: { title, description },
   };
 }
 
@@ -41,6 +43,7 @@ export default async function ReplayPage({ params }: ReplayPageProps) {
   const current = scenarios.findIndex((candidate) => candidate.slug === scenario.slug);
   const previous = scenarios[(current - 1 + scenarios.length) % scenarios.length];
   const next = scenarios[(current + 1) % scenarios.length];
+  const scenarioCapabilities = capabilitiesForScenario(scenario.slug);
 
   return (
     <main className="subpage">
@@ -52,6 +55,7 @@ export default async function ReplayPage({ params }: ReplayPageProps) {
         </Link>
         <nav aria-label="Replay navigation">
           <Link href="/#replays">All replays</Link>
+          <Link href="/capabilities">Capabilities</Link>
           <Link href="/docs">Docs</Link>
           <a href={githubFile(scenario.reportPath)}>Source report</a>
         </nav>
@@ -69,6 +73,7 @@ export default async function ReplayPage({ params }: ReplayPageProps) {
             <span className={`tone detail-tone ${scenario.tone}`}>{toneLabel(scenario.tone)}</span>
           </div>
           <p className="detail-result">{scenario.result}</p>
+          <p className="detail-question"><strong>Decision question</strong>{scenario.decisionQuestion}</p>
           <div className="detail-actions">
             <a className="primary-action download" href={scenario.downloadPath} download>
               Download ReplayPack · {formatBytes(scenario.downloadBytes)}
@@ -100,9 +105,43 @@ export default async function ReplayPage({ params }: ReplayPageProps) {
           </div>
         </section>
 
+        <section className="detail-section" aria-labelledby="capability-title">
+          <div className="detail-section-heading">
+            <span className="section-number">02 / Capability lenses</span>
+            <h2 id="capability-title">Why this case matters.</h2>
+            <p>
+              These labels come from the package&apos;s evidence-bounded capability map. Direct,
+              transferable, and boundary-only routes remain visibly different.
+            </p>
+            <p><strong>Primary method:</strong> {scenario.primaryMethod}</p>
+            <div className="detail-dimensions" aria-label="Analytical dimensions">
+              {scenario.lensIds.map((lensId) => {
+                const lens = lensById.get(lensId);
+                return lens ? <span key={lensId}>{lens.shortLabel}</span> : null;
+              })}
+            </div>
+          </div>
+          <div className="scenario-capability-list">
+            {scenarioCapabilities.map((capability) => (
+              <Link href={`/capabilities#${capability.capability_id}`} key={capability.capability_id}>
+                <span className={`scope-chip ${capability.scope}`}>{scopeLabel(capability.scope)}</span>
+                <strong>{capability.title}</strong>
+                <small>{capability.questions[0]}</small>
+              </Link>
+            ))}
+            {scenarioCapabilities.length === 0 && (
+              <p className="capability-empty">
+                This case is not currently selected as a strongest example in the ten capability
+                routes. Its analytical dimensions remain descriptive metadata, not a direct
+                domain-experience claim.
+              </p>
+            )}
+          </div>
+        </section>
+
         <section className="detail-section" id="claims" aria-labelledby="claims-title">
           <div className="detail-section-heading">
-            <span className="section-number">02 / Structured claims</span>
+            <span className="section-number">03 / Structured claims</span>
             <h2 id="claims-title">Claims stay attached to boundaries.</h2>
             <p>{scenario.claims.length} claims are copied from the deterministic report, not rewritten for this page.</p>
           </div>
@@ -120,7 +159,7 @@ export default async function ReplayPage({ params }: ReplayPageProps) {
 
         <section className="detail-section hash-section" aria-labelledby="hash-title">
           <div className="detail-section-heading">
-            <span className="section-number">03 / Verification identity</span>
+            <span className="section-number">04 / Verification identity</span>
             <h2 id="hash-title">Follow every digest.</h2>
           </div>
           <dl className="hash-list">

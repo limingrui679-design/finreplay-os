@@ -8,6 +8,37 @@ investment performance.
 
 No unreleased changes.
 
+## [0.2.0a1] - 2026-08-20
+
+### Added
+
+- A self-hashed, installable 10-path capability catalog with direct,
+  transferable, and boundary-only scope labels, curated scenario links,
+  evidence locators, negative claims, Python accessors, CLI discovery, and a
+  generated Markdown map.
+- A public capability directory plus capability-aware replay filtering and
+  per-scenario capability lenses.
+- A validated 30-case explorer with primary methods, decision questions, ten overlapping
+  analytical dimensions, five cross-case pathways, generated documentation, CLI discovery, and
+  an outcome-composition visualization.
+- A system architecture overview covering layer authority, generated surfaces,
+  extension contracts, and the fail-closed model.
+- A one-command `make verify` contributor gate spanning generated artifacts, Python linting,
+  strict typing, branch-aware coverage, evidence checks, dependency audits, and the public web
+  build and tests.
+
+### Changed
+
+- The README, quickstart, examples, and public documentation now let readers
+  begin with an analytical question rather than an undifferentiated scenario
+  count.
+- The public site now uses local system font stacks, removing the build-time
+  dependency on a remote font service.
+- GitHub verification now runs a separate locked Node 22 build, rendered-route tests, and npm
+  audit; wheel smoke tests also exercise the packaged capability and scenario-explorer resources.
+- The clean-commit site-readiness receipt now derives scenario, outcome, dimension, pathway, and
+  capability counts from generated catalogs instead of obsolete page-source patterns.
+
 ## [0.1.0a1] - 2026-08-16
 
 ### Added

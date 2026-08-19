@@ -6,6 +6,7 @@ and do not download upstream data.
 ```bash
 python examples/svb_offline_demo.py --output ./out/svb-example
 python examples/catalog_filter.py
+python examples/capability_paths.py
 ```
 
 The notebook [`point_in_time_vs_revised.ipynb`](point_in_time_vs_revised.ipynb) walks through the

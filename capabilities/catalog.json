@@ -1,0 +1,339 @@
+{
+  "schema_version": "1.0.0",
+  "catalog_kind": "evidence_bounded_capability_map",
+  "claim_boundary": "Capabilities marked direct resolve to implemented code, committed machine evidence, and bounded public-data scenarios. Transferable and boundary-only entries describe a method or inference limit that can inform another domain; they are not evidence of domain deployment, client work, model accuracy, policy effect, health impact, spatial analysis, adoption, or external validation.",
+  "capabilities": [
+    {
+      "capability_id": "point-in-time-data",
+      "title": "Point-in-time data and revision control",
+      "short_title": "Point-in-time data",
+      "scope": "direct",
+      "summary": "Separate economic time from knowledge time, preserve every published vintage, and fail closed when an exact historical availability claim cannot be supported.",
+      "disciplines": [
+        "Data science",
+        "Information systems",
+        "Statistics"
+      ],
+      "questions": [
+        "What exact value was defensibly knowable at the decision boundary?",
+        "Which later revisions must remain evaluation-only?"
+      ],
+      "scenario_slugs": [
+        "gdp-revision-2022q4",
+        "bls-cpi-2023",
+        "bls-payroll-2023",
+        "svb-2023",
+        "census-marts-2020",
+        "census-nrc-2020"
+      ],
+      "evidence_locators": [
+        "docs/architecture/adr-0001-truth-boundaries.md",
+        "docs/evidence-labels.md",
+        "src/finreplay/engines/timevault.py"
+      ],
+      "does_not_prove": [
+        "Source authenticity beyond the identified public artifact",
+        "That a current API response was available at an earlier date"
+      ]
+    },
+    {
+      "capability_id": "statistical-falsification",
+      "title": "Statistical validation and falsification",
+      "short_title": "Statistical validation",
+      "scope": "direct",
+      "summary": "Retain negative attempts, enforce holdout and embargo boundaries, adjust for a declared hypothesis family, and keep post-event misses visible instead of rewriting the range.",
+      "disciplines": [
+        "Applied data science",
+        "Statistics",
+        "Research methods"
+      ],
+      "questions": [
+        "Which attempt family was declared before evaluation?",
+        "What evidence would reject or revise the claim?"
+      ],
+      "scenario_slugs": [
+        "gdp-revision-2022q4",
+        "bls-cpi-2023",
+        "bls-payroll-2023",
+        "census-nrc-2020",
+        "bls-ppi-2020",
+        "bls-import-prices-2020",
+        "bls-export-prices-2020"
+      ],
+      "evidence_locators": [
+        "docs/methods/trialcourt.md",
+        "verification/evidence/trialcourt-holm-method.json",
+        "src/finreplay/engines/trialcourt.py"
+      ],
+      "does_not_prove": [
+        "General forecast skill",
+        "External statistical or domain-method validation"
+      ]
+    },
+    {
+      "capability_id": "decision-risk",
+      "title": "Decision-making under risk and constraints",
+      "short_title": "Decision and risk",
+      "scope": "direct",
+      "summary": "Connect uncertainty intervals, downside scenarios, non-zero costs, capacity, infeasibility, reversal thresholds, and value of information before an allocation can become eligible for a later gate.",
+      "disciplines": [
+        "Business analytics",
+        "Decision science",
+        "Financial analytics",
+        "Operations research"
+      ],
+      "questions": [
+        "Which action remains feasible under capacity and downside constraints?",
+        "Where does the preferred decision reverse?"
+      ],
+      "scenario_slugs": [
+        "svb-2023",
+        "pacwest-2023",
+        "western-alliance-2023",
+        "treasury-curve-2023",
+        "nyfed-sofr-2019",
+        "fomc-target-2023"
+      ],
+      "evidence_locators": [
+        "docs/methods/capitalallocator.md",
+        "docs/methods/executionlab.md",
+        "verification/evidence/capitalallocator-benchmark.json",
+        "verification/evidence/executionlab-golden.json"
+      ],
+      "does_not_prove": [
+        "An executable trade or fiduciary recommendation",
+        "Realized return, capacity, or market impact"
+      ]
+    },
+    {
+      "capability_id": "model-governance",
+      "title": "Model governance and stop decisions",
+      "short_title": "Model governance",
+      "scope": "direct",
+      "summary": "Make reject, revise, infeasible, and do-not-claim outcomes first-class results so a polished output cannot silently overrule failed evidence gates.",
+      "disciplines": [
+        "Artificial intelligence",
+        "Business analytics",
+        "Information systems",
+        "Responsible analytics"
+      ],
+      "questions": [
+        "When must the system reject or narrow a claim?",
+        "Which human review boundary remains after the automated checks pass?"
+      ],
+      "scenario_slugs": [
+        "svb-2023",
+        "gdp-revision-2022q4",
+        "bls-cpi-2023",
+        "bls-payroll-2023",
+        "treasury-tga-2023"
+      ],
+      "evidence_locators": [
+        "docs/methods/trialcourt.md",
+        "docs/methods/replaystudio.md",
+        "verification/claims/public-claims.json"
+      ],
+      "does_not_prove": [
+        "Training or deployment of a production AI model",
+        "A certified governance process or organizational adoption"
+      ]
+    },
+    {
+      "capability_id": "systems-delivery",
+      "title": "Information systems and reproducible delivery",
+      "short_title": "Systems delivery",
+      "scope": "direct",
+      "summary": "Join typed source contracts, temporal eligibility, deterministic builders, portable reports, hashes, CLI workflows, and a public read-only explorer into one inspectable delivery chain.",
+      "disciplines": [
+        "Information systems",
+        "Data engineering",
+        "Software product management"
+      ],
+      "questions": [
+        "Can another person rebuild the same artifact from the declared inputs?",
+        "Which source or schema boundary should fail closed?"
+      ],
+      "scenario_slugs": [
+        "svb-2023",
+        "cftc-tff-2026",
+        "census-marts-2020",
+        "census-c30-2020",
+        "eia-wpsr-2020"
+      ],
+      "evidence_locators": [
+        "docs/methods/replaystudio.md",
+        "docs/adapter-authoring.md",
+        "docs/scenario-authoring.md",
+        "verification/evidence/internal-quality-gates.json"
+      ],
+      "does_not_prove": [
+        "Production readiness or an availability SLA",
+        "Institutional adoption or user impact"
+      ]
+    },
+    {
+      "capability_id": "financial-regulatory",
+      "title": "Financial-system and regulatory reasoning",
+      "short_title": "Financial and regulatory",
+      "scope": "direct",
+      "summary": "Combine filings, central-bank releases, rates, auctions, positions, liquidity, and bounded accounting relationships without converting them into causal failure stories or investment performance.",
+      "disciplines": [
+        "Asset management",
+        "Financial analytics",
+        "FinTech",
+        "Risk management"
+      ],
+      "questions": [
+        "Which financial fact was reported, inferred, or simulated?",
+        "How do market, accounting, and regulatory constraints alter the decision?"
+      ],
+      "scenario_slugs": [
+        "svb-2023",
+        "pacwest-2023",
+        "western-alliance-2023",
+        "cftc-tff-2026",
+        "fomc-target-2023",
+        "nyfed-sofr-2019",
+        "treasury-auction-2020",
+        "fed-h41-liquidity-swaps-2020"
+      ],
+      "evidence_locators": [
+        "docs/methods/markettwin.md",
+        "docs/methods/executionlab.md",
+        "docs/methods/capitalallocator.md"
+      ],
+      "does_not_prove": [
+        "Causal attribution of a financial event",
+        "Live trading, client work, or investment performance"
+      ]
+    },
+    {
+      "capability_id": "public-policy-evidence",
+      "title": "Public-policy evidence and implementation boundaries",
+      "short_title": "Policy evidence",
+      "scope": "transferable",
+      "summary": "Use official labor, price, trade, production, credit, and fiscal releases to practice decision-time evidence discipline while keeping descriptive indicators separate from policy effects and implementation claims.",
+      "disciplines": [
+        "Public policy",
+        "Political economy",
+        "Program implementation"
+      ],
+      "questions": [
+        "What can the official indicator support at the decision time?",
+        "Which stakeholder, distributional, implementation, or causal evidence is still missing?"
+      ],
+      "scenario_slugs": [
+        "dol-ui-2020",
+        "bls-cpi-2023",
+        "bea-pio-2020",
+        "fed-g19-2020",
+        "census-ft900-2020",
+        "census-marts-2020",
+        "fed-g17-2020"
+      ],
+      "evidence_locators": [
+        "docs/evidence-labels.md",
+        "docs/scenarios/dol-ui-2020.md",
+        "docs/scenarios/census-ft900-2020.md"
+      ],
+      "does_not_prove": [
+        "A causal policy effect or welfare improvement",
+        "Public-sector client work, implementation, or service impact"
+      ]
+    },
+    {
+      "capability_id": "behavioral-causal-boundaries",
+      "title": "Behavioral and causal inference boundaries",
+      "short_title": "Behavioral boundaries",
+      "scope": "boundary_only",
+      "summary": "Show why aggregate saving, retail, or credit changes do not identify individual motives, treatment effects, welfare, or the likely result of an intervention.",
+      "disciplines": [
+        "Behavioral science",
+        "Causal inference",
+        "Decision science"
+      ],
+      "questions": [
+        "Which behavioral mechanism is unobserved?",
+        "What experimental or quasi-experimental evidence would be needed before recommending an intervention?"
+      ],
+      "scenario_slugs": [
+        "fed-g19-2020",
+        "census-marts-2020",
+        "bea-pio-2020"
+      ],
+      "evidence_locators": [
+        "docs/scenarios/fed-g19-2020.md",
+        "docs/scenarios/census-marts-2020.md",
+        "docs/scenarios/bea-pio-2020.md"
+      ],
+      "does_not_prove": [
+        "A measured behavioral mechanism",
+        "A designed or validated intervention"
+      ]
+    },
+    {
+      "capability_id": "population-place-boundaries",
+      "title": "Population and place evidence boundaries",
+      "short_title": "Population and place",
+      "scope": "boundary_only",
+      "summary": "Use housing, construction, prices, and labor aggregates to expose the information lost when national releases are treated as local, spatial, population, or individual evidence.",
+      "disciplines": [
+        "Health data science",
+        "Population research",
+        "Urban planning"
+      ],
+      "questions": [
+        "What population, geography, denominator, or access measure is absent?",
+        "Which local data and stakeholder evidence would be required before acting?"
+      ],
+      "scenario_slugs": [
+        "census-nrc-2020",
+        "census-nrs-2020",
+        "fhfa-hpi-2020",
+        "census-c30-2020",
+        "dol-ui-2020"
+      ],
+      "evidence_locators": [
+        "docs/scenarios/census-nrc-2020.md",
+        "docs/scenarios/census-nrs-2020.md",
+        "docs/scenarios/fhfa-hpi-2020.md"
+      ],
+      "does_not_prove": [
+        "Health, clinical, patient, GIS, or neighborhood-level analysis",
+        "A place-based intervention, site choice, or population outcome"
+      ]
+    },
+    {
+      "capability_id": "reproducible-communication",
+      "title": "Reproducible analytical communication",
+      "short_title": "Reproducible communication",
+      "scope": "direct",
+      "summary": "Render the same typed claim graph for people and machines, keep limitations beside results, and provide hashes and one-command reproduction rather than a presentation-only conclusion.",
+      "disciplines": [
+        "Analytics communication",
+        "Open-source engineering",
+        "Research reproducibility"
+      ],
+      "questions": [
+        "Can a reviewer follow every public claim to a machine locator?",
+        "Do the human and machine reports preserve the same evidence labels and limitations?"
+      ],
+      "scenario_slugs": [
+        "svb-2023",
+        "gdp-revision-2022q4",
+        "cftc-tff-2026",
+        "census-marts-2020",
+        "eia-wpsr-2020"
+      ],
+      "evidence_locators": [
+        "docs/methods/replaystudio.md",
+        "verification/claims/public-claims.json",
+        "web/public/replaypacks/manifest.json"
+      ],
+      "does_not_prove": [
+        "That the underlying method is externally correct",
+        "That documentation quality produced adoption or impact"
+      ]
+    }
+  ]
+}

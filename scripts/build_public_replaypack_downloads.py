@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the public per-scenario ReplayPack downloads and site data."""
+"""Build public ReplayPack downloads and the validated scenario explorer data."""
 
 from __future__ import annotations
 
@@ -10,162 +10,15 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
+from finreplay.catalog import ScenarioExplorerCatalog, load_scenario_explorer_catalog
 from finreplay.engines import CompiledReplayPack, ReplayStudio
 
 REPOSITORY = Path(__file__).resolve().parents[1]
 PUBLIC_ROOT = REPOSITORY / "web/public/replaypacks"
 SITE_DATA = REPOSITORY / "web/data/scenarios.json"
 CATALOG_PATH = REPOSITORY / "src/finreplay/resources/scenario-catalog.json"
-
-
-def _card(
-    order: int,
-    title: str,
-    publisher: str,
-    family: str,
-    result: str,
-    tone: str,
-) -> dict[str, Any]:
-    return {
-        "id": order,
-        "title": title,
-        "publisher": publisher,
-        "family": family,
-        "result": result,
-        "tone": tone,
-    }
-
-
-_PRESENTATION: dict[str, dict[str, Any]] = {
-    "svb-2023": _card(
-        1,
-        "SVB funding boundary",
-        "SEC",
-        "Banking",
-        "7-engine flow · later 8-K isolated",
-        "boundary",
-    ),
-    "pacwest-2023": _card(
-        2, "PacWest funding boundary", "SEC", "Banking", "Later filing isolated", "boundary"
-    ),
-    "western-alliance-2023": _card(
-        3,
-        "Western Alliance deposit boundary",
-        "SEC",
-        "Banking",
-        "17:08 filing stayed later",
-        "boundary",
-    ),
-    "gdp-revision-2022q4": _card(
-        4,
-        "2022 Q4 GDP revision",
-        "BEA · ALFRED",
-        "Macro",
-        "Inside range · evaluation only",
-        "inside",
-    ),
-    "btfp-growth-2023": _card(
-        5,
-        "BTFP early growth",
-        "Federal Reserve",
-        "Banking",
-        "Inside range · evaluation only",
-        "inside",
-    ),
-    "bls-payroll-2023": _card(
-        6, "Payroll release", "BLS", "Macro", "Inside range · evaluation only", "inside"
-    ),
-    "fomc-target-2023": _card(
-        7,
-        "FOMC target range",
-        "Federal Reserve",
-        "Rates",
-        "Inside range · evaluation only",
-        "inside",
-    ),
-    "bls-cpi-2023": _card(
-        8, "CPI release snapshot", "BLS", "Macro", "Inside range · evaluation only", "inside"
-    ),
-    "treasury-curve-2023": _card(
-        9, "2Y-10Y Treasury curve", "ALFRED", "Rates", "+6 bp upper breach", "breach"
-    ),
-    "treasury-tga-2023": _card(
-        10,
-        "Treasury cash balance",
-        "U.S. Treasury",
-        "Rates",
-        "Inside range · baseline miss visible",
-        "inside",
-    ),
-    "nyfed-sofr-2019": _card(
-        11, "SOFR spike", "New York Fed", "Rates", "+282 bp upper breach", "breach"
-    ),
-    "eia-wpsr-2020": _card(
-        12, "Commercial crude stocks", "EIA", "Macro", "+15,022 thousand-barrel breach", "breach"
-    ),
-    "dol-ui-2020": _card(
-        13, "Initial unemployment claims", "U.S. DOL", "Macro", "+2,932,000-person breach", "breach"
-    ),
-    "treasury-auction-2020": _card(
-        14, "91-day Treasury auction", "TreasuryDirect", "Rates", "-19 bp lower breach", "breach"
-    ),
-    "bea-pio-2020": _card(
-        15, "Personal saving rate", "BEA", "Macro", "+460 bp upper breach", "breach"
-    ),
-    "fed-g17-2020": _card(
-        16, "Industrial production", "Federal Reserve", "Macro", "-600 bp lower breach", "breach"
-    ),
-    "census-marts-2020": _card(
-        17, "Retail sales", "U.S. Census", "Macro", "-740 bp lower breach", "breach"
-    ),
-    "census-nrc-2020": _card(
-        18, "Housing starts", "Census · HUD", "Macro", "-383,000-unit breach", "breach"
-    ),
-    "fed-g19-2020": _card(
-        19,
-        "Revolving consumer credit",
-        "Federal Reserve",
-        "Macro",
-        "-3,550 bp lower breach",
-        "breach",
-    ),
-    "census-c30-2020": _card(
-        20, "Construction spending", "U.S. Census", "Macro", "-$3,659M lower breach", "breach"
-    ),
-    "fhfa-hpi-2020": _card(
-        21, "Purchase-only house prices", "FHFA", "Macro", "-60 bp lower breach", "breach"
-    ),
-    "census-m3-2020": _card(
-        22, "Durable-goods orders", "U.S. Census", "Macro", "-1,560 bp lower breach", "breach"
-    ),
-    "census-ft900-2020": _card(
-        23, "Trade deficit", "Census · BEA", "Macro", "+$4,483M upper breach", "breach"
-    ),
-    "census-nrs-2020": _card(
-        24, "New-home sales", "Census · HUD", "Macro", "-103,000-unit breach", "breach"
-    ),
-    "eia-wngsr-2020": _card(
-        25, "Working-gas stocks", "EIA", "Macro", "-20 Bcf lower breach", "breach"
-    ),
-    "bls-ppi-2020": _card(26, "Producer prices", "BLS", "Macro", "-110 bp lower breach", "breach"),
-    "cftc-tff-2026": _card(
-        27, "UST 2Y open interest", "CFTC", "Regulatory", "+71,513-contract breach", "breach"
-    ),
-    "fed-h41-liquidity-swaps-2020": _card(
-        28,
-        "Central-bank liquidity swaps",
-        "Federal Reserve",
-        "Banking",
-        "Inside range · no success claim",
-        "inside",
-    ),
-    "bls-import-prices-2020": _card(
-        29, "All-import prices", "BLS", "Macro", "-130 bp lower breach", "breach"
-    ),
-    "bls-export-prices-2020": _card(
-        30, "All-export prices", "BLS", "Macro", "Inside range · no success claim", "inside"
-    ),
-}
+EXPLORER_PATH = REPOSITORY / "src/finreplay/resources/scenario-explorer.json"
+EXPLORER_DOC = REPOSITORY / "docs/scenario-explorer.md"
 
 
 def parse_args() -> argparse.Namespace:
@@ -180,8 +33,19 @@ def main() -> None:
     args = parse_args()
     catalog = _load_json(CATALOG_PATH)
     entries = catalog["scenarios"]
-    if {entry["slug"] for entry in entries} != set(_PRESENTATION):
-        raise SystemExit("site presentation map and installable scenario catalog differ")
+    if args.write:
+        explorer_payload = _load_json(EXPLORER_PATH)
+        explorer_payload.pop("catalog_sha256", None)
+        explorer_payload["catalog_sha256"] = _hash(explorer_payload)
+        explorer = ScenarioExplorerCatalog.model_validate(explorer_payload)
+    else:
+        explorer = load_scenario_explorer_catalog()
+    explorer_bytes = _serialize(explorer.model_dump(mode="json"))
+    explorer_file_sha256 = _sha256(explorer_bytes)
+    presentation_by_slug = {entry.slug: entry for entry in explorer.scenarios}
+    catalog_slugs = {str(entry["slug"]) for entry in entries}
+    if catalog_slugs != set(presentation_by_slug):
+        raise SystemExit("site explorer and installable scenario catalog differ")
 
     bundles: dict[Path, bytes] = {}
     site_scenarios: list[dict[str, Any]] = []
@@ -203,7 +67,7 @@ def main() -> None:
             bundles[destination] = archive
             archive_sha256 = _sha256(archive)
             report = CompiledReplayPack.model_validate_json(report_path.read_text())
-            presentation = _PRESENTATION[slug]
+            presentation = presentation_by_slug[slug]
             download_path = f"/replaypacks/{slug}.zip"
             manifest_entries.append(
                 {
@@ -217,7 +81,15 @@ def main() -> None:
             )
             site_scenarios.append(
                 {
-                    **presentation,
+                    "id": presentation.order,
+                    "title": presentation.public_title,
+                    "publisher": presentation.publisher,
+                    "family": presentation.family,
+                    "result": presentation.result,
+                    "tone": presentation.tone,
+                    "primaryMethod": presentation.primary_method,
+                    "decisionQuestion": presentation.decision_question,
+                    "lensIds": list(presentation.lens_ids),
                     "slug": slug,
                     "fullTitle": report.spec.title,
                     "scenarioId": entry["scenario_id"],
@@ -227,7 +99,9 @@ def main() -> None:
                     "decisionTime": entry["decision_time"],
                     "decisionDate": str(entry["decision_time"]).split("T", 1)[0],
                     "inputRecords": entry["distinct_input_records"],
-                    "historicalReplayEligible": entry["source_set_historical_replay_eligible"],
+                    "historicalReplayEligible": entry[
+                        "source_set_historical_replay_eligible"
+                    ],
                     "codeCommit": entry["code_commit"],
                     "packSha256": entry["pack_sha256"],
                     "traceId": entry["trace_id"],
@@ -270,10 +144,41 @@ def main() -> None:
         ),
     }
     manifest["manifest_sha256"] = _hash(manifest)
+    site_catalog = {
+        "schemaVersion": explorer.schema_version,
+        "scenarioCount": explorer.scenario_count,
+        "claimBoundary": explorer.claim_boundary,
+        "sourceCatalogSha256": _file_sha256(CATALOG_PATH),
+        "explorerCatalogSha256": explorer.catalog_sha256,
+        "explorerFileSha256": explorer_file_sha256,
+        "lenses": [
+            {
+                "lensId": lens.lens_id,
+                "label": lens.label,
+                "shortLabel": lens.short_label,
+                "question": lens.question,
+                "description": lens.description,
+            }
+            for lens in explorer.lenses
+        ],
+        "pathways": [
+            {
+                "pathwayId": pathway.pathway_id,
+                "title": pathway.title,
+                "description": pathway.description,
+                "lensIds": list(pathway.lens_ids),
+                "scenarioSlugs": list(pathway.scenario_slugs),
+            }
+            for pathway in explorer.pathways
+        ],
+        "scenarios": site_scenarios,
+    }
     outputs = {
         **bundles,
+        EXPLORER_PATH: explorer_bytes,
         PUBLIC_ROOT / "manifest.json": _serialize(manifest),
-        SITE_DATA: _serialize(site_scenarios),
+        SITE_DATA: _serialize(site_catalog),
+        EXPLORER_DOC: _explorer_markdown(explorer, explorer_file_sha256),
     }
 
     if args.write:
@@ -286,6 +191,7 @@ def main() -> None:
                 path.unlink()
         print(
             f"public_replaypacks_written=true scenarios={len(site_scenarios)} "
+            f"lenses={len(explorer.lenses)} pathways={len(explorer.pathways)} "
             f"manifest_sha256={manifest['manifest_sha256']}"
         )
         return
@@ -299,6 +205,7 @@ def main() -> None:
         raise SystemExit(f"public scenario downloads are stale: {', '.join(mismatches)}")
     print(
         f"public_replaypacks_current=true scenarios={len(site_scenarios)} "
+        f"lenses={len(explorer.lenses)} pathways={len(explorer.pathways)} "
         f"manifest_sha256={manifest['manifest_sha256']}"
     )
 
@@ -308,6 +215,81 @@ def _load_json(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise ValueError(f"expected JSON object: {path}")
     return value
+
+
+def _explorer_markdown(
+    explorer: ScenarioExplorerCatalog,
+    explorer_file_sha256: str,
+) -> bytes:
+    lens_by_id = {lens.lens_id: lens for lens in explorer.lenses}
+    lines = [
+        "# Scenario explorer",
+        "",
+        "This file is generated by `python scripts/build_public_replaypack_downloads.py --write`",
+        "from the validated package resource `src/finreplay/resources/scenario-explorer.json`.",
+        "It complements the capability catalog rather than replacing it:",
+        "",
+        "- capability scope says whether support is direct, transferable, or boundary-only;",
+        "- analytical dimensions describe what a case touches; and",
+        "- pathways provide a cross-case reading order without creating a new result.",
+        "",
+        "## Analytical dimensions",
+        "",
+    ]
+    for lens in explorer.lenses:
+        lines.extend(
+            [
+                f"### {lens.label}",
+                "",
+                f"**Question:** {lens.question}",
+                "",
+                lens.description,
+                "",
+            ]
+        )
+    lines.extend(["## Curated pathways", ""])
+    for pathway in explorer.pathways:
+        dimensions = ", ".join(lens_by_id[lens_id].short_label for lens_id in pathway.lens_ids)
+        lines.extend(
+            [
+                f"### {pathway.title}",
+                "",
+                pathway.description,
+                "",
+                f"Dimensions: {dimensions}",
+                "",
+                *[
+                    f"- [`{slug}`](scenarios/{slug}.md)"
+                    for slug in pathway.scenario_slugs
+                ],
+                "",
+            ]
+        )
+    lines.extend(
+        [
+            "## Case index",
+            "",
+            "| # | Scenario | Primary method | Decision question |",
+            "|---:|---|---|---|",
+        ]
+    )
+    for scenario in sorted(explorer.scenarios, key=lambda item: item.order):
+        lines.append(
+            f"| {scenario.order} | [`{scenario.slug}`](scenarios/{scenario.slug}.md) | "
+            f"{scenario.primary_method} | {scenario.decision_question} |"
+        )
+    lines.extend(
+        [
+            "",
+            "## Claim boundary",
+            "",
+            explorer.claim_boundary,
+            "",
+            f"Source SHA-256: `{explorer_file_sha256}`",
+            "",
+        ]
+    )
+    return "\n".join(lines).encode()
 
 
 def _serialize(value: object) -> bytes:

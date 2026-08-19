@@ -49,6 +49,7 @@ def test_public_claim_registry_binds_every_evidence_locator() -> None:
         "seven-connected-engines": 7,
         "official-adapters": 30,
         "replay-proven-scenarios": 30,
+        "evidence-bounded-capabilities": 10,
         "sec-scale-partitions": 244,
         "sec-scale-physical-rows": 1_014_736_394,
     }

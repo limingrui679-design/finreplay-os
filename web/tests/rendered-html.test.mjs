@@ -5,6 +5,14 @@ import test from "node:test";
 
 let workerPromise;
 
+function canonicalJson(value) {
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(",")}]`;
+  if (value !== null && typeof value === "object") {
+    return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${canonicalJson(value[key])}`).join(",")}}`;
+  }
+  return JSON.stringify(value);
+}
+
 async function worker() {
   if (workerPromise) return workerPromise;
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -42,6 +50,8 @@ test("server-renders the FinReplay evidence surface", async () => {
   assert.match(html, /1\.014B/);
   assert.match(html, /2,212 \/ 2,212/);
   assert.match(html, /Thirty boundaries/);
+  assert.match(html, /Evidence-bounded capabilities/);
+  assert.match(html, /Choose a capability path/);
   assert.match(html, /The final gate cannot be self-awarded/);
   assert.match(html, /finreplay-os-e150136\.zip/);
   assert.match(html, /f7c287c6…065ab/);
@@ -72,12 +82,16 @@ test("renders a deep-linked replay with claims, hashes, and download", async () 
   assert.match(html, /c62c22dcbd15e29592a10811117a565d2bf9bee34877a4fbcbf24994383efd35/);
   assert.match(html, /\/replaypacks\/svb-2023\.zip/);
   assert.match(html, /Internal reproduction is not external method review/);
+  assert.match(html, /Why this case matters/);
+  assert.match(html, /Decision-making under risk and constraints/);
 });
 
 test("renders every scenario deep link and the documentation route", async () => {
-  const scenarios = JSON.parse(
+  const explorer = JSON.parse(
     await readFile(new URL("../data/scenarios.json", import.meta.url), "utf8"),
   );
+  const scenarios = explorer.scenarios;
+  assert.equal(explorer.scenarioCount, 30);
   assert.equal(scenarios.length, 30);
 
   for (const scenario of scenarios) {
@@ -90,7 +104,96 @@ test("renders every scenario deep link and the documentation route", async () =>
 
   const docs = await render("/docs");
   assert.equal(docs.status, 200);
-  assert.match(await docs.text(), /finreplay demo svb-2023 --offline --open/);
+  const docsHtml = await docs.text();
+  assert.match(docsHtml, /finreplay demo svb-2023 --offline --open/);
+  assert.match(docsHtml, /finreplay capability show decision-risk/);
+});
+
+test("ships complete method, dimension, and pathway metadata for every case", async () => {
+  const explorer = JSON.parse(
+    await readFile(new URL("../data/scenarios.json", import.meta.url), "utf8"),
+  );
+  const source = await readFile(
+    new URL("../../src/finreplay/resources/scenario-explorer.json", import.meta.url),
+  );
+  const sourceCatalog = JSON.parse(source.toString("utf8"));
+  const sourceCatalogHash = sourceCatalog.catalog_sha256;
+  delete sourceCatalog.catalog_sha256;
+  const lensIds = new Set(explorer.lenses.map((lens) => lens.lensId));
+  const represented = new Set(explorer.scenarios.flatMap((scenario) => scenario.lensIds));
+
+  assert.equal(explorer.scenarioCount, 30);
+  assert.equal(explorer.lenses.length, 10);
+  assert.equal(explorer.pathways.length, 5);
+  assert.deepEqual([...represented].sort(), [...lensIds].sort());
+  assert.equal(
+    createHash("sha256").update(source).digest("hex"),
+    explorer.explorerFileSha256,
+  );
+  assert.equal(
+    createHash("sha256").update(canonicalJson(sourceCatalog)).digest("hex"),
+    sourceCatalogHash,
+  );
+  assert.equal(explorer.explorerCatalogSha256, sourceCatalogHash);
+  assert.deepEqual(
+    explorer.scenarios.map((scenario) => scenario.id),
+    Array.from({ length: 30 }, (_, index) => index + 1),
+  );
+  for (const scenario of explorer.scenarios) {
+    assert.ok(scenario.primaryMethod, scenario.slug);
+    assert.ok(scenario.decisionQuestion, scenario.slug);
+    assert.ok(scenario.lensIds.length >= 2, scenario.slug);
+  }
+});
+
+test("renders the evidence-bounded capability directory", async () => {
+  const response = await render("/capabilities");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+
+  assert.match(html, /<title>Capability map · FinReplay OS<\/title>/i);
+  assert.match(html, /Choose the question/);
+  assert.match(html, /Portfolio anatomy/);
+  assert.match(html, /Recorded outcome composition/);
+  assert.match(html, /Analytical dimension coverage/);
+  assert.equal((html.match(/class="pathway-card"/g) ?? []).length, 5);
+  assert.equal((html.match(/class="capability-card"/g) ?? []).length, 10);
+  assert.equal((html.match(/class="pathway-grid"/g) ?? []).length, 1);
+  assert.match(html, /Five ways through thirty cases/);
+  assert.match(html, /Direct evidence/);
+  assert.match(html, /Transferable method/);
+  assert.match(html, /Boundary only/);
+  assert.match(html, /not evidence of domain deployment/i);
+  assert.match(html, /catalog_sha256=/);
+});
+
+test("keeps uncurated cases useful without inventing a direct capability route", async () => {
+  const response = await render("/replays/btfp-growth-2023");
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(html, /Archived-release growth envelope/);
+  assert.match(html, /not currently selected as a strongest example/);
+  assert.match(html, /not a direct\s+domain-experience claim/);
+});
+
+test("ships a self-hashed capability catalog bound to the scenario catalog", async () => {
+  const catalog = JSON.parse(
+    await readFile(new URL("../data/capabilities.json", import.meta.url), "utf8"),
+  );
+  const scenarioCatalog = JSON.parse(
+    await readFile(
+      new URL("../../src/finreplay/resources/scenario-catalog.json", import.meta.url),
+      "utf8",
+    ),
+  );
+  const claimedHash = catalog.catalog_sha256;
+  delete catalog.catalog_sha256;
+  const canonical = canonicalJson(catalog);
+
+  assert.equal(catalog.capability_count, 10);
+  assert.equal(catalog.scenario_catalog_sha256, scenarioCatalog.catalog_sha256);
+  assert.equal(createHash("sha256").update(canonical).digest("hex"), claimedHash);
 });
 
 test("ships thirty manifest-bound deterministic scenario downloads", async () => {

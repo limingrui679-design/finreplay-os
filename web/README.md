@@ -12,6 +12,7 @@ internal validation as external adoption, domain review, or production use.
 - the current internal quality-gate results and their limitations;
 - direct artifact hashes and an independent-review protocol;
 - 30 stable scenario detail routes with structured claims and boundaries;
+- a generated 10-path capability directory with direct, transferable, and boundary-only labels;
 - 30 deterministic ReplayPack downloads plus a self-hashed manifest; and
 - a 6.67 MB review-source snapshot bound to commit `e150136dc0a2` and SHA-256
   `f7c287c613b366f38705c1eaf5a21971ff3a5380f11c5fc4a0e1b44900a065ab`.
@@ -32,10 +33,11 @@ For local development:
 npm run dev
 ```
 
-The rendered-page tests assert all 30 cards and detail routes, documentation,
-claim and hash identity, all 30 ZIP digests, and the fixed independent-review
-snapshot. The site is intentionally read-only and uses no credentials,
-database, or object storage.
+The rendered-page tests assert all 30 cards and detail routes, the capability
+directory and catalog identity, documentation, claim and hash identity, all 30
+ZIP digests, and the fixed independent-review snapshot. The site is intentionally
+read-only, uses system fonts, and requires no credentials, database, object
+storage, or remote font fetch during the build.
 
 ## Hosting boundary
 
