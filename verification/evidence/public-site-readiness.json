@@ -23,10 +23,10 @@
         "npm",
         "ci"
       ],
-      "elapsed_seconds": 9.980199,
+      "elapsed_seconds": 13.223138,
       "exit_code": 0,
       "stderr_sha256": "926c084aa239829d6492dfd9319a266028e0643d94ce4e13248041ee1b0b3a0a",
-      "stdout": "\nadded 461 packages, and audited 462 packages in 10s\n\n155 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities\n"
+      "stdout": "\nadded 461 packages, and audited 462 packages in 13s\n\n155 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities\n"
     },
     "dependency_audit": {
       "argv": [
@@ -34,7 +34,7 @@
         "audit",
         "--json"
       ],
-      "elapsed_seconds": 1.785268,
+      "elapsed_seconds": 2.914996,
       "exit_code": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_sha256": "77f34f2bd7e9f7cd291d4630de046e50e5d9da0218b10a2db9fbb6bd8ce5b80c"
@@ -45,7 +45,7 @@
         "run",
         "lint"
       ],
-      "elapsed_seconds": 3.669067,
+      "elapsed_seconds": 10.179521,
       "exit_code": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout": "\n> finreplay-evidence-site@0.2.0-alpha.1 lint\n> eslint . --ignore-pattern dist --ignore-pattern .next\n\n"
@@ -55,10 +55,10 @@
         "npm",
         "test"
       ],
-      "elapsed_seconds": 6.29512,
+      "elapsed_seconds": 11.261131,
       "exit_code": 0,
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "0c047b00549cfc76eadf9a8ece2b864ce2f370e81b775ce25ab7602229d09828"
+      "stdout_sha256": "8b7cab20f5bef4c5441a528734f9fe8b541bc8f6ace1d79183e9633b556103ed"
     }
   },
   "dependency_audit": {
@@ -73,8 +73,8 @@
     }
   },
   "evidence_kind": "public_site_local_release_readiness",
-  "generated_at": "2026-08-19T18:22:31.918027Z",
-  "receipt_sha256": "232025af9283e5e51dbea23803743d3bdd9f04a5c0fa99e7d8af4242efd3a5f3",
+  "generated_at": "2026-08-19T18:24:04.123163Z",
+  "receipt_sha256": "4f97e20b2b89501cdd5287c239cc95f80057e6d5984af7dbf401530531beea2e",
   "rendered_tests": {
     "failed": 0,
     "passed": 10
@@ -411,9 +411,9 @@
     ]
   },
   "subject": {
-    "code_revision": "3eec509c775161cd37019e7b2499cdecc5bebee9",
-    "committed_at": "2026-08-20T02:17:53+08:00",
-    "tree_sha256": "c3a947be9e7b40bd591392baaf1bd7521590dd16"
+    "code_revision": "deac615efe3900ca62bd8821a84e0414cbec80a7",
+    "committed_at": "2026-08-20T02:23:02+08:00",
+    "tree_sha256": "01cfcc4a06d35a54b8a119c16974168b8d459944"
   },
   "toolchain": {
     "node": "v22.20.0",

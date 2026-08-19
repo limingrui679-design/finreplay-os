@@ -7,7 +7,7 @@
         ".venv/bin/python",
         "scripts/verify_capitalallocator_benchmark.py"
       ],
-      "elapsed_seconds": 0.051824,
+      "elapsed_seconds": 0.048552,
       "exit_code": 0,
       "gate_id": "capitalallocator_benchmark",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -21,7 +21,7 @@
         "--format",
         "json"
       ],
-      "elapsed_seconds": 21.808201,
+      "elapsed_seconds": 1.763726,
       "exit_code": 0,
       "gate_id": "dependency_audit",
       "stderr_sha256": "15950a68a7ed99c59779717acefdceb3f69cfd31bde67d2c954f2a3cea4d7955",
@@ -33,7 +33,7 @@
         ".venv/bin/python",
         "scripts/verify_executionlab_golden.py"
       ],
-      "elapsed_seconds": 0.053855,
+      "elapsed_seconds": 0.053681,
       "exit_code": 0,
       "gate_id": "executionlab_benchmark",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -45,7 +45,7 @@
         ".venv/bin/python",
         "scripts/validate_independent_review_records.py"
       ],
-      "elapsed_seconds": 0.153921,
+      "elapsed_seconds": 0.154639,
       "exit_code": 0,
       "gate_id": "independent_review_record_catalog",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -58,7 +58,7 @@
         "scripts/build_user_catalogs.py",
         "--check"
       ],
-      "elapsed_seconds": 0.935197,
+      "elapsed_seconds": 0.894208,
       "exit_code": 0,
       "gate_id": "installable_catalogs",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -71,7 +71,7 @@
         "check",
         "."
       ],
-      "elapsed_seconds": 0.186746,
+      "elapsed_seconds": 0.090386,
       "exit_code": 0,
       "gate_id": "lint",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -83,7 +83,7 @@
         ".venv/bin/python",
         "scripts/verify_no_key_demo.py"
       ],
-      "elapsed_seconds": 2.894555,
+      "elapsed_seconds": 2.167078,
       "exit_code": 0,
       "gate_id": "no_key_demo",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -95,9 +95,9 @@
         ".venv/bin/python",
         "scripts/build_public_claim_registry.py",
         "--output",
-        "/var/folders/3v/r7kf44xn3gj9xg2tv31mq_mh0000gn/T/finreplay-quality-c5rzfw1p/public-claims.json"
+        "/var/folders/3v/r7kf44xn3gj9xg2tv31mq_mh0000gn/T/finreplay-quality-jtcxki33/public-claims.json"
       ],
-      "elapsed_seconds": 1.335255,
+      "elapsed_seconds": 1.337435,
       "exit_code": 0,
       "gate_id": "public_claim_registry",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -110,7 +110,7 @@
         "scripts/build_public_replaypack_downloads.py",
         "--check"
       ],
-      "elapsed_seconds": 1.556462,
+      "elapsed_seconds": 1.666855,
       "exit_code": 0,
       "gate_id": "public_replaypacks",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -122,7 +122,7 @@
         ".venv/bin/python",
         "scripts/verify_replaystudio_browser_receipt.py"
       ],
-      "elapsed_seconds": 0.912552,
+      "elapsed_seconds": 1.016614,
       "exit_code": 0,
       "gate_id": "replaystudio_browser_receipt",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -134,7 +134,7 @@
         ".venv/bin/python",
         "scripts/verify_replaystudio_golden.py"
       ],
-      "elapsed_seconds": 1.015542,
+      "elapsed_seconds": 1.099545,
       "exit_code": 0,
       "gate_id": "replaystudio_reconstruction",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -146,7 +146,7 @@
         ".venv/bin/python",
         "scripts/verify_scenario_catalog.py"
       ],
-      "elapsed_seconds": 1.264606,
+      "elapsed_seconds": 1.207585,
       "exit_code": 0,
       "gate_id": "scenario_catalog",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -161,12 +161,12 @@
         "--collect-only",
         "-q"
       ],
-      "elapsed_seconds": 11.717603,
+      "elapsed_seconds": 8.08405,
       "exit_code": 0,
       "gate_id": "test_collection",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "eacd4d0dd826db6e85b6f09d8d7592a4fdfe969b6e9012b996bd5ef6fed050f8",
-      "summary": "2232 tests collected in 8.46s"
+      "stdout_sha256": "c2471c2f2f7f9003f8a5ec709694bbe8c7bcf62d3b9a4d744d8279817071defa",
+      "summary": "2232 tests collected in 6.95s"
     },
     "tests": {
       "command": [
@@ -174,15 +174,15 @@
         "-m",
         "pytest",
         "--cov=finreplay",
-        "--cov-report=json:/var/folders/3v/r7kf44xn3gj9xg2tv31mq_mh0000gn/T/finreplay-quality-c5rzfw1p/coverage.json",
+        "--cov-report=json:/var/folders/3v/r7kf44xn3gj9xg2tv31mq_mh0000gn/T/finreplay-quality-jtcxki33/coverage.json",
         "--cov-report=term"
       ],
-      "elapsed_seconds": 126.980111,
+      "elapsed_seconds": 94.412614,
       "exit_code": 0,
       "gate_id": "tests",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "0d9c71dc58d887db3c9886ee5de715420b5dfe403f0d1fb7c09823b59eaac289",
-      "summary": "======================= 2232 passed in 123.35s (0:02:03) ======================="
+      "stdout_sha256": "60e3530f621ceded98d4b218af6ea555b97fb500fc521c31e165c35c5ee616e8",
+      "summary": "======================= 2232 passed in 92.37s (0:01:32) ========================"
     },
     "typing": {
       "command": [
@@ -191,7 +191,7 @@
         "tests",
         "scripts"
       ],
-      "elapsed_seconds": 3.221557,
+      "elapsed_seconds": 1.648134,
       "exit_code": 0,
       "gate_id": "typing",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -555,7 +555,7 @@
     "tool": "pip-audit"
   },
   "evidence_kind": "clean_commit_internal_quality_gate_run",
-  "generated_at": "2026-08-19T18:18:18.727667Z",
+  "generated_at": "2026-08-19T18:23:19.072617Z",
   "product_and_reproducibility": {
     "all_five_evidence_labels_verified": true,
     "billion_row_benchmark_bound_by_full_test_suite": true,
@@ -571,7 +571,7 @@
     "responsive_accessibility_browser_receipt_verified": true,
     "scenario_catalog_verified": true
   },
-  "receipt_sha256": "8f0ad9a0a077b551525210d842c6fe1b45f2e99a8b42e80dec1e754fc88e5aae",
+  "receipt_sha256": "bb0797da0c48cb0c077cbf37afa502582c36cd575bd98557fcb4b935bf4bfe01",
   "runtime": {
     "logical_cpu_count": 10,
     "machine": "arm64",
@@ -596,15 +596,15 @@
       "credential_in_url",
       "local_user_absolute_path"
     ],
-    "scan_sha256": "9e0f3afa3c10255a67e7c924577f8b4f493251021be7b2b4631019adca57e25a",
-    "scanned_text_bytes": 15178438,
+    "scan_sha256": "cb81b697c3c51a3c7933356da8fa4f4f49d8c3538c8a0cd8e0822e34f30668bd",
+    "scanned_text_bytes": 15186861,
     "scanned_text_file_count": 1516,
     "scanner_path": "src/finreplay/security.py",
     "scanner_sha256": "671adc4a5f0e1a8e9d79854d899e1d8871cf8f7354034b84bfc3a19efc6ffd03",
     "schema_version": "1.0.0",
     "skipped_binary_file_count": 35,
     "tracked_file_count": 1551,
-    "tracked_text_set_sha256": "4115415d997c3d3ff3256f5f92e99025fb621f67f7556098cd0e767cb754016b"
+    "tracked_text_set_sha256": "0bd46370364872c7be5106f55a67ffce229f71a8d0c74777e128d92097afe5db"
   },
   "security_ci": {
     "codeql": "configured_as_pinned_GitHub_Action_not_executed_locally_in_this_receipt",
@@ -613,9 +613,9 @@
   },
   "subject": {
     "clean_worktree_before_run": true,
-    "code_revision": "3eec509c775161cd37019e7b2499cdecc5bebee9",
-    "commit_time": "2026-08-20T02:17:53+08:00",
-    "tree_sha256": "c3a947be9e7b40bd591392baaf1bd7521590dd16"
+    "code_revision": "deac615efe3900ca62bd8821a84e0414cbec80a7",
+    "commit_time": "2026-08-20T02:23:02+08:00",
+    "tree_sha256": "01cfcc4a06d35a54b8a119c16974168b8d459944"
   },
   "subject_artifacts": [
     {
@@ -737,7 +737,7 @@
   "tests": {
     "collected": 2232,
     "failed": 0,
-    "node_ids_sha256": "b3ad0a816ece9ade9e8e2c81207b776e16f3f667727042448b6be0d0f3f801ee",
+    "node_ids_sha256": "048cd3de4077aa96510c33a08b9368bd3fb8e5be5e299d18625061f06e3e79e2",
     "passed": 2232,
     "representative_hostile_and_interface_test_counts": {
       "cli_build_verify": 1,

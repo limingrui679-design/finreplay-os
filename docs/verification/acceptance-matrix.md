@@ -217,21 +217,22 @@ fresh-archive reconstruction; fixed-version benchmarks; usable CLI/API; responsi
 read-only ReplayStudio; exportable reports; and visible simulation/evidence labels.
 
 Current status: **PROVEN internally.** The self-hashed
-`verification/evidence/internal-quality-gates.json` receipt binds a clean `e8118983b260` subject
-commit and records 2,212/2,212 passing tests across 97 files. Coverage.py ran with branch
-measurement enabled and reported 90.184801% combined statement-plus-branch coverage; the distinct
-branch-only rate is disclosed as 82.503434% rather than being relabelled. Ruff and strict mypy
+`verification/evidence/internal-quality-gates.json` receipt binds a clean `deac615efe39` subject
+commit and records 2,232/2,232 passing tests across 99 files. Coverage.py ran with branch
+measurement enabled and reported 90.353375% combined statement-plus-branch coverage; the distinct
+branch-only rate is disclosed as 82.766247% rather than being relabelled. Ruff and strict mypy
 passed. Pip-audit checked 82 installed third-party packages across the complete resolved environment,
 including pip and development tooling, with zero known vulnerabilities at the recorded time. The
 editable local `finreplay-os` package is separately recorded as one skipped item because it has no
 PyPI advisory coordinate; its code is instead covered by the recorded tests, typing, lint, and scans.
-The non-disclosing local scanner checked 1,502 tracked text files and 14,956,120 UTF-8 bytes with zero
+The non-disclosing local scanner checked 1,516 tracked text files and 15,186,861 UTF-8 bytes with zero
 credential/privacy-path findings; pinned gitleaks, CodeQL, and dependency-review workflows are
 recorded as configured but not locally executed. The full run includes hostile ZIP expansion,
 CSV/container/schema, JSON/content-type and unsafe-path cases; a credentials-removed, socket-denied
 no-key rebuild through both CLI and typed Python API; byte-identical directory/ZIP reconstruction;
-the responsive browser receipt; 30-scenario and public-claim verification; and fixed ExecutionLab,
-CapitalAllocator and billion-row benchmark bindings. These are internal engineering gates, not an
+the responsive browser receipt; 30-scenario, 10-capability, five-pathway, and public-claim
+verification; and fixed ExecutionLab, CapitalAllocator and billion-row benchmark bindings. These
+are internal engineering gates, not an
 external security/accessibility certification, source authentication, hosted deployment, users,
 or real-world impact.
 
@@ -240,10 +241,10 @@ or real-world impact.
 Every public number must resolve to a machine result. Public data is not a client engagement,
 historical replay is not live trading, shadow mode is not deployment, simulated P&L is not return,
 and stars are not users or impact. Current status: **PROVEN internally.** The deterministic,
-self-hashed `verification/claims/public-claims.json` registry binds the five README headline
+self-hashed `verification/claims/public-claims.json` registry binds the six README headline
 quantities to their exact machine artifacts and hashes, validates all 31 committed ReplayPack
 reports and all 155 structured claims against the typed evidence-label contract, and seals the
-complete 170-file tracked public text surface, including the public site copy, independent-review
+complete 186-file tracked public text surface, including the public site copy, independent-review
 protocol, and downloadable
 review manifest. Its bounded language guard reports zero affirmative
 deployment, client, performance, external-validation, or adoption violations and requires the
