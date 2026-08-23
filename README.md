@@ -16,6 +16,15 @@ deterministic hashes.
 
 ![FinReplay evidence explorer](web/public/og.png)
 
+## Intended users and contribution boundary
+
+FinReplay is built for quantitative researchers, risk and data analysts, data engineers, and
+technical reviewers who need point-in-time evidence they can inspect and rerun. It is not a live
+trading, fiduciary, compliance, accounting, or institutional risk system. The
+[project-governance note](docs/project-governance.md) records maintainer attribution, AI-assisted
+development, release responsibility, and the line between internal verification and independent
+review.
+
 ## Three-minute offline demo
 
 The flagship demo runs from seven byte-locked official-source facts bundled in the package. It
@@ -209,7 +218,10 @@ The expanded commands remain available for CI diagnosis:
 
 ```bash
 python3.12 -m venv .venv
-.venv/bin/pip install -e '.[dev]'
+.venv/bin/pip install --upgrade 'pip==26.2.1'
+.venv/bin/pip install -r requirements-dev.lock
+.venv/bin/pip install -e . --no-deps
+.venv/bin/python scripts/verify_python_dependency_lock.py
 .venv/bin/python scripts/build_user_catalogs.py --check
 .venv/bin/python scripts/build_public_replaypack_downloads.py --check
 .venv/bin/python scripts/build_public_claim_registry.py --check
@@ -226,8 +238,10 @@ npm audit --prefix web
 ```
 
 The same gates run in GitHub Actions on Python 3.11 and 3.12, with a separate locked Node 22 site
-build. The repository also checks distribution installation, dependency changes, dependency
-vulnerabilities, CodeQL findings, and committed secrets. See
+build. The tracked Python development lock pins the exact direct and transitive environment; CI
+installs it on both supported Python lines before running the gates. The repository also checks
+distribution installation, dependency changes, dependency vulnerabilities, CodeQL findings, and
+committed secrets. See
 [`CONTRIBUTING.md`](CONTRIBUTING.md) for the pull-request path and [`ROADMAP.md`](ROADMAP.md) for
 bounded next steps.
 

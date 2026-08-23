@@ -58,7 +58,7 @@ body:
     id: environment
     attributes:
       label: Fresh environment and commands
-      description: Record OS, architecture, runtime versions, dependency-lock hash, exact commands, exit codes, and stdout/stderr hashes.
+      description: Record OS, architecture, runtime versions, the requirements-dev.lock SHA-256, exact commands, exit codes, and stdout/stderr hashes.
     validations:
       required: true
   - type: textarea

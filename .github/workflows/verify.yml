@@ -27,10 +27,14 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
+          cache-dependency-path: requirements-dev.lock
       - name: Install project and verification dependencies
         run: |
-          python -m pip install --upgrade 'pip>=26.1.2'
-          python -m pip install -e '.[dev]'
+          python -m pip install --upgrade 'pip==26.2.1'
+          python -m pip install -r requirements-dev.lock
+          python -m pip install -e . --no-deps
+      - name: Verify exact Python dependency lock
+        run: python scripts/verify_python_dependency_lock.py
       - name: Lint
         run: ruff check .
       - name: Type-check source and tests

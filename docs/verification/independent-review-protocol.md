@@ -14,7 +14,8 @@ resolved when confirmed, and independently rechecked on the resolving revision.
 All of the following are required:
 
 1. A named source commit and a SHA-256-verified source archive or an equivalent fresh clone.
-2. A fresh environment created by the reviewer, with OS, architecture, runtime, and lockfile hash.
+2. A fresh environment created by the reviewer, with OS, architecture, runtime, and the
+   `requirements-dev.lock` hash.
 3. Exact commands, exit codes, and hashes of retained stdout and stderr—not pasted maintainer logs.
 4. At least one real reproducibility, method, boundary, documentation, or usability issue.
 5. A resolving commit or an evidence-backed explanation that the reported issue is not a defect.
@@ -67,15 +68,18 @@ From the root of the extracted review archive or clone:
 
 ```bash
 python3 -m venv .venv
-.venv/bin/python -m pip install --upgrade 'pip>=26.1.2'
-.venv/bin/pip install -e '.[dev]'
+.venv/bin/python -m pip install --upgrade 'pip==26.2.1'
+.venv/bin/pip install -r requirements-dev.lock
+.venv/bin/pip install -e . --no-deps
+.venv/bin/python scripts/verify_python_dependency_lock.py
 .venv/bin/python scripts/verify_internal_quality_receipt.py
 ```
 
 The reviewer must retain the archive SHA-256, `git rev-parse HEAD` when Git metadata is available,
-runtime versions, the dependency-lock hash, and the complete command outputs outside the source
-tree. Output hashes in the public record allow later comparison without forcing publication of
-machine paths, usernames, or unrelated environment data.
+runtime versions, the SHA-256 printed by `verify_python_dependency_lock.py`, and the complete
+command outputs outside the source tree. Output hashes in the public record allow later comparison
+without forcing publication of machine paths, usernames, or unrelated environment data. The lock
+narrows dependency drift; it does not authenticate packages or replace a method review.
 
 ## Issue and resolution rules
 

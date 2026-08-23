@@ -26,11 +26,13 @@ make verify
 
 The equivalent expanded commands are useful when diagnosing one gate:
 
-Use Python 3.11 or newer, then run:
+Use Python 3.11 or 3.12, then run:
 
 ```bash
-python -m pip install --upgrade 'pip>=26.1.2'
-python -m pip install -e '.[dev]'
+python -m pip install --upgrade 'pip==26.2.1'
+python -m pip install -r requirements-dev.lock
+python -m pip install -e . --no-deps
+python scripts/verify_python_dependency_lock.py
 python scripts/build_user_catalogs.py --check
 python scripts/build_public_replaypack_downloads.py --check
 python scripts/build_public_claim_registry.py --check
@@ -49,6 +51,10 @@ npm audit --prefix web
 Update tests, scenario receipts, documentation, and `CHANGELOG.md` together
 when their claims change. A pull request should explain what evidence changed,
 what did not change, and which failure modes were exercised.
+
+When describing authorship or review, follow [`docs/project-governance.md`](docs/project-governance.md).
+Tool-assisted work remains tool-assisted, and maintainer-run automation does not become independent
+review.
 
 Generated files such as `docs/catalog-matrix.md`, `docs/capability-map.md`, installable catalogs,
 and web capability data must be regenerated with

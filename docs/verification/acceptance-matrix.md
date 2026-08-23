@@ -236,6 +236,12 @@ are internal engineering gates, not an
 external security/accessibility certification, source authentication, hosted deployment, users,
 or real-world impact.
 
+The current contributor path also tracks an exact 81-package Python development lock, verifies its
+direct-requirement coverage and installed versions, and installs it in the Python 3.11/3.12 CI
+matrix before editable installation. This reduces dependency drift; it does not authenticate PyPI
+artifacts, prove cross-platform behavior outside the tested matrix, or replace independent
+reproduction.
+
 ## F. Source and claim integrity — 5 points
 
 Every public number must resolve to a machine result. Public data is not a client engagement,

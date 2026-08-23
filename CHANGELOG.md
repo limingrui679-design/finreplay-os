@@ -6,7 +6,20 @@ investment performance.
 
 ## [Unreleased]
 
-No unreleased changes.
+### Added
+
+- An exact 81-package Python development lock, environment verifier, and supported-interpreter
+  selector for the contributor bootstrap path.
+- A project-governance note that separates maintainer attribution, AI-assisted development,
+  automated verification, independent review, and real-user evidence.
+
+### Changed
+
+- `make bootstrap` now fails clearly before creating an environment when Python 3.11 or 3.12 is
+  unavailable, installs the tracked lock, and installs FinReplay editable without re-resolving
+  project dependencies.
+- Package metadata now bounds the supported Python range to the tested 3.11/3.12 matrix.
+- The Python 3.11/3.12 CI matrix now installs and verifies the exact development lock.
 
 ## [0.2.0a1] - 2026-08-20
 
