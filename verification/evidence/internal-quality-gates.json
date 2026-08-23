@@ -7,7 +7,7 @@
         ".venv/bin/python",
         "scripts/verify_capitalallocator_benchmark.py"
       ],
-      "elapsed_seconds": 0.048552,
+      "elapsed_seconds": 0.66615,
       "exit_code": 0,
       "gate_id": "capitalallocator_benchmark",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -21,11 +21,11 @@
         "--format",
         "json"
       ],
-      "elapsed_seconds": 1.763726,
+      "elapsed_seconds": 32.284531,
       "exit_code": 0,
       "gate_id": "dependency_audit",
       "stderr_sha256": "15950a68a7ed99c59779717acefdceb3f69cfd31bde67d2c954f2a3cea4d7955",
-      "stdout_sha256": "6f10b31e05ab9ba44beefc5bc57c1389bb9d5edbb836865cf16605d2f1c7f417",
+      "stdout_sha256": "81cbf4b055fc156a6c4b4b4d66be01f6a642f0c256f93334b464ccfbdc2d7b76",
       "summary": "No known vulnerabilities found"
     },
     "executionlab_benchmark": {
@@ -33,7 +33,7 @@
         ".venv/bin/python",
         "scripts/verify_executionlab_golden.py"
       ],
-      "elapsed_seconds": 0.053681,
+      "elapsed_seconds": 0.980571,
       "exit_code": 0,
       "gate_id": "executionlab_benchmark",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -45,7 +45,7 @@
         ".venv/bin/python",
         "scripts/validate_independent_review_records.py"
       ],
-      "elapsed_seconds": 0.154639,
+      "elapsed_seconds": 1.533421,
       "exit_code": 0,
       "gate_id": "independent_review_record_catalog",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -58,7 +58,7 @@
         "scripts/build_user_catalogs.py",
         "--check"
       ],
-      "elapsed_seconds": 0.894208,
+      "elapsed_seconds": 12.883261,
       "exit_code": 0,
       "gate_id": "installable_catalogs",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -71,7 +71,7 @@
         "check",
         "."
       ],
-      "elapsed_seconds": 0.090386,
+      "elapsed_seconds": 0.136208,
       "exit_code": 0,
       "gate_id": "lint",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -83,7 +83,7 @@
         ".venv/bin/python",
         "scripts/verify_no_key_demo.py"
       ],
-      "elapsed_seconds": 2.167078,
+      "elapsed_seconds": 28.32687,
       "exit_code": 0,
       "gate_id": "no_key_demo",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -95,14 +95,14 @@
         ".venv/bin/python",
         "scripts/build_public_claim_registry.py",
         "--output",
-        "/var/folders/3v/r7kf44xn3gj9xg2tv31mq_mh0000gn/T/finreplay-quality-jtcxki33/public-claims.json"
+        "/var/folders/3v/r7kf44xn3gj9xg2tv31mq_mh0000gn/T/finreplay-quality-nxtqqoaw/public-claims.json"
       ],
-      "elapsed_seconds": 1.337435,
+      "elapsed_seconds": 20.180194,
       "exit_code": 0,
       "gate_id": "public_claim_registry",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "1bcf7c8361b52150edba3061ec07105f6a0dde663f07adb6ccdc0b163bce9a2d",
-      "summary": "public_claim_registry_written=true headline_claims=6 reports=31 public_claims=155 violations=0 registry_sha256=64e230817f363e13cab6ab739c2b206aa4430f9ad93740e36533fb06e0dcd25f"
+      "stdout_sha256": "6003395769c6d7cc46732a6d208edd146a4dd70a53f9d192142e769f8ec15fc1",
+      "summary": "public_claim_registry_written=true headline_claims=6 reports=31 public_claims=155 violations=0 registry_sha256=eb52494c11a8250a7cce1a8b48d0c76d751660bfd9ca4251d145e3b5d57282b6"
     },
     "public_replaypacks": {
       "command": [
@@ -110,7 +110,7 @@
         "scripts/build_public_replaypack_downloads.py",
         "--check"
       ],
-      "elapsed_seconds": 1.666855,
+      "elapsed_seconds": 21.212601,
       "exit_code": 0,
       "gate_id": "public_replaypacks",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -122,7 +122,7 @@
         ".venv/bin/python",
         "scripts/verify_replaystudio_browser_receipt.py"
       ],
-      "elapsed_seconds": 1.016614,
+      "elapsed_seconds": 14.767069,
       "exit_code": 0,
       "gate_id": "replaystudio_browser_receipt",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -134,7 +134,7 @@
         ".venv/bin/python",
         "scripts/verify_replaystudio_golden.py"
       ],
-      "elapsed_seconds": 1.099545,
+      "elapsed_seconds": 12.805459,
       "exit_code": 0,
       "gate_id": "replaystudio_reconstruction",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -146,7 +146,7 @@
         ".venv/bin/python",
         "scripts/verify_scenario_catalog.py"
       ],
-      "elapsed_seconds": 1.207585,
+      "elapsed_seconds": 16.589524,
       "exit_code": 0,
       "gate_id": "scenario_catalog",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -161,12 +161,12 @@
         "--collect-only",
         "-q"
       ],
-      "elapsed_seconds": 8.08405,
+      "elapsed_seconds": 48.842997,
       "exit_code": 0,
       "gate_id": "test_collection",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "c2471c2f2f7f9003f8a5ec709694bbe8c7bcf62d3b9a4d744d8279817071defa",
-      "summary": "2232 tests collected in 6.95s"
+      "stdout_sha256": "142ce767151c2400ee7f602ef7de0d50469b992e2849aad5dc77d965a93546c6",
+      "summary": "2237 tests collected in 33.83s"
     },
     "tests": {
       "command": [
@@ -174,15 +174,15 @@
         "-m",
         "pytest",
         "--cov=finreplay",
-        "--cov-report=json:/var/folders/3v/r7kf44xn3gj9xg2tv31mq_mh0000gn/T/finreplay-quality-jtcxki33/coverage.json",
+        "--cov-report=json:/var/folders/3v/r7kf44xn3gj9xg2tv31mq_mh0000gn/T/finreplay-quality-nxtqqoaw/coverage.json",
         "--cov-report=term"
       ],
-      "elapsed_seconds": 94.412614,
+      "elapsed_seconds": 1269.710997,
       "exit_code": 0,
       "gate_id": "tests",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "60e3530f621ceded98d4b218af6ea555b97fb500fc521c31e165c35c5ee616e8",
-      "summary": "======================= 2232 passed in 92.37s (0:01:32) ========================"
+      "stdout_sha256": "8b87ae9480834c419fd5c329c1a68a01f04859e82eb07beac1c76ed816ceb563",
+      "summary": "====================== 2237 passed in 1250.78s (0:20:50) ======================="
     },
     "typing": {
       "command": [
@@ -191,12 +191,12 @@
         "tests",
         "scripts"
       ],
-      "elapsed_seconds": 1.648134,
+      "elapsed_seconds": 2.742569,
       "exit_code": 0,
       "gate_id": "typing",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_sha256": "f365c7c7a34510b67c29898d3c06bb5d02cf91f2e5072945966399b600f5147c",
-      "summary": "Success: no issues found in 398 source files"
+      "stdout_sha256": "e7be5b4f196a8f0c2683713170661c3851aa65b26b2ccecbe977fb9b082cb1d7",
+      "summary": "Success: no issues found in 403 source files"
     }
   },
   "coverage": {
@@ -250,7 +250,7 @@
       },
       {
         "name": "charset-normalizer",
-        "version": "3.5.0"
+        "version": "3.5.1"
       },
       {
         "name": "coverage",
@@ -290,7 +290,7 @@
       },
       {
         "name": "hypothesis",
-        "version": "6.165.3"
+        "version": "6.165.10"
       },
       {
         "name": "id",
@@ -298,7 +298,7 @@
       },
       {
         "name": "idna",
-        "version": "3.18"
+        "version": "3.19"
       },
       {
         "name": "iniconfig",
@@ -366,7 +366,7 @@
       },
       {
         "name": "nh3",
-        "version": "0.3.6"
+        "version": "0.3.7"
       },
       {
         "name": "numpy",
@@ -426,7 +426,7 @@
       },
       {
         "name": "pygments",
-        "version": "2.20.0"
+        "version": "2.21.0"
       },
       {
         "name": "pyparsing",
@@ -434,7 +434,7 @@
       },
       {
         "name": "pypdf",
-        "version": "6.15.0"
+        "version": "6.16.2"
       },
       {
         "name": "pyproject-hooks",
@@ -486,11 +486,11 @@
       },
       {
         "name": "ruff",
-        "version": "0.16.2"
+        "version": "0.16.4"
       },
       {
         "name": "scipy",
-        "version": "1.18.0"
+        "version": "1.17.1"
       },
       {
         "name": "shellingham",
@@ -534,7 +534,7 @@
       },
       {
         "name": "typing-inspection",
-        "version": "0.4.3"
+        "version": "0.4.4"
       },
       {
         "name": "urllib3",
@@ -555,7 +555,7 @@
     "tool": "pip-audit"
   },
   "evidence_kind": "clean_commit_internal_quality_gate_run",
-  "generated_at": "2026-08-19T18:23:19.072617Z",
+  "generated_at": "2026-08-23T16:51:39.300427Z",
   "product_and_reproducibility": {
     "all_five_evidence_labels_verified": true,
     "billion_row_benchmark_bound_by_full_test_suite": true,
@@ -571,7 +571,7 @@
     "responsive_accessibility_browser_receipt_verified": true,
     "scenario_catalog_verified": true
   },
-  "receipt_sha256": "bb0797da0c48cb0c077cbf37afa502582c36cd575bd98557fcb4b935bf4bfe01",
+  "receipt_sha256": "fb9ed348925967f46e1c87e44194869339f68efcc8c0b7195e5b3fdba4506c11",
   "runtime": {
     "logical_cpu_count": 10,
     "machine": "arm64",
@@ -596,15 +596,15 @@
       "credential_in_url",
       "local_user_absolute_path"
     ],
-    "scan_sha256": "cb81b697c3c51a3c7933356da8fa4f4f49d8c3538c8a0cd8e0822e34f30668bd",
-    "scanned_text_bytes": 15186861,
-    "scanned_text_file_count": 1516,
+    "scan_sha256": "efb8cefe30be438ef6f7609265937f10349d6e9dcea43c0b02ec1cffa2897ca2",
+    "scanned_text_bytes": 15244284,
+    "scanned_text_file_count": 1524,
     "scanner_path": "src/finreplay/security.py",
     "scanner_sha256": "671adc4a5f0e1a8e9d79854d899e1d8871cf8f7354034b84bfc3a19efc6ffd03",
     "schema_version": "1.0.0",
     "skipped_binary_file_count": 35,
-    "tracked_file_count": 1551,
-    "tracked_text_set_sha256": "0bd46370364872c7be5106f55a67ffce229f71a8d0c74777e128d92097afe5db"
+    "tracked_file_count": 1559,
+    "tracked_text_set_sha256": "96301b0748b0d7b9b9e1aad780a62f47a09ff57cb9e8618a27f8dc35d950bd7e"
   },
   "security_ci": {
     "codeql": "configured_as_pinned_GitHub_Action_not_executed_locally_in_this_receipt",
@@ -613,9 +613,9 @@
   },
   "subject": {
     "clean_worktree_before_run": true,
-    "code_revision": "deac615efe3900ca62bd8821a84e0414cbec80a7",
-    "commit_time": "2026-08-20T02:23:02+08:00",
-    "tree_sha256": "01cfcc4a06d35a54b8a119c16974168b8d459944"
+    "code_revision": "928e2dcedea058c659e0190e371dad06038b4c1f",
+    "commit_time": "2026-08-24T00:40:29+08:00",
+    "tree_sha256": "5431af2f0f5abe3bb20b487291a5a787c6673bad"
   },
   "subject_artifacts": [
     {
@@ -624,14 +624,14 @@
       "sha256": "337fb6b036de75a49cf91c735092cc83785e85bf70b68c5665a32e8c575a49f0"
     },
     {
-      "bytes": 4105,
+      "bytes": 4573,
       "path": ".github/workflows/verify.yml",
-      "sha256": "44df8fb4af779018c8a6f5d5877d1e70d7805889195595a0dc1ef028cdb203fe"
+      "sha256": "c6d73f8ed1218393fe997fef22a69c55d0d87ae4aa912b3e6966d238ea15c0c5"
     },
     {
-      "bytes": 1612,
+      "bytes": 2453,
       "path": "Makefile",
-      "sha256": "8447e68ec29c169b527197438d14f868f39289f94ef81faa64ba758f5ac44b34"
+      "sha256": "f2aed82f81f5aa806873fdb82f5a5e4c5ab2a585e42c6e9c0ce82181b7ab05da"
     },
     {
       "bytes": 12721,
@@ -649,19 +649,29 @@
       "sha256": "7b9b5935be8cf9a8072e6c94cc5dcfce74768d1aa1d09b65cb58ebc36b67c638"
     },
     {
+      "bytes": 2245,
+      "path": "docs/project-governance.md",
+      "sha256": "1fdb0a9c2040e8fb97ce65faf2f4b1b2ce6cd95c787ee24b9433a7d0ed75e738"
+    },
+    {
       "bytes": 12922,
       "path": "docs/scenario-explorer.md",
       "sha256": "f4d2c7697885991035015e509e0eda1b0e1a5185b4aa29e32975feda1433b83c"
     },
     {
-      "bytes": 2972,
+      "bytes": 2978,
       "path": "pyproject.toml",
-      "sha256": "26d098de03a1d0764a4e3ab9a2b9d2bd77c32853f27a918025e83181f676724b"
+      "sha256": "5d257e1c1a3b1274dda25c9c472a26f2b1971bf3eaf6bd8af39d6e62392e9e97"
     },
     {
-      "bytes": 19061,
+      "bytes": 1834,
+      "path": "requirements-dev.lock",
+      "sha256": "23e26c2294c13c4507f1b52b8b1f792f8120c0ec22a2cf51134df8485d373abe"
+    },
+    {
+      "bytes": 19214,
       "path": "scripts/run_internal_quality_gates.py",
-      "sha256": "3bb38b1b6c0fd088c950ca17b99379c4cd2e5be4e82717f0816c867f627af455"
+      "sha256": "f1395d36123bbdff1ff8f977cde96fd3e0005899a5cc9c2824f88ecacd4014e9"
     },
     {
       "bytes": 1266,
@@ -669,9 +679,19 @@
       "sha256": "6b73f6520151c1ee9409b50d2d31ba65324fe7a9aea46fc6df7f7e547a2a3fb0"
     },
     {
+      "bytes": 2099,
+      "path": "scripts/select_bootstrap_python.py",
+      "sha256": "fa314d7c02893d9861490589334c03b8c50309dfd8428197afec58ac86c5adb7"
+    },
+    {
       "bytes": 7757,
       "path": "scripts/validate_independent_review_records.py",
       "sha256": "fe7083337b45e8815cb2bdb744d919e821c17c308a1d411515e786d662af5db7"
+    },
+    {
+      "bytes": 5515,
+      "path": "scripts/verify_python_dependency_lock.py",
+      "sha256": "102abfa5badb5d94df11e03ae1572d2aec0fe6486867b730b0e8b6f62d77d2b6"
     },
     {
       "bytes": 3512,
@@ -701,7 +721,7 @@
     {
       "bytes": 24417,
       "path": "verification/claims/public-claims.json",
-      "sha256": "431bc2003a4de6f7753c0090b50230350d47e633477f8dfd8b83a06bb8c1b280"
+      "sha256": "3c18190591d29c56e2e78ae7e24b668966b900af12e25ad9bb0aedea380426af"
     },
     {
       "bytes": 24830,
@@ -735,10 +755,10 @@
     }
   ],
   "tests": {
-    "collected": 2232,
+    "collected": 2237,
     "failed": 0,
-    "node_ids_sha256": "048cd3de4077aa96510c33a08b9368bd3fb8e5be5e299d18625061f06e3e79e2",
-    "passed": 2232,
+    "node_ids_sha256": "6cb4dc20e27562739c23ab6e44610cbe1dcd291e6e57c54f6592fcd076fa0c00",
+    "passed": 2237,
     "representative_hostile_and_interface_test_counts": {
       "cli_build_verify": 1,
       "hostile_archive_and_expansion_limits": 18,
@@ -749,6 +769,6 @@
       "unsafe_archive_paths": 5
     },
     "required_test_threshold": 100,
-    "test_files": 99
+    "test_files": 100
   }
 }
