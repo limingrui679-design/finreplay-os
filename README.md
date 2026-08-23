@@ -2,7 +2,7 @@
 
 [![Verify](https://github.com/limingrui679-design/finreplay-os/actions/workflows/verify.yml/badge.svg)](https://github.com/limingrui679-design/finreplay-os/actions/workflows/verify.yml)
 [![Security](https://github.com/limingrui679-design/finreplay-os/actions/workflows/security.yml/badge.svg)](https://github.com/limingrui679-design/finreplay-os/actions/workflows/security.yml)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB.svg)](https://www.python.org/)
+[![Python 3.11 | 3.12](https://img.shields.io/badge/python-3.11%20%7C%203.12-3776AB.svg)](https://www.python.org/)
 [![License: Apache--2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Release: v0.2.0a1](https://img.shields.io/badge/release-v0.2.0a1-6f42c1.svg)](https://github.com/limingrui679-design/finreplay-os/releases/tag/v0.2.0a1)
 [![Evidence site](https://img.shields.io/badge/evidence-live-20c997.svg)](https://finreplay-evidence.limingrui2.chatgpt.site/)
