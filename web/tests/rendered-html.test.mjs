@@ -45,6 +45,23 @@ test("server-renders the FinReplay evidence surface", async () => {
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });
 
+test("serves the offline GDP comparison and its complete cost frontier", async () => {
+  const home = await (await render()).text();
+  assert.match(home, /href="\/release-timing\.html"/);
+  const response = await render("/release-timing.html");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  const data = html.match(/<script id="timing-data" type="application\/json">(.*?)<\/script>/s);
+  assert.ok(data);
+  const report = JSON.parse(data[1]);
+  assert.equal(report.evaluated_periods, 195);
+  assert.equal(report.first_period, "1976Q3");
+  assert.equal(report.last_period, "2025Q2");
+  assert.ok(report.regions.some(row =>
+    row.start === "1/7" && row.end === "1/7" && row.winners.length === 2
+  ));
+});
+
 test("renders all thirty labelled scenario cards", async () => {
   const response = await render();
   const html = await response.text();

@@ -176,6 +176,7 @@ export default function Home() {
           <span className="section-number">04 / Replay ledger</span>
           <h2 id="replays-title">Thirty boundaries.<br />Every pack opens.</h2>
           <p>Each card now has a stable evidence page, explicit hashes, structured claims, and a deterministic ReplayPack download.</p>
+          <p><a href="/release-timing.html">Compare the cost of waiting for a GDP revision</a></p>
         </div>
         <div className="replay-tools">
           <div className="filters" aria-label="Filter scenarios by family">

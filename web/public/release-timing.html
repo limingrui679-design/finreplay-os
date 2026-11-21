@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When should a GDP signal wait? · FinReplay OS</title>
+<style>
+:root{color-scheme:light;--paper:#f5f3eb;--ink:#16251e;--muted:#4e5952;--rule:#c8cec4;--accent:#d9ff43}
+*{box-sizing:border-box} body{margin:0;color:var(--ink);background:var(--paper);font:16px/1.5 Arial,Helvetica,sans-serif}
+main{max-width:850px;margin:0 auto;padding:24px clamp(16px,5vw,46px) 48px}header{border-bottom:1px solid var(--ink);padding-bottom:20px}
+.wordmark{font-weight:750;letter-spacing:-.03em;color:var(--ink)}h1{font-size:clamp(2.15rem,6.8vw,4rem);line-height:1.04;letter-spacing:-.05em;margin:26px 0 10px}
+h2{font-size:1.1rem;margin:0 0 8px}p{margin:8px 0} a{color:#275a42}section{margin-top:24px}
+form{display:flex;gap:8px 12px;flex-wrap:wrap;align-items:end}label{display:grid;gap:4px;font-weight:bold}
+input,button{font:inherit;border:1px solid var(--ink);border-radius:4px;padding:6px 12px;color:var(--ink)}
+input{width:9rem;background:white;font-variant-numeric:tabular-nums}button{background:transparent;cursor:pointer}button[type=submit]{background:var(--ink);color:white}
+:focus-visible{outline:3px solid #296442;outline-offset:3px} small,.note{color:var(--muted);font-size:.9rem}.jump{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0}.jump button{font-size:.9rem;padding:2px 9px}
+#err{color:#8c2017}#outcome{display:block;margin:12px 0 3px;font-weight:bold}
+table{border-collapse:collapse;width:100%;background:#fffefa;font-variant-numeric:tabular-nums}th,td{padding:9px clamp(3px,1.5vw,12px);border-bottom:1px solid var(--rule);text-align:right}th:first-child,td:first-child{text-align:left}thead th{font-size:.87rem}tr.best{background:#e9f2cb}tbody th{font-weight:500}
+details{margin:14px 0}summary{cursor:pointer;text-decoration:underline;text-underline-offset:3px}footer{margin-top:30px;border-top:1px solid var(--rule);padding-top:12px;font-size:.92rem}
+@media(max-width:480px){th,td{font-size:.88rem}thead th{font-size:.77rem}h1{max-width:16ch}}
+</style>
+</head>
+<body>
+<main>
+<header><span class="wordmark">FinReplay OS</span>
+<h1>When should a GDP signal wait?</h1>
+<p>A quarterly analyst can flag a contraction immediately or wait one quarter for revised US output data. Set a price on delay and compare the same historical decisions under each rule.</p></header>
+<section aria-labelledby="cost-label">
+<form id="form"><label id="cost-label" for="cost">Cost of waiting one quarter<input id="cost" value="0.10" type="text" inputmode="text" autocomplete="off" aria-describedby="units err" required></label>
+<button type="submit">Compare</button></form>
+<p id="units" class="note">One disagreement with the later GDP estimate costs 1. Enter a decimal or fraction from 0 to 1.</p>
+<p id="err" role="alert"></p><div id="jumps" class="jump" aria-label="Select a decision boundary"></div>
+</section>
+<section aria-labelledby="comparison"><h2 id="comparison">Historical comparison</h2><p id="sample"></p>
+<p id="outcome" role="status"></p>
+<table aria-label="Holdout results at the chosen cost"><thead><tr><th scope="col">Rule</th><th scope="col">Disagreements</th><th scope="col">Waits</th><th scope="col">Total loss</th></tr></thead><tbody id="results"></tbody></table>
+<p class="note">Total loss equals disagreements plus the cost of each wait. The selective rule learns anew at your chosen cost using only results already available at the decision date.</p>
+<details><summary>Which quarters did the selective rule defer?</summary><p id="periods"></p></details>
+<details><summary>What if the original rule stays fixed?</summary><p id="frozen"></p></details>
+</section>
+<footer><p>Each flag records whether real output shrank. The reference is the Philadelphia Fed snapshot from five quarters after the target quarter. All rules use the same held-out quarters.</p>
+<a href="https://github.com/limingrui679-design/finreplay-os/tree/main/examples/release_timing">Data, method and reproduction commands</a> · <a href="https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/routput">Philadelphia Fed archive</a></footer>
+<noscript><p>Enable JavaScript to explore the costs, or open the data and method link for the command-line replay.</p></noscript>
+</main>
+<script id="timing-data" type="application/json">{"complete_periods":239,"warmup_periods":44,"evaluated_periods":195,"first_period":"1976Q3","last_period":"2025Q2","minimum_history":40,"frozen_cost":"1/10","fixed_policies":{"act_immediately":{"disagreements":6,"delayed_quarters":0},"always_wait":{"disagreements":4,"delayed_quarters":195},"frozen_at_reference":{"disagreements":5,"delayed_quarters":7}},"frozen_deferred_periods":["1989Q4","1991Q2","1991Q4","2001Q4","2012Q4","2014Q1","2015Q1"],"regions":[{"start":"0","end":"1/176","include_start":true,"include_end":false,"retrained":{"disagreements":5,"delayed_quarters":19},"deferred_periods":["1989Q4","1991Q2","1991Q4","1995Q2","2001Q2","2001Q3","2001Q4","2002Q4","2007Q4","2008Q1","2008Q3","2012Q4","2014Q1","2015Q1","2015Q4","2016Q1","2017Q1","2022Q2","2025Q1"],"winners":["always_wait"]},{"start":"1/176","end":"1/176","include_start":true,"include_end":true,"retrained":{"disagreements":5,"delayed_quarters":19},"deferred_periods":["1989Q4","1991Q2","1991Q4","1995Q2","2001Q2","2001Q3","2001Q4","2002Q4","2007Q4","2008Q1","2008Q3","2012Q4","2014Q1","2015Q1","2015Q4","2016Q1","2017Q1","2022Q2","2025Q1"],"winners":["always_wait","adaptive_margin"]},{"start":"1/176","end":"1/21","include_start":false,"include_end":false,"retrained":{"disagreements":5,"delayed_quarters":19},"deferred_periods":["1989Q4","1991Q2","1991Q4","1995Q2","2001Q2","2001Q3","2001Q4","2002Q4","2007Q4","2008Q1","2008Q3","2012Q4","2014Q1","2015Q1","2015Q4","2016Q1","2017Q1","2022Q2","2025Q1"],"winners":["adaptive_margin"]},{"start":"1/21","end":"1/20","include_start":true,"include_end":false,"retrained":{"disagreements":5,"delayed_quarters":18},"deferred_periods":["1989Q4","1991Q2","1991Q4","1995Q2","2001Q2","2001Q3","2001Q4","2002Q4","2007Q4","2008Q1","2008Q3","2012Q4","2014Q1","2015Q1","2015Q4","2016Q1","2017Q1","2022Q2"],"winners":["adaptive_margin"]},{"start":"1/20","end":"1/18","include_start":true,"include_end":false,"retrained":{"disagreements":5,"delayed_quarters":17},"deferred_periods":["1989Q4","1991Q2","1991Q4","1995Q2","2001Q2","2001Q3","2001Q4","2002Q4","2007Q4","2008Q1","2008Q3","2012Q4","2014Q1","2015Q1","2015Q4","2016Q1","2017Q1"],"winners":["adaptive_margin"]},{"start":"1/18","end":"1/17","include_start":true,"include_end":false,"retrained":{"disagreements":5,"delayed_quarters":16},"deferred_periods":["1989Q4","1991Q2","1991Q4","1995Q2","2001Q2","2001Q3","2001Q4","2002Q4","2007Q4","2008Q1","2008Q3","2012Q4","2014Q1","2015Q1","2015Q4","2016Q1"],"winners":["adaptive_margin"]},{"start":"1/17","end":"1/14","include_start":true,"include_end":false,"retrained":{"disagreements":5,"delayed_quarters":14},"deferred_periods":["1989Q4","1991Q2","1991Q4","1995Q2","2001Q2","2001Q3","2001Q4","2002Q4","2007Q4","2008Q1","2008Q3","2012Q4","2014Q1","2015Q1"],"winners":["adaptive_margin"]},{"start":"1/14","end":"1/13","include_start":true,"include_end":false,"retrained":{"disagreements":5,"delayed_quarters":11},"deferred_periods":["1989Q4","1991Q2","1991Q4","1995Q2","2001Q2","2001Q3","2001Q4","2002Q4","2012Q4","2014Q1","2015Q1"],"winners":["adaptive_margin"]},{"start":"1/13","end":"1/11","include_start":true,"include_end":false,"retrained":{"disagreements":5,"delayed_quarters":10},"deferred_periods":["1989Q4","1991Q2","1991Q4","1995Q2","2001Q2","2001Q3","2001Q4","2012Q4","2014Q1","2015Q1"],"winners":["adaptive_margin"]},{"start":"1/11","end":"1/10","include_start":true,"include_end":false,"retrained":{"disagreements":5,"delayed_quarters":8},"deferred_periods":["1989Q4","1991Q2","1991Q4","1995Q2","2001Q4","2012Q4","2014Q1","2015Q1"],"winners":["adaptive_margin"]},{"start":"1/10","end":"1/7","include_start":true,"include_end":false,"retrained":{"disagreements":5,"delayed_quarters":7},"deferred_periods":["1989Q4","1991Q2","1991Q4","2001Q4","2012Q4","2014Q1","2015Q1"],"winners":["adaptive_margin"]},{"start":"1/7","end":"1/7","include_start":true,"include_end":true,"retrained":{"disagreements":5,"delayed_quarters":7},"deferred_periods":["1989Q4","1991Q2","1991Q4","2001Q4","2012Q4","2014Q1","2015Q1"],"winners":["act_immediately","adaptive_margin"]},{"start":"1/7","end":"1/5","include_start":false,"include_end":false,"retrained":{"disagreements":5,"delayed_quarters":7},"deferred_periods":["1989Q4","1991Q2","1991Q4","2001Q4","2012Q4","2014Q1","2015Q1"],"winners":["act_immediately"]},{"start":"1/5","end":"1/3","include_start":true,"include_end":false,"retrained":{"disagreements":5,"delayed_quarters":6},"deferred_periods":["1991Q2","1991Q4","2001Q4","2012Q4","2014Q1","2015Q1"],"winners":["act_immediately"]},{"start":"1/3","end":"1/2","include_start":true,"include_end":false,"retrained":{"disagreements":6,"delayed_quarters":5},"deferred_periods":["1991Q2","1991Q4","2001Q4","2014Q1","2015Q1"],"winners":["act_immediately"]},{"start":"1/2","end":"1","include_start":true,"include_end":true,"retrained":{"disagreements":6,"delayed_quarters":0},"deferred_periods":[],"winners":["act_immediately","adaptive_margin"]}]}</script>
+<script>
+'use strict';
+const data = JSON.parse(document.getElementById('timing-data').textContent);
+const byId = (id) => document.getElementById(id);
+const labels = {act_immediately:'Issue immediately',always_wait:'Always wait one quarter',adaptive_margin:'Wait selectively'};
+
+function fraction(text) {
+  if (text.length > 22) throw Error();
+  let n, d;
+  if (/^\d{1,9}\/\d{1,9}$/.test(text)) {
+    [n,d] = text.split('/').map(BigInt);
+  } else if (/^(?:\d(?:\.\d{1,9})?|\.\d{1,9})$/.test(text)) {
+    const [whole, decimals = ''] = text.split('.');
+    n = BigInt(whole + decimals);
+    d = 10n ** BigInt(decimals.length);
+  } else {
+    throw Error();
+  }
+  if (d <= 0n || n < 0n || n > d) throw Error();
+  return {n, d};
+}
+function compare(a,b) {
+  const diff = a.n * b.d - b.n * a.d;
+  return diff < 0n ? -1 : diff > 0n ? 1 : 0;
+}
+function contains(region, cost) {
+  const lower = compare(cost, fraction(region.start));
+  const upper = compare(cost, fraction(region.end));
+  return (lower > 0 || (lower === 0 && region.include_start))
+    && (upper < 0 || (upper === 0 && region.include_end));
+}
+function loss(rule, cost) {
+  const numerator = BigInt(rule.disagreements) * cost.d + BigInt(rule.delayed_quarters) * cost.n;
+  return (Number(numerator) / Number(cost.d)).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:6});
+}
+function render(text) {
+  let cost;
+  try { cost = fraction(text); } catch {
+    byId('cost').setAttribute('aria-invalid','true');
+    byId('err').textContent = 'Enter a value from 0 to 1, such as 0.10 or 1/7 (up to nine digits of precision).';
+    return;
+  }
+  byId('cost').removeAttribute('aria-invalid');
+  byId('err').textContent = '';
+  const region = data.regions.find(row => contains(row,cost));
+  const winners = region.winners;
+  byId('outcome').textContent = (winners.length > 1 ? 'Joint lowest loss' : 'Lowest loss') + ' at ' + text + ' — ' + winners.map(key => labels[key]).join(' and ') + '.';
+  const table = byId('results');
+  table.replaceChildren();
+  for (const key of Object.keys(labels)) {
+    const rule = key === 'adaptive_margin' ? region.retrained : data.fixed_policies[key];
+    const row = table.insertRow();
+    row.classList.toggle('best', winners.includes(key));
+    const name = document.createElement('th');
+    name.scope = 'row';
+    name.textContent = labels[key];
+    row.append(name);
+    for (const value of [rule.disagreements, rule.delayed_quarters, loss(rule,cost)]) row.insertCell().textContent = String(value);
+  }
+  byId('periods').textContent = region.deferred_periods.length ? region.deferred_periods.join(', ') : 'The selective rule issued immediately in every quarter.';
+  const fixed = data.fixed_policies.frozen_at_reference;
+  byId('frozen').textContent = 'Keeping the decisions learned at cost ' + data.frozen_cost + ' gives ' + fixed.disagreements + ' disagreements and ' + fixed.delayed_quarters + ' waits. Repricing those same decisions at ' + text + ' gives a total loss of ' + loss(fixed,cost) + '.';
+}
+byId('sample').textContent = data.evaluated_periods + ' quarters, ' + data.first_period + ' through ' + data.last_period + '.';
+const jumps = byId('jumps');
+jumps.append('Compare boundary costs');
+const marks = new Set(['0','1']);
+let previous = '';
+for (const region of data.regions) {
+  const winnerSet = [...region.winners].sort().join('|');
+  if (winnerSet !== previous) marks.add(region.start);
+  previous = winnerSet;
+}
+for (const mark of [...marks].sort((a,b) => compare(fraction(a),fraction(b)))) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.textContent = mark;
+  button.addEventListener('click',() => { byId('cost').value = mark; render(mark); });
+  jumps.append(button);
+}
+byId('form').addEventListener('submit',event => { event.preventDefault(); render(byId('cost').value.trim()); });
+render(byId('cost').value);
+</script>
+</body></html>
