@@ -52,13 +52,14 @@ class TimeVaultManifest:
 class TimeVault:
     """Store immutable financial facts and query only versions knowable at a past time."""
 
-    def __init__(self, database: str | Path = ":memory:") -> None:
+    def __init__(self, database: str | Path = ":memory:", *, read_only: bool = False) -> None:
         self.database = str(database)
-        self._connection = duckdb.connect(self.database)
+        self._connection = duckdb.connect(self.database, read_only=read_only)
         # DuckDB renders TIMESTAMPTZ in the session zone. Pin UTC so persisted facts and
         # manifests remain byte/semantically comparable across developer machines.
         self._connection.execute("SET TimeZone = 'UTC'")
-        self._initialize_schema()
+        if not read_only:
+            self._initialize_schema()
 
     def __enter__(self) -> TimeVault:
         return self
@@ -141,12 +142,35 @@ class TimeVault:
     ) -> list[BitemporalRecord]:
         """Return the newest fact version available by a historical decision time."""
 
-        _require_aware(decision_time, "decision_time")
+        return self.records_at_cutoffs(
+            [decision_time],
+            valid_at=valid_at,
+            source_ids=source_ids,
+            allow_latest_only=allow_latest_only,
+        )[decision_time.astimezone(UTC)]
+
+    def records_at_cutoffs(
+        self,
+        decision_times: Iterable[datetime],
+        *,
+        valid_at: datetime | None = None,
+        source_ids: Iterable[str] | None = None,
+        allow_latest_only: bool = False,
+    ) -> dict[datetime, list[BitemporalRecord]]:
+        """Materialize an entire vintage panel in one consistent database statement."""
+        cutoffs: set[datetime] = set()
+        for instant in decision_times:
+            _require_aware(instant, "decision_time")
+            cutoffs.add(instant.astimezone(UTC))
+        ordered = sorted(cutoffs)
+        panel: dict[datetime, list[BitemporalRecord]] = {instant: [] for instant in ordered}
+        if not ordered:
+            return panel
         if valid_at is not None:
             _require_aware(valid_at, "valid_at")
 
         predicates = ["f.available_at <= ?"]
-        parameters: list[Any] = [decision_time]
+        parameters: list[Any] = [ordered[-1]]
         if not allow_latest_only:
             predicates.append("a.temporal_coverage != 'latest_only'")
         if valid_at is not None:
@@ -174,9 +198,8 @@ class TimeVault:
                     a.redistribution_note,
                     r.retrieved_at,
                     ROW_NUMBER() OVER (
-                        PARTITION BY f.record_id
+                        PARTITION BY f.record_id, f.available_at
                         ORDER BY
-                            f.available_at DESC,
                             f.revised_at DESC NULLS LAST,
                             f.ingested_at DESC,
                             f.fact_hash DESC
@@ -185,16 +208,25 @@ class TimeVault:
                 JOIN source_artifacts AS a USING (artifact_id)
                 JOIN source_receipts AS r USING (receipt_id)
                 WHERE {where_clause}
+            ), spans AS (
+                SELECT * EXCLUDE (version_rank),
+                    LEAD(available_at) OVER (PARTITION BY record_id ORDER BY available_at)
+                        AS next_available
+                FROM eligible WHERE version_rank = 1
+            ), cutoffs AS (
+                SELECT unnest(?::TIMESTAMPTZ[]) AS cutoff
             )
-            SELECT * EXCLUDE (version_rank)
-            FROM eligible
-            WHERE version_rank = 1
-            ORDER BY record_id
+            SELECT c.cutoff, s.* EXCLUDE (next_available)
+            FROM cutoffs c JOIN spans s ON s.available_at <= c.cutoff
+                AND (s.next_available IS NULL OR c.cutoff < s.next_available)
+            ORDER BY c.cutoff, s.record_id
             """,
-            parameters,
+            [*parameters, ordered],
         ).fetchall()
-        columns = [column[0] for column in self._connection.description]
-        return [self._row_to_record(dict(zip(columns, row, strict=True))) for row in rows]
+        columns = [column[0] for column in self._connection.description][1:]
+        for cutoff, *values in rows:
+            panel[cutoff].append(self._row_to_record(dict(zip(columns, values, strict=True))))
+        return panel
 
     def history(self, record_id: str) -> list[BitemporalRecord]:
         """Return every immutable version of a logical record in availability order."""
@@ -238,9 +270,12 @@ class TimeVault:
         retrieval_receipts = self._connection.execute(
             "SELECT COUNT(*) FROM source_receipts"
         ).fetchone()[0]
-        fact_hashes = [row[0] for row in self._connection.execute(
-            "SELECT fact_hash FROM facts ORDER BY fact_hash"
-        ).fetchall()]
+        fact_hashes = [
+            row[0]
+            for row in self._connection.execute(
+                "SELECT fact_hash FROM facts ORDER BY fact_hash"
+            ).fetchall()
+        ]
         fact_set_hash = hashlib.sha256("\n".join(fact_hashes).encode()).hexdigest()
         database_bytes = 0
         if self.database != ":memory:":

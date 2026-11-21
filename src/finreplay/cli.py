@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import tempfile
 import webbrowser
+from datetime import datetime
 from pathlib import Path
 from typing import Annotated
 
@@ -62,6 +63,42 @@ def version() -> None:
     """Print the installed package version."""
 
     typer.echo(__version__)
+
+
+@app.command("vintage-panel")
+def vintage_panel(
+    database: Annotated[Path, typer.Argument(exists=True, dir_okay=False)],
+    cutoff: Annotated[
+        list[str], typer.Option("--cutoff", help="Repeat with timezone-aware ISO instants.")
+    ],
+) -> None:
+    """Export point-in-time fact values and their source versions across decision dates."""
+    try:
+        instants = [datetime.fromisoformat(value) for value in cutoff]
+        with TimeVault(database, read_only=True) as vault:
+            panel = vault.records_at_cutoffs(instants)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc), param_hint="--cutoff") from exc
+    typer.echo(
+        json.dumps(
+            [
+                {
+                    "cutoff": time.isoformat(),
+                    "records": [
+                        {
+                            "record_id": fact.record_id,
+                            "source_version": fact.source.source_version,
+                            "available_at": fact.interval.available_at.isoformat(),
+                            "payload": fact.payload,
+                        }
+                        for fact in records
+                    ],
+                }
+                for time, records in panel.items()
+            ],
+            indent=2,
+        )
+    )
 
 
 @adapter_app.command("list")

@@ -275,3 +275,7 @@ management advice and does not connect to brokerage execution by default.
 Code is released under [Apache-2.0](LICENSE). Dataset licenses and redistribution rules are
 source-specific; a connector does not grant a right to redistribute upstream data. Cite the
 software using [`CITATION.cff`](CITATION.cff).
+
+### Replay several information vintages together
+
+`finreplay vintage-panel facts.duckdb --cutoff 2023-03-01T00:00:00Z --cutoff 2023-05-01T00:00:00Z` shows the payload and source version known at each cutoff. The SDK equivalent is `TimeVault.records_at_cutoffs(...)`. One DuckDB statement constructs half-open availability intervals per logical fact and joins them to the decision dates. A revision replaces its predecessor exactly at its availability time. Empty snapshots stay visible; the default point-in-time source restrictions apply.
