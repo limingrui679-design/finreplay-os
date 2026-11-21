@@ -8,7 +8,8 @@ from collections import Counter
 from collections.abc import Iterable, Sequence
 from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
-from typing import TextIO, TypedDict
+from fractions import Fraction
+from typing import NamedTuple, TextIO, TypedDict
 
 ZERO = Decimal(0)
 # A None margin defers every observation. Earlier action wins a training-loss tie.
@@ -114,6 +115,58 @@ def _tally(path: ReleasePath, margin: Decimal | None) -> tuple[int, int]:
     return int(contraction != (path.reference < ZERO)), int(delayed)
 
 
+class LossCounts(NamedTuple):
+    disagreements: int
+    delayed_quarters: int
+
+    def weighted_numerator(self, price: Fraction) -> int:
+        return self.disagreements * price.denominator + self.delayed_quarters * price.numerator
+
+
+@dataclass(frozen=True, slots=True)
+class DecisionOrigin:
+    path: ReleasePath
+    training_periods: int
+    last_training_period: str
+    counts_by_margin: tuple[LossCounts, ...]
+
+    def margin_at(self, price: Fraction) -> Decimal | None:
+        # The order of MARGINS ensures a training tie selects the smallest margin.
+        index = min(
+            range(len(self.counts_by_margin)),
+            key=lambda i: self.counts_by_margin[i].weighted_numerator(price),
+        )
+        return MARGINS[index]
+
+
+def decision_origins(paths: Sequence[ReleasePath], minimum_history: int) -> list[DecisionOrigin]:
+    """Freeze sufficient training counts using only the mature releases at each decision."""
+    if minimum_history < 1:
+        raise ValueError("Use a positive minimum history")
+    ordered = sorted(((quarter_index(row.period), row) for row in paths), key=lambda item: item[0])
+    if len({quarter for quarter, _ in ordered}) != len(ordered):
+        raise ValueError("Duplicate observation quarters")
+    if any(not x.is_finite() for _, p in ordered for x in (p.first, p.next_vintage, p.reference)):
+        raise ValueError("Growth rates must be finite")
+    history = [LossCounts(0, 0)] * len(MARGINS)
+    matured = 0
+    origins = []
+    for quarter, path in ordered:
+        # The reference must have been published before this decision quarter.
+        while matured < len(ordered) and ordered[matured][0] + 5 < quarter + 1:
+            prior = ordered[matured][1]
+            for i, margin in enumerate(MARGINS):
+                wrong, waited = _tally(prior, margin)
+                errors, delays = history[i]
+                history[i] = LossCounts(errors + wrong, delays + waited)
+            matured += 1
+        if matured >= minimum_history:
+            origins.append(
+                DecisionOrigin(path, matured, ordered[matured - 1][1].period, tuple(history))
+            )
+    return origins
+
+
 def evaluate_timing(
     paths: Sequence[ReleasePath],
     *,
@@ -121,30 +174,16 @@ def evaluate_timing(
     minimum_history: int = 40,
 ) -> TimingEvaluation:
     """Learn a delay margin on matured earlier outcomes, then score identical held-out quarters."""
-    if not delay_cost.is_finite() or not ZERO <= delay_cost <= 1 or minimum_history < 1:
-        raise ValueError("Use a delay cost in [0,1] and a positive minimum history")
-    ordered = sorted(((quarter_index(row.period), row) for row in paths), key=lambda item: item[0])
-    if len({quarter for quarter, _ in ordered}) != len(ordered):
-        raise ValueError("Duplicate observation quarters")
-    if any(not x.is_finite() for _, p in ordered for x in (p.first, p.next_vintage, p.reference)):
-        raise ValueError("Growth rates must be finite")
-    history_loss = [ZERO] * len(MARGINS)
-    matured = 0
+    if not delay_cost.is_finite() or not ZERO <= delay_cost <= 1:
+        raise ValueError("Use a delay cost in [0,1]")
+    price = Fraction(delay_cost)
     totals = {name: [0, 0] for name in ("act_immediately", "always_wait", "adaptive_margin")}
     selected: Counter[str] = Counter()
     corrected = introduced = 0
     trace: list[TimingDecision] = []
-    for quarter, path in ordered:
-        # Age-five reference must have been published before the new age-one decision quarter.
-        while matured < len(ordered) and ordered[matured][0] + 5 < quarter + 1:
-            prior = ordered[matured][1]
-            for idx, margin in enumerate(MARGINS):
-                wrong, waited = _tally(prior, margin)
-                history_loss[idx] += wrong + delay_cost * waited
-            matured += 1
-        if matured < minimum_history:
-            continue
-        chosen = MARGINS[min(range(len(MARGINS)), key=history_loss.__getitem__)]
+    for origin in decision_origins(paths, minimum_history):
+        path = origin.path
+        chosen = origin.margin_at(price)
         label = str(chosen) if chosen is not None else "always_wait"
         selected[label] += 1
         for name, policy in (
@@ -163,8 +202,8 @@ def evaluate_timing(
         trace.append(
             {
                 "period": path.period,
-                "training_periods": matured,
-                "last_training_period": ordered[matured - 1][1].period,
+                "training_periods": origin.training_periods,
+                "last_training_period": origin.last_training_period,
                 "margin": label,
                 "delayed": deferred,
                 "contraction_flag": signal,
@@ -183,8 +222,8 @@ def evaluate_timing(
         }
 
     return {
-        "complete_periods": len(ordered),
-        "warmup_periods": len(ordered) - len(trace),
+        "complete_periods": len(paths),
+        "warmup_periods": len(paths) - len(trace),
         "evaluated_periods": len(trace),
         "delay_cost": str(delay_cost),
         "minimum_history": minimum_history,

@@ -7,6 +7,7 @@ import tempfile
 import webbrowser
 from datetime import datetime
 from decimal import Decimal, InvalidOperation
+from fractions import Fraction
 from pathlib import Path
 from typing import Annotated
 
@@ -33,6 +34,7 @@ from finreplay.engines import (
     TimeVault,
 )
 from finreplay.engines.release_timing import evaluate_timing, read_paths
+from finreplay.engines.release_timing_frontier import evaluate_cost_frontier
 from finreplay.storage import ContentAddressedStore, write_live_verification
 
 app = typer.Typer(
@@ -88,6 +90,28 @@ def release_timing(
     report["excluded_incomplete_periods"] = missing
     if not show_decisions:
         report.pop("decisions")
+    typer.echo(json.dumps(report, indent=2))
+
+
+@app.command("release-timing-frontier")
+def release_timing_frontier(
+    levels: Annotated[Path, typer.Argument(exists=True, dir_okay=False)],
+    frozen_cost: Annotated[
+        str, typer.Option(help="Cost used to train the fixed comparison path.")
+    ] = "1/10",
+    minimum_history: Annotated[int, typer.Option(min=1)] = 40,
+) -> None:
+    """Find exact delay-cost intervals and ties on identical held-out quarterly releases."""
+    try:
+        price = Fraction(frozen_cost)
+        with levels.open(encoding="utf-8", newline="") as handle:
+            paths, missing = read_paths(handle)
+        report: dict[str, object] = dict(
+            evaluate_cost_frontier(paths, frozen_cost=price, minimum_history=minimum_history)
+        )
+    except (ValueError, ZeroDivisionError) as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    report["excluded_incomplete_periods"] = missing
     typer.echo(json.dumps(report, indent=2))
 
 
