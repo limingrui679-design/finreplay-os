@@ -146,6 +146,10 @@ finreplay evidence verify --all-scenarios
 reported explicitly instead of pretending that incompatible upstream query models share one safe
 generic parameter set.
 
+### Decide whether to wait for a revision
+
+How much does one extra quarter of information improve a real-output contraction flag? The [release-timing case](examples/release_timing/README.md) learns when to defer from matured GDP vintages. Across 195 held-out quarters it records five disagreements with the later reference and seven delays, versus six disagreements for immediate issuance and four for delaying all 195. The CLI lets reviewers change the cost of waiting and inspect each decision.
+
 ## Formal adapters versus scenario connectors
 
 The two surfaces are intentionally separate:
