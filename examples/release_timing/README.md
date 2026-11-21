@@ -27,7 +27,7 @@ Relative to immediate issuance, the selective policy corrected two flags and int
 
 ## Which policy wins as the cost of waiting changes?
 
-[Open the interactive cost explorer](../../web/public/release-timing.html) to enter a fractional cost, inspect each policy’s loss, or see precisely which quarters were deferred. The same offline analysis produces a machine-readable decision table.
+Download the [standalone cost explorer](../../web/public/release-timing.html) and open it in your browser to enter a fractional cost, inspect each policy’s loss and see which quarters were deferred. The same offline analysis produces a machine-readable decision table.
 
 ```sh
 finreplay release-timing-frontier examples/release_timing/quarterly_output.csv --frozen-cost 1/10
@@ -49,6 +49,14 @@ At low cost the retrained policy makes five reference disagreements and waits 19
 **Retraining and repricing answer different questions.** At each cost, the adaptive policy refits every historical decision using the observations available at that date. The frozen comparator learns a path at the chosen reference cost, fixes its quarter-by-quarter actions, and then reprices that path. With the default reference cost of 1/10 it keeps five disagreements and seven waits, so its loss is 5 + 7c. At c = 1/4, repricing gives 6.75 and retraining gives 6.50. Immediate issuance gives 6.00. The frozen comparator is reported separately from the ranking of the three operational policies.
 
 **Exact calculation.** At each decision date, every candidate margin has a training-loss line `historical disagreements + c × historical waits`. A larger margin waits on a superset of quarters, so the selected margin can only decrease as c rises. At a tie the smaller margin wins. The implementation finds the first training-line intersection at which each quarter switches to immediate issuance, using rational arithmetic. Between successive switches the held-out loss for each policy is linear. Solving these intersections and testing each endpoint gives 16 regions with constant deferred quarters and winning policies. Each region specifies endpoint inclusion, the disagreement and delay counts, and the complete list of deferred quarters. Later q+5 outcomes enter scoring after actions have been chosen.
+
+**Independent full-archive audit.** Run the following optional check to refit all six margins at every potential crossing and each intervening midpoint. It reconstructs the growth rates from the six CSV levels and evaluates the quarterly decisions independently of the frontier solver.
+
+```sh
+python verification/verify_release_timing_frontier.py
+```
+
+Each loss-line intersection is a ratio of two integer count differences, so its reduced denominator is at most 239, the number of complete quarters. The verifier tests all 17,481 reduced fractions in [0,1] with that bound and 17,480 interval midpoints. Across 34,961 prices it reproduces all 6,817,395 quarter-by-price decisions, all disagreement counts and all winner ties in the 16 reported regions.
 
 ## Frozen input
 
