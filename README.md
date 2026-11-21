@@ -7,23 +7,15 @@
 [![Release: v0.2.0a1](https://img.shields.io/badge/release-v0.2.0a1-6f42c1.svg)](https://github.com/limingrui679-design/finreplay-os/releases/tag/v0.2.0a1)
 [![Evidence site](https://img.shields.io/badge/evidence-live-20c997.svg)](https://finreplay-evidence.limingrui2.chatgpt.site/)
 
-**Put the market back in time. Put the strategy on trial. Decide whether to allocate capital.**
+**Reconstruct what a financial analyst could have known on the day of a decision.**
 
-FinReplay OS is an open-source, point-in-time financial-system replay toolkit. It separates what
-was known at a decision time from what became known later, subjects research claims to adversarial
-checks, and emits a portable ReplayPack whose inputs, reasoning artifacts, and render are bound by
-deterministic hashes.
+Economic statistics are revised, and filings reach the public at different times. A backtest that uses today’s figures can give a historical analyst information they never had. FinReplay OS stores both the period a fact describes and the date it became available. Set a decision date to replay a case against the records available at that point.
+
+The Silicon Valley Bank example runs seven analysis engines on seven archived SEC facts. It produces a ReplayPack containing the source references, calculations and report. A second analyst can rebuild the same package offline and compare its file hashes. [Run the SVB replay](#three-minute-offline-demo)
 
 ![FinReplay evidence explorer](web/public/og.png)
 
-## Intended users and contribution boundary
-
-FinReplay is built for quantitative researchers, risk and data analysts, data engineers, and
-technical reviewers who need point-in-time evidence they can inspect and rerun. It is not a live
-trading, fiduciary, compliance, accounting, or institutional risk system. The
-[project-governance note](docs/project-governance.md) records maintainer attribution, AI-assisted
-development, release responsibility, and the line between internal verification and independent
-review.
+Quantitative researchers can use the same workflow to audit a backtest, and risk teams can trace a historical conclusion to the release or filing that supported it. [Project governance](docs/project-governance.md)
 
 ## Three-minute offline demo
 
