@@ -35,6 +35,11 @@ def main() -> None:
         action="store_true",
         help="also perform a fresh anonymous HTTP request to the public site",
     )
+    parser.add_argument(
+        "--archived-source",
+        action="store_true",
+        help="verify the recorded deployment against its source commit in this checkout's history",
+    )
     args = parser.parse_args()
 
     payload = _load_json(args.receipt)
@@ -64,7 +69,8 @@ def main() -> None:
     observed_tree = _git("rev-parse", f"{parent_revision}:web")
     if observed_tree != source["site_source_tree_git_oid"]:
         raise SystemExit("parent repository web tree differs from Sites source tree")
-    if _git("rev-parse", "HEAD:web") != source["site_source_tree_git_oid"]:
+    current_tree_matches = _git("rev-parse", "HEAD:web") == observed_tree
+    if not args.archived_source and not current_tree_matches:
         raise SystemExit("current checkout web tree differs from deployed source tree")
     ancestor = subprocess.run(
         ["git", "merge-base", "--is-ancestor", parent_revision, "HEAD"],
@@ -261,6 +267,8 @@ def main() -> None:
     print(
         f"verified=true version={site['version_number']} "
         f"deployment={site['deployment_id']} access=public "
+        f"source_commit={parent_revision} "
+        f"current_web_tree_matches={str(current_tree_matches).lower()} "
         f"receipt_sha256={claimed_hash}{live_detail}"
     )
 

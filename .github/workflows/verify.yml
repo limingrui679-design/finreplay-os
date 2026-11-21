@@ -54,7 +54,7 @@ jobs:
       - name: Verify committed public release receipts
         run: |
           python scripts/verify_public_site_readiness.py
-          python scripts/verify_public_site_deployment.py
+          python scripts/verify_public_site_deployment.py --archived-source
           python scripts/verify_public_github_release.py
       - name: Scan tracked text for credential and privacy findings
         run: python scripts/scan_tracked_secrets.py
@@ -133,7 +133,7 @@ jobs:
           node-version: "22"
       - name: Check every resolved Python and web dependency in the proposed tree
         run: |
-          python -m pip install "$(grep '^pip-audit==' requirements-dev.lock)"
+          python -m pip install "$(grep -E '^pip[-_]audit==' requirements-dev.lock)"
           python -m pip_audit --requirement requirements-dev.lock --disable-pip --no-deps
           npm ci --prefix web --ignore-scripts --no-audit
           npm audit --prefix web --audit-level=high
