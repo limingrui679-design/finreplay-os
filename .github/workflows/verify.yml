@@ -54,7 +54,7 @@ jobs:
       - name: Verify committed public release receipts
         run: |
           python scripts/verify_public_site_readiness.py
-          python scripts/verify_public_site_deployment.py
+          python scripts/verify_public_site_deployment.py --archived-source
           python scripts/verify_public_github_release.py
       - name: Scan tracked text for credential and privacy findings
         run: python scripts/scan_tracked_secrets.py
@@ -118,7 +118,22 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Review dependency changes
-        uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
+      - name: List changes to the dependency manifests and resolved locks
+        env:
+          BASE_REV: ${{ github.event.pull_request.base.sha }}
+          HEAD_REV: ${{ github.event.pull_request.head.sha }}
+        run: |
+          git fetch --no-tags --depth=1 origin "$BASE_REV" "$HEAD_REV"
+          git diff --stat "$BASE_REV" "$HEAD_REV" -- pyproject.toml requirements-dev.lock web/package.json web/package-lock.json
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v6
         with:
-          fail-on-severity: high
+          python-version: "3.12"
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "22"
+      - name: Check every resolved Python and web dependency in the proposed tree
+        run: |
+          python -m pip install "$(grep -E '^pip[-_]audit==' requirements-dev.lock)"
+          python -m pip_audit --requirement requirements-dev.lock --disable-pip --no-deps
+          npm ci --prefix web --ignore-scripts --no-audit
+          npm audit --prefix web --audit-level=high

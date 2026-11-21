@@ -5,6 +5,8 @@ from __future__ import annotations
 import json
 import tempfile
 import webbrowser
+from datetime import datetime
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Annotated
 
@@ -62,6 +64,80 @@ def version() -> None:
     """Print the installed package version."""
 
     typer.echo(__version__)
+
+
+@app.command("vintage-panel")
+def vintage_panel(
+    database: Annotated[Path, typer.Argument(exists=True, dir_okay=False)],
+    cutoff: Annotated[
+        list[str], typer.Option("--cutoff", help="Repeat with timezone-aware ISO instants.")
+    ],
+) -> None:
+    """Export point-in-time fact values and their source versions across decision dates."""
+    try:
+        instants = [datetime.fromisoformat(value) for value in cutoff]
+        with TimeVault(database, read_only=True) as vault:
+            panel = vault.records_at_cutoffs(instants)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc), param_hint="--cutoff") from exc
+    typer.echo(
+        json.dumps(
+            [
+                {
+                    "cutoff": time.isoformat(),
+                    "records": [
+                        {
+                            "record_id": fact.record_id,
+                            "source_version": fact.source.source_version,
+                            "available_at": fact.interval.available_at.isoformat(),
+                            "payload": fact.payload,
+                        }
+                        for fact in records
+                    ],
+                }
+                for time, records in panel.items()
+            ],
+            indent=2,
+        )
+    )
+
+
+@app.command("vintage-revisions")
+def vintage_revisions(
+    database: Annotated[Path, typer.Argument(exists=True, dir_okay=False)],
+    earlier: Annotated[str, typer.Option()],
+    later: Annotated[str, typer.Option()],
+    source_id: Annotated[str, typer.Option()],
+    series: Annotated[str, typer.Option()],
+    threshold: Annotated[
+        str, typer.Option(help="Illustrative threshold in the series' units, inclusive.")
+    ],
+) -> None:
+    """Show comparable revisions, threshold crossings and newly observable periods."""
+    try:
+        with TimeVault(database, read_only=True) as vault:
+            rows = vault.revision_comparison(
+                datetime.fromisoformat(earlier),
+                datetime.fromisoformat(later),
+                source_id=source_id,
+                series=series,
+                threshold=Decimal(threshold),
+            )
+    except (ValueError, InvalidOperation) as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    typer.echo(
+        json.dumps(
+            {
+                "series": series,
+                "source_id": source_id,
+                "earlier": earlier,
+                "later": later,
+                "threshold": threshold,
+                "observations": rows,
+            },
+            indent=2,
+        )
+    )
 
 
 @adapter_app.command("list")
@@ -262,8 +338,7 @@ def scenario_pathways() -> None:
     typer.echo("PATHWAY\tSCENARIOS\tDIMENSIONS")
     for pathway in explorer.pathways:
         typer.echo(
-            f"{pathway.pathway_id}\t{len(pathway.scenario_slugs)}\t"
-            f"{', '.join(pathway.lens_ids)}"
+            f"{pathway.pathway_id}\t{len(pathway.scenario_slugs)}\t{', '.join(pathway.lens_ids)}"
         )
     typer.echo(
         f"count={len(explorer.pathways)} dimensions={len(explorer.lenses)} "

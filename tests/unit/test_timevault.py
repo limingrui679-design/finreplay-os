@@ -278,9 +278,7 @@ def test_latest_only_source_is_excluded_from_historical_query_by_default() -> No
     with TimeVault() as vault:
         vault.append([record])
         assert vault.records_as_of(NOW + timedelta(seconds=1)) == []
-        assert vault.records_as_of(NOW + timedelta(seconds=1), allow_latest_only=True) == [
-            record
-        ]
+        assert vault.records_as_of(NOW + timedelta(seconds=1), allow_latest_only=True) == [record]
 
 
 def test_exact_latest_only_artifact_retry_preserves_first_observed_time() -> None:
@@ -336,9 +334,7 @@ def test_exact_immutable_event_retry_does_not_double_count() -> None:
             "vintage_as_of": NOW + timedelta(hours=1),
         }
     )
-    later_interval = record.interval.model_copy(
-        update={"ingested_at": NOW + timedelta(hours=1)}
-    )
+    later_interval = record.interval.model_copy(update={"ingested_at": NOW + timedelta(hours=1)})
     retry = record.model_copy(update={"source": later_source, "interval": later_interval})
     with TimeVault() as vault:
         vault.append([record])
@@ -401,3 +397,74 @@ def test_timevault_pins_session_timezone_to_utc() -> None:
     with TimeVault() as vault:
         vault.append([record])
         assert vault.history(record.record_id)[0].interval.valid_from.hour == 0
+
+
+def test_vintage_panel_keeps_empty_and_exact_release_boundaries() -> None:
+    start = NOW - timedelta(days=3)
+    revised = NOW - timedelta(days=1)
+    old = make_record(
+        value=10, source_version="old", source_digit="1", published_at=start, available_at=start
+    )
+    new = make_record(
+        value=15, source_version="new", source_digit="2", published_at=revised, available_at=revised
+    )
+    before = start - timedelta(microseconds=1)
+    just_before_revision = revised - timedelta(microseconds=1)
+    with TimeVault() as vault:
+        vault.append([new, old])
+        panel = vault.records_at_cutoffs([revised, start, before, just_before_revision, revised])
+        assert [len(value) for value in panel.values()] == [0, 1, 1, 1]
+        assert [
+            panel[t][0].payload["value_thousands_usd"]
+            for t in (start, just_before_revision, revised)
+        ] == [10, 10, 15]
+        assert not any(vault.records_at_cutoffs([start, revised], source_ids=["unknown"]).values())
+        assert vault.records_at_cutoffs([]) == {}
+
+
+def test_vintage_cli_can_read_a_closed_vault_without_writing(tmp_path: Path) -> None:
+    from typer.testing import CliRunner
+
+    from finreplay.cli import app
+
+    database = tmp_path / "panel.duckdb"
+    with TimeVault(database) as vault:
+        vault.append(
+            [
+                make_record(
+                    value=10,
+                    source_version="v1",
+                    source_digit="a",
+                    available_at=NOW,
+                    published_at=NOW,
+                )
+            ]
+        )
+    original_bytes = database.read_bytes()
+    result = CliRunner().invoke(app, ["vintage-panel", str(database), "--cutoff", NOW.isoformat()])
+    assert result.exit_code == 0, result.output
+    assert '"value_thousands_usd": 10' in result.output
+    assert database.read_bytes() == original_bytes
+
+
+def test_revision_crossings_join_on_observation_and_leave_new_periods_uncompared() -> None:
+    import json
+    from decimal import Decimal
+    from pathlib import Path
+
+    lock = Path(__file__).resolve().parents[2] / "scenarios/gdp-revision-2022q4/input-lock.json"
+    raw = json.loads(lock.read_text())["records"]
+    with TimeVault() as vault:
+        vault.append(BitemporalRecord.model_validate(row) for row in raw)
+        rows = vault.revision_comparison(
+            datetime(2022, 11, 1, tzinfo=UTC),
+            datetime(2023, 2, 1, tzinfo=UTC),
+            source_id="fred.alfred.vintage_gdp",
+            series="GDP",
+            threshold=Decimal("25700"),
+        )
+    assert [(r["earlier_value"], r["later_value"], r["threshold_crossed"]) for r in rows] == [
+        ("25663.289", "25723.941", True),
+        (None, "26132.458", None),
+    ]
+    assert rows[0]["revision"] == "60.652"

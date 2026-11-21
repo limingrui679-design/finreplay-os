@@ -9,6 +9,7 @@ from collections.abc import Iterable
 from contextlib import suppress
 from dataclasses import dataclass
 from datetime import UTC, datetime
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any
 
@@ -52,13 +53,14 @@ class TimeVaultManifest:
 class TimeVault:
     """Store immutable financial facts and query only versions knowable at a past time."""
 
-    def __init__(self, database: str | Path = ":memory:") -> None:
+    def __init__(self, database: str | Path = ":memory:", *, read_only: bool = False) -> None:
         self.database = str(database)
-        self._connection = duckdb.connect(self.database)
+        self._connection = duckdb.connect(self.database, read_only=read_only)
         # DuckDB renders TIMESTAMPTZ in the session zone. Pin UTC so persisted facts and
         # manifests remain byte/semantically comparable across developer machines.
         self._connection.execute("SET TimeZone = 'UTC'")
-        self._initialize_schema()
+        if not read_only:
+            self._initialize_schema()
 
     def __enter__(self) -> TimeVault:
         return self
@@ -141,12 +143,114 @@ class TimeVault:
     ) -> list[BitemporalRecord]:
         """Return the newest fact version available by a historical decision time."""
 
-        _require_aware(decision_time, "decision_time")
+        return self.records_at_cutoffs(
+            [decision_time],
+            valid_at=valid_at,
+            source_ids=source_ids,
+            allow_latest_only=allow_latest_only,
+        )[decision_time.astimezone(UTC)]
+
+    def revision_comparison(
+        self, earlier: datetime, later: datetime, *, source_id: str, series: str, threshold: Decimal
+    ) -> list[dict[str, Any]]:
+        """Compare latest available observation vintages; >= defines the threshold decision."""
+        _require_aware(earlier, "earlier")
+        _require_aware(later, "later")
+        if earlier >= later or not threshold.is_finite():
+            raise ValueError("Require increasing cutoffs and a finite threshold")
+        panel = self.records_at_cutoffs([earlier, later], source_ids=[source_id])
+
+        def series_snapshot(
+            records: list[BitemporalRecord],
+        ) -> dict[str, tuple[BitemporalRecord, Decimal]]:
+            result: dict[str, tuple[BitemporalRecord, Decimal]] = {}
+            for record in records:
+                p = record.payload
+                if p.get("series_id") != series:
+                    continue
+                if not p.get("observation_date") or not p.get("unit"):
+                    raise ValueError("Every series observation needs an observation date and unit")
+                key = str(p["observation_date"])
+                try:
+                    value = Decimal(str(p.get("value")))
+                except InvalidOperation as exc:
+                    raise ValueError("Series observation has a nonnumeric value") from exc
+                if not value.is_finite():
+                    raise ValueError("Series observation has a nonfinite value")
+                previous = result.get(key)
+                if (
+                    previous
+                    and previous[0].interval.available_at == record.interval.available_at
+                    and (
+                        previous[1] != value
+                        or any(
+                            previous[0].payload.get(k) != p.get(k)
+                            for k in ("unit", "frequency", "seasonal_adjustment")
+                        )
+                    )
+                ):
+                    raise ValueError("Conflicting vintages at the same knowledge time")
+                if previous is None or (record.interval.available_at, record.record_id) > (
+                    previous[0].interval.available_at,
+                    previous[0].record_id,
+                ):
+                    result[key] = (record, value)
+            return result
+
+        first, second = series_snapshot(panel[earlier]), series_snapshot(panel[later])
+        rows = []
+        for key in sorted(first.keys() | second.keys()):
+            old, new = first.get(key), second.get(key)
+            comparable = bool(old and new)
+            if (
+                old
+                and new
+                and any(
+                    old[0].payload.get(k) != new[0].payload.get(k)
+                    for k in ("unit", "frequency", "seasonal_adjustment")
+                )
+            ):
+                raise ValueError("Units, frequency or seasonal adjustment changed across vintages")
+            representative = second[key] if key in second else first[key]
+            rows.append(
+                {
+                    "observation_date": key,
+                    "unit": representative[0].payload["unit"],
+                    "earlier_value": str(old[1]) if old else None,
+                    "later_value": str(new[1]) if new else None,
+                    "earlier_record": old[0].record_id if old else None,
+                    "later_record": new[0].record_id if new else None,
+                    "comparable": comparable,
+                    "revision": str(new[1] - old[1]) if old and new else None,
+                    "threshold_crossed": ((new[1] >= threshold) != (old[1] >= threshold))
+                    if old and new
+                    else None,
+                }
+            )
+        return rows
+
+    def records_at_cutoffs(
+        self,
+        decision_times: Iterable[datetime],
+        *,
+        valid_at: datetime | None = None,
+        source_ids: Iterable[str] | None = None,
+        allow_latest_only: bool = False,
+    ) -> dict[datetime, list[BitemporalRecord]]:
+        """Materialize an entire vintage panel in one consistent database statement."""
+        cutoffs: set[datetime] = set()
+        for instant in decision_times:
+            _require_aware(instant, "decision_time")
+            cutoffs.add(instant.astimezone(UTC))
+        ordered = sorted(cutoffs)
+        panel: dict[datetime, list[BitemporalRecord]] = {instant: [] for instant in ordered}
+        if not ordered:
+            return panel
         if valid_at is not None:
             _require_aware(valid_at, "valid_at")
 
         predicates = ["f.available_at <= ?"]
-        parameters: list[Any] = [decision_time]
+        parameters: list[Any] = [ordered[-1]]
         if not allow_latest_only:
             predicates.append("a.temporal_coverage != 'latest_only'")
         if valid_at is not None:
@@ -174,9 +278,8 @@ class TimeVault:
                     a.redistribution_note,
                     r.retrieved_at,
                     ROW_NUMBER() OVER (
-                        PARTITION BY f.record_id
+                        PARTITION BY f.record_id, f.available_at
                         ORDER BY
-                            f.available_at DESC,
                             f.revised_at DESC NULLS LAST,
                             f.ingested_at DESC,
                             f.fact_hash DESC
@@ -185,16 +288,25 @@ class TimeVault:
                 JOIN source_artifacts AS a USING (artifact_id)
                 JOIN source_receipts AS r USING (receipt_id)
                 WHERE {where_clause}
+            ), spans AS (
+                SELECT * EXCLUDE (version_rank),
+                    LEAD(available_at) OVER (PARTITION BY record_id ORDER BY available_at)
+                        AS next_available
+                FROM eligible WHERE version_rank = 1
+            ), cutoffs AS (
+                SELECT unnest(?::TIMESTAMPTZ[]) AS cutoff
             )
-            SELECT * EXCLUDE (version_rank)
-            FROM eligible
-            WHERE version_rank = 1
-            ORDER BY record_id
+            SELECT c.cutoff, s.* EXCLUDE (next_available)
+            FROM cutoffs c JOIN spans s ON s.available_at <= c.cutoff
+                AND (s.next_available IS NULL OR c.cutoff < s.next_available)
+            ORDER BY c.cutoff, s.record_id
             """,
-            parameters,
+            [*parameters, ordered],
         ).fetchall()
-        columns = [column[0] for column in self._connection.description]
-        return [self._row_to_record(dict(zip(columns, row, strict=True))) for row in rows]
+        columns = [column[0] for column in self._connection.description][1:]
+        for cutoff, *values in rows:
+            panel[cutoff].append(self._row_to_record(dict(zip(columns, values, strict=True))))
+        return panel
 
     def history(self, record_id: str) -> list[BitemporalRecord]:
         """Return every immutable version of a logical record in availability order."""
@@ -238,9 +350,12 @@ class TimeVault:
         retrieval_receipts = self._connection.execute(
             "SELECT COUNT(*) FROM source_receipts"
         ).fetchone()[0]
-        fact_hashes = [row[0] for row in self._connection.execute(
-            "SELECT fact_hash FROM facts ORDER BY fact_hash"
-        ).fetchall()]
+        fact_hashes = [
+            row[0]
+            for row in self._connection.execute(
+                "SELECT fact_hash FROM facts ORDER BY fact_hash"
+            ).fetchall()
+        ]
         fact_set_hash = hashlib.sha256("\n".join(fact_hashes).encode()).hexdigest()
         database_bytes = 0
         if self.database != ":memory:":

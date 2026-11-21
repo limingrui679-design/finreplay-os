@@ -3,7 +3,13 @@ import { createHash } from "node:crypto";
 import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
-let workerPromise;
+import { fileURLToPath } from "node:url";
+import { createTestHarness } from "wrangler";
+
+const configPath = fileURLToPath(new URL("../dist/server/wrangler.json", import.meta.url));
+const harness = createTestHarness({ workers: [{ configPath }] });
+await harness.listen();
+test.after(() => harness.close());
 
 function canonicalJson(value) {
   if (Array.isArray(value)) return `[${value.map(canonicalJson).join(",")}]`;
@@ -13,30 +19,8 @@ function canonicalJson(value) {
   return JSON.stringify(value);
 }
 
-async function worker() {
-  if (workerPromise) return workerPromise;
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  workerPromise = import(workerUrl.href).then((module) => module.default);
-  return workerPromise;
-}
-
-async function render(path = "/") {
-  const handler = await worker();
-  return handler.fetch(
-    new Request(`http://localhost${path}`, {
-      headers: { accept: "text/html" },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
-  );
+function render(path = "/") {
+  return harness.fetch(`http://localhost${path}`, { headers: { accept: "text/html" } });
 }
 
 test("server-renders the FinReplay evidence surface", async () => {
