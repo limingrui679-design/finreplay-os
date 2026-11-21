@@ -32,6 +32,7 @@ from finreplay.engines import (
     ReplayStudioError,
     TimeVault,
 )
+from finreplay.engines.release_timing import evaluate_timing, read_paths
 from finreplay.storage import ContentAddressedStore, write_live_verification
 
 app = typer.Typer(
@@ -64,6 +65,30 @@ def version() -> None:
     """Print the installed package version."""
 
     typer.echo(__version__)
+
+
+@app.command("release-timing")
+def release_timing(
+    levels: Annotated[Path, typer.Argument(exists=True, dir_okay=False)],
+    delay_cost: Annotated[
+        str, typer.Option(help="Loss per quarter of delay per decision.")
+    ] = "0.10",
+    minimum_history: Annotated[int, typer.Option(min=1)] = 40,
+    show_decisions: Annotated[bool, typer.Option("--show-decisions")] = False,
+) -> None:
+    """Evaluate when to issue or delay a quarterly contraction flag using as-of history."""
+    try:
+        with levels.open(encoding="utf-8", newline="") as handle:
+            paths, missing = read_paths(handle)
+        report: dict[str, object] = dict(
+            evaluate_timing(paths, delay_cost=Decimal(delay_cost), minimum_history=minimum_history)
+        )
+    except (ValueError, InvalidOperation) as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    report["excluded_incomplete_periods"] = missing
+    if not show_decisions:
+        report.pop("decisions")
+    typer.echo(json.dumps(report, indent=2))
 
 
 @app.command("vintage-panel")
