@@ -43,8 +43,10 @@ jobs:
         run: pytest --cov=finreplay --cov-report=term-missing
       - name: Verify installable user catalogs
         run: python scripts/build_user_catalogs.py --check
-      - name: Verify public scenario downloads
-        run: python scripts/build_public_replaypack_downloads.py --check
+      - name: Verify public downloads and release-timing explorer
+        run: |
+          python scripts/build_public_replaypack_downloads.py --check
+          python scripts/build_release_timing_explorer.py --check
       - name: Verify public claim registry
         run: python scripts/build_public_claim_registry.py --check
       - name: Verify counted scenario catalog

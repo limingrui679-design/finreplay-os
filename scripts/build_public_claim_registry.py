@@ -343,6 +343,7 @@ def _public_text_paths(repository: Path) -> list[Path]:
         "web/data/scenarios.json",
         "web/data/capabilities.json",
         "web/public/replaypacks/manifest.json",
+        "web/public/release-timing.html",
         "web/public/review/finreplay-review-manifest.json",
     }
     tracked = subprocess.run(
