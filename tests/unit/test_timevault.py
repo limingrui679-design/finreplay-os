@@ -445,3 +445,26 @@ def test_vintage_cli_can_read_a_closed_vault_without_writing(tmp_path: Path) -> 
     assert result.exit_code == 0, result.output
     assert '"value_thousands_usd": 10' in result.output
     assert database.read_bytes() == original_bytes
+
+
+def test_revision_crossings_join_on_observation_and_leave_new_periods_uncompared() -> None:
+    import json
+    from decimal import Decimal
+    from pathlib import Path
+
+    lock = Path(__file__).resolve().parents[2] / "scenarios/gdp-revision-2022q4/input-lock.json"
+    raw = json.loads(lock.read_text())["records"]
+    with TimeVault() as vault:
+        vault.append(BitemporalRecord.model_validate(row) for row in raw)
+        rows = vault.revision_comparison(
+            datetime(2022, 11, 1, tzinfo=UTC),
+            datetime(2023, 2, 1, tzinfo=UTC),
+            source_id="fred.alfred.vintage_gdp",
+            series="GDP",
+            threshold=Decimal("25700"),
+        )
+    assert [(r["earlier_value"], r["later_value"], r["threshold_crossed"]) for r in rows] == [
+        ("25663.289", "25723.941", True),
+        (None, "26132.458", None),
+    ]
+    assert rows[0]["revision"] == "60.652"

@@ -9,6 +9,7 @@ from collections.abc import Iterable
 from contextlib import suppress
 from dataclasses import dataclass
 from datetime import UTC, datetime
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any
 
@@ -148,6 +149,85 @@ class TimeVault:
             source_ids=source_ids,
             allow_latest_only=allow_latest_only,
         )[decision_time.astimezone(UTC)]
+
+    def revision_comparison(
+        self, earlier: datetime, later: datetime, *, source_id: str, series: str, threshold: Decimal
+    ) -> list[dict[str, Any]]:
+        """Compare latest available observation vintages; >= defines the threshold decision."""
+        _require_aware(earlier, "earlier")
+        _require_aware(later, "later")
+        if earlier >= later or not threshold.is_finite():
+            raise ValueError("Require increasing cutoffs and a finite threshold")
+        panel = self.records_at_cutoffs([earlier, later], source_ids=[source_id])
+
+        def series_snapshot(
+            records: list[BitemporalRecord],
+        ) -> dict[str, tuple[BitemporalRecord, Decimal]]:
+            result: dict[str, tuple[BitemporalRecord, Decimal]] = {}
+            for record in records:
+                p = record.payload
+                if p.get("series_id") != series:
+                    continue
+                if not p.get("observation_date") or not p.get("unit"):
+                    raise ValueError("Every series observation needs an observation date and unit")
+                key = str(p["observation_date"])
+                try:
+                    value = Decimal(str(p.get("value")))
+                except InvalidOperation as exc:
+                    raise ValueError("Series observation has a nonnumeric value") from exc
+                if not value.is_finite():
+                    raise ValueError("Series observation has a nonfinite value")
+                previous = result.get(key)
+                if (
+                    previous
+                    and previous[0].interval.available_at == record.interval.available_at
+                    and (
+                        previous[1] != value
+                        or any(
+                            previous[0].payload.get(k) != p.get(k)
+                            for k in ("unit", "frequency", "seasonal_adjustment")
+                        )
+                    )
+                ):
+                    raise ValueError("Conflicting vintages at the same knowledge time")
+                if previous is None or (record.interval.available_at, record.record_id) > (
+                    previous[0].interval.available_at,
+                    previous[0].record_id,
+                ):
+                    result[key] = (record, value)
+            return result
+
+        first, second = series_snapshot(panel[earlier]), series_snapshot(panel[later])
+        rows = []
+        for key in sorted(first.keys() | second.keys()):
+            old, new = first.get(key), second.get(key)
+            comparable = bool(old and new)
+            if (
+                old
+                and new
+                and any(
+                    old[0].payload.get(k) != new[0].payload.get(k)
+                    for k in ("unit", "frequency", "seasonal_adjustment")
+                )
+            ):
+                raise ValueError("Units, frequency or seasonal adjustment changed across vintages")
+            representative = second[key] if key in second else first[key]
+            rows.append(
+                {
+                    "observation_date": key,
+                    "unit": representative[0].payload["unit"],
+                    "earlier_value": str(old[1]) if old else None,
+                    "later_value": str(new[1]) if new else None,
+                    "earlier_record": old[0].record_id if old else None,
+                    "later_record": new[0].record_id if new else None,
+                    "comparable": comparable,
+                    "revision": str(new[1] - old[1]) if old and new else None,
+                    "threshold_crossed": ((new[1] >= threshold) != (old[1] >= threshold))
+                    if old and new
+                    else None,
+                }
+            )
+        return rows
 
     def records_at_cutoffs(
         self,

@@ -25,3 +25,5 @@ Rebuild the local evidence with:
 The receipt proves retrieval, parsing, hashing, and local TimeVault insertion. It does not prove
 economic causality, forecasting validity, investment performance, external validation, or a right
 to redistribute source data.
+
+The `vintage-revisions` CLI compares one source and series at two knowledge cutoffs, keeping the observation period fixed. On the packaged GDP lock, 2022 Q3 was 25,663.289 billion dollars as of November 1, 2022 and 25,723.941 as of February 1, 2023. The revision of 60.652 crossed an illustrative 25,700 threshold. Q4 was newly visible at the second cutoff, so its revision and crossing are both null. Each comparable observation links both fact IDs. Reproduce offline with the real-lock regression in `tests/unit/test_timevault.py`.
